@@ -5,7 +5,7 @@ rm(list=ls(all=TRUE))
 
 ## @knitr LoadData
 pathDir <- getwd() # establish home directory
-pathELSAdto <- file.path(pathDir,"studies/ELSA/dto_ELSA.csv")
+pathDtoBivariate <- file.path(pathDir,"studies/ELSA/dto_bivariate_elsa.csv")
 
-dto_ELSA <- read.csv(pathELSAdto, header=TRUE, stringsAsFactors=FALSE )
+dto_ELSA <- read.csv(pathDtoBivariate, header=TRUE, stringsAsFactors=FALSE )
 str(dto_ELSA)
