@@ -24,23 +24,21 @@ path_input <- "."
 #####################################
 ## @knitr load_data
 pattern <- "dto_bivariate_(\\w+).csv$"
-pattern <- "s(\\S{1,})\\.md$"
-pattern <- "(\\.*?)README\\.md$"
+# pattern <- "^READM(.{1,})\\.md$"
+# pattern <- "(\\.*?)README\\.md$"
 # pattern <- "s(\\.*?)README\\.md$"
+pattern <- "(\\.*?)README\\.md$"
 # pattern <- "s(\\.*?)"
 # pattern <- "\\.*?"
 # pattern <- "studies/(\\S+)/(\\S+)\\.md"
 
 dto_paths <- list.files(path=path_input, pattern=pattern, recursive=TRUE)
-# dto_paths; #paste(dto_paths, collapse = ",")
+dto_paths; #paste(dto_paths, collapse = ",")
 study_names <- gsub(pattern, "\\1", dto_paths, perl=T)
-# study_names
-
-
+study_names
 
 #####################################
 ## @knitr tweak_data
-
 
 #####################################
 ## @knitr tables

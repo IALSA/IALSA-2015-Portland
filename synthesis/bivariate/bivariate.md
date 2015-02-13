@@ -23,6 +23,16 @@ This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
 <!-- Load the datasets.   -->
 
+```
+[1] "data/cache/README.md"    "data/shared/README.md"   "data/unshared/README.md" "README.md"              
+[5] "studies/elsa/README.md"  "studies/octo/README.md"  "studies/README.md"       "studies/rush/README.md" 
+[9] "synthesis/README.md"    
+```
+
+```
+[1] "data/cache/"    "data/shared/"   "data/unshared/" ""               "studies/elsa/"  "studies/octo/" 
+[7] "studies/"       "studies/rush/"  "synthesis/"    
+```
 
 <!-- Tweak the datasets.   -->
 
@@ -61,7 +71,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by wibeasley at 2015-02-13, 15:12 -0800
+Report rendered by wibeasley at 2015-02-13, 15:43 -0800
 ```
 
 ```
