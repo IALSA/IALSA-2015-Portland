@@ -7,4 +7,5 @@ rm(list=ls(all=TRUE))
 pathDir <- getwd() # establish home directory
 pathELSAdto <- file.path(pathDir,"studies/ELSA/dto_ELSA.csv")
 
-dto_ELSA <- read.csv(pathELSAdto, header=TRUE)
+dto_ELSA <- read.csv(pathELSAdto, header=TRUE, stringsAsFactors=FALSE )
+str(dto_ELSA)
