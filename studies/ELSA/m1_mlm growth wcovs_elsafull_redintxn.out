@@ -1,0 +1,644 @@
+Mplus VERSION 7
+MUTHEN & MUTHEN
+02/04/2015   9:44 AM
+
+INPUT INSTRUCTIONS
+
+  Title:
+   ELSA linear growth model for IALSA tri-study coordinated analysis
+
+  Data:
+    File is ELSArn_Disease Groups BL at W1_long to wide_141024.dat ;
+
+  Variable:
+    Names are
+    PID dob time yrseduc sex blage htnonly dmonly htndm
+    neither blANG blCHF blMI blSTK cogflag eversmoke
+    blHTN blDM irecall animal prospect drecall;
+
+  USEVAR are   sex eversmoke
+               blCHF blMI blSTK
+               blHTN blDM time
+               blHTNDM
+               ed age age_sex
+               age_htn age_dm
+               sex_htn sex_dm
+               y;
+
+  Missing are all (999);
+
+  !USEOBSERVATIONS are cogflg1A EQ 0;
+
+  CLUSTER = PID;
+
+  USEOBSERVATIONS = (cogflag EQ 0);
+
+  WITHIN = time;
+
+  BETWEEN = age sex ed age_sex eversmoke blCHF blMI blSTK
+            blHTN blDM blHTNDM age_htn age_dm
+            sex_htn sex_dm;
+
+    Define:
+             age=blage-80;
+             ed=yrseduc-11;
+             age_sex=sex*age;
+             blHTNDM=blHTN*blDM;
+             age_htn=age*blHTN;
+             age_dm=age*blDM;
+            ! agehtndm=age*htn_dmw1;
+             sex_htn=sex*blHTN;
+             sex_dm=sex*blDM;
+            ! sexhtndm=sexrA*htn_dmw1;
+             y=irecall;
+
+    ANALYSIS:  TYPE = TWOLEVEL RANDOM; ESTIMATOR=MLR;
+
+    MODEL:
+
+    ! Level-1, time-level model
+        %WITHIN%                                     ! Residual included by default
+             linear | y ON time;                  ! Fixed linear time slope
+
+    ! Level-2, person-level model
+        %BETWEEN%
+             y*;                                  ! Random intercept included by default
+             linear*;                                ! Random linear time slope
+             y WITH linear*;                      ! Intercept-linear covariance
+             y linear ON sex age ed eversmoke
+             blCHF blMI blSTK blHTN blDM blHTNDM
+             age_sex age_htn age_dm
+             sex_htn sex_dm;
+
+
+    OUTPUT: sampstat; STDYX;
+
+
+
+
+
+
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: EVERSMOKE
+*** WARNING in OUTPUT command
+  STANDARDIZED (STD, STDY, STDYX) options are not available for TYPE=RANDOM.
+  Request for STANDARDIZED (STD, STDY, STDYX) is ignored.
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  1773
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  17672
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+ELSA linear growth model for IALSA tri-study coordinated analysis
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                       32086
+
+Number of dependent variables                                    1
+Number of independent variables                                 16
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   Y
+
+Observed independent variables
+   SEX         EVERSMOK    BLCHF       BLMI        BLSTK       BLHTN
+   BLDM        TIME        BLHTNDM     ED          AGE         AGE_SEX
+   AGE_HTN     AGE_DM      SEX_HTN     SEX_DM
+
+Continuous latent variables
+   LINEAR
+
+Variables with special functions
+
+  Cluster variable      PID
+
+  Within variables
+   TIME
+
+  Between variables
+   SEX         EVERSMOK    BLCHF       BLMI        BLSTK       BLHTN
+   BLDM        BLHTNDM     ED          AGE         AGE_SEX     AGE_HTN
+   AGE_DM      SEX_HTN     SEX_DM
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  ELSArn_Disease Groups BL at W1_long to wide_141024.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of clusters                      10698
+
+     Average cluster size        2.999
+
+     Estimated Intraclass Correlations for the Y Variables
+
+                Intraclass              Intraclass
+     Variable  Correlation   Variable  Correlation
+
+     Y            0.505
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              Y             TIME          SEX           EVERSMOK      BLCHF
+              ________      ________      ________      ________      ________
+ Y              1.000
+ TIME           1.000         1.000
+ SEX            1.000         1.000         1.000
+ EVERSMOK       1.000         1.000         1.000         1.000
+ BLCHF          1.000         1.000         1.000         1.000         1.000
+ BLMI           1.000         1.000         1.000         1.000         1.000
+ BLSTK          1.000         1.000         1.000         1.000         1.000
+ BLHTN          1.000         1.000         1.000         1.000         1.000
+ BLDM           1.000         1.000         1.000         1.000         1.000
+ BLHTNDM        1.000         1.000         1.000         1.000         1.000
+ ED             1.000         1.000         1.000         1.000         1.000
+ AGE            1.000         1.000         1.000         1.000         1.000
+ AGE_SEX        1.000         1.000         1.000         1.000         1.000
+ AGE_HTN        1.000         1.000         1.000         1.000         1.000
+ AGE_DM         1.000         1.000         1.000         1.000         1.000
+ SEX_HTN        1.000         1.000         1.000         1.000         1.000
+ SEX_DM         1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              BLMI          BLSTK         BLHTN         BLDM          BLHTNDM
+              ________      ________      ________      ________      ________
+ BLMI           1.000
+ BLSTK          1.000         1.000
+ BLHTN          1.000         1.000         1.000
+ BLDM           1.000         1.000         1.000         1.000
+ BLHTNDM        1.000         1.000         1.000         1.000         1.000
+ ED             1.000         1.000         1.000         1.000         1.000
+ AGE            1.000         1.000         1.000         1.000         1.000
+ AGE_SEX        1.000         1.000         1.000         1.000         1.000
+ AGE_HTN        1.000         1.000         1.000         1.000         1.000
+ AGE_DM         1.000         1.000         1.000         1.000         1.000
+ SEX_HTN        1.000         1.000         1.000         1.000         1.000
+ SEX_DM         1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              ED            AGE           AGE_SEX       AGE_HTN       AGE_DM
+              ________      ________      ________      ________      ________
+ ED             1.000
+ AGE            1.000         1.000
+ AGE_SEX        1.000         1.000         1.000
+ AGE_HTN        1.000         1.000         1.000         1.000
+ AGE_DM         1.000         1.000         1.000         1.000         1.000
+ SEX_HTN        1.000         1.000         1.000         1.000         1.000
+ SEX_DM         1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              SEX_HTN       SEX_DM
+              ________      ________
+ SEX_HTN        1.000
+ SEX_DM         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+NOTE:  The sample statistics for within and between refer to the
+       maximum-likelihood estimated within and between covariance
+       matrices, respectively.
+
+
+     ESTIMATED SAMPLE STATISTICS FOR WITHIN
+
+
+           Means
+              Y             TIME          SEX           EVERSMOK      BLCHF
+              ________      ________      ________      ________      ________
+ 1              0.000         2.690         0.000         0.000         0.000
+
+
+           Means
+              BLMI          BLSTK         BLHTN         BLDM          BLHTNDM
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           Means
+              ED            AGE           AGE_SEX       AGE_HTN       AGE_DM
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           Means
+              SEX_HTN       SEX_DM
+              ________      ________
+ 1              0.000         0.000
+
+
+           Covariances
+              Y             TIME          SEX           EVERSMOK      BLCHF
+              ________      ________      ________      ________      ________
+ Y              1.656
+ TIME          -0.037         5.272
+ SEX            0.000         0.000         0.000
+ EVERSMOK       0.000         0.000         0.000         0.000
+ BLCHF          0.000         0.000         0.000         0.000         0.000
+ BLMI           0.000         0.000         0.000         0.000         0.000
+ BLSTK          0.000         0.000         0.000         0.000         0.000
+ BLHTN          0.000         0.000         0.000         0.000         0.000
+ BLDM           0.000         0.000         0.000         0.000         0.000
+ BLHTNDM        0.000         0.000         0.000         0.000         0.000
+ ED             0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ AGE_SEX        0.000         0.000         0.000         0.000         0.000
+ AGE_HTN        0.000         0.000         0.000         0.000         0.000
+ AGE_DM         0.000         0.000         0.000         0.000         0.000
+ SEX_HTN        0.000         0.000         0.000         0.000         0.000
+ SEX_DM         0.000         0.000         0.000         0.000         0.000
+
+
+           Covariances
+              BLMI          BLSTK         BLHTN         BLDM          BLHTNDM
+              ________      ________      ________      ________      ________
+ BLMI           0.000
+ BLSTK          0.000         0.000
+ BLHTN          0.000         0.000         0.000
+ BLDM           0.000         0.000         0.000         0.000
+ BLHTNDM        0.000         0.000         0.000         0.000         0.000
+ ED             0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ AGE_SEX        0.000         0.000         0.000         0.000         0.000
+ AGE_HTN        0.000         0.000         0.000         0.000         0.000
+ AGE_DM         0.000         0.000         0.000         0.000         0.000
+ SEX_HTN        0.000         0.000         0.000         0.000         0.000
+ SEX_DM         0.000         0.000         0.000         0.000         0.000
+
+
+           Covariances
+              ED            AGE           AGE_SEX       AGE_HTN       AGE_DM
+              ________      ________      ________      ________      ________
+ ED             0.000
+ AGE            0.000         0.000
+ AGE_SEX        0.000         0.000         0.000
+ AGE_HTN        0.000         0.000         0.000         0.000
+ AGE_DM         0.000         0.000         0.000         0.000         0.000
+ SEX_HTN        0.000         0.000         0.000         0.000         0.000
+ SEX_DM         0.000         0.000         0.000         0.000         0.000
+
+
+           Covariances
+              SEX_HTN       SEX_DM
+              ________      ________
+ SEX_HTN        0.000
+ SEX_DM         0.000         0.000
+
+
+           Correlations
+              Y             TIME          SEX           EVERSMOK      BLCHF
+              ________      ________      ________      ________      ________
+ Y              1.000
+ TIME          -0.013         1.000
+ SEX            0.000         0.000         0.000
+ EVERSMOK       0.000         0.000         0.000         0.000
+ BLCHF          0.000         0.000         0.000         0.000         0.000
+ BLMI           0.000         0.000         0.000         0.000         0.000
+ BLSTK          0.000         0.000         0.000         0.000         0.000
+ BLHTN          0.000         0.000         0.000         0.000         0.000
+ BLDM           0.000         0.000         0.000         0.000         0.000
+ BLHTNDM        0.000         0.000         0.000         0.000         0.000
+ ED             0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ AGE_SEX        0.000         0.000         0.000         0.000         0.000
+ AGE_HTN        0.000         0.000         0.000         0.000         0.000
+ AGE_DM         0.000         0.000         0.000         0.000         0.000
+ SEX_HTN        0.000         0.000         0.000         0.000         0.000
+ SEX_DM         0.000         0.000         0.000         0.000         0.000
+
+
+           Correlations
+              BLMI          BLSTK         BLHTN         BLDM          BLHTNDM
+              ________      ________      ________      ________      ________
+ BLMI           0.000
+ BLSTK          0.000         0.000
+ BLHTN          0.000         0.000         0.000
+ BLDM           0.000         0.000         0.000         0.000
+ BLHTNDM        0.000         0.000         0.000         0.000         0.000
+ ED             0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ AGE_SEX        0.000         0.000         0.000         0.000         0.000
+ AGE_HTN        0.000         0.000         0.000         0.000         0.000
+ AGE_DM         0.000         0.000         0.000         0.000         0.000
+ SEX_HTN        0.000         0.000         0.000         0.000         0.000
+ SEX_DM         0.000         0.000         0.000         0.000         0.000
+
+
+           Correlations
+              ED            AGE           AGE_SEX       AGE_HTN       AGE_DM
+              ________      ________      ________      ________      ________
+ ED             0.000
+ AGE            0.000         0.000
+ AGE_SEX        0.000         0.000         0.000
+ AGE_HTN        0.000         0.000         0.000         0.000
+ AGE_DM         0.000         0.000         0.000         0.000         0.000
+ SEX_HTN        0.000         0.000         0.000         0.000         0.000
+ SEX_DM         0.000         0.000         0.000         0.000         0.000
+
+
+           Correlations
+              SEX_HTN       SEX_DM
+              ________      ________
+ SEX_HTN        0.000
+ SEX_DM         0.000         0.000
+
+
+     ESTIMATED SAMPLE STATISTICS FOR BETWEEN
+
+
+           Means
+              Y             TIME          SEX           EVERSMOK      BLCHF
+              ________      ________      ________      ________      ________
+ 1              5.438         0.000         0.550         0.640         0.007
+
+
+           Means
+              BLMI          BLSTK         BLHTN         BLDM          BLHTNDM
+              ________      ________      ________      ________      ________
+ 1              0.059         0.040         0.379         0.073         0.047
+
+
+           Means
+              ED            AGE           AGE_SEX       AGE_HTN       AGE_DM
+              ________      ________      ________      ________      ________
+ 1             -0.332       -14.969        -8.120        -4.925        -0.880
+
+
+           Means
+              SEX_HTN       SEX_DM
+              ________      ________
+ 1              0.214         0.033
+
+
+           Covariances
+              Y             TIME          SEX           EVERSMOK      BLCHF
+              ________      ________      ________      ________      ________
+ Y              1.688
+ TIME           0.000         0.000
+ SEX            0.057         0.000         0.248
+ EVERSMOK      -0.039         0.000        -0.043         0.230
+ BLCHF         -0.005         0.000        -0.001         0.001         0.007
+ BLMI          -0.040         0.000        -0.013         0.008         0.003
+ BLSTK         -0.038         0.000        -0.002         0.003         0.001
+ BLHTN         -0.081         0.000         0.005        -0.001         0.002
+ BLDM          -0.042         0.000        -0.007         0.004         0.001
+ BLHTNDM       -0.028         0.000        -0.003         0.003         0.000
+ ED             0.974         0.000        -0.016        -0.057        -0.007
+ AGE           -7.900         0.000         0.110         0.111         0.056
+ AGE_SEX       -5.406         0.000        -3.655         0.591         0.038
+ AGE_HTN       -1.657         0.000         0.070         0.031         0.002
+ AGE_DM         0.088         0.000         0.105        -0.050        -0.001
+ SEX_HTN       -0.028         0.000         0.096        -0.020         0.000
+ SEX_DM        -0.019         0.000         0.015        -0.002         0.001
+
+
+           Covariances
+              BLMI          BLSTK         BLHTN         BLDM          BLHTNDM
+              ________      ________      ________      ________      ________
+ BLMI           0.055
+ BLSTK          0.006         0.039
+ BLHTN          0.011         0.011         0.235
+ BLDM           0.005         0.003         0.019         0.067
+ BLHTNDM        0.004         0.002         0.029         0.043         0.045
+ ED            -0.030        -0.025        -0.071        -0.024        -0.018
+ AGE            0.289         0.287         0.744         0.207         0.129
+ AGE_SEX        0.320         0.178         0.438         0.211         0.122
+ AGE_HTN       -0.046        -0.030        -3.060        -0.214        -0.341
+ AGE_DM        -0.049        -0.019        -0.238        -0.816        -0.530
+ SEX_HTN       -0.001         0.005         0.133         0.007         0.012
+ SEX_DM         0.001         0.002         0.010         0.031         0.021
+
+
+           Covariances
+              ED            AGE           AGE_SEX       AGE_HTN       AGE_DM
+              ________      ________      ________      ________      ________
+ ED             3.024
+ AGE           -5.047       102.585
+ AGE_SEX       -2.415        56.947       112.558
+ AGE_HTN       -0.866        27.556        14.426        77.022
+ AGE_DM        -0.029         3.928         0.191         6.274        16.331
+ SEX_HTN       -0.041         0.561        -0.903        -1.586        -0.070
+ SEX_DM        -0.016         0.116        -0.110        -0.095        -0.350
+
+
+           Covariances
+              SEX_HTN       SEX_DM
+              ________      ________
+ SEX_HTN        0.168
+ SEX_DM         0.015         0.032
+
+
+           Correlations
+              Y             TIME          SEX           EVERSMOK      BLCHF
+              ________      ________      ________      ________      ________
+ Y              1.000
+ TIME           0.000         0.000
+ SEX            0.088         0.000         1.000
+ EVERSMOK      -0.062         0.000        -0.181         1.000
+ BLCHF         -0.051         0.000        -0.022         0.021         1.000
+ BLMI          -0.130         0.000        -0.108         0.072         0.145
+ BLSTK         -0.147         0.000        -0.023         0.033         0.053
+ BLHTN         -0.128         0.000         0.023        -0.004         0.039
+ BLDM          -0.124         0.000        -0.053         0.033         0.047
+ BLHTNDM       -0.104         0.000        -0.032         0.026         0.025
+ ED             0.431         0.000        -0.018        -0.068        -0.048
+ AGE           -0.600         0.000         0.022         0.023         0.068
+ AGE_SEX       -0.392         0.000        -0.693         0.116         0.044
+ AGE_HTN       -0.145         0.000         0.016         0.007         0.003
+ AGE_DM         0.017         0.000         0.052        -0.026        -0.003
+ SEX_HTN       -0.053         0.000         0.472        -0.101         0.005
+ SEX_DM        -0.082         0.000         0.167        -0.024         0.055
+
+
+           Correlations
+              BLMI          BLSTK         BLHTN         BLDM          BLHTNDM
+              ________      ________      ________      ________      ________
+ BLMI           1.000
+ BLSTK          0.130         1.000
+ BLHTN          0.100         0.118         1.000
+ BLDM           0.088         0.059         0.153         1.000
+ BLHTNDM        0.082         0.060         0.284         0.792         1.000
+ ED            -0.074        -0.074        -0.084        -0.053        -0.049
+ AGE            0.121         0.144         0.151         0.079         0.060
+ AGE_SEX        0.128         0.085         0.085         0.077         0.055
+ AGE_HTN       -0.022        -0.017        -0.719        -0.094        -0.184
+ AGE_DM        -0.052        -0.024        -0.121        -0.778        -0.621
+ SEX_HTN       -0.007         0.064         0.668         0.065         0.143
+ SEX_DM         0.032         0.047         0.114         0.661         0.553
+
+
+           Correlations
+              ED            AGE           AGE_SEX       AGE_HTN       AGE_DM
+              ________      ________      ________      ________      ________
+ ED             1.000
+ AGE           -0.287         1.000
+ AGE_SEX       -0.131         0.530         1.000
+ AGE_HTN       -0.057         0.310         0.155         1.000
+ AGE_DM        -0.004         0.096         0.004         0.177         1.000
+ SEX_HTN       -0.058         0.135        -0.208        -0.441        -0.042
+ SEX_DM        -0.052         0.064        -0.058        -0.060        -0.484
+
+
+           Correlations
+              SEX_HTN       SEX_DM
+              ________      ________
+ SEX_HTN        1.000
+ SEX_DM         0.210         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -58685.571
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       36
+
+Loglikelihood
+
+          H0 Value                      -58621.923
+          H0 Scaling Correction Factor      1.1477
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                  117315.846
+          Bayesian (BIC)                117617.389
+          Sample-Size Adjusted BIC      117502.981
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ Residual Variances
+    Y                  1.634      0.028     59.396      0.000
+
+Between Level
+
+ LINEAR     ON
+    SEX                0.010      0.016      0.606      0.545
+    AGE               -0.003      0.001     -4.676      0.000
+    ED                 0.000      0.002     -0.071      0.943
+    EVERSMOKE          0.001      0.007      0.115      0.909
+    BLCHF              0.033      0.047      0.704      0.482
+    BLMI               0.002      0.017      0.124      0.901
+    BLSTK              0.003      0.020      0.164      0.870
+    BLHTN             -0.018      0.017     -1.050      0.294
+    BLDM               0.012      0.037      0.323      0.747
+    BLHTNDM            0.029      0.031      0.933      0.351
+    AGE_SEX            0.000      0.001     -0.319      0.749
+    AGE_HTN           -0.001      0.001     -1.481      0.139
+    AGE_DM             0.001      0.002      0.585      0.559
+    SEX_HTN            0.004      0.014      0.262      0.793
+    SEX_DM            -0.055      0.030     -1.833      0.067
+
+ Y          ON
+    SEX                0.172      0.064      2.673      0.008
+    AGE               -0.059      0.003    -22.726      0.000
+    ED                 0.208      0.010     20.430      0.000
+    EVERSMOKE         -0.028      0.030     -0.911      0.362
+    BLCHF              0.043      0.220      0.196      0.845
+    BLMI              -0.153      0.064     -2.402      0.016
+    BLSTK             -0.300      0.081     -3.690      0.000
+    BLHTN              0.046      0.067      0.691      0.489
+    BLDM              -0.120      0.140     -0.856      0.392
+    BLHTNDM           -0.097      0.123     -0.790      0.430
+    AGE_SEX           -0.003      0.003     -0.929      0.353
+    AGE_HTN            0.007      0.003      2.093      0.036
+    AGE_DM             0.007      0.007      1.059      0.290
+    SEX_HTN            0.024      0.061      0.387      0.699
+    SEX_DM            -0.008      0.120     -0.063      0.950
+
+ Y        WITH
+    LINEAR             0.012      0.007      1.724      0.085
+
+ Intercepts
+    Y                  4.602      0.057     80.697      0.000
+    LINEAR            -0.064      0.014     -4.580      0.000
+
+ Residual Variances
+    Y                  0.859      0.038     22.733      0.000
+    LINEAR             0.002      0.002      0.956      0.339
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.810E-07
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  09:44:43
+        Ending Time:  09:45:02
+       Elapsed Time:  00:00:19
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2012 Muthen & Muthen
