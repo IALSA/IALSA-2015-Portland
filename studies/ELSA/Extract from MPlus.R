@@ -3,13 +3,7 @@ library(MplusAutomation)
 library(relimp)
 library(dplyr)
 
-pathELSA <- ("./MPlus/m1_mlm growth wcovs_elsafull_redintxn.out")
-pathOCTO <- ("./MPlus/m1_mlm growth wcovs_octofull_redintxn.out")
-pathRUSHceradi <- "./MPlus/m1_mlm growth wcovs_rushfull_redintxn_ceradi.out"
-pathRUSHebir <-"./MPlus/m1_mlm growth wcovs_rushfull_redintxn_ebir.out"
-pathRUSHlogmem <-"./MPlus/m1_mlm growth wcovs_rushfull_redintxn_logmem.out"
-  
-  
+pathELSA <- ("./studies/ELSA/m1_mlm growth wcovs_elsafull_redintxn.out")
 # extELSA <- extractModelSummaries(pathELSA)
 # showSummaryTable(extELSA)  # shows in console
 # HTMLSummaryTable(extELSA)  # prints HTML
@@ -18,23 +12,8 @@ pathRUSHlogmem <-"./MPlus/m1_mlm growth wcovs_rushfull_redintxn_logmem.out"
 mELSA <- readModels(pathELSA)
 dsELSA <- as.data.frame(extractModelParameters(pathELSA))
 
-mOCTO <- readModels(pathOCTO)
-dsOCTO <- as.data.frame(extractModelParameters(pathOCTO))
-
-mRUSHc <- readModels(pathRUSHceradi)
-dsRUSHc <- as.data.frame(extractModelParameters(pathRUSHceradi))
-
-mRUSHe <- readModels(pathRUSHebir)
-dsRUSHe <- as.data.frame(extractModelParameters(pathRUSHebir))
-
-mRUSHl <- readModels(pathRUSHlogmem)
-dsRUSHl <- as.data.frame(extractModelParameters(pathRUSHlogmem))
-
 model <- mELSA
-# model <- mRUSHl
-# model <- mRUSHc
-# model <- mRUSHe
-# model <- mRUSHl
+
 cat("\014")
 model$parameters
 
