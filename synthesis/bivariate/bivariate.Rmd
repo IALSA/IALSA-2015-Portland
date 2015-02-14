@@ -1,11 +1,12 @@
 ---
+title: Bivariate Outcomes Report 1
 output:
   html_document:
     keep_md: yes
+    toc: yes
 ---
 
-Skeleton Report 1
-=================================================
+
 This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
@@ -61,12 +62,12 @@ read_chunk("./synthesis/bivariate/bivariate.R") #This allows knitr to call chunk
 
 ## Notes
 
-**Note 1**: The current report covers `r length(dto_paths)` studies.
+**Note 1**: The current report covers `r length(dto_paths)` studies: `r paste(study_names, collapse=", ")`.
 
 **Note 2**: The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
 
 # Tables
-```{r tables, echo=echoChunks, message=TRUE}
+```{r tables, echo=echoChunks, message=TRUE, results='asis'}
 ```
 
 

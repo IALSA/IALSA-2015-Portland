@@ -23,26 +23,52 @@ path_input <- "."
 
 #####################################
 ## @knitr load_data
-pattern <- "dto_bivariate_(\\w+).csv$"
+pattern <- "dto_bivariate.csv$"
+# pattern <- "studies/dto_bivariate.csv$"
 # pattern <- "^READM(.{1,})\\.md$"
 # pattern <- "(\\.*?)README\\.md$"
 # pattern <- "s(\\.*?)README\\.md$"
-pattern <- "(\\.*?)README\\.md$"
+# pattern <- "(\\.*?)README\\.md$"
 # pattern <- "s(\\.*?)"
 # pattern <- "\\.*?"
 # pattern <- "studies/(\\S+)/(\\S+)\\.md"
 
 dto_paths <- list.files(path=path_input, pattern=pattern, recursive=TRUE)
-dto_paths; #paste(dto_paths, collapse = ",")
-study_names <- gsub(pattern, "\\1", dto_paths, perl=T)
-study_names
+# dto_paths; #paste(dto_paths, collapse = ",")
+directories <- gsub(pattern, "\\1", dto_paths, perl=T)
+# directories
+study_names <- basename(directories)
+# study_names
+
+dtos <- list()
+
+for( i in seq_along(dto_paths) ) {
+  dto_path <- dto_paths[i]
+  study_name <- study_names[i]
+  dto <- read.csv(dto_path, stringsAsFactors=F)
+  dto$date <- as.Date(dto$date)
+
+  dtos[[i]] <- dto
+#   print(study_name)
+}
+rm(dto_path, study_name, dto)
 
 #####################################
 ## @knitr tweak_data
 
+# http://stackoverflow.com/questions/2851327/converting-a-list-of-data-frames-into-one-data-frame-in-r
+ds <- plyr::ldply(dtos, data.frame)
+
+
 #####################################
 ## @knitr tables
 
-for( dto_path in dto_paths ) {
-  print(dto_path)
+for( i in seq_along(dtos) ) {
+  dto <- dtos[[i]]
+  study_name <- study_names[i]
+  cat("")
+  cat(paste0("## ", study_name))
+  cat("")
+  print(knitr::kable(dto))
+  cat("\n")
 }

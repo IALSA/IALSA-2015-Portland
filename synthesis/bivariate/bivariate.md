@@ -1,6 +1,6 @@
+# Bivariate Outcomes Report 1
 
-Skeleton Report 1
-=================================================
+
 This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
@@ -23,39 +23,37 @@ This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
 <!-- Load the datasets.   -->
 
-```
-[1] "data/cache/README.md"    "data/shared/README.md"   "data/unshared/README.md" "README.md"              
-[5] "studies/elsa/README.md"  "studies/octo/README.md"  "studies/README.md"       "studies/rush/README.md" 
-[9] "synthesis/README.md"    
-```
-
-```
-[1] "data/cache/"    "data/shared/"   "data/unshared/" ""               "studies/elsa/"  "studies/octo/" 
-[7] "studies/"       "studies/rush/"  "synthesis/"    
-```
 
 <!-- Tweak the datasets.   -->
 
 
 ## Notes
 
-**Note 1**: The current report covers 9 studies.
+**Note 1**: The current report covers 3 studies: elsa, octo, radc.
 
 **Note 2**: The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
 
 # Tables
+## elsa
 
-```
-[1] "data/cache/README.md"
-[1] "data/shared/README.md"
-[1] "data/unshared/README.md"
-[1] "README.md"
-[1] "studies/elsa/README.md"
-[1] "studies/octo/README.md"
-[1] "studies/README.md"
-[1] "studies/rush/README.md"
-[1] "synthesis/README.md"
-```
+model_number    version  active   date         time    study_name   converged   subgroup    subject_count   wave_count      n   parameter_count   deviance  cognitive_outcome     var_int_cog   var_slope_cog   var_residual_cog  physical_outcome        var_int_physical   var_slope_physical   var_residual_physical   cov_int   cov_slope   cov_residual   p_cov_int   p_cov_slope   p_cov_res  input_file   output_file   software   model_description 
+-------------  --------  -------  -----------  ------  -----------  ----------  ---------  --------------  -----------  -----  ----------------  ---------  -------------------  ------------  --------------  -----------------  ---------------------  -----------------  -------------------  ----------------------  --------  ----------  -------------  ----------  ------------  ----------  -----------  ------------  ---------  ------------------
+model_1             0.1  TRUE     2015-02-13   14:45   ELSA         FALSE       MALE                  567            5   2592                12      56565  Pulmonary function      0.7729718       0.0347027          0.1217118  Speed                          0.9595747            0.8146615               0.8690322      0.34   0.3889083      0.8375394   0.6852272     0.9691051   0.5412858  NA           NA            Mplus      NA                
+model_2             1.1  TRUE     2015-02-14   15:45   ELSA         FALSE       FEMALE                423            5   1954                12      34534  Walking speed time      0.0254741       0.9064547          0.1997089  Visuospatial ability           0.4350972            0.2533676               0.4042001      0.56   0.3659144      0.4162257   0.4369863     0.3159609   0.1421976  NA           NA            Mplus      NA                
+
+## octo
+
+model_number    version  active   date         time    study_name   converged   subgroup    subject_count   wave_count      n   parameter_count   deviance  cognitive_outcome     var_int_cog   var_slope_cog   var_residual_cog  physical_outcome        var_int_physical   var_slope_physical   var_residual_physical   cov_int   cov_slope   cov_residual   p_cov_int   p_cov_slope   p_cov_res  input_file   output_file   software   model_description 
+-------------  --------  -------  -----------  ------  -----------  ----------  ---------  --------------  -----------  -----  ----------------  ---------  -------------------  ------------  --------------  -----------------  ---------------------  -----------------  -------------------  ----------------------  --------  ----------  -------------  ----------  ------------  ----------  -----------  ------------  ---------  ------------------
+model_1             0.1  TRUE     2015-02-13   14:45   OCTO         FALSE       MALE                  567            5   2592                12      56565  Pulmonary function      0.7729718       0.0347027          0.1217118  Speed                          0.9595747            0.8146615               0.8690322      0.34   0.3889083      0.8375394   0.6852272     0.9691051   0.5412858  NA           NA            Mplus      NA                
+model_2             1.1  TRUE     2015-02-14   15:45   OCTO         FALSE       FEMALE                423            5   1954                12      34534  Walking speed time      0.0254741       0.9064547          0.1997089  Visuospatial ability           0.4350972            0.2533676               0.4042001      0.56   0.3659144      0.4162257   0.4369863     0.3159609   0.1421976  NA           NA            Mplus      NA                
+
+## radc
+
+model_number    version  active   date         time    study_name   converged   subgroup    subject_count   wave_count      n   parameter_count   deviance  cognitive_outcome     var_int_cog   var_slope_cog   var_residual_cog  physical_outcome        var_int_physical   var_slope_physical   var_residual_physical   cov_int   cov_slope   cov_residual   p_cov_int   p_cov_slope   p_cov_res  input_file   output_file   software   model_description 
+-------------  --------  -------  -----------  ------  -----------  ----------  ---------  --------------  -----------  -----  ----------------  ---------  -------------------  ------------  --------------  -----------------  ---------------------  -----------------  -------------------  ----------------------  --------  ----------  -------------  ----------  ------------  ----------  -----------  ------------  ---------  ------------------
+model_1             0.1  TRUE     2015-02-13   14:45   RADC         FALSE       MALE                  567            5   2592                12      56565  Pulmonary function      0.7729718       0.0347027          0.1217118  Speed                          0.9595747            0.8146615               0.8690322      0.34   0.3889083      0.8375394   0.6852272     0.9691051   0.5412858  NA           NA            Mplus      NA                
+model_2             1.1  TRUE     2015-02-14   15:45   RADC         FALSE       FEMALE                423            5   1954                12      34534  Walking speed time      0.0254741       0.9064547          0.1997089  Visuospatial ability           0.4350972            0.2533676               0.4042001      0.56   0.3659144      0.4162257   0.4369863     0.3159609   0.1421976  NA           NA            Mplus      NA                
 
 
 # Questions
@@ -71,7 +69,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by wibeasley at 2015-02-13, 15:43 -0800
+Report rendered by wibeasley at 2015-02-13, 16:27 -0800
 ```
 
 ```
