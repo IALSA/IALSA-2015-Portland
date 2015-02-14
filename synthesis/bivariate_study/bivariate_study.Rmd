@@ -1,5 +1,5 @@
 ---
-title: Bivariate Outcomes Report 1
+title: Bivariate Outcomes -- Study-Specific
 output:
   html_document:
     keep_md: yes
@@ -32,7 +32,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./synthesis/bivariate/bivariate.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./synthesis/bivariate_study/bivariate_study.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
