@@ -24,15 +24,6 @@ path_input <- "."
 #####################################
 ## @knitr load_data
 pattern <- "dto_bivariate.csv$"
-# pattern <- "studies/dto_bivariate.csv$"
-# pattern <- "^READM(.{1,})\\.md$"
-# pattern <- "(\\.*?)README\\.md$"
-# pattern <- "s(\\.*?)README\\.md$"
-# pattern <- "(\\.*?)README\\.md$"
-# pattern <- "s(\\.*?)"
-# pattern <- "\\.*?"
-# pattern <- "studies/(\\S+)/(\\S+)\\.md"
-
 dto_paths <- list.files(path=path_input, pattern=pattern, recursive=TRUE)
 # dto_paths; #paste(dto_paths, collapse = ",")
 directories <- gsub(pattern, "\\1", dto_paths, perl=T)
@@ -61,7 +52,13 @@ ds <- plyr::ldply(dtos, data.frame)
 
 
 #####################################
-## @knitr tables
+## @knitr calculate_forest
+#TODO: Andrey, calcalulate the graph coordinates, using Philipe's equations that start with
+#  the SEM output.
+
+
+#####################################
+## @knitr study_tables
 
 for( i in seq_along(dtos) ) {
   dto <- dtos[[i]]
@@ -72,3 +69,10 @@ for( i in seq_along(dtos) ) {
   print(knitr::kable(dto))
   cat("\n")
 }
+
+#####################################
+## @knitr forest_static
+
+#####################################
+## @knitr forest_animated
+# Use this as a starting point: https://github.com/OuhscBbmc/OsctrAstonWeber

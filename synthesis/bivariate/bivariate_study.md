@@ -27,13 +27,18 @@ This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 <!-- Tweak the datasets.   -->
 
 
+<!-- Calculate the forest results (but don't plot yet).   -->
+
+
 ## Notes
 
 **Note 1**: The current report covers 3 studies: elsa, octo, radc.
 
 **Note 2**: The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
 
-# Tables
+# Study-Specific Tables
+One table is shown for each study, each representing zzz.
+
 ## elsa
 
 model_number    version  active   date         time    study_name   converged   subgroup    subject_count   wave_count      n   parameter_count   deviance  cognitive_outcome      var_int_cog   var_slope_cog   var_residual_cog  physical_outcome         var_int_physical   var_slope_physical   var_residual_physical   cov_int   cov_slope   cov_residual   p_cov_int   p_cov_slope   p_cov_res  input_file   output_file   software   model_description 
@@ -69,7 +74,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by wibeasley at 2015-02-14, 17:06 -0800
+Report rendered by wibeasley at 2015-02-14, 23:06 -0800
 ```
 
 ```
