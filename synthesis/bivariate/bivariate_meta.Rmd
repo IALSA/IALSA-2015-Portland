@@ -1,5 +1,5 @@
 ---
-title: Bivariate Outcomes Report 1
+title: Bivariate Outcomes -- Combining Studies
 output:
   html_document:
     keep_md: yes
@@ -25,7 +25,7 @@ opts_chunk$set(
   tidy = FALSE,
   fig.width = 6.5, 
   fig.height = 4, 
-  fig.path = 'figure_rmd/'
+  fig.path = 'figure_meta/'
 )
 # dpi = 400,
 # out.width = "650px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
@@ -60,14 +60,22 @@ read_chunk("./synthesis/bivariate/bivariate.R") #This allows knitr to call chunk
 ```{r tweak_data, echo=echoChunks, results='show', message=FALSE}
 ```
 
+<!-- Calculate the forest results (but don't plot yet).   -->
+```{r calculate_forest, echo=echoChunks, message=TRUE, results='asis'}
+```
+
 ## Notes
 
 **Note 1**: The current report covers `r length(dto_paths)` studies: `r paste(study_names, collapse=", ")`.
 
 **Note 2**: The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
 
-# Tables
-```{r tables, echo=echoChunks, message=TRUE, results='asis'}
+# Forest Plot (Static)
+```{r forest_static, echo=echoChunks, message=TRUE, results='asis'}
+```
+
+# Forest Plot (Animated)
+```{r forest_animated, echo=echoChunks, message=TRUE, results='asis'}
 ```
 
 
