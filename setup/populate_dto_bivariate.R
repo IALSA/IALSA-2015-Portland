@@ -29,10 +29,30 @@ path_input <- "."
 
 #####################################
 ## @knitr create_values
-gender <- c("male", "female")
-model_type <- c("age conditional", "full conditional")
-cognitive_outcome <- c("chair rise time", "walking speed time")
-ds_expanded <- expand.grid(gender=gender, model_type=model_type, cognitive_outcome=cognitive_outcome, stringsAsFactors=F)
+gender <- c("Male", "Female")
+model_type <- c("Age Conditional", "Full Conditional")
+cognitive_outcome <- c("Knowledge",
+                       "Reasoning Speed",
+                      " Visuospatial Ability",
+                      " Executive Functioning",
+                      " Mental Status")
+
+physical_outcome <- c("Pulmonary Function",
+                      "Muscle Strength",
+                      "Walking Speed Time",
+                      "Chair Rise Rime",
+                      "Flamingo Stand Time",
+                      "Summary Measures")
+
+
+ds_expanded <- expand.grid(gender=gender, model_type=model_type,
+                           physical_outcome=physical_outcome,
+                           cognitive_outcome=cognitive_outcome, stringsAsFactors=T)
+
+ds <- dplyr::arrange(ds_expanded, model_type, physical_outcome)
+# View(ds)
+write.csv(ds,file="setup/populate_dto.csv")
+
 
 #####################################
 ## @knitr save_to_csv
