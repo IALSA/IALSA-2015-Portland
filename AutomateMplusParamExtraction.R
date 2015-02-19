@@ -15,6 +15,10 @@ library(MplusAutomation)
 dto.vars <- names(read.csv('~/UVic/Git/IALSA-2015-Portland/studies/dto_bivariate.csv'))
 dto.vars
 
+library(xlsx)
+dto.vars <-  names(read.xlsx('./synthesis/bivariate/dto_bivariate.xlsx', sheetName=1, startRow=2, endRow=5))
+dto.vars
+
 ## Fallback DTO as per Feb 17 2015
 ## dto.vars <- c("model_number", "version", "active", "valid", "best_in_gender", "date",
 ##               "time", "study_name", "converged",
@@ -75,12 +79,15 @@ for(i in 1:nmodels){
     ## Populate with header info
     results[i,"model_number"] <-  strsplit(msum$Filename[i], '_')[[1]][1]
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
-    results[i,"active"] <- "??"
+    results[i,"active"] <- NA
     results[i,"best_in_gender"] <- "??"    
     results[i, c('date', 'time')] <- strsplit(scan(msum$Filename[i], what='character', sep='\n')[3], '  ')[[1]]
-    results[i,"study_name"] <- strsplit(scan(msum$Filename[i], what='character',
-                 sep='\n')[grep("File =", scan(msum$Filename[i], what='character', sep='\n'))], "=|;")[[1]][2]
-    results[i, 'subgroup'] <- if(length(grep('emale', msum$Title[i]))) 'Female' else 'Male'  
+#    results[i,"study_name"] <- # FOLDER
+    results[i,"data_file"] <-
+        strsplit(scan(msum$Filename[i], what='character',
+                      sep='\n')[grep("File =", scan(msum$Filename[i], what='character', sep='\n'))], "=|;")[[1]][2]    
+    results[i, 'subgroup'] <- if(length(grep('emale', msum$Title[i]))) 'Female' else 'Male' # Out of filename?
+#    results[i, 'model_type'] <- # maybe get it out from the ON statement
     ## Check for model conversion
     conv <- length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY",
                         scan(msum$Filename[i], what='character', sep='\n')))
@@ -165,17 +172,18 @@ for(i in 1:nmodels){
     ## ####################
     results[i, 'subject_count'] <- msum[i, 'Observations']
     results[i, 'wave_count'] <- 'to_do'
-    results[i, 'n'] <- 'number of observations?'    
     results[i, 'parameter_count'] <- msum[i, 'Parameters']    
     results[i, 'output_file'] <- msum[i, 'Filename']
     results[i, 'software'] <- scan(msum$Filename[i], what='character', sep='\n')[1]
     results[i, 'model_description'] <- '??'
-    results[i, 'results_description'] <- '??'    
+    ## AiC
+    ## BIC
 }
 
 
 results
 
+dto.vars
 
 #results$CFI=msum$CFI
 #results$RMSEA=msum$RMSEA_Estimate
