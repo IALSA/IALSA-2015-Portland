@@ -9,9 +9,13 @@ devtools.zip
 
 # Protected Information; see cubuspl42's answer in http://stackoverflow.com/questions/2415873/exceptions-in-gitignore
 
+
 */unshared/*
 */*/unshared/*
 */*/*/unshared/*
+
+
+data/unshared
 
 # Dataset Exceptions
 !UtilityScripts/PackageDependencyList.csv
