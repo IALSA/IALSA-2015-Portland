@@ -10,28 +10,28 @@ options(width=160)
 rm(list=ls())
 
 library(MplusAutomation)
-library(xlsx)
-
+# library(xlsx)
+pathDir <- getwd() # establish home directory
+pathStudy <- file.path(pathDir,"studies/octo") # establish Study directory
+pathDto <- file.path(pathDir,"synthesis/bivariate/dto_bivariate.csv")
 ## obtain variable list from DTO - Relative path
-dto.vars <-  names(read.xlsx('./synthesis/bivariate/dto_bivariate.xlsx', sheetName=1, startRow=2, endRow=5))
+dto.vars <- names(read.csv(pathDto,skip=1))
 dto.vars
-
-
 list.files("./studies/octo")
 
 ## Set study WD
-setwd("./studies/octo")
+# setwd("./studies/octo") #TODO: DO NOT changing wd!
 
 ## Uncomment in case output files need to be generated and
 ## change "never" to "always" to overwrite existing out files
 #runModels(replaceOutfile="never")
 
 ## Read in Model Summaries
-msum <- extractModelSummaries()
+msum <- MplusAutomation::extractModelSummaries()
 names(msum)
 
 ## Extract Estimates
-mpar <- extractModelParameters(target=getwd(), recursive=F)
+mpar <- MplusAutomation::extractModelParameters(target=pathStudy, recursive=F) #Adapt so it's relative to the root of the repository.
 #names(mpar)
 #mpar[[3]]
 
@@ -43,7 +43,7 @@ nmodels
 results=data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
 names(results) <-  dto.vars
 
-for(i in 1:nmodels){
+for(i in seq_along(mpar)){
     ## Populate with header info
     results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
