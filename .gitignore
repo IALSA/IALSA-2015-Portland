@@ -27,3 +27,5 @@ data/unshared
 
 ## Mplus dgm files
 *.dgm
+## mplus automation log
+*Models.log
