@@ -11,45 +11,22 @@ rm(list=ls())
 
 library(MplusAutomation)
 
-## obtain variable list from DTO
-dto.vars <- names(read.csv('~/UVic/Git/IALSA-2015-Portland/studies/dto_bivariate.csv'))
-dto.vars
+## ## obtain variable list from DTO
+## dto.vars <- names(read.csv('~/UVic/Git/IALSA-2015-Portland/studies/dto_bivariate.csv'))
+## dto.vars
 
 library(xlsx)
 dto.vars <-  names(read.xlsx('./synthesis/bivariate/dto_bivariate.xlsx', sheetName=1, startRow=2, endRow=5))
 dto.vars
 
-## Fallback DTO as per Feb 17 2015
-## dto.vars <- c("model_number", "version", "active", "valid", "best_in_gender", "date",
-##               "time", "study_name", "converged",
-##               "subgroup", "model_type", "physical_outcome",
-##               "var_int_physical", "se_int_physical", "var_slope_physical",
-##               "se_slope_physical", "var_residual_physical" "se_residual_physical",
-##               "cognitive_outcome", "var_int_cog", "se_int_cog",
-##               "var_slope_cog", "se_slope_cog", "var_residual_cog",
-##               "se_residual_cog", "cov_int", "cov_slope", 
-##               "cov_residual", "p_cov_int", "p_cov_slope",
-##               "p_cov_res", "subject_count", "wave_count",
-##               "n", "parameter_count", "deviance",   
-##               "output_file", "software", "model_description",
-##               "results_descriptions", "notes")
 
-list.files("/home/philippe/Dropbox/IALSAworkshop2015/OCTOTwin_Example")
+list.files("./studies/octo")
 
-setwd("/home/philippe/Dropbox/IALSAworkshop2015/OCTOTwin_Example")
+setwd("./studies/octo")
 
 ## Read in Model Summaries
 msum <- extractModelSummaries()
 names(msum) 
-
-## File names 
-msum$Filename
-
-msum[15,]
-
-msum$Title
-msum$Parameters
-
 
 ## Extract Estimates
 mpar <- extractModelParameters(target=getwd(), recursive=F)
@@ -176,8 +153,9 @@ for(i in 1:nmodels){
     results[i, 'output_file'] <- msum[i, 'Filename']
     results[i, 'software'] <- scan(msum$Filename[i], what='character', sep='\n')[1]
     results[i, 'model_description'] <- '??'
-    ## AiC
-    ## BIC
+    results[i, 'aic'] <- '??'
+    results[i, 'bic'] <- '??'
+    results[i, 'adj_bic'] <- '??'
 }
 
 
@@ -189,7 +167,6 @@ dto.vars
 #results$RMSEA=msum$RMSEA_Estimate
 
 
-
-#write.csv(results, file='Outcome.csv', row.names = F)
+write.csv(results, file='automation_result.csv', row.names = F)
 
 

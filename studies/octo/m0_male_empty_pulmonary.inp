@@ -1,6 +1,6 @@
 TITLE: Pulmonary Function, Empty Model, Male
 
-DATA:  File = octomult_12aug2010.dat;
+DATA:  File = unshared\octomult_12aug2010.dat;
 
 VARIABLE: Names are 
    Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp Smoke
