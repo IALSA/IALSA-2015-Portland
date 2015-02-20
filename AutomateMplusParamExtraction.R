@@ -11,6 +11,8 @@ rm(list=ls())
 
 library(MplusAutomation)
 
+getwd()
+
 ## ## obtain variable list from DTO
 ## dto.vars <- names(read.csv('~/UVic/Git/IALSA-2015-Portland/studies/dto_bivariate.csv'))
 ## dto.vars
@@ -31,16 +33,15 @@ names(msum)
 ## Extract Estimates
 mpar <- extractModelParameters(target=getwd(), recursive=F)
 names(mpar)
-mpar[[11]]
+mpar[[3]]
 
-str(mpar)
+msum
+
+mpar
 
 # count number of models
 nmodels <- length(mpar)
 nmodels
-
-
-scan(msum$Filename[14], what='character', sep='\n')[3]
 
 
 dto.vars
@@ -51,24 +52,38 @@ names(results) <-  dto.vars
 dto.vars
 
 results
+msum$Filename
+length(strsplit(msum$Filename[9], '_|.out')[[1]]) 
+
+strsplit(msum$Filename[2], '_|.out')
 
 for(i in 1:nmodels){
     ## Populate with header info
-    results[i,"model_number"] <-  strsplit(msum$Filename[i], '_')[[1]][1]
+    results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
     results[i,"active"] <- NA
     results[i,"best_in_gender"] <- "??"    
     results[i, c('date', 'time')] <- strsplit(scan(msum$Filename[i], what='character', sep='\n')[3], '  ')[[1]]
-#    results[i,"study_name"] <- # FOLDER
+    results[i,"study_name"] <- 'octo'
     results[i,"data_file"] <-
         strsplit(scan(msum$Filename[i], what='character',
                       sep='\n')[grep("File =", scan(msum$Filename[i], what='character', sep='\n'))], "=|;")[[1]][2]    
-    results[i, 'subgroup'] <- if(length(grep('emale', msum$Title[i]))) 'Female' else 'Male' # Out of filename?
-#    results[i, 'model_type'] <- # maybe get it out from the ON statement
     ## Check for model conversion
     conv <- length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY",
                         scan(msum$Filename[i], what='character', sep='\n')))
     conv
+#
+    ## Figure out if perdictor is cognitiv or physical
+    x <- mpar[[i]]$unstandardized
+    x
+##
+    predC <- length(grep('^C', x[x$paramHeader=='Residual.Variances', 'param']))
+    predP <- length(grep('^P', x[x$paramHeader=='Residual.Variances', 'param']))
+    ##
+    if(predC>0 & predP == 0) {results[i,c('cognitive_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]}
+    if(predP>0 & predC == 0) {results[i,c('physical_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]}
+    if(predP>0 & predC > 0) {results[i,c('physical_outcome','cognitive_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]}
+ ## 
     if(conv==1) {
         results[i,'converged'] <- 'yes'
         ## obtain model for current loop
@@ -135,15 +150,15 @@ for(i in 1:nmodels){
         if(dim(test)[1]!=0) {results[i, c("var_slope_cog", "se_slope_cog")] <- test}
         ## Residuals
                                         # match only first letter with "^"
-        resP <- unique(x[grep("^P", x$param), c('est', 'se')] )
-        ## Write residual covariance and add warning if ResCov unconstrained
-        if(length(resP[,1])<=1) {results[i, c("var_residual_physical", "se_residual_physical")] <- resP} else {
-            results[i,'notes'] <- paste(results[i,'notes'], 'Phys ResCov unconstrained', sep='_')}
-        resC <- unique(x[grep("^C", x$param), c('est', 'se')] )
-        ## Write residual covariance and add warning if ResCov unconstrained
-        if(length(resC[,1])<=1) {results[i, c("var_residual_cog", "se_residual_cog")] <- resP} else {
-            results[i,'notes'] <- paste(results[i,'notes'], 'Cog ResCov unconstrained', sep='_')}
-    } else { results[i,'converged'] <- 'no'}
+    ##     resP <- unique(x[grep("^P", x$param), c('est', 'se')] )
+    ##     ## Write residual covariance and add warning if ResCov unconstrained
+    ##     if(length(resP[,1])<=1) {results[i, c("var_residual_physical", "se_residual_physical")] <- resP} else {
+    ##         results[i,'notes'] <- paste(results[i,'notes'], 'Phys ResCov unconstrained', sep='_')}
+    ##     resC <- unique(x[grep("^C", x$param), c('est', 'se')] )
+    ##     ## Write residual covariance and add warning if ResCov unconstrained
+    ##     if(length(resC[,1])<=1) {results[i, c("var_residual_cog", "se_residual_cog")] <- resP} else {
+    ##         results[i,'notes'] <- paste(results[i,'notes'], 'Cog ResCov unconstrained', sep='_')}
+    ##      }  else { results[i,'converged'] <- 'no'}
     ## ####################
     ##  Additional info ##
     ## ####################
@@ -153,10 +168,11 @@ for(i in 1:nmodels){
     results[i, 'output_file'] <- msum[i, 'Filename']
     results[i, 'software'] <- scan(msum$Filename[i], what='character', sep='\n')[1]
     results[i, 'model_description'] <- '??'
-    results[i, 'aic'] <- '??'
-    results[i, 'bic'] <- '??'
-    results[i, 'adj_bic'] <- '??'
+  # results[i, c('LL', 'aic', 'bic', 'adj_bic', 'aicc')] <-
+  #          msum[i,c('LL', 'AIC', 'BIC','aBIC', 'AICC')]
 }
+}
+    
 
 
 results

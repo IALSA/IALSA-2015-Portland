@@ -1,4 +1,4 @@
-TITLE: TVC M6 Pulmonary Function, Block Design, Fully Conditional, Male
+TITLE: M6 Pulmonary Function, Block Design, Fully Conditional, Male
 
 DATA:  File = unshared\octomult_12aug2010.dat;
 
@@ -59,22 +59,17 @@ Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
 
 ANALYSIS: TYPE = RANDOM;
  
-MODEL:  ic sc | c1-c5 AT time1-time5;
-        ic; sc;!variances 
-        ip | p1-p5@1;!Random intercept for TVC
-        ic with sc;!Covariances between slope and intercept
-        ip with sc;!Covariance between intercept of TVC and slope of outcome 
-        ic sc ip ON Bage Educ BageEduc SEP SmokHist;!Covariates controlled for on Intercepts and Slope
+MODEL:  ip sp | p1-p5 AT time1-time5;
+        ic sc | c1-c5 AT time1-time5;
+        ip; sp; ic; sc;
+        ip sp ic sc WITH ip sp ic sc;
 
-        p1-p5 (res_p);!Residual variance for predictor is held constant
-        c1-c5 (res_c);!Residual variance for outcome is held constant
-        c1-c5 pon p1-p5(WP); !Paired regressions constrained to be equal
+        ip sp ic sc ON Bage Educ BageEduc SEP SmokHist;
 
-        ic ON ip (conteP);!Effect of intercept (TVC) on intercept (outcome)      	
-    	                 
-        Model constraint: !specifies new model constraints
-        New(BPp);!assign label and new parameter  
-        BPp = WP + conteP;!Calculate BP effect from WP and contextual effect
-	    
+        p1-p5 (res_p);
+        c1-c5 (res_c);
+        p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal
+
 OUTPUT: sampstat Cinterval;  
+
 

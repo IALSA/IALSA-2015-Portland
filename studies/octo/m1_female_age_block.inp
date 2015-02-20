@@ -1,4 +1,4 @@
-TITLE: M5 Pulmonary Function, Block Design, Age Conditional, Female
+TITLE: M2 Pulmonary Function, Linear LGM, Age Conditional, Female
 
 DATA:  File = unshared\octomult_12aug2010.dat;
 
@@ -23,17 +23,16 @@ VARIABLE: Names are
    mmse1-mmse5 mismmse1-mismmse5 fmmse1-fmmse5
    highBP1-highBP5 sbp1-sbp5 dbp1-dbp5 diab1-diab5;
 
-       MISSING are .; !specification of missing observations coded in data file
+       MISSING are .;
        USEVAR are  time1 time2 time3 time4 time5
-                   p1 p2 p3 p4 p5
                    c1 c2 c3 c4 c5
                    Bage;
        TSCORES =   time1 time2 time3 time4 time5;
 
        USEOBSERVATIONS are DemEver EQ 0 and female EQ 1;
 
-Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
-        c1=block1; c2=block2; c3=block3; c4=block4; c5=block5;
+Define: c1=block1; c2=block2; c3=block3; c4=block4; c5=block5;
+
         Bage=compage1-80;   !Centered at Age 80
         Bagesq=(compage1-80)**2; 
         Dage=YTDead; 
@@ -54,20 +53,18 @@ Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
         !Diab; 
         !MorbInd;
 
+        BageSex=Bage*Sex;
         BageEduc=Bage*Educ;
+        SexEduc=Sex*Educ;
 
 ANALYSIS: TYPE = RANDOM;
  
-MODEL:  ip sp | p1-p5 AT time1-time5;
-        ic sc | c1-c5 AT time1-time5;
+MODEL:  ic sc | c1-c5 AT time1-time5;
 
-        ip sp ic sc ON Bage;
+        ic sc ON Bage;
 
-        p1-p5 (res_p);
         c1-c5 (res_c);
-        
-        p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across time
 
-OUTPUT: sampstat Cinterval;  
+OUTPUT: sampstat;  
 
 
