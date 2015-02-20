@@ -1,0 +1,342 @@
+Mplus VERSION 7.1
+MUTHEN & MUTHEN
+02/19/2015   4:53 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: M4 Pulmonary Function, Linear LGM, Fully Conditional, Female
+
+  DATA:  File = unshared\octomult_12aug2010.dat;
+
+  VARIABLE: Names are
+     Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp Smoke
+     SESChild SESChOth  HlthLif CogPrev LonelyE
+     Dead DeadAge YTDead TotDem DemEver DemType DemAge YTDem
+     time1 time2 time3 time4 time5
+     dedtime1 dedtime2 dedtime3 dedtime4 dedtime5 tvdead1 tvdead2 tvdead3 tvdead4 tvdead5
+     demtime1 demtime2 demtime3 demtime4 demtime5 tvdem1 tvdem2 tvdem3 tvdem4 tvdem5
+     CompAge1-CompAge5 Marital1-Marital5 weight1-weight5 height1-height5 bmi1-bmi5
+     SRhlth1-SRhlth5 living1-living5
+     SR2hlth1-SR2hlth5 SROhlth1-SROhlth5 HlthPrv1-HlthPrv5 HlthTra1-HlthTra5
+     CogPres1-CogPres5 AGames1-AGames5 ACross1-ACross5
+     ALiter1-ALiter5 AWrite1-AWrite5 AStudy1-AStudy5 AOther1-AOther5
+     LonelyP1-LonelyP5 FrTalk1-FrTalk5 FrPart1-FrPart5
+     LackCo1-LackCo5 Abandon1-Abandon5 NumFr1-NumFr5 NumPref1-NumPref5 SeeChGr1-SeeChGr5
+     pek1-pek5 gripp1-gripp5 chr5tim1-chr5tim5 padl1-padl5 iadl1-iadl5
+     digspf1-digspf5 digspb1-digspb5 prose1-prose5 block1-block5 info1-info5
+     synnum1-synnum5 figure1-figure5 digsym1-digsym5 psif1-psif5
+     mirnam1-mirnam5 mirrcl1-mirrcl5 mirrcg1-mirrcg5 mircor1-mircor5 clock1-clock5
+     mmse1-mmse5 mismmse1-mismmse5 fmmse1-fmmse5
+     highBP1-highBP5 sbp1-sbp5 dbp1-dbp5 diab1-diab5;
+
+         MISSING are .;
+         USEVAR are  time1 time2 time3 time4 time5
+                     p1 p2 p3 p4 p5
+                     Bage Educ BageEduc SEP SmokHist;
+         TSCORES =   time1 time2 time3 time4 time5;
+
+         USEOBSERVATIONS are DemEver EQ 0 and female EQ 1;
+
+  Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
+
+          Bage=compage1-80;   !Centered at Age 80
+          Bagesq=(compage1-80)**2;
+          Dage=YTDead;
+          Sex=female;         !0=Male
+          Educ=Educyrs-7;     ! Centered at 7 years
+          SEP=SESgrp;
+          !Marstat;
+          !Height
+          !Weight
+          !BMI
+          SmokHist=Smoke;
+          !Alcohol;
+          !CompExp;
+          !PhysAct;
+          !BP;
+          !DepSymp;
+          !Cardio;
+          !Diab;
+          !MorbInd;
+
+          BageSex=Bage*Sex;
+          BageEduc=Bage*Educ;
+          SexEduc=Sex*Educ;
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp | p1-p5 AT time1-time5;
+
+          ip sp ON Bage Educ BageEduc SEP SmokHist;
+
+          p1-p5 (res_p);
+
+  OUTPUT: sampstat;
+
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  9
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  53
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M4 Pulmonary Function, Linear LGM, Fully Conditional, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         249
+
+Number of dependent variables                                    5
+Number of independent variables                                  5
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5
+
+Observed independent variables
+   BAGE        EDUC        BAGEEDUC    SEP         SMOKHIST
+
+Continuous latent variables
+   IP          SP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  unshared\octomult_12aug2010.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            21
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.896
+ P2             0.618         0.699
+ P3             0.458         0.474         0.514
+ P4             0.406         0.398         0.398         0.442
+ P5             0.293         0.297         0.297         0.293         0.317
+ BAGE           0.896         0.699         0.514         0.442         0.317
+ EDUC           0.896         0.699         0.514         0.442         0.317
+ BAGEEDUC       0.896         0.699         0.514         0.442         0.317
+ SEP            0.896         0.699         0.514         0.442         0.317
+ SMOKHIST       0.896         0.699         0.514         0.442         0.317
+
+
+           Covariance Coverage
+              BAGE          EDUC          BAGEEDUC      SEP           SMOKHIST
+              ________      ________      ________      ________      ________
+ BAGE           1.000
+ EDUC           1.000         1.000
+ BAGEEDUC       1.000         1.000         1.000
+ SEP            1.000         1.000         1.000         1.000
+ SMOKHIST       1.000         1.000         1.000         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1            286.114       295.976       281.779       257.312       238.632
+
+
+           Means
+              BAGE          EDUC          BAGEEDUC      SEP           SMOKHIST
+              ________      ________      ________      ________      ________
+ 1              3.059         0.189         0.631         2.261         0.466
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1          6554.265
+ P2          4606.149      7446.328
+ P3          3910.281      4653.364      6335.506
+ P4          3022.708      3988.214      4503.184      5683.991
+ P5          2901.257      4556.598      4325.892      4074.470      5766.392
+ BAGE         -41.332       -23.793        -9.259         1.599         5.186
+ EDUC          12.706        -1.556         6.616         7.418       -10.665
+ BAGEEDUC      18.894        -5.299         6.420        29.948        -9.377
+ SEP           -1.967        -0.479         1.763        -0.310         2.530
+ SMOKHIST      -8.458       -14.187       -20.382       -18.311       -19.807
+
+
+           Covariances
+              BAGE          EDUC          BAGEEDUC      SEP           SMOKHIST
+              ________      ________      ________      ________      ________
+ BAGE           6.910
+ EDUC           0.054         3.808
+ BAGEEDUC       2.174        11.072        60.344
+ SEP            0.163        -0.531        -1.841         0.466
+ SMOKHIST      -0.219         0.687         1.152        -0.182         0.811
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.659         1.000
+ P3             0.607         0.677         1.000
+ P4             0.495         0.613         0.750         1.000
+ P5             0.472         0.695         0.716         0.712         1.000
+ BAGE          -0.194        -0.105        -0.044         0.008         0.026
+ EDUC           0.080        -0.009         0.043         0.050        -0.072
+ BAGEEDUC       0.030        -0.008         0.010         0.051        -0.016
+ SEP           -0.036        -0.008         0.032        -0.006         0.049
+ SMOKHIST      -0.116        -0.183        -0.284        -0.270        -0.290
+
+
+           Correlations
+              BAGE          EDUC          BAGEEDUC      SEP           SMOKHIST
+              ________      ________      ________      ________      ________
+ BAGE           1.000
+ EDUC           0.010         1.000
+ BAGEEDUC       0.106         0.730         1.000
+ SEP            0.091        -0.399        -0.347         1.000
+ SMOKHIST      -0.093         0.391         0.165        -0.296         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -6365.718
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       16
+
+Loglikelihood
+
+          H0 Value                       -3983.867
+          H0 Scaling Correction Factor      1.0411
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    7999.735
+          Bayesian (BIC)                  8056.014
+          Sample-Size Adjusted BIC        8005.293
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -6.381      1.885     -3.385      0.001
+    EDUC               8.261      4.006      2.062      0.039
+    BAGEEDUC          -0.684      0.970     -0.706      0.480
+    SEP               -3.138      8.251     -0.380      0.704
+    SMOKHIST         -20.415      6.353     -3.213      0.001
+
+ SP         ON
+    BAGE               0.999      0.356      2.808      0.005
+    EDUC              -0.280      0.655     -0.428      0.669
+    BAGEEDUC           0.011      0.159      0.066      0.947
+    SEP               -0.084      1.374     -0.061      0.951
+    SMOKHIST          -1.469      1.129     -1.301      0.193
+
+ SP       WITH
+    IP              -167.991     96.100     -1.748      0.080
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    IP               329.665     20.600     16.004      0.000
+    SP                -7.606      3.296     -2.307      0.021
+
+ Residual Variances
+    P1              2113.675    187.013     11.302      0.000
+    P2              2113.675    187.013     11.302      0.000
+    P3              2113.675    187.013     11.302      0.000
+    P4              2113.675    187.013     11.302      0.000
+    P5              2113.675    187.013     11.302      0.000
+    IP              4484.648    550.638      8.144      0.000
+    SP                31.160     16.383      1.902      0.057
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.224E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    z:\home\philippe\git\ialsa-2015-portland\studies\octo\m1_female_full_pulmonary.dgm
+
+     Beginning Time:  16:53:23
+        Ending Time:  16:53:26
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
