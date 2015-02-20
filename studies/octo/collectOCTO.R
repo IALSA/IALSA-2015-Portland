@@ -10,17 +10,17 @@ options(width=160)
 rm(list=ls())
 
 library(MplusAutomation)
-library(xlsx)
-
+# library(xlsx)
+pathDir <- getwd() # establish home directory
+pathStudy <- file.path(pathDir,"studies/octo") # establish Study directory
+pathDto <- file.path(pathDir,"synthesis/bivariate/dto_bivariate.csv")
 ## obtain variable list from DTO - Relative path
-dto.vars <-  names(xlsx::read.xlsx('./synthesis/bivariate/dto_bivariate.xlsx', sheetName=1, startRow=2, endRow=5))
+dto.vars <- names(read.csv(pathDto,skip=1))
 dto.vars
-
-
 list.files("./studies/octo")
 
 ## Set study WD
-setwd("./studies/octo") #TODO: DO NOT changing wd!
+# setwd("./studies/octo") #TODO: DO NOT changing wd!
 
 ## Uncomment in case output files need to be generated and
 ## change "never" to "always" to overwrite existing out files
@@ -31,7 +31,7 @@ msum <- MplusAutomation::extractModelSummaries()
 names(msum)
 
 ## Extract Estimates
-mpar <- MplusAutomation::extractModelParameters(target=getwd(), recursive=F) #Adapt so it's relative to the root of the repository.
+mpar <- MplusAutomation::extractModelParameters(target=pathStudy, recursive=F) #Adapt so it's relative to the root of the repository.
 #names(mpar)
 #mpar[[3]]
 

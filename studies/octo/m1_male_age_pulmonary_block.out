@@ -1,6 +1,10 @@
 Mplus VERSION 7.1
 MUTHEN & MUTHEN
+<<<<<<< HEAD
 02/19/2015   5:50 PM
+=======
+02/19/2015  11:13 PM
+>>>>>>> refs/remotes/origin/master
 
 INPUT INSTRUCTIONS
 
@@ -461,6 +465,7 @@ CONFIDENCE INTERVALS OF MODEL RESULTS
     SC              -0.121      -0.077      -0.054       0.064       0.183       0.205       0.250
 
 
+<<<<<<< HEAD
 DIAGRAM INFORMATION
 
   Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
@@ -471,6 +476,10 @@ DIAGRAM INFORMATION
 
      Beginning Time:  17:50:29
         Ending Time:  17:50:32
+=======
+     Beginning Time:  23:13:07
+        Ending Time:  23:13:10
+>>>>>>> refs/remotes/origin/master
        Elapsed Time:  00:00:03
 
 

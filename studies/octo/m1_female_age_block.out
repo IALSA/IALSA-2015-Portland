@@ -1,6 +1,10 @@
 Mplus VERSION 7.1
 MUTHEN & MUTHEN
+<<<<<<< HEAD
 02/19/2015   5:55 PM
+=======
+02/19/2015  11:12 PM
+>>>>>>> refs/remotes/origin/master
 
 INPUT INSTRUCTIONS
 
@@ -280,6 +284,7 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
+<<<<<<< HEAD
 DIAGRAM INFORMATION
 
   Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
@@ -291,6 +296,11 @@ DIAGRAM INFORMATION
      Beginning Time:  17:55:46
         Ending Time:  17:55:46
        Elapsed Time:  00:00:00
+=======
+     Beginning Time:  23:12:48
+        Ending Time:  23:12:49
+       Elapsed Time:  00:00:01
+>>>>>>> refs/remotes/origin/master
 
 
 
