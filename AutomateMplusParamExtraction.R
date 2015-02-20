@@ -3,7 +3,7 @@
 ##        Author: Philippe Rast
 ##          Data: Mplus output files
 ##       Summary: Collects output from Mplus files according to DTO and
-##                generates a csv file for further use. 
+##                generates a csv file for further use.
 ## ---------------------------------------------------------------------- ##
 
 options(width=160)
@@ -13,25 +13,25 @@ library(MplusAutomation)
 library(xlsx)
 
 ## obtain variable list from DTO - Relative path
-dto.vars <-  names(read.xlsx('./synthesis/bivariate/dto_bivariate.xlsx', sheetName=1, startRow=2, endRow=5))
+dto.vars <-  names(xlsx::read.xlsx('./synthesis/bivariate/dto_bivariate.xlsx', sheetName=1, startRow=2, endRow=5))
 dto.vars
 
 
 list.files("./studies/octo")
 
 ## Set study WD
-setwd("./studies/octo")
+setwd("./studies/octo") #TODO: DO NOT changing wd!
 
 ## Uncomment in case output files need to be generated and
 ## change "never" to "always" to overwrite existing out files
 #runModels(replaceOutfile="never")
 
 ## Read in Model Summaries
-msum <- extractModelSummaries()
-names(msum) 
+msum <- MplusAutomation::extractModelSummaries()
+names(msum)
 
 ## Extract Estimates
-mpar <- extractModelParameters(target=getwd(), recursive=F)
+mpar <- MplusAutomation::extractModelParameters(target=getwd(), recursive=F) #Adapt so it's relative to the root of the repository.
 #names(mpar)
 #mpar[[3]]
 
@@ -39,21 +39,21 @@ mpar <- extractModelParameters(target=getwd(), recursive=F)
 nmodels <- length(mpar)
 nmodels
 
-## Generate empty data frame to be populated by Mplus values 
+## Generate empty data frame to be populated by Mplus values
 results=data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
 names(results) <-  dto.vars
 
-for(i in 1:nmodels){
+for(i in seq_along(mpar)){
     ## Populate with header info
     results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
     results[i,"active"] <- NA
-    results[i,"best_in_gender"] <- "??"    
+    results[i,"best_in_gender"] <- "??"
     results[i, c('date', 'time')] <- strsplit(scan(msum$Filename[i], what='character', sep='\n')[3], '  ')[[1]]
     results[i,"study_name"] <- 'octo'
     results[i,"data_file"] <-
         strsplit(scan(msum$Filename[i], what='character',
-                      sep='\n')[grep("File =", scan(msum$Filename[i], what='character', sep='\n'))], "=|;")[[1]][2]    
+                      sep='\n')[grep("File =", scan(msum$Filename[i], what='character', sep='\n'))], "=|;")[[1]][2]
 #
     ## Figure out if perdictor is cognitive or physical
     cop <- mpar[[i]]$unstandardized
@@ -86,7 +86,7 @@ for(i in 1:nmodels){
             x <- model[grep("WITH", model$paramHeader),]
             ## find factor coavariances IP wiht IC and SP with SC
             ## CovSS: Loook for S in paramHeader and S in param # only works as long as there is no S2 etc.
-            ## CovII: Loook for I in paramHeader and I in param        
+            ## CovII: Loook for I in paramHeader and I in param
             x$param
             x
             ## Focus on factor covariances
@@ -114,8 +114,8 @@ for(i in 1:nmodels){
             ## Check whether only one cov has been estimated
             if(length(unique(rc$est))==1) {
                 results[i, c("cov_residual", "p_cov_res")] <- rc[1,c('est', 'pval')]
-            } else {results[i, 'notes'] <- paste(results[i, 'notes'], "Heterogeneous Res Covs", sep='_')}   
-        } 
+            } else {results[i, 'notes'] <- paste(results[i, 'notes'], "Heterogeneous Res Covs", sep='_')}
+        }
         ##
         ## ################
         ##  Variances   ##
@@ -150,7 +150,7 @@ for(i in 1:nmodels){
     ## ####################
     results[i, 'subject_count'] <- msum[i, 'Observations']
     results[i, 'wave_count'] <- 'to_do'
-    results[i, 'parameter_count'] <- msum[i, 'Parameters']    
+    results[i, 'parameter_count'] <- msum[i, 'Parameters']
     results[i, 'output_file'] <- msum[i, 'Filename']
     results[i, 'software'] <- scan(msum$Filename[i], what='character', sep='\n')[1]
     results[i, 'model_description'] <- '??'
@@ -158,7 +158,7 @@ for(i in 1:nmodels){
     results[i, c('aic')] <-  msum[i,c('AIC')]
     results[i, c('bic')] <-  msum[i,c('BIC')]
     results[i, c('adj_bic')] <-  msum[i,c('aBIC')]
-    results[i, c('aaic')] <-  msum[i,c('AICC')]    
+    results[i, c('aaic')] <-  msum[i,c('AICC')]
 }
 
 results
