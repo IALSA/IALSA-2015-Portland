@@ -12,22 +12,20 @@ rm(list=ls())
 library(MplusAutomation)
 # library(xlsx)
 pathDir <- getwd() # establish home directory
-pathStudy <- file.path(pathDir,"studies/octo") # establish Study directory
+# pathStudy <- file.path(pathDir,"studies/octo") # establish Study directory
+pathStudy <- file.path(pathDir,"studies/octo/unshared/koval") # temp
 pathDto <- file.path(pathDir,"synthesis/bivariate/dto_bivariate.csv")
 ## obtain variable list from DTO - Relative path
 dto.vars <- names(read.csv(pathDto,skip=1))
 dto.vars
-list.files("./studies/octo")
-
-## Set study WD
-# setwd("./studies/octo") #TODO: DO NOT changing wd!
+list.files(pathStudy)
 
 ## Uncomment in case output files need to be generated and
 ## change "never" to "always" to overwrite existing out files
 #runModels(replaceOutfile="never")
 
 ## Read in Model Summaries
-msum <- MplusAutomation::extractModelSummaries()
+msum <- MplusAutomation::extractModelSummaries(target=pathStudy)
 names(msum)
 
 ## Extract Estimates
@@ -48,27 +46,37 @@ for(i in seq_along(mpar)){
     results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
     results[i,"active"] <- NA
-    results[i,"best_in_gender"] <- "??"
-    results[i, c('date', 'time')] <- strsplit(scan(msum$Filename[i], what='character', sep='\n')[3], '  ')[[1]]
+#     results[i,"best_in_gender"] <- "??"
+    results[i, c('date', 'time')] <-
+  strsplit(scan(file=file.path(pathStudy,msum$Filename[i]), what='character',
+           sep='\n')[3], '  ')[[1]]
     results[i,"study_name"] <- 'octo'
     results[i,"data_file"] <-
-        strsplit(scan(msum$Filename[i], what='character',
-                      sep='\n')[grep("File =", scan(msum$Filename[i], what='character', sep='\n'))], "=|;")[[1]][2]
+        strsplit(
+          scan(file=file.path(pathStudy,msum$Filename[i]),
+                      what='character',sep='\n')
+          [grep("File =", scan(file=file.path(pathStudy,msum$Filename[i]), what='character', sep='\n'))], "=|;")[[1]][2]
 #
-    ## Figure out if perdictor is cognitive or physical
-    cop <- mpar[[i]]$unstandardized
-    cop
-##
-    predC <- length(grep('^C', cop[cop$paramHeader=='Residual.Variances', 'param']))
-    predP <- length(grep('^P', cop[cop$paramHeader=='Residual.Variances', 'param']))
-    ##
-    if(predC>0 & predP == 0) {results[i,c('cognitive_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]}
-    if(predP>0 & predC == 0) {results[i,c('physical_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]}
-    if(predP>0 & predC > 0) {results[i,c('physical_outcome','cognitive_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]}
-    ##
+
+
+#     ## Figure out if perdictor is cognitive or physical
+#     cop <- mpar[[i]]$unstandardized
+#     cop
+# ## i <- 1
+#     predC <- length(grep('^C', cop[cop$paramHeader=='Residual.Variances', 'param']))
+#     predP <- length(grep('^P', cop[cop$paramHeader=='Residual.Variances', 'param']))
+#     ##
+#     if(predC>0 & predP == 0) {results[i,c('cognitive_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][5]}
+#     if(predP>0 & predC == 0) {results[i,c('physical_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]}
+#     if(predP>0 & predC > 0) {results[i,c('physical_outcome','cognitive_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]}
+#     ##
+
+results[i,c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
+
+
     ## Check for model conversion
     conv <- length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY",
-                        scan(msum$Filename[i], what='character', sep='\n')))
+                        scan(file=file.path(pathStudy,msum$Filename[i]), what='character', sep='\n')))
     conv
     if(conv==1) {
         results[i,'converged'] <- 'yes'
@@ -138,12 +146,16 @@ for(i in seq_along(mpar)){
         ## match only first letter with "^"
         resP <- unique(vrs[grep("^P", vrs$param), c('est', 'se')] )
         ## Write residual covariance and add warning if ResCov unconstrained
-        if(length(resP[,1])==1) {results[i, c("var_residual_physical", "se_residual_physical")] <- resP} else {
-             results[i,'notes'] <- paste(results[i,'notes'], 'Phys ResCov unconstrained', sep='_')}
+        if(length(resP[,1])==1) {results[i, c("var_residual_physical", "se_residual_physical")] <- resP}
+        ## Test of unconstrained variances: needs development
+        #else {
+         #    results[i,'notes'] <- paste(results[i,'notes'], 'Phys ResCov unconstrained', sep='_')}
          resC <- unique(vrs[grep("^C", vrs$param), c('est', 'se')] )
          ## Write residual covariance and add warning if ResCov unconstrained
-         if(length(resC[,1])==1) {results[i, c("var_residual_cog", "se_residual_cog")] <- resC} else {
-             results[i,'notes'] <- paste(results[i,'notes'], 'Cog ResCov unconstrained', sep='_')}
+         if(length(resC[,1])==1) {results[i, c("var_residual_cog", "se_residual_cog")] <- resC}
+        ## Test of unconstrained variances: needs development
+        #else {
+         #    results[i,'notes'] <- paste(results[i,'notes'], 'Cog ResCov unconstrained', sep='_')}
     }  else { results[i,'converged'] <- 'no'}
     ## ####################
     ##  Additional info ##
@@ -152,7 +164,7 @@ for(i in seq_along(mpar)){
     results[i, 'wave_count'] <- 'to_do'
     results[i, 'parameter_count'] <- msum[i, 'Parameters']
     results[i, 'output_file'] <- msum[i, 'Filename']
-    results[i, 'software'] <- scan(msum$Filename[i], what='character', sep='\n')[1]
+    results[i, 'software'] <- scan(file=file.path(pathStudy,msum$Filename[i]), what='character', sep='\n')[1]
     results[i, 'model_description'] <- '??'
     results[i, c('LL')] <-  msum[i,c('LL')]
     results[i, c('aic')] <-  msum[i,c('AIC')]
@@ -161,8 +173,9 @@ for(i in seq_along(mpar)){
     results[i, c('aaic')] <-  msum[i,c('AICC')]
 }
 
-results
+results <- dplyr::arrange(results, physical_outcome,  )
 
+View(results)
 ## Write populated dto for further use
 write.csv(results, file='automation_result.csv', row.names = F)
 
