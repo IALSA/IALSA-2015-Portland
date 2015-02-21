@@ -10,15 +10,14 @@ options(width=160)
 rm(list=ls())
 
 library(MplusAutomation)
-# library(xlsx)
 pathDir <- getwd() # establish home directory
 # pathStudy <- file.path(pathDir,"studies/octo") # establish Study directory
-pathStudy <- file.path(pathDir,"studies/octo/unshared/koval") # temp
-pathDto <- file.path(pathDir,"synthesis/bivariate/dto_bivariate.csv")
+pathStudy <- "./studies/octo/unshared/koval" # temp
+pathDto <- "./synthesis/bivariate/dto_bivariate.csv" # place data in "data" folder!!!
 ## obtain variable list from DTO - Relative path
 dto.vars <- names(read.csv(pathDto,skip=1))
 dto.vars
-list.files(pathStudy)
+list.files(pathStudy, pattern="\\.out$")
 
 ## Uncomment in case output files need to be generated and
 ## change "never" to "always" to overwrite existing out files
@@ -26,7 +25,7 @@ list.files(pathStudy)
 
 ## Read in Model Summaries
 msum <- MplusAutomation::extractModelSummaries(target=pathStudy)
-names(msum)
+colnames(msum)
 
 ## Extract Estimates
 mpar <- MplusAutomation::extractModelParameters(target=pathStudy, recursive=F) #Adapt so it's relative to the root of the repository.
@@ -38,7 +37,7 @@ nmodels <- length(mpar)
 nmodels
 
 ## Generate empty data frame to be populated by Mplus values
-results=data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
+results <- data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
 names(results) <-  dto.vars
 
 for(i in seq_along(mpar)){
@@ -173,7 +172,7 @@ results[i,c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i
     results[i, c('aaic')] <-  msum[i,c('AICC')]
 }
 
-results <- dplyr::arrange(results, physical_outcome,  )
+# results <- dplyr::arrange(results, physical_outcome,  )
 
 View(results)
 ## Write populated dto for further use
