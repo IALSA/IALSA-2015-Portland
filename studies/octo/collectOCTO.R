@@ -58,25 +58,28 @@ for(i in seq_along(mpar)){
 #
 
 
-#     ## Figure out if perdictor is cognitive or physical
-#     cop <- mpar[[i]]$unstandardized
-#     cop
-# ## i <- 1
-#     predC <- length(grep('^C', cop[cop$paramHeader=='Residual.Variances', 'param']))
-#     predP <- length(grep('^P', cop[cop$paramHeader=='Residual.Variances', 'param']))
-#     ##
-#     if(predC>0 & predP == 0) {results[i,c('cognitive_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][5]}
-#     if(predP>0 & predC == 0) {results[i,c('physical_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]}
-#     if(predP>0 & predC > 0) {results[i,c('physical_outcome','cognitive_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]}
-#     ##
+    #     ## Figure out if perdictor is cognitive or physical
+    #     cop <- mpar[[i]]$unstandardized
+    #     cop
+    # ## i <- 1
+    #     predC <- length(grep('^C', cop[cop$paramHeader=='Residual.Variances', 'param']))
+    #     predP <- length(grep('^P', cop[cop$paramHeader=='Residual.Variances', 'param']))
+    #     ##
+    #     if(predC>0 & predP == 0) {results[i,c('cognitive_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][5]}
+    #     if(predP>0 & predC == 0) {results[i,c('physical_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]}
+    #     if(predP>0 & predC > 0) {results[i,c('physical_outcome','cognitive_outcome')] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]}
+    #     ##
 
-results[i,c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
+    results[i,c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
 
 
     ## Check for model conversion
     conv <- length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY",
                         scan(file=file.path(pathStudy,msum$Filename[i]), what='character', sep='\n')))
     conv
+
+
+
     if(conv==1) {
         results[i,'converged'] <- 'yes'
         ## obtain model for current loop
@@ -94,8 +97,8 @@ results[i,c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i
             ## find factor coavariances IP wiht IC and SP with SC
             ## CovSS: Loook for S in paramHeader and S in param # only works as long as there is no S2 etc.
             ## CovII: Loook for I in paramHeader and I in param
-            x$param
-            x
+            x$param #;x
+
             ## Focus on factor covariances
             fc <- x[grep("I|S", x$param),]
             fc
@@ -120,8 +123,10 @@ results[i,c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i
             rc <- x[-grep("I|S", x$param),]
             ## Check whether only one cov has been estimated
             if(length(unique(rc$est))==1) {
-                results[i, c("cov_residual", "p_cov_res")] <- rc[1,c('est', 'pval')]
-            } else {results[i, 'notes'] <- paste(results[i, 'notes'], "Heterogeneous Res Covs", sep='_')}
+              results[i, c("cov_residual", "p_cov_res")] <- rc[1,c('est', 'pval')]
+            } else {
+              results[i, 'notes'] <- paste0(results[i, 'notes'], "_Heterogeneous Res Covs")
+            }
         }
         ##
         ## ################
