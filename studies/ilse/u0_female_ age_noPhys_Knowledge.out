@@ -1,0 +1,226 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+02/20/2015  11:28 PM
+
+INPUT INSTRUCTIONS
+
+  Title: M1 Knowledge - Female
+  DATA: FILE IS "C:\Users\Besitzer\Desktop\IALSA.dat";
+  VARIABLE:
+  NAMES =       ID SEX t1dss t1bd t1hgl t1hgr t1fs t1fsb t1age
+  center t1beer t1wine t1k t1pc t2dss t2bd t2hgl
+      t2hgr t2fs t2fsb t2beer t2wine t2k t2pc t3dss t3bd
+      t3k t3pc t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3hgl t3hgr t3height
+      t3weight time1 time3f time2f time2 time3 BMI1
+      BMI2 BMI3;
+
+  Missing = ALL (-9999);
+
+  USEVAR = t1 t2 t3 tk1 tk2 tk3;
+  TSCORES = t1 t2 t3;
+  USEOBSERVATIONS = SEX EQ 1;
+
+  Define: t1=time1; t2=time2f; t3=time3f; tk1=t1k; tk2=t2k; tk3=t3k;
+
+  Analysis:
+  Type = RANDOM;
+
+  MODEL: i | tk1-tk3 AT t1-t3;
+  tk1-tk3 (res_dss);
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  1
+*** WARNING
+  Data set contains cases with missing on time scores but non-missing on the
+  corresponding dependent variables.  These cases were not included in the analysis.
+  Number of such cases:  189
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M1 Knowledge - Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                          75
+
+Number of dependent variables                                    3
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   TK1         TK2         TK3
+
+Continuous latent variables
+   I
+
+Variables with special functions
+
+  Time scores
+   T1          T2          T3
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Besitzer\Desktop\IALSA.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             3
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              TK1           TK2           TK3
+              ________      ________      ________
+ TK1            1.000
+ TK2            0.933         0.933
+ TK3            0.907         0.907         0.907
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              TK1           TK2           TK3
+              ________      ________      ________
+ 1              4.147         4.496        21.817
+
+
+           Covariances
+              TK1           TK2           TK3
+              ________      ________      ________
+ TK1           27.725
+ TK2           25.609        30.772
+ TK3           -6.685        -5.857        64.388
+
+
+           Correlations
+              TK1           TK2           TK3
+              ________      ________      ________
+ TK1            1.000
+ TK2            0.877         1.000
+ TK3           -0.158        -0.132         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -636.245
+
+     WARNING: THE MODEL ESTIMATION HAS REACHED A SADDLE POINT OR A POINT WHERE THE
+     OBSERVED AND THE EXPECTED INFORMATION MATRICES DO NOT MATCH.
+     AN ADJUSTMENT TO THE ESTIMATION OF THE INFORMATION MATRIX HAS BEEN MADE.
+     THE CONDITION NUMBER IS      -0.885D-04.
+     THE PROBLEM MAY ALSO BE RESOLVED BY DECREASING THE VALUE OF THE
+     MCONVERGENCE OR LOGCRITERION OPTIONS OR BY CHANGING THE STARTING VALUES
+     OR BY USING THE MLF ESTIMATOR.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        3
+
+Loglikelihood
+
+          H0 Value                        -801.049
+          H0 Scaling Correction Factor      0.3605
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    1608.098
+          Bayesian (BIC)                  1615.051
+          Sample-Size Adjusted BIC        1605.595
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Means
+    I                  9.849      0.465     21.172      0.000
+
+ Intercepts
+    TK1                0.000      0.000    999.000    999.000
+    TK2                0.000      0.000    999.000    999.000
+    TK3                0.000      0.000    999.000    999.000
+
+ Variances
+    I                  0.304      0.881      0.345      0.730
+
+ Residual Variances
+    TK1              108.042      8.394     12.871      0.000
+    TK2              108.042      8.394     12.871      0.000
+    TK3              108.042      8.394     12.871      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix             -0.885E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\desktop\input ialsa ilse\m1f cogknowledge.dgm
+
+     Beginning Time:  23:28:18
+        Ending Time:  23:28:19
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
