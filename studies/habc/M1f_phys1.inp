@@ -1,0 +1,41 @@
+TITLE: Walking Speed, Empty Model, Ramdom Intercept, Female
+
+DATA:  File = "C:\Users\wuche\Dropbox\ISLSA\Data\HABC-9999.dta.dat";
+
+VARIABLE: 
+  Names are 
+     habcid vstatus ds2dth race gender site CV1AGE Y1pchd1 Y1pchd2 Y1pchd3
+     Y1pchf Y1pcbvd Y1pcvd Y1ppad Y1pdiab1 Y1phbp1 Y1WTK Y1bmi Y1sysbp
+     Y1diabp cesd1 Y1educ wd20m1 wd2min1 wd400m1 Y1hakcal Y1hacat Y1SMK1
+     Y1DRINKER1 Y1CURDRNK1 wd400m2 wd20m2 wd20m3 wd20m4 cesd4 wd400m4 wd20m6
+     cesd6 wd400m6 wd2min6 wd20m8 cesd8 wd400m8 wd2min8 wd20m10 cesd10
+     wd400m10 wd2min10 cesd11 wd20m5 wd2min2 wd2min4 smokecurrent smokeformer
+     educpost educhigh mmmscore1 dss1 faminc tsmarsta self1 lpschool self2
+     clox3 mmmscore3 self3 self4 clox5 mmmscore5 dss5 self5 self6 clox8
+     dss8 mmmscore8 self8 clox10 dss10 mmmscore10 self10 mmmscore11 dss11
+     self11 hand1 hand2 hand4 hand6 hand8 hand10 limit1 limit2 limit3 limit4
+     limit5 limit6 limit8 limit9 limit10 limit11 t1 t2 t3 t4 t5 t6 t8 t10
+     t11;
+
+       MISSING are all (-9999);
+       USEVAR are  t1 t2 t3 t4 t5 t6 t8 t10
+                   wd20m1 wd20m2 wd20m3 wd20m4 wd20m5 wd20m6 wd20m8 wd20m10;
+       TSCORES =   t1 t2 t3 t4 t5 t6 t8 t10;
+
+       USEOBSERVATIONS are gender EQ 0; ! female=0
+
+Define: 
+        Bage=CV1AGE-65;   !Centered at Age 65
+        Bagesq=(CV1AGE-65)**2; 
+        Dage=ds2dth/365.25;  
+
+ANALYSIS: TYPE = RANDOM;
+          ESTIMATOR = ml;
+
+MODEL:  I S | wd20m1 wd20m2 wd20m3 wd20m4 wd20m5 wd20m6 wd20m8 wd20m10 AT t1-t10;
+
+        wd20m1 wd20m2 wd20m3 wd20m4 wd20m5 wd20m6 wd20m8 wd20m10 (res_wd);
+
+OUTPUT: sampstat;  
+
+
