@@ -1,0 +1,472 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+02/21/2015   9:28 PM
+
+INPUT INSTRUCTIONS
+
+  !Matthew
+
+  TITLE: Pulmonary Function, Empty Model, Female
+
+  DATA:  File = C:\Users\Andrea Zammit\Desktop\easialsa.csv;
+
+  VARIABLE: NAMES ARE
+
+  !(61*10) + 8 = 610 + 8 = 618
+
+  !General Info (8)
+  SubjectID female Caus DemEver Bagesq DEMO23 Educyrs	Status	
+
+  !Waves (1 to 10)
+  Wave1 Wave2 Wave3 Wave4 Wave5	Wave6 Wave7 Wave8 Wave9 Wave10	
+
+  !Age Years (1 to 10)
+  AgeYears1	AgeYears2	AgeYears3	AgeYears4	AgeYears5	
+  AgeYears6	AgeYears7	AgeYears8	AgeYears9	AgeYears10	
+
+  !Age At (1 to 10)
+  AgeAtWave1	 AgeAtWave2 AgeAtWave3 AgeAtWave4 AgeAtWave5	
+  AgeAtWave6 AgeAtWave7 AgeAtWave8 AgeAtWave9 AgeAtWave10	
+
+  !Years since baseline (1 to 10)
+  YrsSinceBaseline1 YrsSinceBaseline2 YrsSinceBaseline3 YrsSinceBaseline4	
+  YrsSinceBaseline5 YrsSinceBaseline6 YrsSinceBaseline7 YrsSinceBaseline8
+  YrsSinceBaseline9 YrsSinceBaseline10
+
+  !Blessd (1 to 10)
+  Blessd1	Blessd2	Blessd3	Blessd4	Blessd5	
+  Blessd6	Blessd7	Blessd8	Blessd9	Blessd10	
+
+  !MMS (1 to 10)
+  MMS1	MMS2	MMS3	MMS4	MMS5	
+  MMS6	MMS7	MMS8	MMS9	MMS10	
+
+  !GDSScore (1 to 10)
+  GDSScore1	GDSScore2	GDSScore3	GDSScore4	GDSScore5	
+  GDSScore6	GDSScore7	GDSScore8	GDSScore9	GDSScore10	
+
+  !Episodic Memory (1 to 10)
+  EpisodicMemory1 EpisodicMemory2 EpisodicMemory3 EpisodicMemory4 EpisodicMemory5	
+  EpisodicMemory6 EpisodicMemory7 EpisodicMemory8 EpisodicMemory9 EpisodicMemory10	
+
+  !Frontal Exec function (1 to 10)
+  FrontalExecFunc_1 FrontalExecFunc_2 FrontalExecFunc_3 FrontalExecFunc_4	
+  FrontalExecFunc_5 FrontalExecFunc_6 FrontalExecFunc_7 FrontalExecFunc_8
+  FrontalExecFunc_9 FrontalExecFunc_10
+
+  !Language (1 to 10)
+  Language1	Language2	Language3	Language4	Language5	
+  Language6	Language7	Language8	Language9	Language10
+
+  !Dys Exec (1 to 10)
+  DysExec_1	DysExec_2	DysExec_3	DysExec_4	DysExec_5	
+  DysExec_6	DysExec_7	DysExec_8	DysExec_9	DysExec_10	
+
+  !aMCI1 (1 to 10)
+  aMCI1_1 aMCI1_2 aMCI1_3 aMCI1_4 aMCI1_5	
+  aMCI1_6 aMCI1_7 aMCI1_8 aMCI1_9 aMCI1_10	
+
+  !naMCI1 (1 to 10)
+  naMCI1_1 naMCI1_2 naMCI1_3 naMCI1_4 naMCI1_5	
+  naMCI1_6 naMCI1_7 naMCI1_8 naMCI1_9 naMCI1_10	
+
+  !Final Primary Diag (1 to 10)
+  FinalPrimaryDiag_1 FinalPrimaryDiag_2 FinalPrimaryDiag_3 FinalPrimaryDiag_4
+  FinalPrimaryDiag_5 FinalPrimaryDiag_6 FinalPrimaryDiag_7 FinalPrimaryDiag_8	
+  FinalPrimaryDiag_9	FinalPrimaryDiag_10	
+
+  !Cummul MI (1 to 10)
+  CumulMI_1	CumulMI_2	CumulMI_3	CumulMI_4	CumulMI_5	
+  CumulMI_6	CumulMI_7	CumulMI_8	CumulMI_9	CumulMI_10
+
+  !Cummul stroke (1 to 10)
+  CumulStroke_1 CumulStroke_2 CumulStroke_3 CumulStroke_4 CumulStroke_5 CumulStroke_6	
+  CumulStroke_7 CumulStroke_8 CumulStroke_9	 CumulStroke_10	
+
+  !Cumul CA by pass (1 to 10)
+  CumulCABypass_1 CumulCABypass_2 CumulCABypass_3 CumulCABypass_4 CumulCABypass_5
+  CumulCABypass_6 CumulCABypass_7 CumulCABypass_8 CumulCABypass_9 CumulCABypass_10	
+
+  !Cumul Diabl (1 to 10)
+  CumulDiab_1 CumulDiab_2 CumulDiab_3 CumulDiab_4 CumulDiab_5
+  CumulDiab_6 CumulDiab_7 CumulDiab_8 CumulDiab_9 CumulDiab_10	
+
+  !Cumul hyper (1 to 10)
+  CumulHyper_1 CumulHyper_2 CumulHyper_3 CumulHyper_4 CumulHyper_5	
+  CumulHyper_6 CumulHyper_7 CumulHyper_8 CumulHyper_9 CumulHyper_10	
+
+  !Cumul Arra hyth (1 to 10)
+  CumulArrhyth_1 CumulArrhyth_2	CumulArrhyth_3 CumulArrhyth_4 CumulArrhyth_5	
+  CumulArrhyth_6 CumulArrhyth_7	CumulArrhyth_8 CumulArrhyth_9	CumulArrhyth_10	
+
+  !Cumul Angina (1 to 10)
+  CumulAngina_1 CumulAngina_2 CumulAngina_3	 CumulAngina_4 CumulAngina_5
+  CumulAngina_6 CumulAngina_7 CumulAngina_8 CumulAngina_9 CumulAngina_10	
+
+  !Cumul Hrt fail (1 to 10)
+  CumulHrtFail_1 CumulHrtFail_2 CumulHrtFail_3 CumulHrtFail_4 CumulHrtFail_5	
+  CumulHrtFail_6 CumulHrtFail_7 CumulHrtFail_8 CumulHrtFail_9 CumulHrtFail_10	
+
+  !Cumul PD (1 to 10)
+  CumulPD_1	CumulPD_2	CumulPD_3	CumulPD_4	
+  CumulPD_5	CumulPD_6	CumulPD_7	CumulPD_8	CumulPD_9	CumulPD_10	
+
+  !Cumul caner (1 to 10)
+  CumulCancer_1 CumulCancer_2 CumulCancer_3	 CumulCancer_4 CumulCancer_5
+  CumulCancer_6 CumulCancer_7 CumulCancer_8	 CumulCancer_9 CumulCancer_10	
+
+  !Cumul pace maker (1 to 10)
+  CumulPaceMkr_1 CumulPaceMkr_2 CumulPaceMkr_3 CumulPaceMkr_4 CumulPaceMkr_5
+  CumulPaceMkr_6 CumulPaceMkr_7 CumulPaceMkr_8 CumulPaceMkr_9 CumulPaceMkr_10	
+
+  !Cumul COPD (1 to 10)
+  CumulCOPD_1 CumulCOPD_2 CumulCOPD_3 CumulCOPD_4 CumulCOPD_5	
+  CumulCOPD_6 CumulCOPD_7 CumulCOPD_8 CumulCOPD_9 CumulCOPD_10	
+
+  !Cumul DEP (1 to 10)
+  CumulDep_1 CumulDep_2 CumulDep_3 CumulDep_4 CumulDep_5
+  CumulDep_6	 CumulDep_7 CumulDep_8 CumulDep_9 CumulDep_10	
+
+  !cumul Angioplasty (1 to 10)
+  CumulAngioplasty_1 CumulAngioplasty_2 CumulAngioplasty_3 CumulAngioplasty_4
+  CumulAngioplasty_5 CumulAngioplasty_6 CumulAngioplasty_7 CumulAngioplasty_8
+  CumulAngioplasty_9 CumulAngioplasty_10	
+
+  !Cumul claudication (1 to 10)
+  CumulClaudication_1	CumulClaudication_2	CumulClaudication_3	CumulClaudication_4
+  CumulClaudication_5	CumulClaudication_6	CumulClaudication_7	CumulClaudication_8	
+  CumulClaudication_9	CumulClaudication_10
+
+  !Cumul Anemia (1 to 10)
+  CumulAnemia_1 CumulAnemia_2 CumulAnemia_3 CumulAnemia_4 CumulAnemia_5	
+  CumulAnemia_6 CumulAnemia_7 CumulAnemia_8	 CumulAnemia_9 CumulAnemia_10	
+
+  !Arthritis index cumu (1 to 10)
+  ArthritisIndexCumul_1 ArthritisIndexCumul_2 ArthritisIndexCumul_3 ArthritisIndexCumul_4
+  ArthritisIndexCumul_5 ArthritisIndexCumul_6 ArthritisIndexCumul_7 ArthritisIndexCumul_8	
+  ArthritisIndexCumul_9 ArthritisIndexCumul_10	
+
+  !CV index cumu (1 to 10)
+  CVIndexCumul_1 CVIndexCumul_2 CVIndexCumul_3 CVIndexCumul_4
+  CVIndexCumul_5 CVIndexCumul_6 CVIndexCumul_7 CVIndexCumul_8
+  CVIndexCumul_9 CVIndexCumul_10	
+
+  !Have Blood (1 to 10)
+  HaveBlood_1 HaveBlood_2 HaveBlood_3 HaveBlood_4 HaveBlood_5
+  HaveBlood_6 HaveBlood_7 HaveBlood_8 HaveBlood_9 HaveBlood_10	
+
+  !Blood press 1st sys (1 to 10)
+  BloodPres1stSys_1	BloodPres1stSys_2	BloodPres1stSys_3	BloodPres1stSys_4	
+  BloodPres1stSys_5	BloodPres1stSys_6	BloodPres1stSys_7	BloodPres1stSys_8	
+  BloodPres1stSys_9	BloodPres1stSys_10	
+
+  !Blood press 1st dia(1 to 10)
+  BloodPres1stDia_1	BloodPres1stDia_2	
+  BloodPres1stDia_3	BloodPres1stDia_4	BloodPres1stDia_5	BloodPres1stDia_6	
+  BloodPres1stDia_7	BloodPres1stDia_8	BloodPres1stDia_9	BloodPres1stDia_10	
+
+  !Blood press 1st arm (1 to 10)
+  BloodPres1stArm_1	BloodPres1stArm_2	BloodPres1stArm_3	BloodPres1stArm_4	
+  BloodPres1stArm_5	BloodPres1stArm_6	BloodPres1stArm_7	BloodPres1stArm_8	
+  BloodPres1stArm_9	BloodPres1stArm_10	
+
+  !Ht (1 to 10)
+  Ht_1	Ht_2	Ht_3	Ht_4	Ht_5	
+  Ht_6	Ht_7	Ht_8	Ht_9	Ht_10	
+
+  !Wt (1 to 10)
+  Wt_1	Wt_2	Wt_3	Wt_4	Wt_5	
+  Wt_6	Wt_7	Wt_8	Wt_9	Wt_10	
+
+  !BMI 1 (1 to 10)
+  BMI_1	BMI_2	BMI_3	BMI_4	BMI_5	
+  BMI_6	BMI_7	BMI_8	BMI_9	BMI_10	
+
+  !waist (1 to 10)
+  Waist_1	Waist_2	Waist_3	Waist_4	Waist_5	
+  Waist_6	Waist_7	Waist_8	Waist_9	Waist_10	
+
+  !Velocity (1 to 10)
+  Velocity_1 Velocity_2 Velocity_3 Velocity_4 Velocity_5
+  Velocity_6 Velocity_7 Velocity_8 Velocity_9 Velocity_10	
+
+  !Chair raise time (1 to 10)
+  ChairRaiseTime_1 ChairRaiseTime_2 ChairRaiseTime_3 ChairRaiseTime_4 ChairRaiseTime_5	
+  ChairRaiseTime_6 ChairRaiseTime_7 ChairRaiseTime_8 ChairRaiseTime_9 ChairRaiseTime_10	
+
+  !Flamingo Stand time (1 to 10)
+  FlamingoStandTime_1	FlamingoStandTime_2	FlamingoStandTime_3	FlamingoStandTime_4	
+  FlamingoStandTime_5	FlamingoStandTime_6	FlamingoStandTime_7	FlamingoStandTime_8	
+  FlamingoStandTime_9	FlamingoStandTime_10	
+
+  !Max eff (1 to 10)
+  MaxEff_1	MaxEff_2	MaxEff_3	MaxEff_4	MaxEff_5	
+  MaxEff_6	MaxEff_7	MaxEff_8	MaxEff_9	MaxEff_10	
+
+  !Peak flow Best of 3 (1 to 10)
+  PeakFlowBestOf3_1 PeakFlowBestOf3_2 PeakFlowBestOf3_3 PeakFlowBestOf3_4	
+  PeakFlowBestOf3_5 PeakFlowBestOf3_6 PeakFlowBestOf3_7 PeakFlowBestOf3_8
+  PeakFlowBestOf3_9 PeakFlowBestOf3_10	
+
+  !UPDRS15 (1 to 10)
+  UPDRS15_1	UPDRS15_2	UPDRS15_3	UPDRS15_4	UPDRS15_5	
+  UPDRS15_6	UPDRS15_7	UPDRS15_8	UPDRS15_9	UPDRS15_10	
+
+  !UPDRS27 (1 to 10)
+  UPDRS27_1	UPDRS27_2	UPDRS27_3	UPDRS27_4	UPDRS27_5	
+  UPDRS27_6	UPDRS27_7	UPDRS27_8	UPDRS27_9	UPDRS27_10	
+
+  !UPDRS28 (1 to 10)
+  UPDRS28_1	UPDRS28_2	UPDRS28_3	UPDRS28_4	UPDRS28_5	
+  UPDRS28_6	UPDRS28_7	UPDRS28_8	UPDRS28_9	UPDRS28_10	
+
+  !UPDRS29 (1 to 10)
+  UPDRS29_1	UPDRS29_2	UPDRS29_3	UPDRS29_4	UPDRS29_5	
+  UPDRS29_6	UPDRS29_7	UPDRS29_8	UPDRS29_9	UPDRS29_10	
+
+  !Email (1 to 10)
+  EMail_1 EMail_2 EMail_3 EMail_4 EMail_5	
+  EMail_6 EMail_7 EMail_8 EMail_9 EMail_10	
+
+  !Aerobic (1 to 10)
+  Aerobic_1	Aerobic_2	Aerobic_3	Aerobic_4	Aerobic_5	
+  Aerobic_6	Aerobic_7	Aerobic_8	Aerobic_9	Aerobic_10	
+
+  !Hrs for 2 week light (1 to 10)
+  HrsFor2WeekLight_1	HrsFor2WeekLight_2	HrsFor2WeekLight_3	HrsFor2WeekLight_4	
+  HrsFor2WeekLight_5	HrsFor2WeekLight_6	HrsFor2WeekLight_7	HrsFor2WeekLight_8	
+  HrsFor2WeekLight_9	HrsFor2WeekLight_10	
+
+  !Hrs for 2 week heavey (1 to 10)
+  HrsFor2WeekMedium_1	HrsFor2WeekMedium_2	HrsFor2WeekMedium_3	HrsFor2WeekMedium_4	
+  HrsFor2WeekMedium_5	HrsFor2WeekMedium_6	HrsFor2WeekMedium_7	HrsFor2WeekMedium_8	
+  HrsFor2WeekMedium_9	HrsFor2WeekMedium_10	
+
+  !Hours for 2 week heavey (1 to 10)
+  HrsFor2WeekHeavy_1 HrsFor2WeekHeavy_2 HrsFor2WeekHeavy_3 HrsFor2WeekHeavy_4
+  HrsFor2WeekHeavy_5 HrsFor2WeekHeavy_6 HrsFor2WeekHeavy_7 HrsFor2WeekHeavy_8
+  HrsFor2WeekHeavy_9 HrsFor2WeekHeavy_10	
+
+  !Days per week light (1 to 10)
+  DaysPerWeekLight_1 DaysPerWeekLight_2 DaysPerWeekLight_3 DaysPerWeekLight_4
+  DaysPerWeekLight_5 DaysPerWeekLight_6 DaysPerWeekLight_7 DaysPerWeekLight_8
+  DaysPerWeekLight_9 DaysPerWeekLight_10	
+
+  !Days per week medium (1 to 10)
+  DaysPerWeekMedium_1	DaysPerWeekMedium_2	DaysPerWeekMedium_3	DaysPerWeekMedium_4	
+  DaysPerWeekMedium_5	DaysPerWeekMedium_6	DaysPerWeekMedium_7	DaysPerWeekMedium_8	
+  DaysPerWeekMedium_9	DaysPerWeekMedium_10	
+
+  !Days per week heavey (1 to 10)
+  DaysPerWeekHeavy_1 DaysPerWeekHeavy_2 DaysPerWeekHeavy_3 DaysPerWeekHeavy_4
+  DaysPerWeekHeavy_5 DaysPerWeekHeavy_6 DaysPerWeekHeavy_7 DaysPerWeekHeavy_8
+  DaysPerWeekHeavy_9 DaysPerWeekHeavy_10	
+
+  !Cigarettes per day (1 to 10)
+  CigsPerDay_1 CigsPerDay_2 CigsPerDay_3 CigsPerDay_4 CigsPerDay_5	
+  CigsPerDay_6 CigsPerDay_7 CigsPerDay_8 CigsPerDay_9 CigsPerDay_10	
+
+  !Smoke now (1 to 10)
+  SmokNow_1	SmokNow_2	SmokNow_3	SmokNow_4	SmokNow_5	
+  SmokNow_6	SmokNow_7	SmokNow_8	SmokNow_9	SmokNow_10	
+
+  !Smoke Ever (1 to 10)
+  SmokEver_1 SmokEver_2 SmokEver_3 SmokEver_4 SmokEver_5
+  SmokEver_6 SmokEver_7 SmokEver_8 SmokEver_9 SmokEver_10	
+
+  !Smoke No of Years (1 to 10)
+  SmokNumYrs_1 SmokNumYrs_2 SmokNumYrs_3 SmokNumYrs_4	 SmokNumYrs_5	
+  SmokNumYrs_6 SmokNumYrs_7 SmokNumYrs_8 SmokNumYrs_9 SmokNumYrs_10	
+
+  !Drinks Per Month (1 to 10)
+  DrinksPerMonth_1 DrinksPerMonth_2 DrinksPerMonth_3	DrinksPerMonth_4 DrinksPerMonth_5	
+  DrinksPerMonth_6 DrinksPerMonth_7 DrinksPerMonth_8	DrinksPerMonth_9 DrinksPerMonth_10;
+
+
+  USEVAR are
+
+  Wave1 Wave2 Wave3 Wave4 Wave5	Wave6 Wave7 Wave8 Wave9 Wave10
+
+  p1 p2 p3 p4  p5 p6 p7 p8 p9 p10; ! names to be used in analysis
+
+
+      TSCORES =  Wave1	Wave2 Wave3 Wave4 Wave5 Wave6 Wave7 Wave8 Wave9 Wave10;
+
+      USEOBSERVATIONS are DemEver EQ 0 and female EQ 1;
+
+      Define: p1=PeakFlowBestOf3_1; p2=PeakFlowBestOf3_2; p3=PeakFlowBestOf3_3;
+      p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5; p6=PeakFlowBestOf3_6;
+      p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8; p9=PeakFlowBestOf3_9;
+      p10=PeakFlowBestOf3_10;
+      AgeAtWave_1=YrsSinceBaseline1-80;   !Centered at Age 80
+              Bagesq=(YrsSinceBaseline1-80)**2;
+
+              Educyrs=Educyrs-7;     ! Centered at 7 years
+
+              !Marstat;
+              !Height
+              !Weight
+              !BMI
+            Smoke=SmokEver_10;
+              !Alcohol;
+              !CompExp;
+              !PhysAct;
+              !BP;
+              !DepSymp;
+              !Cardio;
+              !Diab;
+              !MorbInd;
+
+              AgeAtWave1female=AgeAtWave1*female;
+              AgeAtWave1Educyrs=AgeAtWave1*Educyrs;
+              femaleEducyrs=female*Educyrs;
+
+      ANALYSIS: TYPE = RANDOM;
+
+      MODEL:  ip | p1-p10 AT Wave1-Wave10;
+
+!linear growth model for outcome p
+
+               p1-p10(res_p);
+!reidual covariances constrained to be equal over time
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Pulmonary Function, Empty Model, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1209
+
+Number of dependent variables                                   10
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5          P6
+   P7          P8          P9          P10
+
+Continuous latent variables
+   IP
+
+Variables with special functions
+
+  Time scores
+   WAVE1       WAVE2       WAVE3       WAVE4       WAVE5       WAVE6
+   WAVE7       WAVE8       WAVE9       WAVE10
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Andrea Zammit\Desktop\easialsa.csv
+Input data format  FREE
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        3
+
+Loglikelihood
+
+          H0 Value                     -116131.046
+          H0 Scaling Correction Factor      3.9573
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                  232268.093
+          Bayesian (BIC)                232283.385
+          Sample-Size Adjusted BIC      232273.856
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Means
+    IP             -8522.286     63.305   -134.623      0.000
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    P7                 0.000      0.000    999.000    999.000
+    P8                 0.000      0.000    999.000    999.000
+    P9                 0.000      0.000    999.000    999.000
+    P10                0.000      0.000    999.000    999.000
+
+ Variances
+    IP             *********  *********     14.310      0.000
+
+ Residual Variances
+    P1             *********  *********     39.755      0.000
+    P2             *********  *********     39.755      0.000
+    P3             *********  *********     39.755      0.000
+    P4             *********  *********     39.755      0.000
+    P5             *********  *********     39.755      0.000
+    P6             *********  *********     39.755      0.000
+    P7             *********  *********     39.755      0.000
+    P8             *********  *********     39.755      0.000
+    P9             *********  *********     39.755      0.000
+    P10            *********  *********     39.755      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.382E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\andrea zammit\desktop\ialsa\output\mptext3.dgm
+
+     Beginning Time:  21:28:56
+        Ending Time:  21:28:57
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
