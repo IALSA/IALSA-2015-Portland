@@ -12,7 +12,7 @@ rm(list=ls())
 library(MplusAutomation)
 pathDir <- getwd() # establish home directory
 # pathStudy <- file.path(pathDir,"studies/octo") # establish Study directory
-pathStudy <- "./studies/octo/unshared/koval" # temp
+pathStudy <- "./studies/octo" # temp
 pathDto <- "./data/shared/dto_bivariate.csv" # derivative from Google sheets
 ## obtain variable list from DTO - Relative path
 dto.vars <- names(read.csv(pathDto,skip=1))
