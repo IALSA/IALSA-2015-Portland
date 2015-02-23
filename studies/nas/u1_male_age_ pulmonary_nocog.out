@@ -1,0 +1,541 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+02/23/2015   6:08 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  IALSA: VA Normative Aging Study ;
+          1/20/15, Lewina Lee ;
+          Univariate, Male, Pulmonary function (FEV1), Age Conditional, No Cog
+
+  DATA:
+  FILE is C:\Users\Lewina\SkyDrive\IALSA\M+\NAS_wide_20150221.dat;
+
+
+  !ORIGINAL SAS names
+  		
+  !id		
+  !/*FROM FILE: ADMIN*/
+  !/*bdate*/	    age0 	/*date_cog1*/	yr_cog1	/*date_death*/	age_dead	dead
+  !NEDUC 	CHD 	DM 	CHF		CVA			COPD		ARTH			CANC
+  !DISTOT1993		DISTOT1994  DISTOT1995  DISTOT1996  DISTOT1997
+  !DISTOT1998  	DISTOT1999  DISTOT2000  DISTOT2001  DISTOT2002
+  !DISTOT2003  	DISTOT2004  DISTOT2005  DISTOT2006  DISTOT2007
+  !DISTOT2008  	DISTOT2009  DISTOT2010  DISTOT2011
+
+  !/*FROM FILE: TV_WIDE2*/
+  !cint12 		cint23 		cint34 		cint45	 	cint56 		cint67
+  !wave_1		wave_2		wave_3		wave_4		wave_5		wave_6		wave_7
+  !/*date_cog_1	date_cog_2	date_cog_3	date_cog_4	date_cog_5	date_cog_6	date_cog_7
+  !date_exam_1	date_exam_2	date_exam_3	date_exam_4	date_exam_5	date_exam_6	date_exam_7*/
+  !age_1		age_2		age_3		age_4		age_5		age_6		age_7
+  !offset_1	offset_2	offset_3	offset_4	offset_5	offset_6	offset_7
+  !yr_1		yr_2		yr_3		yr_4		yr_5		yr_6		yr_7
+  !Y2die_C_1	Y2die_C_2	Y2die_C_3	Y2die_C_4	Y2die_C_5	Y2die_C_6	Y2die_C_7
+  !Y2die_E_1	Y2die_E_2	Y2die_E_3	Y2die_E_4	Y2die_E_5	Y2die_E_6	Y2die_E_7
+  !mmse_total_1	mmse_total_2	mmse_total_3	mmse_total_4	
+  !mmse_total_5	mmse_total_6	mmse_total_7
+  !vf_1		vf_2		vf_3		vf_4		vf_5		vf_6		vf_7
+  !wltot_1		wltot_2		wltot_3		wltot_4		wltot_5		wltot_6		wltot_7
+  !wldr_1		wldr_2		wldr_3		wldr_4		wldr_5		wldr_6		wldr_7
+  !vwsum_1		vwsum_2		vwsum_3		vwsum_4		vwsum_5		vwsum_6		vwsum_7
+  !dsbs_1		dsbs_2		dsbs_3		dsbs_4		dsbs_5		dsbs_6		dsbs_7
+  !dsbt_1		dsbt_2		dsbt_3		dsbt_4		dsbt_5		dsbt_6		dsbt_7
+  !PR_MEAN_1	PR_MEAN_2	PR_MEAN_3	PR_MEAN_4	PR_MEAN_5	PR_MEAN_6	PR_MEAN_7
+  !fev1_h_1	fev1_h_2	fev1_h_3	fev1_h_4	fev1_h_5	fev1_h_6	fev1_h_7
+  !fvc_h_1		fvc_h_2		fvc_h_3		fvc_h_4		fvc_h_5		fvc_h_6		fvc_h_7
+  !ffr_1		ffr_2		ffr_3		ffr_4		ffr_5		ffr_6		ffr_7
+  !income_1	income_2	income_3	income_4	income_5	income_6	income_7
+  !married_1	married_2	married_3	married_4	married_5	married_6	married_7
+  !wt_kg_1		wt_kg_2		wt_kg_3		wt_kg_4		wt_kg_5		wt_kg_6		wt_kg_7
+  !ht_cm_1		ht_cm_2		ht_cm_3		ht_cm_4		ht_cm_5		ht_cm_6		ht_cm_7
+  !BMI_1		BMI_2		BMI_3		BMI_4		BMI_5		BMI_6		BMI_7
+  !smk_now_1	smk_now_2	smk_now_3	smk_now_4	smk_now_5	smk_now_6	smk_now_7
+  !smk_nvr_1	smk_nvr_2	smk_nvr_3	smk_nvr_4	smk_nvr_5	smk_nvr_6	smk_nvr_7
+  !smk_fmr_1	smk_fmr_2	smk_fmr_3	smk_fmr_4	smk_fmr_5	smk_fmr_6	smk_fmr_7
+  !drink2_1	drink2_2	drink2_3	drink2_4	drink2_5	drink2_6	drink2_7
+  !drkden_1	drkden_2	drkden_3	drkden_4	drkden_5	drkden_6	drkden_7
+  !drkden_sqrt_1	drkden_sqrt_2	drkden_sqrt_3	drkden_sqrt_4	
+  !drkden_sqrt_5	drkden_sqrt_6	drkden_sqrt_7
+  !compexp_1	compexp_2	compexp_3	compexp_4	compexp_5	compexp_6	compexp_7
+  !STAIRS_1	STAIRS_2	STAIRS_3	STAIRS_4	STAIRS_5	STAIRS_6	STAIRS_7
+  !BLOCKS_1	BLOCKS_2	BLOCKS_3	BLOCKS_4	BLOCKS_5	BLOCKS_6	BLOCKS_7
+  !sbp_sit_1	sbp_sit_2	sbp_sit_3	sbp_sit_4	sbp_sit_5	sbp_sit_6	sbp_sit_7
+  !dbp_sit_1	dbp_sit_2	dbp_sit_3	dbp_sit_4	dbp_sit_5	dbp_sit_6	dbp_sit_7
+  !depress_1	depress_2	depress_3	depress_4	depress_5	depress_6	depress_7
+  !GLUCFAST_1	GLUCFAST_2	GLUCFAST_3	GLUCFAST_4	GLUCFAST_5	GLUCFAST_6	GLUCFAST_7
+  !HBA1C_1		HBA1C_2		HBA1C_3		HBA1C_4		HBA1C_5		HBA1C_6		HBA1C_7
+  !wbc_1		wbc_2		wbc_3		wbc_4		wbc_5		wbc_6		wbc_7
+
+  VARIABLE:
+  NAMES ARE
+  id		
+  age0 	yr_cog1	age_dead	dead
+  NEDUC 	CHD 	DM 	CHF		CVA			COPD	ARTH	CANC
+  DIS1993		DIS1994  DIS1995  DIS1996  DIS1997
+  DIS1998  	DIS1999  DIS2000  DIS2001  DIS2002
+  DIS2003  	DIS2004  DIS2005  DIS2006  DIS2007
+  DIS2008  	DIS2009  DIS2010  DIS2011
+  cint12 		cint23 		cint34 		cint45	 	cint56 		cint67
+  wave1		wave2		wave3		wave4		wave5		wave6		wave7
+  age1		age2		age3		age4		age5		age6		age7
+  offset1 	offset2	    offset3	    offset4	    offset5	    offset6	    offset7
+  yr1		    yr2		    yr3		    yr4		    yr5		    yr6		    yr7
+  Y2dieC1	    Y2dieC2	    Y2dieC3	    Y2dieC4	    Y2dieC5	    Y2dieC6	Y2dieC7
+  Y2dieE1	    Y2dieE2	    Y2dieE3	    Y2dieE4	    Y2dieE5	    Y2dieE6	Y2dieE7
+  mmse1   	mmse2	    mmse3	    mmse4	    mmse5	    mmse6	    mmse7
+  vf1		    vf2		    vf3		    vf4		    vf5		    vf6		    vf7
+  wltot1		wltot2		wltot3		wltot4		wltot5		wltot6		wltot7
+  wldr1		wldr2		wldr3		wldr4		wldr5		wldr6		wldr7
+  vwsum1		vwsum2		vwsum3		vwsum4		vwsum5		vwsum6		vwsum7
+  dsbs1		dsbs2		dsbs3		dsbs4		dsbs5		dsbs6		dsbs7
+  dsbt1		dsbt2		dsbt3		dsbt4		dsbt5		dsbt6		dsbt7
+  PR1	        PR2	        PR3	        PR4	        PR5	        PR6	        PR7
+  fev11	    fev12	    fev13	    fev14	    fev15	    fev16	    fev17
+  fvc1		fvc2		fvc3		fvc4		fvc5		fvc6		fvc7
+  ffr1		ffr2		ffr3		ffr4		ffr5		ffr6		ffr7
+  income1	    income2	    income3	    income4	    income5	    income6 	income7
+  married1	married2	married3	married4	married5	married6	married7
+  wtkg1		wtkg2		wtkg3		wtkg4		wtkg5		wtkg6		wtkg7
+  htcm1		htcm2		htcm3		htcm4		htcm5		htcm6		htcm7
+  BMI1		BMI2		BMI3		BMI4		BMI5		BMI6		BMI7
+  smk_now1	smk_now2	smk_now3	smk_now4	smk_now5	smk_now6	smk_now7
+  smk_nvr1	smk_nvr2	smk_nvr3	smk_nvr4	smk_nvr5	smk_nvr6	smk_nvr7
+  smk_fmr1	smk_fmr2	smk_fmr3	smk_fmr4	smk_fmr5	smk_fmr6	smk_fmr7
+  drink21		drink22		drink23		drink24		drink25		drink26		drink27
+  dden1		dden2		dden3		dden4		dden5		dden6		dden7
+  dden_sr1	dden_sr2	dden_sr3	dden_sr4	dden_sr5	dden_sr6	dden_sr7
+  compexp1	compexp2	compexp3	compexp4	compexp5	compexp6	compexp7
+  STAIRS1		STAIRS2		STAIRS3		STAIRS4		STAIRS5		STAIRS6		STAIRS7
+  BLOCKS1		BLOCKS2		BLOCKS3		BLOCKS4		BLOCKS5		BLOCKS6		BLOCKS7
+  sbp1		sbp2		sbp3		sbp4		sbp5		sbp6		sbp7
+  dbp1		dbp2		dbp3		dbp4		dbp5		dbp6		dbp7
+  deprx1	    deprx2	    deprx3	    deprx4	    deprx5  	deprx6	    deprx7
+  fbg1		fbg2		fbg3		fbg4		fbg5		fbg6		fbg7
+  HBA1C1		HBA1C2		HBA1C3		HBA1C4		HBA1C5		HBA1C6		HBA1C7
+  wbc1		wbc2		wbc3		wbc4		wbc5		wbc6		wbc7
+  ;
+
+  USEVARIABLES ARE
+  time1 time2 time3 time4 time5 time6
+  p1 p2 p3 p4 p5 p6
+  Bage;
+
+  TSCORES = time1 time2 time3 time4 time5 time6;
+
+  MISSING = .;
+
+  DEFINE: time1=yr1-1993; time2=yr2-1993; time3=yr3-1993;
+          time4=yr4-1993; time5=yr5-1993; time6=yr6-1993;		
+          p1=fev11; p2=fev12; p3=fev13;
+          p4=fev14; p5=fev15; p6=fev16;
+
+          Bage=age1-68;   !BAGE = centered baseline age (mean age at exam 1 is 68);
+          Bagesq=(age1-68)**2;
+
+  !GROUPING IS;
+  !CATEGORICAL ARE
+  !dead ;
+
+  ANALYSIS:   TYPE=random;
+              COVERAGE=.010;
+              PROCESSORS = 2;
+
+  MODEL:
+
+  ip sp   | p1-p6 AT time1-time6;
+  ip sp   ON bage;
+  p1-p6 (res_p);
+
+  OUTPUT: SAMPSTAT STANDARDIZED RESIDUAL TECH1 TECH4 ;! MODINDICES(ALL) cinterval (bcbootstr
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  OUTPUT: SAMPSTAT STANDARDIZED RESIDUAL TECH1 TECH4 ;! MODINDICES(ALL) cinterval (bcbootstra
+*** WARNING in OUTPUT command
+  STANDARDIZED (STD, STDY, STDYX) options are not available for TYPE=RANDOM.
+  Request for STANDARDIZED (STD, STDY, STDYX) is ignored.
+*** WARNING in OUTPUT command
+  RESIDUAL option is not available for analysis with
+  TYPE = RANDOM.  Request for RESIDUAL is ignored.
+*** WARNING in OUTPUT command
+  TECH4 option is not available for TYPE=RANDOM.
+  Request for TECH4 is ignored.
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  16
+   5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+IALSA: VA Normative Aging Study ;
+1/20/15, Lewina Lee ;
+Univariate, Male, Pulmonary function (FEV1), Age Conditional, No Cog
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1116
+
+Number of dependent variables                                    6
+Number of independent variables                                  1
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5          P6
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IP          SP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Lewina\SkyDrive\IALSA\M+\NAS_wide_20150221.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            29
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.010
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.979
+ P2             0.654         0.674
+ P3             0.422         0.403         0.433
+ P4             0.252         0.243         0.194         0.255
+ P5             0.186         0.177         0.148         0.113         0.187
+ P6             0.060         0.057         0.059         0.016         0.057
+ BAGE           0.979         0.674         0.433         0.255         0.187
+
+
+           Covariance Coverage
+              P6            BAGE
+              ________      ________
+ P6             0.061
+ BAGE           0.061         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1              0.857         0.821         0.801         0.796         0.770
+
+
+           Means
+              P6            BAGE
+              ________      ________
+ 1              0.733         0.177
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.033
+ P2             0.032         0.035
+ P3             0.031         0.032         0.037
+ P4             0.030         0.032         0.034         0.037
+ P5             0.032         0.034         0.036         0.037         0.043
+ P6             0.033         0.034         0.034         0.035         0.039
+ BAGE          -0.452        -0.429        -0.479        -0.439        -0.460
+
+
+           Covariances
+              P6            BAGE
+              ________      ________
+ P6             0.040
+ BAGE          -0.499        53.304
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.933         1.000
+ P3             0.898         0.908         1.000
+ P4             0.870         0.907         0.926         1.000
+ P5             0.848         0.886         0.896         0.935         1.000
+ P6             0.901         0.926         0.900         0.914         0.942
+ BAGE          -0.341        -0.316        -0.343        -0.313        -0.304
+
+
+           Correlations
+              P6            BAGE
+              ________      ________
+ P6             1.000
+ BAGE          -0.342         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -1214.772
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        8
+
+Loglikelihood
+
+          H0 Value                        2544.785
+          H0 Scaling Correction Factor      0.9745
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   -5073.570
+          Bayesian (BIC)                 -5033.430
+          Sample-Size Adjusted BIC       -5058.840
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.008      0.001    -12.041      0.000
+
+ SP         ON
+    BAGE               0.000      0.000     -0.576      0.564
+
+ SP       WITH
+    IP                 0.000      0.000      0.056      0.956
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    IP                 0.867      0.005    165.099      0.000
+    SP                -0.006      0.000    -15.868      0.000
+
+ Residual Variances
+    P1                 0.002      0.000     16.372      0.000
+    P2                 0.002      0.000     16.372      0.000
+    P3                 0.002      0.000     16.372      0.000
+    P4                 0.002      0.000     16.372      0.000
+    P5                 0.002      0.000     16.372      0.000
+    P6                 0.002      0.000     16.372      0.000
+    IP                 0.027      0.001     19.267      0.000
+    SP                 0.000      0.000    193.801      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.102E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              P6            BAGE
+              ________      ________
+ 1                  0             0
+
+
+           LAMBDA
+              IP            SP            BAGE
+              ________      ________      ________
+ P1                 0             0             0
+ P2                 0             0             0
+ P3                 0             0             0
+ P4                 0             0             0
+ P5                 0             0             0
+ P6                 0             0             0
+ BAGE               0             0             0
+
+
+           THETA
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1                 1
+ P2                 0             1
+ P3                 0             0             1
+ P4                 0             0             0             1
+ P5                 0             0             0             0             1
+ P6                 0             0             0             0             0
+ BAGE               0             0             0             0             0
+
+
+           THETA
+              P6            BAGE
+              ________      ________
+ P6                 1
+ BAGE               0             0
+
+
+           ALPHA
+              IP            SP            BAGE
+              ________      ________      ________
+ 1                  2             3             0
+
+
+           BETA
+              IP            SP            BAGE
+              ________      ________      ________
+ IP                 0             0             4
+ SP                 0             0             5
+ BAGE               0             0             0
+
+
+           PSI
+              IP            SP            BAGE
+              ________      ________      ________
+ IP                 6
+ SP                 7             8
+ BAGE               0             0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              P6            BAGE
+              ________      ________
+ 1              0.000         0.000
+
+
+           LAMBDA
+              IP            SP            BAGE
+              ________      ________      ________
+ P1             0.000         0.000         0.000
+ P2             0.000         0.000         0.000
+ P3             0.000         0.000         0.000
+ P4             0.000         0.000         0.000
+ P5             0.000         0.000         0.000
+ P6             0.000         0.000         0.000
+ BAGE           0.000         0.000         1.000
+
+
+           THETA
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.017
+ P2             0.000         0.015
+ P3             0.000         0.000         0.016
+ P4             0.000         0.000         0.000         0.016
+ P5             0.000         0.000         0.000         0.000         0.017
+ P6             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              P6            BAGE
+              ________      ________
+ P6             0.012
+ BAGE           0.000         0.000
+
+
+           ALPHA
+              IP            SP            BAGE
+              ________      ________      ________
+ 1              0.865        -0.008         0.000
+
+
+           BETA
+              IP            SP            BAGE
+              ________      ________      ________
+ IP             0.000         0.000         0.000
+ SP             0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000
+
+
+           PSI
+              IP            SP            BAGE
+              ________      ________      ________
+ IP             0.028
+ SP             0.000         0.000
+ BAGE           0.000         0.000        26.676
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\lewina\skydrive\ialsa\m+\u1_male_age_ pulmonary_nocog.dgm
+
+     Beginning Time:  18:08:09
+        Ending Time:  18:08:12
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
