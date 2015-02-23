@@ -1,0 +1,300 @@
+Mplus VERSION 7.2 (Mac)
+MUTHEN & MUTHEN
+02/23/2015   1:21 PM
+
+INPUT INSTRUCTIONS
+
+    TITLE: Hand Strength, Empty Model, Female
+
+    DATA:  File = "/Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat";
+
+  VARIABLE:
+    Names are
+       habcid vstatus ds2dth race gender site CV1AGE Y1pchd1 Y1pchd2 Y1pchd3
+       Y1pchf Y1pcbvd Y1pcvd Y1ppad Y1pdiab1 Y1phbp1 Y1WTK Y1bmi Y1sysbp
+       Y1diabp cesd1 Y1educ wd20m1 wd2min1 wd400m1 Y1hakcal Y1hacat Y1SMK1
+       Y1DRINKER1 Y1CURDRNK1 wd400m2 wd20m2 wd20m3 wd20m4 cesd4 wd400m4 wd20m6
+       cesd6 wd400m6 wd2min6 wd20m8 cesd8 wd400m8 wd2min8 wd20m10 cesd10
+       wd400m10 wd2min10 cesd11 wd20m5 wd2min2 wd2min4 smokecurrent smokeformer
+       educpost educhigh mmmscore1 dss1 faminc tsmarsta self1 lpschool self2
+       clox3 mmmscore3 self3 self4 clox5 mmmscore5 dss5 self5 self6 clox8
+       dss8 mmmscore8 self8 clox10 dss10 mmmscore10 self10 mmmscore11 dss11
+       self11 hand1 hand2 hand4 hand6 hand8 hand10 limit1 limit2 limit3 limit4
+       limit5 limit6 limit8 limit9 limit10 limit11 t1 t2 t3 t4 t5 t6 t8 t10
+       t11;
+
+         MISSING are all (-9999);
+         USEVAR are  t1 t2    t4    t6 t8 t10
+                     Bage
+                     p1 p2    p4    p6 p8 p10;
+         TSCORES =   t1 t2    t4    t6 t8 t10;
+
+         USEOBSERVATIONS are gender EQ 0; ! female=0
+
+
+    Define: p1= hand1;  p2= hand2; p4= hand4;
+            p6= hand6;  p8= hand8; p10= hand10;
+
+            Bage=CV1AGE-80;   !Centered at Age 80
+            !Bagesq=(compage1-80)**2;
+            !Dage=YTDead;
+            !Sex=female;         !0=Male
+            !Educ=Educyrs-7;     ! Centered at 7 years
+            !SEP=SESgrp;
+            !Marstat;
+            !Height
+            !Weight
+            !BMI
+            !SmokHist=Smoke;
+            !Alcohol;
+            !CompExp;
+            !PhysAct;
+            !BP;
+            !DepSymp;
+            !Cardio;
+            !Diab;
+            !MorbInd;
+
+            !BageSex=Bage*Sex;
+            !BageEduc=Bage*Educ;
+            !SexEduc=Sex*Educ;
+
+    ANALYSIS: TYPE = RANDOM;
+
+    MODEL:  ip sp | p1-p10 AT t1-t10;
+
+            ip sp ON Bage;
+
+            p1-p10 (res_p);
+
+    OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  4
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Hand Strength, Empty Model, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1580
+
+Number of dependent variables                                    6
+Number of independent variables                                  1
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P4          P6          P8          P10
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IP          SP
+
+Variables with special functions
+
+  Time scores
+   T1          T2          T4          T6          T8          T10
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  /Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            47
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P4            P6            P8
+              ________      ________      ________      ________      ________
+ P1             0.982
+ P2             0.821         0.832
+ P4             0.766         0.714         0.780
+ P6             0.687         0.635         0.660         0.701
+ P8             0.587         0.544         0.561         0.549         0.598
+ P10            0.538         0.503         0.511         0.496         0.497
+ BAGE           0.982         0.832         0.780         0.701         0.598
+
+
+           Covariance Coverage
+              P10           BAGE
+              ________      ________
+ P10            0.547
+ BAGE           0.547         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P4            P6            P8
+              ________      ________      ________      ________      ________
+ 1             25.006        24.116        24.253        23.310        22.533
+
+
+           Means
+              P10           BAGE
+              ________      ________
+ 1             21.648        -6.506
+
+
+           Covariances
+              P1            P2            P4            P6            P8
+              ________      ________      ________      ________      ________
+ P1            39.820
+ P2            26.530        35.556
+ P4            25.241        25.086        34.487
+ P6            23.773        23.851        25.783        34.150
+ P8            25.292        23.792        26.071        27.564        38.529
+ P10           21.786        21.169        23.004        23.660        26.075
+ BAGE          -2.550        -2.523        -3.220        -3.120        -3.898
+
+
+           Covariances
+              P10           BAGE
+              ________      ________
+ P10           29.426
+ BAGE          -3.510         8.228
+
+
+           Correlations
+              P1            P2            P4            P6            P8
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.705         1.000
+ P4             0.681         0.716         1.000
+ P6             0.645         0.684         0.751         1.000
+ P8             0.646         0.643         0.715         0.760         1.000
+ P10            0.636         0.654         0.722         0.746         0.774
+ BAGE          -0.141        -0.147        -0.191        -0.186        -0.219
+
+
+           Correlations
+              P10           BAGE
+              ________      ________
+ P10            1.000
+ BAGE          -0.226         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -23911.042
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        8
+
+Loglikelihood
+
+          H0 Value                      -20107.382
+          H0 Scaling Correction Factor      3.3700
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   40230.765
+          Bayesian (BIC)                 40273.686
+          Sample-Size Adjusted BIC       40248.272
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.293      0.052     -5.596      0.000
+
+ SP         ON
+    BAGE              -0.017      0.006     -3.047      0.002
+
+ SP       WITH
+    IP                -0.729      0.206     -3.540      0.000
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    P8                 0.000      0.000    999.000    999.000
+    P10                0.000      0.000    999.000    999.000
+    IP                23.334      0.381     61.179      0.000
+    SP                -0.450      0.042    -10.656      0.000
+
+ Residual Variances
+    P1                 9.839      0.753     13.067      0.000
+    P2                 9.839      0.753     13.067      0.000
+    P4                 9.839      0.753     13.067      0.000
+    P6                 9.839      0.753     13.067      0.000
+    P8                 9.839      0.753     13.067      0.000
+    P10                9.839      0.753     13.067      0.000
+    IP                28.346      1.674     16.930      0.000
+    SP                 0.103      0.030      3.477      0.001
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.195E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  13:21:39
+        Ending Time:  13:21:45
+       Elapsed Time:  00:00:06
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
