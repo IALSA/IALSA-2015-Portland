@@ -1,10 +1,6 @@
 Mplus VERSION 7.1
 MUTHEN & MUTHEN
-<<<<<<< HEAD
-02/19/2015   5:47 PM
-=======
-02/19/2015  11:13 PM
->>>>>>> refs/remotes/origin/master
+02/23/2015   2:16 PM
 
 INPUT INSTRUCTIONS
 
@@ -536,23 +532,9 @@ CONFIDENCE INTERVALS OF MODEL RESULTS
     SC              -0.053      -0.029      -0.017       0.046       0.110       0.122       0.145
 
 
-<<<<<<< HEAD
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    z:\home\philippe\git\ialsa-2015-portland\studies\octo\m1_male_full_pulmonary_block.dgm
-
-     Beginning Time:  17:47:21
-        Ending Time:  17:48:03
-       Elapsed Time:  00:00:42
-=======
-     Beginning Time:  23:13:12
-        Ending Time:  23:14:02
-       Elapsed Time:  00:00:50
->>>>>>> refs/remotes/origin/master
+     Beginning Time:  14:16:22
+        Ending Time:  14:17:13
+       Elapsed Time:  00:00:51
 
 
 
