@@ -9,3 +9,13 @@ How to work with this GitHub folder
 ![logl](../libs/images/model_naming_convention.png)
 
 3. After fitting the models , place the output files in the root folder of your study (eg. /octo, /radc, ect). Only the models that have legal names and that have been placed in the proper folder will be added to the pan-study analysis.
+
+## LGM in Mplus
+
+
+
+A [syntax primer](../libs/materials/LGM_Mplus_primer.pdf) offers step-by-step development of univariate models.
+
+
+Graciela Muniz's presentation covers the [syntax for bivariate](../libs/materials/Mplus_muniz.pdf) models and some naming convention used in the current project.
+

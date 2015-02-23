@@ -6,3 +6,15 @@ The IALSA Analysis Workshop ([pdf overview](https://www.dropbox.com/s/a8zmh70ybe
 
 **Analysis Projects: Results will be organized into several "multivariate change" publication sets including Pulmonary Function/Cognition; Walking Speed/Cognition; Grip Strength/Cognition; All Physical; and All Cognitive.**
 
+
+## Desktop setup
+
+Please download and install the following components onto your system
+
+1. [R](http://cran.r-project.org/)
+
+2. [RStudio](http://www.rstudio.com/products/rstudio/)
+
+3. [GitHub](http://www.github.com)
+
+

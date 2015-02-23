@@ -1,0 +1,329 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+02/23/2015   1:55 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: M5 Timed Up & Go, Digit Symbol Substitution, Age Conditional, Male
+
+  DATA:  File = unshared\ilse 22.02.dat;
+
+  VARIABLE: Names are
+   T1SD18 ID SEX t1dss t1bd t1hgl t1hgr t1fs t1fsb
+   t1age center
+   t1beer t1wine t1k t1pc t1vf t1sa
+      t1spf t2dss t2bd t2hgl t2hgr t2fs t2fsb t2beer
+      t2wine t2k t2pc
+      t2vf t2sa t2spf t3dss t3bd t3k t3pc
+      t3vf t3sa t3spf t2age t3age T1TUG t1height
+      t1weight T2TUG t2height t2weight
+      T3TUG t3hgl t3hgr
+      t3height t3weight time1 time2r time3r time3 time2
+      BMI1 BMI2 BMI3 no_sec
+      Haupts Reals Secondary
+      specials others;
+
+         MISSING are ALL (-9999); !specification of missing observations coded in data file
+         USEVAR are  time1 time2 time3
+                     p1 p2 p3
+                     c1 c2 c3
+                     Bage;
+         TSCORES =   time1 time2 time3;
+
+         USEOBSERVATIONS are sex EQ 0;
+
+  Define: p1=T1TUG; p2=T2TUG; p3=T2TUG;
+          c1=t1dss; c2=t2dss; c3=t3dss;
+          Bage=t1age-60;   !Centered at Age 60
+          Bagesq=(t1age-60)**2;
+
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp | p1-p3 AT time1-time3;
+          ic sc | c1-c3 AT time1-time3;
+
+          ip sp ic sc ON Bage;
+
+          p1-p3 (res_p);
+          c1-c3 (res_c);
+
+          p1-p3 pwith c1-c3(res_cov);
+          !Paired covariances constrained to be equal across time
+
+  OUTPUT: sampstat Cinterval;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  7
+*** WARNING
+  Data set contains cases with missing on time scores but non-missing on the
+  corresponding dependent variables.  These cases were not included in the analysis.
+  Number of such cases:  196
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M5 Timed Up & Go, Digit Symbol Substitution, Age Conditional, Male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                          84
+
+Number of dependent variables                                    6
+Number of independent variables                                  1
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          C1          C2          C3
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  unshared\ilse 22.02.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             6
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             0.976
+ P2             0.429         0.429
+ P3             0.429         0.429         0.429
+ C1             0.976         0.429         0.429         1.000
+ C2             0.952         0.417         0.417         0.952         0.952
+ C3             0.071         0.071         0.071         0.071         0.071
+ BAGE           0.976         0.429         0.429         1.000         0.952
+
+
+           Covariance Coverage
+              C3            BAGE
+              ________      ________
+ C3             0.071
+ BAGE           0.071         1.000
+
+     THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT.  THE MISSING
+     DATA EM ALGORITHM WILL NOT BE INITIATED.  CHECK YOUR DATA OR LOWER THE
+     COVARIANCE COVERAGE LIMIT.
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ 1        ***********        90.254        90.254        42.440         7.252
+
+
+           Means
+              C3            BAGE
+              ________      ________
+ 1             33.423         2.607
+
+
+           Covariances
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1       ***********
+ P2       ***********      6460.761
+ P3       ***********      6460.213      6460.761
+ C1       ***********       -79.447       -79.447        97.532
+ C2       ***********       232.807       232.807        27.944       152.908
+ C3       ***********      -174.332      -174.332       100.086        47.543
+ BAGE     ***********         6.067         6.067         0.673         2.208
+
+
+           Covariances
+              C3            BAGE
+              ________      ________
+ C3           164.054
+ BAGE          -0.205         0.858
+
+
+           Correlations
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2            -0.375         1.000
+ P3            -0.375         1.000         1.000
+ C1            -0.117        -0.100        -0.100         1.000
+ C2            -0.182         0.234         0.234         0.229         1.000
+ C3            -0.554        -0.169        -0.169         0.791         0.300
+ BAGE          -0.273         0.082         0.082         0.074         0.193
+
+
+           Correlations
+              C3            BAGE
+              ________      ________
+ C3             1.000
+ BAGE          -0.017         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -3451.259
+
+     THE ESTIMATED COVARIANCE MATRIX IS NOT POSITIVE DEFINITE AS IT SHOULD BE.
+     COMPUTATION COULD NOT BE COMPLETED.
+     PROBLEM INVOLVING VARIABLE SP.
+
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN ERROR IN THE
+     COMPUTATION.  CHANGE YOUR MODEL AND/OR STARTING VALUES.
+
+
+
+
+
+
+MODEL RESULTS
+
+                    Estimate
+
+ IP         ON
+    BAGE               0.000
+
+ SP         ON
+    BAGE               0.000
+
+ IC         ON
+    BAGE               0.000
+
+ SC         ON
+    BAGE               0.000
+
+ SP       WITH
+    IP                 0.000
+
+ IC       WITH
+    IP                 0.000
+    SP                 0.000
+
+ SC       WITH
+    IP                 0.000
+    SP                 0.000
+    IC                 0.000
+
+ P1       WITH
+    C1                 0.000
+
+ P2       WITH
+    C2                 0.000
+
+ P3       WITH
+    C3                 0.000
+
+ Intercepts
+    P1                 0.000
+    P2                 0.000
+    P3                 0.000
+    C1                 0.000
+    C2                 0.000
+    C3                 0.000
+    IP             *********
+    SP             *********
+    IC                10.735
+    SC                12.867
+
+ Residual Variances
+    P1              3458.256
+    P2              3458.256
+    P3              3458.256
+    C1                88.533
+    C2                88.533
+    C3                88.533
+    IP             *********
+    SP             *********
+    IC               668.918
+    SC               336.031
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     ip sp | p1-p3 AT time1-time3;
+     ic sc | c1-c3 AT time1-time3;
+
+     ip ON bage*0;
+     sp ON bage*0;
+     ic ON bage*0;
+     sc ON bage*0;
+
+     p1 WITH c1*0 (res_cov);
+     p2 WITH c2*0 (res_cov);
+     p3 WITH c3*0 (res_cov);
+     sp WITH ip*0;
+     ic WITH ip*0;
+     ic WITH sp*0;
+     sc WITH ip*0;
+     sc WITH sp*0;
+     sc WITH ic*0;
+
+     [ p1@0 ];
+     [ p2@0 ];
+     [ p3@0 ];
+     [ c1@0 ];
+     [ c2@0 ];
+     [ c3@0 ];
+     [ ip**************** ];
+     [ sp**************** ];
+     [ ic*10.73454 ];
+     [ sc*12.86701 ];
+
+     p1*3458.25562 (res_p);
+     p2*3458.25562 (res_p);
+     p3*3458.25562 (res_p);
+     c1*88.53333 (res_c);
+     c2*88.53333 (res_c);
+     c3*88.53333 (res_c);
+     ip****************;
+     sp****************;
+     ic*668.91846;
+     sc*336.03149;
+
+

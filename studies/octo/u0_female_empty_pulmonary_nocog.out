@@ -1,0 +1,543 @@
+<<<<<<< HEAD:studies/octo/m0_female_empty_pulmonary.out
+Mplus VERSION 7.1
+MUTHEN & MUTHEN
+02/23/2015   2:15 PM
+
+INPUT INSTRUCTIONS
+
+    TITLE: Pulmonary Function, Empty Model, Female
+
+    DATA:  File = unshared\octomult_12aug2010.dat;
+
+    VARIABLE: Names are
+       Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp Smoke
+       SESChild SESChOth  HlthLif CogPrev LonelyE
+       Dead DeadAge YTDead TotDem DemEver DemType DemAge YTDem
+       time1 time2 time3 time4 time5
+       dedtime1 dedtime2 dedtime3 dedtime4 dedtime5 tvdead1 tvdead2 tvdead3 tvdead4 tvdead5
+       demtime1 demtime2 demtime3 demtime4 demtime5 tvdem1 tvdem2 tvdem3 tvdem4 tvdem5
+       CompAge1-CompAge5 Marital1-Marital5 weight1-weight5 height1-height5 bmi1-bmi5
+       SRhlth1-SRhlth5 living1-living5
+       SR2hlth1-SR2hlth5 SROhlth1-SROhlth5 HlthPrv1-HlthPrv5 HlthTra1-HlthTra5
+       CogPres1-CogPres5 AGames1-AGames5 ACross1-ACross5
+       ALiter1-ALiter5 AWrite1-AWrite5 AStudy1-AStudy5 AOther1-AOther5
+       LonelyP1-LonelyP5 FrTalk1-FrTalk5 FrPart1-FrPart5
+       LackCo1-LackCo5 Abandon1-Abandon5 NumFr1-NumFr5 NumPref1-NumPref5 SeeChGr1-SeeChGr5
+       pek1-pek5 gripp1-gripp5 chr5tim1-chr5tim5 padl1-padl5 iadl1-iadl5
+       digspf1-digspf5 digspb1-digspb5 prose1-prose5 block1-block5 info1-info5
+       synnum1-synnum5 figure1-figure5 digsym1-digsym5 psif1-psif5
+       mirnam1-mirnam5 mirrcl1-mirrcl5 mirrcg1-mirrcg5 mircor1-mircor5 clock1-clock5
+       mmse1-mmse5 mismmse1-mismmse5 fmmse1-fmmse5
+       highBP1-highBP5 sbp1-sbp5 dbp1-dbp5 diab1-diab5;
+
+           MISSING are .;
+           USEVAR are  time1 time2 time3 time4 time5
+                       p1 p2 p3 p4 p5;
+           TSCORES =   time1 time2 time3 time4 time5;
+
+           USEOBSERVATIONS are DemEver EQ 0 and female EQ 1;
+
+    Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
+
+            Bage=compage1-80;   !Centered at Age 80
+            Bagesq=(compage1-80)**2;
+            Dage=YTDead;
+            Sex=female;         !0=Male
+            Educ=Educyrs-7;     ! Centered at 7 years
+            SEP=SESgrp;
+            !Marstat;
+            !Height
+            !Weight
+            !BMI
+            SmokHist=Smoke;
+            !Alcohol;
+            !CompExp;
+            !PhysAct;
+            !BP;
+            !DepSymp;
+            !Cardio;
+            !Diab;
+            !MorbInd;
+
+            BageSex=Bage*Sex;
+            BageEduc=Bage*Educ;
+            SexEduc=Sex*Educ;
+
+    ANALYSIS: TYPE = RANDOM;
+
+    MODEL:  ip | p1-p5 AT time1-time5;
+
+            p1-p5 (res_p);
+
+    OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  60
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Pulmonary Function, Empty Model, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         251
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5
+
+Continuous latent variables
+   IP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  unshared\octomult_12aug2010.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            22
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.892
+ P2             0.614         0.697
+ P3             0.454         0.474         0.514
+ P4             0.402         0.398         0.398         0.442
+ P5             0.291         0.295         0.295         0.291         0.315
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1            285.176       295.369       282.477       258.034       237.407
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1          6623.552
+ P2          4651.055      7427.958
+ P3          3830.787      4563.106      6080.479
+ P4          2961.010      3885.593      4289.170      5476.655
+ P5          3070.011      4555.596      4240.234      3958.578      5729.018
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.663         1.000
+ P3             0.604         0.679         1.000
+ P4             0.492         0.609         0.743         1.000
+ P5             0.498         0.698         0.718         0.707         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -3994.977
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        3
+
+Loglikelihood
+
+          H0 Value                       -4056.054
+          H0 Scaling Correction Factor      1.2145
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    8118.108
+          Bayesian (BIC)                  8128.684
+          Sample-Size Adjusted BIC        8119.174
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Means
+    IP               280.608      4.573     61.358      0.000
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+
+ Variances
+    IP              3896.133    458.322      8.501      0.000
+
+ Residual Variances
+    P1              2801.134    246.224     11.376      0.000
+    P2              2801.134    246.224     11.376      0.000
+    P3              2801.134    246.224     11.376      0.000
+    P4              2801.134    246.224     11.376      0.000
+    P5              2801.134    246.224     11.376      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.154E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  14:15:57
+        Ending Time:  14:15:58
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
+=======
+Mplus VERSION 7.3
+MUTHEN & MUTHEN
+02/20/2015   2:29 PM
+
+INPUT INSTRUCTIONS
+
+    TITLE: Pulmonary Function, Empty Model, Female
+
+    DATA:  File = unshared\octomult_12aug2010.dat;
+
+    VARIABLE: Names are
+       Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp Smoke
+       SESChild SESChOth  HlthLif CogPrev LonelyE
+       Dead DeadAge YTDead TotDem DemEver DemType DemAge YTDem
+       time1 time2 time3 time4 time5
+       dedtime1 dedtime2 dedtime3 dedtime4 dedtime5 tvdead1 tvdead2 tvdead3 tvdead4 tvdead5
+       demtime1 demtime2 demtime3 demtime4 demtime5 tvdem1 tvdem2 tvdem3 tvdem4 tvdem5
+       CompAge1-CompAge5 Marital1-Marital5 weight1-weight5 height1-height5 bmi1-bmi5
+       SRhlth1-SRhlth5 living1-living5
+       SR2hlth1-SR2hlth5 SROhlth1-SROhlth5 HlthPrv1-HlthPrv5 HlthTra1-HlthTra5
+       CogPres1-CogPres5 AGames1-AGames5 ACross1-ACross5
+       ALiter1-ALiter5 AWrite1-AWrite5 AStudy1-AStudy5 AOther1-AOther5
+       LonelyP1-LonelyP5 FrTalk1-FrTalk5 FrPart1-FrPart5
+       LackCo1-LackCo5 Abandon1-Abandon5 NumFr1-NumFr5 NumPref1-NumPref5 SeeChGr1-SeeChGr5
+       pek1-pek5 gripp1-gripp5 chr5tim1-chr5tim5 padl1-padl5 iadl1-iadl5
+       digspf1-digspf5 digspb1-digspb5 prose1-prose5 block1-block5 info1-info5
+       synnum1-synnum5 figure1-figure5 digsym1-digsym5 psif1-psif5
+       mirnam1-mirnam5 mirrcl1-mirrcl5 mirrcg1-mirrcg5 mircor1-mircor5 clock1-clock5
+       mmse1-mmse5 mismmse1-mismmse5 fmmse1-fmmse5
+       highBP1-highBP5 sbp1-sbp5 dbp1-dbp5 diab1-diab5;
+
+           MISSING are .;
+           USEVAR are  time1 time2 time3 time4 time5
+                       p1 p2 p3 p4 p5;
+           TSCORES =   time1 time2 time3 time4 time5;
+
+           USEOBSERVATIONS are DemEver EQ 0 and female EQ 1;
+
+    Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
+
+            Bage=compage1-80;   !Centered at Age 80
+            Bagesq=(compage1-80)**2;
+            Dage=YTDead;
+            Sex=female;         !0=Male
+            Educ=Educyrs-7;     ! Centered at 7 years
+            SEP=SESgrp;
+            !Marstat;
+            !Height
+            !Weight
+            !BMI
+            SmokHist=Smoke;
+            !Alcohol;
+            !CompExp;
+            !PhysAct;
+            !BP;
+            !DepSymp;
+            !Cardio;
+            !Diab;
+            !MorbInd;
+
+            BageSex=Bage*Sex;
+            BageEduc=Bage*Educ;
+            SexEduc=Sex*Educ;
+
+    ANALYSIS: TYPE = RANDOM;
+
+    MODEL:  ip | p1-p5 AT time1-time5;
+
+            p1-p5 (res_p);
+
+    OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  60
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Pulmonary Function, Empty Model, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         251
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5
+
+Continuous latent variables
+   IP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  unshared\octomult_12aug2010.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            22
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.892
+ P2             0.614         0.697
+ P3             0.454         0.474         0.514
+ P4             0.402         0.398         0.398         0.442
+ P5             0.291         0.295         0.295         0.291         0.315
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1            285.176       295.369       282.477       258.034       237.407
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1          6623.552
+ P2          4651.055      7427.958
+ P3          3830.787      4563.106      6080.479
+ P4          2961.010      3885.593      4289.170      5476.655
+ P5          3070.011      4555.596      4240.234      3958.578      5729.018
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.663         1.000
+ P3             0.604         0.679         1.000
+ P4             0.492         0.609         0.743         1.000
+ P5             0.498         0.698         0.718         0.707         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -3994.977
+
+
+UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P1                  288.929      -0.305     100.000    1.79%     220.000    275.000    300.000
+             224.000    6484.566      -0.248     520.000    0.45%     310.000    350.000
+     P2                  303.457      -0.102     100.000    1.71%     240.000    290.000    310.000
+             175.000    6957.905       0.073     540.000    0.57%     320.000    370.000
+     P3                  297.054      -0.072     100.000    0.78%     230.000    270.000    300.000
+             129.000    5692.098      -0.100     500.000    0.78%     320.000    350.000
+     P4                  268.739       0.408     110.000    0.90%     210.000    250.000    250.000
+             111.000    5347.959       0.160     500.000    0.90%     270.000    340.000
+     P5                  257.342       0.179      60.000    1.27%     200.000    240.000    250.000
+              79.000    5414.453       0.030     450.000    1.27%     260.000    320.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        3
+
+Loglikelihood
+
+          H0 Value                       -4056.054
+          H0 Scaling Correction Factor      1.2145
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    8118.108
+          Bayesian (BIC)                  8128.684
+          Sample-Size Adjusted BIC        8119.174
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Means
+    IP               280.604      4.573     61.356      0.000
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+
+ Variances
+    IP              3897.972    458.477      8.502      0.000
+
+ Residual Variances
+    P1              2799.633    245.963     11.382      0.000
+    P2              2799.633    245.963     11.382      0.000
+    P3              2799.633    245.963     11.382      0.000
+    P4              2799.633    245.963     11.382      0.000
+    P5              2799.633    245.963     11.382      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.154E-01
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\koval_000\documents\github\ialsa-2015-portland\studies\octo\unshared\koval\u0_female_em
+
+     Beginning Time:  14:29:31
+        Ending Time:  14:29:32
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
+>>>>>>> refs/remotes/origin/master:studies/octo/u0_female_empty_pulmonary_nocog.out
