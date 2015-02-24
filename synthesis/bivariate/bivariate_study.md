@@ -113,13 +113,12 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by Will at 2015-02-23, 18:11 -0600
+Report rendered by koval_000 at 2015-02-23, 16:12 Pacific Standard Time
 ```
 
 ```
-R version 3.1.2 Patched (2015-02-19 r67842)
+R version 3.0.3 (2014-03-06)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 8 x64 (build 9200)
 
 locale:
 [1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
@@ -129,10 +128,10 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] testit_0.4         ggplot2_1.0.0      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.9         
+[1] testit_0.3         ggplot2_1.0.0      RColorBrewer_1.0-5 scales_0.2.4       knitr_1.9         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.8     evaluate_0.5.5   formatR_1.0      grid_3.1.2       gtable_0.1.2    
- [7] htmltools_0.2.6  MASS_7.3-39      munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.4     
-[13] reshape2_1.4.1   rmarkdown_0.5.1  stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
+ [1] colorspace_1.2-4 digest_0.6.8     evaluate_0.5.5   formatR_1.0      grid_3.0.3       gtable_0.1.2    
+ [7] htmltools_0.2.6  MASS_7.3-35      munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.2     
+[13] reshape2_1.4     rmarkdown_0.4.2  stringr_0.6.2    tools_3.0.3      yaml_2.1.13     
 ```
