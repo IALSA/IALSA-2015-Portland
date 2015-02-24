@@ -1,6 +1,6 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-02/24/2015   8:34 AM
+02/24/2015   9:59 AM
 
 INPUT INSTRUCTIONS
 
@@ -28,8 +28,8 @@ INPUT INSTRUCTIONS
 
     Define: c1=t1bd; c2=t2bd; c3=t3bd;
 
-            Bage=t1age-60;   !Centered at Age 80
-            Bagesq=(t1age-60)**2;
+            Bage=t1age-70;   !Centered at Age 70
+            Bagesq=(t1age-70)**2;
 
 
     ANALYSIS: TYPE = RANDOM;
@@ -206,8 +206,8 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\u0_male_empty_nophy
 
-     Beginning Time:  08:34:11
-        Ending Time:  08:34:11
+     Beginning Time:  09:59:48
+        Ending Time:  09:59:48
        Elapsed Time:  00:00:00
 
 
