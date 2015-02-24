@@ -1,11 +1,11 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-02/24/2015  11:22 AM
+02/24/2015  11:32 AM
 
 INPUT INSTRUCTIONS
 
 
-      TITLE: M4 Pulmonary Function, Linear LGM, Fully Conditional, Female
+      TITLE: M3 Pulmonary Function, Quadratic LGM, Age Conditional, Male
 
       DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
 
@@ -296,7 +296,7 @@ INPUT INSTRUCTIONS
                        !Bage;
              TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8 time9;
 
-            USEOBSERVATIONS are DemEver EQ 0 and sex EQ 1;
+            USEOBSERVATIONS are DemEver EQ 0 and sex EQ 0;
 
       Define: p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
       p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
@@ -305,7 +305,7 @@ INPUT INSTRUCTIONS
              ! c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
               !           c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	c9=Blockraw_9;	
 
-             Bage=AgeAtWaveOne-70;   !Centered at Age 80
+             Bage=AgeAtWaveOne-70;   !Centered at Age 70
               Bagesq=(AgeatWaveOne-70)**2;
               Dage=deathage;
               !female=sex;         !0=Male
@@ -341,8 +341,8 @@ INPUT INSTRUCTIONS
       ANALYSIS: TYPE = RANDOM;
 
       MODEL:  !ip| p1-p9 AT time1-time9;
-      ip sp | p1-p9 AT time1-time9;
-      ip sp ON Bage ;
+      ip sp qp| p1-p9 AT time1-time9;
+      ip sp qp ON Bage ;
 
              ! ic sc | c1-c9 AT time1-time9;
 
@@ -369,21 +369,21 @@ INPUT INSTRUCTIONS
 *** WARNING
   Data set contains cases with missing on all variables except
   x-variables.  These cases were not included in the analysis.
-  Number of cases with missing on all variables except x-variables:  383
+  Number of cases with missing on all variables except x-variables:  262
    1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
 
 
 
-M4 Pulmonary Function, Linear LGM, Fully Conditional, Female
+M3 Pulmonary Function, Quadratic LGM, Age Conditional, Male
 
 SUMMARY OF ANALYSIS
 
 Number of groups                                                 1
-Number of observations                                         217
+Number of observations                                         122
 
 Number of dependent variables                                    9
 Number of independent variables                                  1
-Number of continuous latent variables                            2
+Number of continuous latent variables                            3
 
 Observed dependent variables
 
@@ -395,7 +395,7 @@ Observed independent variables
    BAGE
 
 Continuous latent variables
-   IP          SP
+   IP          SP          QP
 
 Variables with special functions
 
@@ -426,7 +426,7 @@ Input data format  FREE
 
 SUMMARY OF DATA
 
-     Number of missing data patterns            61
+     Number of missing data patterns            38
 
 
 COVARIANCE COVERAGE OF DATA
@@ -440,26 +440,26 @@ Minimum covariance coverage value   0.100
            Covariance Coverage
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
- P1             0.687
- P2             0.392         0.465
- P3             0.290         0.276         0.406
- P4             0.230         0.235         0.281         0.392
- P5             0.184         0.175         0.235         0.286         0.387
- P6             0.152         0.129         0.203         0.212         0.226
- P7             0.106         0.092         0.129         0.152         0.189
- P8             0.032         0.037         0.078         0.092         0.134
- P9             0.014         0.009         0.051         0.055         0.078
- BAGE           0.687         0.465         0.406         0.392         0.387
+ P1             0.598
+ P2             0.443         0.533
+ P3             0.328         0.344         0.475
+ P4             0.270         0.270         0.336         0.484
+ P5             0.148         0.180         0.197         0.320         0.418
+ P6             0.131         0.172         0.148         0.230         0.246
+ P7             0.090         0.090         0.090         0.156         0.164
+ P8             0.025         0.025         0.025         0.082         0.090
+ P9             0.000         0.008         0.008         0.057         0.057
+ BAGE           0.598         0.533         0.475         0.484         0.418
 
 
            Covariance Coverage
               P6            P7            P8            P9            BAGE
               ________      ________      ________      ________      ________
- P6             0.267
- P7             0.161         0.198
- P8             0.097         0.097         0.138
- P9             0.060         0.055         0.078         0.083
- BAGE           0.267         0.198         0.138         0.083         1.000
+ P6             0.279
+ P7             0.164         0.180
+ P8             0.090         0.107         0.107
+ P9             0.057         0.066         0.066         0.074
+ BAGE           0.279         0.180         0.107         0.074         1.000
 
      THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT.  THE MISSING
      DATA EM ALGORITHM WILL NOT BE INITIATED.  CHECK YOUR DATA OR LOWER THE
@@ -479,26 +479,26 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
          Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
         Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
 
-     P1                  261.906       0.146     110.000    1.34%     200.000    250.000    250.000
-             149.000    5879.105      -0.192     500.000    0.67%     280.000    320.000
-     P2                  245.297       1.347     100.000    2.97%     170.000    210.000    240.000
-             101.000    7898.922       5.168     700.000    0.99%     260.000    300.000
-     P3                  239.625       0.288     100.000    1.14%     170.000    210.000    230.000
-              88.000    5793.462      -0.489     440.000    1.14%     250.000    310.000
-     P4                  231.541       1.715     100.000    3.53%     170.000    200.000    240.000
-              85.000    6212.342       7.542     650.000    1.18%     250.000    280.000
-     P5                  224.595       0.599     100.000    3.57%     150.000    200.000    220.000
-              84.000    6225.193       0.408     480.000    1.19%     240.000    300.000
-     P6                  206.552       0.789     100.000    6.90%     140.000    180.000    200.000
-              58.000    5957.075       0.428     450.000    1.72%     210.000    250.000
-     P7                  193.256       0.770     100.000   11.63%     120.000    160.000    180.000
-              43.000    6063.818      -0.100     400.000    2.33%     200.000    250.000
-     P8                  219.467      -0.017     110.000    6.67%     150.000    200.000    230.000
-              30.000    4068.249      -0.697     350.000    3.33%     240.000    280.000
-     P9                  206.667       0.114     120.000   16.67%     150.000    180.000    205.000
-              18.000    3600.000      -1.102     310.000    5.56%     220.000    240.000
-     BAGE                  8.427       0.485       0.379    0.46%       3.331      6.348      7.697
-             217.000      26.394      -0.417      25.962    0.46%       9.376     13.929
+     P1                  392.877       0.747     160.000    1.37%     300.000    350.000    400.000
+              73.000   15253.368       1.227     850.000    1.37%     410.000    480.000
+     P2                  386.800       0.583     150.000    1.54%     260.000    350.000    360.000
+              65.000   16615.360       0.869     850.000    1.54%     410.000    500.000
+     P3                  381.810       0.857     150.000    1.72%     275.000    320.000    367.500
+              58.000   19651.464       1.032     860.000    1.72%     400.000    500.000
+     P4                  360.305       0.071     100.000    1.69%     240.000    320.000    360.000
+              59.000   15525.398      -0.627     650.000    1.69%     400.000    460.000
+     P5                  355.275       0.020     150.000    5.88%     250.000    300.000    350.000
+              51.000   13711.807      -0.681     650.000    1.96%     400.000    460.000
+     P6                  338.941       0.579     120.000    2.94%     250.000    300.000    350.000
+              34.000   12548.761       0.900     680.000    2.94%     350.000    420.000
+     P7                  337.273       0.695     110.000    4.55%     220.000    280.000    300.000
+              22.000   15547.107       0.369     670.000    4.55%     320.000    450.000
+     P8                  340.462       0.361     200.000    7.69%     246.000    290.000    310.000
+              13.000    9387.172      -1.156     500.000   15.38%     340.000    400.000
+     P9                  307.778       0.416     180.000   11.11%     230.000    260.000    300.000
+               9.000    7306.173      -0.727     470.000   11.11%     300.000    360.000
+     BAGE                  7.783       0.371      -0.379    0.82%       2.860      6.047      7.273
+             122.000      25.233      -0.795      21.209    0.82%       8.609     12.464
 
 
 THE MODEL ESTIMATION TERMINATED NORMALLY
@@ -516,19 +516,19 @@ THE MODEL ESTIMATION TERMINATED NORMALLY
 
 MODEL FIT INFORMATION
 
-Number of Free Parameters                        8
+Number of Free Parameters                       13
 
 Loglikelihood
 
-          H0 Value                       -3608.299
-          H0 Scaling Correction Factor      2.0289
+          H0 Value                       -2296.379
+          H0 Scaling Correction Factor      1.3150
             for MLR
 
 Information Criteria
 
-          Akaike (AIC)                    7232.598
-          Bayesian (BIC)                  7259.637
-          Sample-Size Adjusted BIC        7234.286
+          Akaike (AIC)                    4618.758
+          Bayesian (BIC)                  4655.211
+          Sample-Size Adjusted BIC        4614.107
             (n* = (n + 2) / 24)
 
 
@@ -539,13 +539,20 @@ MODEL RESULTS
                     Estimate       S.E.  Est./S.E.    P-Value
 
  IP         ON
-    BAGE              -4.112      1.225     -3.356      0.001
+    BAGE              -3.119      3.391     -0.920      0.358
 
  SP         ON
-    BAGE              -0.215      0.252     -0.854      0.393
+    BAGE              -1.267      1.654     -0.766      0.444
+
+ QP         ON
+    BAGE               0.127      0.189      0.673      0.501
 
  SP       WITH
-    IP              -472.758    169.123     -2.795      0.005
+    IP             -1434.967   2349.716     -0.611      0.541
+
+ QP       WITH
+    IP                22.561    236.665      0.095      0.924
+    SP               -58.363    232.847     -0.251      0.802
 
  Intercepts
     P1                 0.000      0.000    999.000    999.000
@@ -557,26 +564,28 @@ MODEL RESULTS
     P7                 0.000      0.000    999.000    999.000
     P8                 0.000      0.000    999.000    999.000
     P9                 0.000      0.000    999.000    999.000
-    IP               322.922     12.406     26.030      0.000
-    SP               -15.027      2.703     -5.560      0.000
+    IP               440.968     36.033     12.238      0.000
+    SP                -3.520     14.023     -0.251      0.802
+    QP                -1.318      1.543     -0.854      0.393
 
  Residual Variances
-    P1              1692.683    385.475      4.391      0.000
-    P2              1692.683    385.475      4.391      0.000
-    P3              1692.683    385.475      4.391      0.000
-    P4              1692.683    385.475      4.391      0.000
-    P5              1692.683    385.475      4.391      0.000
-    P6              1692.683    385.475      4.391      0.000
-    P7              1692.683    385.475      4.391      0.000
-    P8              1692.683    385.475      4.391      0.000
-    P9              1692.683    385.475      4.391      0.000
-    IP              5364.970    768.572      6.980      0.000
-    SP               118.948     38.882      3.059      0.002
+    P1              4602.426    794.691      5.791      0.000
+    P2              4602.426    794.691      5.791      0.000
+    P3              4602.426    794.691      5.791      0.000
+    P4              4602.426    794.691      5.791      0.000
+    P5              4602.426    794.691      5.791      0.000
+    P6              4602.426    794.691      5.791      0.000
+    P7              4602.426    794.691      5.791      0.000
+    P8              4602.426    794.691      5.791      0.000
+    P9              4602.426    794.691      5.791      0.000
+    IP             12666.433   5286.648      2.396      0.017
+    SP               906.051   1929.393      0.470      0.639
+    QP                 4.591     28.179      0.163      0.871
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.118E-02
+     Condition Number for the Information Matrix              0.689E-06
        (ratio of smallest to largest eigenvalue)
 
 
@@ -586,11 +595,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\u1_female_full_pulmonary
+    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\u2_male_age_pulmonary_no
 
-     Beginning Time:  11:22:07
-        Ending Time:  11:22:08
-       Elapsed Time:  00:00:01
+     Beginning Time:  11:32:18
+        Ending Time:  11:32:27
+       Elapsed Time:  00:00:09
 
 
 

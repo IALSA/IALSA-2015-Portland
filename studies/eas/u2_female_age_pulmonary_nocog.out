@@ -1,11 +1,11 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-02/24/2015  11:22 AM
+02/24/2015  11:31 AM
 
 INPUT INSTRUCTIONS
 
 
-      TITLE: M4 Pulmonary Function, Linear LGM, Fully Conditional, Female
+      TITLE: M3 Pulmonary Function, Quadratic LGM, Age Conditional, Female
 
       DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
 
@@ -305,7 +305,7 @@ INPUT INSTRUCTIONS
              ! c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
               !           c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	c9=Blockraw_9;	
 
-             Bage=AgeAtWaveOne-70;   !Centered at Age 80
+             Bage=AgeAtWaveOne-70;   !Centered at Age 70
               Bagesq=(AgeatWaveOne-70)**2;
               Dage=deathage;
               !female=sex;         !0=Male
@@ -341,8 +341,8 @@ INPUT INSTRUCTIONS
       ANALYSIS: TYPE = RANDOM;
 
       MODEL:  !ip| p1-p9 AT time1-time9;
-      ip sp | p1-p9 AT time1-time9;
-      ip sp ON Bage ;
+      ip sp qp| p1-p9 AT time1-time9;
+      ip sp qp ON Bage ;
 
              ! ic sc | c1-c9 AT time1-time9;
 
@@ -374,7 +374,7 @@ INPUT INSTRUCTIONS
 
 
 
-M4 Pulmonary Function, Linear LGM, Fully Conditional, Female
+M3 Pulmonary Function, Quadratic LGM, Age Conditional, Female
 
 SUMMARY OF ANALYSIS
 
@@ -383,7 +383,7 @@ Number of observations                                         217
 
 Number of dependent variables                                    9
 Number of independent variables                                  1
-Number of continuous latent variables                            2
+Number of continuous latent variables                            3
 
 Observed dependent variables
 
@@ -395,7 +395,7 @@ Observed independent variables
    BAGE
 
 Continuous latent variables
-   IP          SP
+   IP          SP          QP
 
 Variables with special functions
 
@@ -516,19 +516,19 @@ THE MODEL ESTIMATION TERMINATED NORMALLY
 
 MODEL FIT INFORMATION
 
-Number of Free Parameters                        8
+Number of Free Parameters                       13
 
 Loglikelihood
 
-          H0 Value                       -3608.299
-          H0 Scaling Correction Factor      2.0289
+          H0 Value                       -3584.490
+          H0 Scaling Correction Factor      1.7220
             for MLR
 
 Information Criteria
 
-          Akaike (AIC)                    7232.598
-          Bayesian (BIC)                  7259.637
-          Sample-Size Adjusted BIC        7234.286
+          Akaike (AIC)                    7194.979
+          Bayesian (BIC)                  7238.918
+          Sample-Size Adjusted BIC        7197.722
             (n* = (n + 2) / 24)
 
 
@@ -539,13 +539,20 @@ MODEL RESULTS
                     Estimate       S.E.  Est./S.E.    P-Value
 
  IP         ON
-    BAGE              -4.112      1.225     -3.356      0.001
+    BAGE              -2.745      1.719     -1.597      0.110
 
  SP         ON
-    BAGE              -0.215      0.252     -0.854      0.393
+    BAGE              -1.006      0.911     -1.104      0.270
+
+ QP         ON
+    BAGE               0.088      0.098      0.893      0.372
 
  SP       WITH
-    IP              -472.758    169.123     -2.795      0.005
+    IP             -2505.408    907.328     -2.761      0.006
+
+ QP       WITH
+    IP               157.216     79.706      1.972      0.049
+    SP              -127.633     39.502     -3.231      0.001
 
  Intercepts
     P1                 0.000      0.000    999.000    999.000
@@ -557,26 +564,28 @@ MODEL RESULTS
     P7                 0.000      0.000    999.000    999.000
     P8                 0.000      0.000    999.000    999.000
     P9                 0.000      0.000    999.000    999.000
-    IP               322.922     12.406     26.030      0.000
-    SP               -15.027      2.703     -5.560      0.000
+    IP               301.988     18.091     16.693      0.000
+    SP                -6.059      9.441     -0.642      0.521
+    QP                -0.600      0.959     -0.625      0.532
 
  Residual Variances
-    P1              1692.683    385.475      4.391      0.000
-    P2              1692.683    385.475      4.391      0.000
-    P3              1692.683    385.475      4.391      0.000
-    P4              1692.683    385.475      4.391      0.000
-    P5              1692.683    385.475      4.391      0.000
-    P6              1692.683    385.475      4.391      0.000
-    P7              1692.683    385.475      4.391      0.000
-    P8              1692.683    385.475      4.391      0.000
-    P9              1692.683    385.475      4.391      0.000
-    IP              5364.970    768.572      6.980      0.000
-    SP               118.948     38.882      3.059      0.002
+    P1              1310.363    355.104      3.690      0.000
+    P2              1310.363    355.104      3.690      0.000
+    P3              1310.363    355.104      3.690      0.000
+    P4              1310.363    355.104      3.690      0.000
+    P5              1310.363    355.104      3.690      0.000
+    P6              1310.363    355.104      3.690      0.000
+    P7              1310.363    355.104      3.690      0.000
+    P8              1310.363    355.104      3.690      0.000
+    P9              1310.363    355.104      3.690      0.000
+    IP              8225.540   1939.130      4.242      0.000
+    SP              1527.462    445.844      3.426      0.001
+    QP                11.662      3.593      3.245      0.001
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.118E-02
+     Condition Number for the Information Matrix              0.480E-05
        (ratio of smallest to largest eigenvalue)
 
 
@@ -586,11 +595,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\u1_female_full_pulmonary
+    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\u2_female_age_pulmonary_
 
-     Beginning Time:  11:22:07
-        Ending Time:  11:22:08
-       Elapsed Time:  00:00:01
+     Beginning Time:  11:31:05
+        Ending Time:  11:31:07
+       Elapsed Time:  00:00:02
 
 
 

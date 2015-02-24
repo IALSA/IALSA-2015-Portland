@@ -1,11 +1,11 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-02/24/2015  11:22 AM
+02/24/2015  10:09 AM
 
 INPUT INSTRUCTIONS
 
 
-      TITLE: M4 Pulmonary Function, Linear LGM, Fully Conditional, Female
+      TITLE: Pulmonary Function, Empty Model, Female
 
       DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
 
@@ -289,9 +289,8 @@ INPUT INSTRUCTIONS
         Pdever;
       MISSING = ALL(-9999); !specification of missing observations coded in data file
 
-             USEVAR are   time1 time2 time3 time4 time5 time6 time7 time8 time9	
-                         p1 p2 p3 p4 p5 p6 p7 p8 p9
-                         Bage ;
+             USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 time9
+                         p1 p2 p3 p4 p5 p6 p7 p8 p9 ;
                        !c1 c2 c3 c4 c5 c6 c7 c8 c9
                        !Bage;
              TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8 time9;
@@ -305,26 +304,26 @@ INPUT INSTRUCTIONS
              ! c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
               !           c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	c9=Blockraw_9;	
 
-             Bage=AgeAtWaveOne-70;   !Centered at Age 80
+             Bage=AgeAtWaveOne-70;   !Centered at Age 70
               Bagesq=(AgeatWaveOne-70)**2;
               Dage=deathage;
               !female=sex;         !0=Male
               Educ=Educyrs-7;     ! Centered at 7 years
               SEP=DEMO23;
-              time1=wave_1;
-                      time2=wave_2;
-                      time3=wave_3;
-                      time4=wave_4;
-                      time5=wave_5;
-                      time6=wave_6;
-                      time7=wave_7;
-                      time8=wave_8;
-                      time9=wave_9;
+               time1=wave_1;
+                time2=wave_2;
+                time3=wave_3;
+                time4=wave_4;
+                time5=wave_5;
+                time6=wave_6;
+                time7=wave_7;
+                time8=wave_8;
+                time9=wave_9;
               !Marstat;
               !Height
               !Weight
               !BMI
-             ! SmokHist=SmokNow_1;
+              !SmokHist=SmokNow;
               !Alcohol;
               !CompExp;
               !PhysAct;
@@ -335,15 +334,13 @@ INPUT INSTRUCTIONS
               !MorbInd;
 
               AgeAtWave1Sex=Bage*Sex;
-              BageEduc=Bage*Educ;
+              AgeAtWave_1Educyrs=Bage*Educ;
               SexEducyrs=Sex*Educ;
 
       ANALYSIS: TYPE = RANDOM;
 
-      MODEL:  !ip| p1-p9 AT time1-time9;
-      ip sp | p1-p9 AT time1-time9;
-      ip sp ON Bage ;
-
+      MODEL:  ip| p1-p9 AT time1-time9;
+      !ip sp | p1-p9 AT time1-time9;
              ! ic sc | c1-c9 AT time1-time9;
 
              ! ip sp ic sc ON Bage;
@@ -364,17 +361,15 @@ INPUT INSTRUCTIONS
 
 
 
-
-
 *** WARNING
-  Data set contains cases with missing on all variables except
-  x-variables.  These cases were not included in the analysis.
-  Number of cases with missing on all variables except x-variables:  383
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  383
    1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
 
 
 
-M4 Pulmonary Function, Linear LGM, Fully Conditional, Female
+Pulmonary Function, Empty Model, Female
 
 SUMMARY OF ANALYSIS
 
@@ -382,8 +377,8 @@ Number of groups                                                 1
 Number of observations                                         217
 
 Number of dependent variables                                    9
-Number of independent variables                                  1
-Number of continuous latent variables                            2
+Number of independent variables                                  0
+Number of continuous latent variables                            1
 
 Observed dependent variables
 
@@ -391,11 +386,8 @@ Observed dependent variables
    P1          P2          P3          P4          P5          P6
    P7          P8          P9
 
-Observed independent variables
-   BAGE
-
 Continuous latent variables
-   IP          SP
+   IP
 
 Variables with special functions
 
@@ -449,17 +441,15 @@ Minimum covariance coverage value   0.100
  P7             0.106         0.092         0.129         0.152         0.189
  P8             0.032         0.037         0.078         0.092         0.134
  P9             0.014         0.009         0.051         0.055         0.078
- BAGE           0.687         0.465         0.406         0.392         0.387
 
 
            Covariance Coverage
-              P6            P7            P8            P9            BAGE
-              ________      ________      ________      ________      ________
+              P6            P7            P8            P9
+              ________      ________      ________      ________
  P6             0.267
  P7             0.161         0.198
  P8             0.097         0.097         0.138
  P9             0.060         0.055         0.078         0.083
- BAGE           0.267         0.198         0.138         0.083         1.000
 
      THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT.  THE MISSING
      DATA EM ALGORITHM WILL NOT BE INITIATED.  CHECK YOUR DATA OR LOWER THE
@@ -497,8 +487,6 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
               30.000    4068.249      -0.697     350.000    3.33%     240.000    280.000
      P9                  206.667       0.114     120.000   16.67%     150.000    180.000    205.000
               18.000    3600.000      -1.102     310.000    5.56%     220.000    240.000
-     BAGE                  8.427       0.485       0.379    0.46%       3.331      6.348      7.697
-             217.000      26.394      -0.417      25.962    0.46%       9.376     13.929
 
 
 THE MODEL ESTIMATION TERMINATED NORMALLY
@@ -516,19 +504,19 @@ THE MODEL ESTIMATION TERMINATED NORMALLY
 
 MODEL FIT INFORMATION
 
-Number of Free Parameters                        8
+Number of Free Parameters                        3
 
 Loglikelihood
 
-          H0 Value                       -3608.299
-          H0 Scaling Correction Factor      2.0289
+          H0 Value                       -3742.569
+          H0 Scaling Correction Factor      1.6449
             for MLR
 
 Information Criteria
 
-          Akaike (AIC)                    7232.598
-          Bayesian (BIC)                  7259.637
-          Sample-Size Adjusted BIC        7234.286
+          Akaike (AIC)                    7491.138
+          Bayesian (BIC)                  7501.278
+          Sample-Size Adjusted BIC        7491.772
             (n* = (n + 2) / 24)
 
 
@@ -538,14 +526,8 @@ MODEL RESULTS
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
 
- IP         ON
-    BAGE              -4.112      1.225     -3.356      0.001
-
- SP         ON
-    BAGE              -0.215      0.252     -0.854      0.393
-
- SP       WITH
-    IP              -472.758    169.123     -2.795      0.005
+ Means
+    IP               235.899      4.473     52.738      0.000
 
  Intercepts
     P1                 0.000      0.000    999.000    999.000
@@ -557,26 +539,25 @@ MODEL RESULTS
     P7                 0.000      0.000    999.000    999.000
     P8                 0.000      0.000    999.000    999.000
     P9                 0.000      0.000    999.000    999.000
-    IP               322.922     12.406     26.030      0.000
-    SP               -15.027      2.703     -5.560      0.000
+
+ Variances
+    IP              2669.072    344.602      7.745      0.000
 
  Residual Variances
-    P1              1692.683    385.475      4.391      0.000
-    P2              1692.683    385.475      4.391      0.000
-    P3              1692.683    385.475      4.391      0.000
-    P4              1692.683    385.475      4.391      0.000
-    P5              1692.683    385.475      4.391      0.000
-    P6              1692.683    385.475      4.391      0.000
-    P7              1692.683    385.475      4.391      0.000
-    P8              1692.683    385.475      4.391      0.000
-    P9              1692.683    385.475      4.391      0.000
-    IP              5364.970    768.572      6.980      0.000
-    SP               118.948     38.882      3.059      0.002
+    P1              3737.326    430.381      8.684      0.000
+    P2              3737.326    430.381      8.684      0.000
+    P3              3737.326    430.381      8.684      0.000
+    P4              3737.326    430.381      8.684      0.000
+    P5              3737.326    430.381      8.684      0.000
+    P6              3737.326    430.381      8.684      0.000
+    P7              3737.326    430.381      8.684      0.000
+    P8              3737.326    430.381      8.684      0.000
+    P9              3737.326    430.381      8.684      0.000
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.118E-02
+     Condition Number for the Information Matrix              0.108E-01
        (ratio of smallest to largest eigenvalue)
 
 
@@ -586,10 +567,10 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\u1_female_full_pulmonary
+    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\u0_female_empty_pulmonar
 
-     Beginning Time:  11:22:07
-        Ending Time:  11:22:08
+     Beginning Time:  10:09:31
+        Ending Time:  10:09:32
        Elapsed Time:  00:00:01
 
 
