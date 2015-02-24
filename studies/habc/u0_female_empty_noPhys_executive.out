@@ -1,6 +1,6 @@
 Mplus VERSION 7.2 (Mac)
 MUTHEN & MUTHEN
-02/23/2015   1:45 PM
+02/24/2015   9:29 AM
 
 INPUT INSTRUCTIONS
 
@@ -24,19 +24,19 @@ INPUT INSTRUCTIONS
        t11;
 
          MISSING are all (-9999);
-         USEVAR are   t3    t5    t8 t10
+         USEVAR are   time3 time5 time8 time10
 
-                      c3    c5    c8 c10 ;
-         TSCORES =    t3    t5    t8 t10 ;
+                      c3    c5    c8    c10 ;
+         TSCORES =    time3 time5 time8 time10;
 
          USEOBSERVATIONS are gender EQ 0; ! female=0
 
 
     Define: c3= clox3;  c5= clox5;
             c8= clox8;  c10= clox10 ;
-
-            Bage=CV1AGE-80;   !Centered at Age 80
-            !Bagesq=(compage1-80)**2;
+            time3=t3; time5=t5; time8=t8; time10=t10;
+            Bage=CV1AGE-70;   !Centered at Age 70
+            !Bagesq=(compage1-70)**2;
             !Dage=YTDead;
             !Sex=female;         !0=Male
             !Educ=Educyrs-7;     ! Centered at 7 years
@@ -61,7 +61,7 @@ INPUT INSTRUCTIONS
 
     ANALYSIS: TYPE = RANDOM;
 
-    MODEL:  ic | c3-c10 AT t3-t10;
+    MODEL:  ic | c3-c10 AT time3-time10;
 
             c3-c10 (res_c);
 
@@ -99,7 +99,7 @@ Continuous latent variables
 Variables with special functions
 
   Time scores
-   T3          T5          T8          T10
+   TIME3       TIME5       TIME8       TIME10
 
 
 Estimator                                                      MLR
@@ -230,9 +230,9 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
-     Beginning Time:  13:45:35
-        Ending Time:  13:45:35
-       Elapsed Time:  00:00:00
+     Beginning Time:  09:29:09
+        Ending Time:  09:29:10
+       Elapsed Time:  00:00:01
 
 
 

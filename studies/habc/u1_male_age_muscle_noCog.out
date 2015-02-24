@@ -1,10 +1,10 @@
 Mplus VERSION 7.2 (Mac)
 MUTHEN & MUTHEN
-02/23/2015   1:22 PM
+02/24/2015   9:25 AM
 
 INPUT INSTRUCTIONS
 
-    TITLE: Hand Strength, Empty Model, Male
+    TITLE: Hand Strength, Linear LGM, Age Conditional, Male
 
     DATA:  File = "/Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat";
 
@@ -24,19 +24,19 @@ INPUT INSTRUCTIONS
        t11;
 
          MISSING are all (-9999);
-         USEVAR are  t1 t2    t4    t6 t8 t10
+         USEVAR are  time1 time2    time4    time6 time8 time10
                      Bage
-                     p1 p2    p4    p6 p8 p10;
-         TSCORES =   t1 t2    t4    t6 t8 t10;
+                     p1    p2       p4       p6    p8    p10;
+         TSCORES =   time1 time2    time4    time6 time8 time10;
 
          USEOBSERVATIONS are gender EQ 1; ! female=0
 
 
     Define: p1= hand1;  p2= hand2; p4= hand4;
             p6= hand6;  p8= hand8; p10= hand10;
-
-            Bage=CV1AGE-80;   !Centered at Age 80
-            !Bagesq=(compage1-80)**2;
+            time1=t1; time2=t2; time4=t4; time6=t6; time8=t8; time10=t10;
+            Bage=CV1AGE-70;   !Centered at Age 70
+            !Bagesq=(compage1-70)**2;
             !Dage=YTDead;
             !Sex=female;         !0=Male
             !Educ=Educyrs-7;     ! Centered at 7 years
@@ -61,8 +61,7 @@ INPUT INSTRUCTIONS
 
     ANALYSIS: TYPE = RANDOM;
 
-    MODEL:  ip sp | p1-p10 AT t1-t10;
-
+    MODEL:  ip sp| p1-p10 AT time1-time10;
             ip sp ON Bage;
 
             p1-p10 (res_p);
@@ -79,7 +78,7 @@ INPUT INSTRUCTIONS
 
 
 
-Hand Strength, Empty Model, Male
+Hand Strength, Linear LGM, Age Conditional, Male
 
 SUMMARY OF ANALYSIS
 
@@ -104,7 +103,7 @@ Continuous latent variables
 Variables with special functions
 
   Time scores
-   T1          T2          T4          T6          T8          T10
+   TIME1       TIME2       TIME4       TIME6       TIME8       TIME10
 
 
 Estimator                                                      MLR
@@ -174,7 +173,7 @@ SAMPLE STATISTICS
            Means
               P10           BAGE
               ________      ________
- 1             33.798        -6.234
+ 1             33.798         3.766
 
 
            Covariances
@@ -262,8 +261,8 @@ MODEL RESULTS
     P6                 0.000      0.000    999.000    999.000
     P8                 0.000      0.000    999.000    999.000
     P10                0.000      0.000    999.000    999.000
-    IP                37.178      0.482     77.147      0.000
-    SP                -0.755      0.050    -15.090      0.000
+    IP                43.694      0.359    121.587      0.000
+    SP                -0.656      0.035    -18.935      0.000
 
  Residual Variances
     P1                18.737      0.979     19.140      0.000
@@ -278,12 +277,12 @@ MODEL RESULTS
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.184E-02
+     Condition Number for the Information Matrix              0.151E-02
        (ratio of smallest to largest eigenvalue)
 
 
-     Beginning Time:  13:22:01
-        Ending Time:  13:22:03
+     Beginning Time:  09:25:59
+        Ending Time:  09:26:01
        Elapsed Time:  00:00:02
 
 

@@ -1,6 +1,6 @@
 Mplus VERSION 7.2 (Mac)
 MUTHEN & MUTHEN
-02/23/2015   3:10 PM
+02/24/2015   9:27 AM
 
 INPUT INSTRUCTIONS
 
@@ -34,8 +34,8 @@ INPUT INSTRUCTIONS
     Define: p1= wd20m1; p2= wd20m2; p3= wd20m3; p4= wd20m4;
             p5= wd20m5; p6= wd20m6; p8= wd20m8; p10=wd20m10;
 
-            Bage=CV1AGE-80;   !Centered at Age 80
-            !Bagesq=(compage1-80)**2;
+            Bage=CV1AGE-70;   !Centered at Age 70
+            !Bagesq=(compage1-70)**2;
             !Dage=YTDead;
             !Sex=female;         !0=Male
             !Educ=Educyrs-7;     ! Centered at 7 years
@@ -177,7 +177,7 @@ SAMPLE STATISTICS
            Means
               P6            P8            P10           BAGE
               ________      ________      ________      ________
- 1              1.015         0.947         0.899        -6.514
+ 1              1.015         0.947         0.899         3.486
 
 
            Covariances
@@ -275,8 +275,8 @@ MODEL RESULTS
     P6                 0.000      0.000    999.000    999.000
     P8                 0.000      0.000    999.000    999.000
     P10                0.000      0.000    999.000    999.000
-    IP                 1.141      0.013     87.740      0.000
-    SP                -0.040      0.002    -21.549      0.000
+    IP                 1.258      0.008    152.258      0.000
+    SP                -0.031      0.001    -29.381      0.000
 
  Residual Variances
     P1                 0.014      0.000     30.569      0.000
@@ -293,13 +293,13 @@ MODEL RESULTS
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.780E-04
+     Condition Number for the Information Matrix              0.192E-03
        (ratio of smallest to largest eigenvalue)
 
 
-     Beginning Time:  15:10:06
-        Ending Time:  15:10:12
-       Elapsed Time:  00:00:06
+     Beginning Time:  09:27:01
+        Ending Time:  09:27:06
+       Elapsed Time:  00:00:05
 
 
 

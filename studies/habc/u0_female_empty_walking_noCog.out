@@ -1,6 +1,6 @@
 Mplus VERSION 7.2 (Mac)
 MUTHEN & MUTHEN
-02/23/2015   3:09 PM
+02/24/2015   9:26 AM
 
 INPUT INSTRUCTIONS
 
@@ -24,18 +24,20 @@ INPUT INSTRUCTIONS
        t11;
 
          MISSING are all (-9999);
-         USEVAR are  t1 t2 t3 t4 t5 t6 t8 t10
+         USEVAR are  p1    p2    p3    p4    p5    p6    p8    p10
+                     time1 time2 time3 time4 time5 time6 time8 time10;
 
-                     p1 p2 p3 p4 p5 p6 p8 p10;
-         TSCORES =   t1 t2 t3 t4 t5 t6 t8 t10;
+         TSCORES =   time1 time2 time3 time4 time5 time6 time8 time10;
 
          USEOBSERVATIONS are gender EQ 0; ! female=0
 
     Define: p1= wd20m1; p2= wd20m2; p3= wd20m3; p4= wd20m4;
             p5= wd20m5; p6= wd20m6; p8= wd20m8; p10=wd20m10;
+            time1=t1; time2=t2; time3=t3; time4=t4; time5=t5;
+            time6=t6; time8=t8; time10=t10;
 
-            Bage=CV1AGE-80;   !Centered at Age 80
-            !Bagesq=(compage1-80)**2;
+            Bage=CV1AGE-70;   !Centered at Age 70
+            !Bagesq=(compage1-70)**2;
             !Dage=YTDead;
             !Sex=female;         !0=Male
             !Educ=Educyrs-7;     ! Centered at 7 years
@@ -60,7 +62,7 @@ INPUT INSTRUCTIONS
 
     ANALYSIS: TYPE = RANDOM;
 
-    MODEL:  ip | p1-p10 AT t1-t10;
+    MODEL:  ip | p1-p10 AT time1-time10;
 
             p1-p10 (res_p);
 
@@ -99,8 +101,8 @@ Continuous latent variables
 Variables with special functions
 
   Time scores
-   T1          T2          T3          T4          T5          T6
-   T8          T10
+   TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
+   TIME8       TIME10
 
 
 Estimator                                                      MLR
@@ -281,8 +283,8 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
-     Beginning Time:  15:09:00
-        Ending Time:  15:09:01
+     Beginning Time:  09:26:31
+        Ending Time:  09:26:32
        Elapsed Time:  00:00:01
 
 
