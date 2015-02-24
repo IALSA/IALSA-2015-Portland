@@ -18,8 +18,3 @@ Please download and install the following components onto your system
 3. [GitHub](http://www.github.com)
 
 
-## Preliminary Results
-
--[tables results from studies]()
-
-

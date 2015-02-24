@@ -25,7 +25,7 @@ path_input <- "."
 #####################################
 ## @knitr load_data
 # pattern <- "dto_bivariate.csv$"
-pattern <- "automation_result__.csv$"
+pattern <- "automation_result.csv$"
 dto_paths <- list.files(path=path_input, pattern=pattern, recursive=TRUE)
 # dto_paths; #paste(dto_paths, collapse = ",")
 directories <- gsub(pattern, "\\1", dto_paths, perl=T)
@@ -62,86 +62,88 @@ ds_pretty <- ds
 ds_pretty$var_int_cog <- sprintf("%.2f", ds_pretty$var_int_cog) #Force it to have one decimal, even if it's a zero.
 ds_pretty$var_int_cog <- ifelse(ds_pretty$var_int_cog=="NA", "--", ds_pretty$var_int_cog)
 
-desired_columns_univariate <- c("model_number", "study_name", "subgroup", "model_type", "physical_outcome", "var_int_cog")
-desired_columns_bivariate <- c("model_number", "study_name", "subgroup", "model_type", "physical_outcome")
+# desired_columns_univariate <- c("model_number", "study_name", "subgroup", "model_type", "physical_outcome", "var_int_cog")
+# desired_columns_bivariate <- c("model_number", "study_name", "subgroup", "model_type", "physical_outcome")
 
-# desired_columns_univariate <- c("model_number",
-#                                 "study_name",
-#                                 "subgroup",
-#                                 "model_type",
-#                                 "physical_outcome",
-#                                 "var_int_physical",
-#                                 "se_int_physical",
-#                                 "var_slope_physical",
-#                                 "se_slope_physical",
-#                                 "var_residual_physical",
-#                                 "se_residual_physical",
-#                                 "cognitive_outcome",
-#                                 "var_int_cog",
-#                                 "se_int_cog",
-#                                 "var_slope_cog",
-#                                 "se_slope_cog",
-#                                 "var_residual_cog",
-#                                 "se_residual_cog",
-#                                 "cov_int",
-#                                 "cov_slope",
-#                                 "cov_residual",
-#                                 "p_cov_int",
-#                                 "p_cov_slope",
-#                                 "p_cov_res",
-#                                 "subject_count",
-#                                 "wave_count",
-#                                 "datapoint_count",
-#                                 "parameter_count",
-#                                 "deviance",
-#                                 "LL",
-#                                 "aic",
-#                                 "bic",
-#                                 "adj_bic",
-#                                 "aaic")
-# desired_columns_bivariate <- desired_columns_univariate
-#
+desired_columns_univariate <- c("model_number",
+                                "study_name",
+                                "subgroup",
+                                "model_type",
+                                "physical_outcome",
+                                "var_int_physical",
+                                "se_int_physical",
+                                "var_slope_physical",
+                                "se_slope_physical",
+                                "var_residual_physical",
+                                "se_residual_physical",
+                                "cognitive_outcome",
+                                "var_int_cog",
+                                "se_int_cog",
+                                "var_slope_cog",
+                                "se_slope_cog",
+                                "var_residual_cog",
+                                "se_residual_cog",
+                                "cov_int",
+                                "cov_slope",
+                                "cov_residual",
+                                "p_cov_int",
+                                "p_cov_slope",
+                                "p_cov_res",
+                                "subject_count",
+                                "wave_count",
+                                "datapoint_count",
+                                "parameter_count",
+                                "deviance",
+                                "LL",
+                                "aic",
+                                "bic",
+                                "adj_bic",
+                                "aaic",
+                                "output_file")
+desired_columns_bivariate <- desired_columns_univariate
+
 ds_univariate_pretty <- ds_pretty[ds_pretty$outcome_count==1L, desired_columns_univariate]
 ds_bivariate_pretty <- ds_pretty[ds_pretty$outcome_count==2L, desired_columns_bivariate]
-#
-# ds_univariate_pretty <- plyr::rename(ds_univariate_pretty, replace=c(
-#   "model_number" = "model",
-#   "study_name" = "study",
-#   "subgroup" = "subgroup",
-#   "model_type" = "model<br/>type",
-#   "physical_outcome" = "outcome<br/>physical",
-#   "var_int_physical" =   "new",
-#   "se_int_physical" =  "se_int_physical" ,
-#   "var_slope_physical" =  "var_slope_physical" ,
-#   "se_slope_physical"=  "se_slope_physical",
-#   "var_residual_physical"=  "var_residual_physical",
-#   "se_residual_physical"=  "se_residual_physical",
-#   "cognitive_outcome"=  "cognitive_outcome",
-#   "var_int_cog"=  "var_int_cog",
-#   "se_int_cog"=  "se_int_cog",
-#   "var_slope_cog"=  "var_slope_cog",
-#   "se_slope_cog"=  "se_slope_cog",
-#   "var_residual_cog"=  "var_residual_cog",
-#   "se_residual_cog"= "se_residual_cog" ,
-#   "cov_int"=  "cov_int",
-#   "cov_slope"= "cov_slope" ,
-#   "cov_residual"=  "cov_residual",
-#   "p_cov_int"=  "p_cov_int",
-#   "p_cov_slope"=  "p_cov_slope",
-#   "p_cov_res"= "p_cov_res" ,
-#   "subject_count"=  "subject_count",
-#   "wave_count"=  "wave_count",
-#   "datapoint_count"= "datapoint_count" ,
-#   "parameter_count"=  "parameter_count",
-#   "deviance"=  "deviance",
-#   "LL"=  "LL",
-#   "aic"=  "aic",
-#   "bic"=  "bic",
-#   "adj_bic"= "adj_bic" ,
-#   "aaic"= 'aaic' ,
-#   "output_file"= "output_file"
-#
-# ))
+
+ds_univariate_pretty <- plyr::rename(ds_univariate_pretty, replace=c(
+  "model_number" = "model",
+  "study_name" = "study",
+  "subgroup" = "subgroup",
+  "model_type" = "model<br/>type",
+  "physical_outcome" = "outcome<br/>physical",
+  "var_int_physical" =   "new",
+  "se_int_physical" =  "se_int_physical" ,
+  "var_slope_physical" =  "var_slope_physical" ,
+  "se_slope_physical"=  "se_slope_physical",
+  "var_residual_physical"=  "var_residual_physical",
+  "se_residual_physical"=  "se_residual_physical",
+  "cognitive_outcome"=  "cognitive_outcome",
+  "var_int_cog"=  "var_int_cog",
+  "se_int_cog"=  "se_int_cog",
+  "var_slope_cog"=  "var_slope_cog",
+  "se_slope_cog"=  "se_slope_cog",
+  "var_residual_cog"=  "var_residual_cog",
+  "se_residual_cog"= "se_residual_cog" ,
+  "cov_int"=  "cov_int",
+  "cov_slope"= "cov_slope" ,
+  "cov_residual"=  "cov_residual",
+  "p_cov_int"=  "p_cov_int",
+  "p_cov_slope"=  "p_cov_slope",
+  "p_cov_res"= "p_cov_res" ,
+  "subject_count"=  "subject_count",
+  "wave_count"=  "wave_count",
+  "datapoint_count"= "datapoint_count" ,
+  "parameter_count"=  "parameter_count",
+  "deviance"=  "deviance",
+  "LL"=  "LL",
+  "aic"=  "aic",
+  "bic"=  "bic",
+  "adj_bic"= "adj_bic" ,
+  "aaic"= 'aaic' ,
+  "output_file"= "output_file" ,
+  "data_file"= "data_file"
+
+))
 #####################################
 ## @knitr calculate_forest
 #TODO: Andrey, calcalulate the graph coordinates, using Philipe's equations that start with
