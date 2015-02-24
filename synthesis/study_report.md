@@ -31,7 +31,7 @@
 
 ## Notes
 
-**Note 1**: The current report covers 2 studies: habc, octo.
+**Note 1**: The current report covers 3 studies: habc, obas, octo.
 
 **Note 2**: The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
 
@@ -69,6 +69,28 @@ Table: Bivariate Results
 model_number   study_name   subgroup   model_type   physical_outcome    var_int_physical   se_int_physical   var_slope_physical   se_slope_physical   var_residual_physical   se_residual_physical  cognitive_outcome   var_int_cog    se_int_cog   var_slope_cog   se_slope_cog   var_residual_cog   se_residual_cog   cov_int   cov_slope   cov_residual   p_cov_int   p_cov_slope   p_cov_res   subject_count  wave_count   datapoint_count    parameter_count  deviance    LL   aic   bic   adj_bic   aaic  output_file 
 -------------  -----------  ---------  -----------  -----------------  -----------------  ----------------  -------------------  ------------------  ----------------------  ---------------------  ------------------  ------------  -----------  --------------  -------------  -----------------  ----------------  --------  ----------  -------------  ----------  ------------  ----------  --------------  -----------  ----------------  ----------------  ---------  ---  ----  ----  --------  -----  ------------
 
+## obas
+
+
+Table: Univariate Results
+
+model   study   subgroup   model<br/>type   outcome<br/>physical      new   se_int_physical   var_slope_physical   se_slope_physical   var_residual_physical   se_residual_physical  cognitive_outcome   var_int_cog    se_int_cog   var_slope_cog   se_slope_cog   var_residual_cog   se_residual_cog   cov_int   cov_slope   cov_residual   p_cov_int   p_cov_slope   p_cov_res   subject_count  wave_count   datapoint_count    parameter_count  deviance           LL        aic        bic    adj_bic        aaic  output_file                               
+------  ------  ---------  ---------------  ---------------------  ------  ----------------  -------------------  ------------------  ----------------------  ---------------------  ------------------  ------------  -----------  --------------  -------------  -----------------  ----------------  --------  ----------  -------------  ----------  ------------  ----------  --------------  -----------  ----------------  ----------------  ---------  ----------  ---------  ---------  ---------  ----------  ------------------------------------------
+u1      obas    female     time             nophys                     NA                NA                   NA                  NA                      NA                     NA  mmse nondem n10     0.61                0.167           0.026          0.011              1.310             0.090        NA          NA             NA          NA            NA          NA             154  to_do        NA                              10  NA          -2073.813   4167.626   4197.995   4166.344   4169.1645  u1_female_time_nophys_mmse nondem n10.out 
+u1      obas    male       time             nophys                     NA                NA                   NA                  NA                      NA                     NA  mmse nondem n10     0.66                0.131           0.064          0.027              1.263             0.094        NA          NA             NA          NA            NA          NA             111  to_do        NA                              10  NA          -1529.924   3079.848   3106.943   3075.341   3082.0480  u1_male_time_nophys_mmse nondem n10.out   
+u1      obas    female     time             ws                      0.020             0.003                    0                   0                   0.018                  0.002  nocog nondem n10    --                     NA              NA             NA                 NA                NA        NA          NA             NA          NA            NA          NA             153  to_do        NA                              10  NA            419.405   -818.810   -788.506   -820.157   -817.2607  u1_female_time_ws_nocog nondem n10.out    
+u1      obas    male       time             ws                      0.018             0.003                    0                   0                   0.016                  0.001  nocog nondem n10    --                     NA              NA             NA                 NA                NA        NA          NA             NA          NA            NA          NA             111  to_do        NA                              10  NA            378.548   -737.096   -710.001   -741.603   -734.8960  u1_male_time_ws_nocog nondem n10.out      
+
+
+
+Table: Bivariate Results
+
+model_number   study_name   subgroup   model_type   physical_outcome    var_int_physical   se_int_physical   var_slope_physical   se_slope_physical   var_residual_physical   se_residual_physical  cognitive_outcome   var_int_cog    se_int_cog   var_slope_cog   se_slope_cog   var_residual_cog   se_residual_cog   cov_int   cov_slope   cov_residual   p_cov_int   p_cov_slope   p_cov_res   subject_count  wave_count   datapoint_count    parameter_count  deviance           LL        aic        bic    adj_bic       aaic  output_file                          
+-------------  -----------  ---------  -----------  -----------------  -----------------  ----------------  -------------------  ------------------  ----------------------  ---------------------  ------------------  ------------  -----------  --------------  -------------  -----------------  ----------------  --------  ----------  -------------  ----------  ------------  ----------  --------------  -----------  ----------------  ----------------  ---------  ----------  ---------  ---------  ---------  ---------  -------------------------------------
+b1             obas         age        ws           mmse nondem                    0.020             0.002                    0                   0                   0.017                  0.001  n10                 0.64                0.115           0.043          0.014              1.293             0.066     0.032       0.001         -0.002       0.003         0.011       0.596             265  to_do        NA                              29  NA          -2805.460   5668.921   5772.733   5680.788   5676.325  b1_age_ws_mmse nondem_n10.out        
+b1             obas         female     age          ws                             0.022             0.003                    0                   0                   0.018                  0.002  mmse nondem         0.67                0.184           0.026          0.011              1.314             0.091     0.048       0.001         -0.002       0.003         0.039       0.796             155  to_do        NA                              21  NA          -1667.336   3376.672   3440.584   3374.114   3383.619  b1_female_age_ws_mmse nondem_n10.out 
+b1             obas         male       age          ws                             0.018             0.003                    0                   0                   0.016                  0.001  mmse nondem         0.66                0.129           0.063          0.026              1.267             0.094     0.017       0.002         -0.003       0.229         0.085       0.562             111  to_do        NA                              25  NA          -1144.694   2339.388   2407.126   2328.122   2354.682  b1_male_age_ws_mmse nondem_n10.out   
+
 ## octo
 
 
@@ -99,20 +121,13 @@ b1             octo         male       age          pulmonary                   
 b1             octo         male       full         pulmonary                   9168.599          1431.364               33.590              20.207                3376.311                420.926  block               37.39               4.814           0.046          0.038              8.848             0.961   220.609       0.648         15.782       0.002         0.368       0.129             151  to_do        NA                              37  NA          -3335.570    6745.140    6856.779    6739.678    6770.025  b1_male_full_pulmonary_block.out   
 
 
-# Questions
-## Unanswered Questions
- 1. What does `VS` stand for?  How was it measured?
- 1. Where the cars at the Philly track measured with the same phluguerstometer and the Cleveland track?
- 
-## Answered Questions
- 1. The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
 
 # Session Information
 For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
 
 
 ```
-Report rendered by koval_000 at 2015-02-23, 16:45 Pacific Standard Time
+Report rendered by koval_000 at 2015-02-23, 17:01 Pacific Standard Time
 ```
 
 ```
