@@ -11,7 +11,7 @@ rm(list=ls())
 
 library(MplusAutomation)
 pathDir <- getwd() # establish home directory
-studyName <- "octo"
+studyName <- "radc"
 
 pathStudy <- paste0("./studies/",studyName) # temp
 pathDto <- "./data/shared/dto_bivariate.csv" # derivative from Google sheets

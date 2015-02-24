@@ -68,7 +68,6 @@ read_chunk("./synthesis/model_synthesis.R") #This allows knitr to call chunks ta
 
 **Note 1**: The current report covers `r length(dto_paths)` studies: `r paste(study_names, collapse=", ")`.
 
-**Note 2**: The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
 
 # Study-Specific Tables
 Two tables are created for each study: one for univariate models, another for bivariate models
