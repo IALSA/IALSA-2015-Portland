@@ -24,3 +24,7 @@ Please download and install the following components onto your system
 3. [GitHub](http://www.github.com)
 
 
+## Resources
+
+-  [The R Markdown Cheat sheet ](http://shiny.rstudio.com/articles/rm-cheatsheet.html) from the RStudio crew
+

@@ -179,7 +179,7 @@ for(i in seq_along(mpar)){
   results[i, c('aaic')] <-  msum[i,c('AICC')]
 }
 
-results <- dplyr::arrange(results, physical_outcome,  )
+results <- dplyr::arrange(results, physical_outcome)
 
 #### DTO: output ####
 
