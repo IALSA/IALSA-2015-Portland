@@ -22,6 +22,7 @@ options(show.signif.stars=F) #Turn off the annotations on p-values
 
 path_input <- "."
 
+no_variable_labels <- c("nocog", "noCog", "cocogn", "nophys", "noPhys")
 #####################################
 ## @knitr load_data
 # pattern <- "dto_bivariate.csv$"
@@ -52,6 +53,13 @@ rm(dto_path, study_name, dto)
 # http://stackoverflow.com/questions/2851327/converting-a-list-of-data-frames-into-one-data-frame-in-r
 ds <- plyr::ldply(dtos, data.frame)
 
+# sort(unique(ds$physical_outcome))
+# table(ds$physical_outcome)
+ds$physical_outcome <- tolower(stringr::str_trim(ds$physical_outcome))
+#
+# sort(unique(ds$cognitive_outcome))
+# table(ds$cognitive_outcome)
+ds$cognitive_outcome <- tolower(stringr::str_trim(ds$cognitive_outcome))
 
 
 ### Standardize coefficients
@@ -317,26 +325,44 @@ paletteGenderDark <- adjustcolor(brewer.pal(5, "Dark2")[c(2,3)])
 paletteGenderLight <- adjustcolor(paletteGenderDark, alpha.f = .2)
 #paletteGenderLight <- adjustcolor(brewer.pal(5, "Set1")[c(1,2)], alpha.f = .2)
 
+#Enumerate the possible variables
+cog_names <- sort(unique(ds$cognitive_outcome))
+physical_names <- sort(unique(ds$physical_outcome))
 
-cog_name <- "block"
-physical_name <- "pulmonary"
+#Exclude the univariate models, by remove the variables like `nocog` and `nophys`
+cog_names <- cog_names[!(cog_names %in% no_variable_labels)]
+physical_names <- physical_names[!(physical_names %in% no_variable_labels)]
+
+# cog_name <- "block"
+# physical_name <- "pulmonary"
 # model_type <- "age"
 
-#d_forest <- ds[ds$cognitive_outcome==cog_name & ds$physical_outcome==physical_name & ds$model_type==model_type, ]
-d_forest <- ds[ds$cognitive_outcome==cog_name & ds$physical_outcome==physical_name, ]
+for( cog_name in cog_names ) {
+  for( physical_name in physical_names ) {
+    title <- paste0(cog_name, " with ", physical_name)
 
-ggplot(d_forest, aes(x=sd_int, y=study_name, color=subgroup, fill=subgroup)) +
-  geom_vline(x=0, color="gray70", size=1) +
-  geom_point(size=6, shape=21) +
-  scale_colour_manual(values=paletteGenderDark) +
-  scale_fill_manual(values=paletteGenderLight) +
-  facet_grid(model_type ~ .) +
-  reportTheme +
-  theme(legend.position="bottom") + #Below the x-axis title
-  # theme(legend.position=c(0, 1), legend.justification=c(0,1)) + #Inside top left corner
-  # theme(legend.position="none") + #Remove legend entirely: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
-  theme(legend.title=element_blank()) + #Remove self-evident legend title: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
-  labs(x="Intercept SD", y="Study")
+    #d_forest <- ds[ds$cognitive_outcome==cog_name & ds$physical_outcome==physical_name & ds$model_type==model_type, ]
+    d_forest <- ds[ds$cognitive_outcome==cog_name & ds$physical_outcome==physical_name, ]
+    # d_forest <- ds[ds$cognitive_outcome==cog_name, ]
+    # d_forest <- ds[ds$physical_outcome==physical_name, ]
+
+    if( nrow(d_forest) > 0 ) { #Don't bother graphing the non-existant combinations
+      g <- ggplot(d_forest, aes(x=sd_int, y=study_name, color=subgroup, fill=subgroup)) +
+        geom_vline(x=0, color="gray70", size=1) +
+        geom_point(size=6, shape=21, na.rm=T) +
+        scale_colour_manual(values=paletteGenderDark) +
+        scale_fill_manual(values=paletteGenderLight) +
+        facet_grid(model_type ~ .) +
+        reportTheme +
+        theme(legend.position="bottom") + #Below the x-axis title
+        # theme(legend.position=c(0, 1), legend.justification=c(0,1)) + #Inside top left corner
+        # theme(legend.position="none") + #Remove legend entirely: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
+        theme(legend.title=element_blank()) + #Remove self-evident legend title: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
+        labs(x="Intercept SD", y="Study", title=title)
+      print(g)
+    }
+  }
+}
 
 
 #####################################
