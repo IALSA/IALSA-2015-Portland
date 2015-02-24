@@ -12,11 +12,13 @@ rm(list=ls())
 library(MplusAutomation)
 # library(xlsx)
 pathDir <- getwd() # establish home directory
-pathStudy <- file.path(pathDir,"studies/octo/") # temp
+pathStudy <- file.path(pathDir,"studies") # temp
 pathDto <- file.path(pathDir,"synthesis/bivariate/dto_bivariate.csv")
 dto.vars <- names(read.csv(pathDto,skip=1))
 dto.vars
 list.files(pathStudy)
+
+pathStudy
 
 ## Uncomment in case output files need to be generated and
 ## change "never" to "always" to overwrite existing out files
@@ -24,13 +26,13 @@ list.files(pathStudy)
 ## runModels(directory=pathStudy, replaceOutfile="always")
 
 ## Read in Model Summaries
-msum <- MplusAutomation::extractModelSummaries(target=pathStudy)
+msum <- MplusAutomation::extractModelSummaries(target=pathStudy, recursive=T)
 names(msum)
-
+msum[1,]
 msum$Filename
 
 ## Extract Estimates
-mpar <- MplusAutomation::extractModelParameters(target=pathStudy, recursive=F) #Adapt so it's relative to the root of the repository.
+mpar <- extractModelParameters(target=pathStudy, recursive=T, dropDimensions=T)
 
 ## count number of models
 nmodels <- length(mpar)
@@ -40,20 +42,31 @@ nmodels
 results=data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
 names(results) <-  dto.vars
 
+## come with new pathStudy that includes folder
+
+## number of folders
+##
+##dir_names <- strsplit(list.dirs(pathStudy, recursive=FALSE), 'studies/')
+##num_dir <- length(dir_names)
+
+pathStudy
+out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out")
+
 for(i in seq_along(mpar)){
-    mplus_output <- scan(file=file.path(pathStudy, msum$Filename[i]), what='character', sep='\n')
+    mplus_output <-
+        scan(out_list[i], what='character', sep='\n')
     ## Populate with header info
     results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
     results[i,"active"] <- NA
     results[i, c('date', 'time')] <- strsplit(mplus_output[3], '  ')[[1]]
-    results[i,"study_name"] <- 'octo'
-    results[i,"data_file"] <- strsplit(mplus_output[grep("File", mplus_output)], 'is|=|;')[[1]][2]
+    results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][7]
+    results[i,"data_file"] <-
+    strsplit(mplus_output[grep("File", mplus_output, ignore.case=TRUE)], 'IS| is |=|;')[[1]][2]
     results[i, c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
     ## Check for model conversion
-    conv <- length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY",
-                        scan(file=file.path(pathStudy,msum$Filename[i]), what='character', sep='\n')))
-    has_converged <- (grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output) >= 1)
+    conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
+    has_converged <- conv==1
     results[i, 'converged'] <- has_converged
     if(has_converged) {
         ## obtain model for current loop
@@ -151,6 +164,9 @@ for(i in seq_along(mpar)){
     results[i, c('aaic')] <-  msum[i,c('AICC')]
 }
 
+
+
+i
 
 results
 #results <- dplyr::arrange(results, physical_outcome,  )
