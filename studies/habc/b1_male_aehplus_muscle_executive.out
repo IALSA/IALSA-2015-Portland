@@ -1,0 +1,593 @@
+Mplus VERSION 7.2 (Mac)
+MUTHEN & MUTHEN
+02/24/2015   2:04 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: M5 Hand Strength, Clock Test, Age Conditional, Male
+
+    DATA:  File = "/Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat";
+
+  VARIABLE:
+    Names are
+       habcid vstatus ds2dth race gender site CV1AGE Y1pchd1 Y1pchd2 Y1pchd3
+       Y1pchf Y1pcbvd Y1pcvd Y1ppad Y1pdiab1 Y1phbp1 Y1WTK Y1bmi Y1sysbp
+       Y1diabp cesd1 Y1educ wd20m1 wd2min1 wd400m1 Y1hakcal Y1hacat Y1SMK1
+       Y1DRINKER1 Y1CURDRNK1 wd400m2 wd20m2 wd20m3 wd20m4 cesd4 wd400m4 wd20m6
+       cesd6 wd400m6 wd2min6 wd20m8 cesd8 wd400m8 wd2min8 wd20m10 cesd10
+       wd400m10 wd2min10 cesd11 wd20m5 wd2min2 wd2min4 smokecurrent smokeformer
+       educpost educhigh mmmscore1 dss1 faminc tsmarsta self1 lpschool self2
+       clox3 mmmscore3 self3 self4 clox5 mmmscore5 dss5 self5 self6 clox8
+       dss8 mmmscore8 self8 clox10 dss10 mmmscore10 self10 mmmscore11 dss11
+       self11 hand1 hand2 hand4 hand6 hand8 hand10 limit1 limit2 limit3 limit4
+       limit5 limit6 limit8 limit9 limit10 limit11 t1 t2 t3 t4 t5 t6 t8 t10
+       t11;
+
+         MISSING are all (-9999);
+         USEVAR are  smokecurrent smokeformer Y1pcvd Y1pdiab1
+                     time1 time2 time3 time4 time5 time6 time8 time10
+                     Bage Educ Height
+                     p1 p2    p4    p6 p8 p10
+                     c3       c5    c8 c10;
+         TSCORES =   time1 time2 time3 time4 time5 time6 time8 time10;
+
+         USEOBSERVATIONS are gender EQ 1; ! female=0
+
+    Define: p1= hand1;  p2= hand2; p4= hand4;
+            p6= hand6;  p8= hand8; p10= hand10;
+            c3=clox3; c5=clox5; c8=clox8; c10=clox10;
+            time1=t1; time2=t2; time3=t3; time4=t4; time5=t5; time6=t6;
+            time8=t8; time10=t10;
+            Bage=CV1AGE-70;   !Centered at Age 70
+            !Bagesq=(compage1-70)**2;
+            !Dage=YTDead;
+            !Sex=female;         !0=Male
+            Educ= lpschool-7;     ! Centered at 7 years
+            !SEP=SESgrp;
+            !Marstat;
+            Height= sqrt(Y1WTK/Y1bmi)-1.72;
+            !Weight
+            !BMI
+            !SmokHist=Smoke;
+            !Alcohol;
+            !CompExp;
+            !PhysAct;
+            !BP;
+            !DepSymp;
+            !Cardio;
+            !Diab;
+            !MorbInd;
+
+            !BageSex=Bage*Sex;
+            !BageEduc=Bage*Educ;
+            !SexEduc=Sex*Educ;
+
+    ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp | p1-p10 AT time1 time2 time4 time6 time8 time10;
+          ic sc | c3-c10 AT time3 time5 time8 time10;
+
+          ip sp ic sc ON Bage Educ Height smokecurrent smokeformer Y1pcvd Y1pdiab1;
+
+          p1-p10 (res_p);
+          c3-c10 (res_c);
+
+          p8  with c8  (res_cov);
+          p10 with c10 (res_cov);
+
+  OUTPUT: sampstat Cinterval;
+
+
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  27
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M5 Hand Strength, Clock Test, Age Conditional, Male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1464
+
+Number of dependent variables                                   10
+Number of independent variables                                  7
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P4          P6          P8          P10
+   C3          C5          C8          C10
+
+Observed independent variables
+   SMOKECUR    SMOKEFOR    Y1PCVD      Y1PDIAB1    BAGE        EDUC
+   HEIGHT
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
+   TIME8       TIME10
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  /Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns           102
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P4            P6            P8
+              ________      ________      ________      ________      ________
+ P1             0.986
+ P2             0.860         0.869
+ P4             0.766         0.726         0.775
+ P6             0.660         0.631         0.643         0.668
+ P8             0.559         0.533         0.540         0.536         0.566
+ P10            0.485         0.467         0.469         0.465         0.458
+ C3             0.805         0.768         0.735         0.637         0.535
+ C5             0.729         0.689         0.702         0.645         0.544
+ C8             0.551         0.524         0.532         0.530         0.554
+ C10            0.482         0.463         0.466         0.462         0.454
+ SMOKECUR       0.986         0.869         0.775         0.668         0.566
+ SMOKEFOR       0.986         0.869         0.775         0.668         0.566
+ Y1PCVD         0.986         0.869         0.775         0.668         0.566
+ Y1PDIAB1       0.986         0.869         0.775         0.668         0.566
+ BAGE           0.986         0.869         0.775         0.668         0.566
+ EDUC           0.986         0.869         0.775         0.668         0.566
+ HEIGHT         0.986         0.869         0.775         0.668         0.566
+
+
+           Covariance Coverage
+              P10           C3            C5            C8            C10
+              ________      ________      ________      ________      ________
+ P10            0.491
+ C3             0.465         0.814
+ C5             0.471         0.700         0.737
+ C8             0.456         0.528         0.538         0.557
+ C10            0.485         0.464         0.470         0.454         0.488
+ SMOKECUR       0.491         0.814         0.737         0.557         0.488
+ SMOKEFOR       0.491         0.814         0.737         0.557         0.488
+ Y1PCVD         0.491         0.814         0.737         0.557         0.488
+ Y1PDIAB1       0.491         0.814         0.737         0.557         0.488
+ BAGE           0.491         0.814         0.737         0.557         0.488
+ EDUC           0.491         0.814         0.737         0.557         0.488
+ HEIGHT         0.491         0.814         0.737         0.557         0.488
+
+
+           Covariance Coverage
+              SMOKECUR      SMOKEFOR      Y1PCVD        Y1PDIAB1      BAGE
+              ________      ________      ________      ________      ________
+ SMOKECUR       1.000
+ SMOKEFOR       1.000         1.000
+ Y1PCVD         1.000         1.000         1.000
+ Y1PDIAB1       1.000         1.000         1.000         1.000
+ BAGE           1.000         1.000         1.000         1.000         1.000
+ EDUC           1.000         1.000         1.000         1.000         1.000
+ HEIGHT         1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              EDUC          HEIGHT
+              ________      ________
+ EDUC           1.000
+ HEIGHT         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P4            P6            P8
+              ________      ________      ________      ________      ________
+ 1             40.742        39.264        38.645        37.307        35.915
+
+
+           Means
+              P10           C3            C5            C8            C10
+              ________      ________      ________      ________      ________
+ 1             33.805        10.297        10.307         9.934         9.629
+
+
+           Means
+              SMOKECUR      SMOKEFOR      Y1PCVD        Y1PDIAB1      BAGE
+              ________      ________      ________      ________      ________
+ 1              0.107         0.596         0.296         0.169         3.764
+
+
+           Means
+              EDUC          HEIGHT
+              ________      ________
+ 1              6.100         0.013
+
+
+           Covariances
+              P1            P2            P4            P6            P8
+              ________      ________      ________      ________      ________
+ P1            74.943
+ P2            54.358        75.172
+ P4            51.512        51.853        69.046
+ P6            52.068        54.889        54.681        74.705
+ P8            54.367        56.098        52.404        58.987        75.921
+ P10           46.335        47.096        47.957        51.504        55.790
+ C3            -0.545         0.842         0.468         1.948         1.533
+ C5             0.390         1.409         1.312         2.180         2.304
+ C8             1.056         2.168         1.783         2.967         3.894
+ C10            0.911         1.545         2.268         3.384         2.987
+ SMOKECUR       0.085         0.044        -0.019        -0.087         0.021
+ SMOKEFOR       0.003         0.075         0.156         0.284         0.018
+ Y1PCVD        -0.337        -0.272        -0.300        -0.274        -0.330
+ Y1PDIAB1      -0.287        -0.223        -0.302        -0.261        -0.437
+ BAGE          -5.004        -5.952        -5.942        -5.654        -6.441
+ EDUC          -2.106        -2.179        -1.838        -0.919        -0.786
+ HEIGHT         0.176         0.183         0.159         0.161         0.166
+
+
+           Covariances
+              P10           C3            C5            C8            C10
+              ________      ________      ________      ________      ________
+ P10           64.968
+ C3             1.446         6.917
+ C5             1.212         2.935         6.055
+ C8             2.973         2.814         2.806         7.008
+ C10            3.250         3.311         2.983         3.500         7.490
+ SMOKECUR       0.043        -0.063        -0.079        -0.067        -0.108
+ SMOKEFOR       0.184         0.035         0.064        -0.002         0.014
+ Y1PCVD        -0.231        -0.008         0.021         0.042        -0.006
+ Y1PDIAB1      -0.310        -0.053        -0.031        -0.057        -0.012
+ BAGE          -5.850        -0.836        -0.681        -0.838        -1.062
+ EDUC          -1.625         2.292         2.195         2.647         2.895
+ HEIGHT         0.142         0.002         0.005         0.016         0.009
+
+
+           Covariances
+              SMOKECUR      SMOKEFOR      Y1PCVD        Y1PDIAB1      BAGE
+              ________      ________      ________      ________      ________
+ SMOKECUR       0.096
+ SMOKEFOR      -0.064         0.241
+ Y1PCVD        -0.007         0.014         0.208
+ Y1PDIAB1      -0.003         0.003         0.007         0.140
+ BAGE          -0.064        -0.024         0.122         0.008         8.255
+ EDUC          -0.128         0.039         0.013        -0.074        -0.015
+ HEIGHT        -0.001         0.002        -0.002         0.000        -0.019
+
+
+           Covariances
+              EDUC          HEIGHT
+              ________      ________
+ EDUC          12.011
+ HEIGHT         0.006         0.004
+
+
+           Correlations
+              P1            P2            P4            P6            P8
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.724         1.000
+ P4             0.716         0.720         1.000
+ P6             0.696         0.732         0.761         1.000
+ P8             0.721         0.743         0.724         0.783         1.000
+ P10            0.664         0.674         0.716         0.739         0.794
+ C3            -0.024         0.037         0.021         0.086         0.067
+ C5             0.018         0.066         0.064         0.102         0.107
+ C8             0.046         0.094         0.081         0.130         0.169
+ C10            0.038         0.065         0.100         0.143         0.125
+ SMOKECUR       0.032         0.017        -0.007        -0.033         0.008
+ SMOKEFOR       0.001         0.018         0.038         0.067         0.004
+ Y1PCVD        -0.085        -0.069        -0.079        -0.069        -0.083
+ Y1PDIAB1      -0.088        -0.069        -0.097        -0.081        -0.134
+ BAGE          -0.201        -0.239        -0.249        -0.228        -0.257
+ EDUC          -0.070        -0.073        -0.064        -0.031        -0.026
+ HEIGHT         0.310         0.322         0.292         0.284         0.290
+
+
+           Correlations
+              P10           C3            C5            C8            C10
+              ________      ________      ________      ________      ________
+ P10            1.000
+ C3             0.068         1.000
+ C5             0.061         0.454         1.000
+ C8             0.139         0.404         0.431         1.000
+ C10            0.147         0.460         0.443         0.483         1.000
+ SMOKECUR       0.017        -0.077        -0.104        -0.082        -0.128
+ SMOKEFOR       0.047         0.027         0.053        -0.001         0.010
+ Y1PCVD        -0.063        -0.007         0.019         0.035        -0.005
+ Y1PDIAB1      -0.103        -0.054        -0.033        -0.058        -0.012
+ BAGE          -0.253        -0.111        -0.096        -0.110        -0.135
+ EDUC          -0.058         0.251         0.257         0.288         0.305
+ HEIGHT         0.269         0.012         0.030         0.091         0.049
+
+
+           Correlations
+              SMOKECUR      SMOKEFOR      Y1PCVD        Y1PDIAB1      BAGE
+              ________      ________      ________      ________      ________
+ SMOKECUR       1.000
+ SMOKEFOR      -0.421         1.000
+ Y1PCVD        -0.050         0.064         1.000
+ Y1PDIAB1      -0.026         0.014         0.040         1.000
+ BAGE          -0.072        -0.017         0.093         0.007         1.000
+ EDUC          -0.119         0.023         0.008        -0.057        -0.002
+ HEIGHT        -0.047         0.061        -0.072         0.014        -0.100
+
+
+           Correlations
+              EDUC          HEIGHT
+              ________      ________
+ EDUC           1.000
+ HEIGHT         0.027         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -37038.868
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       45
+
+Loglikelihood
+
+          H0 Value                      -28762.362
+          H0 Scaling Correction Factor      1.1916
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   57614.725
+          Bayesian (BIC)                 57852.726
+          Sample-Size Adjusted BIC       57709.775
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.543      0.069     -7.932      0.000
+    EDUC              -0.218      0.059     -3.669      0.000
+    HEIGHT            40.041      3.171     12.628      0.000
+    SMOKECURRE         0.226      0.764      0.296      0.767
+    SMOKEFORME        -0.075      0.439     -0.172      0.864
+    Y1PCVD            -0.723      0.434     -1.667      0.096
+    Y1PDIAB1          -1.884      0.531     -3.550      0.000
+
+ SP         ON
+    BAGE              -0.013      0.007     -1.735      0.083
+    EDUC               0.010      0.006      1.519      0.129
+    HEIGHT            -0.865      0.352     -2.458      0.014
+    SMOKECURRE        -0.071      0.097     -0.729      0.466
+    SMOKEFORME         0.053      0.049      1.087      0.277
+    Y1PCVD             0.018      0.049      0.378      0.705
+    Y1PDIAB1          -0.075      0.056     -1.344      0.179
+
+ IC         ON
+    BAGE              -0.088      0.033     -2.655      0.008
+    EDUC               0.154      0.030      5.122      0.000
+    HEIGHT            -1.175      1.441     -0.815      0.415
+    SMOKECURRE        -0.300      0.368     -0.816      0.415
+    SMOKEFORME         0.172      0.205      0.839      0.402
+    Y1PCVD             0.004      0.197      0.022      0.983
+    Y1PDIAB1          -0.372      0.248     -1.500      0.134
+
+ SC         ON
+    BAGE              -0.003      0.005     -0.609      0.542
+    EDUC               0.007      0.004      1.549      0.121
+    HEIGHT             0.332      0.214      1.548      0.122
+    SMOKECURRE        -0.066      0.053     -1.253      0.210
+    SMOKEFORME        -0.046      0.029     -1.604      0.109
+    Y1PCVD             0.016      0.028      0.568      0.570
+    Y1PDIAB1           0.032      0.035      0.919      0.358
+
+ SP       WITH
+    IP                -0.636      0.219     -2.907      0.004
+
+ IC       WITH
+    IP                -0.498      0.736     -0.677      0.498
+    SP                 0.138      0.079      1.738      0.082
+
+ SC       WITH
+    IP                 0.152      0.101      1.502      0.133
+    SP                 0.002      0.010      0.210      0.834
+    IC                -0.088      0.074     -1.202      0.229
+
+ P8       WITH
+    C8                 0.824      0.325      2.536      0.011
+
+ P10      WITH
+    C10                0.824      0.325      2.536      0.011
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    P8                 0.000      0.000    999.000    999.000
+    P10                0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    C8                 0.000      0.000    999.000    999.000
+    C10                0.000      0.000    999.000    999.000
+    IP                44.653      0.607     73.597      0.000
+    SP                -0.717      0.066    -10.923      0.000
+    IC                10.037      0.308     32.542      0.000
+    SC                -0.102      0.043     -2.364      0.018
+
+ Residual Variances
+    P1                18.771      0.984     19.068      0.000
+    P2                18.771      0.984     19.068      0.000
+    P4                18.771      0.984     19.068      0.000
+    P6                18.771      0.984     19.068      0.000
+    P8                18.771      0.984     19.068      0.000
+    P10               18.771      0.984     19.068      0.000
+    C3                 3.630      0.160     22.631      0.000
+    C5                 3.630      0.160     22.631      0.000
+    C8                 3.630      0.160     22.631      0.000
+    C10                3.630      0.160     22.631      0.000
+    IP                45.665      2.217     20.600      0.000
+    SP                 0.121      0.037      3.308      0.001
+    IC                 2.871      0.550      5.221      0.000
+    SC                 0.017      0.011      1.506      0.132
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.251E-06
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IP       ON
+    BAGE            -0.720      -0.678      -0.656      -0.543      -0.431      -0.409      -0.367
+    EDUC            -0.370      -0.334      -0.315      -0.218      -0.120      -0.101      -0.065
+    HEIGHT          31.874      33.827      34.825      40.041      45.257      46.256      48.209
+    SMOKECURRE      -1.741      -1.271      -1.030       0.226       1.483       1.723       2.194
+    SMOKEFORME      -1.205      -0.935      -0.797      -0.075       0.646       0.784       1.055
+    Y1PCVD          -1.839      -1.572      -1.436      -0.723      -0.009       0.127       0.394
+    Y1PDIAB1        -3.250      -2.923      -2.756      -1.884      -1.011      -0.844      -0.517
+
+ SP       ON
+    BAGE            -0.031      -0.027      -0.025      -0.013      -0.001       0.002       0.006
+    EDUC            -0.007      -0.003      -0.001       0.010       0.020       0.022       0.026
+    HEIGHT          -1.771      -1.554      -1.443      -0.865      -0.286      -0.175       0.041
+    SMOKECURRE      -0.321      -0.261      -0.230      -0.071       0.089       0.119       0.179
+    SMOKEFORME      -0.072      -0.042      -0.027       0.053       0.133       0.148       0.178
+    Y1PCVD          -0.107      -0.077      -0.062       0.018       0.098       0.114       0.144
+    Y1PDIAB1        -0.219      -0.185      -0.167      -0.075       0.017       0.034       0.069
+
+ IC       ON
+    BAGE            -0.174      -0.153      -0.143      -0.088      -0.034      -0.023      -0.003
+    EDUC             0.077       0.095       0.105       0.154       0.204       0.213       0.232
+    HEIGHT          -4.888      -4.000      -3.546      -1.175       1.196       1.650       2.538
+    SMOKECURRE      -1.249      -1.022      -0.906      -0.300       0.305       0.421       0.648
+    SMOKEFORME      -0.356      -0.230      -0.165       0.172       0.509       0.573       0.700
+    Y1PCVD          -0.504      -0.382      -0.320       0.004       0.329       0.391       0.512
+    Y1PDIAB1        -1.012      -0.859      -0.781      -0.372       0.036       0.114       0.267
+
+ SC       ON
+    BAGE            -0.015      -0.012      -0.010      -0.003       0.005       0.006       0.009
+    EDUC            -0.005      -0.002       0.000       0.007       0.014       0.015       0.018
+    HEIGHT          -0.220      -0.088      -0.021       0.332       0.684       0.752       0.884
+    SMOKECURRE      -0.202      -0.170      -0.153      -0.066       0.021       0.037       0.070
+    SMOKEFORME      -0.119      -0.102      -0.093      -0.046       0.001       0.010       0.028
+    Y1PCVD          -0.056      -0.039      -0.030       0.016       0.062       0.071       0.088
+    Y1PDIAB1        -0.058      -0.036      -0.025       0.032       0.090       0.101       0.122
+
+ SP       WITH
+    IP              -1.200      -1.065      -0.996      -0.636      -0.276      -0.207      -0.072
+
+ IC       WITH
+    IP              -2.395      -1.942      -1.710      -0.498       0.713       0.945       1.398
+    SP              -0.066      -0.018       0.007       0.138       0.269       0.294       0.342
+
+ SC       WITH
+    IP              -0.109      -0.046      -0.014       0.152       0.319       0.351       0.414
+    SP              -0.025      -0.018      -0.015       0.002       0.019       0.023       0.029
+    IC              -0.278      -0.233      -0.209      -0.088       0.033       0.056       0.101
+
+ P8       WITH
+    C8              -0.013       0.187       0.290       0.824       1.359       1.461       1.661
+
+ P10      WITH
+    C10             -0.013       0.187       0.290       0.824       1.359       1.461       1.661
+
+ Intercepts
+    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P8               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P10              0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C8               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C10              0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IP              43.091      43.464      43.655      44.653      45.652      45.843      46.216
+    SP              -0.886      -0.846      -0.825      -0.717      -0.609      -0.588      -0.548
+    IC               9.242       9.432       9.529      10.037      10.544      10.641      10.831
+    SC              -0.214      -0.187      -0.174      -0.102      -0.031      -0.017       0.009
+
+ Residual Variances
+    P1              16.236      16.842      17.152      18.771      20.391      20.701      21.307
+    P2              16.236      16.842      17.152      18.771      20.391      20.701      21.307
+    P4              16.236      16.842      17.152      18.771      20.391      20.701      21.307
+    P6              16.236      16.842      17.152      18.771      20.391      20.701      21.307
+    P8              16.236      16.842      17.152      18.771      20.391      20.701      21.307
+    P10             16.236      16.842      17.152      18.771      20.391      20.701      21.307
+    C3               3.217       3.316       3.366       3.630       3.894       3.945       4.044
+    C5               3.217       3.316       3.366       3.630       3.894       3.945       4.044
+    C8               3.217       3.316       3.366       3.630       3.894       3.945       4.044
+    C10              3.217       3.316       3.366       3.630       3.894       3.945       4.044
+    IP              39.955      41.320      42.019      45.665      49.312      50.010      51.375
+    SP               0.027       0.049       0.061       0.121       0.181       0.192       0.215
+    IC               1.455       1.793       1.966       2.871       3.776       3.949       4.288
+    SC              -0.012      -0.005      -0.002       0.017       0.035       0.039       0.046
+
+
+     Beginning Time:  14:04:04
+        Ending Time:  14:04:15
+       Elapsed Time:  00:00:11
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
