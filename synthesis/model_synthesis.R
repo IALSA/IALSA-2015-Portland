@@ -56,9 +56,9 @@ ds <- plyr::ldply(dtos, data.frame)
 
 ### Standardize coefficients
 
-ds$sd_int <- ds$cov_int/ (sqrt(ds$var_int_physica)*sqrt(ds$var_int_cog))
-ds$sd_slope <- ds$cov_slope/ (sqrt(ds$var_slope_physica)*sqrt(ds$var_slope_cog))
-ds$sd_residual <- ds$cov_residual/ (sqrt(ds$var_residual_physica)*sqrt(ds$var_residual_cog))
+ds$sd_int <- ds$cov_int/ (sqrt(ds$var_int_physical)*sqrt(ds$var_int_cog))
+ds$sd_slope <- ds$cov_slope/ (sqrt(ds$var_slope_physical)*sqrt(ds$var_slope_cog))
+ds$sd_residual <- ds$cov_residual/ (sqrt(ds$var_residual_physical)*sqrt(ds$var_residual_cog))
 
 is_univariate <- grepl(pattern="^u\\d$", x=ds$model_number)
 is_bivariate <- grepl(pattern="^b\\d$", x=ds$model_number)
@@ -272,7 +272,6 @@ ds_bivariate_pretty <- plyr::rename(ds_bivariate_pretty, replace=c(
 #####################################
 ## @knitr study_tables
 
-
 for( i in seq_along(dtos) ) {
   dto <- dtos[[i]]
   study_name <- study_names[i]
@@ -307,6 +306,38 @@ for( i in seq_along(dtos) ) {
 
 #####################################
 ## @knitr forest_static
+reportTheme <- theme_bw() + #Adapted from https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/CommonCode/BookTheme.R
+  theme(axis.text = element_text(colour="gray40")) +
+  theme(axis.title = element_text(colour="gray40")) +
+  theme(panel.border = element_rect(colour="gray80")) +
+  theme(axis.ticks = element_line(colour="gray80")) +
+  theme(axis.ticks.length = grid::unit(0, "cm"))
+
+paletteGenderDark <- adjustcolor(brewer.pal(5, "Dark2")[c(2,3)])
+paletteGenderLight <- adjustcolor(paletteGenderDark, alpha.f = .2)
+#paletteGenderLight <- adjustcolor(brewer.pal(5, "Set1")[c(1,2)], alpha.f = .2)
+
+
+cog_name <- "block"
+physical_name <- "pulmonary"
+# model_type <- "age"
+
+#d_forest <- ds[ds$cognitive_outcome==cog_name & ds$physical_outcome==physical_name & ds$model_type==model_type, ]
+d_forest <- ds[ds$cognitive_outcome==cog_name & ds$physical_outcome==physical_name, ]
+
+ggplot(d_forest, aes(x=sd_int, y=study_name, color=subgroup, fill=subgroup)) +
+  geom_vline(x=0, color="gray70", size=1) +
+  geom_point(size=6, shape=21) +
+  scale_colour_manual(values=paletteGenderDark) +
+  scale_fill_manual(values=paletteGenderLight) +
+  facet_grid(model_type ~ .) +
+  reportTheme +
+  theme(legend.position="bottom") + #Below the x-axis title
+  # theme(legend.position=c(0, 1), legend.justification=c(0,1)) + #Inside top left corner
+  # theme(legend.position="none") + #Remove legend entirely: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
+  theme(legend.title=element_blank()) + #Remove self-evident legend title: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
+  labs(x="Intercept SD", y="Study")
+
 
 #####################################
 ## @knitr forest_animated

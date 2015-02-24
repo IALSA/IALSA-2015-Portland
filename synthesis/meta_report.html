@@ -78,39 +78,21 @@ img {
 
 <p>This report covers the analyses used in the ZZZ project (Marcus Mark, PI).</p>
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
-
-
 <!-- Set the report-wide options, and point to the external code file. -->
-
-
-<!-- Load the sources.  Suppress the output when loading sources. --> 
-
-
-<!-- Load 'sourced' R files.  Suppress the output when loading packages. --> 
-
-
-<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-
-
-<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
-
-
+<!-- Load the sources.  Suppress the output when loading sources. -->
+<!-- Load 'sourced' R files.  Suppress the output when loading packages. -->
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. -->
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
 <!-- Load the datasets.   -->
-
-
 <!-- Tweak the datasets.   -->
-
-
 <!-- Calculate the forest results (but don't plot yet).   -->
-
-
 <div id="notes" class="section level2">
 <h2>Notes</h2>
-<p><strong>Note 1</strong>: The current report covers 6 studies: eas, habc, ilse, nas, nuage, octo.</p>
-<p><strong>Note 2</strong>: The Seattle track’s phluguerstometer was producing flaky negative values; it’s measurements have been dropped.</p>
+<p><strong>Note 1</strong>: The current report covers 7 studies: eas, habc, hrs, ilse, nas, nuage, octo.</p>
 </div>
 <div id="forest-plot-static" class="section level1">
 <h1>Forest Plot (Static)</h1>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnAAAAGACAMAAAAat68VAAABFFBMVEUAAAAAAC4AADoAAFIAAGYALnMAOpAAUpEAZrYuAC4uAFIuLnMuc686AAA6ADo6AGY6kLZSAABSAC5SAFJSkcxmAABmADpmZmZmZoFmZp1mgYFmgbZmkJBmnc9mtv9zLgBzr69zr8x1cLN/f1p/f21/f3+BZmaBZoGBZp2Bts+BtueQOgCQ2/+RUgCRzMydZmadZoGdgbadtradz8+dz/+vcy6vzMyzs7O2ZgC2gWa2gZ22tp22z7a25/+2///MkVLMr3PMzJHMzK/MzMzPnWbPztvP57bP///ZXwLbkDrb///f3uzjyrjj4vDl5eXntoHn///338z6+vr/tmb/z53/25D/57b//7b//8///9v//+f////IQuL8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAQF0lEQVR4nO3dD3vT1hWAca/doOvabWW0hjHK8JpAA23Y5jbNNg8oZvGAYrq6xuR+/+8x3SvJkmxdWcdHulbi933aOXFyhMvzm/5ZiXqGKGC9Xb8A2q8AR0EDHAUNcBQ0wFHQAEdBAxwFDXAUNMBR0ABHQQMcBQ1wFDTAUdAAR0EDHAUNcBQ0wFHQAEdBU4F7RpR0UFbj4ETf/T/NH+Xr5KSNpbbzWl+3sdB2Xqr8tR6UISz5PsCVBjjpAOBUAU46ADhVgJMOAE4V4KQDgFMFOOkA4FQBTjoAOFWAkw4AThXgpAOAUwU46QDgVAFOOgA4VYCTDgBOFeCkA4BTBTjpAOBUAU46ADhVgJMOAE4V4KQDgFMFOOkA4FQBTjoAOFWAkw4AThXgpAOAUwU46QDgVAFOOgA4VYCTDgBOFeCkA4BT1W1wE1v6SVBwA1vpVwCnqsvgJpMfbSm5gOAGgx9speQAp6rD4GJujpz7PBy4mJsjt/5FwKnqLrjMWyIuGLjMW5k4wKnqLLi8t1hcKHB5byXiAKcKcGvP7Abc/P5Z7jPAiWoAXNGbExcIXNHbujjAqQLc6hPhwM0P+zdG7qE/XBzbj5NnInCvd97Jya5fQdAmr4pNgv3Jg+fFBitfbwzc4nhoZjfP7EO0erNruOQZwxpOGGs4UwOcI/ZoNLv1Jv0secYAThjgTA1wVtr56XCagUueMYATxlGqYQ3nCXBrz4QCl9+HuzeK/mEfbtt4p8FIj1KjTWn0P9lRqui/AXCNLIX3UusGuGYWw9UiNQNcUwvierhaAa6NhXLFrzfAtbFQwHkDXBsLBZw3wLWxUMB5A1wbCwWcN8C1sVDAeQNcGwsFnDfAtbFQwHkDXBsLBZw3wLWxUMB5A1wbCwWcN8C1sdAugfum17v+5Nd3AScPcNKBCNzTa3ef/Obbx7/6FnDiACcdiME9/cPXTz78GnDiACcdcJvUq9/fuf74fcDJA5x0wK7hPunZPmIfTh7gpAMcpaoCnHQAcKoAJx04ePyLu8++irao2UEq4OoHOOnAF3euf3/naqTsK06LbBHgpAN/uXb36TV7zpfTItsEOOnAF3c+evaVW8NdZZMqD3DSgYPkpEivx3m4LQKcdICjVFWAkw4AThXgpAMW3Pd3OC2yZYCTDhxYb/a91G84LbJFgJMOxFeLROA4LbJNgJMOuDXcR6zhtgxw0gG7D/f02p/vsA+3VYCTDnCUqgpw0gHAqQKcdABwqgAnHQCcKsBJBwCnCnDSAcCpApx0AHCqACcdAJwqwEkHAKcKcNKBHYLz3Txib8Gl9/EAnGkBnP/2OHsKLrtTEeBM8+AqbgC2n+By92IDnGkcXNUtDvcS3NrdJhtvr8FV3sR1H8EV7qf7qhVxgANcFuBWaxRc0duquD0EV7xh+KtWNqqAA9wywK1VD9ziuG9vcj/r9/u33UNyC/LXxQbPiw1et97JSft/xvZNXhWb7PoFtVej4M5Ph2Z6683ieGhmN0aLRyMzu/XGsIbbGGu4tWqBm98/M5ZZVPRg3cUBbkOAW6seuMO+24rax+gh2sD2nTmOUjfFUepqtddw9uHeKF3RzewuHeA2BrjVau/DReissvGNkXXnAcc7DavxTsNKtY9So03p+Wm//2VkLztKXf9O3ktdifdSi3G1SGlcLSId4Ho4VVwPJx3gil9VXPErHQCcKsBJBwCnCnDSAcCpApx0AHCqACcdAJwqwEkHAKcKcNIBwKkCnHQAcKoAJx1QgFsc28t66wQ4UYAznjXctN/vH9X4QwAnCnDGv0mtZQ5wogBnqvbhLDl31Zs/wIkCnPGCsz+fNTTnp+5nZbwBThTgTDk4+zMLsbRZ9SoOcKIAZzxHqfH1vJsDnCjAGc7DeQKcdGBbcHZzmrbhkAFwwgBnytdwM3dCZLZ5wwo4UYAzpeDOT+M3GqbVh6gGcMIAZzwHDfGvcthwiGoAJwxwxrOGi99iGLOGazbAGd8+nF3FTdmHazjAGc9pEXeounH9BjhhgDOch/MEOOkA4FQBTjqguwCz7olfoqSDsuqBS9p8VoRIXMUmdVzzQnOi+lWAYxVHzVcBbso+HNVOvw+3ON64SeUoVRRHqabyKHXzmV/AiQKc4TycJ8BJBzRruPg343O1SNMBzlSCq3HQIHpJgGtjoRce3Di7xJwfhG42wJnKNdzmACcKcIaDBk+Akw5sD25+eJS7JWplgBMFOFMCbn44jK/5dR9UBzhRgDNlBw32/YWxPUDd/OY94EQBzpT9IPRR+oOCnIdrOMCZMnDDRB3gmg5wxgMu3n3jB6EbDnDGsw/nfkIw/QH8igAnCnCmBNzsxmhxbNdt483XXwJOFOBM2Xm4mbswaX7Iz6U2HeAM7zR4Apx0AHCqACcdAJwqwEkHAKcKcNIBwKkCnHQAcKoAJx0AnCrASQcApwpw0gHAqQKcdABwqnYDbmKTLlX7Uge2tWcB5+kSgZtMfrRJyele6mDwg22NHOA8XR5wMTdHTrRU1UuNuTlyxS8AztOlAZd5E4rTvNTM26o4wHm6LODy3mTiFC81721FXFfAze/nL5IDnCjAGcB5Cg2u6E0kbvuXWvRWFLdDcPND9zPR0UN/uDi2HyfPAE4Y4EwNcPanamY3z+xDtHqza7jkmehrz17vvJOTXb+CRpq8KjYJ8YcOnhcbaBbWGDhH7NFoFl9xbj9LnjGs4YSxhjM1wFlp56fDaQYuecYAThjgDGs4TxylSpfVyj7cvVH0T34fTvSSAFfxNcAtyx+lRptS93uVOErdJt5pMLzT4In3UqVLApwqrhaRLghwqrgeTroYwKniil/pAOBUAU46ADhVgJMOAE4V4KQDgFMFOOkA4FQBTjoAOFWAkw4AThXgpAOAUwU46QDgVAFOOgA4VYCTDgBOFeCkA0twTz78GnDiACcdiMA9/aSXdBVwwgAnHciv4dKVHOBqBzjpQH4fDnDiACcd4KBBFeCkAxbcY7cD9z4HDfIAJx1wBw3XWcNtGeCkAxbctbuA2zLASQfcJvUq4LYMcNKB7Dwc+3BbBDjpAEepqgAnHQCcKsBJBwpvbb3PiV9hgJMOsIZTBTjpAOBUAU46wCZVFeCkA6zhVAFOOgA4VYCTDgBOFeCkA4BTBTjpAOBUAU46ADhVgJMOAE4V4KQDgFMFOOkA4FQBTjoAOFWAkw4AThXgpAOAUwU46UC3wLmbTwBOPlLjViGAW8t3e50mutTgat0MCXCrpTcQe7l6A7Emuszg6t3uDXArLW9Y93LtlnUNdInB1byhJeCKZTdIfLl+k0R9lxdc3Vv2Aq4Y4JYBzrQPLnfP4Zcl94FVd2nBFb1ViANcIcBlAc7UBbc47t88M2bW7/dvu4fknvevNzZ4XmyweUTUyUnDC+xKk1fFJrt+QRtqFNz56dBMb71ZHA/N7MZo8WhkZrfeGNZwwljDmZrg5vfPjGUWFT1Yd3GAEwU4UxfcYd9tRe1j9BBtYPvOHEepojhKNYI1nH24N0pXdDO7Swc4WYAzgn24CJ1VNr4xsu7qg+OdhmW802AER6nRpvT8tN//MrKXHaXWGua91CTeSzVcLeKpE+C4WmQ1rocTxfVwhit+PXUFXI0A5wtwbSwUcN4A18ZCAecNcG0sFHDeANfGQgHnDXBtLBRw3gDXxkIB5w1wbSwUcN4A18ZCAecNcG0sFHDeANfGQgHnDXBtLBRw3gDXxkIB5w1wbSwUcN4A18ZCAecNcG0sFHDeANfGQgHnDXBtLBRw3gDXxkIB5w1wbSwUcN4A18ZCAecNcG0sFHDeANfGQgHnDXBtLBRw3gDXxkL3CxxR0kFZTYMjkgY4ChrgKGiAo6ABjoJ2YcGdn7pbR6x82Mlyr8/+Wu5h9XfvtsLfZfK7nRvtwoIb37b/rH7YybLXl9zpYsevp6rC3+W4hf8fX1Rw9repJ/8HzH3YyXKvz95Pxf6G7s5W+Luc/ZE13LLcvUpyH3ayldeX3Velg+Vf6/k//gO4ZRcX3NTdNaqj5V/r9Ih9uKwLC27a6eOb/E2u/voGcFkXFdy004cM+dc6HnKUmutiHjR0fP2Wf632hmr9Fs7hXFRwF/O0iL1rVLcr/F2yhsuV3DN4fLT8sLNlL3XczlqjwXJ/rYCjSxDgKGiAo6ABjoIGOAoa4ChogCsvfxHRTHAeY/m97sSpO1sTnwvp9MmQgAGuvBw4yeUdy++dOWBju5Sxe7d+ftjlc9PhAlx5WnDx6frz09spuI5feBkswJUX8Vgc/z3aLA7tVeERmWm0VbTvajz6p91Q2s8sqeTZ+b1/HdoPku9NpCUl4PJP7XGAK8+Bi9ZJU/s4jK/ymB8eRaswy8d+tjg+Wj4bQRu6rWhuk5pdqJ1cADfu8oVwwQJceQ6cXXcdDi0i97GZ3TxzH8SfmexZi85dWpltfu3KLn6HN4XW9StFwgS48mbJmi36n+wnXxJ99jH9pvjZ+Il0Ju38tJ8dNAAuDnDlrYLrJ+c2YnDJVUbLZ+MnVsGZ+Oee2KTmA1x5pWs4kxyGFtdwJhWYA5f/Dg4a8gGuvBVwyzVX8uRR9okt3ocbZ/twqa5ZtobjtIgLcOUVwB0lP4swTldh9jNrKn12fhh9EB+lHiXz7vTIzJ4zSU/8Hu3yv6czAa68HDgzTs/DRaurZBWWPw8XPTs//FvyOxzG/WRPzb215VZqvLWVD3BNlO6y0cYA10SAqx3gmghwtQMcBQ1wFDTAUdAAR0EDHAUNcBQ0wFHQAEdBAxwFDXAUNMBR0ABHQQMcBQ1wFDTAUdAAR0EDHAUNcBQ0wFHQAEdBA1zaM08hl7AHAS7N40ICTr2EPQhwaYALEuDSli4mtvWnBUswA9sWS9iDAJeWuJhMfrQtyW0BbjD4wZaSA1w+wKXFLmJujlz+acESTMzNkZMuYQ8CXJpzkXlLxYnBZd4ScYDLB7g06yLvLREnBZf3FosDXD7ApVWA+6535YVn6uff/buwhLrg8nN7FeDSnq16i8VFT7/97KF3ahVc0ZsTB7h8gEvzg6vCAThhgEvzgvv5417v87ef9n75b/PuwZ8+7n0QPfGBMT/1etGDhRN/rQpc9dxeBbi0yjXcuwefm/9eefHuwZUXbz+98uLn3z58++nn5qf3HmZfqwZXNbdXAS6tEpxbIX320BpJ/zVu5y77WjW4qrm9CnBp/qNUiyParPbeK4CzT7k1VfK1qqPU6rm9CnBp1eDiffwcnGjrmFtTLZewEVzJ3F4FuDT/Ow3J/lbykPz7U7S//91yX8zh8b/TUD23VwEuzf9eanJEGW39cnDePej1fh+tsJZfq3ovtXpurwJcGleLBAlwaVwPFyTApXHFb5AAlwa4IAEuDXBBAlwaPyYYJMBR0ABHQQMcBQ1wFDTAUdAAR0EDHAUNcBQ0wFHQAEdBAxwFDXAUNMBR0ABHQQMcBQ1wFDTAUdAAR0EDHAUNcBQ0wFHQAEdBAxwFDXAUNMBR0ABHQQMcBQ1wFLT/Ay/u7BZWfqz3AAAAAElFTkSuQmCC" /></p>
 </div>
 <div id="forest-plot-animated" class="section level1">
 <h1>Forest Plot (Animated)</h1>
@@ -134,9 +116,10 @@ img {
 <div id="session-information" class="section level1">
 <h1>Session Information</h1>
 <p>For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.</p>
-<pre><code>Report rendered by koval_000 at 2015-02-23, 22:39 Pacific Standard Time</code></pre>
-<pre><code>R version 3.0.3 (2014-03-06)
+<pre><code>Report rendered by Will at 2015-02-24, 14:33 -0600</code></pre>
+<pre><code>R version 3.1.2 Patched (2015-02-19 r67842)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 8 x64 (build 9200)
 
 locale:
 [1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
@@ -146,12 +129,12 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] testit_0.3         ggplot2_1.0.0      RColorBrewer_1.0-5 scales_0.2.4       knitr_1.9         
+[1] testit_0.4         ggplot2_1.0.0      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.9         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.8     evaluate_0.5.5   formatR_1.0      grid_3.0.3       gtable_0.1.2    
- [7] htmltools_0.2.6  MASS_7.3-35      munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.2     
-[13] reshape2_1.4     rmarkdown_0.4.2  stringr_0.6.2    tools_3.0.3      yaml_2.1.13     </code></pre>
+ [1] colorspace_1.2-4 digest_0.6.8     evaluate_0.5.5   formatR_1.0      grid_3.1.2       gtable_0.1.2    
+ [7] htmltools_0.2.6  labeling_0.3     MASS_7.3-39      munsell_0.4.2    plyr_1.8.1       proto_0.3-10    
+[13] Rcpp_0.11.4      reshape2_1.4.1   rmarkdown_0.5.1  stringr_0.6.2    tools_3.1.2      yaml_2.1.13     </code></pre>
 </div>
 
 
