@@ -71,7 +71,10 @@ for(i in seq_along(mpar)){
     if(has_converged) {
         ## obtain model for current loop
         model <- mpar[[i]]$unstandardized
-        model
+        model       
+        wc <- model[model$paramHeader=='Intercepts', 'param']
+        results[i, 'wave_count'] <-
+            max(as.numeric(gsub("[^0-9]", '', wc)), na.rm=T)
         ## Variances
         #################
         ## Covariances ##
@@ -155,7 +158,6 @@ for(i in seq_along(mpar)){
     ##  Additional info ##
     ## ####################
     results[i, 'subject_count'] <- msum[i, 'Observations']
-    results[i, 'wave_count'] <- 'to_do'
     results[i, 'parameter_count'] <- msum[i, 'Parameters']
     results[i, 'output_file'] <- msum[i, 'Filename']
     results[i, 'software'] <- mplus_output[1]
@@ -167,6 +169,8 @@ for(i in seq_along(mpar)){
     results[i, c('aaic')] <-  msum[i,c('AICC')]
 }
 
+i
+
 results
 #results <- dplyr::arrange(results, physical_outcome,  )
 
@@ -175,3 +179,14 @@ View(results)
 write.csv(results, file='automation_result.csv', row.names = F)
 
 
+
+
+studies <- unique(results$study_name)
+getPrototype
+
+## Save subfiles
+for(stdname in studies){
+    destination <- file.path(pathStudy, stdname, "study_automation_result.csv")
+    write.csv(results[results$study_name==stdname,], destination, row.names=F)
+}
+    
