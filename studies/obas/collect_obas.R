@@ -8,6 +8,9 @@
 
 options(width=160)
 rm(list=ls())
+#####################################
+## @knitr load_sources
+source("./synthesis/validate.R") #Loads some functions to validate things like filenames.
 
 library(MplusAutomation)
 pathDir <- getwd() # establish home directory
@@ -50,6 +53,8 @@ for(i in seq_along(mpar)){
 #  i <-5   # for testing and debugging
   mplus_output <- scan(file=file.path(pathStudy, msum$Filename[i]), what='character', sep='\n')
   mplus_model <- strsplit(msum$Filename[i], split="_|.out") # split file name to extract model specs
+
+  validate_filename_input(msum$Filename[i]) #Look at the basics of the filename, to see if it matches the correct conventions.
 
   mplus_model[[1]][[2]] # returns group identifier: male, female
   mplus_model[[1]][[3]] # returns covariates identifier: empty, age, full
