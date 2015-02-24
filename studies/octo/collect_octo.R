@@ -147,10 +147,20 @@ results[i,"study_name"] <- studyName
      #    results[i,'notes'] <- paste(results[i,'notes'], 'Cog ResCov unconstrained', sep='_')}
 }
 
-#### DTO: performance  ####
+    #### DTO: performance  ####
+
+    #Progressively building regex to match the model line:
+    # MODEL:  ip sp qp \| p1-p5 AT time1-time(\d{1,3});
+    # ^  MODEL:  .+ \| p1-p5 AT time1-time(\d{1,3});\s*$
+    # ^\s{0,}MODEL:.{1,}\|.{1,} AT .{1,}time(\d{1,3});\s{0,}$
+
+    pattern_time_max <- "^\\s{0,}MODEL:.{1,}\\|.{1,} AT .{1,}time(\\d{1,3});\\s{0,}$"
+    model_line <- grep(pattern_time_max, x=mplus_output, perl=T, value=T)
+    str_max_time <- gsub(pattern_time_max, "\\1", model_line, perl=TRUE);
+    wave_count <- as.integer(str_max_time)
 
     results[i, 'subject_count'] <- msum[i, 'Observations']
-    results[i, 'wave_count'] <- 'to_do'
+    results[i, 'wave_count'] <- wave_count
     results[i, 'parameter_count'] <- msum[i, 'Parameters']
     results[i, 'output_file'] <- msum[i, 'Filename']
     results[i, 'software'] <- mplus_output[1]
