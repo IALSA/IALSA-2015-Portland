@@ -122,7 +122,7 @@ u0      ilse    female     empty            PhysSummary                         
 u0      ilse    female     empty            noPhys                                    44.359                    16.321                           NA                          NA                              NA                             NA  VisioSpacial            --                                     NA                      NA                     NA                         NA                        NA            NA              NA                 NA                  NA                    NA                  NA                  75  to_do            NA                                       3   -849.164   1704.328   1711.280      1701.825   1704.666  u0_female_empty_noPhys_VisioSpacial.out 
 u1      ilse    female     age              noPhys                                    32.539                   139.097                            0                       0.032                              NA                             NA  VisioSpacial            --                                     NA                      NA                     NA                         NA                        NA            NA              NA                 NA                  NA                    NA                  NA                  69  to_do            NA                                       8   -791.650   1599.299   1617.172      1591.976   1601.699  u1_female_age_noPhys_VisioSpacial.out   
 
-*There are no bivariate outcome results to display in this table.*
+*No bivariate models were supplied from the study.*
 
 
 ## nas
@@ -178,7 +178,7 @@ u0      nuage   male       empty            normalwalk                          
 u0      nuage   female     empty            tug                                        5.908                     0.771                           NA                          NA                           2.212                          0.210  nocogn                  --                                     NA                      NA                     NA                         NA                        NA            NA              NA                 NA                  NA                    NA                  NA                 938  to_do            NA                                       3    -6869.159   13744.319   13758.850     13749.322   13744.345  u0_female_empty_tug_nocogn.out         
 u0      nuage   male       empty            tug                                        5.336                     1.293                           NA                          NA                           2.857                          0.764  nocogn                  --                                     NA                      NA                     NA                         NA                        NA            NA              NA                 NA                  NA                    NA                  NA                 848  to_do            NA                                       3    -6516.091   13038.182   13052.410     13042.883   13038.210  u0_male_empty_tug_nocogn.out           
 
-*There are no bivariate outcome results to display in this table.*
+*No bivariate models were supplied from the study.*
 
 
 ## octo
@@ -217,7 +217,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-02-23, 20:55 Pacific Standard Time
+Report rendered by koval_000 at 2015-02-23, 21:01 Pacific Standard Time
 ```
 
 ```
