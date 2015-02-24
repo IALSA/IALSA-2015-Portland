@@ -39,7 +39,7 @@ colnames(msum)
 mpar <- MplusAutomation::extractModelParameters(target=pathStudy, recursive=F)
 # names(mpar)
 # mpar[[3]]
-
+a <- mpar[[3]]
 # count number of models
 nmodels <- length(mpar)
 nmodels
