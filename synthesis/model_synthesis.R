@@ -26,7 +26,8 @@ no_variable_labels <- c("nocog", "noCog", "cocogn", "nophys", "noPhys")
 #####################################
 ## @knitr load_data
 # pattern <- "dto_bivariate.csv$"
-pattern <- "collected_params.csv$"
+# pattern <- "collected_params.csv$" # Andrey
+pattern <- "study_automation_result.csv$" # Philippe
 dto_paths <- list.files(path=path_input, pattern=pattern, recursive=TRUE)
 # dto_paths; #paste(dto_paths, collapse = ",")
 directories <- gsub(pattern, "\\1", dto_paths, perl=T)
@@ -73,6 +74,27 @@ is_bivariate <- grepl(pattern="^b\\d$", x=ds$model_number)
 testit::assert("The model number should match the univariate or bivariate pattern.", is_univariate | is_bivariate)
 ds$outcome_count <- ifelse(is_univariate, 1L, 2L)
 
+alpha <- 0.05
+limit <- ((1 - (alpha/2)))
+
+# CI for the intercept
+ds$int_zetau <- ds$sd_int + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$int_zetal <- ds$sd_int - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$ciu_sd_int <- tanh(ds$int_zetau)
+ds$cil_sd_int <- tanh(ds$int_zetal)
+
+# CI for the slope
+ds$slope_zetau <- ds$sd_slope + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$slope_zetal <- ds$sd_slope - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$ciu_sd_slope <- tanh(ds$slope_zetau)
+ds$cil_sd_slope <- tanh(ds$slope_zetal)
+
+# CI for the residual
+ds$residual_zetau <- ds$sd_residual + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$residual_zetal <- ds$sd_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$ciu_sd_residual <- tanh(ds$residual_zetau)
+ds$cil_sd_residual <- tanh(ds$residual_zetal)
+
 ### Make pretty
 
 ds_pretty <- ds
@@ -88,6 +110,25 @@ ds_pretty$sd_slope <- ifelse(ds_pretty$sd_slope=="NA", "--", ds_pretty$sd_slope)
 
 ds_pretty$sd_residual <- sprintf("%.2f", ds_pretty$sd_residual)
 ds_pretty$sd_residual <- ifelse(ds_pretty$sd_residual=="NA", "--", ds_pretty$sd_residual)
+
+ds_pretty$cil_sd_int <- sprintf("%.2f", ds_pretty$cil_sd_int)
+ds_pretty$cil_sd_int <- ifelse(ds_pretty$cil_sd_int=="NA", "--", ds_pretty$cil_sd_int)
+ds_pretty$ciu_sd_int <- sprintf("%.2f", ds_pretty$ciu_sd_int)
+ds_pretty$ciu_sd_int <- ifelse(ds_pretty$ciu_sd_int=="NA", "--", ds_pretty$ciu_sd_int)
+
+
+ds_pretty$cil_sd_slope <- sprintf("%.2f", ds_pretty$cil_sd_slope)
+ds_pretty$cil_sd_slope <- ifelse(ds_pretty$cil_sd_slope=="NA", "--", ds_pretty$cil_sd_slope)
+ds_pretty$ciu_sd_slope <- sprintf("%.2f", ds_pretty$ciu_sd_slope)
+ds_pretty$ciu_sd_slope <- ifelse(ds_pretty$ciu_sd_slope=="NA", "--", ds_pretty$ciu_sd_slope)
+
+ds_pretty$cil_sd_residual <- sprintf("%.2f", ds_pretty$cil_sd_residual)
+ds_pretty$cil_sd_residual <- ifelse(ds_pretty$cil_sd_residual=="NA", "--", ds_pretty$cil_sd_residual)
+ds_pretty$ciu_sd_residual <- sprintf("%.2f", ds_pretty$ciu_sd_residual)
+ds_pretty$ciu_sd_residual <- ifelse(ds_pretty$ciu_sd_residual=="NA", "--", ds_pretty$ciu_sd_residual)
+
+
+
 
 
 # desired_columns_univariate <- c("model_number", "study_name", "subgroup", "model_type", "physical_outcome", "var_int_cog")
@@ -143,6 +184,14 @@ desired_columns_univariate<- c( "model_number",
                             "sd_int",
                             "sd_slope",
                             "sd_residual",
+
+                            "cil_sd_int",
+                            "ciu_sd_int",
+                            "cil_sd_slope",
+                            "ciu_sd_slope",
+                            "cil_sd_residual",
+                            "ciu_sd_residual",
+
                             "p_cov_int",
                             "p_cov_slope",
                             "p_cov_res",
@@ -170,12 +219,23 @@ desired_columns_univariate<- c( "model_number",
                             "var_residual_cog",
                             "se_residual_cog",
 
+                            "cov_int",
+                            "cov_slope",
+                            "cov_residual",
+                            "p_cov_int",
+                            "p_cov_slope",
+                            "p_cov_res",
+
                             "LL",
                             "aic",
                             "bic",
                             "adj_bic",
                             "aaic",
-                            "output_file"
+                            "output_file",
+
+                            "datapoint_count",
+                            "deviance",
+                            "data_file"
 )
 desired_columns_bivariate <- desired_columns_univariate
 
@@ -223,7 +283,13 @@ ds_univariate_pretty <- plyr::rename(ds_univariate_pretty, replace=c(
   "data_file"= "data<br/>file",
   "sd_int" = "sd<br/>intercept",
   "sd_slope" = "sd<br/>slope",
-  "sd_residual" ="sd<br/>intercept"
+  "sd_residual" ="sd<br/>residual",
+  "cil_sd_int" = "CIL<br/>cor<br/>int",
+  "ciu_sd_int" = "CIU<br/>cor<br/>int",
+  "cil_sd_slope" = "CIL<br/>cor<br/>slope",
+  "ciu_sd_slope" = "CIU<br/>cor<br/>slope",
+  "cil_sd_residual" = "CIL<br/>cor<br/>residual",
+  "ciu_sd_residual" = "CIU<br/>cor<br/>residual"
 
 ))
 
@@ -268,7 +334,13 @@ ds_bivariate_pretty <- plyr::rename(ds_bivariate_pretty, replace=c(
   "data_file"= "data<br/>file",
   "sd_int" = "sd<br/>intercept",
   "sd_slope" = "sd<br/>slope",
-  "sd_residual" ="sd<br/>intercept"
+  "sd_residual" ="sd<br/>residual",
+  "cil_sd_int" = "CIL<br/>cor<br/>int",
+  "ciu_sd_int" = "CIU<br/>cor<br/>int",
+  "cil_sd_slope" = "CIL<br/>cor<br/>slope",
+  "ciu_sd_slope" = "CIU<br/>cor<br/>slope",
+  "cil_sd_residual" = "CIL<br/>cor<br/>residual",
+  "ciu_sd_residual" = "CIU<br/>cor<br/>residual"
 ))
 
 #####################################
