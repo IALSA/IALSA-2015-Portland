@@ -1,0 +1,375 @@
+Mplus VERSION 7.2 (Mac)
+MUTHEN & MUTHEN
+02/24/2015   1:32 PM
+
+INPUT INSTRUCTIONS
+
+    TITLE: Digit Symbol Substitution Test, Linear LGM, Age Conditional, Female
+
+    DATA:  File = "/Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat";
+
+  VARIABLE:
+    Names are
+       habcid vstatus ds2dth race gender site CV1AGE Y1pchd1 Y1pchd2 Y1pchd3
+       Y1pchf Y1pcbvd Y1pcvd Y1ppad Y1pdiab1 Y1phbp1 Y1WTK Y1bmi Y1sysbp
+       Y1diabp cesd1 Y1educ wd20m1 wd2min1 wd400m1 Y1hakcal Y1hacat Y1SMK1
+       Y1DRINKER1 Y1CURDRNK1 wd400m2 wd20m2 wd20m3 wd20m4 cesd4 wd400m4 wd20m6
+       cesd6 wd400m6 wd2min6 wd20m8 cesd8 wd400m8 wd2min8 wd20m10 cesd10
+       wd400m10 wd2min10 cesd11 wd20m5 wd2min2 wd2min4 smokecurrent smokeformer
+       educpost educhigh mmmscore1 dss1 faminc tsmarsta self1 lpschool self2
+       clox3 mmmscore3 self3 self4 clox5 mmmscore5 dss5 self5 self6 clox8
+       dss8 mmmscore8 self8 clox10 dss10 mmmscore10 self10 mmmscore11 dss11
+       self11 hand1 hand2 hand4 hand6 hand8 hand10 limit1 limit2 limit3 limit4
+       limit5 limit6 limit8 limit9 limit10 limit11 t1 t2 t3 t4 t5 t6 t8 t10
+       t11;
+
+         MISSING are all (-9999);
+         USEVAR are  smokecurrent smokeformer Y1pdiab1 Y1pcvd Bage Educ Height
+                     time1  time5 time8 time10 time11
+
+                     c1     c5    c8    c10    c11;
+         TSCORES =   time1  time5 time8 time10 time11;
+
+         USEOBSERVATIONS are gender EQ 0; ! female=0
+
+
+    Define: c1= dss1;  c5= dss5;
+            c8= dss8;  c10= dss10 ;c11= dss11;
+            time1=t1; time5=t5; time8=t8; time10=t10; time11=t11;
+
+            Bage=CV1AGE-70;   !Centered at Age 70
+            !Bagesq=(compage1-80)**2;
+            !Dage=YTDead;
+            !Sex=female;         !0=Male
+            Educ=lpschool-7;     ! Centered at 7 years
+            !SEP=SESgrp;
+            !Marstat;
+            Height=sqrt(Y1WTK/Y1bmi)-1.60;
+            !Weight
+            !BMI
+            !SmokHist=Smoke;
+            !Alcohol;
+            !CompExp;
+            !PhysAct;
+            !BP;
+            !DepSymp;
+            !Cardio;
+            !Diab;
+            !MorbInd;
+
+            !BageSex=Bage*Sex;
+            !BageEduc=Bage*Educ;
+            !SexEduc=Sex*Educ;
+
+    ANALYSIS: TYPE = RANDOM;
+
+    MODEL:  ic sc| c1-c11 AT time1-time11;
+            ic sc ON Bage Educ height smokecurrent smokeformer Y1pdiab1 Y1pcvd;
+            c1-c11 (res_c);
+
+    OUTPUT: sampstat;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  46
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  7
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Digit Symbol Substitution Test, Linear LGM, Age Conditional, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1531
+
+Number of dependent variables                                    5
+Number of independent variables                                  7
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   C1          C5          C8          C10         C11
+
+Observed independent variables
+   SMOKECUR    SMOKEFOR    Y1PDIAB1    Y1PCVD      BAGE        EDUC
+   HEIGHT
+
+Continuous latent variables
+   IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME5       TIME8       TIME10      TIME11
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  /Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            22
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              C1            C5            C8            C10           C11
+              ________      ________      ________      ________      ________
+ C1             0.993
+ C5             0.771         0.777
+ C8             0.590         0.567         0.593
+ C10            0.540         0.509         0.492         0.541
+ C11            0.457         0.432         0.423         0.436         0.458
+ SMOKECUR       0.993         0.777         0.593         0.541         0.458
+ SMOKEFOR       0.993         0.777         0.593         0.541         0.458
+ Y1PDIAB1       0.993         0.777         0.593         0.541         0.458
+ Y1PCVD         0.993         0.777         0.593         0.541         0.458
+ BAGE           0.993         0.777         0.593         0.541         0.458
+ EDUC           0.993         0.777         0.593         0.541         0.458
+ HEIGHT         0.993         0.777         0.593         0.541         0.458
+
+
+           Covariance Coverage
+              SMOKECUR      SMOKEFOR      Y1PDIAB1      Y1PCVD        BAGE
+              ________      ________      ________      ________      ________
+ SMOKECUR       1.000
+ SMOKEFOR       1.000         1.000
+ Y1PDIAB1       1.000         1.000         1.000
+ Y1PCVD         1.000         1.000         1.000         1.000
+ BAGE           1.000         1.000         1.000         1.000         1.000
+ EDUC           1.000         1.000         1.000         1.000         1.000
+ HEIGHT         1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              EDUC          HEIGHT
+              ________      ________
+ EDUC           1.000
+ HEIGHT         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              C1            C5            C8            C10           C11
+              ________      ________      ________      ________      ________
+ 1             37.160        34.275        32.446        31.221        29.328
+
+
+           Means
+              SMOKECUR      SMOKEFOR      Y1PDIAB1      Y1PCVD        BAGE
+              ________      ________      ________      ________      ________
+ 1              0.098         0.329         0.136         0.174         3.506
+
+
+           Means
+              EDUC          HEIGHT
+              ________      ________
+ 1              5.856        -0.005
+
+
+           Covariances
+              C1            C5            C8            C10           C11
+              ________      ________      ________      ________      ________
+ C1           214.763
+ C5           166.663       215.004
+ C8           168.942       181.607       222.123
+ C10          164.537       180.304       202.748       233.579
+ C11          163.487       179.636       203.707       211.517       250.584
+ SMOKECUR      -0.453        -0.405        -0.338        -0.408        -0.529
+ SMOKEFOR       0.524         0.665         0.507         0.675         0.567
+ Y1PDIAB1      -0.778        -0.902        -0.953        -1.019        -0.904
+ Y1PCVD        -0.655        -0.634        -0.606        -0.673        -0.948
+ BAGE          -6.845        -7.223        -8.937        -9.326       -10.829
+ EDUC          22.134        21.282        21.619        21.529        21.018
+ HEIGHT        -0.003        -0.001         0.024         0.009         0.050
+
+
+           Covariances
+              SMOKECUR      SMOKEFOR      Y1PDIAB1      Y1PCVD        BAGE
+              ________      ________      ________      ________      ________
+ SMOKECUR       0.088
+ SMOKEFOR      -0.032         0.221
+ Y1PDIAB1       0.000         0.000         0.117
+ Y1PCVD         0.006         0.004         0.016         0.144
+ BAGE          -0.014        -0.029        -0.017         0.045         8.234
+ EDUC          -0.036         0.022        -0.153        -0.109        -0.352
+ HEIGHT         0.000         0.001         0.000         0.000        -0.020
+
+
+           Covariances
+              EDUC          HEIGHT
+              ________      ________
+ EDUC           8.374
+ HEIGHT         0.004         0.004
+
+
+           Correlations
+              C1            C5            C8            C10           C11
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C5             0.776         1.000
+ C8             0.773         0.831         1.000
+ C10            0.735         0.805         0.890         1.000
+ C11            0.705         0.774         0.863         0.874         1.000
+ SMOKECUR      -0.104        -0.093        -0.076        -0.090        -0.112
+ SMOKEFOR       0.076         0.097         0.072         0.094         0.076
+ Y1PDIAB1      -0.155        -0.179        -0.187        -0.195        -0.167
+ Y1PCVD        -0.118        -0.114        -0.107        -0.116        -0.158
+ BAGE          -0.163        -0.172        -0.209        -0.213        -0.238
+ EDUC           0.522         0.502         0.501         0.487         0.459
+ HEIGHT        -0.004        -0.001         0.027         0.010         0.052
+
+
+           Correlations
+              SMOKECUR      SMOKEFOR      Y1PDIAB1      Y1PCVD        BAGE
+              ________      ________      ________      ________      ________
+ SMOKECUR       1.000
+ SMOKEFOR      -0.231         1.000
+ Y1PDIAB1      -0.002        -0.001         1.000
+ Y1PCVD         0.058         0.024         0.125         1.000
+ BAGE          -0.016        -0.022        -0.017         0.041         1.000
+ EDUC          -0.041         0.016        -0.154        -0.099        -0.042
+ HEIGHT        -0.011         0.031        -0.003        -0.020        -0.112
+
+
+           Correlations
+              EDUC          HEIGHT
+              ________      ________
+ EDUC           1.000
+ HEIGHT         0.022         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -26452.284
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       20
+
+Loglikelihood
+
+          H0 Value                      -18593.460
+          H0 Scaling Correction Factor      1.1707
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   37226.920
+          Bayesian (BIC)                 37333.593
+          Sample-Size Adjusted BIC       37270.058
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IC         ON
+    BAGE              -0.664      0.109     -6.086      0.000
+    EDUC               2.515      0.103     24.407      0.000
+    HEIGHT            -9.864      5.081     -1.941      0.052
+    SMOKECURRE        -3.360      0.990     -3.393      0.001
+    SMOKEFORME         1.746      0.690      2.529      0.011
+    Y1PDIAB1          -3.161      0.896     -3.528      0.000
+    Y1PCVD            -1.761      0.848     -2.076      0.038
+
+ SC         ON
+    BAGE              -0.041      0.012     -3.366      0.001
+    EDUC              -0.015      0.011     -1.346      0.178
+    HEIGHT             0.753      0.545      1.382      0.167
+    SMOKECURRE         0.034      0.115      0.298      0.766
+    SMOKEFORME         0.020      0.074      0.272      0.786
+    Y1PDIAB1          -0.194      0.111     -1.741      0.082
+    Y1PCVD            -0.054      0.098     -0.552      0.581
+
+ SC       WITH
+    IC                -2.258      0.598     -3.776      0.000
+
+ Intercepts
+    C1                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    C8                 0.000      0.000    999.000    999.000
+    C10                0.000      0.000    999.000    999.000
+    C11                0.000      0.000    999.000    999.000
+    IC                25.930      0.892     29.063      0.000
+    SC                -0.450      0.094     -4.796      0.000
+
+ Residual Variances
+    C1                34.434      1.974     17.440      0.000
+    C5                34.434      1.974     17.440      0.000
+    C8                34.434      1.974     17.440      0.000
+    C10               34.434      1.974     17.440      0.000
+    C11               34.434      1.974     17.440      0.000
+    IC               116.104      6.185     18.773      0.000
+    SC                 0.665      0.090      7.383      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.124E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  13:32:57
+        Ending Time:  13:32:59
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
