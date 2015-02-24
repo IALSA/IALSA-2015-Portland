@@ -1,0 +1,375 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+02/24/2015   2:19 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: M3 Timed Up and Go, Quadratic LGM, Age Conditional, Female
+
+  DATA:  File = unshared\ILSE 23.02.dat;
+
+  VARIABLE: Names are
+     T1SD18 ID SEX t1dss t1bd t1hgl t1hgr t1fs t1fsb t1age
+     center t1beer t1wine t1k t1pc t1vf t1sa
+      t1spf t2dss t2bd t2hgl t2hgr t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc
+      t3vf t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3hgl t3hgr
+      t3height t3weight time1 time2r time3r time3 time2
+      BMI1 BMI2 BMI3 no_sec Haupts Reals Secondary
+      specials others;
+
+         MISSING are ALL(-9999);
+         USEVAR are  time1 time2 time3
+                     p1 p2 p3
+                     Bage;
+         TSCORES =   time1 time2 time3;
+
+         USEOBSERVATIONS are sex EQ 1;
+
+  Define: p1=T1TUG; p2=T2TUG; p3=T3TUG;
+
+          Bage=t1age-70;   !Centered at Age 70
+          Bagesq=(t1age-70)**2;
+
+
+
+  ANALYSIS: TYPE = RANDOM;
+  Estimator=MLF;
+
+  MODEL:  ip sp qp | p1-p3 AT time1-time3;
+
+          ip sp qp ON Bage;
+
+          p1-p3 (res_p);
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  12
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  22
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M3 Timed Up and Go, Quadratic LGM, Age Conditional, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         230
+
+Number of dependent variables                                    3
+Number of independent variables                                  1
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IP          SP          QP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLF
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  unshared\ILSE 23.02.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             7
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            BAGE
+              ________      ________      ________      ________
+ P1             0.474
+ P2             0.404         0.926
+ P3             0.226         0.443         0.452
+ BAGE           0.474         0.926         0.452         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            BAGE
+              ________      ________      ________      ________
+ 1              6.826         7.253         8.238        -7.027
+
+
+           Covariances
+              P1            P2            P3            BAGE
+              ________      ________      ________      ________
+ P1            94.317
+ P2            90.787        89.747
+ P3            -4.798        -4.399         2.448
+ BAGE          -1.399        -1.502         0.165         0.836
+
+
+           Correlations
+              P1            P2            P3            BAGE
+              ________      ________      ________      ________
+ P1             1.000
+ P2             0.987         1.000
+ P3            -0.316        -0.297         1.000
+ BAGE          -0.158        -0.173         0.116         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -1504.796
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN ILL-CONDITIONED
+     FISHER INFORMATION MATRIX.  CHANGE YOUR MODEL AND/OR STARTING VALUES.
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO A NON-POSITIVE
+     DEFINITE FISHER INFORMATION MATRIX.  THIS MAY BE DUE TO THE STARTING VALUES
+     BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE CONDITION
+     NUMBER IS       0.305D-17.
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES COULD NOT BE
+     COMPUTED.  THIS IS OFTEN DUE TO THE STARTING VALUES BUT MAY ALSO BE
+     AN INDICATION OF MODEL NONIDENTIFICATION.  CHANGE YOUR MODEL AND/OR
+     STARTING VALUES.  PROBLEM INVOLVING PARAMETER 11.
+
+
+
+
+
+
+MODEL RESULTS
+
+                    Estimate
+
+ IP         ON
+    BAGE              -0.831
+
+ SP         ON
+    BAGE              -0.050
+
+ QP         ON
+    BAGE               0.004
+
+ SP       WITH
+    IP                 0.001
+
+ QP       WITH
+    IP                 0.000
+    SP                 0.000
+
+ Intercepts
+    P1                 0.000
+    P2                 0.000
+    P3                 0.000
+    IP                 0.557
+    SP                -0.237
+    QP                 0.033
+
+ Residual Variances
+    P1                50.195
+    P2                50.195
+    P3                50.195
+    IP                 0.127
+    SP                 0.000
+    QP                 0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     ip sp qp | p1-p3 AT time1-time3;
+
+     ip ON bage*-0.83086;
+     sp ON bage*-0.04973;
+     qp ON bage*0.00360;
+
+     sp WITH ip*0.00062;
+     qp WITH ip*0.00000;
+     qp WITH sp*0.00000;
+
+     [ p1@0 ];
+     [ p2@0 ];
+     [ p3@0 ];
+     [ ip*0.55692 ];
+     [ sp*-0.23653 ];
+     [ qp*0.03334 ];
+
+     p1*50.19482 (res_p);
+     p2*50.19482 (res_p);
+     p3*50.19482 (res_p);
+     ip*0.12678;
+     sp*0.00047;
+     qp*0.00000;
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              P1            P2            P3            BAGE
+              ________      ________      ________      ________
+ 1                  0             0             0             0
+
+
+           LAMBDA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ P1                 0             0             0             0
+ P2                 0             0             0             0
+ P3                 0             0             0             0
+ BAGE               0             0             0             0
+
+
+           THETA
+              P1            P2            P3            BAGE
+              ________      ________      ________      ________
+ P1                 1
+ P2                 0             1
+ P3                 0             0             1
+ BAGE               0             0             0             0
+
+
+           ALPHA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ 1                  2             3             4             0
+
+
+           BETA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ IP                 0             0             0             5
+ SP                 0             0             0             6
+ QP                 0             0             0             7
+ BAGE               0             0             0             0
+
+
+           PSI
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ IP                 8
+ SP                 9            10
+ QP                11            12            13
+ BAGE               0             0             0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              P1            P2            P3            BAGE
+              ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ P1             0.000         0.000         0.000         0.000
+ P2             0.000         0.000         0.000         0.000
+ P3             0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         1.000
+
+
+           THETA
+              P1            P2            P3            BAGE
+              ________      ________      ________      ________
+ P1            93.416
+ P2             0.000        48.205
+ P3             0.000         0.000         1.364
+ BAGE           0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ 1              5.880         0.109         0.007         0.000
+
+
+           BETA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ IP             0.000         0.000         0.000         0.000
+ SP             0.000         0.000         0.000         0.000
+ QP             0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000
+
+
+           PSI
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ IP             1.146
+ SP             0.000         0.354
+ QP             0.000         0.000         0.003
+ BAGE           0.000         0.000         0.000         0.420
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\u2_female_age_timed
+
+     Beginning Time:  14:19:31
+        Ending Time:  14:19:57
+       Elapsed Time:  00:00:26
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

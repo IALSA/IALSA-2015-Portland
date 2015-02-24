@@ -1,0 +1,416 @@
+Mplus VERSION 5.1
+MUTHEN & MUTHEN
+02/24/2015  12:46 PM
+
+INPUT INSTRUCTIONS
+
+    TITLE: Chair stand, Linear LGM, Age Conditional, Male
+    DATA: FILE IS e:\IALSA\monday_dot_time.dat;
+    FORMAT IS FREE;
+    VARIABLE: NAMES ARE sujetno
+  sex
+  age
+  age_t2
+  age_t3
+  age_t4
+  scolart1
+  revfamt1
+  reveokt1
+  scodmst1
+  scotmst1
+  taimest1
+  poimest1
+  imct1
+  walkf4m1
+  tugt1
+  leve1xt1
+  leve5xt1
+  tlev5xt1
+  unipont1
+  unipodt1
+  march1t1
+  march2t1
+  marrapt1
+  maxvd0t1
+  maxvg0t1
+  maxbd0t1
+  maxbg0t1
+  maxqd0t1
+  maxqg0t1
+  paset1
+  exclut1
+  pcst1
+  mcst1
+  reveokt2
+  scodmst2
+  scotmst2
+  poimest2
+  taimest2
+  imct2
+  tugt2
+  walkf4m2
+  leve1xt2
+  leve5xt2
+  tlev5xt2
+  unipont2
+  unipodt2
+  march1t2
+  march2t2
+  marrapt2
+  maxbd0t2
+  maxbg0t2
+  maxqd0t2
+  maxqg0t2
+  maxvd0t2
+  maxvg0t2
+  paset2
+  pcst2
+  mcst2
+  revacct3
+  revfamt3
+  reveokt3
+  scodmst3
+  scotmst3
+  poimest3
+  imct3
+  tugt3
+  walkf4m3
+  leve1xt3
+  leve5xt3
+  tlev5xt3
+  unipont3
+  unipodt3
+  march1t3
+  march2t3
+  marrapt3
+  maxbd0t3
+  maxbg0t3
+  maxqd0t3
+  maxqg0t3
+  maxvd0t3
+  maxvg0t3
+  paset3
+  pcst3
+  mcst3
+  revacct4
+  revfamt4
+  reveokt4
+  scodmst4
+  scotmst4
+  tugt4
+  walkf4m4
+  leve1xt4
+  leve5xt4
+  tlev5xt4
+  unipont4
+  unipodt4
+  march1t4
+  march2t4
+  marrapt4
+  maxbd0t4
+  maxbg0t4
+  maxqd0t4
+  maxqg0t4
+  maxvd0t4
+  maxvg0t4
+  paset4
+  pcst4
+  mcst4
+  gdst1
+  gdst2
+  gdst3
+  gdst4
+  walkn4m1
+  walkn4m2
+  walkn4m3
+  walkn4m4
+  marital1
+  marital2
+  marital3
+  marital4
+  seslow
+  packyears
+  smokert1
+  chronic1
+  chronic2
+  chronic3
+  chronic4
+  hypertt1
+  hypertt2
+  hypertt3
+  hypertt4
+  diabet1
+  diabet2
+  diabet3
+  diabet4
+  heartat1
+  heartat2
+  heartat3
+  heartat4
+  dead
+  alcohot1
+  alcohot2
+  alcohot3
+  alcohot4
+  smokert2
+  smokert3
+  smokert4
+  daydeath
+  monthdeath
+  yeardeath
+  time1
+  time2
+  time3
+  time4
+  ;
+  MISSING are ALL (-9999);
+
+         USEVAR are  time1 time2 time3 time4
+                     p1 p2 p3 p4
+                     Bage;
+
+         TSCORES =   time1 time2 time3 time4;
+
+
+  USEOBSERVATIONS are sex EQ 1; !female=0
+
+  Define: p1=tlev5xt1; p2=tlev5xt2; p3=tlev5xt3; p4=tlev5xt4;
+         !c1=scotmst1; c2=scotmst2; c3=scotmst3; c4=scotmst4;
+          Bage=age-70;   !Centered at Age 70
+          Bagesq=(age)**2;
+          !Dage=YTDead;
+          !Sex=sex;         !0=Male
+         ! Educ=scolart1;     ! Centered at 7 years
+         ! SEP=seslow;
+          !Marstat;
+          !Height
+          !Weight
+          !BMI
+          !SmokHist=Smokert1;
+          !Alcohol;
+          !CompExp;
+          !PhysAct;
+          !BP;
+          !DepSymp;
+          !Cardio;
+          !Diab;
+          !MorbInd;
+
+          !BageSex=Bage*Sex;
+          !BageEduc=Bage*Educ;
+          !SexEduc=Sex*Educ;
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp | p1-p4 AT time1-time4;
+
+          ip sp ON Bage;
+
+          p1-p4 (res_p);
+
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: PACKYEARS
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: MONTHDEATH
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: YEARDEATH
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  8
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Chair stand, Linear LGM, Age Conditional, Male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         845
+
+Number of dependent variables                                    4
+Number of independent variables                                  1
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IP          SP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  e:\IALSA\monday_dot_time.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            14
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            BAGE
+              ________      ________      ________      ________      ________
+ P1             0.988
+ P2             0.839         0.847
+ P3             0.799         0.774         0.807
+ P4             0.743         0.717         0.716         0.749
+ BAGE           0.988         0.847         0.807         0.749         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            BAGE
+              ________      ________      ________      ________      ________
+ 1             10.584        11.251        12.081        12.052         4.262
+
+
+           Covariances
+              P1            P2            P3            P4            BAGE
+              ________      ________      ________      ________      ________
+ P1            11.254
+ P2             8.449        13.506
+ P3             9.502        11.977        19.249
+ P4             9.571        11.818        13.272        20.886
+ BAGE           3.361         3.630         4.533         4.884        17.078
+
+
+           Correlations
+              P1            P2            P3            P4            BAGE
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.685         1.000
+ P3             0.646         0.743         1.000
+ P4             0.624         0.704         0.662         1.000
+ BAGE           0.242         0.239         0.250         0.259         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -9566.649
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+TESTS OF MODEL FIT
+
+Loglikelihood
+
+          H0 Value                       -7215.520
+          H0 Scaling Correction Factor       6.494
+            for MLR
+
+Information Criteria
+
+          Number of Free Parameters              8
+          Akaike (AIC)                   14447.039
+          Bayesian (BIC)                 14484.954
+          Sample-Size Adjusted BIC       14459.548
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE               0.189      0.027      6.985      0.000
+
+ SP         ON
+    BAGE               0.035      0.011      3.113      0.002
+
+ SP       WITH
+    IP                 1.007      0.365      2.763      0.006
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    IP                 9.871      0.138     71.295      0.000
+    SP                 0.393      0.051      7.640      0.000
+
+ Residual Variances
+    P1                 4.902      0.608      8.062      0.000
+    P2                 4.902      0.608      8.062      0.000
+    P3                 4.902      0.608      8.062      0.000
+    P4                 4.902      0.608      8.062      0.000
+    IP                 6.286      1.033      6.087      0.000
+    SP                 0.324      0.349      0.928      0.353
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.158E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  12:46:04
+        Ending Time:  12:46:06
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2008 Muthen & Muthen
