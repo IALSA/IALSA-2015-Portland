@@ -12,7 +12,8 @@ rm(list=ls())
 library(MplusAutomation)
 pathDir <- getwd() # establish home directory
 # pathStudy <- file.path(pathDir,"studies/octo") # establish Study directory
-pathStudy <- "./studies/octo" # temp
+studyName <- "obas"
+pathStudy <- paste0("./studies/",studyName) # temp
 pathDto <- "./data/shared/dto_bivariate.csv" # derivative from Google sheets
 ## obtain variable list from DTO - Relative path
 dto.vars <- names(read.csv(pathDto,skip=1))
@@ -61,7 +62,7 @@ for(i in seq_along(mpar)){
   results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
   results[i,"active"] <- NA
   results[i, c('date', 'time')] <- strsplit(mplus_output[3], '  ')[[1]]
-  results[i,"study_name"] <- 'octo'
+  results[i,"study_name"] <- studyName
   # Extract the file path, which exists after 'File = ', but before the semicolon.
   results[i, "data_file"] <- gsub(pattern="DATA:  File = (.+);", replacement="\\1", mplus_output[6], perl=T)
 
