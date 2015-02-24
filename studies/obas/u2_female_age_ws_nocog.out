@@ -1,0 +1,679 @@
+Mplus VERSION 7.3
+MUTHEN & MUTHEN
+02/24/2015   2:39 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: M2 MMSE, Quadratic LGM, Age Conditional, non-demented, 10 yrs, female
+
+   DATA:  File = unshared\IALSA_OBAS_021815.dat;
+
+  VARIABLE: Names are VSTpatid female	Rsex educyrs	MMSE1
+  	MMSE2	MMSE3	MMSE4	MMSE5	MMSE6	MMSE7	MMSE8
+      	MMSE9	MMSE10	MMSE11	MMSE12	MMSE13	MMSE14	
+          MMSE15	MMSE16	MMSE17	MMSE18	MMSE19	MMSE20
+          	MMSE21	MMSE22	MMSE23	age1	age2	
+              age3	age4	age5	age6	age7	age8
+              	age9	age10	age11	age12	age13	
+                  age14	age15	age16	age17	age18	
+
+                 age19	age20	age21	age22	age23	
+                 cdr1	cdr2	cdr3	cdr4	cdr5	cdr6
+                 	cdr7	cdr8	cdr9	cdr10	cdr11	
+                  cdr12	cdr13	cdr14	cdr15	cdr16	
+                  cdr17	cdr18	cdr19	cdr20	cdr21	
+                  cdr22	cdr23	WS1	WS2	WS3	WS4	WS5	WS6	
+                  WS7	WS8	WS9	WS10	WS11	WS12	WS13
+                  	WS14	WS15	WS16	WS17	WS18	
+                      WS19	WS20	WS21	WS22
+                      	WS23	GS1	GS2	GS3	GS4	GS5	GS6	GS7	GS8
+                          	GS9	GS10	GS11	GS12	GS13	
+                              GS14	GS15	GS16	GS17	GS18
+                              	GS19	GS20	GS21	GS22	GS23
+                       	CS1	CS2	CS3	CS4	CS5	CS6	CS7	CS8	CS9	CS10	CS11
+                       	CS12	CS13	CS14	CS15	CS16	CS17	
+                   CS18	CS19	CS20	CS21	CS22	CS23	baseage ;
+
+         MISSING is all (-9999);
+         USEVAR are
+                     p1-p10
+                     Bage time1 time2 time3 time4 time5 time6 time7 time8
+                     time9 time10;
+                     !time11 time12 time13 time14 time15 time16 time17 time18 time19 time20
+                     !time21 time22;
+         TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8 time9
+         time10;
+                     !time11 time12 time13 time14 time15 time16 time17 time18 time19 time20
+                     !time21 time22;
+
+         USEOBSERVATIONS are CDR1 LE 0.5 and CDR2 LE 0.5 and CDR3 LE 0.5 and CDR4 LE 0.5
+         and CDR5 LE 0.5 and CDR6 LE 0.5 and CDR7 LE 0.5
+         and CDR8 LE 0.5 and CDR9 LE 0.5 and CDR10 LE 0.5 and female EQ 1;
+         !and
+         !CDR11 LE 0.5 and CDR12 LE 0.5 and CDR13 LE 0.5 and CDR14 LE 0.5
+         !and CDR15 LE 0.5
+         !and CDR16 LE 0.5 and CDR17 LE 0.5 and CDR18 LE 0.5 and CDR19 LE 0.5
+         !and CDR20 LE 0.5 and CDR21 LE 0.5 and CDR22 LE 0.5
+         !and female EQ 1;
+
+  Define: p1=ws1; p2=ws2; p3=ws3; p4=ws4; p5=ws5; p6=ws6; p7=ws7; p8=ws8;
+  p9=ws9; p10=ws10; p11=ws11; p12=ws12; p13=ws13; p14=ws14; p15=ws15;
+  p16=ws16; p17=ws17; p18=ws18; p19=ws19; p20=ws20; p21=ws21; p22=ws22;
+  p23=ws23;
+
+          Bage=age1-70;   !Centered at Age 82
+          Bagesq=(age1-70)**2;
+          ! Dage=YTDead;
+          Sex=female;         !0=Male
+          Educ=Educyrs-7;     ! Centered at 14.5 years
+          !SEP=SESgrp;
+          !Marstat;
+          !Height
+          !Weight
+          !BMI
+          !SmokHist=Smoke;
+          !Alcohol;
+          !CompExp;
+          !PhysAct;
+          !BP;
+          !DepSymp;
+          !Cardio;
+          !Diab;
+          !MorbInd;
+
+          BageSex=Bage*Sex;
+          BageEduc=Bage*Educ;
+          SexEduc=Sex*Educ;
+          time1=age1-age1;
+          time2=age2-age1;
+          time3=age3-age1;
+          time4=age4-age1;
+          time5=age5-age1;
+          time6=age6-age1;
+          time7=age7-age1;
+          time8=age8-age1;
+          time9=age9-age1;
+          time10=age10-age1;
+          time11=age11-age1;
+          time12=age12-age1;
+          time13=age13-age1;
+          time14=age14-age1;
+          time15=age15-age1;
+          time16=age16-age1;
+          time17=age17-age1;
+          time18=age18-age1;
+          time19=age19-age1;
+          time20=age20-age1;
+          time21=age21-age1;
+          time22=age22-age1;
+          time23=age23-age1;
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp qp | p1-p10 AT time1-time10;
+
+          ip sp qp ON Bage;
+
+          p1-p10 (res_p);
+
+  OUTPUT: sampstat;
+
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  1
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M2 MMSE, Quadratic LGM, Age Conditional, non-demented, 10 yrs, female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         154
+
+Number of dependent variables                                   10
+Number of independent variables                                  1
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5          P6
+   P7          P8          P9          P10
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IP          SP          QP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
+   TIME7       TIME8       TIME9       TIME10
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  unshared\IALSA_OBAS_021815.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            45
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.955
+ P2             0.636         0.662
+ P3             0.844         0.597         0.857
+ P4             0.669         0.591         0.643         0.688
+ P5             0.805         0.552         0.773         0.643         0.831
+ P6             0.688         0.519         0.649         0.545         0.695
+ P7             0.578         0.442         0.552         0.474         0.578
+ P8             0.500         0.416         0.481         0.435         0.500
+ P9             0.494         0.403         0.474         0.435         0.506
+ P10            0.442         0.331         0.416         0.364         0.442
+ BAGE           0.955         0.662         0.857         0.688         0.831
+
+
+           Covariance Coverage
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             0.714
+ P7             0.545         0.591
+ P8             0.487         0.461         0.513
+ P9             0.481         0.468         0.442         0.513
+ P10            0.422         0.396         0.396         0.429         0.448
+ BAGE           0.714         0.591         0.513         0.513         0.448
+
+
+           Covariance Coverage
+              BAGE
+              ________
+ BAGE           1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1              0.866         0.835         0.849         0.806         0.791
+
+
+           Means
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ 1              0.771         0.749         0.703         0.709         0.690
+
+
+           Means
+              BAGE
+              ________
+ 1             11.864
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.052
+ P2             0.030         0.049
+ P3             0.031         0.034         0.056
+ P4             0.029         0.034         0.031         0.053
+ P5             0.027         0.029         0.031         0.038         0.048
+ P6             0.030         0.030         0.028         0.033         0.034
+ P7             0.031         0.029         0.027         0.034         0.034
+ P8             0.028         0.032         0.029         0.041         0.035
+ P9             0.026         0.025         0.025         0.039         0.033
+ P10            0.023         0.022         0.016         0.028         0.025
+ BAGE          -0.975        -0.917        -0.909        -1.025        -0.866
+
+
+           Covariances
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             0.057
+ P7             0.034         0.045
+ P8             0.038         0.040         0.054
+ P9             0.031         0.037         0.041         0.053
+ P10            0.029         0.032         0.036         0.033         0.046
+ BAGE          -0.799        -0.951        -1.050        -1.014        -0.690
+
+
+           Covariances
+              BAGE
+              ________
+ BAGE          70.175
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.593         1.000
+ P3             0.573         0.638         1.000
+ P4             0.558         0.660         0.572         1.000
+ P5             0.534         0.605         0.594         0.756         1.000
+ P6             0.550         0.563         0.497         0.600         0.652
+ P7             0.645         0.612         0.545         0.703         0.728
+ P8             0.533         0.611         0.536         0.756         0.693
+ P9             0.500         0.477         0.466         0.737         0.664
+ P10            0.462         0.452         0.319         0.573         0.542
+ BAGE          -0.508        -0.492        -0.459        -0.531        -0.474
+
+
+           Correlations
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             1.000
+ P7             0.676         1.000
+ P8             0.680         0.811         1.000
+ P9             0.568         0.759         0.766         1.000
+ P10            0.559         0.699         0.713         0.671         1.000
+ BAGE          -0.399        -0.536        -0.539        -0.523        -0.382
+
+
+           Correlations
+              BAGE
+              ________
+ BAGE           1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -82.534
+
+
+UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P1                    0.869       0.606       0.381    0.68%       0.703      0.831      0.831
+             147.000       0.053       1.604       1.828    0.68%       0.914      1.016
+     P2                    0.873      -0.187       0.326    0.98%       0.653      0.831      0.914
+             102.000       0.049      -0.652       1.306    3.92%       0.914      1.016
+     P3                    0.864       0.227       0.286    0.76%       0.653      0.831      0.831
+             132.000       0.055       0.431       1.523    2.27%       0.914      1.016
+     P4                    0.829       0.093       0.286    0.94%       0.609      0.831      0.831
+             106.000       0.053       0.569       1.576    0.94%       0.914      1.016
+     P5                    0.807       0.150       0.261    0.78%       0.653      0.762      0.820
+             128.000       0.046       0.116       1.344    1.56%       0.831      0.914
+     P6                    0.795       0.750       0.243    0.91%       0.571      0.762      0.762
+             110.000       0.054       2.525       1.828    0.91%       0.831      1.016
+     P7                    0.794      -0.131       0.305    1.10%       0.609      0.762      0.816
+              91.000       0.042      -0.303       1.306    1.10%       0.831      1.016
+     P8                    0.769       0.079       0.237    1.27%       0.571      0.703      0.781
+              79.000       0.053      -0.424       1.306    1.27%       0.831      0.914
+     P9                    0.774      -0.052       0.251    1.27%       0.568      0.703      0.788
+              79.000       0.054      -0.568       1.306    1.27%       0.870      0.962
+     P10                   0.749      -0.039       0.305    1.45%       0.516      0.703      0.762
+              69.000       0.045      -0.329       1.344    1.45%       0.823      0.933
+     BAGE                 11.864      -0.936     -11.100    0.65%       2.300     14.900     15.450
+             154.000      70.175      -0.184      27.400    0.65%      16.300     17.600
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN ILL-CONDITIONED
+     FISHER INFORMATION MATRIX.  CHANGE YOUR MODEL AND/OR STARTING VALUES.
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO A NON-POSITIVE
+     DEFINITE FISHER INFORMATION MATRIX.  THIS MAY BE DUE TO THE STARTING VALUES
+     BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE CONDITION
+     NUMBER IS       0.187D-14.
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES COULD NOT BE
+     COMPUTED.  THIS IS OFTEN DUE TO THE STARTING VALUES BUT MAY ALSO BE
+     AN INDICATION OF MODEL NONIDENTIFICATION.  CHANGE YOUR MODEL AND/OR
+     STARTING VALUES.  PROBLEM INVOLVING THE FOLLOWING PARAMETER:
+     Parameter 2, [ IP ]
+
+
+
+
+
+
+MODEL RESULTS
+
+                    Estimate
+
+ IP         ON
+    BAGE              -0.014
+
+ SP         ON
+    BAGE               0.000
+
+ QP         ON
+    BAGE               0.000
+
+ SP       WITH
+    IP                -0.002
+
+ QP       WITH
+    IP                 0.000
+    SP                 0.000
+
+ Intercepts
+    P1                 0.000
+    P2                 0.000
+    P3                 0.000
+    P4                 0.000
+    P5                 0.000
+    P6                 0.000
+    P7                 0.000
+    P8                 0.000
+    P9                 0.000
+    P10                0.000
+    IP                 1.025
+    SP                -0.015
+    QP                 0.000
+
+ Residual Variances
+    P1                 0.018
+    P2                 0.018
+    P3                 0.018
+    P4                 0.018
+    P5                 0.018
+    P6                 0.018
+    P7                 0.018
+    P8                 0.018
+    P9                 0.018
+    P10                0.018
+    IP                 0.022
+    SP                 0.001
+    QP                 0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     ip sp qp | p1-p10 AT time1-time10;
+
+     ip ON bage*-0.01391;
+     sp ON bage*0.00024;
+     qp ON bage*-0.00008;
+
+     sp WITH ip*-0.00155;
+     qp WITH ip*0.00004;
+     qp WITH sp*-0.00011;
+
+     [ p1@0 ];
+     [ p2@0 ];
+     [ p3@0 ];
+     [ p4@0 ];
+     [ p5@0 ];
+     [ p6@0 ];
+     [ p7@0 ];
+     [ p8@0 ];
+     [ p9@0 ];
+     [ p10@0 ];
+     [ ip*1.02498 ];
+     [ sp*-0.01536 ];
+     [ qp*-0.00010 ];
+
+     p1*0.01785 (res_p);
+     p2*0.01785 (res_p);
+     p3*0.01785 (res_p);
+     p4*0.01785 (res_p);
+     p5*0.01785 (res_p);
+     p6*0.01785 (res_p);
+     p7*0.01785 (res_p);
+     p8*0.01785 (res_p);
+     p9*0.01785 (res_p);
+     p10*0.01785 (res_p);
+     ip*0.02197;
+     sp*0.00147;
+     qp*0.00001;
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              BAGE
+              ________
+ 1                  0
+
+
+           LAMBDA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ P1                 0             0             0             0
+ P2                 0             0             0             0
+ P3                 0             0             0             0
+ P4                 0             0             0             0
+ P5                 0             0             0             0
+ P6                 0             0             0             0
+ P7                 0             0             0             0
+ P8                 0             0             0             0
+ P9                 0             0             0             0
+ P10                0             0             0             0
+ BAGE               0             0             0             0
+
+
+           THETA
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1                 1
+ P2                 0             1
+ P3                 0             0             1
+ P4                 0             0             0             1
+ P5                 0             0             0             0             1
+ P6                 0             0             0             0             0
+ P7                 0             0             0             0             0
+ P8                 0             0             0             0             0
+ P9                 0             0             0             0             0
+ P10                0             0             0             0             0
+ BAGE               0             0             0             0             0
+
+
+           THETA
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6                 1
+ P7                 0             1
+ P8                 0             0             1
+ P9                 0             0             0             1
+ P10                0             0             0             0             1
+ BAGE               0             0             0             0             0
+
+
+           THETA
+              BAGE
+              ________
+ BAGE               0
+
+
+           ALPHA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ 1                  2             3             4             0
+
+
+           BETA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ IP                 0             0             0             5
+ SP                 0             0             0             6
+ QP                 0             0             0             7
+ BAGE               0             0             0             0
+
+
+           PSI
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ IP                 8
+ SP                 9            10
+ QP                11            12            13
+ BAGE               0             0             0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              BAGE
+              ________
+ 1              0.000
+
+
+           LAMBDA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ P1             0.000         0.000         0.000         0.000
+ P2             0.000         0.000         0.000         0.000
+ P3             0.000         0.000         0.000         0.000
+ P4             0.000         0.000         0.000         0.000
+ P5             0.000         0.000         0.000         0.000
+ P6             0.000         0.000         0.000         0.000
+ P7             0.000         0.000         0.000         0.000
+ P8             0.000         0.000         0.000         0.000
+ P9             0.000         0.000         0.000         0.000
+ P10            0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         1.000
+
+
+           THETA
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.026
+ P2             0.000         0.024
+ P3             0.000         0.000         0.027
+ P4             0.000         0.000         0.000         0.027
+ P5             0.000         0.000         0.000         0.000         0.023
+ P6             0.000         0.000         0.000         0.000         0.000
+ P7             0.000         0.000         0.000         0.000         0.000
+ P8             0.000         0.000         0.000         0.000         0.000
+ P9             0.000         0.000         0.000         0.000         0.000
+ P10            0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             0.027
+ P7             0.000         0.021
+ P8             0.000         0.000         0.026
+ P9             0.000         0.000         0.000         0.027
+ P10            0.000         0.000         0.000         0.000         0.022
+ BAGE           0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              BAGE
+              ________
+ BAGE           0.000
+
+
+           ALPHA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ 1              0.768        -0.006        -0.008         0.000
+
+
+           BETA
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ IP             0.000         0.000         0.000         0.000
+ SP             0.000         0.000         0.000         0.000
+ QP             0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000
+
+
+           PSI
+              IP            SP            QP            BAGE
+              ________      ________      ________      ________
+ IP             0.026
+ SP             0.000         0.039
+ QP             0.000         0.000         0.006
+ BAGE           0.000         0.000         0.000        35.087
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\ialsa workshop\documents\github\ialsa-2015-portland\studies\obas\unshared\u2_female_age
+
+     Beginning Time:  14:39:42
+        Ending Time:  14:40:14
+       Elapsed Time:  00:00:32
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
