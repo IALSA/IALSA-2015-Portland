@@ -2,7 +2,7 @@
 title: "Collected Outcomes -- Study-Specific"
 output:
   html_document:
-    css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar.css
+    css: css/sidebar.css
     keep_md: yes
     toc: yes
 ---

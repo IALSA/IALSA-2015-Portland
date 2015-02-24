@@ -122,12 +122,8 @@ u0      ilse    female     empty            PhysSummary                         
 u0      ilse    female     empty            noPhys                                    44.359                    16.321                           NA                          NA                              NA                             NA  VisioSpacial            --                                     NA                      NA                     NA                         NA                        NA            NA              NA                 NA                  NA                    NA                  NA                  75  to_do            NA                                       3   -849.164   1704.328   1711.280      1701.825   1704.666  u0_female_empty_noPhys_VisioSpacial.out 
 u1      ilse    female     age              noPhys                                    32.539                   139.097                            0                       0.032                              NA                             NA  VisioSpacial            --                                     NA                      NA                     NA                         NA                        NA            NA              NA                 NA                  NA                    NA                  NA                  69  to_do            NA                                       8   -791.650   1599.299   1617.172      1591.976   1601.699  u1_female_age_noPhys_VisioSpacial.out   
 
+*There are no bivariate outcome results to display in this table.*
 
-
-Table: Bivariate Results
-
-model   study   subgroup   model<br/>type   outcome<br/>physical    var<br/>int<br/>physical   se<br/>int<br/>physical   var<br/>slope<br/>physical   se<br/>slope<br/>physical   var<br/>residual<br/>physical   se<br/>residual<br/>physical  cognitive<br/>outcome   var<br/>int<br/>cog    se<br/>int<br/>cog   var<br/>slope<br/>cog   se<br/>slope<br/>cog   var<br/>residual<br/>cog   se<br/>residual<br/>cog   cov<br/>int   cov<br/>slope   cov<br/>residual   p<br/>cov<br/>int   p<br/>cov<br/>slope   p<br/>cov<br/>res   subject<br/>count  wave<br/>count   datapoint<br/>count    parameter<br/>count   LL   aic   bic   adj<br/>bic   aaic  output<br/>file 
-------  ------  ---------  ---------------  ---------------------  -------------------------  ------------------------  ---------------------------  --------------------------  ------------------------------  -----------------------------  ----------------------  --------------------  -------------------  ----------------------  ---------------------  -------------------------  ------------------------  ------------  --------------  -----------------  ------------------  --------------------  ------------------  ------------------  ---------------  --------------------  --------------------  ---  ----  ----  ------------  -----  ----------------
 
 ## nas
 
@@ -182,12 +178,8 @@ u0      nuage   male       empty            normalwalk                          
 u0      nuage   female     empty            tug                                        5.908                     0.771                           NA                          NA                           2.212                          0.210  nocogn                  --                                     NA                      NA                     NA                         NA                        NA            NA              NA                 NA                  NA                    NA                  NA                 938  to_do            NA                                       3    -6869.159   13744.319   13758.850     13749.322   13744.345  u0_female_empty_tug_nocogn.out         
 u0      nuage   male       empty            tug                                        5.336                     1.293                           NA                          NA                           2.857                          0.764  nocogn                  --                                     NA                      NA                     NA                         NA                        NA            NA              NA                 NA                  NA                    NA                  NA                 848  to_do            NA                                       3    -6516.091   13038.182   13052.410     13042.883   13038.210  u0_male_empty_tug_nocogn.out           
 
+*There are no bivariate outcome results to display in this table.*
 
-
-Table: Bivariate Results
-
-model   study   subgroup   model<br/>type   outcome<br/>physical    var<br/>int<br/>physical   se<br/>int<br/>physical   var<br/>slope<br/>physical   se<br/>slope<br/>physical   var<br/>residual<br/>physical   se<br/>residual<br/>physical  cognitive<br/>outcome   var<br/>int<br/>cog    se<br/>int<br/>cog   var<br/>slope<br/>cog   se<br/>slope<br/>cog   var<br/>residual<br/>cog   se<br/>residual<br/>cog   cov<br/>int   cov<br/>slope   cov<br/>residual   p<br/>cov<br/>int   p<br/>cov<br/>slope   p<br/>cov<br/>res   subject<br/>count  wave<br/>count   datapoint<br/>count    parameter<br/>count   LL   aic   bic   adj<br/>bic   aaic  output<br/>file 
-------  ------  ---------  ---------------  ---------------------  -------------------------  ------------------------  ---------------------------  --------------------------  ------------------------------  -----------------------------  ----------------------  --------------------  -------------------  ----------------------  ---------------------  -------------------------  ------------------------  ------------  --------------  -----------------  ------------------  --------------------  ------------------  ------------------  ---------------  --------------------  --------------------  ---  ----  ----  ------------  -----  ----------------
 
 ## octo
 
@@ -225,12 +217,13 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-02-23, 18:58 Pacific Standard Time
+Report rendered by Will at 2015-02-23, 22:31 -0600
 ```
 
 ```
-R version 3.0.3 (2014-03-06)
+R version 3.1.2 Patched (2015-02-19 r67842)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 8 x64 (build 9200)
 
 locale:
 [1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
@@ -240,10 +233,10 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] testit_0.3         ggplot2_1.0.0      RColorBrewer_1.0-5 scales_0.2.4       knitr_1.9         
+[1] testit_0.4         ggplot2_1.0.0      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.9         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.8     evaluate_0.5.5   formatR_1.0      grid_3.0.3       gtable_0.1.2    
- [7] htmltools_0.2.6  MASS_7.3-35      munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.2     
-[13] reshape2_1.4     rmarkdown_0.4.2  stringr_0.6.2    tools_3.0.3      yaml_2.1.13     
+ [1] colorspace_1.2-4 digest_0.6.8     evaluate_0.5.5   formatR_1.0      grid_3.1.2       gtable_0.1.2    
+ [7] htmltools_0.2.6  MASS_7.3-39      munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.4     
+[13] reshape2_1.4.1   rmarkdown_0.5.1  stringr_0.6.2    tools_3.1.2      yaml_2.1.13     
 ```

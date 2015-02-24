@@ -208,12 +208,22 @@ for( i in seq_along(dtos) ) {
   cat("\n") #Force a new line
   # cat("#### Univariate results")
   # cat("\n") #Force a new line
-  print(knitr::kable(d_univariate_study, caption="Univariate Results",row.names = F))
+  if( nrow(d_univariate_study) > 0L) {
+    print(knitr::kable(d_univariate_study, caption="Univariate Results",row.names = F))
+  } else {
+    cat("*There are no univariate outcome results to display in this table.*")
+  }
 
   cat("\n") #Force a new line
   # cat("#### Bivariate results")
   # cat("\n") #Force a new line
-  print(knitr::kable(d_bivariate_study, caption="Bivariate Results", row.names= F))
+
+  if( nrow(d_bivariate_study) > 0L) {
+    print(knitr::kable(d_bivariate_study, caption="Bivariate Results", row.names= F))
+  } else {
+    cat("*There are no bivariate outcome results to display in this table.*\n\n")
+  }
+
   cat("\n")
 }
 
