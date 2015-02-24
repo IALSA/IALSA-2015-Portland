@@ -1,0 +1,366 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+02/24/2015   2:27 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: M3 Block Design, Quadratic LGM, Age Conditional, Male
+
+  DATA:  File = unshared\ILSE 23.02.dat;
+
+  VARIABLE: Names are
+     T1SD18 ID SEX t1dss t1bd t1hgl t1hgr t1fs t1fsb t1age
+     center t1beer t1wine t1k t1pc t1vf t1sa
+      t1spf t2dss t2bd t2hgl t2hgr t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc
+      t3vf t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3hgl t3hgr
+      t3height t3weight time1 time2r time3r time3 time2
+      BMI1 BMI2 BMI3 no_sec Haupts Reals Secondary
+      specials others;
+
+         MISSING are ALL(-9999);
+         USEVAR are  time1 time2 time3
+                     c1 c2 c3
+                     Bage;
+         TSCORES =   time1 time2 time3;
+
+         USEOBSERVATIONS are sex EQ 0;
+
+  Define: c1=T1bd; c2=T2bd; c3=T3bd;
+
+          Bage=t1age-70;   !Centered at Age 70
+          Bagesq=(t1age-70)**2;
+
+
+
+  ANALYSIS: TYPE = RANDOM;
+
+
+  MODEL:  ic sc qc | c1-c3 AT time1-time3;
+
+          ic sc qc ON Bage;
+
+          c1-c3 (res_c);
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  1
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  6
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M3 Block Design, Quadratic LGM, Age Conditional, Male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         279
+
+Number of dependent variables                                    3
+Number of independent variables                                  1
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   C1          C2          C3
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IC          SC          QC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  unshared\ILSE 23.02.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             3
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ C1             1.000
+ C2             0.896         0.896
+ C3             0.548         0.548         0.548
+ BAGE           1.000         0.896         0.548         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ 1             28.018        24.671        23.821        -7.043
+
+
+           Covariances
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ C1            66.684
+ C2            54.149        74.007
+ C3            48.504        53.244        71.444
+ BAGE          -1.005        -0.816        -1.294         0.837
+
+
+           Correlations
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ C1             1.000
+ C2             0.771         1.000
+ C3             0.703         0.732         1.000
+ BAGE          -0.135        -0.104        -0.167         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -2606.053
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES MAY NOT BE
+     TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE
+     FIRST-ORDER DERIVATIVE PRODUCT MATRIX.  THIS MAY BE DUE TO THE STARTING
+     VALUES BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE
+     CONDITION NUMBER IS      -0.139D-17.  PROBLEM INVOLVING PARAMETER 13.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       13
+
+Loglikelihood
+
+          H0 Value                       -2242.192
+          H0 Scaling Correction Factor      0.9625
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    4510.384
+          Bayesian (BIC)                  4557.590
+          Sample-Size Adjusted BIC        4516.368
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IC         ON
+    BAGE              -1.229      0.560     -2.194      0.028
+
+ SC         ON
+    BAGE               0.148      0.191      0.775      0.438
+
+ QC         ON
+    BAGE              -0.016      0.017     -0.938      0.348
+
+ SC       WITH
+    IC                 1.070      0.944      1.133      0.257
+
+ QC       WITH
+    IC                -0.119      0.075     -1.574      0.115
+    SC                -0.023      0.047     -0.481      0.630
+
+ Intercepts
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    IC                19.349      4.042      4.787      0.000
+    SC                -0.035      1.420     -0.025      0.980
+    QC                -0.051      0.127     -0.402      0.687
+
+ Residual Variances
+    C1                15.003      2.722      5.513      0.000
+    C2                15.003      2.722      5.513      0.000
+    C3                15.003      2.722      5.513      0.000
+    IC                50.652      5.370      9.433      0.000
+    SC                 0.295      0.609      0.484      0.628
+    QC                 0.002      0.004      0.600      0.549
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix             -0.139E-17
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ 1                  0             0             0             0
+
+
+           LAMBDA
+              IC            SC            QC            BAGE
+              ________      ________      ________      ________
+ C1                 0             0             0             0
+ C2                 0             0             0             0
+ C3                 0             0             0             0
+ BAGE               0             0             0             0
+
+
+           THETA
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ C1                 1
+ C2                 0             1
+ C3                 0             0             1
+ BAGE               0             0             0             0
+
+
+           ALPHA
+              IC            SC            QC            BAGE
+              ________      ________      ________      ________
+ 1                  2             3             4             0
+
+
+           BETA
+              IC            SC            QC            BAGE
+              ________      ________      ________      ________
+ IC                 0             0             0             5
+ SC                 0             0             0             6
+ QC                 0             0             0             7
+ BAGE               0             0             0             0
+
+
+           PSI
+              IC            SC            QC            BAGE
+              ________      ________      ________      ________
+ IC                 8
+ SC                 9            10
+ QC                11            12            13
+ BAGE               0             0             0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              IC            SC            QC            BAGE
+              ________      ________      ________      ________
+ C1             0.000         0.000         0.000         0.000
+ C2             0.000         0.000         0.000         0.000
+ C3             0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         1.000
+
+
+           THETA
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ C1            33.462
+ C2             0.000        37.226
+ C3             0.000         0.000        33.389
+ BAGE           0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              IC            SC            QC            BAGE
+              ________      ________      ________      ________
+ 1             29.680        -1.003         0.054         0.000
+
+
+           BETA
+              IC            SC            QC            BAGE
+              ________      ________      ________      ________
+ IC             0.000         0.000         0.000         0.000
+ SC             0.000         0.000         0.000         0.000
+ QC             0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000
+
+
+           PSI
+              IC            SC            QC            BAGE
+              ________      ________      ________      ________
+ IC            61.198
+ SC             0.000         4.244
+ QC             0.000         0.000         0.028
+ BAGE           0.000         0.000         0.000         0.420
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\u2_male_age_nophys_
+
+     Beginning Time:  14:27:59
+        Ending Time:  14:28:00
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
