@@ -77,7 +77,7 @@ for(i in seq_along(mpar)){
         ## Covariances ##
         #################
         ## Look for at least 4 WITH statements - otherwise fall back to 'Means' and 'Variances' (Baseline Models)
-        modtype <- (length(grep("WITH", model$paramHeader))>=4) #Will's suggestion
+        modtype <- (length(grep("WITH", model$paramHeader))>=4) 
         modtype
         if(modtype) { # if modtype==1 we have WITH statements
             x <- model[grep("WITH", model$paramHeader),]
@@ -96,6 +96,7 @@ for(i in seq_along(mpar)){
             IpH <- fc[grep("^I", fc$paramHeader),]
             ## get I in param
             results[i, c("cov_int", "p_cov_int")] <-  IpH[grep("^I", IpH$param),c('est', 'pval')]
+            results[i, c("se_cov_int")] <-  IpH[grep("^I", IpH$param),c('se')]
             ## ###############################
             ## Covariance among slopes      ##
             ## ###############################
@@ -103,6 +104,7 @@ for(i in seq_along(mpar)){
             SpH <- fc[grep("^S", fc$paramHeader),]
             ## get S in param
             results[i, c("cov_slope", "p_cov_slope")] <- SpH[grep("S", SpH$param),c('est', 'pval')]
+            results[i, c("se_cov_slope")] <- SpH[grep("S", SpH$param),c('se')]
             ## ###############################
             ## Covariance among residuals   ##
             ## ###############################
@@ -111,6 +113,7 @@ for(i in seq_along(mpar)){
             ## Check whether only one cov has been estimated
             if(length(unique(rc$est))==1) {
                 results[i, c("cov_residual", "p_cov_res")] <- rc[1,c('est', 'pval')]
+                results[i, c("se_cov_residual")] <- rc[1,c('se')]
             } else {
               results[i, 'notes'] <- paste(results[i, 'notes'], "Heterogeneous Res Covs", sep='_')
             }
@@ -163,10 +166,6 @@ for(i in seq_along(mpar)){
     results[i, c('adj_bic')] <-  msum[i,c('aBIC')]
     results[i, c('aaic')] <-  msum[i,c('AICC')]
 }
-
-
-
-i
 
 results
 #results <- dplyr::arrange(results, physical_outcome,  )
