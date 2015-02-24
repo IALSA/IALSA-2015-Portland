@@ -1,0 +1,214 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+02/20/2015   3:54 PM
+
+INPUT INSTRUCTIONS
+
+  Title: M1 Visiospatial ability or fluid intelligence - Block Design Test Female
+  DATA: FILE IS "C:\Users\Besitzer\Desktop\IALSA.dat";
+  VARIABLE:
+  NAMES =       ID SEX t1dss t1bd t1hgl t1hgr t1fs t1fsb t1age
+  center t1beer t1wine t1k t1pc t2dss t2bd t2hgl
+      t2hgr t2fs t2fsb t2beer t2wine t2k t2pc t3dss t3bd
+      t3k t3pc t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3hgl t3hgr t3height
+      t3weight time1 time3f time2f time2 time3 BMI1
+      BMI2 BMI3;
+
+  Missing = ALL (-9999);
+
+  USEVAR = t1 t2 t3 tbd1 tbd2 tbd3;
+  TSCORES = t1 t2 t3;
+  USEOBSERVATIONS = SEX EQ 1;
+
+  Define: t1=time1; t2=time2f; t3=time3f; tbd1=t1bd; tbd2=t2bd; tbd3=t3bd;
+
+  Analysis:
+  Type = RANDOM;
+
+  MODEL: ip | tbd1-tbd3 AT t1-t3;
+  tbd1-tbd3 (res_p);
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on time scores but non-missing on the
+  corresponding dependent variables.  These cases were not included in the analysis.
+  Number of such cases:  190
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M1 Visiospatial ability or fluid intelligence - Block Design Test Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                          75
+
+Number of dependent variables                                    3
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   TBD1        TBD2        TBD3
+
+Continuous latent variables
+   IP
+
+Variables with special functions
+
+  Time scores
+   T1          T2          T3
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Besitzer\Desktop\IALSA.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             3
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              TBD1          TBD2          TBD3
+              ________      ________      ________
+ TBD1           1.000
+ TBD2           0.933         0.933
+ TBD3           0.907         0.907         0.907
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              TBD1          TBD2          TBD3
+              ________      ________      ________
+ 1             26.147        43.966        39.102
+
+
+           Covariances
+              TBD1          TBD2          TBD3
+              ________      ________      ________
+ TBD1          62.232
+ TBD2          41.016       165.063
+ TBD3          44.608       129.440       135.403
+
+
+           Correlations
+              TBD1          TBD2          TBD3
+              ________      ________      ________
+ TBD1           1.000
+ TBD2           0.405         1.000
+ TBD3           0.486         0.866         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -746.273
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        3
+
+Loglikelihood
+
+          H0 Value                        -849.164
+          H0 Scaling Correction Factor      0.9751
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    1704.328
+          Bayesian (BIC)                  1711.280
+          Sample-Size Adjusted BIC        1701.825
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Means
+    IP                36.173      1.128     32.071      0.000
+
+ Intercepts
+    TBD1               0.000      0.000    999.000    999.000
+    TBD2               0.000      0.000    999.000    999.000
+    TBD3               0.000      0.000    999.000    999.000
+
+ Variances
+    IP                44.359     16.321      2.718      0.007
+
+ Residual Variances
+    TBD1             135.069     15.772      8.564      0.000
+    TBD2             135.069     15.772      8.564      0.000
+    TBD3             135.069     15.772      8.564      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.659E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\desktop\m1f cogvisiospatial.dgm
+
+     Beginning Time:  15:54:54
+        Ending Time:  15:54:55
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

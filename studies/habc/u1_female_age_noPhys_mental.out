@@ -1,0 +1,296 @@
+Mplus VERSION 7.2 (Mac)
+MUTHEN & MUTHEN
+02/23/2015   1:36 PM
+
+INPUT INSTRUCTIONS
+
+    TITLE: Modified Mini-Mental Status, Empty Model, Female
+
+    DATA:  File = "/Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat";
+
+  VARIABLE:
+    Names are
+       habcid vstatus ds2dth race gender site CV1AGE Y1pchd1 Y1pchd2 Y1pchd3
+       Y1pchf Y1pcbvd Y1pcvd Y1ppad Y1pdiab1 Y1phbp1 Y1WTK Y1bmi Y1sysbp
+       Y1diabp cesd1 Y1educ wd20m1 wd2min1 wd400m1 Y1hakcal Y1hacat Y1SMK1
+       Y1DRINKER1 Y1CURDRNK1 wd400m2 wd20m2 wd20m3 wd20m4 cesd4 wd400m4 wd20m6
+       cesd6 wd400m6 wd2min6 wd20m8 cesd8 wd400m8 wd2min8 wd20m10 cesd10
+       wd400m10 wd2min10 cesd11 wd20m5 wd2min2 wd2min4 smokecurrent smokeformer
+       educpost educhigh mmmscore1 dss1 faminc tsmarsta self1 lpschool self2
+       clox3 mmmscore3 self3 self4 clox5 mmmscore5 dss5 self5 self6 clox8
+       dss8 mmmscore8 self8 clox10 dss10 mmmscore10 self10 mmmscore11 dss11
+       self11 hand1 hand2 hand4 hand6 hand8 hand10 limit1 limit2 limit3 limit4
+       limit5 limit6 limit8 limit9 limit10 limit11 t1 t2 t3 t4 t5 t6 t8 t10
+       t11;
+
+         MISSING are all (-9999);
+         USEVAR are  t1 t3    t5    t8 t10 t11
+                     Bage
+                     c1 c3    c5    c8 c10 c11;
+         TSCORES =   t1 t3    t5    t8 t10 t11;
+
+         USEOBSERVATIONS are gender EQ 0; ! female=0
+
+
+    Define: c1= mmmscore1;  c3= mmmscore3;  c5= mmmscore5;
+            c8= mmmscore8;  c10= mmmscore10 ;c11= mmmscore11;
+
+            Bage=CV1AGE-80;   !Centered at Age 80
+            !Bagesq=(compage1-80)**2;
+            !Dage=YTDead;
+            !Sex=female;         !0=Male
+            !Educ=Educyrs-7;     ! Centered at 7 years
+            !SEP=SESgrp;
+            !Marstat;
+            !Height
+            !Weight
+            !BMI
+            !SmokHist=Smoke;
+            !Alcohol;
+            !CompExp;
+            !PhysAct;
+            !BP;
+            !DepSymp;
+            !Cardio;
+            !Diab;
+            !MorbInd;
+
+            !BageSex=Bage*Sex;
+            !BageEduc=Bage*Educ;
+            !SexEduc=Sex*Educ;
+
+    ANALYSIS: TYPE = RANDOM;
+
+    MODEL:  ic sc | c1-c11 AT t1-t11;
+
+            ic sc ON Bage;
+
+            c1-c11 (res_c);
+
+    OUTPUT: sampstat;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Modified Mini-Mental Status, Empty Model, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1584
+
+Number of dependent variables                                    6
+Number of independent variables                                  1
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   C1          C3          C5          C8          C10         C11
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IC          SC
+
+Variables with special functions
+
+  Time scores
+   T1          T3          T5          T8          T10         T11
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  /Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            33
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              C1            C3            C5            C8            C10
+              ________      ________      ________      ________      ________
+ C1             0.997
+ C3             0.824         0.826
+ C5             0.853         0.772         0.856
+ C8             0.593         0.556         0.588         0.595
+ C10            0.545         0.509         0.535         0.497         0.546
+ C11            0.456         0.431         0.450         0.422         0.434
+ BAGE           0.997         0.826         0.856         0.595         0.546
+
+
+           Covariance Coverage
+              C11           BAGE
+              ________      ________
+ C11            0.456
+ BAGE           0.456         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              C1            C3            C5            C8            C10
+              ________      ________      ________      ________      ________
+ 1             90.583        89.497        86.689        86.327        85.224
+
+
+           Means
+              C11           BAGE
+              ________      ________
+ 1             85.910        -6.504
+
+
+           Covariances
+              C1            C3            C5            C8            C10
+              ________      ________      ________      ________      ________
+ C1            65.879
+ C3            57.492        79.968
+ C5            65.516        82.968       168.717
+ C8            63.880        82.109       112.159       131.122
+ C10           69.139        89.398       118.726       134.614       167.710
+ C11           65.199        85.388       114.101       133.042       156.468
+ BAGE          -2.250        -3.980        -5.383        -6.114        -7.258
+
+
+           Covariances
+              C11           BAGE
+              ________      ________
+ C11          169.053
+ BAGE          -6.792         8.227
+
+
+           Correlations
+              C1            C3            C5            C8            C10
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C3             0.792         1.000
+ C5             0.621         0.714         1.000
+ C8             0.687         0.802         0.754         1.000
+ C10            0.658         0.772         0.706         0.908         1.000
+ C11            0.618         0.734         0.676         0.894         0.929
+ BAGE          -0.097        -0.155        -0.144        -0.186        -0.195
+
+
+           Correlations
+              C11           BAGE
+              ________      ________
+ C11            1.000
+ BAGE          -0.182         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -26331.365
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        8
+
+Loglikelihood
+
+          H0 Value                      -22925.568
+          H0 Scaling Correction Factor      2.6559
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   45867.137
+          Bayesian (BIC)                 45910.078
+          Sample-Size Adjusted BIC       45884.664
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IC         ON
+    BAGE              -0.220      0.072     -3.053      0.002
+
+ SC         ON
+    BAGE              -0.079      0.014     -5.676      0.000
+
+ SC       WITH
+    IC                 2.178      0.468      4.656      0.000
+
+ Intercepts
+    C1                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    C8                 0.000      0.000    999.000    999.000
+    C10                0.000      0.000    999.000    999.000
+    C11                0.000      0.000    999.000    999.000
+    IC                89.693      0.563    159.238      0.000
+    SC                -1.221      0.127     -9.620      0.000
+
+ Residual Variances
+    C1                23.504      1.494     15.729      0.000
+    C3                23.504      1.494     15.729      0.000
+    C5                23.504      1.494     15.729      0.000
+    C8                23.504      1.494     15.729      0.000
+    C10               23.504      1.494     15.729      0.000
+    C11               23.504      1.494     15.729      0.000
+    IC                43.032      4.596      9.363      0.000
+    SC                 1.133      0.223      5.070      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.210E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  13:36:38
+        Ending Time:  13:36:41
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
