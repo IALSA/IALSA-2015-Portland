@@ -1,0 +1,408 @@
+Mplus VERSION 7.3
+MUTHEN & MUTHEN
+02/23/2015   4:50 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: M2 WS, Empty LGM, Age Conditional, no demented, first 10 timepoints
+
+   DATA:  File = unshared\IALSA_OBAS_021815.dat;
+
+  VARIABLE: Names are VSTpatid female	Rsex educyrs	MMSE1
+  	MMSE2	MMSE3	MMSE4	MMSE5	MMSE6	MMSE7	MMSE8
+      	MMSE9	MMSE10	MMSE11	MMSE12	MMSE13	MMSE14	
+          MMSE15	MMSE16	MMSE17	MMSE18	MMSE19	MMSE20
+          	MMSE21	MMSE22	MMSE23	age1	age2	
+              age3	age4	age5	age6	age7	age8
+              	age9	age10	age11	age12	age13	
+                  age14	age15	age16	age17	age18	
+
+                 age19	age20	age21	age22	age23	
+                 cdr1	cdr2	cdr3	cdr4	cdr5	cdr6
+                 	cdr7	cdr8	cdr9	cdr10	cdr11	
+                  cdr12	cdr13	cdr14	cdr15	cdr16	
+                  cdr17	cdr18	cdr19	cdr20	cdr21	
+                  cdr22	cdr23	WS1	WS2	WS3	WS4	WS5	WS6	
+                  WS7	WS8	WS9	WS10	WS11	WS12	WS13
+                  	WS14	WS15	WS16	WS17	WS18	
+                      WS19	WS20	WS21	WS22
+                      	WS23	GS1	GS2	GS3	GS4	GS5	GS6	GS7	GS8
+                          	GS9	GS10	GS11	GS12	GS13	
+                              GS14	GS15	GS16	GS17	GS18
+                              	GS19	GS20	GS21	GS22	GS23
+                       	CS1	CS2	CS3	CS4	CS5	CS6	CS7	CS8	CS9	CS10	CS11
+                       	CS12	CS13	CS14	CS15	CS16	CS17	
+                   CS18	CS19	CS20	CS21	CS22	CS23	baseage ;
+
+         MISSING is all (-9999);
+         USEVAR are
+                     p1-p10
+                     time1 time2 time3 time4 time5 time6 time7 time8 time9 time10;
+                     !time11 time12 time13 time14 time15 time16 time17 time18 time19 time20
+                     !time21 time22;
+         TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8 time9 time10;
+                     !time11 time12 time13 time14 time15 time16 time17 time18 time19 time20
+                     !time21 time22;
+
+         USEOBSERVATIONS are CDR1 LE 0.5 and CDR2 LE 0.5 and CDR3 LE 0.5 and CDR4 LE 0.5
+         and CDR5 LE 0.5 and CDR6 LE 0.5 and CDR7 LE 0.5
+         and CDR8 LE 0.5 and CDR9 LE 0.5 and CDR10 LE 0.5;
+         !and
+         !CDR11 LE 0.5 and CDR12 LE 0.5 and CDR13 LE 0.5 and CDR14 LE 0.5
+         !and CDR15 LE 0.5
+         !and CDR16 LE 0.5 and CDR17 LE 0.5 and CDR18 LE 0.5 and CDR19 LE 0.5
+         !and CDR20 LE 0.5 and CDR21 LE 0.5 and CDR22 LE 0.5
+         !and female EQ 1;
+
+  Define: p1=ws1; p2=ws2; p3=ws3; p4=ws4; p5=ws5; p6=ws6; p7=ws7; p8=ws8;
+  p9=ws9; p10=ws10; p11=ws11; p12=ws12; p13=ws13; p14=ws14; p15=ws15;
+  p16=ws16; p17=ws17; p18=ws18; p19=ws19; p20=ws20; p21=ws21; p22=ws22;
+  p23=ws23;
+
+          Bage=age1-82;   !Centered at Age 82
+          Bagesq=(age1-82)**2;
+          ! Dage=YTDead;
+          Sex=female;         !0=Male
+          Educ=Educyrs-14.5;     ! Centered at 14.5 years
+          !SEP=SESgrp;
+          !Marstat;
+          !Height
+          !Weight
+          !BMI
+          !SmokHist=Smoke;
+          !Alcohol;
+          !CompExp;
+          !PhysAct;
+          !BP;
+          !DepSymp;
+          !Cardio;
+          !Diab;
+          !MorbInd;
+
+          BageSex=Bage*Sex;
+          BageEduc=Bage*Educ;
+          SexEduc=Sex*Educ;
+          time1=age1-age1;
+          time2=age2-age1;
+          time3=age3-age1;
+          time4=age4-age1;
+          time5=age5-age1;
+          time6=age6-age1;
+          time7=age7-age1;
+          time8=age8-age1;
+          time9=age9-age1;
+          time10=age10-age1;
+          time11=age11-age1;
+          time12=age12-age1;
+          time13=age13-age1;
+          time14=age14-age1;
+          time15=age15-age1;
+          time16=age16-age1;
+          time17=age17-age1;
+          time18=age18-age1;
+          time19=age19-age1;
+          time20=age20-age1;
+          time21=age21-age1;
+          time22=age22-age1;
+          time23=age23-age1;
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp | p1-p10 AT time1-time10;
+
+          p1-p10 (res_p);
+
+  OUTPUT: sampstat;
+
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  1
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M2 WS, Empty LGM, Age Conditional, no demented, first 10 timepoints
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         265
+
+Number of dependent variables                                   10
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5          P6
+   P7          P8          P9          P10
+
+Continuous latent variables
+   IP          SP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
+   TIME7       TIME8       TIME9       TIME10
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  unshared\IALSA_OBAS_021815.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            59
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.958
+ P2             0.675         0.698
+ P3             0.864         0.638         0.879
+ P4             0.717         0.634         0.702         0.736
+ P5             0.804         0.577         0.785         0.668         0.826
+ P6             0.694         0.540         0.664         0.577         0.691
+ P7             0.600         0.479         0.585         0.521         0.600
+ P8             0.517         0.449         0.513         0.468         0.525
+ P9             0.506         0.419         0.494         0.460         0.513
+ P10            0.457         0.362         0.442         0.400         0.457
+
+
+           Covariance Coverage
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             0.717
+ P7             0.581         0.623
+ P8             0.513         0.502         0.540
+ P9             0.494         0.487         0.464         0.525
+ P10            0.445         0.430         0.419         0.453         0.468
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1              0.906         0.864         0.860         0.835         0.797
+
+
+           Means
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ 1              0.782         0.763         0.732         0.719         0.708
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.053
+ P2             0.033         0.052
+ P3             0.031         0.031         0.053
+ P4             0.027         0.029         0.029         0.047
+ P5             0.028         0.029         0.028         0.030         0.046
+ P6             0.029         0.030         0.030         0.030         0.032
+ P7             0.029         0.029         0.027         0.031         0.029
+ P8             0.030         0.032         0.030         0.035         0.034
+ P9             0.028         0.029         0.028         0.039         0.032
+ P10            0.026         0.025         0.021         0.030         0.027
+
+
+           Covariances
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             0.048
+ P7             0.032         0.045
+ P8             0.034         0.038         0.054
+ P9             0.033         0.037         0.041         0.055
+ P10            0.029         0.032         0.036         0.037         0.047
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.634         1.000
+ P3             0.591         0.583         1.000
+ P4             0.537         0.594         0.583         1.000
+ P5             0.558         0.588         0.576         0.655         1.000
+ P6             0.579         0.594         0.590         0.634         0.680
+ P7             0.601         0.604         0.561         0.684         0.650
+ P8             0.554         0.602         0.557         0.704         0.677
+ P9             0.517         0.548         0.528         0.762         0.643
+ P10            0.509         0.509         0.412         0.647         0.570
+
+
+           Correlations
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             1.000
+ P7             0.683         1.000
+ P8             0.677         0.781         1.000
+ P9             0.640         0.752         0.750         1.000
+ P10            0.606         0.706         0.719         0.732         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS 767.338
+
+
+UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P1                    0.908       0.370       0.381    0.39%       0.703      0.831      0.914
+             254.000       0.054       0.554       1.828    0.39%       0.914      1.143
+     P2                    0.903      -0.157       0.326    0.54%       0.703      0.831      0.914
+             185.000       0.049      -0.651       1.306    7.03%       1.016      1.143
+     P3                    0.874       0.159       0.286    0.43%       0.703      0.831      0.831
+             233.000       0.052       0.118       1.523    1.29%       0.914      1.016
+     P4                    0.852       0.167       0.286    0.51%       0.703      0.831      0.831
+             195.000       0.046       0.751       1.576    0.51%       0.914      1.016
+     P5                    0.812       0.181       0.261    0.46%       0.609      0.762      0.831
+             219.000       0.044       0.275       1.523    0.46%       0.914      0.962
+     P6                    0.807       0.450       0.243    0.53%       0.609      0.762      0.831
+             190.000       0.045       2.112       1.828    0.53%       0.831      1.016
+     P7                    0.804      -0.118       0.305    1.21%       0.653      0.762      0.831
+             165.000       0.041      -0.086       1.306    1.82%       0.831      1.016
+     P8                    0.799      -0.147       0.237    0.70%       0.609      0.762      0.831
+             143.000       0.048      -0.510       1.306    0.70%       0.831      1.016
+     P9                    0.786      -0.017       0.237    0.72%       0.594      0.703      0.809
+             139.000       0.048      -0.132       1.306    2.16%       0.846      0.933
+     P10                   0.776      -0.122       0.305    0.81%       0.605      0.731      0.768
+             124.000       0.042      -0.362       1.344    0.81%       0.831      0.942
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        6
+
+Loglikelihood
+
+          H0 Value                         719.229
+          H0 Scaling Correction Factor      1.5393
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   -1426.458
+          Bayesian (BIC)                 -1404.980
+          Sample-Size Adjusted BIC       -1424.003
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ SP       WITH
+    IP                 0.000      0.000     -0.874      0.382
+
+ Means
+    IP                 0.893      0.012     72.177      0.000
+    SP                -0.021      0.002    -12.955      0.000
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    P7                 0.000      0.000    999.000    999.000
+    P8                 0.000      0.000    999.000    999.000
+    P9                 0.000      0.000    999.000    999.000
+    P10                0.000      0.000    999.000    999.000
+
+ Variances
+    IP                 0.033      0.003     10.640      0.000
+    SP                 0.000      0.000      3.352      0.001
+
+ Residual Variances
+    P1                 0.017      0.001     13.068      0.000
+    P2                 0.017      0.001     13.068      0.000
+    P3                 0.017      0.001     13.068      0.000
+    P4                 0.017      0.001     13.068      0.000
+    P5                 0.017      0.001     13.068      0.000
+    P6                 0.017      0.001     13.068      0.000
+    P7                 0.017      0.001     13.068      0.000
+    P8                 0.017      0.001     13.068      0.000
+    P9                 0.017      0.001     13.068      0.000
+    P10                0.017      0.001     13.068      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.606E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\ialsa workshop\documents\github\ialsa-2015-portland\studies\obas\unshared\u0_time_ws_no
+
+     Beginning Time:  16:50:38
+        Ending Time:  16:50:40
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
