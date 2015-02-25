@@ -404,8 +404,10 @@ no_grid_or_y_labels_theme <- report_theme + #Adapted from https://github.com/Ouh
   theme(panel.grid = element_blank()) +
   theme(plot.margin = unit(c(.1,.2,.2,0), "lines"))
 
-paletteGenderDark <- adjustcolor(brewer.pal(5, "Dark2")[c(2,3)])
-paletteGenderLight <- adjustcolor(paletteGenderDark, alpha.f = .2)
+palette_gender_dark <- adjustcolor(brewer.pal(5, "Dark2")[c(2,3)])
+palette_gender_light <- adjustcolor(palette_gender_dark, alpha.f = .2)
+names(palette_gender_dark) <- c("female", "male")
+names(palette_gender_light) <- names(palette_gender_dark)
 
 #Enumerate the possible variables
 cog_names <- sort(unique(ds$cognitive_outcome))
@@ -415,8 +417,7 @@ physical_names <- sort(unique(ds$physical_outcome))
 cog_names <- cog_names[!(cog_names %in% no_variable_labels)]
 physical_names <- physical_names[!(physical_names %in% no_variable_labels)]
 
-# cog_name <- "block"
-# physical_name <- "pulmonary"
+# cog_name <- "block"; physical_name <- "pulmonary"
 # model_type <- "age"
 
 
@@ -441,11 +442,12 @@ for( physical_name in physical_names ) {
       if( any(!is.na(d_forest$sd_int))){
       #   g_int <- g_int_all_missing
       # } else {
-        g_int <- ggplot(d_forest, aes(x=study_name, y=sd_int, color=subgroup, fill=subgroup)) +
+        g_int <- ggplot(d_forest, aes(x=study_name, y=sd_int, ymin=cil_sd_int, ymax=ciu_sd_int, color=subgroup, fill=subgroup)) +
           geom_hline(x=0, color="gray70", size=1) +
+          geom_linerange(size=2, alpha=.5, na.rm=T) +
           geom_point(size=6, shape=21, na.rm=T) +
-          scale_colour_manual(values=paletteGenderDark) +
-          scale_fill_manual(values=paletteGenderLight) +
+          scale_colour_manual(values=palette_gender_dark) +
+          scale_fill_manual(values=palette_gender_light) +
           facet_grid(model_type ~ .) +
           report_theme +
           theme(legend.position="bottom") + #Below the x-axis title

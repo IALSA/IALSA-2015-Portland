@@ -41,6 +41,26 @@ This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
 Studies with this physical variable listed in the model output: nuage, obas, octo 
 
+```
+Warning: Removed 1 rows containing missing values (geom_segment).
+```
+
+```
+Warning: Removed 1 rows containing missing values (geom_segment).
+```
+
+```
+Warning: Removed 1 rows containing missing values (geom_segment).
+```
+
+```
+Warning: Removed 1 rows containing missing values (geom_segment).
+```
+
+```
+Warning: Removed 1 rows containing missing values (geom_segment).
+```
+
 ![](figure_meta/forest_static-1.png) 
 
 ## `flaminco` 
@@ -160,7 +180,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by Will at 2015-02-24, 23:00 -0600
+Report rendered by Will at 2015-02-24, 23:21 -0600
 ```
 
 ```
