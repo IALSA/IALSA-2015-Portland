@@ -15,7 +15,7 @@ source("./synthesis/validate.R") #Loads some functions to validate things like f
 
 library(MplusAutomation)
 pathDir <- getwd() # establish home directory
-studyName <- "ilse"
+studyName <- "ilse/Outputs except Block Design"
 
 pathStudy <- paste0("./studies/",studyName) # temp
 pathDto <- "./data/shared/dto_bivariate.csv" # derivative from Google sheets
