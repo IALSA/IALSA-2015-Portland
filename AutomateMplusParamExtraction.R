@@ -60,7 +60,8 @@ for(i in seq_along(mpar)){
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
     results[i,"active"] <- NA
     results[i, c('date', 'time')] <- strsplit(mplus_output[3], '  ')[[1]]
-    results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][7]
+    selector <- which(strsplit(out_list[i], '/')[[1]]=='studies')
+    results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][selector+1]
     results[i,"data_file"] <-
     strsplit(mplus_output[grep("File", mplus_output, ignore.case=TRUE)], 'IS| is |=|;')[[1]][2]
     results[i, c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
