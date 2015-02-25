@@ -1,0 +1,605 @@
+Mplus VERSION 5.21
+MUTHEN & MUTHEN
+02/24/2015   1:46 AM
+
+INPUT INSTRUCTIONS
+
+                TITLE: Pulmonary function, Information, full, male
+
+            DATA:  File = C:\Users\novalis\Desktop\IALSA\octomult_12aug2010.dat;
+
+
+                          VARIABLE: Names are
+   Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp Smoke
+       SESChild SESChOth  HlthLif CogPrev LonelyE
+       Dead DeadAge YTDead TotDem DemEver DemType DemAge YTDem
+       time1 time2 time3 time4 time5
+       dedtime1 dedtime2 dedtime3 dedtime4 dedtime5 tvdead1 tvdead2 tvdead3 tvdead4 tvdead5
+       demtime1 demtime2 demtime3 demtime4 demtime5 tvdem1 tvdem2 tvdem3 tvdem4 tvdem5
+       CompAge1-CompAge5 Marital1-Marital5 weight1-weight5 height1-height5 bmi1-bmi5
+       SRhlth1-SRhlth5 living1-living5
+       SR2hlth1-SR2hlth5 SROhlth1-SROhlth5 HlthPrv1-HlthPrv5 HlthTra1-HlthTra5
+       CogPres1-CogPres5 AGames1-AGames5 ACross1-ACross5
+       ALiter1-ALiter5 AWrite1-AWrite5 AStudy1-AStudy5 AOther1-AOther5
+       LonelyP1-LonelyP5 FrTalk1-FrTalk5 FrPart1-FrPart5
+       LackCo1-LackCo5 Abandon1-Abandon5 NumFr1-NumFr5 NumPref1-NumPref5 SeeChGr1-SeeChGr5
+       pek1-pek5 gripp1-gripp5 chr5tim1-chr5tim5 padl1-padl5 iadl1-iadl5
+       digspf1-digspf5 digspb1-digspb5 prose1-prose5 block1-block5 info1-info5
+       synnum1-synnum5 figure1-figure5 digsym1-digsym5 psif1-psif5
+       mirnam1-mirnam5 mirrcl1-mirrcl5 mirrcg1-mirrcg5 mircor1-mircor5 clock1-clock5
+       mmse1-mmse5 mismmse1-mismmse5 fmmse1-fmmse5
+       highBP1-highBP5 sbp1-sbp5 dbp1-dbp5 diab1-diab5;
+
+          MISSING are .; !specification of missing observations coded in data file
+         USEVAR are  time1 time2 time3 time4 time5
+                     p1 p2 p3 p4 p5
+                     c1 c2 c3 c4 c5
+                     Bage Educ SEP BageEduc BageSEP EducSEP BageEducSEP;
+         TSCORES =   time1 time2 time3 time4 time5;
+
+         USEOBSERVATIONS are DemEver EQ 0 and female EQ 0;
+
+  Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
+          c1=info1; c2=info2; c3=info3; c4=info4; c5=info5;
+          Bage=compage1-80;   !Centered at Age 80
+          Bagesq=(compage1-80)**2;
+          Dage=YTDead;
+          Sex=female;         !0=Male
+          Educ=Educyrs-7;     ! Centered at 7 years
+          SEP=SESgrp;
+          BageEduc=Bage*Educ;
+          BageSEP=Bage*SEP;
+          EducSEP=Educ*SEP;
+          BageEducSEP=Bage*Educ*SEP;
+
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp | p1-p5 AT time1-time5;
+          ic sc | c1-c5 AT time1-time5;
+
+          ip sp ic sc ON Bage Educ SEP BageEduc BageSEP EducSEP BageEducSEP;
+
+          p1-p5 (res_p);
+          c1-c5 (res_c);
+
+          p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across tim
+
+  OUTPUT: sampstat Cinterval;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+          p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across t
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: BAGEEDUCSEP
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  1
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  9
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Pulmonary function, Information, full, male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         156
+
+Number of dependent variables                                   10
+Number of independent variables                                  7
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5          C1
+   C2          C3          C4          C5
+
+Observed independent variables
+   BAGE        EDUC        SEP         BAGEEDUC    BAGESEP     EDUCSEP
+   BAGEEDUC
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\novalis\Desktop\IALSA\octomult_12aug2010.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            37
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.763
+ P2             0.564         0.609
+ P3             0.404         0.423         0.436
+ P4             0.288         0.288         0.288         0.301
+ P5             0.205         0.205         0.205         0.205         0.212
+ C1             0.737         0.590         0.429         0.301         0.212
+ C2             0.628         0.596         0.423         0.288         0.199
+ C3             0.481         0.487         0.429         0.301         0.212
+ C4             0.340         0.321         0.308         0.295         0.205
+ C5             0.250         0.244         0.231         0.224         0.205
+ BAGE           0.763         0.609         0.436         0.301         0.212
+ EDUC           0.763         0.609         0.436         0.301         0.212
+ SEP            0.763         0.609         0.436         0.301         0.212
+ BAGEEDUC       0.763         0.609         0.436         0.301         0.212
+ BAGESEP        0.763         0.609         0.436         0.301         0.212
+ EDUCSEP        0.763         0.609         0.436         0.301         0.212
+ BAGEEDUC       0.763         0.609         0.436         0.301         0.212
+
+
+           Covariance Coverage
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             0.936
+ C2             0.731         0.769
+ C3             0.564         0.571         0.596
+ C4             0.353         0.346         0.353         0.353
+ C5             0.263         0.250         0.256         0.250         0.263
+ BAGE           0.936         0.769         0.596         0.353         0.263
+ EDUC           0.936         0.769         0.596         0.353         0.263
+ SEP            0.936         0.769         0.596         0.353         0.263
+ BAGEEDUC       0.936         0.769         0.596         0.353         0.263
+ BAGESEP        0.936         0.769         0.596         0.353         0.263
+ EDUCSEP        0.936         0.769         0.596         0.353         0.263
+ BAGEEDUC       0.936         0.769         0.596         0.353         0.263
+
+
+           Covariance Coverage
+              BAGE          EDUC          SEP           BAGEEDUC      BAGESEP
+              ________      ________      ________      ________      ________
+ BAGE           1.000
+ EDUC           1.000         1.000
+ SEP            1.000         1.000         1.000
+ BAGEEDUC       1.000         1.000         1.000         1.000
+ BAGESEP        1.000         1.000         1.000         1.000         1.000
+ EDUCSEP        1.000         1.000         1.000         1.000         1.000
+ BAGEEDUC       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              EDUCSEP       BAGEEDUC
+              ________      ________
+ EDUCSEP        1.000
+ BAGEEDUC       1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1            386.619       393.909       362.293       352.346       329.821
+
+
+           Means
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1             32.301        31.894        30.806        30.351        26.701
+
+
+           Means
+              BAGE          EDUC          SEP           BAGEEDUC      BAGESEP
+              ________      ________      ________      ________      ________
+ 1              3.041         0.699         2.346         1.191         7.385
+
+
+           Means
+              EDUCSEP       BAGEEDUC
+              ________      ________
+ 1              0.295        -0.958
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1         13789.866
+ P2         10789.849     13879.077
+ P3         10213.960      8867.682     11981.765
+ P4          7913.394      9886.543      6640.964     15204.392
+ P5          5654.784      8699.091      3627.456     11118.869     25719.166
+ C1           221.484        28.533       212.303       121.408      -199.327
+ C2           323.014       135.254       325.792       254.764      -130.164
+ C3           458.430       140.073       345.106       187.365       -78.859
+ C4           481.381       167.323       476.751       294.412        -0.348
+ C5           628.143       332.493       578.894       416.167        -3.699
+ BAGE         -86.134       -97.113      -122.374       -64.905       108.516
+ EDUC          92.373        26.767        43.176        52.822        51.802
+ SEP          -16.455        -7.938        -0.923       -22.584       -17.779
+ BAGEEDUC     240.200       122.353        38.991       469.781       115.780
+ BAGESEP     -271.018      -271.425      -292.697      -274.799       268.135
+ EDUCSEP      148.871        37.812        95.084        84.427        48.649
+ BAGEEDUC     542.544       215.467       236.572       525.086      -463.439
+
+
+           Covariances
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1            80.345
+ C2            76.460        94.155
+ C3            72.853        89.059       106.703
+ C4            74.324        87.781        96.137       112.887
+ C5            63.716        83.316        93.956       105.233       124.065
+ BAGE          -5.508        -4.514        -3.359        -5.284        -6.437
+ EDUC          13.249        13.183        13.326        14.393        15.349
+ SEP           -2.523        -2.698        -2.390        -2.874        -2.752
+ BAGEEDUC      35.696        36.700        38.654        35.807        42.449
+ BAGESEP      -22.405       -19.930       -16.832       -23.875       -26.155
+ EDUCSEP       19.517        19.056        18.351        18.630        23.400
+ BAGEEDUC      64.007        61.964        64.189        55.136        81.270
+
+
+           Covariances
+              BAGE          EDUC          SEP           BAGEEDUC      BAGESEP
+              ________      ________      ________      ________      ________
+ BAGE           7.809
+ EDUC          -0.934        10.262
+ SEP            0.249        -1.344         0.534
+ BAGEEDUC      -1.086        25.961        -3.752       126.874
+ BAGESEP       19.805        -6.118         2.093       -21.051        57.280
+ EDUCSEP       -1.855        14.397        -1.897        39.300       -10.263
+ BAGEEDUC      -9.342        40.321        -5.838       197.727       -52.193
+
+
+           Covariances
+              EDUCSEP       BAGEEDUC
+              ________      ________
+ EDUCSEP       23.913
+ BAGEEDUC      71.943       365.684
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.780         1.000
+ P3             0.795         0.688         1.000
+ P4             0.547         0.681         0.492         1.000
+ P5             0.300         0.460         0.207         0.562         1.000
+ C1             0.210         0.027         0.216         0.110        -0.139
+ C2             0.283         0.118         0.307         0.213        -0.084
+ C3             0.378         0.115         0.305         0.147        -0.048
+ C4             0.386         0.134         0.410         0.225         0.000
+ C5             0.480         0.253         0.475         0.303        -0.002
+ BAGE          -0.262        -0.295        -0.400        -0.188         0.242
+ EDUC           0.246         0.071         0.123         0.134         0.101
+ SEP           -0.192        -0.092        -0.012        -0.251        -0.152
+ BAGEEDUC       0.182         0.092         0.032         0.338         0.064
+ BAGESEP       -0.305        -0.304        -0.353        -0.294         0.221
+ EDUCSEP        0.259         0.066         0.178         0.140         0.062
+ BAGEEDUC       0.242         0.096         0.113         0.223        -0.151
+
+
+           Correlations
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.879         1.000
+ C3             0.787         0.889         1.000
+ C4             0.780         0.851         0.876         1.000
+ C5             0.638         0.771         0.817         0.889         1.000
+ BAGE          -0.220        -0.166        -0.116        -0.178        -0.207
+ EDUC           0.461         0.424         0.403         0.423         0.430
+ SEP           -0.385        -0.380        -0.317        -0.370        -0.338
+ BAGEEDUC       0.354         0.336         0.332         0.299         0.338
+ BAGESEP       -0.330        -0.271        -0.215        -0.297        -0.310
+ EDUCSEP        0.445         0.402         0.363         0.359         0.430
+ BAGEEDUC       0.373         0.334         0.325         0.271         0.382
+
+
+           Correlations
+              BAGE          EDUC          SEP           BAGEEDUC      BAGESEP
+              ________      ________      ________      ________      ________
+ BAGE           1.000
+ EDUC          -0.104         1.000
+ SEP            0.122        -0.574         1.000
+ BAGEEDUC      -0.035         0.719        -0.456         1.000
+ BAGESEP        0.936        -0.252         0.379        -0.247         1.000
+ EDUCSEP       -0.136         0.919        -0.531         0.713        -0.277
+ BAGEEDUC      -0.175         0.658        -0.418         0.918        -0.361
+
+
+           Correlations
+              EDUCSEP       BAGEEDUC
+              ________      ________
+ EDUCSEP        1.000
+ BAGEEDUC       0.769         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -5974.828
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+TESTS OF MODEL FIT
+
+Loglikelihood
+
+          H0 Value                       -3536.120
+          H0 Scaling Correction Factor       0.793
+            for MLR
+
+Information Criteria
+
+          Number of Free Parameters             45
+          Akaike (AIC)                    7162.239
+          Bayesian (BIC)                  7299.483
+          Sample-Size Adjusted BIC        7157.044
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE               0.837     16.147      0.052      0.959
+    EDUC              13.895      7.615      1.825      0.068
+    SEP                8.523     25.697      0.332      0.740
+    BAGEEDUC          -4.188      2.809     -1.491      0.136
+    BAGESEP           -4.423      6.118     -0.723      0.470
+    EDUCSEP           -5.830      5.817     -1.002      0.316
+    BAGEEDUCSE         2.841      1.983      1.433      0.152
+
+ SP         ON
+    BAGE              -3.366      1.143     -2.945      0.003
+    EDUC             -10.523      1.378     -7.639      0.000
+    SEP               -5.822      2.463     -2.364      0.018
+    BAGEEDUC           3.789      0.446      8.490      0.000
+    BAGESEP            0.980      0.521      1.880      0.060
+    EDUCSEP            6.928      1.123      6.169      0.000
+    BAGEEDUCSE        -2.573      0.348     -7.399      0.000
+
+ IC         ON
+    BAGE               1.203      1.400      0.859      0.390
+    EDUC               1.301      0.712      1.827      0.068
+    SEP               -0.580      1.663     -0.348      0.728
+    BAGEEDUC          -0.216      0.225     -0.958      0.338
+    BAGESEP           -0.649      0.555     -1.170      0.242
+    EDUCSEP           -0.168      0.484     -0.347      0.729
+    BAGEEDUCSE         0.097      0.149      0.649      0.517
+
+ SC         ON
+    BAGE               0.066      0.328      0.200      0.841
+    EDUC               0.141      0.156      0.900      0.368
+    SEP                0.086      0.309      0.279      0.780
+    BAGEEDUC          -0.015      0.060     -0.249      0.804
+    BAGESEP           -0.019      0.118     -0.157      0.875
+    EDUCSEP           -0.114      0.102     -1.120      0.263
+    BAGEEDUCSE         0.024      0.027      0.879      0.380
+
+ SP       WITH
+    IP              -340.730     75.567     -4.509      0.000
+
+ IC       WITH
+    IP                69.891     88.162      0.793      0.428
+    SP               -22.920      4.702     -4.874      0.000
+
+ SC       WITH
+    IP                34.305     12.596      2.723      0.006
+    SP                 0.185      0.685      0.270      0.787
+    IC                 0.015      0.818      0.018      0.985
+
+ P1       WITH
+    C1                 8.611     15.162      0.568      0.570
+
+ P2       WITH
+    C2                 8.611     15.162      0.568      0.570
+
+ P3       WITH
+    C3                 8.611     15.162      0.568      0.570
+
+ P4       WITH
+    C4                 8.611     15.162      0.568      0.570
+
+ P5       WITH
+    C5                 8.611     15.162      0.568      0.570
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    IP               404.526     65.145      6.210      0.000
+    SP                 7.224      5.728      1.261      0.207
+    IC                34.617      4.248      8.148      0.000
+    SC                -0.805      0.802     -1.004      0.315
+
+ Residual Variances
+    P1              3298.533    371.264      8.885      0.000
+    P2              3298.533    371.264      8.885      0.000
+    P3              3298.533    371.264      8.885      0.000
+    P4              3298.533    371.264      8.885      0.000
+    P5              3298.533    371.264      8.885      0.000
+    C1                11.051      1.272      8.690      0.000
+    C2                11.051      1.272      8.690      0.000
+    C3                11.051      1.272      8.690      0.000
+    C4                11.051      1.272      8.690      0.000
+    C5                11.051      1.272      8.690      0.000
+    IP              9297.441   1339.667      6.940      0.000
+    SP                27.174      4.763      5.705      0.000
+    IC                54.047      7.399      7.304      0.000
+    SC                 0.700      0.221      3.172      0.002
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.164E-07
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                   Lower .5%  Lower 2.5%   Estimate  Upper 2.5%  Upper .5%
+
+ IP       ON
+    BAGE            -40.755     -30.811      0.837      32.486     42.429
+    EDUC             -5.720      -1.030     13.895      28.820     33.509
+    SEP             -57.667     -41.843      8.523      58.889     74.713
+    BAGEEDUC        -11.424      -9.694     -4.188       1.318      3.047
+    BAGESEP         -20.181     -16.414     -4.423       7.568     11.336
+    EDUCSEP         -20.813     -17.231     -5.830       5.571      9.153
+    BAGEEDUCSE       -2.267      -1.046      2.841       6.728      7.950
+
+ SP       ON
+    BAGE             -6.310      -5.606     -3.366      -1.126     -0.422
+    EDUC            -14.071     -13.223    -10.523      -7.823     -6.975
+    SEP             -12.166     -10.649     -5.822      -0.995      0.521
+    BAGEEDUC          2.640       2.915      3.789       4.664      4.939
+    BAGESEP          -0.363      -0.042      0.980       2.002      2.323
+    EDUCSEP           4.035       4.727      6.928       9.129      9.820
+    BAGEEDUCSE       -3.468      -3.254     -2.573      -1.891     -1.677
+
+ IC       ON
+    BAGE             -2.404      -1.542      1.203       3.948      4.810
+    EDUC             -0.533      -0.095      1.301       2.697      3.135
+    SEP              -4.864      -3.840     -0.580       2.681      3.705
+    BAGEEDUC         -0.796      -0.657     -0.216       0.226      0.364
+    BAGESEP          -2.078      -1.736     -0.649       0.438      0.779
+    EDUCSEP          -1.415      -1.117     -0.168       0.781      1.080
+    BAGEEDUCSE       -0.288      -0.196      0.097       0.389      0.481
+
+ SC       ON
+    BAGE             -0.778      -0.576      0.066       0.708      0.909
+    EDUC             -0.262      -0.166      0.141       0.448      0.544
+    SEP              -0.709      -0.519      0.086       0.691      0.881
+    BAGEEDUC         -0.169      -0.132     -0.015       0.102      0.139
+    BAGESEP          -0.323      -0.250     -0.019       0.213      0.286
+    EDUCSEP          -0.376      -0.313     -0.114       0.086      0.148
+    BAGEEDUCSE       -0.046      -0.030      0.024       0.078      0.095
+
+ SP       WITH
+    IP             -535.374    -488.841   -340.730    -192.620   -146.086
+
+ IC       WITH
+    IP             -157.197    -102.907     69.891     242.688    296.979
+    SP              -35.032     -32.137    -22.920     -13.704    -10.808
+
+ SC       WITH
+    IP                1.860       9.617     34.305      58.993     66.749
+    SP               -1.579      -1.157      0.185       1.527      1.949
+    IC               -2.091      -1.588      0.015       1.618      2.121
+
+ P1       WITH
+    C1              -30.442     -21.106      8.611      38.327     47.664
+
+ P2       WITH
+    C2              -30.442     -21.106      8.611      38.327     47.664
+
+ P3       WITH
+    C3              -30.442     -21.106      8.611      38.327     47.664
+
+ P4       WITH
+    C4              -30.442     -21.106      8.611      38.327     47.664
+
+ P5       WITH
+    C5              -30.442     -21.106      8.611      38.327     47.664
+
+ Intercepts
+    P1                0.000       0.000      0.000       0.000      0.000
+    P2                0.000       0.000      0.000       0.000      0.000
+    P3                0.000       0.000      0.000       0.000      0.000
+    P4                0.000       0.000      0.000       0.000      0.000
+    P5                0.000       0.000      0.000       0.000      0.000
+    C1                0.000       0.000      0.000       0.000      0.000
+    C2                0.000       0.000      0.000       0.000      0.000
+    C3                0.000       0.000      0.000       0.000      0.000
+    C4                0.000       0.000      0.000       0.000      0.000
+    C5                0.000       0.000      0.000       0.000      0.000
+    IP              236.726     276.842    404.526     532.210    572.326
+    SP               -7.531      -4.003      7.224      18.451     21.978
+    IC               23.674      26.290     34.617      42.944     45.560
+    SC               -2.871      -2.377     -0.805       0.766      1.260
+
+ Residual Variances
+    P1             2342.232    2570.856   3298.533    4026.210   4254.834
+    P2             2342.232    2570.856   3298.533    4026.210   4254.834
+    P3             2342.232    2570.856   3298.533    4026.210   4254.834
+    P4             2342.232    2570.856   3298.533    4026.210   4254.834
+    P5             2342.232    2570.856   3298.533    4026.210   4254.834
+    C1                7.775       8.559     11.051      13.544     14.327
+    C2                7.775       8.559     11.051      13.544     14.327
+    C3                7.775       8.559     11.051      13.544     14.327
+    C4                7.775       8.559     11.051      13.544     14.327
+    C5                7.775       8.559     11.051      13.544     14.327
+    IP             5846.727    6671.694   9297.441    ********   ********
+    SP               14.905      17.838     27.174      36.510     39.444
+    IC               34.988      39.545     54.047      68.549     73.106
+    SC                0.132       0.268      0.700       1.133      1.269
+
+
+     Beginning Time:  01:46:03
+        Ending Time:  01:47:00
+       Elapsed Time:  00:00:57
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2009 Muthen & Muthen

@@ -1,0 +1,314 @@
+Mplus VERSION 5.21
+MUTHEN & MUTHEN
+02/24/2015  12:15 AM
+
+INPUT INSTRUCTIONS
+
+              TITLE: Pulmonary Function, full, male
+
+          DATA:  File = C:\Users\novalis\Desktop\IALSA\octomult_12aug2010.dat;
+
+                      VARIABLE: Names are
+                        Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp Smo
+         SESChild SESChOth  HlthLif CogPrev LonelyE
+         Dead DeadAge YTDead TotDem DemEver DemType DemAge YTDem
+         time1 time2 time3 time4 time5
+         dedtime1 dedtime2 dedtime3 dedtime4 dedtime5 tvdead1 tvdead2 tvdead3 tvdead4 tvdead
+         demtime1 demtime2 demtime3 demtime4 demtime5 tvdem1 tvdem2 tvdem3 tvdem4 tvdem5
+         CompAge1-CompAge5 Marital1-Marital5 weight1-weight5 height1-height5 bmi1-bmi5
+         SRhlth1-SRhlth5 living1-living5
+         SR2hlth1-SR2hlth5 SROhlth1-SROhlth5 HlthPrv1-HlthPrv5 HlthTra1-HlthTra5
+         CogPres1-CogPres5 AGames1-AGames5 ACross1-ACross5
+         ALiter1-ALiter5 AWrite1-AWrite5 AStudy1-AStudy5 AOther1-AOther5
+         LonelyP1-LonelyP5 FrTalk1-FrTalk5 FrPart1-FrPart5
+         LackCo1-LackCo5 Abandon1-Abandon5 NumFr1-NumFr5 NumPref1-NumPref5 SeeChGr1-SeeChGr5
+         pek1-pek5 gripp1-gripp5 chr5tim1-chr5tim5 padl1-padl5 iadl1-iadl5
+         digspf1-digspf5 digspb1-digspb5 prose1-prose5 block1-block5 info1-info5
+         synnum1-synnum5 figure1-figure5 digsym1-digsym5 psif1-psif5
+         mirnam1-mirnam5 mirrcl1-mirrcl5 mirrcg1-mirrcg5 mircor1-mircor5 clock1-clock5
+         mmse1-mmse5 mismmse1-mismmse5 fmmse1-fmmse5
+         highBP1-highBP5 sbp1-sbp5 dbp1-dbp5 diab1-diab5;
+
+                             MISSING are .;
+                             USEVAR are  SESgrp time1 time2 time3 time4 time5
+                                         p1 p2 p3 p4 p5 Bage Educ ;
+                             TSCORES =   time1 time2 time3 time4 time5;
+
+                             USEOBSERVATIONS are demever EQ 0 and female EQ 0;
+
+                      Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
+
+                              Bage=compage1-80;   !Centered at Age 80
+
+
+                              Educ=Educyrs-7;     ! Centered at 7 years
+
+
+
+                      ANALYSIS: TYPE = RANDOM;
+
+                      MODEL: ip sp qp | p1-p5 AT time1-time5;
+
+                             ip sp qp ON Bage Educ SESgrp;
+
+                             p1-p5 (res_p);
+
+                      OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+                        Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp S
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+         dedtime1 dedtime2 dedtime3 dedtime4 dedtime5 tvdead1 tvdead2 tvdead3 tvdead4 tvde
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  1
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  36
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Pulmonary Function, full, male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         129
+
+Number of dependent variables                                    5
+Number of independent variables                                  3
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5
+
+Observed independent variables
+   SESGRP      BAGE        EDUC
+
+Continuous latent variables
+   IP          SP          QP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\novalis\Desktop\IALSA\octomult_12aug2010.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            12
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.922
+ P2             0.682         0.736
+ P3             0.488         0.512         0.527
+ P4             0.349         0.349         0.349         0.364
+ P5             0.248         0.248         0.248         0.248         0.256
+ SESGRP         0.922         0.736         0.527         0.364         0.256
+ BAGE           0.922         0.736         0.527         0.364         0.256
+ EDUC           0.922         0.736         0.527         0.364         0.256
+
+
+           Covariance Coverage
+              SESGRP        BAGE          EDUC
+              ________      ________      ________
+ SESGRP         1.000
+ BAGE           1.000         1.000
+ EDUC           1.000         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1            389.325       395.154       371.730       352.685       311.478
+
+
+           Means
+              SESGRP        BAGE          EDUC
+              ________      ________      ________
+ 1              2.364         2.716         0.651
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1         13303.033
+ P2         10660.878     13457.462
+ P3          9828.031      8871.111     11254.818
+ P4          8120.337      8982.106      7301.100     11170.122
+ P5          8899.855      9998.189      7084.146      8521.892     15331.720
+ SESGRP       -17.997        -9.835        -5.536       -17.256       -23.284
+ BAGE         -70.601       -85.681       -85.861       -62.960        -4.959
+ EDUC          94.883        27.684        58.225        16.996        99.546
+
+
+           Covariances
+              SESGRP        BAGE          EDUC
+              ________      ________      ________
+ SESGRP         0.542
+ BAGE           0.314         6.531
+ EDUC          -1.307        -0.935        10.072
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.797         1.000
+ P3             0.803         0.721         1.000
+ P4             0.666         0.733         0.651         1.000
+ P5             0.623         0.696         0.539         0.651         1.000
+ SESGRP        -0.212        -0.115        -0.071        -0.222        -0.255
+ BAGE          -0.240        -0.289        -0.317        -0.233        -0.016
+ EDUC           0.259         0.075         0.173         0.051         0.253
+
+
+           Correlations
+              SESGRP        BAGE          EDUC
+              ________      ________      ________
+ SESGRP         1.000
+ BAGE           0.167         1.000
+ EDUC          -0.560        -0.115         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -2847.866
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+TESTS OF MODEL FIT
+
+Loglikelihood
+
+          H0 Value                       -2104.839
+          H0 Scaling Correction Factor       0.869
+            for MLR
+
+Information Criteria
+
+          Number of Free Parameters             19
+          Akaike (AIC)                    4247.678
+          Bayesian (BIC)                  4302.014
+          Sample-Size Adjusted BIC        4241.923
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -9.479      4.204     -2.255      0.024
+    EDUC               6.747      2.885      2.339      0.019
+    SESGRP           -11.194     16.595     -0.675      0.500
+
+ SP         ON
+    BAGE              -2.159      2.207     -0.978      0.328
+    EDUC              -2.720      1.013     -2.684      0.007
+    SESGRP             5.100      5.479      0.931      0.352
+
+ QP         ON
+    BAGE               0.397      0.332      1.194      0.232
+    EDUC               0.290      0.198      1.468      0.142
+    SESGRP            -1.045      0.836     -1.250      0.211
+
+ SP       WITH
+    IP              -423.429    234.867     -1.803      0.071
+
+ QP       WITH
+    IP                24.846     45.069      0.551      0.581
+    SP               -11.765      5.110     -2.303      0.021
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    IP               438.742     42.056     10.432      0.000
+    SP                -0.374     13.622     -0.027      0.978
+    QP                -0.591      2.098     -0.282      0.778
+
+ Residual Variances
+    P1              2935.360    396.396      7.405      0.000
+    P2              2935.360    396.396      7.405      0.000
+    P3              2935.360    396.396      7.405      0.000
+    P4              2935.360    396.396      7.405      0.000
+    P5              2935.360    396.396      7.405      0.000
+    IP              9586.211   1337.989      7.165      0.000
+    SP                72.749     26.180      2.779      0.005
+    QP                 2.620      1.127      2.324      0.020
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.359E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  00:15:38
+        Ending Time:  00:16:31
+       Elapsed Time:  00:00:53
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2009 Muthen & Muthen
