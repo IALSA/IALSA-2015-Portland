@@ -60,6 +60,7 @@ for(i in seq_along(mpar)){
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
     results[i,"active"] <- NA
     results[i, c('date', 'time')] <- strsplit(mplus_output[3], '  ')[[1]]
+    ## obtain location of 'studies' to then be able to select the following element, the study name.
     selector <- which(strsplit(out_list[i], '/')[[1]]=='studies')
     results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][selector+1]
     results[i,"data_file"] <-
