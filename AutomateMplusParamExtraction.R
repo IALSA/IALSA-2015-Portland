@@ -32,7 +32,7 @@ msum[1,]
 msum$Filename
 
 ## Extract Estimates
-mpar <- extractModelParameters(target=pathStudy, recursive=T, dropDimensions=T)
+mpar <- MplusAutomation::extractModelParameters(target=pathStudy, recursive=T, dropDimensions=T)
 
 ## count number of models
 nmodels <- length(mpar)
