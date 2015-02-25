@@ -66,6 +66,8 @@ for(i in seq_along(mpar)){
     results[i,"data_file"] <-
     strsplit(mplus_output[grep("File", mplus_output, ignore.case=TRUE)], 'IS| is |=|;')[[1]][2]
     results[i, c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
+    results[i, "physical_specific"] <- strsplit(msum$Filename[i], '_|.out')[[1]][6]
+    results[i, "cognitive_specific"] <- strsplit(msum$Filename[i], '_|.out')[[1]][7]
     ## Check for model conversion
     conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
     has_converged <- conv==1
