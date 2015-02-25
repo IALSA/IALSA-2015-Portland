@@ -4,7 +4,9 @@
 
 ## Dynamic reports
 
-- [collected results](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/synthesis/study_report.html) from each study
+- [tabled results](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/synthesis/study_report.html) for each study across all models.
+
+- [graphed results](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/synthesis/meta_report.html) for each **outcome pair** across all models that contain this change. 
 
 ## Overview
 

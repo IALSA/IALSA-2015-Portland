@@ -325,7 +325,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-02-24, 15:36 Pacific Standard Time
+Report rendered by koval_000 at 2015-02-24, 15:43 Pacific Standard Time
 ```
 
 ```
