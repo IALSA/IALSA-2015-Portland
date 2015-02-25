@@ -70,6 +70,4 @@ MODEL:  ip sp | p1-p5 AT time1-time5;
         c1-c5 (res_c);
         p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal
 
-OUTPUT: sampstat Cinterval;  
-
-
+OUTPUT: sampstat;
