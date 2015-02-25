@@ -55,6 +55,11 @@ rm(dto_path, study_name, dto)
 # http://stackoverflow.com/questions/2851327/converting-a-list-of-data-frames-into-one-data-frame-in-r
 ds <- plyr::ldply(dtos, data.frame)
 
+ds <- ds[order(ds$study_name, ds$physical_outcome, ds$cognitive_outcome, ds$subgroup, ds$model_type), ]
+#Exclude the univariate models, by remove the variables like `nocog` and `nophys`
+ds <- ds[!(ds$cognitive_outcome %in% no_variable_labels), ]
+ds <- ds[!(ds$physical_outcome %in% no_variable_labels), ]
+
 # sort(unique(ds$physical_outcome))
 # table(ds$physical_outcome)
 ds$physical_outcome <- tolower(stringr::str_trim(ds$physical_outcome))
@@ -95,6 +100,10 @@ ds$residual_zetau <- ds$sd_residual + (limit * sqrt( 1 / (ds$subject_count - 3) 
 ds$residual_zetal <- ds$sd_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
 ds$ciu_sd_residual <- tanh(ds$residual_zetau)
 ds$cil_sd_residual <- tanh(ds$residual_zetal)
+
+ds$p_cov_int_pretty <- gsub("0.(\\d{1,})", ".\\1", ds$p_cov_int) #Drop the leading zero, to match APA guidelines
+ds$p_cov_slope_pretty <- gsub("0.(\\d{1,})", ".\\1", ds$p_cov_slope) #Drop the leading zero, to match APA guidelines
+ds$p_cov_res_pretty <- gsub("0.(\\d{1,})", ".\\1", ds$p_cov_res) #Drop the leading zero, to match APA guidelines
 
 ### Make pretty
 
@@ -397,6 +406,7 @@ report_theme <- theme_bw() + #Adapted from https://github.com/OuhscBbmc/DeSheaTo
   theme(axis.title = element_text(colour="gray40")) +
   theme(panel.border = element_rect(colour="gray80")) +
   theme(axis.ticks = element_line(colour="gray80")) +
+  theme(panel.grid.major.y = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
 no_grid_or_y_labels_theme <- report_theme + #Adapted from https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/CommonCode/BookTheme.R
@@ -413,13 +423,12 @@ names(palette_gender_light) <- names(palette_gender_dark)
 cog_names <- sort(unique(ds$cognitive_outcome))
 physical_names <- sort(unique(ds$physical_outcome))
 
-#Exclude the univariate models, by remove the variables like `nocog` and `nophys`
-cog_names <- cog_names[!(cog_names %in% no_variable_labels)]
-physical_names <- physical_names[!(physical_names %in% no_variable_labels)]
+# #Exclude the univariate models, by remove the variables like `nocog` and `nophys`
+# cog_names <- cog_names[!(cog_names %in% no_variable_labels)]
+# physical_names <- physical_names[!(physical_names %in% no_variable_labels)]
 
 # cog_name <- "block"; physical_name <- "pulmonary"
 # model_type <- "age"
-
 
 # g_int_all_missing <- ggplot(data=data.frame()) + geom_text(aes(x=0, y=0, label="No valid `sd_int`\nvalues were found.")) + no_grid_or_y_labels_theme
 # g_slope_all_missing <- ggplot(data=data.frame()) + geom_text(aes(x=0, y=0, label="No valid `sd_slope`\nvalues were found.")) + no_grid_or_y_labels_theme
@@ -430,6 +439,9 @@ for( physical_name in physical_names ) {
   cat("\n\n## `", physical_name, "` \n\n", sep="")
   cat("Studies with this physical variable listed in the model output:", paste(sort(unique(ds[ds$physical_outcome==physical_name, "study_name"])), collapse=", "), "\n\n")
 
+  print(kable(ds[ds$physical_outcome==physical_name, c("study_name", "cognitive_outcome", "subgroup", "model_type", "subject_count", "wave_count", "converged")], row.names=F))
+
+  cat("\n\n")
   for( cog_name in cog_names ) {
     title <- paste0(cog_name, " with ", physical_name)
 
@@ -444,6 +456,7 @@ for( physical_name in physical_names ) {
       # } else {
         g_int <- ggplot(d_forest, aes(x=study_name, y=sd_int, ymin=cil_sd_int, ymax=ciu_sd_int, color=subgroup, fill=subgroup)) +
           geom_hline(x=0, color="gray70", size=1) +
+          # geom_text(aes(label=p_cov_int_pretty), hjust=0, vjust=2) + #Uncomment when the datasets are cleaner.
           geom_linerange(size=2, alpha=.5, na.rm=T) +
           geom_point(size=6, shape=21, na.rm=T) +
           scale_colour_manual(values=palette_gender_dark) +
@@ -454,7 +467,7 @@ for( physical_name in physical_names ) {
           # theme(legend.position=c(0, 1), legend.justification=c(0,1)) + #Inside top left corner
           # theme(legend.position="none") + #Remove legend entirely: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
           theme(legend.title=element_blank()) + #Remove self-evident legend title: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
-          labs(x="Study", y="Intercept SD", title=title)
+          labs(x=NULL, y="Intercept SD", title=title)
 
         print(g_int + coord_flip(ylim=range_int))
       }

@@ -3,7 +3,7 @@
 
 This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
-<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of one directory.-->
 
 
 <!-- Set the report-wide options, and point to the external code file. -->
@@ -39,7 +39,18 @@ This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
 ## `chairstand` 
 
-Studies with this physical variable listed in the model output: nuage, obas, octo 
+Studies with this physical variable listed in the model output: nuage, obas 
+
+
+
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+nuage        3ms                 female     aehplus                 934            4  TRUE      
+nuage        3ms                 female     age                     939            4  TRUE      
+nuage        3ms                 male       aeh                     847            4  TRUE      
+nuage        3ms                 male       aehplus                 847            4  TRUE      
+nuage        3ms                 male       age                     851            4  TRUE      
+obas         3ms                 female     aeh                     934           10  TRUE      
 
 ```
 Warning: Removed 1 rows containing missing values (geom_segment).
@@ -63,21 +74,21 @@ Warning: Removed 1 rows containing missing values (geom_segment).
 
 ![](figure_meta/forest_static-1.png) 
 
-## `flaminco` 
-
-Studies with this physical variable listed in the model output: octo 
-
-
-
 ## `flamingo` 
 
-Studies with this physical variable listed in the model output: nuage, obas, octo 
-
-
-
-## `gripstrength` 
-
 Studies with this physical variable listed in the model output: nuage 
+
+
+
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+nuage        3ms                 female     aeh                     934            4  TRUE      
+nuage        3ms                 female     aehplus                 934            4  TRUE      
+nuage        3ms                 female     age                     939            4  TRUE      
+nuage        3ms                 male       aeh                     847            4  TRUE      
+nuage        3ms                 male       aehplus                 847            4  TRUE      
+nuage        3ms                 male       age                     851            4  TRUE      
+
 
 
 
@@ -87,9 +98,23 @@ Studies with this physical variable listed in the model output: ilse
 
 
 
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+ilse         NA                  female     nophys                  264            3  TRUE      
+
+
+
+
 ## `mmse nondem` 
 
 Studies with this physical variable listed in the model output: octo 
+
+
+
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+octo         n10                 age        ws                      265            5  TRUE      
+
 
 
 
@@ -99,9 +124,40 @@ Studies with this physical variable listed in the model output: radc
 
 
 
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+radc         NA                  time       nophys                  266            5  TRUE      
+
+
+
+
 ## `muscle` 
 
 Studies with this physical variable listed in the model output: habc 
+
+
+
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+habc         executive           female     aeh                    1575           10  TRUE      
+habc         executive           female     aehplus                1535           10  TRUE      
+habc         executive           female     age                    1581           10  TRUE      
+habc         executive           male       aeh                    1489           10  TRUE      
+habc         executive           male       aehplus                1464           10  TRUE      
+habc         executive           male       age                    1491           10  TRUE      
+habc         mental              female     aeh                    1578           11  TRUE      
+habc         mental              female     aehplus                1538           11  TRUE      
+habc         mental              female     age                    1584           11  TRUE      
+habc         mental              male       aeh                    1489           11  TRUE      
+habc         mental              male       aehplus                1464           11  TRUE      
+habc         mental              male       age                    1491           11  TRUE      
+habc         speed               female     aeh                    1578           11  TRUE      
+habc         speed               female     aehplus                1538           11  TRUE      
+habc         speed               female     age                    1584           11  TRUE      
+habc         speed               male       aeh                    1488           11  TRUE      
+habc         speed               male       aehplus                1463           11  TRUE      
+habc         speed               male       age                    1490           11  TRUE      
+
 
 ![](figure_meta/forest_static-2.png) ![](figure_meta/forest_static-3.png) ![](figure_meta/forest_static-4.png) 
 
@@ -111,15 +167,28 @@ Studies with this physical variable listed in the model output: radc
 
 
 
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+radc         NA                  time       ws                      265            5  TRUE      
+
+
+
+
 ## `normalwalk` 
 
-Studies with this physical variable listed in the model output: nuage, obas, octo 
+Studies with this physical variable listed in the model output: nuage 
 
 
 
-## `normalwalking` 
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+nuage        3ms                 female     aeh                     934            4  TRUE      
+nuage        3ms                 female     aehplus                 934            4  TRUE      
+nuage        3ms                 female     age                     939            4  TRUE      
+nuage        3ms                 male       aeh                     847            4  TRUE      
+nuage        3ms                 male       aehplus                 847            4  TRUE      
+nuage        3ms                 male       age                     851            4  TRUE      
 
-Studies with this physical variable listed in the model output: obas, octo 
 
 
 
@@ -129,9 +198,10 @@ Studies with this physical variable listed in the model output: ilse
 
 
 
-## `plumonary` 
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+ilse         NA                  female     nophys                  264            3  TRUE      
 
-Studies with this physical variable listed in the model output: eas 
 
 
 
@@ -139,17 +209,77 @@ Studies with this physical variable listed in the model output: eas
 
 Studies with this physical variable listed in the model output: eas, nas 
 
+
+
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+eas          block               female     age                     563            9  TRUE      
+eas          block               female     full                    563            9  TRUE      
+eas          block               male       age                     350            9  TRUE      
+eas          block               male       full                    350            9  TRUE      
+nas          executive           male       ae                     1122            6  TRUE      
+nas          executive           male       aeplus                 1122            6  TRUE      
+nas          executive           male       age                    1127            6  TRUE      
+nas          memory              male       ae                     1124            6  TRUE      
+nas          memory              male       aeplus                 1124            6  TRUE      
+nas          memory              male       age                    1129            6  TRUE      
+nas          mental              male       ae                     1127            6  TRUE      
+nas          mental              male       aeplus                 1127            6  TRUE      
+nas          mental              male       age                    1132            6  TRUE      
+nas          visuospatial        male       ae                     1125            6  TRUE      
+nas          visuospatial        male       aeplus                 1125            6  TRUE      
+nas          visuospatial        male       age                    1130            6  TRUE      
+
+
 ![](figure_meta/forest_static-5.png) ![](figure_meta/forest_static-6.png) ![](figure_meta/forest_static-7.png) ![](figure_meta/forest_static-8.png) ![](figure_meta/forest_static-9.png) 
 
 ## `timedupandgo` 
 
 Studies with this physical variable listed in the model output: ilse 
 
+
+
+study_name   cognitive_outcome         subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------------  ---------  -----------  --------------  -----------  ----------
+ilse         block                     female     aeh                     250            3  TRUE      
+ilse         block                     female     age                     252            3  TRUE      
+ilse         block                     male       aeh                     279            3  TRUE      
+ilse         block                     male       age                     279            3  TRUE      
+ilse         digitsymbolsubstitution   female     age                     252            3  TRUE      
+ilse         digitsymbolsubstitution   male       age                     279            3  TRUE      
+ilse         knowledge                 female     aeh                     250            3  TRUE      
+ilse         knowledge                 female     age                     252            3  TRUE      
+ilse         knowledge                 male       aeh                     279            3  TRUE      
+ilse         knowledge                 male       age                     279            3  TRUE      
+ilse         picturecompletion         female     aeh                     250            3  TRUE      
+ilse         picturecompletion         female     age                     252            3  TRUE      
+ilse         picturecompletion         male       aeh                     279            3  TRUE      
+ilse         picturecompletion         male       age                     279            3  TRUE      
+ilse         spacialability            female     aeh                     250            3  TRUE      
+ilse         spacialability            female     age                     252            3  TRUE      
+ilse         spacialability            male       aeh                     279            3  TRUE      
+ilse         spacialability            male       age                     279            3  TRUE      
+ilse         verbalfluency             female     age                     252            3  TRUE      
+ilse         verbalfluency             male       age                     279            3  TRUE      
+
+
 ![](figure_meta/forest_static-10.png) ![](figure_meta/forest_static-11.png) ![](figure_meta/forest_static-12.png) ![](figure_meta/forest_static-13.png) ![](figure_meta/forest_static-14.png) ![](figure_meta/forest_static-15.png) 
 
 ## `tug` 
 
-Studies with this physical variable listed in the model output: nuage, obas, octo 
+Studies with this physical variable listed in the model output: nuage 
+
+
+
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+nuage        3ms                 female     aeh                     934            4  TRUE      
+nuage        3ms                 female     aehplus                 934            4  TRUE      
+nuage        3ms                 female     age                     939            4  TRUE      
+nuage        3ms                 male       aeh                     847            4  TRUE      
+nuage        3ms                 male       aehplus                 847            4  TRUE      
+nuage        3ms                 male       age                     851            4  TRUE      
+
 
 
 
@@ -157,11 +287,44 @@ Studies with this physical variable listed in the model output: nuage, obas, oct
 
 Studies with this physical variable listed in the model output: habc 
 
+
+
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+habc         executive           female     aeh                    1552           10  TRUE      
+habc         executive           female     aehplus                1513           10  TRUE      
+habc         executive           female     age                    1558           10  TRUE      
+habc         executive           male       aeh                    1471           10  TRUE      
+habc         executive           male       aehplus                1446           10  TRUE      
+habc         executive           male       age                    1473           10  TRUE      
+habc         mental              female     aeh                    1578           11  TRUE      
+habc         mental              female     aehplus                1538           11  TRUE      
+habc         mental              female     age                    1584           11  TRUE      
+habc         mental              male       aeh                    1489           11  TRUE      
+habc         mental              male       aehplus                1464           11  TRUE      
+habc         mental              male       age                    1491           11  TRUE      
+habc         speed               female     aeh                    1575           11  TRUE      
+habc         speed               female     aehplus                1535           11  TRUE      
+habc         speed               female     age                    1581           11  TRUE      
+habc         speed               male       aeh                    1485           11  TRUE      
+habc         speed               male       aehplus                1460           11  TRUE      
+habc         speed               male       age                    1487           11  TRUE      
+
+
 ![](figure_meta/forest_static-16.png) ![](figure_meta/forest_static-17.png) ![](figure_meta/forest_static-18.png) 
 
 ## `ws` 
 
 Studies with this physical variable listed in the model output: octo, radc 
+
+
+
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+octo         mmse                female     aeh                     145            5  TRUE      
+octo         mmse                female     age                     155            5  TRUE      
+octo         mmse                male       aeh                     108            5  TRUE      
+radc         mmse                male       age                     111            5  TRUE      
 
 # Forest Plot (Animated)
 
@@ -180,7 +343,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by Will at 2015-02-24, 23:21 -0600
+Report rendered by Will at 2015-02-25, 00:05 -0600
 ```
 
 ```
