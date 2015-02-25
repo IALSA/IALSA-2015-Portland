@@ -1,10 +1,10 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-02/24/2015   2:08 PM
+02/24/2015   3:54 PM
 
 INPUT INSTRUCTIONS
 
-  TITLE:  Timed Up and Go, Block Design, Fully Conditional, Female
+  TITLE:  Timed Up and Go, Block Design, AEH Conditional, Female
 
   DATA:  File = unshared\ILSE 23.02.dat;
 
@@ -62,7 +62,7 @@ INPUT INSTRUCTIONS
 
 
 
-Timed Up and Go, Block Design, Fully Conditional, Female
+Timed Up and Go, Block Design, AEH Conditional, Female
 
 SUMMARY OF ANALYSIS
 
@@ -476,9 +476,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\b1_female_aeh_timed
 
-     Beginning Time:  14:08:41
-        Ending Time:  14:08:51
-       Elapsed Time:  00:00:10
+     Beginning Time:  15:54:08
+        Ending Time:  15:54:19
+       Elapsed Time:  00:00:11
 
 
 

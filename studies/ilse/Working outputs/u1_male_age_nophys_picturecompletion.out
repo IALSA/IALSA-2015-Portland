@@ -1,0 +1,238 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+02/24/2015   3:38 PM
+
+INPUT INSTRUCTIONS
+
+   TITLE: M2 Knowledge, Linear LGM, Age Conditional, Male
+
+    DATA:  File = unshared\ilse 23.02.dat;
+
+    VARIABLE: Names are
+         T1SD18 ID SEX t1dss t1bd t1hgl t1hgr t1fs t1fsb t1age
+     center t1beer t1wine t1k t1pc t1vf t1sa
+      t1spf t2dss t2bd t2hgl t2hgr t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc
+      t3vf t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3hgl t3hgr
+      t3height t3weight time1 time2r time3r time3 time2
+      BMI1 BMI2 BMI3 no_sec Haupts Reals Secondary
+      specials others;
+
+           MISSING are ALL(-9999);
+           USEVAR are  time1 time2 time3
+                       c1 c2 c3 Bage;
+           TSCORES =   time1 time2 time3;
+
+           USEOBSERVATIONS are sex EQ 0;
+
+    Define: c1=t1pc; c2=t2pc; c3=t3pc;
+
+            Bage=t1age-70;   !Centered at Age 80
+            Bagesq=(t1age-70)**2;
+
+
+    ANALYSIS: TYPE = RANDOM;
+
+    MODEL:  ic sc | c1-c3 AT time1-time3;
+    ic sc ON Bage;
+
+            c1-c3 (res_c);
+
+    OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  7
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M2 Knowledge, Linear LGM, Age Conditional, Male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         279
+
+Number of dependent variables                                    3
+Number of independent variables                                  1
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   C1          C2          C3
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  unshared\ilse 23.02.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             5
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ C1             0.996
+ C2             0.885         0.889
+ C3             0.541         0.541         0.545
+ BAGE           0.996         0.889         0.545         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ 1             12.642        12.797        12.456        -7.043
+
+
+           Covariances
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ C1            12.075
+ C2             7.819        11.983
+ C3             7.740         9.218        14.496
+ BAGE          -0.179         0.015        -0.200         0.837
+
+
+           Correlations
+              C1            C2            C3            BAGE
+              ________      ________      ________      ________
+ C1             1.000
+ C2             0.650         1.000
+ C3             0.585         0.699         1.000
+ BAGE          -0.056         0.005        -0.057         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -2066.196
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        8
+
+Loglikelihood
+
+          H0 Value                       -1696.363
+          H0 Scaling Correction Factor      1.4577
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    3408.727
+          Bayesian (BIC)                  3437.776
+          Sample-Size Adjusted BIC        3412.409
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IC         ON
+    BAGE              -0.153      0.219     -0.699      0.484
+
+ SC         ON
+    BAGE               0.001      0.020      0.042      0.967
+
+ SC       WITH
+    IC                -0.032      0.117     -0.274      0.784
+
+ Intercepts
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    IC                11.619      1.600      7.262      0.000
+    SC                -0.005      0.143     -0.037      0.971
+
+ Residual Variances
+    C1                 3.869      0.506      7.652      0.000
+    C2                 3.869      0.506      7.652      0.000
+    C3                 3.869      0.506      7.652      0.000
+    IC                 7.983      1.313      6.082      0.000
+    SC                 0.021      0.017      1.270      0.204
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.167E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\u1_male_age_nophys_
+
+     Beginning Time:  15:38:24
+        Ending Time:  15:38:25
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
