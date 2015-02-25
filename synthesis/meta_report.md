@@ -343,7 +343,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by Will at 2015-02-25, 00:05 -0600
+Report rendered by Will at 2015-02-25, 00:12 -0600
 ```
 
 ```

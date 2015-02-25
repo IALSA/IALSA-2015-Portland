@@ -109,146 +109,90 @@ ds$p_cov_res_pretty <- gsub("0.(\\d{1,})", ".\\1", ds$p_cov_res) #Drop the leadi
 
 ds_pretty <- ds
 # ds$var_int_cog <- round(ds$var_int_cog, 2)
-ds_pretty$var_int_cog <- sprintf("%.2f", ds_pretty$var_int_cog) #Force it to have one decimal, even if it's a zero.
-ds_pretty$var_int_cog <- ifelse(ds_pretty$var_int_cog=="NA", "--", ds_pretty$var_int_cog)
 
-ds_pretty$sd_int <- sprintf("%.2f", ds_pretty$sd_int)
-ds_pretty$sd_int <- ifelse(ds_pretty$sd_int=="NA", "--", ds_pretty$sd_int)
+prettify_coefficients <- function( coefficient, digit_rounded_count=2 ) {
+  pattern <- paste0("%.", digit_rounded_count, "f") # eg, "%.2f"
+  prettified <- sprintf(pattern, coefficient)
+  prettified <- ifelse(prettified=="NA", "--", prettified)
+  return( prettified )
+}
 
-ds_pretty$sd_slope <- sprintf("%.2f", ds_pretty$sd_slope)
-ds_pretty$sd_slope <- ifelse(ds_pretty$sd_slope=="NA", "--", ds_pretty$sd_slope)
+ds_pretty$var_int_cog <- prettify_coefficients(ds_pretty$var_int_cog)
+ds_pretty$sd_int <- prettify_coefficients(ds_pretty$sd_int)
+ds_pretty$sd_slope <- prettify_coefficients(ds_pretty$sd_slope)
+ds_pretty$sd_residual <- prettify_coefficients(ds_pretty$sd_residual)
 
-ds_pretty$sd_residual <- sprintf("%.2f", ds_pretty$sd_residual)
-ds_pretty$sd_residual <- ifelse(ds_pretty$sd_residual=="NA", "--", ds_pretty$sd_residual)
+ds_pretty$cil_sd_int <- prettify_coefficients(ds_pretty$cil_sd_int)
+ds_pretty$ciu_sd_int <- prettify_coefficients(ds_pretty$ciu_sd_int)
+ds_pretty$cil_sd_slope <- prettify_coefficients(ds_pretty$cil_sd_slope)
+ds_pretty$ciu_sd_slope <- prettify_coefficients(ds_pretty$ciu_sd_slope)
+ds_pretty$cil_sd_residual <- prettify_coefficients(ds_pretty$cil_sd_residual)
+ds_pretty$ciu_sd_residual <- prettify_coefficients(ds_pretty$ciu_sd_residual)
 
-ds_pretty$cil_sd_int <- sprintf("%.2f", ds_pretty$cil_sd_int)
-ds_pretty$cil_sd_int <- ifelse(ds_pretty$cil_sd_int=="NA", "--", ds_pretty$cil_sd_int)
-ds_pretty$ciu_sd_int <- sprintf("%.2f", ds_pretty$ciu_sd_int)
-ds_pretty$ciu_sd_int <- ifelse(ds_pretty$ciu_sd_int=="NA", "--", ds_pretty$ciu_sd_int)
+desired_columns_univariate<- c(
+  "model_number",
+  "study_name",
+  "subgroup",
+  "model_type",
+  "physical_outcome",
+  "cognitive_outcome",
 
+  "sd_int",
+  "sd_slope",
+  "sd_residual",
 
-ds_pretty$cil_sd_slope <- sprintf("%.2f", ds_pretty$cil_sd_slope)
-ds_pretty$cil_sd_slope <- ifelse(ds_pretty$cil_sd_slope=="NA", "--", ds_pretty$cil_sd_slope)
-ds_pretty$ciu_sd_slope <- sprintf("%.2f", ds_pretty$ciu_sd_slope)
-ds_pretty$ciu_sd_slope <- ifelse(ds_pretty$ciu_sd_slope=="NA", "--", ds_pretty$ciu_sd_slope)
+  "cil_sd_int",
+  "ciu_sd_int",
+  "cil_sd_slope",
+  "ciu_sd_slope",
+  "cil_sd_residual",
+  "ciu_sd_residual",
 
-ds_pretty$cil_sd_residual <- sprintf("%.2f", ds_pretty$cil_sd_residual)
-ds_pretty$cil_sd_residual <- ifelse(ds_pretty$cil_sd_residual=="NA", "--", ds_pretty$cil_sd_residual)
-ds_pretty$ciu_sd_residual <- sprintf("%.2f", ds_pretty$ciu_sd_residual)
-ds_pretty$ciu_sd_residual <- ifelse(ds_pretty$ciu_sd_residual=="NA", "--", ds_pretty$ciu_sd_residual)
+  "p_cov_int",
+  "p_cov_slope",
+  "p_cov_res",
 
+  "aic",
+  "bic",
 
+  "subject_count",
+  "wave_count",
+  "parameter_count",
+  "converged",
 
+  "var_int_physical",
+  "se_int_physical",
+  "var_slope_physical",
+  "se_slope_physical",
+  "var_residual_physical",
+  "se_residual_physical",
 
+  "var_int_cog",
+  "se_int_cog",
+  "var_slope_cog",
+  "se_slope_cog",
+  "var_residual_cog",
+  "se_residual_cog",
 
-# desired_columns_univariate <- c("model_number", "study_name", "subgroup", "model_type", "physical_outcome", "var_int_cog")
-# desired_columns_bivariate <- c("model_number", "study_name", "subgroup", "model_type", "physical_outcome")
+  "cov_int",
+  "cov_slope",
+  "cov_residual",
+  "p_cov_int",
+  "p_cov_slope",
+  "p_cov_res",
 
-# desired_columns_univariate <- c("model_number",
-#                                 "study_name",
-#                                 "subgroup",
-#                                 "model_type",
-#                                 "physical_outcome",
-#                                 "cognitive_outcome",
-#
-#                                 "var_int_physical",
-#                                 "se_int_physical",
-#                                 "var_slope_physical",
-#                                 "se_slope_physical",
-#                                 "var_residual_physical",
-#                                 "se_residual_physical",
-#
-#                                 "var_int_cog",
-#                                 "se_int_cog",
-#                                 "var_slope_cog",
-#                                 "se_slope_cog",
-#                                 "var_residual_cog",
-#                                 "se_residual_cog",
-#
-#                                 "cov_int",
-#                                 "cov_slope",
-#                                 "cov_residual",
-#                                 "p_cov_int",
-#                                 "p_cov_slope",
-#                                 "p_cov_res",
-#                                 "subject_count",
-#                                 "wave_count",
-#                                 "datapoint_count",
-#                                 "parameter_count",
-# #                                 "deviance",
-#                                 "LL",
-#                                 "aic",
-#                                 "bic",
-#                                 "adj_bic",
-#                                 "aaic",
-#                                 "output_file")
+  "LL",
+  "aic",
+  "bic",
+  "adj_bic",
+  "aaic",
+  "output_file",
 
-desired_columns_univariate<- c( "model_number",
-                            "study_name",
-                            "subgroup",
-                            "model_type",
-                            "physical_outcome",
-                            "cognitive_outcome",
-
-
-                            "sd_int",
-                            "sd_slope",
-                            "sd_residual",
-
-                            "cil_sd_int",
-                            "ciu_sd_int",
-                            "cil_sd_slope",
-                            "ciu_sd_slope",
-                            "cil_sd_residual",
-                            "ciu_sd_residual",
-
-                            "p_cov_int",
-                            "p_cov_slope",
-                            "p_cov_res",
-
-                            "aic",
-                            "bic",
-
-                            "subject_count",
-                            "wave_count",
-                            "parameter_count",
-                            "converged",
-
-
-                            "var_int_physical",
-                            "se_int_physical",
-                            "var_slope_physical",
-                            "se_slope_physical",
-                            "var_residual_physical",
-                            "se_residual_physical",
-
-                            "var_int_cog",
-                            "se_int_cog",
-                            "var_slope_cog",
-                            "se_slope_cog",
-                            "var_residual_cog",
-                            "se_residual_cog",
-
-                            "cov_int",
-                            "cov_slope",
-                            "cov_residual",
-                            "p_cov_int",
-                            "p_cov_slope",
-                            "p_cov_res",
-
-                            "LL",
-                            "aic",
-                            "bic",
-                            "adj_bic",
-                            "aaic",
-                            "output_file",
-
-                            "datapoint_count",
-                            "deviance",
-                            "data_file"
+  "datapoint_count",
+  "deviance",
+  "data_file"
 )
 desired_columns_bivariate <- desired_columns_univariate
-
 
 
 ds_univariate_pretty <- ds_pretty[ds_pretty$outcome_count==1L, desired_columns_univariate]
@@ -471,8 +415,6 @@ for( physical_name in physical_names ) {
 
         print(g_int + coord_flip(ylim=range_int))
       }
-
-
     }
   }
 }
