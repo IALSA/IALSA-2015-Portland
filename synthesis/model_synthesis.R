@@ -12,6 +12,7 @@ library(knitr)
 library(scales) #For formating values in graphs
 library(RColorBrewer)
 # library(reshape2) #For converting wide to long
+library(grid) #For graphing
 library(ggplot2) #For graphing
 library(testit, quietly=TRUE) #For asserts
 
@@ -54,6 +55,11 @@ rm(dto_path, study_name, dto)
 # http://stackoverflow.com/questions/2851327/converting-a-list-of-data-frames-into-one-data-frame-in-r
 ds <- plyr::ldply(dtos, data.frame)
 
+ds <- ds[order(ds$study_name, ds$physical_outcome, ds$cognitive_outcome, ds$subgroup, ds$model_type), ]
+#Exclude the univariate models, by remove the variables like `nocog` and `nophys`
+ds <- ds[!(ds$cognitive_outcome %in% no_variable_labels), ]
+ds <- ds[!(ds$physical_outcome %in% no_variable_labels), ]
+
 # sort(unique(ds$physical_outcome))
 # table(ds$physical_outcome)
 ds$physical_outcome <- tolower(stringr::str_trim(ds$physical_outcome))
@@ -95,150 +101,98 @@ ds$residual_zetal <- ds$sd_residual - (limit * sqrt( 1 / (ds$subject_count - 3) 
 ds$ciu_sd_residual <- tanh(ds$residual_zetau)
 ds$cil_sd_residual <- tanh(ds$residual_zetal)
 
+ds$p_cov_int_pretty <- gsub("0.(\\d{1,})", ".\\1", ds$p_cov_int) #Drop the leading zero, to match APA guidelines
+ds$p_cov_slope_pretty <- gsub("0.(\\d{1,})", ".\\1", ds$p_cov_slope) #Drop the leading zero, to match APA guidelines
+ds$p_cov_res_pretty <- gsub("0.(\\d{1,})", ".\\1", ds$p_cov_res) #Drop the leading zero, to match APA guidelines
+
 ### Make pretty
 
 ds_pretty <- ds
 # ds$var_int_cog <- round(ds$var_int_cog, 2)
-ds_pretty$var_int_cog <- sprintf("%.2f", ds_pretty$var_int_cog) #Force it to have one decimal, even if it's a zero.
-ds_pretty$var_int_cog <- ifelse(ds_pretty$var_int_cog=="NA", "--", ds_pretty$var_int_cog)
 
-ds_pretty$sd_int <- sprintf("%.2f", ds_pretty$sd_int)
-ds_pretty$sd_int <- ifelse(ds_pretty$sd_int=="NA", "--", ds_pretty$sd_int)
+prettify_coefficients <- function( coefficient, digit_rounded_count=2 ) {
+  pattern <- paste0("%.", digit_rounded_count, "f") # eg, "%.2f"
+  prettified <- sprintf(pattern, coefficient)
+  prettified <- ifelse(prettified=="NA", "--", prettified)
+  return( prettified )
+}
 
-ds_pretty$sd_slope <- sprintf("%.2f", ds_pretty$sd_slope)
-ds_pretty$sd_slope <- ifelse(ds_pretty$sd_slope=="NA", "--", ds_pretty$sd_slope)
+ds_pretty$var_int_cog <- prettify_coefficients(ds_pretty$var_int_cog)
+ds_pretty$sd_int <- prettify_coefficients(ds_pretty$sd_int)
+ds_pretty$sd_slope <- prettify_coefficients(ds_pretty$sd_slope)
+ds_pretty$sd_residual <- prettify_coefficients(ds_pretty$sd_residual)
 
-ds_pretty$sd_residual <- sprintf("%.2f", ds_pretty$sd_residual)
-ds_pretty$sd_residual <- ifelse(ds_pretty$sd_residual=="NA", "--", ds_pretty$sd_residual)
+ds_pretty$cil_sd_int <- prettify_coefficients(ds_pretty$cil_sd_int)
+ds_pretty$ciu_sd_int <- prettify_coefficients(ds_pretty$ciu_sd_int)
+ds_pretty$cil_sd_slope <- prettify_coefficients(ds_pretty$cil_sd_slope)
+ds_pretty$ciu_sd_slope <- prettify_coefficients(ds_pretty$ciu_sd_slope)
+ds_pretty$cil_sd_residual <- prettify_coefficients(ds_pretty$cil_sd_residual)
+ds_pretty$ciu_sd_residual <- prettify_coefficients(ds_pretty$ciu_sd_residual)
 
-ds_pretty$cil_sd_int <- sprintf("%.2f", ds_pretty$cil_sd_int)
-ds_pretty$cil_sd_int <- ifelse(ds_pretty$cil_sd_int=="NA", "--", ds_pretty$cil_sd_int)
-ds_pretty$ciu_sd_int <- sprintf("%.2f", ds_pretty$ciu_sd_int)
-ds_pretty$ciu_sd_int <- ifelse(ds_pretty$ciu_sd_int=="NA", "--", ds_pretty$ciu_sd_int)
+desired_columns_univariate<- c(
+  "model_number",
+  "study_name",
+  "subgroup",
+  "model_type",
+  "physical_outcome",
+  "cognitive_outcome",
 
+  "sd_int",
+  "sd_slope",
+  "sd_residual",
 
-ds_pretty$cil_sd_slope <- sprintf("%.2f", ds_pretty$cil_sd_slope)
-ds_pretty$cil_sd_slope <- ifelse(ds_pretty$cil_sd_slope=="NA", "--", ds_pretty$cil_sd_slope)
-ds_pretty$ciu_sd_slope <- sprintf("%.2f", ds_pretty$ciu_sd_slope)
-ds_pretty$ciu_sd_slope <- ifelse(ds_pretty$ciu_sd_slope=="NA", "--", ds_pretty$ciu_sd_slope)
+  "cil_sd_int",
+  "ciu_sd_int",
+  "cil_sd_slope",
+  "ciu_sd_slope",
+  "cil_sd_residual",
+  "ciu_sd_residual",
 
-ds_pretty$cil_sd_residual <- sprintf("%.2f", ds_pretty$cil_sd_residual)
-ds_pretty$cil_sd_residual <- ifelse(ds_pretty$cil_sd_residual=="NA", "--", ds_pretty$cil_sd_residual)
-ds_pretty$ciu_sd_residual <- sprintf("%.2f", ds_pretty$ciu_sd_residual)
-ds_pretty$ciu_sd_residual <- ifelse(ds_pretty$ciu_sd_residual=="NA", "--", ds_pretty$ciu_sd_residual)
+  "p_cov_int",
+  "p_cov_slope",
+  "p_cov_res",
 
+  "aic",
+  "bic",
 
+  "subject_count",
+  "wave_count",
+  "parameter_count",
+  "converged",
 
+  "var_int_physical",
+  "se_int_physical",
+  "var_slope_physical",
+  "se_slope_physical",
+  "var_residual_physical",
+  "se_residual_physical",
 
+  "var_int_cog",
+  "se_int_cog",
+  "var_slope_cog",
+  "se_slope_cog",
+  "var_residual_cog",
+  "se_residual_cog",
 
-# desired_columns_univariate <- c("model_number", "study_name", "subgroup", "model_type", "physical_outcome", "var_int_cog")
-# desired_columns_bivariate <- c("model_number", "study_name", "subgroup", "model_type", "physical_outcome")
+  "cov_int",
+  "cov_slope",
+  "cov_residual",
+  "p_cov_int",
+  "p_cov_slope",
+  "p_cov_res",
 
-# desired_columns_univariate <- c("model_number",
-#                                 "study_name",
-#                                 "subgroup",
-#                                 "model_type",
-#                                 "physical_outcome",
-#                                 "cognitive_outcome",
-#
-#                                 "var_int_physical",
-#                                 "se_int_physical",
-#                                 "var_slope_physical",
-#                                 "se_slope_physical",
-#                                 "var_residual_physical",
-#                                 "se_residual_physical",
-#
-#                                 "var_int_cog",
-#                                 "se_int_cog",
-#                                 "var_slope_cog",
-#                                 "se_slope_cog",
-#                                 "var_residual_cog",
-#                                 "se_residual_cog",
-#
-#                                 "cov_int",
-#                                 "cov_slope",
-#                                 "cov_residual",
-#                                 "p_cov_int",
-#                                 "p_cov_slope",
-#                                 "p_cov_res",
-#                                 "subject_count",
-#                                 "wave_count",
-#                                 "datapoint_count",
-#                                 "parameter_count",
-# #                                 "deviance",
-#                                 "LL",
-#                                 "aic",
-#                                 "bic",
-#                                 "adj_bic",
-#                                 "aaic",
-#                                 "output_file")
+  "LL",
+  "aic",
+  "bic",
+  "adj_bic",
+  "aaic",
+  "output_file",
 
-desired_columns_univariate<- c( "model_number",
-                            "study_name",
-                            "subgroup",
-                            "model_type",
-                            "physical_outcome",
-                            "cognitive_outcome",
-
-
-                            "sd_int",
-                            "sd_slope",
-                            "sd_residual",
-
-                            "cil_sd_int",
-                            "ciu_sd_int",
-                            "cil_sd_slope",
-                            "ciu_sd_slope",
-                            "cil_sd_residual",
-                            "ciu_sd_residual",
-
-                            "p_cov_int",
-                            "p_cov_slope",
-                            "p_cov_res",
-
-                            "aic",
-                            "bic",
-
-                            "subject_count",
-                            "wave_count",
-                            "parameter_count",
-                            "converged",
-
-
-                            "var_int_physical",
-                            "se_int_physical",
-                            "var_slope_physical",
-                            "se_slope_physical",
-                            "var_residual_physical",
-                            "se_residual_physical",
-
-                            "var_int_cog",
-                            "se_int_cog",
-                            "var_slope_cog",
-                            "se_slope_cog",
-                            "var_residual_cog",
-                            "se_residual_cog",
-
-                            "cov_int",
-                            "cov_slope",
-                            "cov_residual",
-                            "p_cov_int",
-                            "p_cov_slope",
-                            "p_cov_res",
-
-                            "LL",
-                            "aic",
-                            "bic",
-                            "adj_bic",
-                            "aaic",
-                            "output_file",
-
-                            "datapoint_count",
-                            "deviance",
-                            "data_file"
+  "datapoint_count",
+  "deviance",
+  "data_file"
 )
 desired_columns_bivariate <- desired_columns_univariate
-
 
 
 ds_univariate_pretty <- ds_pretty[ds_pretty$outcome_count==1L, desired_columns_univariate]
@@ -343,6 +297,11 @@ ds_bivariate_pretty <- plyr::rename(ds_bivariate_pretty, replace=c(
   "ciu_sd_residual" = "CIU<br/>cor<br/>residual"
 ))
 
+#Determine the ranges for each quantity to be graphed.
+range_int <- range(ds$sd_int, ds$cil_sd_int, ds$ciu_sd_int, na.rm=T)
+range_slope <- range(ds$sd_slope, ds$cil_sd_slope, ds$ciu_sd_slope, na.rm=T)
+range_residual <- range(ds$sd_residual, ds$cil_sd_residual, ds$ciu_sd_residual, na.rm=T)
+
 #####################################
 ## @knitr calculate_forest
 #TODO: Andrey, calcalulate the graph coordinates, using Philipe's equations that start with
@@ -386,31 +345,48 @@ for( i in seq_along(dtos) ) {
 
 #####################################
 ## @knitr forest_static
-reportTheme <- theme_bw() + #Adapted from https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/CommonCode/BookTheme.R
+report_theme <- theme_bw() + #Adapted from https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/CommonCode/BookTheme.R
   theme(axis.text = element_text(colour="gray40")) +
   theme(axis.title = element_text(colour="gray40")) +
   theme(panel.border = element_rect(colour="gray80")) +
   theme(axis.ticks = element_line(colour="gray80")) +
+  theme(panel.grid.major.y = element_blank()) +
   theme(axis.ticks.length = grid::unit(0, "cm"))
 
-paletteGenderDark <- adjustcolor(brewer.pal(5, "Dark2")[c(2,3)])
-paletteGenderLight <- adjustcolor(paletteGenderDark, alpha.f = .2)
-#paletteGenderLight <- adjustcolor(brewer.pal(5, "Set1")[c(1,2)], alpha.f = .2)
+no_grid_or_y_labels_theme <- report_theme + #Adapted from https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/CommonCode/BookTheme.R
+  theme(axis.ticks = element_blank()) +
+  theme(panel.grid = element_blank()) +
+  theme(plot.margin = unit(c(.1,.2,.2,0), "lines"))
+
+palette_gender_dark <- adjustcolor(brewer.pal(5, "Dark2")[c(2,3)])
+palette_gender_light <- adjustcolor(palette_gender_dark, alpha.f = .2)
+names(palette_gender_dark) <- c("female", "male")
+names(palette_gender_light) <- names(palette_gender_dark)
 
 #Enumerate the possible variables
 cog_names <- sort(unique(ds$cognitive_outcome))
 physical_names <- sort(unique(ds$physical_outcome))
 
-#Exclude the univariate models, by remove the variables like `nocog` and `nophys`
-cog_names <- cog_names[!(cog_names %in% no_variable_labels)]
-physical_names <- physical_names[!(physical_names %in% no_variable_labels)]
+# #Exclude the univariate models, by remove the variables like `nocog` and `nophys`
+# cog_names <- cog_names[!(cog_names %in% no_variable_labels)]
+# physical_names <- physical_names[!(physical_names %in% no_variable_labels)]
 
-# cog_name <- "block"
-# physical_name <- "pulmonary"
+# cog_name <- "block"; physical_name <- "pulmonary"
 # model_type <- "age"
 
-for( cog_name in cog_names ) {
-  for( physical_name in physical_names ) {
+# g_int_all_missing <- ggplot(data=data.frame()) + geom_text(aes(x=0, y=0, label="No valid `sd_int`\nvalues were found.")) + no_grid_or_y_labels_theme
+# g_slope_all_missing <- ggplot(data=data.frame()) + geom_text(aes(x=0, y=0, label="No valid `sd_slope`\nvalues were found.")) + no_grid_or_y_labels_theme
+# g_residual_all_missing <- ggplot(data=data.frame()) + geom_text(aes(x=0, y=0, label="No valid `sd_residual`\nvalues were found.")) + no_grid_or_y_labels_theme
+
+
+for( physical_name in physical_names ) {
+  cat("\n\n## `", physical_name, "` \n\n", sep="")
+  cat("Studies with this physical variable listed in the model output:", paste(sort(unique(ds[ds$physical_outcome==physical_name, "study_name"])), collapse=", "), "\n\n")
+
+  print(kable(ds[ds$physical_outcome==physical_name, c("study_name", "cognitive_outcome", "subgroup", "model_type", "subject_count", "wave_count", "converged")], row.names=F))
+
+  cat("\n\n")
+  for( cog_name in cog_names ) {
     title <- paste0(cog_name, " with ", physical_name)
 
     #d_forest <- ds[ds$cognitive_outcome==cog_name & ds$physical_outcome==physical_name & ds$model_type==model_type, ]
@@ -419,19 +395,26 @@ for( cog_name in cog_names ) {
     # d_forest <- ds[ds$physical_outcome==physical_name, ]
 
     if( nrow(d_forest) > 0 ) { #Don't bother graphing the non-existant combinations
-      g <- ggplot(d_forest, aes(x=sd_int, y=study_name, color=subgroup, fill=subgroup)) +
-        geom_vline(x=0, color="gray70", size=1) +
-        geom_point(size=6, shape=21, na.rm=T) +
-        scale_colour_manual(values=paletteGenderDark) +
-        scale_fill_manual(values=paletteGenderLight) +
-        facet_grid(model_type ~ .) +
-        reportTheme +
-        theme(legend.position="bottom") + #Below the x-axis title
-        # theme(legend.position=c(0, 1), legend.justification=c(0,1)) + #Inside top left corner
-        # theme(legend.position="none") + #Remove legend entirely: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
-        theme(legend.title=element_blank()) + #Remove self-evident legend title: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
-        labs(x="Intercept SD", y="Study", title=title)
-      print(g)
+      if( any(!is.na(d_forest$sd_int))){
+      #   g_int <- g_int_all_missing
+      # } else {
+        g_int <- ggplot(d_forest, aes(x=study_name, y=sd_int, ymin=cil_sd_int, ymax=ciu_sd_int, color=subgroup, fill=subgroup)) +
+          geom_hline(x=0, color="gray70", size=1) +
+          # geom_text(aes(label=p_cov_int_pretty), hjust=0, vjust=2) + #Uncomment when the datasets are cleaner.
+          geom_linerange(size=2, alpha=.5, na.rm=T) +
+          geom_point(size=6, shape=21, na.rm=T) +
+          scale_colour_manual(values=palette_gender_dark) +
+          scale_fill_manual(values=palette_gender_light) +
+          facet_grid(model_type ~ .) +
+          report_theme +
+          theme(legend.position="bottom") + #Below the x-axis title
+          # theme(legend.position=c(0, 1), legend.justification=c(0,1)) + #Inside top left corner
+          # theme(legend.position="none") + #Remove legend entirely: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
+          theme(legend.title=element_blank()) + #Remove self-evident legend title: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
+          labs(x=NULL, y="Intercept SD", title=title)
+
+        print(g_int + coord_flip(ylim=range_int))
+      }
     }
   }
 }
