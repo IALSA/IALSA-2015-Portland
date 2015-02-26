@@ -1,13 +1,9 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
 02/20/2015   2:28 PM
-
 INPUT INSTRUCTIONS
-
   TITLE: M6 Pulmonary Function, Block Design, Fully Conditional, Male
-
   DATA:  File = unshared\octomult_12aug2010.dat;
-
   VARIABLE: Names are
      Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp Smoke
      SESChild SESChOth  HlthLif CogPrev LonelyE
@@ -28,19 +24,15 @@ INPUT INSTRUCTIONS
      mirnam1-mirnam5 mirrcl1-mirrcl5 mirrcg1-mirrcg5 mircor1-mircor5 clock1-clock5
      mmse1-mmse5 mismmse1-mismmse5 fmmse1-fmmse5
      highBP1-highBP5 sbp1-sbp5 dbp1-dbp5 diab1-diab5;
-
          MISSING are .; !specification of missing observations coded in data file
          USEVAR are  time1 time2 time3 time4 time5
                      p1 p2 p3 p4 p5
                      c1 c2 c3 c4 c5
                      Bage Educ BageEduc SEP SmokHist;
          TSCORES =   time1 time2 time3 time4 time5;
-
          USEOBSERVATIONS are DemEver EQ 0 and female EQ 0;
-
   Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
           c1=block1; c2=block2; c3=block3; c4=block4; c5=block5;
-
           Bage=compage1-80;   !Centered at Age 80
           Bagesq=(compage1-80)**2;
           Dage=YTDead;
@@ -60,28 +52,17 @@ INPUT INSTRUCTIONS
           !Cardio;
           !Diab;
           !MorbInd;
-
           BageEduc=Bage*Educ;
-
   ANALYSIS: TYPE = RANDOM;
-
   MODEL:  ip sp | p1-p5 AT time1-time5;
           ic sc | c1-c5 AT time1-time5;
           ip; sp; ic; sc;
           ip sp ic sc WITH ip sp ic sc;
-
           ip sp ic sc ON Bage Educ BageEduc SEP SmokHist;
-
           p1-p5 (res_p);
           c1-c5 (res_c);
           p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal
-
   OUTPUT: sampstat Cinterval;
-
-
-
-
-
 *** WARNING
   Data set contains cases with missing on x-variables.
   These cases were not included in the analysis.
@@ -91,38 +72,24 @@ INPUT INSTRUCTIONS
   x-variables.  These cases were not included in the analysis.
   Number of cases with missing on all variables except x-variables:  13
    2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
-
-
-
 M6 Pulmonary Function, Block Design, Fully Conditional, Male
-
 SUMMARY OF ANALYSIS
-
 Number of groups                                                 1
 Number of observations                                         151
-
 Number of dependent variables                                   10
 Number of independent variables                                  5
 Number of continuous latent variables                            4
-
 Observed dependent variables
-
   Continuous
    P1          P2          P3          P4          P5          C1
    C2          C3          C4          C5
-
 Observed independent variables
    BAGE        EDUC        BAGEEDUC    SEP         SMOKHIST
-
 Continuous latent variables
    IP          SP          IC          SC
-
 Variables with special functions
-
   Time scores
    TIME1       TIME2       TIME3       TIME4       TIME5
-
-
 Estimator                                                      MLR
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -137,25 +104,14 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
-
 Input data file(s)
   unshared\octomult_12aug2010.dat
 Input data format  FREE
-
-
 SUMMARY OF DATA
-
      Number of missing data patterns            39
-
-
 COVARIANCE COVERAGE OF DATA
-
 Minimum covariance coverage value   0.100
-
-
      PROPORTION OF DATA PRESENT
-
-
            Covariance Coverage
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -174,8 +130,6 @@ Minimum covariance coverage value   0.100
  BAGEEDUC       0.788         0.629         0.450         0.311         0.219
  SEP            0.788         0.629         0.450         0.311         0.219
  SMOKHIST       0.788         0.629         0.450         0.311         0.219
-
-
            Covariance Coverage
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -189,8 +143,6 @@ Minimum covariance coverage value   0.100
  BAGEEDUC       0.914         0.709         0.563         0.351         0.219
  SEP            0.914         0.709         0.563         0.351         0.219
  SMOKHIST       0.914         0.709         0.563         0.351         0.219
-
-
            Covariance Coverage
               BAGE          EDUC          BAGEEDUC      SEP           SMOKHIST
               ________      ________      ________      ________      ________
@@ -199,32 +151,20 @@ Minimum covariance coverage value   0.100
  BAGEEDUC       1.000         1.000         1.000
  SEP            1.000         1.000         1.000         1.000
  SMOKHIST       1.000         1.000         1.000         1.000         1.000
-
-
 SAMPLE STATISTICS
-
-
      ESTIMATED SAMPLE STATISTICS
-
-
            Means
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
  1            383.482       390.116       358.814       342.558       302.769
-
-
            Means
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
  1             11.567        11.308        10.541         9.819         8.564
-
-
            Means
               BAGE          EDUC          BAGEEDUC      SEP           SMOKHIST
               ________      ________      ________      ________      ________
  1              2.908         0.629         1.025         2.364         1.530
-
-
            Covariances
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -243,8 +183,6 @@ SAMPLE STATISTICS
  BAGEEDUC     247.066        20.955       -34.593       265.690       390.608
  SEP          -16.538        -8.610        -1.408       -17.472       -31.518
  SMOKHIST     -11.234        -7.263       -21.665       -27.208       -10.537
-
-
            Covariances
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -258,8 +196,6 @@ SAMPLE STATISTICS
  BAGEEDUC      14.794        16.824        25.638        22.435        23.421
  SEP           -1.126        -1.248        -0.864        -1.414        -1.897
  SMOKHIST      -1.491        -0.443        -1.532        -1.513        -1.245
-
-
            Covariances
               BAGE          EDUC          BAGEEDUC      SEP           SMOKHIST
               ________      ________      ________      ________      ________
@@ -268,8 +204,6 @@ SAMPLE STATISTICS
  BAGEEDUC      -0.927        21.388        93.671
  SEP            0.279        -1.236        -3.186         0.523
  SMOKHIST      -0.094         0.415         0.344        -0.087         1.031
-
-
            Correlations
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -288,8 +222,6 @@ SAMPLE STATISTICS
  BAGEEDUC       0.220         0.018        -0.032         0.242         0.305
  SEP           -0.197        -0.102        -0.017        -0.213        -0.330
  SMOKHIST      -0.095        -0.061        -0.192        -0.237        -0.079
-
-
            Correlations
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -303,8 +235,6 @@ SAMPLE STATISTICS
  BAGEEDUC       0.205         0.234         0.345         0.296         0.339
  SEP           -0.209        -0.233        -0.156        -0.250        -0.368
  SMOKHIST      -0.197        -0.059        -0.197        -0.190        -0.172
-
-
            Correlations
               BAGE          EDUC          BAGEEDUC      SEP           SMOKHIST
               ________      ________      ________      ________      ________
@@ -313,19 +243,11 @@ SAMPLE STATISTICS
  BAGEEDUC      -0.036         0.717         1.000
  SEP            0.143        -0.554        -0.455         1.000
  SMOKHIST      -0.034         0.133         0.035        -0.119         1.000
-
-
      MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -4872.465
-
-
 UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
-
      UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
          Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
         Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
-
      P1                  393.782      -0.535      90.000    0.84%     300.000    360.000    400.000
              119.000   13182.339      -0.155     620.000    0.84%     430.000    500.000
      P2                  408.105      -0.177     120.000    1.05%     300.000    400.000    420.000
@@ -356,91 +278,64 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
              151.000       0.523      -0.828       3.000   50.99%       3.000      3.000
      SMOKHIST              1.530      -0.480       0.000   26.49%       0.000      2.000      2.000
              151.000       1.031      -1.051       3.000   12.58%       2.000      2.000
-
-
 THE MODEL ESTIMATION TERMINATED NORMALLY
-
-
-
 MODEL FIT INFORMATION
-
 Number of Free Parameters                       37
-
 Loglikelihood
-
           H0 Value                       -3335.570
           H0 Scaling Correction Factor      0.9924
             for MLR
-
 Information Criteria
-
           Akaike (AIC)                    6745.140
           Bayesian (BIC)                  6856.779
           Sample-Size Adjusted BIC        6739.678
             (n* = (n + 2) / 24)
-
-
-
 MODEL RESULTS
-
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
-
  IP         ON
     BAGE             -11.859      4.081     -2.906      0.004
     EDUC               6.099      2.935      2.078      0.038
     BAGEEDUC           0.347      1.168      0.297      0.766
     SEP               -3.975     15.860     -0.251      0.802
     SMOKHIST         -12.655      9.196     -1.376      0.169
-
  SP         ON
     BAGE               0.313      0.947      0.330      0.741
     EDUC              -0.251      1.296     -0.194      0.846
     BAGEEDUC          -0.239      0.515     -0.464      0.643
     SEP               -2.729      2.570     -1.062      0.288
     SMOKHIST          -1.196      1.565     -0.765      0.445
-
  IC         ON
     BAGE              -0.463      0.214     -2.167      0.030
     EDUC               0.647      0.347      1.865      0.062
     BAGEEDUC           0.003      0.100      0.026      0.979
     SEP               -0.455      0.932     -0.488      0.626
     SMOKHIST          -1.578      0.606     -2.603      0.009
-
  SC         ON
     BAGE               0.060      0.030      1.971      0.049
     EDUC              -0.082      0.067     -1.235      0.217
     BAGEEDUC           0.037      0.023      1.579      0.114
     SEP               -0.122      0.096     -1.273      0.203
     SMOKHIST           0.025      0.075      0.333      0.739
-
  IP       WITH
     SP              -271.198    149.724     -1.811      0.070
     IC               220.609     70.290      3.139      0.002
     SC                -2.376      6.126     -0.388      0.698
-
  SP       WITH
     IC               -13.281      9.124     -1.456      0.146
     SC                 0.648      0.719      0.901      0.368
-
  IC       WITH
     SC                 0.129      0.422      0.307      0.759
-
  P1       WITH
     C1                15.782     10.394      1.518      0.129
-
  P2       WITH
     C2                15.782     10.394      1.518      0.129
-
  P3       WITH
     C3                15.782     10.394      1.518      0.129
-
  P4       WITH
     C4                15.782     10.394      1.518      0.129
-
  P5       WITH
     C5                15.782     10.394      1.518      0.129
-
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
@@ -456,7 +351,6 @@ MODEL RESULTS
     SP                -1.071      7.429     -0.144      0.885
     IC                16.090      2.628      6.123      0.000
     SC                -0.231      0.289     -0.800      0.424
-
  Residual Variances
     P1              3376.311    420.926      8.021      0.000
     P2              3376.311    420.926      8.021      0.000
@@ -472,127 +366,6 @@ MODEL RESULTS
     SP                33.590     20.207      1.662      0.096
     IC                37.386      4.814      7.765      0.000
     SC                 0.046      0.038      1.208      0.227
-
-
 QUALITY OF NUMERICAL RESULTS
-
      Condition Number for the Information Matrix              0.321E-06
        (ratio of smallest to largest eigenvalue)
-
-
-CONFIDENCE INTERVALS OF MODEL RESULTS
-
-                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
-
- IP       ON
-    BAGE           -22.372     -19.858     -18.573     -11.859      -5.145      -3.859      -1.346
-    EDUC            -1.462       0.346       1.271       6.099      10.928      11.853      13.660
-    BAGEEDUC        -2.661      -1.942      -1.574       0.347       2.268       2.636       3.356
-    SEP            -44.827     -35.061     -30.065      -3.975      22.115      27.111      36.877
-    SMOKHIST       -36.341     -30.679     -27.782     -12.655       2.473       5.369      11.032
-
- SP       ON
-    BAGE            -2.127      -1.544      -1.246       0.313       1.871       2.170       2.753
-    EDUC            -3.590      -2.792      -2.383      -0.251       1.881       2.290       3.088
-    BAGEEDUC        -1.566      -1.249      -1.086      -0.239       0.609       0.771       1.088
-    SEP             -9.349      -7.766      -6.957      -2.729       1.498       2.307       3.890
-    SMOKHIST        -5.227      -4.263      -3.770      -1.196       1.378       1.871       2.834
-
- IC       ON
-    BAGE            -1.014      -0.882      -0.815      -0.463      -0.112      -0.044       0.087
-    EDUC            -0.247      -0.033       0.076       0.647       1.218       1.327       1.541
-    BAGEEDUC        -0.255      -0.194      -0.162       0.003       0.167       0.199       0.260
-    SEP             -2.856      -2.282      -1.988      -0.455       1.079       1.372       1.946
-    SMOKHIST        -3.138      -2.765      -2.574      -1.578      -0.581      -0.390      -0.017
-
- SC       ON
-    BAGE            -0.018       0.000       0.010       0.060       0.110       0.120       0.139
-    EDUC            -0.254      -0.213      -0.192      -0.082       0.027       0.048       0.089
-    BAGEEDUC        -0.023      -0.009      -0.002       0.037       0.075       0.082       0.096
-    SEP             -0.370      -0.311      -0.280      -0.122       0.036       0.066       0.125
-    SMOKHIST        -0.169      -0.123      -0.099       0.025       0.149       0.173       0.219
-
- IP       WITH
-    SP            -656.857    -564.657    -517.494    -271.198     -24.903      22.260     114.460
-    IC              39.557      82.841     104.982     220.609     336.236     358.377     401.661
-    SC             -18.156     -14.383     -12.454      -2.376       7.702       9.631      13.404
-
- SP       WITH
-    IC             -36.784     -31.165     -28.291     -13.281       1.729       4.603      10.222
-    SC              -1.205      -0.762      -0.535       0.648       1.831       2.057       2.500
-
- IC       WITH
-    SC              -0.957      -0.697      -0.564       0.129       0.823       0.956       1.215
-
- P1       WITH
-    C1             -10.991      -4.591      -1.316      15.782      32.880      36.154      42.555
-
- P2       WITH
-    C2             -10.991      -4.591      -1.316      15.782      32.880      36.154      42.555
-
- P3       WITH
-    C3             -10.991      -4.591      -1.316      15.782      32.880      36.154      42.555
-
- P4       WITH
-    C4             -10.991      -4.591      -1.316      15.782      32.880      36.154      42.555
-
- P5       WITH
-    C5             -10.991      -4.591      -1.316      15.782      32.880      36.154      42.555
-
- Intercepts
-    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    IP             335.843     363.915     378.274     453.263     528.252     542.612     570.683
-    SP             -20.206     -15.631     -13.291      -1.071      11.149      13.489      18.064
-    IC               9.322      10.940      11.767      16.090      20.412      21.240      22.858
-    SC              -0.974      -0.796      -0.705      -0.231       0.244       0.335       0.512
-
- Residual Variances
-    P1            2292.089    2551.295    2683.887    3376.311    4068.734    4201.326    4460.532
-    P2            2292.089    2551.295    2683.887    3376.311    4068.734    4201.326    4460.532
-    P3            2292.089    2551.295    2683.887    3376.311    4068.734    4201.326    4460.532
-    P4            2292.089    2551.295    2683.887    3376.311    4068.734    4201.326    4460.532
-    P5            2292.089    2551.295    2683.887    3376.311    4068.734    4201.326    4460.532
-    C1               6.373       6.965       7.267       8.848      10.428      10.731      11.323
-    C2               6.373       6.965       7.267       8.848      10.428      10.731      11.323
-    C3               6.373       6.965       7.267       8.848      10.428      10.731      11.323
-    C4               6.373       6.965       7.267       8.848      10.428      10.731      11.323
-    C5               6.373       6.965       7.267       8.848      10.428      10.731      11.323
-    IP            5481.690    6363.125    6814.004    9168.599   11523.193   11974.072   12855.507
-    SP             -18.459      -6.015       0.350      33.590      66.831      73.196      85.639
-    IC              24.985      27.950      29.467      37.386      45.306      46.823      49.787
-    SC              -0.053      -0.029      -0.017       0.046       0.110       0.122       0.145
-
-
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    c:\users\koval_000\documents\github\ialsa-2015-portland\studies\octo\unshared\koval\b1_male_full
-
-     Beginning Time:  14:28:19
-        Ending Time:  14:28:47
-       Elapsed Time:  00:00:28
-
-
-
-MUTHEN & MUTHEN
-3463 Stoner Ave.
-Los Angeles, CA  90066
-
-Tel: (310) 391-9971
-Fax: (310) 391-8971
-Web: www.StatModel.com
-Support: Support@StatModel.com
-
-Copyright (c) 1998-2014 Muthen & Muthen

@@ -31,6 +31,26 @@ names(msum)
 msum[1,]
 msum$Filename
 
+
+## Temporary fix
+## extractModelParameters() sometimes breakes down if it encounters confidence intervals in out file.
+## Solution: Identify outputfiles with CI and delete that section before reading them in
+out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out")
+
+##
+for(i in 1:length(out_list)){
+    ## Check whether there is a CI block at all
+    is_ci <- (length(grep("CONFIDENCE INTERVALS OF MODEL", scan(out_list[i], what='character', sep='\n')))==1)
+    if(is_ci) {
+        ## Find line where CI block begins
+        CI.line <-
+            grep("CONFIDENCE INTERVALS OF MODEL", scan(out_list[i], what='character', sep='\n'))
+        ## Remove anything below CI.Line and save out file again.
+        amended <- scan(out_list[i], what='character', sep='\n')[1:(CI.line-1)]
+        writeLines(amended, out_list[i])
+    }
+}
+
 ## Extract Estimates
 mpar <- MplusAutomation::extractModelParameters(target=pathStudy, recursive=T, dropDimensions=T)
 
@@ -74,7 +94,7 @@ for(i in seq_along(mpar)){
     results[i, 'converged'] <- has_converged
     if(has_converged) {
         ## obtain model for current loop
-        model <- mpar[[i]]$unstandardized
+        model <- mpar[[i]]#$unstandardized
         model       
         wc <- model[model$paramHeader=='Intercepts', 'param']
         results[i, 'wave_count'] <-
