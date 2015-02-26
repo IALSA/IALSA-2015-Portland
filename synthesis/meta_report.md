@@ -132,19 +132,6 @@ satsa        verbal              male       age                     247         
 
 ![](figure_meta/forest_static-9.png) ![](figure_meta/forest_static-10.png) ![](figure_meta/forest_static-11.png) ![](figure_meta/forest_static-12.png) 
 
-## `mmse nondem` 
-
-Studies with this physical variable listed in the model output: obas 
-
-
-
-study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
------------  ------------------  ---------  -----------  --------------  -----------  ----------
-obas         n10                 age        ws                      265           10  TRUE      
-
-
-![](figure_meta/forest_static-13.png) 
-
 ## `muscle` 
 
 Studies with this physical variable listed in the model output: habc, radc 
@@ -183,7 +170,7 @@ radc         visuospatial        female     age                    1950         
 radc         visuospatial        male       age                     722            5  TRUE      
 
 
-![](figure_meta/forest_static-14.png) ![](figure_meta/forest_static-15.png) ![](figure_meta/forest_static-16.png) ![](figure_meta/forest_static-17.png) ![](figure_meta/forest_static-18.png) ![](figure_meta/forest_static-19.png) 
+![](figure_meta/forest_static-13.png) ![](figure_meta/forest_static-14.png) ![](figure_meta/forest_static-15.png) ![](figure_meta/forest_static-16.png) ![](figure_meta/forest_static-17.png) ![](figure_meta/forest_static-18.png) 
 
 ## `pulmonary` 
 
@@ -229,7 +216,7 @@ radc         visuospatial        female     age                    1947         
 radc         visuospatial        male       age                     720            5  TRUE      
 
 
-![](figure_meta/forest_static-20.png) ![](figure_meta/forest_static-21.png) ![](figure_meta/forest_static-22.png) ![](figure_meta/forest_static-23.png) ![](figure_meta/forest_static-24.png) ![](figure_meta/forest_static-25.png) ![](figure_meta/forest_static-26.png) ![](figure_meta/forest_static-27.png) 
+![](figure_meta/forest_static-19.png) ![](figure_meta/forest_static-20.png) ![](figure_meta/forest_static-21.png) ![](figure_meta/forest_static-22.png) ![](figure_meta/forest_static-23.png) ![](figure_meta/forest_static-24.png) ![](figure_meta/forest_static-25.png) ![](figure_meta/forest_static-26.png) 
 
 ## `tug` 
 
@@ -261,11 +248,11 @@ ilse         visuospatial        male       age                     279         
 ilse         visuospatial        male       age                     279            3  TRUE      
 
 
-![](figure_meta/forest_static-28.png) ![](figure_meta/forest_static-29.png) ![](figure_meta/forest_static-30.png) ![](figure_meta/forest_static-31.png) ![](figure_meta/forest_static-32.png) 
+![](figure_meta/forest_static-27.png) ![](figure_meta/forest_static-28.png) ![](figure_meta/forest_static-29.png) ![](figure_meta/forest_static-30.png) ![](figure_meta/forest_static-31.png) 
 
 ## `walking` 
 
-Studies with this physical variable listed in the model output: habc 
+Studies with this physical variable listed in the model output: habc, obas 
 
 
 
@@ -289,25 +276,13 @@ habc         speed               female     age                    1581         
 habc         speed               male       aeh                    1485           11  TRUE      
 habc         speed               male       aehplus                1460           11  TRUE      
 habc         speed               male       age                    1487           11  TRUE      
+obas         global              female     aeh                     145           10  TRUE      
+obas         global              female     age                     155           10  TRUE      
+obas         global              male       aeh                     108           10  TRUE      
+obas         global              male       age                     111           10  TRUE      
 
 
-![](figure_meta/forest_static-33.png) ![](figure_meta/forest_static-34.png) ![](figure_meta/forest_static-35.png) 
-
-## `ws` 
-
-Studies with this physical variable listed in the model output: obas 
-
-
-
-study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
------------  ------------------  ---------  -----------  --------------  -----------  ----------
-obas         mmse                female     aeh                     145           10  TRUE      
-obas         mmse                female     age                     155           10  TRUE      
-obas         mmse                male       aeh                     108           10  TRUE      
-obas         mmse                male       age                     111           10  TRUE      
-
-
-![](figure_meta/forest_static-36.png) 
+![](figure_meta/forest_static-32.png) ![](figure_meta/forest_static-33.png) ![](figure_meta/forest_static-34.png) ![](figure_meta/forest_static-35.png) 
 
 # Forest Plot (Animated)
 
@@ -326,7 +301,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-02-25, 09:24 Pacific Standard Time
+Report rendered by koval_000 at 2015-02-25, 11:41 Pacific Standard Time
 ```
 
 ```
