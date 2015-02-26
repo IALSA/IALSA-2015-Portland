@@ -1,15 +1,9 @@
 Mplus VERSION 5.21
 MUTHEN & MUTHEN
 02/24/2015  10:59 PM
-
 INPUT INSTRUCTIONS
-
-
      TITLE: Pulmonary function, block design,  model 3: age, education, height, smoke, diabe
-
                 DATA:  File = C:\Users\novalis\Desktop\IALSA\octomult_12aug2010.dat;
-
-
                               VARIABLE: Names are
        Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp Smoke
     SESChild SESChOth  HlthLif CogPrev LonelyE
@@ -30,18 +24,14 @@ INPUT INSTRUCTIONS
     mirnam1-mirnam5 mirrcl1-mirrcl5 mirrcg1-mirrcg5 mircor1-mircor5 clock1-clock5
     mmse1-mmse5 mismmse1-mismmse5 fmmse1-fmmse5
     highBP1-highBP5 sbp1-sbp5 dbp1-dbp5 diab1-diab5;
-
               MISSING are .; !specification of missing observations coded in data file
              USEVAR are  time1 time2 time3 time4 time5
                          p1 p2 p3 p4 p5
                          c1 c2 c3 c4 c5
                          Bage Educ heightc smokHist diabetes;
              TSCORES =   time1 time2 time3 time4 time5;
-
              CLUSTER = PairID;      !(when cluster: see subpopulation and Analysis)
-
              SUBPOPULATION are DemEver EQ 0 and female EQ 1; ! (use USEOBSERVATIONS when no
-
       Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
               c1=block1; c2=block2; c3=block3; c4=block4; c5=block5;
               Bage=compage1-80;   !Centered at Age 80
@@ -51,24 +41,14 @@ INPUT INSTRUCTIONS
               Heightc=Height1-160; !(women = 160, men = 172)
               SmokHist=Smoke;
               Diabetes=diab1;
-
-
       ANALYSIS: TYPE = RANDOM COMPLEX; !Type of analysis requested, when cluster=xomplex, ot
-
       MODEL:  ip sp | p1-p5 AT time1-time5;
               ic sc | c1-c5 AT time1-time5;
-
               ip sp ic sc ON Bage Educ heightc smokhist diabetes;
-
               p1-p5 (res_p);
               c1-c5 (res_c);
-
               p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across
-
       OUTPUT: sampstat Cinterval;
-
-
-
 *** WARNING
   Input line exceeded 90 characters. Some input may be truncated.
      TITLE: Pulmonary function, block design,  model 3: age, education, height, smoke, dia
@@ -87,40 +67,26 @@ INPUT INSTRUCTIONS
   x-variables.  These cases were not included in the analysis.
   Number of cases with missing on all variables except x-variables:  14
    5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
-
-
-
 Pulmonary function, block design,  model 3: age, education, height, smoke, diabet
-
 SUMMARY OF ANALYSIS
-
 Number of groups                                                 1
 Number of observations                                         271
-
 Number of dependent variables                                   10
 Number of independent variables                                  5
 Number of continuous latent variables                            4
-
 Observed dependent variables
-
   Continuous
    P1          P2          P3          P4          P5          C1
    C2          C3          C4          C5
-
 Observed independent variables
    BAGE        EDUC        HEIGHTC     SMOKHIST    DIABETES
-
 Continuous latent variables
    IP          SP          IC          SC
-
 Variables with special functions
-
   Cluster variable      PAIRID
   Weight variable       _WEIGHT
   Time scores
    TIME1       TIME2       TIME3       TIME4       TIME5
-
-
 Estimator                                                      MLR
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -135,37 +101,23 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
-
 Input data file(s)
   C:\Users\novalis\Desktop\IALSA\octomult_12aug2010.dat
 Input data format  FREE
-
-
-
 SAMPLE STATISTICS
-
-
      ESTIMATED SAMPLE STATISTICS
-
-
            Means
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
  1            285.046       295.421       277.449       252.316       230.448
-
-
            Means
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
  1             12.469        12.298        12.138        11.091         9.880
-
-
            Means
               BAGE          EDUC          HEIGHTC       SMOKHIST      DIABETES
               ________      ________      ________      ________      ________
  1              3.268         0.122        -2.638         0.443         0.066
-
-
            Covariances
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -184,8 +136,6 @@ SAMPLE STATISTICS
  HEIGHTC      112.129        61.000        49.385        49.193        48.904
  SMOKHIST      -8.416       -14.070       -18.944       -19.385       -22.954
  DIABETES      -0.346         0.347         0.050         2.071        -0.414
-
-
            Covariances
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -199,8 +149,6 @@ SAMPLE STATISTICS
  HEIGHTC        0.639         1.768         3.296         2.906         4.468
  SMOKHIST      -0.157         0.030        -0.226         0.355        -0.335
  DIABETES       0.064         0.003         0.037         0.056         0.088
-
-
            Covariances
               BAGE          EDUC          HEIGHTC       SMOKHIST      DIABETES
               ________      ________      ________      ________      ________
@@ -209,8 +157,6 @@ SAMPLE STATISTICS
  HEIGHTC       -1.750         0.890        32.814
  SMOKHIST      -0.224         0.695         0.430         0.793
  DIABETES       0.077        -0.019        -0.039         0.004         0.062
-
-
            Correlations
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -229,8 +175,6 @@ SAMPLE STATISTICS
  HEIGHTC        0.241         0.124         0.109         0.110         0.107
  SMOKHIST      -0.116        -0.184        -0.269        -0.280        -0.323
  DIABETES      -0.017         0.016         0.003         0.107        -0.021
-
-
            Correlations
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -244,8 +188,6 @@ SAMPLE STATISTICS
  HEIGHTC        0.016         0.048         0.094         0.076         0.117
  SMOKHIST      -0.026         0.005        -0.041         0.060        -0.056
  DIABETES       0.037         0.002         0.024         0.034         0.053
-
-
            Correlations
               BAGE          EDUC          HEIGHTC       SMOKHIST      DIABETES
               ________      ________      ________      ________      ________
@@ -254,93 +196,65 @@ SAMPLE STATISTICS
  HEIGHTC       -0.112         0.078         1.000
  SMOKHIST      -0.092         0.394         0.084         1.000
  DIABETES       0.113        -0.039        -0.027         0.017         1.000
-
-
      MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -17577.571
-
-
 THE MODEL ESTIMATION TERMINATED NORMALLY
-
-
-
 TESTS OF MODEL FIT
-
 Loglikelihood
-
           H0 Value                       -6355.998
           H0 Scaling Correction Factor       1.084
             for MLR
-
 Information Criteria
-
           Number of Free Parameters             37
           Akaike (AIC)                   12785.995
           Bayesian (BIC)                 12919.274
           Sample-Size Adjusted BIC       12801.958
             (n* = (n + 2) / 24)
-
-
-
 MODEL RESULTS
-
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
-
  IP         ON
     BAGE              -6.422      2.017     -3.184      0.001
     EDUC               7.045      2.611      2.698      0.007
     HEIGHTC            2.802      1.043      2.685      0.007
     SMOKHIST         -22.037      5.986     -3.682      0.000
     DIABETES           7.159     15.758      0.454      0.650
-
  SP         ON
     BAGE               0.742      0.361      2.055      0.040
     EDUC              -0.071      0.434     -0.163      0.871
     HEIGHTC           -0.217      0.201     -1.081      0.280
     SMOKHIST          -1.604      1.122     -1.430      0.153
     DIABETES           2.375      2.739      0.867      0.386
-
  IC         ON
     BAGE              -0.597      0.149     -3.995      0.000
     EDUC               0.895      0.216      4.138      0.000
     HEIGHTC           -0.011      0.067     -0.169      0.866
     SMOKHIST          -1.140      0.508     -2.245      0.025
     DIABETES           1.838      2.309      0.796      0.426
-
  SC         ON
     BAGE               0.007      0.023      0.308      0.758
     EDUC              -0.051      0.035     -1.448      0.147
     HEIGHTC            0.013      0.008      1.656      0.098
     SMOKHIST           0.079      0.087      0.901      0.368
     DIABETES          -0.012      0.204     -0.057      0.954
-
  SP       WITH
     IP              -135.212     88.353     -1.530      0.126
-
  IC       WITH
     IP                75.447     33.229      2.271      0.023
     SP                 7.464      5.521      1.352      0.176
-
  SC       WITH
     IP                -3.734      4.483     -0.833      0.405
     SP                 0.180      0.660      0.272      0.785
     IC                -0.818      0.374     -2.188      0.029
-
  P1       WITH
     C1                22.496      9.592      2.345      0.019
-
  P2       WITH
     C2                22.496      9.592      2.345      0.019
-
  P3       WITH
     C3                22.496      9.592      2.345      0.019
-
  P4       WITH
     C4                22.496      9.592      2.345      0.019
-
  P5       WITH
     C5                22.496      9.592      2.345      0.019
-
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
@@ -356,7 +270,6 @@ MODEL RESULTS
     SP                -8.516      1.270     -6.704      0.000
     IC                14.892      0.710     20.982      0.000
     SC                -0.283      0.096     -2.944      0.003
-
  Residual Variances
     P1              2123.741    186.556     11.384      0.000
     P2              2123.741    186.556     11.384      0.000
@@ -372,119 +285,6 @@ MODEL RESULTS
     SP                28.296     14.623      1.935      0.053
     IC                29.817      3.179      9.379      0.000
     SC                 0.160      0.072      2.221      0.026
-
-
 QUALITY OF NUMERICAL RESULTS
-
      Condition Number for the Information Matrix              0.166E-05
        (ratio of smallest to largest eigenvalue)
-
-
-CONFIDENCE INTERVALS OF MODEL RESULTS
-
-                   Lower .5%  Lower 2.5%   Estimate  Upper 2.5%  Upper .5%
-
- IP       ON
-    BAGE            -11.616     -10.374     -6.422      -2.469     -1.227
-    EDUC              0.319       1.927      7.045      12.163     13.771
-    HEIGHTC           0.114       0.757      2.802       4.847      5.489
-    SMOKHIST        -37.455     -33.769    -22.037     -10.306     -6.620
-    DIABETES        -33.430     -23.726      7.159      38.044     47.748
-
- SP       ON
-    BAGE             -0.188       0.034      0.742       1.450      1.673
-    EDUC             -1.189      -0.922     -0.071       0.780      1.047
-    HEIGHTC          -0.734      -0.610     -0.217       0.176      0.300
-    SMOKHIST         -4.494      -3.803     -1.604       0.594      1.285
-    DIABETES         -4.681      -2.995      2.375       7.744      9.430
-
- IC       ON
-    BAGE             -0.981      -0.889     -0.597      -0.304     -0.212
-    EDUC              0.338       0.471      0.895       1.319      1.452
-    HEIGHTC          -0.183      -0.142     -0.011       0.120      0.161
-    SMOKHIST         -2.448      -2.135     -1.140      -0.144      0.168
-    DIABETES         -4.109      -2.687      1.838       6.364      7.786
-
- SC       ON
-    BAGE             -0.053      -0.039      0.007       0.053      0.068
-    EDUC             -0.142      -0.120     -0.051       0.018      0.040
-    HEIGHTC          -0.007      -0.002      0.013       0.029      0.034
-    SMOKHIST         -0.146      -0.092      0.079       0.250      0.303
-    DIABETES         -0.537      -0.411     -0.012       0.388      0.513
-
- SP       WITH
-    IP             -362.791    -308.383   -135.212      37.960     92.367
-
- IC       WITH
-    IP              -10.143      10.319     75.447     140.575    161.037
-    SP               -6.756      -3.356      7.464      18.284     21.684
-
- SC       WITH
-    IP              -15.281     -12.520     -3.734       5.052      7.813
-    SP               -1.520      -1.114      0.180       1.473      1.879
-    IC               -1.782      -1.552     -0.818      -0.085      0.145
-
- P1       WITH
-    C1               -2.212       3.695     22.496      41.297     47.204
-
- P2       WITH
-    C2               -2.212       3.695     22.496      41.297     47.204
-
- P3       WITH
-    C3               -2.212       3.695     22.496      41.297     47.204
-
- P4       WITH
-    C4               -2.212       3.695     22.496      41.297     47.204
-
- P5       WITH
-    C5               -2.212       3.695     22.496      41.297     47.204
-
- Intercepts
-    P1                0.000       0.000      0.000       0.000      0.000
-    P2                0.000       0.000      0.000       0.000      0.000
-    P3                0.000       0.000      0.000       0.000      0.000
-    P4                0.000       0.000      0.000       0.000      0.000
-    P5                0.000       0.000      0.000       0.000      0.000
-    C1                0.000       0.000      0.000       0.000      0.000
-    C2                0.000       0.000      0.000       0.000      0.000
-    C3                0.000       0.000      0.000       0.000      0.000
-    C4                0.000       0.000      0.000       0.000      0.000
-    C5                0.000       0.000      0.000       0.000      0.000
-    IP              311.227     315.897    330.760     345.624    350.294
-    SP              -11.788     -11.006     -8.516      -6.026     -5.244
-    IC               13.064      13.501     14.892      16.283     16.720
-    SC               -0.530      -0.471     -0.283      -0.095     -0.035
-
- Residual Variances
-    P1             1643.210    1758.091   2123.741    2489.391   2604.272
-    P2             1643.210    1758.091   2123.741    2489.391   2604.272
-    P3             1643.210    1758.091   2123.741    2489.391   2604.272
-    P4             1643.210    1758.091   2123.741    2489.391   2604.272
-    P5             1643.210    1758.091   2123.741    2489.391   2604.272
-    C1                8.757       9.275     10.924      12.573     13.091
-    C2                8.757       9.275     10.924      12.573     13.091
-    C3                8.757       9.275     10.924      12.573     13.091
-    C4                8.757       9.275     10.924      12.573     13.091
-    C5                8.757       9.275     10.924      12.573     13.091
-    IP             2798.377    3109.341   4099.094    5088.847   5399.812
-    SP               -9.370      -0.365     28.296      56.956     65.961
-    IC               21.628      23.586     29.817      36.049     38.006
-    SC               -0.026       0.019      0.160       0.301      0.346
-
-
-     Beginning Time:  22:59:55
-        Ending Time:  23:00:18
-       Elapsed Time:  00:00:23
-
-
-
-MUTHEN & MUTHEN
-3463 Stoner Ave.
-Los Angeles, CA  90066
-
-Tel: (310) 391-9971
-Fax: (310) 391-8971
-Web: www.StatModel.com
-Support: Support@StatModel.com
-
-Copyright (c) 1998-2009 Muthen & Muthen

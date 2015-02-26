@@ -1,13 +1,9 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
 02/24/2015   1:35 PM
-
 INPUT INSTRUCTIONS
-
   TITLE: M5 Timed Up and Go, Verbal Fluency Total Score (# of words generated starting with
-
   DATA:  File = unshared\ilse 23.02.dat;
-
   VARIABLE: Names are
      T1SD18 ID SEX t1dss t1bd t1hgl t1hgr t1fs t1fsb t1age
      center t1beer t1wine t1k t1pc t1vf t1sa
@@ -18,40 +14,26 @@ INPUT INSTRUCTIONS
       t3height t3weight time1 time2r time3r time3 time2
       BMI1 BMI2 BMI3 no_sec Haupts Reals Secondary
       specials others;
-
          MISSING are ALL(-9999);
          USEVAR are  time1 time2 time3
                      p1 p2 p3
                      c1 c2 c3
                      Bage;
          TSCORES =   time1 time2 time3;
-
          USEOBSERVATIONS are sex EQ 1;
-
   Define: p1=T1TUG; p2=T2TUG; p3=T3TUG;
           c1=t1vf; c2=t2vf; c3=t3vf;
           Bage=t1age-70;
           Bagesq=(t1age-70)**2;
-
-
-
   ANALYSIS: TYPE = RANDOM; estimator=MLF;
-
   MODEL:  ip sp | p1-p3 AT time1-time3;
           ic sc | c1-c3 AT time1-time3;
-
           ip sp ic sc ON Bage;
-
           p1-p3 (res_p);
           c1-c3 (res_c);
-
           p1-p3 pwith c1-c3(res_cov);
           !Paired covariances constrained to be equal across time
-
   OUTPUT: sampstat Cinterval;
-
-
-
 *** WARNING
   Input line exceeded 90 characters. Some input may be truncated.
   TITLE: M5 Timed Up and Go, Verbal Fluency Total Score (# of words generated starting with F
@@ -60,37 +42,23 @@ INPUT INSTRUCTIONS
   These cases were not included in the analysis.
   Number of cases with missing on x-variables:  12
    2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
-
-
-
 M5 Timed Up and Go, Verbal Fluency Total Score (# of words generated starting with F
-
 SUMMARY OF ANALYSIS
-
 Number of groups                                                 1
 Number of observations                                         252
-
 Number of dependent variables                                    6
 Number of independent variables                                  1
 Number of continuous latent variables                            4
-
 Observed dependent variables
-
   Continuous
    P1          P2          P3          C1          C2          C3
-
 Observed independent variables
    BAGE
-
 Continuous latent variables
    IP          SP          IC          SC
-
 Variables with special functions
-
   Time scores
    TIME1       TIME2       TIME3
-
-
 Estimator                                                      MLF
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -105,25 +73,14 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
-
 Input data file(s)
   unshared\ilse 23.02.dat
 Input data format  FREE
-
-
 SUMMARY OF DATA
-
      Number of missing data patterns            14
-
-
 COVARIANCE COVERAGE OF DATA
-
 Minimum covariance coverage value   0.100
-
-
      PROPORTION OF DATA PRESENT
-
-
            Covariance Coverage
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
@@ -134,33 +91,21 @@ Minimum covariance coverage value   0.100
  C2             0.381         0.845         0.413         0.905         0.909
  C3             0.282         0.591         0.413         0.603         0.603
  BAGE           0.433         0.845         0.413         0.996         0.909
-
-
            Covariance Coverage
               C3            BAGE
               ________      ________
  C3             0.603
  BAGE           0.603         1.000
-
-
 SAMPLE STATISTICS
-
-
      ESTIMATED SAMPLE STATISTICS
-
-
            Means
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
  1              7.014         7.335         8.286        30.079        31.680
-
-
            Means
               C3            BAGE
               ________      ________
  1             29.501        -7.064
-
-
            Covariances
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
@@ -171,15 +116,11 @@ SAMPLE STATISTICS
  C2            -5.718        -5.426        -0.729        45.597        75.103
  C3            -5.094        -6.056        -2.480        47.593        52.608
  BAGE          -1.485        -1.563         0.160        -0.714        -0.111
-
-
            Covariances
               C3            BAGE
               ________      ________
  C3            75.883
  BAGE          -0.764         0.851
-
-
            Correlations
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
@@ -190,77 +131,48 @@ SAMPLE STATISTICS
  C2            -0.068        -0.066        -0.054         0.605         1.000
  C3            -0.060        -0.073        -0.183         0.629         0.697
  BAGE          -0.166        -0.179         0.111        -0.089        -0.014
-
-
            Correlations
               C3            BAGE
               ________      ________
  C3             1.000
  BAGE          -0.095         1.000
-
-
      MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -3676.213
-
-
 THE MODEL ESTIMATION TERMINATED NORMALLY
-
-
-
 MODEL FIT INFORMATION
-
 Number of Free Parameters                       21
-
 Loglikelihood
-
           H0 Value                       -3598.428
-
 Information Criteria
-
           Akaike (AIC)                    7238.856
           Bayesian (BIC)                  7312.974
           Sample-Size Adjusted BIC        7246.401
             (n* = (n + 2) / 24)
-
-
-
 MODEL RESULTS
-
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
-
  IP         ON
     BAGE              -0.734      2.304     -0.319      0.750
-
  SP         ON
     BAGE              -0.048      0.411     -0.116      0.907
-
  IC         ON
     BAGE              -0.515      0.700     -0.735      0.462
-
  SC         ON
     BAGE              -0.017      0.062     -0.280      0.779
-
  SP       WITH
     IP                 0.024      0.924      0.025      0.980
-
  IC       WITH
     IP                -3.522     19.371     -0.182      0.856
     SP                -0.197      3.703     -0.053      0.958
-
  SC       WITH
     IP                 0.004      1.916      0.002      0.998
     SP                 0.000      0.336      0.000      1.000
     IC                 0.035      0.575      0.061      0.952
-
  P1       WITH
     C1                -0.458      7.867     -0.058      0.954
-
  P2       WITH
     C2                -0.458      7.867     -0.058      0.954
-
  P3       WITH
     C3                -0.458      7.867     -0.058      0.954
-
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
@@ -272,7 +184,6 @@ MODEL RESULTS
     SP                -0.101      2.885     -0.035      0.972
     IC                27.085      4.927      5.498      0.000
     SC                -0.173      0.439     -0.394      0.693
-
  Residual Variances
     P1                49.479     38.200      1.295      0.195
     P2                49.479     38.200      1.295      0.195
@@ -284,97 +195,6 @@ MODEL RESULTS
     SP                 0.002      0.101      0.016      0.988
     IC                47.192      6.461      7.304      0.000
     SC                 0.001      0.073      0.011      0.991
-
-
 QUALITY OF NUMERICAL RESULTS
-
      Condition Number for the Information Matrix              0.128E-07
        (ratio of smallest to largest eigenvalue)
-
-
-CONFIDENCE INTERVALS OF MODEL RESULTS
-
-                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
-
- IP       ON
-    BAGE            -6.668      -5.249      -4.524      -0.734       3.056       3.781       5.200
-
- SP       ON
-    BAGE            -1.106      -0.853      -0.724      -0.048       0.628       0.758       1.011
-
- IC       ON
-    BAGE            -2.319      -1.888      -1.667      -0.515       0.637       0.858       1.289
-
- SC       ON
-    BAGE            -0.177      -0.139      -0.120      -0.017       0.085       0.104       0.143
-
- SP       WITH
-    IP              -2.357      -1.788      -1.497       0.024       1.544       1.835       2.404
-
- IC       WITH
-    IP             -53.417     -41.488     -35.387      -3.522      28.343      34.445      46.374
-    SP              -9.735      -7.455      -6.288      -0.197       5.895       7.061       9.342
-
- SC       WITH
-    IP              -4.930      -3.751      -3.147       0.004       3.155       3.759       4.938
-    SP              -0.867      -0.659      -0.553       0.000       0.554       0.660       0.867
-    IC              -1.446      -1.092      -0.911       0.035       0.981       1.162       1.516
-
- P1       WITH
-    C1             -20.721     -15.877     -13.399      -0.458      12.483      14.961      19.805
-
- P2       WITH
-    C2             -20.721     -15.877     -13.399      -0.458      12.483      14.961      19.805
-
- P3       WITH
-    C3             -20.721     -15.877     -13.399      -0.458      12.483      14.961      19.805
-
- Intercepts
-    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    IP             -40.929     -30.896     -25.763       1.039      27.841      32.974      43.007
-    SP              -7.533      -5.756      -4.847      -0.101       4.645       5.554       7.331
-    IC              14.395      17.429      18.981      27.085      35.189      36.741      39.775
-    SC              -1.304      -1.033      -0.895      -0.173       0.549       0.687       0.957
-
- Residual Variances
-    P1             -48.918     -25.394     -13.361      49.479     112.319     124.352     147.876
-    P2             -48.918     -25.394     -13.361      49.479     112.319     124.352     147.876
-    P3             -48.918     -25.394     -13.361      49.479     112.319     124.352     147.876
-    C1              21.613      23.285      24.140      28.605      33.071      33.926      35.598
-    C2              21.613      23.285      24.140      28.605      33.071      33.926      35.598
-    C3              21.613      23.285      24.140      28.605      33.071      33.926      35.598
-    IP            -103.776     -78.810     -66.040       0.652      67.343      80.113     105.079
-    SP              -0.259      -0.197      -0.165       0.002       0.168       0.200       0.262
-    IC              30.549      34.528      36.563      47.192      57.821      59.857      63.836
-    SC              -0.188      -0.143      -0.120       0.001       0.122       0.145       0.190
-
-
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\b1_female_age_timed
-
-     Beginning Time:  13:35:18
-        Ending Time:  13:35:29
-       Elapsed Time:  00:00:11
-
-
-
-MUTHEN & MUTHEN
-3463 Stoner Ave.
-Los Angeles, CA  90066
-
-Tel: (310) 391-9971
-Fax: (310) 391-8971
-Web: www.StatModel.com
-Support: Support@StatModel.com
-
-Copyright (c) 1998-2013 Muthen & Muthen
