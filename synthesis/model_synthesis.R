@@ -59,6 +59,8 @@ ds <- ds[order(ds$study_name, ds$physical_outcome, ds$cognitive_outcome, ds$subg
 #Exclude the univariate models, by remove the variables like `nocog` and `nophys`
 ds <- ds[!(ds$cognitive_outcome %in% no_variable_labels), ]
 ds <- ds[!(ds$physical_outcome %in% no_variable_labels), ]
+# Exclude junk models
+ds <- ds[!(ds$model_number) %in% c("test"),]
 
 # sort(unique(ds$physical_outcome))
 # table(ds$physical_outcome)

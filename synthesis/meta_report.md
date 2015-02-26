@@ -37,37 +37,6 @@ This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
 # Forest Plot (Static)
 
-## `fev` 
-
-Studies with this physical variable listed in the model output: satsa 
-
-
-
-study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
------------  ------------------  ---------  -----------  --------------  -----------  ----------
-satsa        memory              female     ae                      487            7  TRUE      
-satsa        memory              female     aec                     430            7  TRUE      
-satsa        memory              female     age                     395            7  TRUE      
-satsa        memory              male       ae                      340            7  TRUE      
-satsa        memory              male       age                     246            7  TRUE      
-satsa        spatial             female     ae                      485            7  TRUE      
-satsa        spatial             female     aec                     428            7  TRUE      
-satsa        spatial             female     age                     393            7  TRUE      
-satsa        spatial             male       ae                      340            7  TRUE      
-satsa        spatial             male       age                     246            7  TRUE      
-satsa        speed               female     ae                      486            7  TRUE      
-satsa        speed               female     aec                     429            7  TRUE      
-satsa        speed               female     age                     394            7  TRUE      
-satsa        speed               male       ae                      341            7  TRUE      
-satsa        speed               male       age                     247            7  TRUE      
-satsa        verbal              female     ae                      485            7  TRUE      
-satsa        verbal              female     aec                     428            7  TRUE      
-satsa        verbal              male       ae                      341            7  TRUE      
-satsa        verbal              male       age                     247            7  TRUE      
-
-
-![](figure_meta/forest_static-1.png) ![](figure_meta/forest_static-2.png) ![](figure_meta/forest_static-3.png) ![](figure_meta/forest_static-4.png) 
-
 ## `gait` 
 
 Studies with this physical variable listed in the model output: satsa 
@@ -98,16 +67,58 @@ satsa        verbal              male       ae                      306         
 satsa        verbal              male       age                     211            7  TRUE      
 
 
-![](figure_meta/forest_static-5.png) ![](figure_meta/forest_static-6.png) ![](figure_meta/forest_static-7.png) ![](figure_meta/forest_static-8.png) 
+![](figure_meta/forest_static-1.png) ![](figure_meta/forest_static-2.png) ![](figure_meta/forest_static-3.png) ![](figure_meta/forest_static-4.png) 
 
 ## `grip` 
 
-Studies with this physical variable listed in the model output: satsa 
+Studies with this physical variable listed in the model output: octo, satsa 
 
 
 
 study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
 -----------  ------------------  ---------  -----------  --------------  -----------  ----------
+octo         block               female     aeh                     275            5  TRUE      
+octo         block               female     aehplus                 274            5  TRUE      
+octo         block               female     age                     303            5  TRUE      
+octo         block               male       aeh                     139            5  TRUE      
+octo         block               male       aehplus                 139            5  TRUE      
+octo         block               male       age                     158            5  TRUE      
+octo         digitbackward       female     aeh                     276            5  TRUE      
+octo         digitbackward       female     aehplus                 275            5  TRUE      
+octo         digitbackward       female     age                     305            5  TRUE      
+octo         digitbackward       male       aeh                     139            5  TRUE      
+octo         digitbackward       male       aehplus                 139            5  TRUE      
+octo         digitbackward       male       age                     161            5  TRUE      
+octo         digitforward        female     aeh                     276            5  TRUE      
+octo         digitforward        female     aehplus                 275            5  TRUE      
+octo         digitforward        female     age                     306            5  TRUE      
+octo         digitforward        male       aeh                     139            5  TRUE      
+octo         digitforward        male       aehplus                 139            5  TRUE      
+octo         digitforward        male       age                     161            5  TRUE      
+octo         digitsymbol         female     aeh                     272            5  TRUE      
+octo         digitsymbol         female     aehplus                 271            5  TRUE      
+octo         digitsymbol         female     age                     299            5  TRUE      
+octo         digitsymbol         male       aeh                     138            5  TRUE      
+octo         digitsymbol         male       aehplus                 138            5  TRUE      
+octo         digitsymbol         male       age                     156            5  TRUE      
+octo         figurelogic         female     aeh                     274            5  TRUE      
+octo         figurelogic         female     aehplus                 273            5  TRUE      
+octo         figurelogic         female     age                     302            5  TRUE      
+octo         figurelogic         male       aeh                     138            5  TRUE      
+octo         figurelogic         male       aehplus                 138            5  TRUE      
+octo         figurelogic         male       age                     157            5  TRUE      
+octo         mirrecall           female     aeh                     273            5  TRUE      
+octo         mirrecall           female     aehplus                 272            5  TRUE      
+octo         mirrecall           female     age                     303            5  TRUE      
+octo         mirrecall           male       aeh                     139            5  TRUE      
+octo         mirrecall           male       aehplus                 139            5  TRUE      
+octo         mirrecall           male       age                     159            5  TRUE      
+octo         proserecall         female     aeh                     273            5  TRUE      
+octo         proserecall         female     aehplus                 272            5  TRUE      
+octo         proserecall         female     age                     302            5  TRUE      
+octo         proserecall         male       aeh                     139            5  TRUE      
+octo         proserecall         male       aehplus                 139            5  TRUE      
+octo         proserecall         male       age                     161            5  TRUE      
 satsa        memory              female     ae                      486            7  TRUE      
 satsa        memory              female     aec                     430            7  TRUE      
 satsa        memory              female     age                     395            7  TRUE      
@@ -130,7 +141,7 @@ satsa        verbal              male       ae                      341         
 satsa        verbal              male       age                     247            7  TRUE      
 
 
-![](figure_meta/forest_static-9.png) ![](figure_meta/forest_static-10.png) ![](figure_meta/forest_static-11.png) ![](figure_meta/forest_static-12.png) 
+![](figure_meta/forest_static-5.png) ![](figure_meta/forest_static-6.png) ![](figure_meta/forest_static-7.png) ![](figure_meta/forest_static-8.png) ![](figure_meta/forest_static-9.png) ![](figure_meta/forest_static-10.png) ![](figure_meta/forest_static-11.png) ![](figure_meta/forest_static-12.png) ![](figure_meta/forest_static-13.png) ![](figure_meta/forest_static-14.png) ![](figure_meta/forest_static-15.png) 
 
 ## `muscle` 
 
@@ -170,11 +181,11 @@ radc         visuospatial        female     age                    1950         
 radc         visuospatial        male       age                     722            5  TRUE      
 
 
-![](figure_meta/forest_static-13.png) ![](figure_meta/forest_static-14.png) ![](figure_meta/forest_static-15.png) ![](figure_meta/forest_static-16.png) ![](figure_meta/forest_static-17.png) ![](figure_meta/forest_static-18.png) 
+![](figure_meta/forest_static-16.png) ![](figure_meta/forest_static-17.png) ![](figure_meta/forest_static-18.png) ![](figure_meta/forest_static-19.png) ![](figure_meta/forest_static-20.png) ![](figure_meta/forest_static-21.png) 
 
 ## `pulmonary` 
 
-Studies with this physical variable listed in the model output: eas, nas, octo, radc 
+Studies with this physical variable listed in the model output: eas, nas, octo, radc, satsa 
 
 
 
@@ -196,14 +207,56 @@ nas          mental              male       age                    1132         
 nas          visuospatial        male       ae                     1125            6  TRUE      
 nas          visuospatial        male       aeplus                 1125            6  TRUE      
 nas          visuospatial        male       age                    1130            6  TRUE      
+octo         block               female     aeh                     272            5  TRUE      
+octo         block               female     aehplus                 271            5  TRUE      
 octo         block               female     age                     293            5  TRUE      
 octo         block               female     age                     293            5  TRUE      
 octo         block               female     full                    289            5  TRUE      
 octo         block               female     full                    289            5  TRUE      
+octo         block               male       aeh                     136            5  TRUE      
+octo         block               male       aehplus                 136            5  TRUE      
 octo         block               male       age                     151            5  TRUE      
 octo         block               male       age                     151            5  TRUE      
 octo         block               male       full                    151            5  TRUE      
 octo         block               male       full                    151            5  TRUE      
+octo         digitbackward       female     aeh                     276            5  TRUE      
+octo         digitbackward       female     aehplus                 275            5  TRUE      
+octo         digitbackward       female     age                     299            5  TRUE      
+octo         digitbackward       male       aeh                     138            5  TRUE      
+octo         digitbackward       male       aehplus                 138            5  TRUE      
+octo         digitbackward       male       age                     158            5  TRUE      
+octo         digitforward        female     aeh                     276            5  TRUE      
+octo         digitforward        female     aehplus                 275            5  TRUE      
+octo         digitforward        female     age                     276            5  TRUE      
+octo         digitforward        male       aeh                     138            5  TRUE      
+octo         digitforward        male       aehplus                 138            5  TRUE      
+octo         digitforward        male       age                     158            5  TRUE      
+octo         digitsymbol         female     aeh                     264            5  TRUE      
+octo         digitsymbol         female     aehplus                 263            5  TRUE      
+octo         digitsymbol         female     age                     278            5  TRUE      
+octo         digitsymbol         male       aeh                     133            5  TRUE      
+octo         digitsymbol         male       aehplus                 133            5  TRUE      
+octo         digitsymbol         male       age                     142            5  TRUE      
+octo         figurelogic         female     aeh                     268            5  TRUE      
+octo         figurelogic         female     aehplus                 267            5  TRUE      
+octo         figurelogic         female     age                     284            5  TRUE      
+octo         figurelogic         male       aeh                     133            5  TRUE      
+octo         figurelogic         male       aehplus                 133            5  TRUE      
+octo         figurelogic         male       age                     146            5  TRUE      
+octo         mirrecall           female     aeh                     271            5  TRUE      
+octo         mirrecall           female     aehplus                 270            5  TRUE      
+octo         mirrecall           female     age                     293            5  TRUE      
+octo         mirrecall           male       aeh                     137            5  TRUE      
+octo         mirrecall           male       aehplus                 137            5  TRUE      
+octo         mirrecall           male       age                     153            5  TRUE      
+octo         proserecall         female     aeh                     268            5  TRUE      
+octo         proserecall         female     aehplus                 267            5  TRUE      
+octo         proserecall         female     age                     289            5  TRUE      
+octo         proserecall         female     full                    286            5  TRUE      
+octo         proserecall         male       aeh                     136            5  TRUE      
+octo         proserecall         male       aehplus                 136            5  TRUE      
+octo         proserecall         male       age                     153            5  TRUE      
+octo         proserecall         male       full                    153            5  TRUE      
 radc         executive           female     age                    1950            5  TRUE      
 radc         executive           male       age                     722            5  TRUE      
 radc         knowledge           female     age                    1516            5  TRUE      
@@ -214,9 +267,28 @@ radc         speed               female     age                    1947         
 radc         speed               male       age                     720            5  TRUE      
 radc         visuospatial        female     age                    1947            5  TRUE      
 radc         visuospatial        male       age                     720            5  TRUE      
+satsa        memory              female     ae                      487            7  TRUE      
+satsa        memory              female     aec                     430            7  TRUE      
+satsa        memory              female     age                     395            7  TRUE      
+satsa        memory              male       ae                      340            7  TRUE      
+satsa        memory              male       age                     246            7  TRUE      
+satsa        spatial             female     ae                      485            7  TRUE      
+satsa        spatial             female     aec                     428            7  TRUE      
+satsa        spatial             female     age                     393            7  TRUE      
+satsa        spatial             male       ae                      340            7  TRUE      
+satsa        spatial             male       age                     246            7  TRUE      
+satsa        speed               female     ae                      486            7  TRUE      
+satsa        speed               female     aec                     429            7  TRUE      
+satsa        speed               female     age                     394            7  TRUE      
+satsa        speed               male       ae                      341            7  TRUE      
+satsa        speed               male       age                     247            7  TRUE      
+satsa        verbal              female     ae                      485            7  TRUE      
+satsa        verbal              female     aec                     428            7  TRUE      
+satsa        verbal              male       ae                      341            7  TRUE      
+satsa        verbal              male       age                     247            7  TRUE      
 
 
-![](figure_meta/forest_static-19.png) ![](figure_meta/forest_static-20.png) ![](figure_meta/forest_static-21.png) ![](figure_meta/forest_static-22.png) ![](figure_meta/forest_static-23.png) ![](figure_meta/forest_static-24.png) ![](figure_meta/forest_static-25.png) ![](figure_meta/forest_static-26.png) 
+![](figure_meta/forest_static-22.png) ![](figure_meta/forest_static-23.png) ![](figure_meta/forest_static-24.png) ![](figure_meta/forest_static-25.png) ![](figure_meta/forest_static-26.png) ![](figure_meta/forest_static-27.png) ![](figure_meta/forest_static-28.png) ![](figure_meta/forest_static-29.png) ![](figure_meta/forest_static-30.png) ![](figure_meta/forest_static-31.png) ![](figure_meta/forest_static-32.png) ![](figure_meta/forest_static-33.png) ![](figure_meta/forest_static-34.png) ![](figure_meta/forest_static-35.png) ![](figure_meta/forest_static-36.png) ![](figure_meta/forest_static-37.png) 
 
 ## `tug` 
 
@@ -248,7 +320,7 @@ ilse         visuospatial        male       age                     279         
 ilse         visuospatial        male       age                     279            3  TRUE      
 
 
-![](figure_meta/forest_static-27.png) ![](figure_meta/forest_static-28.png) ![](figure_meta/forest_static-29.png) ![](figure_meta/forest_static-30.png) ![](figure_meta/forest_static-31.png) 
+![](figure_meta/forest_static-38.png) ![](figure_meta/forest_static-39.png) ![](figure_meta/forest_static-40.png) ![](figure_meta/forest_static-41.png) ![](figure_meta/forest_static-42.png) 
 
 ## `walking` 
 
@@ -282,7 +354,7 @@ obas         global              male       aeh                     108         
 obas         global              male       age                     111           10  TRUE      
 
 
-![](figure_meta/forest_static-32.png) ![](figure_meta/forest_static-33.png) ![](figure_meta/forest_static-34.png) ![](figure_meta/forest_static-35.png) 
+![](figure_meta/forest_static-43.png) ![](figure_meta/forest_static-44.png) ![](figure_meta/forest_static-45.png) ![](figure_meta/forest_static-46.png) 
 
 # Forest Plot (Animated)
 
@@ -301,7 +373,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-02-25, 11:41 Pacific Standard Time
+Report rendered by koval_000 at 2015-02-26, 15:24 Pacific Standard Time
 ```
 
 ```
