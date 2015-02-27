@@ -31,8 +31,28 @@ names(msum)
 msum[1,]
 msum$Filename
 
+
+## Temporary fix
+## extractModelParameters() sometimes breakes down if it encounters confidence intervals in out file.
+## Solution: Identify outputfiles with CI and delete that section before reading them in
+out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out")
+
+##
+for(i in 1:length(out_list)){
+    ## Check whether there is a CI block at all
+    is_ci <- (length(grep("CONFIDENCE INTERVALS OF MODEL", scan(out_list[i], what='character', sep='\n')))==1)
+    if(is_ci) {
+        ## Find line where CI block begins
+        CI.line <-
+            grep("CONFIDENCE INTERVALS OF MODEL", scan(out_list[i], what='character', sep='\n'))
+        ## Remove anything below CI.Line and save out file again.
+        amended <- scan(out_list[i], what='character', sep='\n')[1:(CI.line-1)]
+        writeLines(amended, out_list[i])
+    }
+}
+
 ## Extract Estimates
-mpar <- extractModelParameters(target=pathStudy, recursive=T, dropDimensions=T)
+mpar <- MplusAutomation::extractModelParameters(target=pathStudy, recursive=T, dropDimensions=T)
 
 ## count number of models
 nmodels <- length(mpar)
@@ -60,17 +80,21 @@ for(i in seq_along(mpar)){
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
     results[i,"active"] <- NA
     results[i, c('date', 'time')] <- strsplit(mplus_output[3], '  ')[[1]]
-    results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][7]
+    ## obtain location of 'studies' to then be able to select the following element, the study name.
+    selector <- which(strsplit(out_list[i], '/')[[1]]=='studies')
+    results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][selector+1]
     results[i,"data_file"] <-
     strsplit(mplus_output[grep("File", mplus_output, ignore.case=TRUE)], 'IS| is |=|;')[[1]][2]
     results[i, c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
+    results[i, "physical_specific"] <- strsplit(msum$Filename[i], '_|.out')[[1]][6]
+    results[i, "cognitive_specific"] <- strsplit(msum$Filename[i], '_|.out')[[1]][7]
     ## Check for model conversion
     conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
     has_converged <- conv==1
     results[i, 'converged'] <- has_converged
     if(has_converged) {
         ## obtain model for current loop
-        model <- mpar[[i]]$unstandardized
+        model <- mpar[[i]]#$unstandardized
         model       
         wc <- model[model$paramHeader=='Intercepts', 'param']
         results[i, 'wave_count'] <-

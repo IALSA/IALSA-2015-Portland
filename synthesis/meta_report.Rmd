@@ -4,12 +4,13 @@ output:
   html_document:
     keep_md: yes
     toc: yes
+    css: css/sidebar.css
 ---
 
 
 This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
-<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of one directory.-->
 ```{r, echo=F, message=F} 
 # cat("Working directory: ", getwd())
   library(knitr)
@@ -24,7 +25,7 @@ opts_chunk$set(
   comment = NA, 
   tidy = FALSE,
   fig.width = 6.5, 
-  fig.height = 4, 
+  fig.height = 3.5, 
   fig.path = 'figure_meta/'
 )
 # dpi = 400,

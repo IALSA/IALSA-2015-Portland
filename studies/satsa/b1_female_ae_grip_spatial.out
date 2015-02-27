@@ -1,0 +1,344 @@
+Mplus VERSION 7.3 (Mac)
+MUTHEN & MUTHEN
+02/24/2015   2:53 PM
+INPUT INSTRUCTIONS
+  TITLE: grip - spatial - female - age & education
+  DATA:  File = satsa.dat;
+  VARIABLE: Names are
+  twinnr pairid sex01 przygup rear iage1-iage7 intakeage time1-time7
+  dem1-dem7 s_demen_onset
+  htcm wtkg qualc depr cv chd sumill smoksta nonsmok exsmok cursmok packyrs
+  marital msgroup sesobj educ edugr
+  fev1_1-fev1_7 ht_1-ht_7 grip1-grip7 gait2-gait7
+  stupt_2-stupt_7 stuprt_2-stuprt_7
+  idigf_r1-idigf_r7 idigb_r1-idigb_r7 ibloc_r1-ibloc_r7 ithur_r1-ithur_r7
+  isynm_r1-isynm_r7 iinfo_r1-iinfo_r7 ianal_r1-ianal_r7 irota_r1-irota_r7
+  ifigi_r1-ifigi_r7 isymd_r1-isymd_r7
+  tverb1-tverb7 tspat1-tspat7 tmemo1-tmemo7 tsped1-tsped7 tpcom1-tpcom7;
+         MISSING are .;
+         USEVAR are  time1 time2 time3  time5 time6 time7
+                     p1 p2 p3  p5 p6 p7
+                     c1 c2 c3  c5 c6 c7
+                     Bage Ceduc;
+         TSCORES =   time1 time2 time3   time5 time6 time7;
+         USEOBSERVATIONS are  sex01 EQ 1;
+  Define: p1=grip1; p2=grip2; p3=grip3; p5=grip5; p6=grip6; p7=grip7;
+          c1=tspat1; c2=tspat2; c3=tspat3; c5=tspat5; c6=tspat6; c7=tspat7;
+          Bage=intakeage-70;   !Centered at Age 70
+          !Bagesq=(intakeage-70)**2;
+          Sex=1;         !0=Male
+          cEduc=educ-1;     ! center at 1 as most equivalent to 7 years
+          !SEP=SESgrp;
+          !Marstat;
+          !Height
+          !Weight
+          !BMI
+          !SmokHist=Smoke;
+          !Alcohol;
+          !CompExp;
+          !PhysAct;
+          !BP;
+          !DepSymp;
+          !Cardio;
+          !Diab;
+          !MorbInd;
+          !BageSex=Bage*Sex;
+          !BageEduc=Bage*Educ;
+          !SexEduc=Sex*Educ;
+  ANALYSIS: TYPE = RANDOM;
+  MODEL:  ip sp | p1 p2 p3 p5 p6 p7 at time1 time2 time3 time5 time6 time7;
+          ic sc | c1 c2 c3 c5 c6 c7 at time1 time2 time3 time5 time6 time7;
+          ip sp ic sc ON Bage Ceduc;
+          p1-p7 (res_p);
+          c1-c7 (res_c);
+          p1 p2 p3 p5 p6 p7 pwith c1 c2 c3 c5 c6 c7(res_cov);
+  OUTPUT: sampstat Cinterval;
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  22
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  4
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+grip - spatial - female - age & education
+SUMMARY OF ANALYSIS
+Number of groups                                                 1
+Number of observations                                         486
+Number of dependent variables                                   12
+Number of independent variables                                  2
+Number of continuous latent variables                            4
+Observed dependent variables
+  Continuous
+   P1          P2          P3          P5          P6          P7
+   C1          C2          C3          C5          C6          C7
+Observed independent variables
+   BAGE        CEDUC
+Continuous latent variables
+   IP          SP          IC          SC
+Variables with special functions
+  Time scores
+   TIME1       TIME2       TIME3       TIME5       TIME6       TIME7
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Input data file(s)
+  satsa.dat
+Input data format  FREE
+SUMMARY OF DATA
+     Number of missing data patterns           119
+COVARIANCE COVERAGE OF DATA
+Minimum covariance coverage value   0.100
+     PROPORTION OF DATA PRESENT
+           Covariance Coverage
+              P1            P2            P3            P5            P6
+              ________      ________      ________      ________      ________
+ P1             0.800
+ P2             0.584         0.675
+ P3             0.560         0.586         0.646
+ P5             0.428         0.430         0.438         0.599
+ P6             0.333         0.348         0.354         0.467         0.494
+ P7             0.276         0.296         0.307         0.412         0.409
+ C1             0.733         0.553         0.529         0.401         0.305
+ C2             0.492         0.572         0.502         0.385         0.307
+ C3             0.457         0.492         0.535         0.401         0.323
+ C5             0.346         0.374         0.379         0.502         0.432
+ C6             0.267         0.288         0.286         0.391         0.391
+ C7             0.173         0.198         0.200         0.288         0.286
+ BAGE           0.800         0.675         0.646         0.599         0.494
+ CEDUC          0.800         0.675         0.646         0.599         0.494
+           Covariance Coverage
+              P7            C1            C2            C3            C5
+              ________      ________      ________      ________      ________
+ P7             0.432
+ C1             0.249         0.737
+ C2             0.267         0.481         0.576
+ C3             0.290         0.436         0.438         0.537
+ C5             0.397         0.319         0.333         0.360         0.519
+ C6             0.356         0.237         0.257         0.272         0.393
+ C7             0.296         0.144         0.175         0.193         0.290
+ BAGE           0.432         0.737         0.576         0.537         0.519
+ CEDUC          0.432         0.737         0.576         0.537         0.519
+           Covariance Coverage
+              C6            C7            BAGE          CEDUC
+              ________      ________      ________      ________
+ C6             0.412
+ C7             0.267         0.298
+ BAGE           0.412         0.298         1.000
+ CEDUC          0.412         0.298         1.000         1.000
+SAMPLE STATISTICS
+     ESTIMATED SAMPLE STATISTICS
+           Means
+              P1            P2            P3            P5            P6
+              ________      ________      ________      ________      ________
+ 1             22.505        20.779        20.700        16.932        11.849
+           Means
+              P7            C1            C2            C3            C5
+              ________      ________      ________      ________      ________
+ 1             14.771        49.732        49.267        47.727        44.519
+           Means
+              C6            C7            BAGE          CEDUC
+              ________      ________      ________      ________
+ 1             42.760        42.085        -5.812         0.510
+           Covariances
+              P1            P2            P3            P5            P6
+              ________      ________      ________      ________      ________
+ P1            46.533
+ P2            28.790        39.327
+ P3            27.895        30.228        41.392
+ P5            24.197        29.404        25.890        78.484
+ P6            26.327        31.273        30.983        52.573        55.551
+ P7            34.235        36.104        38.474        38.140        43.238
+ C1            16.700        21.224        22.883        20.631        28.330
+ C2            16.899        25.688        27.455        26.657        32.629
+ C3            22.815        32.940        33.402        31.466        40.426
+ C5            27.513        34.433        35.508        48.558        49.601
+ C6            23.495        34.220        37.562        38.284        44.302
+ C7            30.804        41.036        45.626        51.332        58.954
+ BAGE         -21.826       -28.123       -31.701       -36.695       -39.931
+ CEDUC          0.601         0.959         1.247         1.421         1.353
+           Covariances
+              P7            C1            C2            C3            C5
+              ________      ________      ________      ________      ________
+ P7            71.695
+ C1            24.073       102.468
+ C2            31.379        83.877        98.750
+ C3            38.164        97.087        99.723       125.738
+ C5            45.532        92.447        96.672       109.012       134.013
+ C6            48.824        90.272        95.877       114.160       115.521
+ C7            63.859        99.203       106.094       121.220       131.316
+ BAGE         -44.886       -39.407       -47.123       -57.654       -62.254
+ CEDUC          1.290         2.155         2.390         3.098         3.061
+           Covariances
+              C6            C7            BAGE          CEDUC
+              ________      ________      ________      ________
+ C6           133.768
+ C7           131.854       169.379
+ BAGE         -64.716       -78.628        82.978
+ CEDUC          3.106         3.838        -1.835         0.587
+           Correlations
+              P1            P2            P3            P5            P6
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.673         1.000
+ P3             0.636         0.749         1.000
+ P5             0.400         0.529         0.454         1.000
+ P6             0.518         0.669         0.646         0.796         1.000
+ P7             0.593         0.680         0.706         0.508         0.685
+ C1             0.242         0.334         0.351         0.230         0.376
+ C2             0.249         0.412         0.429         0.303         0.441
+ C3             0.298         0.468         0.463         0.317         0.484
+ C5             0.348         0.474         0.477         0.473         0.575
+ C6             0.298         0.472         0.505         0.374         0.514
+ C7             0.347         0.503         0.545         0.445         0.608
+ BAGE          -0.351        -0.492        -0.541        -0.455        -0.588
+ CEDUC          0.115         0.199         0.253         0.209         0.237
+           Correlations
+              P7            C1            C2            C3            C5
+              ________      ________      ________      ________      ________
+ P7             1.000
+ C1             0.281         1.000
+ C2             0.373         0.834         1.000
+ C3             0.402         0.855         0.895         1.000
+ C5             0.465         0.789         0.840         0.840         1.000
+ C6             0.499         0.771         0.834         0.880         0.863
+ C7             0.579         0.753         0.820         0.831         0.872
+ BAGE          -0.582        -0.427        -0.521        -0.564        -0.590
+ CEDUC          0.199         0.278         0.314         0.361         0.345
+           Correlations
+              C6            C7            BAGE          CEDUC
+              ________      ________      ________      ________
+ C6             1.000
+ C7             0.876         1.000
+ BAGE          -0.614        -0.663         1.000
+ CEDUC          0.350         0.385        -0.263         1.000
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -12470.220
+UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+     P1                   21.753      -0.308       0.000    0.77%      17.000     20.000     22.000
+             389.000      43.152       0.677      45.000    0.26%      24.000     27.000
+     P2                   20.939      -0.137       0.000    0.30%      16.000     20.000     21.000
+             328.000      36.948       0.263      38.000    0.30%      22.000     26.000
+     P3                   20.790       0.174       0.000    0.32%      15.000     19.000     20.500
+             314.000      38.898       0.332      43.000    0.32%      22.000     26.000
+     P5                   18.728       0.405       0.000    0.34%      11.000     16.000     18.000
+             291.000      71.438      -0.030      49.000    0.34%      20.000     26.000
+     P6                   14.842       0.511       1.000    0.83%      10.000     12.000     14.000
+             240.000      44.350       0.290      37.000    0.42%      15.000     21.000
+     P7                   17.919      -0.072       0.000    2.38%      12.000     16.000     18.000
+             210.000      59.912       0.054      40.000    0.48%      20.000     24.000
+     C1                   48.135       0.272      28.136    0.28%      39.746     45.322     47.623
+             358.000      89.218      -0.308      74.365    0.28%      50.170     55.959
+     C2                   49.882       0.198      23.592    0.36%      41.409     46.559     49.212
+             280.000      89.347      -0.297      77.837    0.36%      52.151     58.186
+     C3                   49.493       0.190      26.318    0.38%      40.508     45.503     48.532
+             261.000     104.797      -0.565      75.732    0.38%      51.865     58.341
+     C5                   49.325       0.464      24.648    0.40%      40.049     45.625     48.291
+             252.000     106.842      -0.062      81.300    0.40%      50.939     58.358
+     C6                   49.186       0.242      24.804    0.50%      40.958     46.068     48.593
+             200.000     101.719       0.037      77.067    0.50%      50.800     57.121
+     C7                   51.573       0.356      30.240    0.69%      41.867     47.607     51.136
+             145.000     112.436      -0.217      79.040    0.69%      54.116     59.406
+     BAGE                 -5.812       0.053     -30.239    0.21%     -14.683     -9.178     -5.985
+             486.000      82.978      -0.627      17.984    0.41%      -3.202      2.116
+     CEDUC                 0.510       1.666       0.000   61.52%       0.000      0.000      0.000
+             486.000       0.587       2.542       3.000    4.32%       0.000      1.000
+THE MODEL ESTIMATION TERMINATED NORMALLY
+MODEL FIT INFORMATION
+Number of Free Parameters                       25
+Loglikelihood
+          H0 Value                      -10404.868
+          H0 Scaling Correction Factor      1.0422
+            for MLR
+Information Criteria
+          Akaike (AIC)                   20859.735
+          Bayesian (BIC)                 20964.390
+          Sample-Size Adjusted BIC       20885.042
+            (n* = (n + 2) / 24)
+MODEL RESULTS
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+ IP         ON
+    BAGE              -0.264      0.031     -8.536      0.000
+    CEDUC              0.561      0.386      1.455      0.146
+ SP         ON
+    BAGE              -0.013      0.002     -5.214      0.000
+    CEDUC              0.014      0.024      0.607      0.544
+ IC         ON
+    BAGE              -0.452      0.046     -9.757      0.000
+    CEDUC              2.401      0.612      3.922      0.000
+ SC         ON
+    BAGE              -0.018      0.003     -5.396      0.000
+    CEDUC              0.057      0.030      1.907      0.057
+ SP       WITH
+    IP                -0.073      0.144     -0.510      0.610
+ IC       WITH
+    IP                 5.546      2.530      2.192      0.028
+    SP                -0.019      0.179     -0.108      0.914
+ SC       WITH
+    IP                 0.298      0.158      1.886      0.059
+    SP                 0.014      0.009      1.529      0.126
+    IC                -0.365      0.220     -1.656      0.098
+ P1       WITH
+    C1                 2.641      0.670      3.940      0.000
+ P2       WITH
+    C2                 2.641      0.670      3.940      0.000
+ P3       WITH
+    C3                 2.641      0.670      3.940      0.000
+ P5       WITH
+    C5                 2.641      0.670      3.940      0.000
+ P6       WITH
+    C6                 2.641      0.670      3.940      0.000
+ P7       WITH
+    C7                 2.641      0.670      3.940      0.000
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    P7                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    C6                 0.000      0.000    999.000    999.000
+    C7                 0.000      0.000    999.000    999.000
+    IP                20.847      0.339     61.498      0.000
+    SP                -0.583      0.034    -17.172      0.000
+    IC                46.273      0.484     95.551      0.000
+    SC                -0.558      0.042    -13.267      0.000
+ Residual Variances
+    P1                21.542      1.018     21.153      0.000
+    P2                21.542      1.018     21.153      0.000
+    P3                21.542      1.018     21.153      0.000
+    P5                21.542      1.018     21.153      0.000
+    P6                21.542      1.018     21.153      0.000
+    P7                21.542      1.018     21.153      0.000
+    C1                16.372      0.907     18.059      0.000
+    C2                16.372      0.907     18.059      0.000
+    C3                16.372      0.907     18.059      0.000
+    C5                16.372      0.907     18.059      0.000
+    C6                16.372      0.907     18.059      0.000
+    C7                16.372      0.907     18.059      0.000
+    IP                17.611      2.294      7.678      0.000
+    SP                 0.031      0.014      2.165      0.030
+    IC                62.884      4.673     13.457      0.000
+    SC                 0.051      0.016      3.120      0.002
+QUALITY OF NUMERICAL RESULTS
+     Condition Number for the Information Matrix              0.188E-05
+       (ratio of smallest to largest eigenvalue)
