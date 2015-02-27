@@ -1,4 +1,4 @@
-     TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, female
+     TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, Female
 
     DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
 
@@ -279,12 +279,13 @@
       chronicpi1	chronicpi2	chronicpi3	chronicpi4	chronicpi5	chronicpi6	chronicpi7	
       chronicpi8	chronicpi9	chronicpi10	
 
-      Pdever;
+      Pdever
+      CIsum CIindex;
     MISSING = ALL(-9999); !specification of missing observations coded in data file
 
            USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 	
-                      ! p1 p2 p3 p4 p5 p6 p7 p8 
-                    c1 c2 c3 c4 c5 c6 c7 c8 
+                       p1 p2 p3 p4 p5 p6 p7 p8 
+                    ! c1 c2 c3 c4 c5 c6 c7 c8 
                      Bage Height educ;
            TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8;
 
@@ -330,26 +331,27 @@
 
     ANALYSIS: TYPE = RANDOM;
 
-    MODEL:   ! ip sp | p1-p8 AT time1-time8;
+    MODEL:     ip sp | p1-p8 AT time1-time8;
+    ip sp ON Bage Bage educ height;
 
- ! ip sp | p1-p8 AT time1-time8;
+
     !ip sp qp| p1-p8 AT time1-time8;
     !ip sp qp ON Bage ;
 
-           ic sc | c1-c8 AT time1-time8;
+           ! ic sc | c1-c8 AT time1-time8;
 
            ! ip sp ic sc ON Bage educ height;
 
-           ic sc ON Bage educ height;
+          ! ic sc ON Bage educ height;
 
-!ip sp ON Bage educ height;
-  !p1-p8 (res_p);
-            c1-c8 (res_c);
+
+  p1-p8 (res_p);
+            !c1-c8 (res_c);
 
            ! p1-p8 pwith c1-c8 (res_cov);
             !Paired covariances constrained to be equal across time
 
-    OUTPUT: sampstat Cinterval;
+    OUTPUT: sampstat;
 
 
 

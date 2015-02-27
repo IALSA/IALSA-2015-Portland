@@ -1,5 +1,4 @@
-
-    TITLE: M4 Pulmonary Function, Linear LGM, Fully Conditional, Female
+     TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, male
 
     DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
 
@@ -280,45 +279,45 @@
       chronicpi1	chronicpi2	chronicpi3	chronicpi4	chronicpi5	chronicpi6	chronicpi7	
       chronicpi8	chronicpi9	chronicpi10	
 
-      Pdever;
+      Pdever
+      CIsum CIindex;
     MISSING = ALL(-9999); !specification of missing observations coded in data file
 
-           USEVAR are   time1 time2 time3 time4 time5 time6 time7 time8 time9	
-                       p1 p2 p3 p4 p5 p6 p7 p8 p9
-                       Bage ;
-                     !c1 c2 c3 c4 c5 c6 c7 c8 c9
-                     !Bage;
-           TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8 time9;
+           USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 	
+                       p1 p2 p3 p4 p5 p6 p7 p8 
+                    ! c1 c2 c3 c4 c5 c6 c7 c8 
+                     Bage Height educ;
+           TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8;
 
-          USEOBSERVATIONS are DemEver EQ 0 and sex EQ 1;
+          USEOBSERVATIONS are DemEver EQ 0 and sex EQ 0;
 
     Define: p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
     p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
     p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	p9=PeakFlowBestOf3_9;	
 
-           ! c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
-            !           c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	c9=Blockraw_9;	
+            c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
+                       c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	c9=Blockraw_9;	
 
-           Bage=AgeAtWaveOne-70;   !Centered at Age 80
+           Bage=AgeAtWaveOne-70;   !Centered at Age 70
             Bagesq=(AgeatWaveOne-70)**2;
             Dage=deathage;
             !female=sex;         !0=Male
             Educ=Educyrs-7;     ! Centered at 7 years
             SEP=DEMO23;
             time1=wave_1;
-                    time2=wave_2;
-                    time3=wave_3;
-                    time4=wave_4;
-                    time5=wave_5;
-                    time6=wave_6;
-                    time7=wave_7;
-                    time8=wave_8;
-                    time9=wave_9;
+            time2=wave_2;
+            time3=wave_3;
+            time4=wave_4;
+            time5=wave_5;
+            time6=wave_6;
+            time7=wave_7;
+            time8=wave_8;
+            time9=wave_9;
             !Marstat;
-            !Height
+            Height=Ht_1-172;
             !Weight
             !BMI
-           ! SmokHist=SmokNow_1;
+            !SmokHist=SmokNow;
             !Alcohol;
             !CompExp;
             !PhysAct;
@@ -328,32 +327,30 @@
             !Diab;
             !MorbInd;
 
-            AgeAtWave1Sex=Bage*Sex;
-            BageEduc=Bage*Educ;
-            SexEducyrs=Sex*Educ;
+            AgeAtWave_1Educyrs=Bage*Educ;
 
     ANALYSIS: TYPE = RANDOM;
 
-    MODEL:  !ip| p1-p9 AT time1-time9;
-    ip sp | p1-p9 AT time1-time9;
-    ip sp ON Bage ;
+    MODEL:    ip sp | p1-p8 AT time1-time8;
 
-           ! ic sc | c1-c9 AT time1-time9;
+ ! ip sp | p1-p8 AT time1-time8;
+    !ip sp qp| p1-p8 AT time1-time8;
+    !ip sp qp ON Bage ;
 
-           ! ip sp ic sc ON Bage;
+           ! ic sc | c1-c8 AT time1-time8;
 
-            !ic sc ON Bage;
+           ! ip sp ic sc ON Bage educ height;
 
-  !ip sp ON Bage;
+          ! ic sc ON Bage educ height;
 
-           p1-p9 (res_p);
-            !c1-c9 (res_c);
+ip sp ON Bage educ height;
+  p1-p8 (res_p);
+            !c1-c8 (res_c);
 
-           ! p1-p5 pwith c1-c5(res_cov);
+           ! p1-p8 pwith c1-c8 (res_cov);
             !Paired covariances constrained to be equal across time
 
-    OUTPUT: sampstat
-    !sampstat Cinterval;
+    OUTPUT: sampstat;
 
 
 

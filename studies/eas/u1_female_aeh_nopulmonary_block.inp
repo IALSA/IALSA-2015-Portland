@@ -1,4 +1,4 @@
-     TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, male
+     TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, female
 
     DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
 
@@ -279,7 +279,8 @@
       chronicpi1	chronicpi2	chronicpi3	chronicpi4	chronicpi5	chronicpi6	chronicpi7	
       chronicpi8	chronicpi9	chronicpi10	
 
-      Pdever;
+      Pdever
+      CIsum CIindex;
     MISSING = ALL(-9999); !specification of missing observations coded in data file
 
            USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 	
@@ -288,7 +289,7 @@
                      Bage Height educ;
            TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8;
 
-          USEOBSERVATIONS are DemEver EQ 0 and sex EQ 0;
+          USEOBSERVATIONS are DemEver EQ 0 and sex EQ 1;
 
     Define: p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
     p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
@@ -313,7 +314,7 @@
             time8=wave_8;
             time9=wave_9;
             !Marstat;
-            Height=Ht_1-172;
+            Height=Ht_1-160;
             !Weight
             !BMI
             !SmokHist=SmokNow;
@@ -349,7 +350,7 @@
            ! p1-p8 pwith c1-c8 (res_cov);
             !Paired covariances constrained to be equal across time
 
-    OUTPUT: sampstat Cinterval;
+    OUTPUT: sampstat;
 
 
 

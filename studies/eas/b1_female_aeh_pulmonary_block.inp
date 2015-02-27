@@ -279,7 +279,10 @@
       chronicpi1	chronicpi2	chronicpi3	chronicpi4	chronicpi5	chronicpi6	chronicpi7	
       chronicpi8	chronicpi9	chronicpi10	
 
-      Pdever;
+      Pdever
+      
+      CIsum CIindex;
+
     MISSING = ALL(-9999); !specification of missing observations coded in data file
 
            USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 	
@@ -341,7 +344,7 @@
             p1-p8 pwith c1-c8(res_cov);
             !Paired covariances constrained to be equal across time
 
-    OUTPUT: sampstat Cinterval;
+    OUTPUT: sampstat;
 
 
 
