@@ -1,10 +1,9 @@
 
 
 
-      TITLE: pulmonary, blocks, bi LGM,aehplus Conditional, male
+      TITLE: Cognitive Function (Trails B), pulmonary, LGM, Age educ Conditional, Female
 
       DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
-   
 
       VARIABLE: Names are
         ! demographics
@@ -285,69 +284,65 @@
         chronicpi8	chronicpi9	chronicpi10	
 
         Pdever
-        Cvd cisum;
+        CIsum CIindex;
       MISSING = ALL(-9999); !specification of missing observations coded in data file
 
              USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 !time9 	
                          p1 p2 p3 p4 p5 p6 p7 p8 !p9
                        c1 c2 c3 c4 c5 c6 c7 c8 !c9
-                       Bage educ height Diab SmokHist Cardio; !DepSymp;
+                       Bage educ height;
              TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8; !time9;
 
-            USEOBSERVATIONS are DemEver EQ 0 and sex EQ 0;
+            USEOBSERVATIONS are DemEver EQ 0 and sex EQ 1;
 
       Define: p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
-     p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
-     p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	!p9=PeakFlowBestOf3_9;	
+      p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
+      p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	!p9=PeakFlowBestOf3_9;	
 
-             	c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
-                         c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	
-                         !c9=Blockraw_9;	
+             c1= TrB1_1;	c2= TrB1_2;	c3= TrB1_3;	c4= TrB1_4;	c5= TrB1_5;	
+                        c6= TrB1_6;	c7= TrB1_7;	c8= TrB1_8;	!c9= TrB1_9;	
 
-
-                Bage=AgeAtWaveOne-70;   !Centered at Age 70
+             Bage=AgeAtWaveOne-70;   !Centered at Age 70
               Bagesq=(AgeatWaveOne-70)**2;
               Dage=deathage;
               !female=sex;         !0=Male
               Educ=Educyrs-7;     ! Centered at 7 years
               SEP=DEMO23;
               time1=wave_1;
-              time2=wave_2;
-              time3=wave_3;
-              time4=wave_4;
-              time5=wave_5;
-              time6=wave_6;
-              time7=wave_7;
-              time8=wave_8;
-              time9=wave_9;
+                    time2=wave_2;
+                    time3=wave_3;
+                    time4=wave_4;
+                    time5=wave_5;
+                    time6=wave_6;
+                    time7=wave_7;
+                    time8=wave_8;
+                    time9=wave_9;
               !Marstat;
-              Height=Ht_1-172;
+              Height=Ht_1-160;
               !Weight
               !BMI
-              SmokHist=SmokEver_1;
+              !SmokHist=SmokNow;
               !Alcohol;
               !CompExp;
               !PhysAct;
               !BP;
-              DepSymp = GDSScore_1;
-              Cardio = cvd;
-              Diab=DMever;
+              !DepSymp;
+              !Cardio;
+              !Diab;
               !MorbInd;
 
               AgeAtWave_1Educyrs=Bage*Educ;
 
       ANALYSIS: TYPE = RANDOM;
        ESTIMATOR=MLF;
-       miterations=1000;
-   h1convergence = 0.00001;
+   
        COVERAGE = .001;
 
 
       MODEL:
       ip sp | p1-p8 AT time1-time8;
       ic sc | c1 - c8 AT time1-time8;
-      ip sp ic sc ON Bage educ height smokhist cardio diab;
-      !ip sp ic sc ON Bage educ height smokhist cardio diab depsymp;
+      ip sp ic sc ON Bage educ height;
       c1-c8 (res_c);
       p1-p8 (res_p);
 

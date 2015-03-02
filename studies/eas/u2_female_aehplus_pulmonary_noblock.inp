@@ -1,6 +1,10 @@
-  TITLE: pulmonary Function, quadratic LGM, aehplus Conditional, female
+
+
+
+      TITLE: pulmonary, quadratic LGM,full Conditional, female
 
       DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
+   
 
       VARIABLE: Names are
         ! demographics
@@ -93,7 +97,7 @@
         CFCopy_1	CFCopy_2	CFCopy_3	CFCopy_4	CFCopy_5	CFCopy_6	CFCopy_7	
         CFCopy_8	CFCopy_9	CFCopy_10	
 
-        CFRecall_1	CFRecall_2	CFRecall_3	CFRecall_4	CFRecall_5	CFRecall_6	CFRecall_7	
+        CFRecall_1	CFRecall_2	CFRecall_3	CFRecall_4	CFRecall_5	CFRecall_6	CFRecall_7
         CFRecall_8	CFRecall_9	CFRecall_10	
 
 
@@ -113,7 +117,7 @@
         TrlBZScore_1	TrlBZScore_2	TrlBZScore_3	TrlBZScore_4	TrlBZScore_5	
         TrlBZScore_6	TrlBZScore_7	TrlBZScore_8	TrlBZScore_9	TrlBZScore_10	
 
-        TMTBRate_1	TMTBRate_2	TMTBRate_3	TMTBRate_4	TMTBRate_5	TMTBRate_6	TMTBRate_7	
+        TMTBRate_1	TMTBRate_2	TMTBRate_3	TMTBRate_4	TMTBRate_5	TMTBRate_6	TMTBRate_7
         TMTBRate_8	TMTBRate_9	TMTBRate_10	
 
         TrB2_1	TrB2_2	TrB2_3	TrB2_4	TrB2_5	TrB2_6
@@ -281,28 +285,27 @@
         chronicpi8	chronicpi9	chronicpi10	
 
         Pdever
-        CIsum CIindex;
+        Cvd cisum;
       MISSING = ALL(-9999); !specification of missing observations coded in data file
 
-             USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 	
-                         p1 p2 p3 p4 p5 p6 p7 p8
-                       !c1 c2 c3 c4 c5 c6 c7 c8
-                       Bage Height educ Diab SmokHist Cardio;
-             TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8;
+             USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 !time9 	
+                         p1 p2 p3 p4 p5 p6 p7 p8 !p9
+                       !c1 c2 c3 c4 c5 c6 c7 c8 !c9
+                       Bage educ height Diab SmokHist Cardio; !DepSymp;
+             TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8; !time9;
 
             USEOBSERVATIONS are DemEver EQ 0 and sex EQ 1;
 
       Define: p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
-      p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
-      p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	
-      !p9=PeakFlowBestOf3_9;	
+     p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
+     p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	!p9=PeakFlowBestOf3_9;	
 
-              !c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	
-              c5=Blockraw_5;	
+             	!c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
                          !c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	
                          !c9=Blockraw_9;	
 
-             Bage=AgeAtWaveOne-70;   !Centered at Age 70
+
+                Bage=AgeAtWaveOne-70;   !Centered at Age 70
               Bagesq=(AgeatWaveOne-70)**2;
               Dage=deathage;
               !female=sex;         !0=Male
@@ -326,41 +329,44 @@
               !CompExp;
               !PhysAct;
               !BP;
-              !DepSymp;
-              Cardio = CIindex;
+              DepSymp = GDSScore_1;
+              Cardio = cvd;
               Diab=DMever;
               !MorbInd;
 
               AgeAtWave_1Educyrs=Bage*Educ;
 
       ANALYSIS: TYPE = RANDOM;
+       ESTIMATOR=MLF;
+       miterations=1000;
+   h1convergence = 0.00001;
+       COVERAGE = .001;
 
-      ESTIMATOR=MLF;
 
+      MODEL:
+      !ip sp | p1-p8 AT time1-time8;
+      ip sp qp| p1 - p8 AT time1-time8;
+      ip sp qp ON Bage educ height smokhist cardio diab;
+      !ip sp ic sc ON Bage educ height smokhist cardio diab depsymp;
+      !c1-c8 (res_c);
+      p1-p8 (res_p);
 
-      MODEL:   ! ip sp | p1-p8 AT time1-time8;
-                !ip sp ON Bage educ height Diab SmokHist Cardio;
-                !p1-p8 (res_p);
+      ! ic sc qc| c1-c9 AT time1-time9;
+       !ic sc qc ON Bage educ;
+       !c1-c9 (res_c);
 
-   ip sp qp| p1-p8 AT time1-time8;
-   ip sp qp ON Bage educ height Diab SmokHist Cardio;
-   p1-p8 (res_p);
-
-            ! ic sc qc | c1-c8 AT time1-time8;
-            !ic@0;
-            !sc@0;
-             !ic sc qc ON Bage educ height Diab SmokHist Cardio;
-              !ic@0;
-              !sc@0;           
-             !c1-c8 (res_c);
-
-             !ip sp ic sc ON Bage educ height Diab SmokHist Cardio;
+             ! ip sp ic sc ON Bage;
 
 
 
+    !ip sp ON Bage;
 
-             ! p1-p8 pwith c1-c8 (res_cov);
+            !p1-p9 (res_p);
+
+
+             ! p1-p5 pwith c1-c5(res_cov);
               !Paired covariances constrained to be equal across time
 
-      OUTPUT: sampstat;
-      TECH1;
+      OUTPUT: sampstat
+      !sampstat Cinterval;
+

@@ -1,7 +1,7 @@
 
 
 
-      TITLE: pulmonary, blocks, bi LGM,aehplus Conditional, male
+      TITLE: pulmonary, blocks, bi LGM,full Conditional, male
 
       DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
    
@@ -291,7 +291,7 @@
              USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 !time9 	
                          p1 p2 p3 p4 p5 p6 p7 p8 !p9
                        c1 c2 c3 c4 c5 c6 c7 c8 !c9
-                       Bage educ height Diab SmokHist Cardio; !DepSymp;
+                       Bage educ height Diab SmokHist Cardio DepSymp;
              TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8; !time9;
 
             USEOBSERVATIONS are DemEver EQ 0 and sex EQ 0;
@@ -346,7 +346,7 @@
       MODEL:
       ip sp | p1-p8 AT time1-time8;
       ic sc | c1 - c8 AT time1-time8;
-      ip sp ic sc ON Bage educ height smokhist cardio diab;
+      ip sp ic sc ON Bage educ height smokhist cardio diab DepSymp;
       !ip sp ic sc ON Bage educ height smokhist cardio diab depsymp;
       c1-c8 (res_c);
       p1-p8 (res_p);
