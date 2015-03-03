@@ -1,6 +1,6 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-03/03/2015   9:40 AM
+03/03/2015  10:48 AM
 
 INPUT INSTRUCTIONS
 
@@ -272,7 +272,7 @@ SAMPLE STATISTICS
      THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO A NON-POSITIVE
      DEFINITE FISHER INFORMATION MATRIX.  THIS MAY BE DUE TO THE STARTING VALUES
      BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE CONDITION
-     NUMBER IS       0.540D-20.
+     NUMBER IS       0.529D-21.
 
      THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES COULD NOT BE
      COMPUTED.  THIS IS OFTEN DUE TO THE STARTING VALUES BUT MAY ALSO BE
@@ -375,14 +375,14 @@ MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
      ip sp | p1-p3 AT time1-time3;
      ic sc | c1-c3 AT time1-time3;
 
-     ip ON haupts*-2.48794;
+     ip ON haupts*-2.48793;
      ip ON reals*-2.60323;
      ip ON second*-4.39807;
      ip ON specials*-37.38202;
      ip ON others*-7.16770;
      ip ON bage*2.36102;
      ip ON height*0.57021;
-     sp ON haupts*0.21631;
+     sp ON haupts*0.21630;
      sp ON reals*0.39423;
      sp ON second*0.09274;
      sp ON specials*4.23710;
@@ -875,9 +875,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\handgrip\b1_female_
 
-     Beginning Time:  09:40:45
-        Ending Time:  09:40:49
-       Elapsed Time:  00:00:04
+     Beginning Time:  10:48:10
+        Ending Time:  10:48:16
+       Elapsed Time:  00:00:06
 
 
 

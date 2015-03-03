@@ -1,27 +1,27 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-03/03/2015   9:33 AM
+03/03/2015   1:53 PM
 
 INPUT INSTRUCTIONS
 
   TITLE:  Timed Up and Go, Spacial Ability, AEH, Female
 
-  DATA:  File = C:\Users\Besitzer\Desktop\ilse 02.03.dat;
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 03.03.dat;
 
   VARIABLE: Names are
-   T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center t1beer
-   t1wine t1k t1pc t1vf t1sa t1spf t2dss t2bd
-      t2fs t2fsb t2beer t2wine t2k t2pc t2vf t2sa t2spf
-      t3dss t3bd t3k t3pc t3vf t3sa t3spf t2age t3age
-      T1TUG t1height t1weight T2TUG t2height t2weight
-      T3TUG t3height t3weight time1 time2r time3r time3
-      time2 no_sec Haupts Reals Second specials others
-       T1HAVIR1 T1HAVIL1 T1HAVIR2 T1HAVIL2 T2HAVIR1
-      T2HAVIR2 T2HAVIL1 T2HAVIL2 T3HAVIR1x
-      T3HAVIR2x T3HAVIL1x T3HAVIL2x t1hg t2hg t3hg;
+  T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center t1beer t1wine
+  t1k t1pc t1vf t1sa t1spf t2dss t2bd
+      t2fs t2fsb t2beer t2wine t2k t2pc t2vf t2sa t2spf t3dss t3bd
+      t3k t3pc t3vf t3sa t3spf t2age t3age
+      T1TUG t1height t1weight T2TUG t2height t2weight T3TUG t3height
+      t3weight time1 time2r time3r time3
+      time2 T1HAVIR1 T1HAVIL1 T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2
+      T2HAVIL1 T2HAVIL2 T3HAVIR1x T3HAVIR2x
+      T3HAVIL1x T3HAVIL2x t1hg t2hg t3hg T1APEC T1INFAR
+      T1RAUCH Educ element Haupt second others;
 
          MISSING are ALL(-9999);
-         USEVAR are time1 time2 time3 Haupts Reals Second  specials others
+         USEVAR are time1 time2 time3 Haupt second others
                      p1 p2 p3 c1 c2 c3
                      Bage height;
          TSCORES = time1 time2 time3;
@@ -43,7 +43,7 @@ INPUT INSTRUCTIONS
           ip; sp; ic; sc;
           ip sp ic sc WITH ip sp ic sc;
 
-          ip sp ic sc ON Haupts Reals Second  specials others Bage height;
+          ip sp ic sc ON Haupt second others Bage height;
 
           p1-p3 (res_p);
           c1-c3 (res_c);
@@ -69,7 +69,7 @@ Number of groups                                                 1
 Number of observations                                         226
 
 Number of dependent variables                                    6
-Number of independent variables                                  7
+Number of independent variables                                  5
 Number of continuous latent variables                            4
 
 Observed dependent variables
@@ -78,8 +78,7 @@ Observed dependent variables
    P1          P2          P3          C1          C2          C3
 
 Observed independent variables
-   HAUPTS      REALS       SECOND      SPECIALS    OTHERS      BAGE
-   HEIGHT
+   HAUPT       SECOND      OTHERS      BAGE        HEIGHT
 
 Continuous latent variables
    IP          SP          IC          SC
@@ -106,7 +105,7 @@ Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
 Input data file(s)
-  C:\Users\Besitzer\Desktop\ilse 02.03.dat
+  C:\Users\Besitzer\Desktop\ilse 03.03.dat
 Input data format  FREE
 
 
@@ -132,34 +131,28 @@ Minimum covariance coverage value   0.100
  C1             0.978         0.885         0.314         1.000
  C2             0.885         0.885         0.314         0.903         0.903
  C3             0.650         0.659         0.310         0.664         0.664
- HAUPTS         0.978         0.885         0.314         1.000         0.903
- REALS          0.978         0.885         0.314         1.000         0.903
+ HAUPT          0.978         0.885         0.314         1.000         0.903
  SECOND         0.978         0.885         0.314         1.000         0.903
- SPECIALS       0.978         0.885         0.314         1.000         0.903
  OTHERS         0.978         0.885         0.314         1.000         0.903
  BAGE           0.978         0.885         0.314         1.000         0.903
  HEIGHT         0.978         0.885         0.314         1.000         0.903
 
 
            Covariance Coverage
-              C3            HAUPTS        REALS         SECOND        SPECIALS
+              C3            HAUPT         SECOND        OTHERS        BAGE
               ________      ________      ________      ________      ________
  C3             0.664
- HAUPTS         0.664         1.000
- REALS          0.664         1.000         1.000
- SECOND         0.664         1.000         1.000         1.000
- SPECIALS       0.664         1.000         1.000         1.000         1.000
- OTHERS         0.664         1.000         1.000         1.000         1.000
+ HAUPT          0.664         1.000
+ SECOND         0.664         1.000         1.000
+ OTHERS         0.664         1.000         1.000         1.000
  BAGE           0.664         1.000         1.000         1.000         1.000
  HEIGHT         0.664         1.000         1.000         1.000         1.000
 
 
            Covariance Coverage
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- OTHERS         1.000
- BAGE           1.000         1.000
- HEIGHT         1.000         1.000         1.000
+              HEIGHT
+              ________
+ HEIGHT         1.000
 
 
 SAMPLE STATISTICS
@@ -171,700 +164,194 @@ SAMPLE STATISTICS
            Means
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
- 1             67.886        56.285        41.219        20.181        18.944
+ 1             67.886        56.278        41.202        20.181        18.923
 
 
            Means
-              C3            HAUPTS        REALS         SECOND        SPECIALS
+              C3            HAUPT         SECOND        OTHERS        BAGE
               ________      ________      ________      ________      ________
- 1             17.729         0.584         0.181         0.027         0.013
+ 1             17.759         0.765         0.027         0.137        -7.045
 
 
            Means
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- 1              0.124        -7.045         2.018
+              HEIGHT
+              ________
+ 1              2.018
 
 
            Covariances
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
- P1           785.492
- P2           152.949       163.311
- P3           101.744        62.499       130.099
- C1           -10.890        -3.051        13.647        44.795
- C2             6.865        10.088        17.159        35.481        49.952
- C3           -25.508        -4.506         7.908        34.271        38.545
- HAUPTS         0.400        -0.572        -0.222        -0.610        -0.955
- REALS          0.332         0.385         0.275         0.149         0.358
- SECOND        -0.015        -0.014        -0.053         0.146         0.201
- SPECIALS      -0.485        -0.194        -0.129         0.033        -0.101
- OTHERS        -0.540         0.060         0.389         0.393         0.614
- BAGE           3.255        -1.531         0.822        -0.989        -1.072
- HEIGHT        18.901        25.727        13.392         3.576         1.908
+ P1           785.713
+ P2           153.195       162.854
+ P3            99.434        63.050       129.140
+ C1           -10.823        -2.991        13.419        44.795
+ C2             7.171         9.974        17.666        35.518        50.138
+ C3           -25.468        -4.780         8.119        34.074        38.608
+ HAUPT          0.732        -0.181         0.081        -0.462        -0.583
+ SECOND        -0.015        -0.013        -0.059         0.146         0.201
+ OTHERS        -1.025        -0.137         0.216         0.426         0.502
+ BAGE           3.234        -1.491         0.667        -0.989        -1.037
+ HEIGHT        18.944        25.565        13.558         3.576         1.721
 
 
            Covariances
-              C3            HAUPTS        REALS         SECOND        SPECIALS
+              C3            HAUPT         SECOND        OTHERS        BAGE
               ________      ________      ________      ________      ________
- C3            50.297
- HAUPTS        -0.930         0.243
- REALS          0.382        -0.106         0.149
- SECOND         0.141        -0.016        -0.005         0.026
- SPECIALS      -0.028        -0.008        -0.002         0.000         0.013
- OTHERS         0.611        -0.072        -0.022        -0.003        -0.002
- BAGE          -0.614        -0.025         0.022        -0.003         0.002
- HEIGHT        -2.924        -0.501         0.355         0.017         0.022
+ C3            50.287
+ HAUPT         -0.534         0.180
+ SECOND         0.141        -0.020         0.026
+ OTHERS         0.572        -0.105        -0.004         0.118
+ BAGE          -0.544        -0.004        -0.003        -0.027         0.845
+ HEIGHT        -3.140        -0.146         0.017         0.077         0.092
 
 
            Covariances
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- OTHERS         0.109
- BAGE          -0.030         0.845
- HEIGHT         0.055         0.092        39.672
+              HEIGHT
+              ________
+ HEIGHT        39.672
 
 
            Correlations
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
  P1             1.000
- P2             0.427         1.000
- P3             0.318         0.429         1.000
- C1            -0.058        -0.036         0.179         1.000
- C2             0.035         0.112         0.213         0.750         1.000
- C3            -0.128        -0.050         0.098         0.722         0.769
- HAUPTS         0.029        -0.091        -0.040        -0.185        -0.274
- REALS          0.031         0.078         0.063         0.058         0.131
- SECOND        -0.003        -0.007        -0.029         0.135         0.177
- SPECIALS      -0.151        -0.133        -0.099         0.043        -0.125
- OTHERS        -0.058         0.014         0.104         0.178         0.264
- BAGE           0.126        -0.130         0.078        -0.161        -0.165
- HEIGHT         0.107         0.320         0.186         0.085         0.043
+ P2             0.428         1.000
+ P3             0.312         0.435         1.000
+ C1            -0.058        -0.035         0.176         1.000
+ C2             0.036         0.110         0.220         0.749         1.000
+ C3            -0.128        -0.053         0.101         0.718         0.769
+ HAUPT          0.062        -0.033         0.017        -0.163        -0.194
+ SECOND        -0.003        -0.006        -0.032         0.135         0.177
+ OTHERS        -0.106        -0.031         0.055         0.185         0.206
+ BAGE           0.126        -0.127         0.064        -0.161        -0.159
+ HEIGHT         0.107         0.318         0.189         0.085         0.039
 
 
            Correlations
-              C3            HAUPTS        REALS         SECOND        SPECIALS
+              C3            HAUPT         SECOND        OTHERS        BAGE
               ________      ________      ________      ________      ________
  C3             1.000
- HAUPTS        -0.266         1.000
- REALS          0.140        -0.558         1.000
- SECOND         0.123        -0.196        -0.078         1.000
- SPECIALS      -0.035        -0.137        -0.055        -0.019         1.000
- OTHERS         0.262        -0.446        -0.177        -0.062        -0.044
- BAGE          -0.094        -0.055         0.061        -0.019         0.023
- HEIGHT        -0.065        -0.162         0.146         0.017         0.030
+ HAUPT         -0.178         1.000
+ SECOND         0.124        -0.298         1.000
+ OTHERS         0.235        -0.720        -0.066         1.000
+ BAGE          -0.083        -0.009        -0.019        -0.086         1.000
+ HEIGHT        -0.070        -0.055         0.017         0.036         0.016
 
 
            Correlations
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- OTHERS         1.000
- BAGE          -0.098         1.000
- HEIGHT         0.027         0.016         1.000
+              HEIGHT
+              ________
+ HEIGHT         1.000
 
 
-     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -4751.262
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -4855.366
 
-     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN ILL-CONDITIONED
-     FISHER INFORMATION MATRIX.  CHANGE YOUR MODEL AND/OR STARTING VALUES.
 
-     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO A NON-POSITIVE
-     DEFINITE FISHER INFORMATION MATRIX.  THIS MAY BE DUE TO THE STARTING VALUES
-     BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE CONDITION
-     NUMBER IS       0.271D-19.
-
-     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES COULD NOT BE
-     COMPUTED.  THIS IS OFTEN DUE TO THE STARTING VALUES BUT MAY ALSO BE
-     AN INDICATION OF MODEL NONIDENTIFICATION.  CHANGE YOUR MODEL AND/OR
-     STARTING VALUES.  PROBLEM INVOLVING PARAMETER 32.
+THE MODEL ESTIMATION TERMINATED NORMALLY
 
 
 
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       37
+
+Loglikelihood
+
+          H0 Value                       -3898.290
+
+Information Criteria
+
+          Akaike (AIC)                    7870.580
+          Bayesian (BIC)                  7997.140
+          Sample-Size Adjusted BIC        7879.878
+            (n* = (n + 2) / 24)
 
 
 
 MODEL RESULTS
 
-                    Estimate
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
 
  IP         ON
-    HAUPTS            -2.537
-    REALS             -2.660
-    SECOND            -4.657
-    SPECIALS         -37.061
-    OTHERS            -7.132
-    BAGE               2.278
-    HEIGHT             0.569
+    HAUPT             -2.656      8.076     -0.329      0.742
+    SECOND            -4.774     19.469     -0.245      0.806
+    OTHERS           -10.103      8.742     -1.156      0.248
+    BAGE               2.092      1.889      1.108      0.268
+    HEIGHT             0.558      0.312      1.789      0.074
 
  SP         ON
-    HAUPTS             0.334
-    REALS              0.507
-    SECOND             0.239
-    SPECIALS           4.182
-    OTHERS             1.393
-    BAGE              -0.500
-    HEIGHT            -0.009
+    HAUPT              0.396      1.399      0.283      0.777
+    SECOND             0.264      7.866      0.034      0.973
+    OTHERS             1.696      1.480      1.146      0.252
+    BAGE              -0.471      0.312     -1.511      0.131
+    HEIGHT            -0.008      0.040     -0.187      0.852
 
  IC         ON
-    HAUPTS            -0.242
-    REALS              2.004
-    SECOND             7.068
-    SPECIALS           0.118
-    OTHERS             4.242
-    BAGE              -1.147
-    HEIGHT             0.068
+    HAUPT              0.320      1.982      0.161      0.872
+    SECOND             7.105      4.176      1.702      0.089
+    OTHERS             3.855      2.527      1.526      0.127
+    BAGE              -1.117      0.531     -2.102      0.036
+    HEIGHT             0.088      0.082      1.069      0.285
 
  SC         ON
-    HAUPTS             0.022
-    REALS              0.216
-    SECOND             0.088
-    SPECIALS          -0.293
-    OTHERS             0.245
-    BAGE               0.042
-    HEIGHT            -0.016
+    HAUPT              0.086      0.133      0.649      0.516
+    SECOND             0.094      0.415      0.227      0.821
+    OTHERS             0.213      0.183      1.161      0.245
+    BAGE               0.054      0.043      1.268      0.205
+    HEIGHT            -0.015      0.007     -2.205      0.027
 
  IP       WITH
-    SP               -41.474
-    IC                 0.873
-    SC                -0.911
+    SP               -42.517      8.604     -4.942      0.000
+    IC                 2.503     11.018      0.227      0.820
+    SC                -0.760      1.193     -0.637      0.524
 
  SP       WITH
-    IC                 0.504
-    SC                 0.102
+    IC                 0.396      1.657      0.239      0.811
+    SC                 0.090      0.162      0.553      0.580
 
  IC       WITH
-    SC                 0.012
+    SC                 0.135      0.295      0.460      0.646
 
  P1       WITH
-    C1                -0.824
+    C1                -0.953      3.935     -0.242      0.809
 
  P2       WITH
-    C2                -0.824
+    C2                -0.953      3.935     -0.242      0.809
 
  P3       WITH
-    C3                -0.824
+    C3                -0.953      3.935     -0.242      0.809
 
  Intercepts
-    P1                 0.000
-    P2                 0.000
-    P3                 0.000
-    C1                 0.000
-    C2                 0.000
-    C3                 0.000
-    IP                85.326
-    SP                -6.374
-    IC                10.891
-    SC                 0.037
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    IP                84.134     14.949      5.628      0.000
+    SP                -6.199      2.301     -2.694      0.007
+    IC                11.027      4.020      2.743      0.006
+    SC                 0.105      0.302      0.346      0.729
 
  Residual Variances
-    P1               176.966
-    P2               176.966
-    P3               176.966
-    C1                11.322
-    C2                11.322
-    C3                11.322
-    IP               398.914
-    SP                 4.392
-    IC                29.452
-    SC                 0.014
-
-
-MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
-
-     ip sp | p1-p3 AT time1-time3;
-     ic sc | c1-c3 AT time1-time3;
-
-     ip ON haupts*-2.53690;
-     ip ON reals*-2.66030;
-     ip ON second*-4.65711;
-     ip ON specials*-37.06093;
-     ip ON others*-7.13177;
-     ip ON bage*2.27806;
-     ip ON height*0.56946;
-     sp ON haupts*0.33356;
-     sp ON reals*0.50678;
-     sp ON second*0.23882;
-     sp ON specials*4.18223;
-     sp ON others*1.39327;
-     sp ON bage*-0.49999;
-     sp ON height*-0.00950;
-     ic ON haupts*-0.24180;
-     ic ON reals*2.00355;
-     ic ON second*7.06849;
-     ic ON specials*0.11778;
-     ic ON others*4.24154;
-     ic ON bage*-1.14663;
-     ic ON height*0.06764;
-     sc ON haupts*0.02154;
-     sc ON reals*0.21563;
-     sc ON second*0.08828;
-     sc ON specials*-0.29295;
-     sc ON others*0.24538;
-     sc ON bage*0.04229;
-     sc ON height*-0.01640;
-
-     p1 WITH c1*-0.82354 (res_cov);
-     p2 WITH c2*-0.82354 (res_cov);
-     p3 WITH c3*-0.82354 (res_cov);
-     ip WITH sp*-41.47431;
-     ip WITH ic*0.87319;
-     ip WITH sc*-0.91135;
-     sp WITH ic*0.50391;
-     sp WITH sc*0.10167;
-     ic WITH sc*0.01181;
-
-     [ p1@0 ];
-     [ p2@0 ];
-     [ p3@0 ];
-     [ c1@0 ];
-     [ c2@0 ];
-     [ c3@0 ];
-     [ ip*85.32645 ];
-     [ sp*-6.37380 ];
-     [ ic*10.89132 ];
-     [ sc*0.03658 ];
-
-     p1*176.96648 (res_p);
-     p2*176.96648 (res_p);
-     p3*176.96648 (res_p);
-     c1*11.32181 (res_c);
-     c2*11.32181 (res_c);
-     c3*11.32181 (res_c);
-     ip*398.91437;
-     sp*4.39164;
-     ic*29.45225;
-     sc*0.01388;
-
-
-
-TECHNICAL 1 OUTPUT
-
-
-     PARAMETER SPECIFICATION
-
-
-           NU
-              P1            P2            P3            C1            C2
-              ________      ________      ________      ________      ________
- 1                  0             0             0             0             0
-
-
-           NU
-              C3            HAUPTS        REALS         SECOND        SPECIALS
-              ________      ________      ________      ________      ________
- 1                  0             0             0             0             0
-
-
-           NU
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- 1                  0             0             0
-
-
-           LAMBDA
-              IP            SP            IC            SC            HAUPTS
-              ________      ________      ________      ________      ________
- P1                 0             0             0             0             0
- P2                 0             0             0             0             0
- P3                 0             0             0             0             0
- C1                 0             0             0             0             0
- C2                 0             0             0             0             0
- C3                 0             0             0             0             0
- HAUPTS             0             0             0             0             0
- REALS              0             0             0             0             0
- SECOND             0             0             0             0             0
- SPECIALS           0             0             0             0             0
- OTHERS             0             0             0             0             0
- BAGE               0             0             0             0             0
- HEIGHT             0             0             0             0             0
-
-
-           LAMBDA
-              REALS         SECOND        SPECIALS      OTHERS        BAGE
-              ________      ________      ________      ________      ________
- P1                 0             0             0             0             0
- P2                 0             0             0             0             0
- P3                 0             0             0             0             0
- C1                 0             0             0             0             0
- C2                 0             0             0             0             0
- C3                 0             0             0             0             0
- HAUPTS             0             0             0             0             0
- REALS              0             0             0             0             0
- SECOND             0             0             0             0             0
- SPECIALS           0             0             0             0             0
- OTHERS             0             0             0             0             0
- BAGE               0             0             0             0             0
- HEIGHT             0             0             0             0             0
-
-
-           LAMBDA
-              HEIGHT
-              ________
- P1                 0
- P2                 0
- P3                 0
- C1                 0
- C2                 0
- C3                 0
- HAUPTS             0
- REALS              0
- SECOND             0
- SPECIALS           0
- OTHERS             0
- BAGE               0
- HEIGHT             0
-
-
-           THETA
-              P1            P2            P3            C1            C2
-              ________      ________      ________      ________      ________
- P1                 1
- P2                 0             1
- P3                 0             0             1
- C1                 2             0             0             3
- C2                 0             2             0             0             3
- C3                 0             0             2             0             0
- HAUPTS             0             0             0             0             0
- REALS              0             0             0             0             0
- SECOND             0             0             0             0             0
- SPECIALS           0             0             0             0             0
- OTHERS             0             0             0             0             0
- BAGE               0             0             0             0             0
- HEIGHT             0             0             0             0             0
-
-
-           THETA
-              C3            HAUPTS        REALS         SECOND        SPECIALS
-              ________      ________      ________      ________      ________
- C3                 3
- HAUPTS             0             0
- REALS              0             0             0
- SECOND             0             0             0             0
- SPECIALS           0             0             0             0             0
- OTHERS             0             0             0             0             0
- BAGE               0             0             0             0             0
- HEIGHT             0             0             0             0             0
-
-
-           THETA
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- OTHERS             0
- BAGE               0             0
- HEIGHT             0             0             0
-
-
-           ALPHA
-              IP            SP            IC            SC            HAUPTS
-              ________      ________      ________      ________      ________
- 1                  4             5             6             7             0
-
-
-           ALPHA
-              REALS         SECOND        SPECIALS      OTHERS        BAGE
-              ________      ________      ________      ________      ________
- 1                  0             0             0             0             0
-
-
-           ALPHA
-              HEIGHT
-              ________
- 1                  0
-
-
-           BETA
-              IP            SP            IC            SC            HAUPTS
-              ________      ________      ________      ________      ________
- IP                 0             0             0             0             8
- SP                 0             0             0             0            15
- IC                 0             0             0             0            22
- SC                 0             0             0             0            29
- HAUPTS             0             0             0             0             0
- REALS              0             0             0             0             0
- SECOND             0             0             0             0             0
- SPECIALS           0             0             0             0             0
- OTHERS             0             0             0             0             0
- BAGE               0             0             0             0             0
- HEIGHT             0             0             0             0             0
-
-
-           BETA
-              REALS         SECOND        SPECIALS      OTHERS        BAGE
-              ________      ________      ________      ________      ________
- IP                 9            10            11            12            13
- SP                16            17            18            19            20
- IC                23            24            25            26            27
- SC                30            31            32            33            34
- HAUPTS             0             0             0             0             0
- REALS              0             0             0             0             0
- SECOND             0             0             0             0             0
- SPECIALS           0             0             0             0             0
- OTHERS             0             0             0             0             0
- BAGE               0             0             0             0             0
- HEIGHT             0             0             0             0             0
-
-
-           BETA
-              HEIGHT
-              ________
- IP                14
- SP                21
- IC                28
- SC                35
- HAUPTS             0
- REALS              0
- SECOND             0
- SPECIALS           0
- OTHERS             0
- BAGE               0
- HEIGHT             0
-
-
-           PSI
-              IP            SP            IC            SC            HAUPTS
-              ________      ________      ________      ________      ________
- IP                36
- SP                37            38
- IC                39            40            41
- SC                42            43            44            45
- HAUPTS             0             0             0             0             0
- REALS              0             0             0             0             0
- SECOND             0             0             0             0             0
- SPECIALS           0             0             0             0             0
- OTHERS             0             0             0             0             0
- BAGE               0             0             0             0             0
- HEIGHT             0             0             0             0             0
-
-
-           PSI
-              REALS         SECOND        SPECIALS      OTHERS        BAGE
-              ________      ________      ________      ________      ________
- REALS              0
- SECOND             0             0
- SPECIALS           0             0             0
- OTHERS             0             0             0             0
- BAGE               0             0             0             0             0
- HEIGHT             0             0             0             0             0
-
-
-           PSI
-              HEIGHT
-              ________
- HEIGHT             0
-
-
-     STARTING VALUES
-
-
-           NU
-              P1            P2            P3            C1            C2
-              ________      ________      ________      ________      ________
- 1              0.000         0.000         0.000         0.000         0.000
-
-
-           NU
-              C3            HAUPTS        REALS         SECOND        SPECIALS
-              ________      ________      ________      ________      ________
- 1              0.000         0.000         0.000         0.000         0.000
-
-
-           NU
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- 1              0.000         0.000         0.000
-
-
-           LAMBDA
-              IP            SP            IC            SC            HAUPTS
-              ________      ________      ________      ________      ________
- P1             0.000         0.000         0.000         0.000         0.000
- P2             0.000         0.000         0.000         0.000         0.000
- P3             0.000         0.000         0.000         0.000         0.000
- C1             0.000         0.000         0.000         0.000         0.000
- C2             0.000         0.000         0.000         0.000         0.000
- C3             0.000         0.000         0.000         0.000         0.000
- HAUPTS         0.000         0.000         0.000         0.000         1.000
- REALS          0.000         0.000         0.000         0.000         0.000
- SECOND         0.000         0.000         0.000         0.000         0.000
- SPECIALS       0.000         0.000         0.000         0.000         0.000
- OTHERS         0.000         0.000         0.000         0.000         0.000
- BAGE           0.000         0.000         0.000         0.000         0.000
- HEIGHT         0.000         0.000         0.000         0.000         0.000
-
-
-           LAMBDA
-              REALS         SECOND        SPECIALS      OTHERS        BAGE
-              ________      ________      ________      ________      ________
- P1             0.000         0.000         0.000         0.000         0.000
- P2             0.000         0.000         0.000         0.000         0.000
- P3             0.000         0.000         0.000         0.000         0.000
- C1             0.000         0.000         0.000         0.000         0.000
- C2             0.000         0.000         0.000         0.000         0.000
- C3             0.000         0.000         0.000         0.000         0.000
- HAUPTS         0.000         0.000         0.000         0.000         0.000
- REALS          1.000         0.000         0.000         0.000         0.000
- SECOND         0.000         1.000         0.000         0.000         0.000
- SPECIALS       0.000         0.000         1.000         0.000         0.000
- OTHERS         0.000         0.000         0.000         1.000         0.000
- BAGE           0.000         0.000         0.000         0.000         1.000
- HEIGHT         0.000         0.000         0.000         0.000         0.000
-
-
-           LAMBDA
-              HEIGHT
-              ________
- P1             0.000
- P2             0.000
- P3             0.000
- C1             0.000
- C2             0.000
- C3             0.000
- HAUPTS         0.000
- REALS          0.000
- SECOND         0.000
- SPECIALS       0.000
- OTHERS         0.000
- BAGE           0.000
- HEIGHT         1.000
-
-
-           THETA
-              P1            P2            P3            C1            C2
-              ________      ________      ________      ________      ________
- P1           392.849
- P2             0.000        81.261
- P3             0.000         0.000        66.000
- C1             0.000         0.000         0.000        22.497
- C2             0.000         0.000         0.000         0.000        23.470
- C3             0.000         0.000         0.000         0.000         0.000
- HAUPTS         0.000         0.000         0.000         0.000         0.000
- REALS          0.000         0.000         0.000         0.000         0.000
- SECOND         0.000         0.000         0.000         0.000         0.000
- SPECIALS       0.000         0.000         0.000         0.000         0.000
- OTHERS         0.000         0.000         0.000         0.000         0.000
- BAGE           0.000         0.000         0.000         0.000         0.000
- HEIGHT         0.000         0.000         0.000         0.000         0.000
-
-
-           THETA
-              C3            HAUPTS        REALS         SECOND        SPECIALS
-              ________      ________      ________      ________      ________
- C3            22.562
- HAUPTS         0.000         0.000
- REALS          0.000         0.000         0.000
- SECOND         0.000         0.000         0.000         0.000
- SPECIALS       0.000         0.000         0.000         0.000         0.000
- OTHERS         0.000         0.000         0.000         0.000         0.000
- BAGE           0.000         0.000         0.000         0.000         0.000
- HEIGHT         0.000         0.000         0.000         0.000         0.000
-
-
-           THETA
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- OTHERS         0.000
- BAGE           0.000         0.000
- HEIGHT         0.000         0.000         0.000
-
-
-           ALPHA
-              IP            SP            IC            SC            HAUPTS
-              ________      ________      ________      ________      ________
- 1             66.966        -2.418        20.073        -0.293         0.000
-
-
-           ALPHA
-              REALS         SECOND        SPECIALS      OTHERS        BAGE
-              ________      ________      ________      ________      ________
- 1              0.000         0.000         0.000         0.000         0.000
-
-
-           ALPHA
-              HEIGHT
-              ________
- 1              0.000
-
-
-           BETA
-              IP            SP            IC            SC            HAUPTS
-              ________      ________      ________      ________      ________
- IP             0.000         0.000         0.000         0.000         0.000
- SP             0.000         0.000         0.000         0.000         0.000
- IC             0.000         0.000         0.000         0.000         0.000
- SC             0.000         0.000         0.000         0.000         0.000
- HAUPTS         0.000         0.000         0.000         0.000         0.000
- REALS          0.000         0.000         0.000         0.000         0.000
- SECOND         0.000         0.000         0.000         0.000         0.000
- SPECIALS       0.000         0.000         0.000         0.000         0.000
- OTHERS         0.000         0.000         0.000         0.000         0.000
- BAGE           0.000         0.000         0.000         0.000         0.000
- HEIGHT         0.000         0.000         0.000         0.000         0.000
-
-
-           BETA
-              REALS         SECOND        SPECIALS      OTHERS        BAGE
-              ________      ________      ________      ________      ________
- IP             0.000         0.000         0.000         0.000         0.000
- SP             0.000         0.000         0.000         0.000         0.000
- IC             0.000         0.000         0.000         0.000         0.000
- SC             0.000         0.000         0.000         0.000         0.000
- HAUPTS         0.000         0.000         0.000         0.000         0.000
- REALS          0.000         0.000         0.000         0.000         0.000
- SECOND         0.000         0.000         0.000         0.000         0.000
- SPECIALS       0.000         0.000         0.000         0.000         0.000
- OTHERS         0.000         0.000         0.000         0.000         0.000
- BAGE           0.000         0.000         0.000         0.000         0.000
- HEIGHT         0.000         0.000         0.000         0.000         0.000
-
-
-           BETA
-              HEIGHT
-              ________
- IP             0.000
- SP             0.000
- IC             0.000
- SC             0.000
- HAUPTS         0.000
- REALS          0.000
- SECOND         0.000
- SPECIALS       0.000
- OTHERS         0.000
- BAGE           0.000
- HEIGHT         0.000
-
-
-           PSI
-              IP            SP            IC            SC            HAUPTS
-              ________      ________      ________      ________      ________
- IP           808.152
- SP             0.000        41.519
- IC             0.000         0.000        42.065
- SC             0.000         0.000         0.000         0.983
- HAUPTS         0.000         0.000         0.000         0.000         0.122
- REALS          0.000         0.000         0.000         0.000         0.000
- SECOND         0.000         0.000         0.000         0.000         0.000
- SPECIALS       0.000         0.000         0.000         0.000         0.000
- OTHERS         0.000         0.000         0.000         0.000         0.000
- BAGE           0.000         0.000         0.000         0.000         0.000
- HEIGHT         0.000         0.000         0.000         0.000         0.000
-
-
-           PSI
-              REALS         SECOND        SPECIALS      OTHERS        BAGE
-              ________      ________      ________      ________      ________
- REALS          0.075
- SECOND         0.000         0.013
- SPECIALS       0.000         0.000         0.007
- OTHERS         0.000         0.000         0.000         0.055
- BAGE           0.000         0.000         0.000         0.000         0.424
- HEIGHT         0.000         0.000         0.000         0.000         0.000
-
-
-           PSI
-              HEIGHT
-              ________
- HEIGHT        19.924
+    P1               176.934     22.190      7.974      0.000
+    P2               176.934     22.190      7.974      0.000
+    P3               176.934     22.190      7.974      0.000
+    C1                11.476      0.918     12.503      0.000
+    C2                11.476      0.918     12.503      0.000
+    C3                11.476      0.918     12.503      0.000
+    IP               410.011     70.261      5.836      0.000
+    SP                 4.492      1.299      3.457      0.001
+    IC                30.206      4.501      6.711      0.000
+    SC                 0.017      0.028      0.613      0.540
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.139E-06
+       (ratio of smallest to largest eigenvalue)
 
 
 DIAGRAM INFORMATION
@@ -875,9 +362,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\handgrip\b1_female_
 
-     Beginning Time:  09:33:57
-        Ending Time:  09:34:00
-       Elapsed Time:  00:00:03
+     Beginning Time:  13:53:52
+        Ending Time:  13:53:56
+       Elapsed Time:  00:00:04
 
 
 
