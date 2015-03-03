@@ -1,0 +1,356 @@
+Mplus VERSION 5.21
+MUTHEN & MUTHEN
+03/03/2015  11:34 AM
+
+INPUT INSTRUCTIONS
+
+
+     TITLE: pek, psif,  model 2: age, education, height, female
+
+                DATA:  File = C:\Users\novalis\Desktop\IALSA\octomult_12aug2010.dat;
+
+
+                              VARIABLE: Names are
+       Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp Smoke
+    SESChild SESChOth  HlthLif CogPrev LonelyE
+    Dead DeadAge YTDead TotDem DemEver DemType DemAge YTDem
+    time1 time2 time3 time4 time5
+    dedtime1 dedtime2 dedtime3 dedtime4 dedtime5 tvdead1 tvdead2 tvdead3 tvdead4 tvdead
+    demtime1 demtime2 demtime3 demtime4 demtime5 tvdem1 tvdem2 tvdem3 tvdem4 tvdem5
+    CompAge1-CompAge5 Marital1-Marital5 weight1-weight5 height1-height5 bmi1-bmi5
+    SRhlth1-SRhlth5 living1-living5
+    SR2hlth1-SR2hlth5 SROhlth1-SROhlth5 HlthPrv1-HlthPrv5 HlthTra1-HlthTra5
+    CogPres1-CogPres5 AGames1-AGames5 ACross1-ACross5
+    ALiter1-ALiter5 AWrite1-AWrite5 AStudy1-AStudy5 AOther1-AOther5
+    LonelyP1-LonelyP5 FrTalk1-FrTalk5 FrPart1-FrPart5
+    LackCo1-LackCo5 Abandon1-Abandon5 NumFr1-NumFr5 NumPref1-NumPref5 SeeChGr1-SeeChGr5
+    pek1-pek5 gripp1-gripp5 chr5tim1-chr5tim5 padl1-padl5 iadl1-iadl5
+    digspf1-digspf5 digspb1-digspb5 prose1-prose5 block1-block5 info1-info5
+    synnum1-synnum5 figure1-figure5 digsym1-digsym5 psif1-psif5
+    mirnam1-mirnam5 mirrcl1-mirrcl5 mirrcg1-mirrcg5 mircor1-mircor5 clock1-clock5
+    mmse1-mmse5 mismmse1-mismmse5 fmmse1-fmmse5
+    highBP1-highBP5 sbp1-sbp5 dbp1-dbp5 diab1-diab5;
+
+              MISSING are .; !specification of missing observations coded in data file
+             USEVAR are  time1 time2 time3 time4
+                         p1 p2 p3 p4
+                         c1 c2 c3 c4
+                         Bage educ height;
+             TSCORES =   time1 time2 time3 time4;
+
+             CLUSTER = PairID;      !(when cluster: see subpopulation and Analysis)
+
+             SUBPOPULATION are DemEver EQ 0 and female EQ 1; ! (use USEOBSERVATIONS when no
+
+      Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4;
+              c1=psif1; c2=psif2; c3=psif3; c4=psif4;
+              Bage=compage1-80;   !Centered at Age 80
+              Sex=female;         !0=Male
+              Educ=Educyrs-7;     ! Centered at 7 years
+              SEP=SESgrp;
+              Height=Height1-160; !(Centered as: women = 160, men = 172)
+              SmokHist=Smoke;
+              Diabetes=diab1;
+
+
+      ANALYSIS: TYPE = RANDOM COMPLEX; !Type of analysis requested, when cluster=complex, ot
+
+      MODEL:  ip sp | p1-p4 AT time1-time4;
+              ic sc | c1-c4 AT time1-time4;
+
+              ip sp ic sc ON Bage educ height;
+
+              p1-p4 (res_p);
+              c1-c4 (res_c);
+
+              p1-p4 pwith c1-c4(res_cov); !Paired covariances constrained to be equal across
+
+      OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+             SUBPOPULATION are DemEver EQ 0 and female EQ 1; ! (use USEOBSERVATIONS when n
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+      ANALYSIS: TYPE = RANDOM COMPLEX; !Type of analysis requested, when cluster=complex,
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  135
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  64
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+pek, psif,  model 2: age, education, height, female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         254
+
+Number of dependent variables                                    8
+Number of independent variables                                  3
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          C1          C2
+   C3          C4
+
+Observed independent variables
+   BAGE        EDUC        HEIGHT
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Cluster variable      PAIRID
+  Weight variable       _WEIGHT
+  Time scores
+   TIME1       TIME2       TIME3       TIME4
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\novalis\Desktop\IALSA\octomult_12aug2010.dat
+Input data format  FREE
+
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            C1
+              ________      ________      ________      ________      ________
+ 1            286.432       297.353       283.207       259.620        11.448
+
+
+           Means
+              C2            C3            C4            BAGE          EDUC
+              ________      ________      ________      ________      ________
+ 1             10.686        10.113        10.405         3.073         0.157
+
+
+           Means
+              HEIGHT
+              ________
+ 1             -2.720
+
+
+           Covariances
+              P1            P2            P3            P4            C1
+              ________      ________      ________      ________      ________
+ P1          6502.058
+ P2          4465.326      7241.418
+ P3          3610.395      4379.489      5922.080
+ P4          2829.098      3726.295      4182.624      5446.165
+ C1            27.105        15.425        31.083         7.567        15.562
+ C2            50.825        54.264        45.073        11.970         5.872
+ C3            53.363        46.505        51.213        46.849         4.422
+ C4            42.097        34.058        45.297        37.539         8.448
+ BAGE         -40.576       -24.009        -6.143         3.192        -1.098
+ EDUC          15.945         2.332        13.463        10.347         1.253
+ HEIGHT       106.284        56.529        49.066        38.306         1.749
+
+
+           Covariances
+              C2            C3            C4            BAGE          EDUC
+              ________      ________      ________      ________      ________
+ C2            14.003
+ C3             8.437        11.421
+ C4             6.759         5.627        10.185
+ BAGE          -1.821        -1.295        -0.733         6.803
+ EDUC           1.077         1.916         0.742         0.043         3.770
+ HEIGHT         2.206         2.123         2.273        -2.023         0.936
+
+
+           Covariances
+              HEIGHT
+              ________
+ HEIGHT        30.989
+
+
+           Correlations
+              P1            P2            P3            P4            C1
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.651         1.000
+ P3             0.582         0.669         1.000
+ P4             0.475         0.593         0.736         1.000
+ C1             0.085         0.046         0.102         0.026         1.000
+ C2             0.168         0.170         0.157         0.043         0.398
+ C3             0.196         0.162         0.197         0.188         0.332
+ C4             0.164         0.125         0.184         0.159         0.671
+ BAGE          -0.193        -0.108        -0.031         0.017        -0.107
+ EDUC           0.102         0.014         0.090         0.072         0.164
+ HEIGHT         0.237         0.119         0.115         0.093         0.080
+
+
+           Correlations
+              C2            C3            C4            BAGE          EDUC
+              ________      ________      ________      ________      ________
+ C2             1.000
+ C3             0.667         1.000
+ C4             0.566         0.522         1.000
+ BAGE          -0.187        -0.147        -0.088         1.000
+ EDUC           0.148         0.292         0.120         0.009         1.000
+ HEIGHT         0.106         0.113         0.128        -0.139         0.087
+
+
+           Correlations
+              HEIGHT
+              ________
+ HEIGHT         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -13040.910
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+TESTS OF MODEL FIT
+
+Loglikelihood
+
+          H0 Value                       -4698.914
+          H0 Scaling Correction Factor       1.129
+            for MLR
+
+Information Criteria
+
+          Number of Free Parameters             29
+          Akaike (AIC)                    9455.828
+          Bayesian (BIC)                  9558.411
+          Sample-Size Adjusted BIC        9466.475
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -5.318      2.052     -2.591      0.010
+    EDUC               2.845      2.469      1.152      0.249
+    HEIGHT             2.673      1.094      2.444      0.015
+
+ SP         ON
+    BAGE               1.063      0.392      2.715      0.007
+    EDUC              -0.219      0.484     -0.452      0.651
+    HEIGHT            -0.297      0.248     -1.198      0.231
+
+ IC         ON
+    BAGE              -0.175      0.124     -1.416      0.157
+    EDUC               0.319      0.136      2.354      0.019
+    HEIGHT             0.030      0.051      0.594      0.552
+
+ SC         ON
+    BAGE              -0.002      0.030     -0.081      0.936
+    EDUC               0.000      0.025      0.004      0.997
+    HEIGHT             0.006      0.011      0.533      0.594
+
+ SP       WITH
+    IP              -162.428    111.365     -1.459      0.145
+
+ IC       WITH
+    IP                18.097     21.648      0.836      0.403
+    SP                -1.768      3.581     -0.494      0.622
+
+ SC       WITH
+    IP                 3.748      4.518      0.829      0.407
+    SP                 0.380      0.596      0.638      0.524
+    IC                -0.468      0.326     -1.435      0.151
+
+ P1       WITH
+    C1                 3.106     10.859      0.286      0.775
+
+ P2       WITH
+    C2                 3.106     10.859      0.286      0.775
+
+ P3       WITH
+    C3                 3.106     10.859      0.286      0.775
+
+ P4       WITH
+    C4                 3.106     10.859      0.286      0.775
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    IP               316.265      7.848     40.301      0.000
+    SP                -7.849      1.416     -5.544      0.000
+    IC                11.909      0.454     26.204      0.000
+    SC                -0.211      0.077     -2.743      0.006
+
+ Residual Variances
+    P1              2153.119    205.658     10.469      0.000
+    P2              2153.119    205.658     10.469      0.000
+    P3              2153.119    205.658     10.469      0.000
+    P4              2153.119    205.658     10.469      0.000
+    C1                 6.333      0.927      6.832      0.000
+    C2                 6.333      0.927      6.832      0.000
+    C3                 6.333      0.927      6.832      0.000
+    C4                 6.333      0.927      6.832      0.000
+    IP              4360.761    535.679      8.141      0.000
+    SP                47.859     22.854      2.094      0.036
+    IC                 7.845      1.584      4.953      0.000
+    SC                 0.053      0.050      1.061      0.289
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.786E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  11:34:21
+        Ending Time:  11:35:12
+       Elapsed Time:  00:00:51
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2009 Muthen & Muthen
