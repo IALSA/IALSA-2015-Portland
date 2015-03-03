@@ -1,10 +1,10 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-03/03/2015   1:53 PM
+03/03/2015   3:24 PM
 
 INPUT INSTRUCTIONS
 
-  TITLE:  Timed Up and Go, Spacial Ability, AEH, Female
+  TITLE: Handgrip, Spacial Ability, AEH, Female
 
   DATA:  File = C:\Users\Besitzer\Desktop\ilse 03.03.dat;
 
@@ -61,7 +61,7 @@ INPUT INSTRUCTIONS
 
 
 
-Timed Up and Go, Spacial Ability, AEH, Female
+Handgrip, Spacial Ability, AEH, Female
 
 SUMMARY OF ANALYSIS
 
@@ -362,8 +362,8 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\handgrip\b1_female_
 
-     Beginning Time:  13:53:52
-        Ending Time:  13:53:56
+     Beginning Time:  15:24:56
+        Ending Time:  15:25:00
        Elapsed Time:  00:00:04
 
 
