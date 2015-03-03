@@ -1,9 +1,13 @@
 Mplus VERSION 7.2 (Mac)
 MUTHEN & MUTHEN
 02/24/2015   1:53 PM
+
 INPUT INSTRUCTIONS
+
   TITLE: M5 Walking Speed, Clock Test, Age Conditional, Male
+
     DATA:  File = "/Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat";
+
   VARIABLE:
     Names are
        habcid vstatus ds2dth race gender site CV1AGE Y1pchd1 Y1pchd2 Y1pchd3
@@ -18,18 +22,22 @@ INPUT INSTRUCTIONS
        self11 hand1 hand2 hand4 hand6 hand8 hand10 limit1 limit2 limit3 limit4
        limit5 limit6 limit8 limit9 limit10 limit11 t1 t2 t3 t4 t5 t6 t8 t10
        t11;
+
          MISSING are all (-9999);
          USEVAR are  time1 time2 time3 time4 time5 time6 time8 time10
                      Bage Educ Height
                      p1 p2 p3 p4 p5 p6 p8 p10
                            c3    c5    c8 c10;
          TSCORES =   time1 time2 time3 time4 time5 time6 time8 time10;
+
          USEOBSERVATIONS are gender EQ 1; ! female=0
+
     Define: p1= wd20m1;  p2= wd20m2; p3= wd20m3; p4= wd20m4; p5= wd20m5;
             p6= wd20m8;  p8= wd20m8; p10= wd20m10;
             c3=clox3; c5=clox5; c8=clox8; c10=clox10;
             time1=t1; time2=t2; time3=t3; time4=t4; time5=t5; time6=t6; time8=t8;
             time10=t10;
+
             Bage=CV1AGE-70;   !Centered at Age 70
             !Bagesq=(compage1-70)**2;
             !Dage=YTDead;
@@ -49,20 +57,32 @@ INPUT INSTRUCTIONS
             !Cardio;
             !Diab;
             !MorbInd;
+
             !BageSex=Bage*Sex;
             !BageEduc=Bage*Educ;
             !SexEduc=Sex*Educ;
+
   ANALYSIS: TYPE = RANDOM;
+
   MODEL:  ip sp | p1-p10 AT time1 time2 time3 time4 time5 time6 time8 time10;
           ic sc | c3-c10 AT             time3       time5       time8 time10;
+
           ip sp ic sc ON Bage Educ Height;
+
           p1-p10 (res_p);
           c3-c10 (res_c);
+
           p3  with c3  (res_cov);
           p5  with c5  (res_cov);
           p8  with c8  (res_cov);
           p10 with c10 (res_cov);
+
   OUTPUT: sampstat Cinterval;
+
+
+
+
+
 *** WARNING
   Data set contains cases with missing on x-variables.
   These cases were not included in the analysis.
@@ -72,25 +92,39 @@ INPUT INSTRUCTIONS
   x-variables.  These cases were not included in the analysis.
   Number of cases with missing on all variables except x-variables:  18
    2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
 M5 Walking Speed, Clock Test, Age Conditional, Male
+
 SUMMARY OF ANALYSIS
+
 Number of groups                                                 1
 Number of observations                                        1471
+
 Number of dependent variables                                   12
 Number of independent variables                                  3
 Number of continuous latent variables                            4
+
 Observed dependent variables
+
   Continuous
    P1          P2          P3          P4          P5          P6
    P8          P10         C3          C5          C8          C10
+
 Observed independent variables
    BAGE        EDUC        HEIGHT
+
 Continuous latent variables
    IP          SP          IC          SC
+
 Variables with special functions
+
   Time scores
    TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
    TIME8       TIME10
+
+
 Estimator                                                      MLR
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -105,14 +139,25 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
+
 Input data file(s)
   /Users/qingqingzhang/Dropbox/IALSA/Data/HABC-9999.dta.dat
 Input data format  FREE
+
+
 SUMMARY OF DATA
+
      Number of missing data patterns           140
+
+
 COVARIANCE COVERAGE OF DATA
+
 Minimum covariance coverage value   0.100
+
+
      PROPORTION OF DATA PRESENT
+
+
            Covariance Coverage
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -131,6 +176,8 @@ Minimum covariance coverage value   0.100
  BAGE           0.886         0.897         0.831         0.767         0.733
  EDUC           0.886         0.897         0.831         0.767         0.733
  HEIGHT         0.886         0.897         0.831         0.767         0.733
+
+
            Covariance Coverage
               P6            P8            P10           C3            C5
               ________      ________      ________      ________      ________
@@ -144,6 +191,8 @@ Minimum covariance coverage value   0.100
  BAGE           0.519         0.519         0.455         0.823         0.744
  EDUC           0.519         0.519         0.455         0.823         0.744
  HEIGHT         0.519         0.519         0.455         0.823         0.744
+
+
            Covariance Coverage
               C8            C10           BAGE          EDUC          HEIGHT
               ________      ________      ________      ________      ________
@@ -152,20 +201,32 @@ Minimum covariance coverage value   0.100
  BAGE           0.562         0.492         1.000
  EDUC           0.562         0.492         1.000         1.000
  HEIGHT         0.562         0.492         1.000         1.000         1.000
+
+
 SAMPLE STATISTICS
+
+
      ESTIMATED SAMPLE STATISTICS
+
+
            Means
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
  1              1.391         1.175         1.176         1.173         1.123
+
+
            Means
               P6            P8            P10           C3            C5
               ________      ________      ________      ________      ________
  1              1.019         1.019         0.985        10.288        10.300
+
+
            Means
               C8            C10           BAGE          EDUC          HEIGHT
               ________      ________      ________      ________      ________
  1              9.912         9.601         3.777         6.084         0.013
+
+
            Covariances
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -184,6 +245,8 @@ SAMPLE STATISTICS
  BAGE          -0.112        -0.109        -0.104        -0.128        -0.135
  EDUC           0.271         0.206         0.244         0.198         0.216
  HEIGHT         0.001         0.001         0.001         0.001         0.001
+
+
            Covariances
               P6            P8            P10           C3            C5
               ________      ________      ________      ________      ________
@@ -197,6 +260,8 @@ SAMPLE STATISTICS
  BAGE          -0.167        -0.167        -0.206        -0.838        -0.685
  EDUC           0.167         0.167         0.184         2.357         2.251
  HEIGHT         0.001         0.001         0.001         0.001         0.004
+
+
            Covariances
               C8            C10           BAGE          EDUC          HEIGHT
               ________      ________      ________      ________      ________
@@ -205,6 +270,8 @@ SAMPLE STATISTICS
  BAGE          -0.855        -1.025         8.236
  EDUC           2.626         2.908         0.059        12.202
  HEIGHT         0.014         0.008        -0.020         0.004         0.004
+
+
            Correlations
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -223,6 +290,8 @@ SAMPLE STATISTICS
  BAGE          -0.153        -0.181        -0.168        -0.199        -0.219
  EDUC           0.305         0.282         0.321         0.255         0.287
  HEIGHT         0.082         0.099         0.046         0.075         0.070
+
+
            Correlations
               P6            P8            P10           C3            C5
               ________      ________      ________      ________      ________
@@ -236,6 +305,8 @@ SAMPLE STATISTICS
  BAGE          -0.250        -0.250        -0.287        -0.111        -0.097
  EDUC           0.205         0.205         0.211         0.257         0.261
  HEIGHT         0.059         0.059         0.053         0.006         0.025
+
+
            Correlations
               C8            C10           BAGE          EDUC          HEIGHT
               ________      ________      ________      ________      ________
@@ -244,55 +315,83 @@ SAMPLE STATISTICS
  BAGE          -0.112        -0.131         1.000
  EDUC           0.283         0.305         0.006         1.000
  HEIGHT         0.078         0.046        -0.105         0.016         1.000
+
+
      MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -6868.616
+
+
 THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
 MODEL FIT INFORMATION
+
 Number of Free Parameters                       29
+
 Loglikelihood
+
           H0 Value                       -5583.155
           H0 Scaling Correction Factor      1.2220
             for MLR
+
 Information Criteria
+
           Akaike (AIC)                   11224.311
           Bayesian (BIC)                 11377.828
           Sample-Size Adjusted BIC       11285.704
             (n* = (n + 2) / 24)
+
+
+
 MODEL RESULTS
+
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
+
  IP         ON
     BAGE              -0.010      0.002     -5.353      0.000
     EDUC               0.020      0.002     12.666      0.000
     HEIGHT             0.215      0.083      2.586      0.010
+
  SP         ON
     BAGE              -0.001      0.000     -4.881      0.000
     EDUC              -0.001      0.000     -2.269      0.023
     HEIGHT            -0.018      0.012     -1.543      0.123
+
  IC         ON
     BAGE              -0.089      0.033     -2.731      0.006
     EDUC               0.167      0.029      5.666      0.000
     HEIGHT            -1.213      1.417     -0.856      0.392
+
  SC         ON
     BAGE              -0.002      0.005     -0.421      0.673
     EDUC               0.006      0.004      1.489      0.137
     HEIGHT             0.321      0.209      1.535      0.125
+
  SP       WITH
     IP                -0.001      0.000     -2.688      0.007
+
  IC       WITH
     IP                 0.011      0.018      0.636      0.525
     SP                 0.002      0.003      0.770      0.442
+
  SC       WITH
     IP                 0.004      0.002      1.529      0.126
     SP                 0.000      0.000      1.311      0.190
     IC                -0.085      0.074     -1.154      0.248
+
  P3       WITH
     C3                 0.002      0.007      0.297      0.767
+
  P5       WITH
     C5                 0.002      0.007      0.297      0.767
+
  P8       WITH
     C8                 0.002      0.007      0.297      0.767
+
  P10      WITH
     C10                0.002      0.007      0.297      0.767
+
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
@@ -310,6 +409,7 @@ MODEL RESULTS
     SP                -0.032      0.002    -13.958      0.000
     IC                10.012      0.245     40.857      0.000
     SC                -0.137      0.036     -3.779      0.000
+
  Residual Variances
     P1                 0.017      0.001     25.772      0.000
     P2                 0.017      0.001     25.772      0.000
@@ -327,6 +427,112 @@ MODEL RESULTS
     SP                 0.000      0.000      7.240      0.000
     IC                 2.895      0.545      5.307      0.000
     SC                 0.017      0.011      1.474      0.140
+
+
 QUALITY OF NUMERICAL RESULTS
+
      Condition Number for the Information Matrix              0.105E-07
        (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IP       ON
+    BAGE            -0.015      -0.014      -0.013      -0.010      -0.007      -0.006      -0.005
+    EDUC             0.016       0.017       0.017       0.020       0.022       0.023       0.024
+    HEIGHT           0.001       0.052       0.078       0.215       0.351       0.378       0.429
+
+ SP       ON
+    BAGE            -0.002      -0.002      -0.002      -0.001      -0.001      -0.001      -0.001
+    EDUC            -0.001      -0.001      -0.001      -0.001       0.000       0.000       0.000
+    HEIGHT          -0.049      -0.042      -0.038      -0.018       0.001       0.005       0.012
+
+ IC       ON
+    BAGE            -0.173      -0.153      -0.143      -0.089      -0.035      -0.025      -0.005
+    EDUC             0.091       0.109       0.118       0.167       0.215       0.225       0.243
+    HEIGHT          -4.864      -3.991      -3.545      -1.213       1.119       1.565       2.438
+
+ SC       ON
+    BAGE            -0.014      -0.011      -0.009      -0.002       0.006       0.007       0.010
+    EDUC            -0.005      -0.002      -0.001       0.006       0.013       0.015       0.017
+    HEIGHT          -0.218      -0.089      -0.023       0.321       0.666       0.732       0.861
+
+ SP       WITH
+    IP              -0.001      -0.001      -0.001      -0.001       0.000       0.000       0.000
+
+ IC       WITH
+    IP              -0.035      -0.024      -0.018       0.011       0.041       0.046       0.057
+    SP              -0.005      -0.003      -0.002       0.002       0.006       0.007       0.009
+
+ SC       WITH
+    IP              -0.002      -0.001       0.000       0.004       0.008       0.008       0.010
+    SP               0.000       0.000       0.000       0.000       0.001       0.001       0.001
+    IC              -0.274      -0.229      -0.206      -0.085       0.036       0.059       0.105
+
+ P3       WITH
+    C3              -0.016      -0.011      -0.009       0.002       0.013       0.016       0.020
+
+ P5       WITH
+    C5              -0.016      -0.011      -0.009       0.002       0.013       0.016       0.020
+
+ P8       WITH
+    C8              -0.016      -0.011      -0.009       0.002       0.013       0.016       0.020
+
+ P10      WITH
+    C10             -0.016      -0.011      -0.009       0.002       0.013       0.016       0.020
+
+ Intercepts
+    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P8               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P10              0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C8               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C10              0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IP               1.211       1.219       1.224       1.246       1.267       1.272       1.280
+    SP              -0.037      -0.036      -0.035      -0.032      -0.028      -0.027      -0.026
+    IC               9.381       9.532       9.609      10.012      10.415      10.493      10.644
+    SC              -0.230      -0.207      -0.196      -0.137      -0.077      -0.066      -0.043
+
+ Residual Variances
+    P1               0.015       0.016       0.016       0.017       0.018       0.019       0.019
+    P2               0.015       0.016       0.016       0.017       0.018       0.019       0.019
+    P3               0.015       0.016       0.016       0.017       0.018       0.019       0.019
+    P4               0.015       0.016       0.016       0.017       0.018       0.019       0.019
+    P5               0.015       0.016       0.016       0.017       0.018       0.019       0.019
+    P6               0.015       0.016       0.016       0.017       0.018       0.019       0.019
+    P8               0.015       0.016       0.016       0.017       0.018       0.019       0.019
+    P10              0.015       0.016       0.016       0.017       0.018       0.019       0.019
+    C3               3.211       3.309       3.359       3.621       3.884       3.934       4.032
+    C5               3.211       3.309       3.359       3.621       3.884       3.934       4.032
+    C8               3.211       3.309       3.359       3.621       3.884       3.934       4.032
+    C10              3.211       3.309       3.359       3.621       3.884       3.934       4.032
+    IP               0.025       0.026       0.026       0.029       0.032       0.033       0.034
+    SP               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IC               1.490       1.826       1.998       2.895       3.792       3.964       4.300
+    SC              -0.012      -0.005      -0.002       0.017       0.035       0.039       0.046
+
+
+     Beginning Time:  13:53:04
+        Ending Time:  13:53:17
+       Elapsed Time:  00:00:13
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
