@@ -1,10 +1,10 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-03/02/2015   5:07 PM
+03/03/2015   9:40 AM
 
 INPUT INSTRUCTIONS
 
-  TITLE:  Timed Up and Go, Block Design, Fully Conditional, Female
+  TITLE:  Timed Up and Go, Knowledge, AEH, Female
 
   DATA:  File = C:\Users\Besitzer\Desktop\ilse 02.03.dat;
 
@@ -30,11 +30,11 @@ INPUT INSTRUCTIONS
          USEOBSERVATIONS are sex EQ 1;
 
   Define: p1=t1hg; p2=t2hg; p3=t3hg;
-          c1=t1bd; c2=t2bd; c3=t3bd;
+          c1=t1k; c2=t2k; c3=t3k;
 
           Bage=t1age-70;   !Centered at Age 70
           Bagesq=(t1age-70)**2;
-          height=t1height-160; !centered for male
+          height=t1height-160; !centered for female
 
   ANALYSIS: TYPE = RANDOM; Estimator=MLF;
 
@@ -61,7 +61,7 @@ INPUT INSTRUCTIONS
 
 
 
-Timed Up and Go, Block Design, Fully Conditional, Female
+Timed Up and Go, Knowledge, AEH, Female
 
 SUMMARY OF ANALYSIS
 
@@ -171,13 +171,13 @@ SAMPLE STATISTICS
            Means
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
- 1             67.881        56.183        41.263        25.735        23.458
+ 1             67.902        56.212        40.793        13.858        14.375
 
 
            Means
               C3            HAUPTS        REALS         SECOND        SPECIALS
               ________      ________      ________      ________      ________
- 1             22.231         0.584         0.181         0.027         0.013
+ 1             14.390         0.584         0.181         0.027         0.013
 
 
            Means
@@ -189,32 +189,32 @@ SAMPLE STATISTICS
            Covariances
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
- P1           784.425
- P2           155.050       163.960
- P3            92.976        63.626       126.543
- C1           -18.968         0.149         0.594        61.540
- C2           -40.033        -4.505         7.500        52.561        72.481
- C3           -15.725        -2.957        14.285        41.794        50.824
- HAUPTS         0.400        -0.573        -0.116        -0.832        -0.801
- REALS          0.330         0.391         0.217         0.367         0.299
- SECOND        -0.015        -0.033        -0.028         0.224         0.178
- SPECIALS      -0.485        -0.181        -0.128        -0.005        -0.019
- OTHERS        -0.539         0.074         0.314         0.626         0.607
- BAGE           3.216        -1.493         0.322        -0.542        -0.945
- HEIGHT        18.537        26.000        17.125         2.133        -0.919
+ P1           786.284
+ P2           155.735       163.783
+ P3            89.016        58.390       122.730
+ C1            -4.879         2.065         9.143        21.891
+ C2             3.819         3.697        11.494        17.693        19.879
+ C3            -6.979         0.594        14.898        17.618        17.390
+ HAUPTS         0.397        -0.571        -0.187        -0.877        -0.832
+ REALS          0.339         0.388         0.208         0.340         0.398
+ SECOND        -0.015        -0.035        -0.104         0.088         0.065
+ SPECIALS      -0.485        -0.176        -0.092         0.020        -0.009
+ OTHERS        -0.542         0.073         0.386         0.531         0.479
+ BAGE           3.270        -1.471         0.057        -0.164         0.057
+ HEIGHT        19.129        26.070        13.198         3.684         4.141
 
 
            Covariances
               C3            HAUPTS        REALS         SECOND        SPECIALS
               ________      ________      ________      ________      ________
- C3            63.598
- HAUPTS        -0.890         0.243
- REALS          0.592        -0.106         0.149
- SECOND         0.010        -0.016        -0.005         0.026
- SPECIALS      -0.070        -0.008        -0.002         0.000         0.013
- OTHERS         0.532        -0.072        -0.022        -0.003        -0.002
- BAGE          -0.345        -0.025         0.022        -0.003         0.002
- HEIGHT         2.484        -0.501         0.355         0.017         0.022
+ C3            21.071
+ HAUPTS        -0.860         0.243
+ REALS          0.431        -0.106         0.149
+ SECOND         0.064        -0.016        -0.005         0.026
+ SPECIALS       0.010        -0.008        -0.002         0.000         0.013
+ OTHERS         0.441        -0.072        -0.022        -0.003        -0.002
+ BAGE           0.275        -0.025         0.022        -0.003         0.002
+ HEIGHT         4.714        -0.501         0.355         0.017         0.022
 
 
            Covariances
@@ -229,31 +229,31 @@ SAMPLE STATISTICS
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
  P1             1.000
- P2             0.432         1.000
- P3             0.295         0.442         1.000
- C1            -0.086         0.001         0.007         1.000
- C2            -0.168        -0.041         0.078         0.787         1.000
- C3            -0.070        -0.029         0.159         0.668         0.749
- HAUPTS         0.029        -0.091        -0.021        -0.215        -0.191
- REALS          0.031         0.079         0.050         0.121         0.091
- SECOND        -0.003        -0.016        -0.015         0.178         0.130
- SPECIALS      -0.151        -0.124        -0.100        -0.006        -0.020
- OTHERS        -0.058         0.017         0.085         0.242         0.216
- BAGE           0.125        -0.127         0.031        -0.075        -0.121
- HEIGHT         0.105         0.322         0.242         0.043        -0.017
+ P2             0.434         1.000
+ P3             0.287         0.412         1.000
+ C1            -0.037         0.034         0.176         1.000
+ C2             0.031         0.065         0.233         0.848         1.000
+ C3            -0.054         0.010         0.293         0.820         0.850
+ HAUPTS         0.029        -0.090        -0.034        -0.381        -0.378
+ REALS          0.031         0.079         0.049         0.188         0.232
+ SECOND        -0.003        -0.017        -0.058         0.117         0.091
+ SPECIALS      -0.151        -0.120        -0.072         0.037        -0.018
+ OTHERS        -0.059         0.017         0.106         0.344         0.326
+ BAGE           0.127        -0.125         0.006        -0.038         0.014
+ HEIGHT         0.108         0.323         0.189         0.125         0.147
 
 
            Correlations
               C3            HAUPTS        REALS         SECOND        SPECIALS
               ________      ________      ________      ________      ________
  C3             1.000
- HAUPTS        -0.226         1.000
- REALS          0.193        -0.558         1.000
- SECOND         0.008        -0.196        -0.078         1.000
- SPECIALS      -0.077        -0.137        -0.055        -0.019         1.000
- OTHERS         0.202        -0.446        -0.177        -0.062        -0.044
- BAGE          -0.047        -0.055         0.061        -0.019         0.023
- HEIGHT         0.049        -0.162         0.146         0.017         0.030
+ HAUPTS        -0.380         1.000
+ REALS          0.244        -0.558         1.000
+ SECOND         0.087        -0.196        -0.078         1.000
+ SPECIALS       0.020        -0.137        -0.055        -0.019         1.000
+ OTHERS         0.292        -0.446        -0.177        -0.062        -0.044
+ BAGE           0.065        -0.055         0.061        -0.019         0.023
+ HEIGHT         0.163        -0.162         0.146         0.017         0.030
 
 
            Correlations
@@ -264,7 +264,7 @@ SAMPLE STATISTICS
  HEIGHT         0.027         0.016         1.000
 
 
-     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -4853.471
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -4438.611
 
      THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN ILL-CONDITIONED
      FISHER INFORMATION MATRIX.  CHANGE YOUR MODEL AND/OR STARTING VALUES.
@@ -272,7 +272,7 @@ SAMPLE STATISTICS
      THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO A NON-POSITIVE
      DEFINITE FISHER INFORMATION MATRIX.  THIS MAY BE DUE TO THE STARTING VALUES
      BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE CONDITION
-     NUMBER IS       0.286D-18.
+     NUMBER IS       0.540D-20.
 
      THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES COULD NOT BE
      COMPUTED.  THIS IS OFTEN DUE TO THE STARTING VALUES BUT MAY ALSO BE
@@ -289,61 +289,61 @@ MODEL RESULTS
                     Estimate
 
  IP         ON
-    HAUPTS            -2.584
-    REALS             -2.778
-    SECOND            -4.604
-    SPECIALS         -37.149
-    OTHERS            -7.147
-    BAGE               2.299
-    HEIGHT             0.564
+    HAUPTS            -2.488
+    REALS             -2.603
+    SECOND            -4.398
+    SPECIALS         -37.382
+    OTHERS            -7.168
+    BAGE               2.361
+    HEIGHT             0.570
 
  SP         ON
-    HAUPTS             0.351
-    REALS              0.534
-    SECOND             0.206
-    SPECIALS           4.140
-    OTHERS             1.394
-    BAGE              -0.501
-    HEIGHT            -0.007
+    HAUPTS             0.216
+    REALS              0.394
+    SECOND             0.093
+    SPECIALS           4.237
+    OTHERS             1.332
+    BAGE              -0.568
+    HEIGHT            -0.011
 
  IC         ON
-    HAUPTS             3.490
-    REALS              6.655
-    SECOND            13.631
-    SPECIALS           4.850
-    OTHERS             9.911
-    BAGE              -0.525
-    HEIGHT            -0.009
+    HAUPTS             0.033
+    REALS              3.296
+    SECOND             4.532
+    SPECIALS           2.099
+    OTHERS             5.656
+    BAGE              -0.036
+    HEIGHT             0.053
 
  SC         ON
-    HAUPTS            -0.275
-    REALS             -0.127
-    SECOND            -0.954
-    SPECIALS          -0.714
-    OTHERS            -0.330
-    BAGE               0.000
-    HEIGHT             0.000
+    HAUPTS             0.004
+    REALS              0.028
+    SECOND            -0.077
+    SPECIALS          -0.071
+    OTHERS            -0.057
+    BAGE               0.040
+    HEIGHT             0.002
 
  IP       WITH
-    SP               -41.277
-    IC               -23.487
-    SC                 0.325
+    SP               -43.960
+    IC                 2.005
+    SC                -0.715
 
  SP       WITH
-    IC                 3.087
-    SC                -0.020
+    IC                 0.098
+    SC                 0.122
 
  IC       WITH
-    SC                -0.236
+    SC                -0.100
 
  P1       WITH
-    C1                 7.507
+    C1                -1.677
 
  P2       WITH
-    C2                 7.507
+    C2                -1.677
 
  P3       WITH
-    C3                 7.507
+    C3                -1.677
 
  Intercepts
     P1                 0.000
@@ -352,22 +352,22 @@ MODEL RESULTS
     C1                 0.000
     C2                 0.000
     C3                 0.000
-    IP                85.501
-    SP                -6.370
-    IC                16.779
-    SC                -0.043
+    IP                85.868
+    SP                -6.752
+    IC                12.152
+    SC                 0.325
 
  Residual Variances
-    P1               177.171
-    P2               177.171
-    P3               177.171
-    C1                14.623
-    C2                14.623
-    C3                14.623
-    IP               397.393
-    SP                 4.364
-    IC                42.746
-    SC                 0.071
+    P1               169.567
+    P2               169.567
+    P3               169.567
+    C1                 2.899
+    C2                 2.899
+    C3                 2.899
+    IP               408.392
+    SP                 4.971
+    IC                13.813
+    SC                 0.014
 
 
 MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
@@ -375,44 +375,44 @@ MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
      ip sp | p1-p3 AT time1-time3;
      ic sc | c1-c3 AT time1-time3;
 
-     ip ON haupts*-2.58416;
-     ip ON reals*-2.77767;
-     ip ON second*-4.60398;
-     ip ON specials*-37.14927;
-     ip ON others*-7.14656;
-     ip ON bage*2.29868;
-     ip ON height*0.56398;
-     sp ON haupts*0.35061;
-     sp ON reals*0.53354;
-     sp ON second*0.20614;
-     sp ON specials*4.14037;
-     sp ON others*1.39438;
-     sp ON bage*-0.50055;
-     sp ON height*-0.00735;
-     ic ON haupts*3.49025;
-     ic ON reals*6.65458;
-     ic ON second*13.63106;
-     ic ON specials*4.84990;
-     ic ON others*9.91129;
-     ic ON bage*-0.52455;
-     ic ON height*-0.00915;
-     sc ON haupts*-0.27454;
-     sc ON reals*-0.12664;
-     sc ON second*-0.95398;
-     sc ON specials*-0.71392;
-     sc ON others*-0.32991;
-     sc ON bage*-0.00008;
-     sc ON height*-0.00014;
+     ip ON haupts*-2.48794;
+     ip ON reals*-2.60323;
+     ip ON second*-4.39807;
+     ip ON specials*-37.38202;
+     ip ON others*-7.16770;
+     ip ON bage*2.36102;
+     ip ON height*0.57021;
+     sp ON haupts*0.21631;
+     sp ON reals*0.39423;
+     sp ON second*0.09274;
+     sp ON specials*4.23710;
+     sp ON others*1.33177;
+     sp ON bage*-0.56830;
+     sp ON height*-0.01085;
+     ic ON haupts*0.03297;
+     ic ON reals*3.29608;
+     ic ON second*4.53189;
+     ic ON specials*2.09871;
+     ic ON others*5.65560;
+     ic ON bage*-0.03628;
+     ic ON height*0.05317;
+     sc ON haupts*0.00374;
+     sc ON reals*0.02847;
+     sc ON second*-0.07676;
+     sc ON specials*-0.07127;
+     sc ON others*-0.05720;
+     sc ON bage*0.03991;
+     sc ON height*0.00212;
 
-     p1 WITH c1*7.50650 (res_cov);
-     p2 WITH c2*7.50650 (res_cov);
-     p3 WITH c3*7.50650 (res_cov);
-     ip WITH sp*-41.27661;
-     ip WITH ic*-23.48651;
-     ip WITH sc*0.32487;
-     sp WITH ic*3.08667;
-     sp WITH sc*-0.02048;
-     ic WITH sc*-0.23650;
+     p1 WITH c1*-1.67742 (res_cov);
+     p2 WITH c2*-1.67742 (res_cov);
+     p3 WITH c3*-1.67742 (res_cov);
+     ip WITH sp*-43.95959;
+     ip WITH ic*2.00545;
+     ip WITH sc*-0.71528;
+     sp WITH ic*0.09829;
+     sp WITH sc*0.12197;
+     ic WITH sc*-0.09988;
 
      [ p1@0 ];
      [ p2@0 ];
@@ -420,21 +420,21 @@ MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
      [ c1@0 ];
      [ c2@0 ];
      [ c3@0 ];
-     [ ip*85.50145 ];
-     [ sp*-6.37002 ];
-     [ ic*16.77862 ];
-     [ sc*-0.04285 ];
+     [ ip*85.86823 ];
+     [ sp*-6.75205 ];
+     [ ic*12.15167 ];
+     [ sc*0.32478 ];
 
-     p1*177.17070 (res_p);
-     p2*177.17070 (res_p);
-     p3*177.17070 (res_p);
-     c1*14.62270 (res_c);
-     c2*14.62270 (res_c);
-     c3*14.62270 (res_c);
-     ip*397.39297;
-     sp*4.36415;
-     ic*42.74573;
-     sc*0.07128;
+     p1*169.56665 (res_p);
+     p2*169.56665 (res_p);
+     p3*169.56665 (res_p);
+     c1*2.89944 (res_c);
+     c2*2.89944 (res_c);
+     c3*2.89944 (res_c);
+     ip*408.39206;
+     sp*4.97115;
+     ic*13.81298;
+     sc*0.01426;
 
 
 
@@ -735,8 +735,8 @@ TECHNICAL 1 OUTPUT
  P1           392.849
  P2             0.000        81.261
  P3             0.000         0.000        66.000
- C1             0.000         0.000         0.000        30.907
- C2             0.000         0.000         0.000         0.000        35.963
+ C1             0.000         0.000         0.000        10.994
+ C2             0.000         0.000         0.000         0.000         9.953
  C3             0.000         0.000         0.000         0.000         0.000
  HAUPTS         0.000         0.000         0.000         0.000         0.000
  REALS          0.000         0.000         0.000         0.000         0.000
@@ -750,7 +750,7 @@ TECHNICAL 1 OUTPUT
            THETA
               C3            HAUPTS        REALS         SECOND        SPECIALS
               ________      ________      ________      ________      ________
- C3            30.390
+ C3            10.040
  HAUPTS         0.000         0.000
  REALS          0.000         0.000         0.000
  SECOND         0.000         0.000         0.000         0.000
@@ -771,7 +771,7 @@ TECHNICAL 1 OUTPUT
            ALPHA
               IP            SP            IC            SC            HAUPTS
               ________      ________      ________      ________      ________
- 1             66.966        -2.418        25.593        -0.619         0.000
+ 1             66.966        -2.418        13.215         0.146         0.000
 
 
            ALPHA
@@ -839,8 +839,8 @@ TECHNICAL 1 OUTPUT
               ________      ________      ________      ________      ________
  IP           808.152
  SP             0.000        41.519
- IC             0.000         0.000        63.552
- SC             0.000         0.000         0.000         1.173
+ IC             0.000         0.000        23.223
+ SC             0.000         0.000         0.000         0.360
  HAUPTS         0.000         0.000         0.000         0.000         0.122
  REALS          0.000         0.000         0.000         0.000         0.000
  SECOND         0.000         0.000         0.000         0.000         0.000
@@ -875,9 +875,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\handgrip\b1_female_
 
-     Beginning Time:  17:07:09
-        Ending Time:  17:07:12
-       Elapsed Time:  00:00:03
+     Beginning Time:  09:40:45
+        Ending Time:  09:40:49
+       Elapsed Time:  00:00:04
 
 
 

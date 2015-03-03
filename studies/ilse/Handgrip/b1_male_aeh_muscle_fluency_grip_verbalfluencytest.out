@@ -1,0 +1,407 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+03/03/2015   9:31 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Timed Up and Go, Verbal Fluency, AEH, Male
+
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 02.03.dat;
+
+  VARIABLE: Names are
+   T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center t1beer
+   t1wine t1k t1pc t1vf t1sa t1spf t2dss t2bd
+      t2fs t2fsb t2beer t2wine t2k t2pc t2vf t2sa t2spf
+      t3dss t3bd t3k t3pc t3vf t3sa t3spf t2age t3age
+      T1TUG t1height t1weight T2TUG t2height t2weight
+      T3TUG t3height t3weight time1 time2r time3r time3
+      time2 no_sec Haupts Reals Second specials others
+       T1HAVIR1 T1HAVIL1 T1HAVIR2 T1HAVIL2 T2HAVIR1
+      T2HAVIR2 T2HAVIL1 T2HAVIL2 T3HAVIR1x
+      T3HAVIR2x T3HAVIL1x T3HAVIL2x t1hg t2hg t3hg;
+
+         MISSING are ALL(-9999);
+         USEVAR are time1 time2 time3 Haupts Reals Second  specials others
+                     p1 p2 p3 c1 c2 c3
+                     Bage height;
+         TSCORES = time1 time2 time3;
+
+
+         USEOBSERVATIONS are sex EQ 0;
+
+  Define: p1=t1hg; p2=t2hg; p3=t3hg;
+          c1=t1vf; c2=t2vf; c3=t3vf;
+
+          Bage=t1age-70;   !Centered at Age 70
+          Bagesq=(t1age-70)**2;
+          height=t1height-172; !centered for male
+
+  ANALYSIS: TYPE = RANDOM; Estimator=MLF;
+
+  MODEL:  ip sp | p1-p3 AT time1-time3;
+          ic sc | c1-c3 AT time1-time3;
+          ip; sp; ic; sc;
+          ip sp ic sc WITH ip sp ic sc;
+
+          ip sp ic sc ON Haupts Reals Second  specials others Bage height;
+
+          p1-p3 (res_p);
+          c1-c3 (res_c);
+          p1-p3 pwith c1-c3(res_cov); !Paired covariances constrained to be equal
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  7
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Timed Up and Go, Verbal Fluency, AEH, Male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         253
+
+Number of dependent variables                                    6
+Number of independent variables                                  7
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          C1          C2          C3
+
+Observed independent variables
+   HAUPTS      REALS       SECOND      SPECIALS    OTHERS      BAGE
+   HEIGHT
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLF
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Besitzer\Desktop\ilse 02.03.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            11
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             0.960
+ P2             0.854         0.889
+ P3             0.308         0.316         0.320
+ C1             0.957         0.889         0.320         0.996
+ C2             0.854         0.885         0.316         0.893         0.893
+ C3             0.577         0.601         0.320         0.605         0.601
+ HAUPTS         0.960         0.889         0.320         0.996         0.893
+ REALS          0.960         0.889         0.320         0.996         0.893
+ SECOND         0.960         0.889         0.320         0.996         0.893
+ SPECIALS       0.960         0.889         0.320         0.996         0.893
+ OTHERS         0.960         0.889         0.320         0.996         0.893
+ BAGE           0.960         0.889         0.320         0.996         0.893
+ HEIGHT         0.960         0.889         0.320         0.996         0.893
+
+
+           Covariance Coverage
+              C3            HAUPTS        REALS         SECOND        SPECIALS
+              ________      ________      ________      ________      ________
+ C3             0.605
+ HAUPTS         0.605         1.000
+ REALS          0.605         1.000         1.000
+ SECOND         0.605         1.000         1.000         1.000
+ SPECIALS       0.605         1.000         1.000         1.000         1.000
+ OTHERS         0.605         1.000         1.000         1.000         1.000
+ BAGE           0.605         1.000         1.000         1.000         1.000
+ HEIGHT         0.605         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              OTHERS        BAGE          HEIGHT
+              ________      ________      ________
+ OTHERS         1.000
+ BAGE           1.000         1.000
+ HEIGHT         1.000         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ 1             85.311        81.954        63.175        27.975        28.401
+
+
+           Means
+              C3            HAUPTS        REALS         SECOND        SPECIALS
+              ________      ________      ________      ________      ________
+ 1             26.130         0.534         0.146         0.020         0.036
+
+
+           Means
+              OTHERS        BAGE          HEIGHT
+              ________      ________      ________
+ 1              0.202        -7.024         2.087
+
+
+           Covariances
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1           657.530
+ P2           239.347       298.523
+ P3           144.092       160.388       177.168
+ C1            25.376        30.879        11.229        73.643
+ C2            -6.412        36.551         7.653        58.791        95.700
+ C3            -3.456        34.679        10.761        55.804        72.919
+ HAUPTS        -0.206        -0.521        -0.165        -1.178        -1.234
+ REALS          0.457        -0.375        -0.247         0.181         0.129
+ SECOND        -0.001         0.037        -0.134         0.036         0.016
+ SPECIALS       0.179         0.393         0.306         0.143         0.057
+ OTHERS        -0.124         0.859         0.330         1.029         1.372
+ BAGE           0.421        -0.324         0.647        -0.364        -0.476
+ HEIGHT        26.583        26.201         6.127        10.766        13.186
+
+
+           Covariances
+              C3            HAUPTS        REALS         SECOND        SPECIALS
+              ________      ________      ________      ________      ________
+ C3            87.115
+ HAUPTS        -0.870         0.249
+ REALS          0.108        -0.078         0.125
+ SECOND        -0.049        -0.011        -0.003         0.019
+ SPECIALS       0.058        -0.019        -0.005        -0.001         0.034
+ OTHERS         1.237        -0.108        -0.029        -0.004        -0.007
+ BAGE          -0.298        -0.007        -0.017        -0.001         0.002
+ HEIGHT         8.062        -0.708        -0.082         0.085         0.094
+
+
+           Covariances
+              OTHERS        BAGE          HEIGHT
+              ________      ________      ________
+ OTHERS         0.161
+ BAGE          -0.010         0.837
+ HEIGHT         0.858        -0.392        44.779
+
+
+           Correlations
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.540         1.000
+ P3             0.422         0.697         1.000
+ C1             0.115         0.208         0.098         1.000
+ C2            -0.026         0.216         0.059         0.700         1.000
+ C3            -0.014         0.215         0.087         0.697         0.799
+ HAUPTS        -0.016        -0.060        -0.025        -0.275        -0.253
+ REALS          0.050        -0.061        -0.053         0.060         0.037
+ SECOND         0.000         0.016        -0.072         0.030         0.012
+ SPECIALS       0.038         0.123         0.124         0.090         0.031
+ OTHERS        -0.012         0.124         0.062         0.299         0.349
+ BAGE           0.018        -0.020         0.053        -0.046        -0.053
+ HEIGHT         0.155         0.227         0.069         0.187         0.201
+
+
+           Correlations
+              C3            HAUPTS        REALS         SECOND        SPECIALS
+              ________      ________      ________      ________      ________
+ C3             1.000
+ HAUPTS        -0.187         1.000
+ REALS          0.033        -0.443         1.000
+ SECOND        -0.038        -0.152        -0.059         1.000
+ SPECIALS       0.034        -0.205        -0.079        -0.027         1.000
+ OTHERS         0.330        -0.537        -0.208        -0.071        -0.097
+ BAGE          -0.035        -0.016        -0.053        -0.007         0.011
+ HEIGHT         0.129        -0.212        -0.035         0.092         0.076
+
+
+           Correlations
+              OTHERS        BAGE          HEIGHT
+              ________      ________      ________
+ OTHERS         1.000
+ BAGE          -0.028         1.000
+ HEIGHT         0.320        -0.064         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -5589.384
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       45
+
+Loglikelihood
+
+          H0 Value                       -4483.134
+
+Information Criteria
+
+          Akaike (AIC)                    9056.269
+          Bayesian (BIC)                  9215.271
+          Sample-Size Adjusted BIC        9072.613
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    HAUPTS             3.801      9.904      0.384      0.701
+    REALS              5.601     11.138      0.503      0.615
+    SECOND             6.135    185.824      0.033      0.974
+    SPECIALS           8.087     13.667      0.592      0.554
+    OTHERS             1.277     10.353      0.123      0.902
+    BAGE               0.569      1.707      0.333      0.739
+    HEIGHT             0.689      0.282      2.441      0.015
+
+ SP         ON
+    HAUPTS            -0.237      1.260     -0.188      0.851
+    REALS             -0.651      1.360     -0.479      0.632
+    SECOND            -1.415     21.460     -0.066      0.947
+    SPECIALS           0.604      1.583      0.382      0.703
+    OTHERS             0.380      1.277      0.298      0.766
+    BAGE              -0.094      0.217     -0.433      0.665
+    HEIGHT            -0.053      0.035     -1.513      0.130
+
+ IC         ON
+    HAUPTS             0.784      2.273      0.345      0.730
+    REALS              4.175      2.681      1.557      0.120
+    SECOND             4.492     26.486      0.170      0.865
+    SPECIALS           6.091      4.148      1.468      0.142
+    OTHERS             8.043      2.538      3.169      0.002
+    BAGE              -0.270      0.636     -0.425      0.671
+    HEIGHT             0.112      0.099      1.132      0.258
+
+ SC         ON
+    HAUPTS             0.458      0.292      1.570      0.117
+    REALS              0.379      0.326      1.160      0.246
+    SECOND             0.090      3.036      0.030      0.976
+    SPECIALS           0.239      0.533      0.449      0.654
+    OTHERS             0.546      0.296      1.846      0.065
+    BAGE               0.022      0.069      0.323      0.746
+    HEIGHT            -0.009      0.009     -1.011      0.312
+
+ IP       WITH
+    SP               -24.503      6.286     -3.898      0.000
+    IC                 9.958     14.021      0.710      0.478
+    SC                -0.786      1.275     -0.616      0.538
+
+ SP       WITH
+    IC                -0.182      1.654     -0.110      0.912
+    SC                 0.047      0.149      0.318      0.751
+
+ IC       WITH
+    SC                 0.506      0.521      0.970      0.332
+
+ P1       WITH
+    C1                13.186      5.003      2.636      0.008
+
+ P2       WITH
+    C2                13.186      5.003      2.636      0.008
+
+ P3       WITH
+    C3                13.186      5.003      2.636      0.008
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    IP                85.986     15.457      5.563      0.000
+    SP                -2.268      1.833     -1.237      0.216
+    IC                23.273      4.716      4.935      0.000
+    SC                -0.405      0.544     -0.745      0.456
+
+ Residual Variances
+    P1               175.487     17.353     10.113      0.000
+    P2               175.487     17.353     10.113      0.000
+    P3               175.487     17.353     10.113      0.000
+    C1                22.735      2.291      9.922      0.000
+    C2                22.735      2.291      9.922      0.000
+    C3                22.735      2.291      9.922      0.000
+    IP               367.340     51.632      7.115      0.000
+    SP                 1.730      0.979      1.768      0.077
+    IC                45.163      7.936      5.691      0.000
+    SC                 0.023      0.076      0.309      0.757
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.962E-08
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\handgrip\b1_male_ae
+
+     Beginning Time:  09:31:23
+        Ending Time:  09:31:28
+       Elapsed Time:  00:00:05
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
