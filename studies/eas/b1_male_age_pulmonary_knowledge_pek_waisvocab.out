@@ -1,6 +1,6 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-03/03/2015   1:07 PM
+03/03/2015   2:19 PM
 
 INPUT INSTRUCTIONS
 
@@ -307,9 +307,9 @@ INPUT INSTRUCTIONS
        p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
        p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	!p9=PeakFlowBestOf3_9;	
 
-   c1=Vocraw_1;	c2=Vocraw_2;	c3=Vocraw_3;	c4=Vocraw_4;	c5=Vocraw_5;	
-   c6=Vocraw_6;	
-   c7=Vocraw_7;	c8=Vocraw_8;	!c9=Vocraw_9;	!c10=Vocraw_10;
+   !c1=Vocraw_1;	c2=Vocraw_2;	c3=Vocraw_3;	c4=Vocraw_4;	c5=Vocraw_5;	
+   !c6=Vocraw_6;	
+   !c7=Vocraw_7;	c8=Vocraw_8;	!c9=Vocraw_9;	!c10=Vocraw_10;
 
         c1=FAS_1;	c2=FAS_2;	c3=FAS_3;	c4=FAS_4;	c5=FAS_5;	c6=FAS_6;	c7=FAS_7;
         c8=FAS_8;	!c9=FAS_9;	!c10=FAS_10;
@@ -852,8 +852,8 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\b1_male_age_pulmonary_kn
 
-     Beginning Time:  13:07:22
-        Ending Time:  13:07:25
+     Beginning Time:  14:19:25
+        Ending Time:  14:19:28
        Elapsed Time:  00:00:03
 
 

@@ -301,9 +301,9 @@
      p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
      p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	!p9=PeakFlowBestOf3_9;	
 
- c1=Vocraw_1;	c2=Vocraw_2;	c3=Vocraw_3;	c4=Vocraw_4;	c5=Vocraw_5;	
- c6=Vocraw_6;	
- c7=Vocraw_7;	c8=Vocraw_8;	!c9=Vocraw_9;	!c10=Vocraw_10;
+ !c1=Vocraw_1;	c2=Vocraw_2;	c3=Vocraw_3;	c4=Vocraw_4;	c5=Vocraw_5;	
+ !c6=Vocraw_6;	
+ !c7=Vocraw_7;	c8=Vocraw_8;	!c9=Vocraw_9;	!c10=Vocraw_10;
 
       c1=FAS_1;	c2=FAS_2;	c3=FAS_3;	c4=FAS_4;	c5=FAS_5;	c6=FAS_6;	c7=FAS_7;
       c8=FAS_8;	!c9=FAS_9;	!c10=FAS_10;
