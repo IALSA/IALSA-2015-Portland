@@ -20,13 +20,50 @@ list.files(pathStudy)
 
 pathStudy
 
+## obtain list of out files with github sync issues.
+out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+
+out_list
+conf_file <- array(NA, dim=length(out_list))
+                   
+for(i in 1:length(out_list)){
+    ## Check whether there is a CI block at all
+    is_conflict <- (length(grep("<<<<", scan(out_list[i], what='character', sep='\n')))>=1)
+    if(is_conflict) {
+        ## record file location
+        conf_file[i] <- out_list[i]
+    }
+}
+
+conflict <- conf_file[!is.na(conf_file)]
+conflict
+
+for(i in 1:length(conflict)){
+    file.rename(conflict[i], paste0(conflict[i], '.conflict'))
+}
+
 ## Uncomment in case output files need to be generated and
 ## change "never" to "always" to overwrite existing out files
 ## pathStudy
 ## runModels(directory=pathStudy, replaceOutfile="always")
 
-## Read in Model Summaries
+## Read in Model Summaries. 
 msum <- MplusAutomation::extractModelSummaries(target=pathStudy, recursive=T)
+## Returns different file order as file.list
+## Also, msum is dyanmic in the sense that it adapts its col.names to the match the out file.
+
+names(msum)
+length(msum[,1])
+
+for(i in 1:length(out_list)){
+    msum[i,] <-
+        ## maybe use merge instead?
+        MplusAutomation::extractModelSummaries(target=out_list[i], recursive=F)
+}
+
+length(out_list)
+msum
+
 names(msum)
 msum[1,]
 msum$Filename
@@ -35,7 +72,8 @@ msum$Filename
 ## Temporary fix
 ## extractModelParameters() sometimes breakes down if it encounters confidence intervals in out file.
 ## Solution: Identify outputfiles with CI and delete that section before reading them in
-out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out")
+out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+length(out_list)
 
 ##
 for(i in 1:length(out_list)){
@@ -57,6 +95,9 @@ mpar <- MplusAutomation::extractModelParameters(target=pathStudy, recursive=T, d
 ## count number of models
 nmodels <- length(mpar)
 nmodels
+
+## Sanity check
+nmodels==length(out_list)
 
 ## Generate empty data frame to be populated by Mplus values
 results=data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
@@ -88,14 +129,15 @@ for(i in seq_along(mpar)){
     results[i, c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
     results[i, "physical_specific"] <- strsplit(msum$Filename[i], '_|.out')[[1]][6]
     results[i, "cognitive_specific"] <- strsplit(msum$Filename[i], '_|.out')[[1]][7]
-    ## Check for model conversion
-    conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
+    ## Check for model convergence
+    conv <-  length(
+        grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
     has_converged <- conv==1
     results[i, 'converged'] <- has_converged
     if(has_converged) {
         ## obtain model for current loop
-        model <- mpar[[i]]#$unstandardized
-        model       
+        model <- mpar[[i]]
+        ## model       
         wc <- model[model$paramHeader=='Intercepts', 'param']
         results[i, 'wave_count'] <-
             max(as.numeric(gsub("[^0-9]", '', wc)), na.rm=T)
