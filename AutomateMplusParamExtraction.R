@@ -20,12 +20,12 @@ list.files(pathStudy)
 
 pathStudy
 
+
 ## obtain list of out files with github sync issues.
 out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
-
-out_list
 conf_file <- array(NA, dim=length(out_list))
-                   
+
+## scan for github insert symbols <<<<<
 for(i in 1:length(out_list)){
     ## Check whether there is a CI block at all
     is_conflict <- (length(grep("<<<<", scan(out_list[i], what='character', sep='\n')))>=1)
@@ -35,9 +35,11 @@ for(i in 1:length(out_list)){
     }
 }
 
+## collect conflicting files
 conflict <- conf_file[!is.na(conf_file)]
 conflict
 
+## Rename conflicting files with append .coflict
 if(length(conflict)>=1){
     for(i in 1:length(conflict)){
         file.rename(conflict[i], paste0(conflict[i], '.conflict'))
@@ -49,38 +51,9 @@ if(length(conflict)>=1){
 ## pathStudy
 ## runModels(directory=pathStudy, replaceOutfile="always")
 
-## Read in Model Summaries. 
-#msum <- MplusAutomation::extractModelSummaries(target=pathStudy, recursive=T)
-## Returns different file order as file.list
-## Also, msum is dyanmic in the sense that it adapts its col.names to the match the out file.
-#msum <- MplusAutomation::extractModelSummaries(target=out_list[1], recursive=F)
-#msum_names <- names(msum)
 
-msum
-
-msum_names <- c("Mplus.version","Title","AnalysisType","Estimator","Observations","Parameters","LL","AIC","BIC","aBIC","AICC","Filename") 
-
-indtest <- MplusAutomation::extractModelSummaries(target=out_list[1], recursive=F)
-
-names(indtest)[names(indtest) %in% msum_names]
-
-msum <- data.frame(matrix(ncol=length(msum_names)))
-msum
-names(msum) <- msum_names
-
-i=1
-
-for(i in 1:length(out_list)){
-    indmsum <- MplusAutomation::extractModelSummaries(target=out_list[i], recursive=F)
-    ## obtain variable names and write only those of interest and those from mplus out file into msum
-    msum[i,names(indmsum)[names(indmsum) %in% msum_names]] <-indmsum[names(indmsum) %in% msum_names]
-}
-
-length(out_list)
-msum
-
-## Temporary fix
 ## extractModelParameters() sometimes breakes down if it encounters confidence intervals in out file.
+## Temporary fix
 ## Solution: Identify outputfiles with CI and delete that section before reading them in
 out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
 length(out_list)
@@ -99,8 +72,35 @@ for(i in 1:length(out_list)){
     }
 }
 
-## Extract Estimates
-mpar <- MplusAutomation::extractModelParameters(target=pathStudy, recursive=T, dropDimensions=T)
+
+## Read in Model Summaries. 
+#msum <- MplusAutomation::extractModelSummaries(target=pathStudy, recursive=T)
+## Returns different file order as file.list
+## Also, msum is dyanmic in the sense that it adapts its col.names to the match the out file.
+#msum <- MplusAutomation::extractModelSummaries(target=out_list[1], recursive=F)
+#msum_names <- names(msum)
+
+
+## Define variable names needed for our tables
+msum_names <- c("Mplus.version","Title","AnalysisType","Estimator","Observations","Parameters","LL","AIC","BIC","aBIC","AICC","Filename") 
+
+## init msum object 
+msum <- data.frame(matrix(ncol=length(msum_names)))
+msum
+names(msum) <- msum_names
+## init mpar object
+mpar <- list()
+
+for(i in 1:length(out_list)){
+    indmsum <- MplusAutomation::extractModelSummaries(target=out_list[i], recursive=FALSE)
+    ## obtain variable names and write only those of interest and those from mplus out file into msum
+    msum[i,names(indmsum)[names(indmsum) %in% msum_names]] <-indmsum[names(indmsum) %in% msum_names]
+    ## sorting issue also arises for extractModelParameters(), which is a list
+    mpar[i] <- MplusAutomation::extractModelParameters(target=out_list[i], recursive=FALSE, dropDimensions=T)
+}
+
+length(out_list)
+msum
 
 ## count number of models
 nmodels <- length(mpar)
@@ -112,16 +112,6 @@ nmodels==length(out_list)
 ## Generate empty data frame to be populated by Mplus values
 results=data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
 names(results) <-  dto.vars
-
-## come with new pathStudy that includes folder
-
-## number of folders
-##
-##dir_names <- strsplit(list.dirs(pathStudy, recursive=FALSE), 'studies/')
-##num_dir <- length(dir_names)
-
-pathStudy
-out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out")
 
 for(i in seq_along(mpar)){
     mplus_output <-
