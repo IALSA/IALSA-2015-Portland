@@ -50,28 +50,34 @@ if(length(conflict)>=1){
 ## runModels(directory=pathStudy, replaceOutfile="always")
 
 ## Read in Model Summaries. 
-msum <- MplusAutomation::extractModelSummaries(target=pathStudy, recursive=T)
+#msum <- MplusAutomation::extractModelSummaries(target=pathStudy, recursive=T)
 ## Returns different file order as file.list
 ## Also, msum is dyanmic in the sense that it adapts its col.names to the match the out file.
-msum_names <- names(MplusAutomation::extractModelSummaries(target=out_list[1], recursive=F))
+#msum <- MplusAutomation::extractModelSummaries(target=out_list[1], recursive=F)
+#msum_names <- names(msum)
 
-names(msum)
-length(msum[,1])
+msum
+
+msum_names <- c("Mplus.version","Title","AnalysisType","Estimator","Observations","Parameters","LL","AIC","BIC","aBIC","AICC","Filename") 
+
+indtest <- MplusAutomation::extractModelSummaries(target=out_list[1], recursive=F)
+
+names(indtest)[names(indtest) %in% msum_names]
+
+msum <- data.frame(matrix(ncol=length(msum_names)))
+msum
+names(msum) <- msum_names
+
+i=1
 
 for(i in 1:length(out_list)){
     indmsum <- MplusAutomation::extractModelSummaries(target=out_list[i], recursive=F)
-    msum[i,] <-indmsum
-        ## maybe use merge instead?
-        MplusAutomation::extractModelSummaries(target=out_list[i], recursive=F)
+    ## obtain variable names and write only those of interest and those from mplus out file into msum
+    msum[i,names(indmsum)[names(indmsum) %in% msum_names]] <-indmsum[names(indmsum) %in% msum_names]
 }
 
 length(out_list)
 msum
-
-names(msum)
-msum[1,]
-msum$Filename
-
 
 ## Temporary fix
 ## extractModelParameters() sometimes breakes down if it encounters confidence intervals in out file.
