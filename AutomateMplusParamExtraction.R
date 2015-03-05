@@ -38,8 +38,10 @@ for(i in 1:length(out_list)){
 conflict <- conf_file[!is.na(conf_file)]
 conflict
 
-for(i in 1:length(conflict)){
-    file.rename(conflict[i], paste0(conflict[i], '.conflict'))
+if(length(conflict)>=1){
+    for(i in 1:length(conflict)){
+        file.rename(conflict[i], paste0(conflict[i], '.conflict'))
+    }
 }
 
 ## Uncomment in case output files need to be generated and
@@ -51,12 +53,14 @@ for(i in 1:length(conflict)){
 msum <- MplusAutomation::extractModelSummaries(target=pathStudy, recursive=T)
 ## Returns different file order as file.list
 ## Also, msum is dyanmic in the sense that it adapts its col.names to the match the out file.
+msum_names <- names(MplusAutomation::extractModelSummaries(target=out_list[1], recursive=F))
 
 names(msum)
 length(msum[,1])
 
 for(i in 1:length(out_list)){
-    msum[i,] <-
+    indmsum <- MplusAutomation::extractModelSummaries(target=out_list[i], recursive=F)
+    msum[i,] <-indmsum
         ## maybe use merge instead?
         MplusAutomation::extractModelSummaries(target=out_list[i], recursive=F)
 }
