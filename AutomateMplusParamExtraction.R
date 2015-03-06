@@ -20,7 +20,6 @@ list.files(pathStudy)
 
 pathStudy
 
-
 ## obtain list of out files with github sync issues.
 out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
 conf_file <- array(NA, dim=length(out_list))
@@ -73,7 +72,7 @@ for(i in 1:length(out_list)){
 }
 
 
-## Read in Model Summaries. 
+## Read in Model Summaries.
 #msum <- MplusAutomation::extractModelSummaries(target=pathStudy, recursive=T)
 ## Returns different file order as file.list
 ## Also, msum is dyanmic in the sense that it adapts its col.names to the match the out file.
@@ -84,7 +83,7 @@ for(i in 1:length(out_list)){
 ## Define variable names needed for our tables
 msum_names <- c("Mplus.version","Title","AnalysisType","Estimator","Observations","Parameters","LL","AIC","BIC","aBIC","AICC","Filename") 
 
-## init msum object 
+## init msum object
 msum <- data.frame(matrix(ncol=length(msum_names)))
 msum
 names(msum) <- msum_names
@@ -98,6 +97,8 @@ for(i in 1:length(out_list)){
     ## sorting issue also arises for extractModelParameters(), which is a list
     mpar[i] <- MplusAutomation::extractModelParameters(target=out_list[i], recursive=FALSE, dropDimensions=T)
 }
+
+i
 
 length(out_list)
 msum
@@ -137,7 +138,7 @@ for(i in seq_along(mpar)){
     if(has_converged) {
         ## obtain model for current loop
         model <- mpar[[i]]
-        ## model       
+        ## model
         wc <- model[model$paramHeader=='Intercepts', 'param']
         results[i, 'wave_count'] <-
             max(as.numeric(gsub("[^0-9]", '', wc)), na.rm=T)
@@ -146,7 +147,7 @@ for(i in seq_along(mpar)){
         ## Covariances ##
         #################
         ## Look for at least 4 WITH statements - otherwise fall back to 'Means' and 'Variances' (Baseline Models)
-        modtype <- (length(grep("WITH", model$paramHeader))>=4) 
+        modtype <- (length(grep("WITH", model$paramHeader))>=4)
         modtype
         if(modtype) { # if modtype==1 we have WITH statements
             x <- model[grep("WITH", model$paramHeader),]
@@ -248,11 +249,10 @@ write.csv(results, file='automation_result.csv', row.names = F)
 
 
 studies <- unique(results$study_name)
-getPrototype
+studies
 
 ## Save subfiles
 for(stdname in studies){
     destination <- file.path(pathStudy, stdname, "study_automation_result.csv")
     write.csv(results[results$study_name==stdname,], destination, row.names=F)
 }
-    
