@@ -3,7 +3,7 @@
 ![logl](libs/images/ialsa_long.png)
 
 ## Dynamic reports
-*last updated 2015-02-26, 23:38 GMT*
+*last updated 2015-03-07, 16:35 GMT*
 
 - [tabled results](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/synthesis/study_report.html) for each study across all models.
 
