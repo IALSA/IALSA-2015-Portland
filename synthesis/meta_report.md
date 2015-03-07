@@ -143,45 +143,227 @@ satsa        verbal              male       age                     247         
 
 ![](figure_meta/forest_static-5.png) ![](figure_meta/forest_static-6.png) ![](figure_meta/forest_static-7.png) ![](figure_meta/forest_static-8.png) ![](figure_meta/forest_static-9.png) ![](figure_meta/forest_static-10.png) ![](figure_meta/forest_static-11.png) ![](figure_meta/forest_static-12.png) ![](figure_meta/forest_static-13.png) ![](figure_meta/forest_static-14.png) ![](figure_meta/forest_static-15.png) 
 
-## `muscle` 
+## `memory` 
 
-Studies with this physical variable listed in the model output: habc, radc 
+Studies with this physical variable listed in the model output: radc 
 
 
 
 study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
 -----------  ------------------  ---------  -----------  --------------  -----------  ----------
-habc         executive           female     aeh                    1575           10  TRUE      
-habc         executive           female     aehplus                1535           10  TRUE      
-habc         executive           female     age                    1581           10  TRUE      
-habc         executive           male       aeh                    1489           10  TRUE      
-habc         executive           male       aehplus                1464           10  TRUE      
-habc         executive           male       age                    1491           10  TRUE      
-habc         mental              female     aeh                    1578           11  TRUE      
-habc         mental              female     aehplus                1538           11  TRUE      
-habc         mental              female     age                    1584           11  TRUE      
-habc         mental              male       aeh                    1489           11  TRUE      
-habc         mental              male       aehplus                1464           11  TRUE      
-habc         mental              male       age                    1491           11  TRUE      
-habc         speed               female     aeh                    1578           11  TRUE      
-habc         speed               female     aehplus                1538           11  TRUE      
-habc         speed               female     age                    1584           11  TRUE      
-habc         speed               male       aeh                    1488           11  TRUE      
-habc         speed               male       aehplus                1463           11  TRUE      
-habc         speed               male       age                    1490           11  TRUE      
-radc         executive           female     age                    1951            5  TRUE      
-radc         executive           male       age                     722            5  TRUE      
-radc         knowledge           female     age                    1946            5  TRUE      
-radc         knowledge           male       age                     722            5  TRUE      
-radc         reasoning           female     age                    1930            5  TRUE      
-radc         reasoning           male       age                     704            5  TRUE      
-radc         speed               female     age                    1950            5  TRUE      
-radc         speed               male       age                     722            5  TRUE      
-radc         visuospatial        female     age                    1950            5  TRUE      
-radc         visuospatial        male       age                     722            5  TRUE      
+radc         memory              female     aeh                     964            5  TRUE      
 
 
-![](figure_meta/forest_static-16.png) ![](figure_meta/forest_static-17.png) ![](figure_meta/forest_static-18.png) ![](figure_meta/forest_static-19.png) ![](figure_meta/forest_static-20.png) ![](figure_meta/forest_static-21.png) 
+![](figure_meta/forest_static-16.png) 
+
+## `muscle` 
+
+Studies with this physical variable listed in the model output: eas, habc, ilse, octo, radc 
+
+
+
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+eas          reasoning           female     ae                      563            8   TRUE     
+eas          reasoning           female     aeh                     150            8   TRUE     
+eas          reasoning           female     aehplus                 150            8   TRUE     
+eas          reasoning           female     age                     563            8   TRUE     
+eas          reasoning           female     full                    150            8   TRUE     
+eas          reasoning           male       ae                      350            8   TRUE     
+eas          reasoning           male       aeh                      72            8   TRUE     
+eas          reasoning           male       aehplus                  72            8   TRUE     
+eas          reasoning           male       age                     350            8   TRUE     
+eas          reasoning           male       full                     72            8   TRUE     
+habc         mental              female     aeh                    1578           11   TRUE     
+habc         mental              female     aeh                    1575           10   TRUE     
+habc         mental              female     aehplus                1538           11   TRUE     
+habc         mental              female     aehplus                1535           10   TRUE     
+habc         mental              female     age                    1584           11   TRUE     
+habc         mental              female     age                    1581           10   TRUE     
+habc         mental              female     full                   1536           11   TRUE     
+habc         mental              female     full                   1533           10   TRUE     
+habc         mental              male       aeh                    1489           11   TRUE     
+habc         mental              male       aeh                    1489           10   TRUE     
+habc         mental              male       aehplus                1464           11   TRUE     
+habc         mental              male       aehplus                1464           10   TRUE     
+habc         mental              male       age                    1491           11   TRUE     
+habc         mental              male       age                    1491           10   TRUE     
+habc         mental              male       full                   1454           10   TRUE     
+habc         mental              male       full                   1454           11   TRUE     
+habc         speed               female     aeh                    1578           11   TRUE     
+habc         speed               female     aehplus                1538           11   TRUE     
+habc         speed               female     age                    1584           11   TRUE     
+habc         speed               female     full                   1536           11   TRUE     
+habc         speed               male       aeh                    1488           11   TRUE     
+habc         speed               male       aehplus                1463           11   TRUE     
+habc         speed               male       age                    1490           11   TRUE     
+habc         speed               male       full                   1453           11   TRUE     
+ilse         fluency             female     aeh                     226            3   TRUE     
+ilse         fluency             female     aehplus                 225            3   TRUE     
+ilse         fluency             female     age                     228            3   TRUE     
+ilse         fluency             male       aeh                     253            3   TRUE     
+ilse         fluency             male       aehplus                 252            3   TRUE     
+ilse         fluency             male       age                     253            3   TRUE     
+ilse         knowledge           female     aeh                     226            3   TRUE     
+ilse         knowledge           female     aehplus                 225            3   TRUE     
+ilse         knowledge           female     age                     228            3   TRUE     
+ilse         knowledge           male       aeh                     253            3   TRUE     
+ilse         knowledge           male       aehplus                 252            3   TRUE     
+ilse         knowledge           male       age                     253            3   TRUE     
+ilse         reasoning           female     aeh                     226            3   TRUE     
+ilse         reasoning           female     aeh                     226            3   TRUE     
+ilse         reasoning           female     aeh                     226            3   TRUE     
+ilse         reasoning           female     aehplus                 225            3   TRUE     
+ilse         reasoning           female     aehplus                 225            3   TRUE     
+ilse         reasoning           female     age                     228            3   TRUE     
+ilse         reasoning           female     age                     228            3   TRUE     
+ilse         reasoning           female     age                     228            3   TRUE     
+ilse         reasoning           male       aeh                     253            3   TRUE     
+ilse         reasoning           male       aeh                     253            3   TRUE     
+ilse         reasoning           male       aeh                     253            3   TRUE     
+ilse         reasoning           male       aehplus                 252            3   TRUE     
+ilse         reasoning           male       age                     253            3   TRUE     
+ilse         reasoning           male       age                     253            3   TRUE     
+ilse         speed               female     aeh                     226            3   TRUE     
+ilse         speed               female     aehplus                 225            3   TRUE     
+ilse         speed               female     age                     228            3   TRUE     
+ilse         speed               male       aeh                     253            3   TRUE     
+ilse         speed               male       aehplus                 252            3   TRUE     
+ilse         speed               male       age                     253            3   TRUE     
+octo         global              female     aeh                     276            5   TRUE     
+octo         global              female     age                     311            5   TRUE     
+octo         global              male       aeh                     140            5   TRUE     
+octo         global              male       age                     164            5   TRUE     
+octo         knowledge           female     aeh                     275            5   TRUE     
+octo         knowledge           female     aeh                     273            5   TRUE     
+octo         knowledge           female     age                     305            5   TRUE     
+octo         knowledge           female     age                     301            5   TRUE     
+octo         knowledge           male       aeh                     140            5   TRUE     
+octo         knowledge           male       aeh                     139            5   TRUE     
+octo         knowledge           male       age                     162            5   TRUE     
+octo         knowledge           male       age                     157            5   TRUE     
+octo         memory              female     aeh                     276            5   TRUE     
+octo         memory              female     aeh                     276            5   TRUE     
+octo         memory              female     aeh                     273            5   TRUE     
+octo         memory              female     aeh                     273            5   TRUE     
+octo         memory              female     age                     305            5   TRUE     
+octo         memory              female     age                     306            5   TRUE     
+octo         memory              female     age                     303            5   TRUE     
+octo         memory              female     age                     302            5   TRUE     
+octo         memory              male       aeh                     139            5   TRUE     
+octo         memory              male       aeh                     139            5   TRUE     
+octo         memory              male       aeh                     139            5   TRUE     
+octo         memory              male       aeh                     139            5   TRUE     
+octo         memory              male       age                     161            5   TRUE     
+octo         memory              male       age                     161            5   TRUE     
+octo         memory              male       age                     159            5   TRUE     
+octo         memory              male       age                     161            5   TRUE     
+octo         reasoning           female     aeh                     275            5   TRUE     
+octo         reasoning           female     aeh                     274            5   TRUE     
+octo         reasoning           female     age                     303            5   TRUE     
+octo         reasoning           female     age                     302            5   TRUE     
+octo         reasoning           male       aeh                     139            5   TRUE     
+octo         reasoning           male       aeh                     138            5   TRUE     
+octo         reasoning           male       age                     158            5   TRUE     
+octo         reasoning           male       age                     157            5   TRUE     
+octo         speed               female     aeh                     272            5   TRUE     
+octo         speed               female     aeh                     271            4   TRUE     
+octo         speed               female     age                     299            5   TRUE     
+octo         speed               female     age                     298            4   TRUE     
+octo         speed               male       aeh                     138            5   TRUE     
+octo         speed               male       aeh                     138            4   TRUE     
+octo         speed               male       age                     156            5   TRUE     
+octo         speed               male       age                     156            4   TRUE     
+radc         attention           female     aeh                     964            5   TRUE     
+radc         attention           female     aehplus                 962            5   TRUE     
+radc         attention           male       aeh                     335            5   TRUE     
+radc         attention           male       aehplus                 334            5   TRUE     
+radc         executive           female     aeh                     964            5   TRUE     
+radc         executive           female     aeh                     964            5   TRUE     
+radc         executive           female     aeh                     964            5   TRUE     
+radc         executive           female     aehplus                 962            5   TRUE     
+radc         executive           female     aehplus                 962            5   TRUE     
+radc         executive           female     aehplus                 962            5   TRUE     
+radc         executive           female     age                    1951            5   TRUE     
+radc         executive           male       aeh                     335            5   TRUE     
+radc         executive           male       aehplus                 334            5   TRUE     
+radc         executive           male       aehplus                 334            5   TRUE     
+radc         executive           male       aehplus                 334            5   TRUE     
+radc         executive           male       age                     722            5   TRUE     
+radc         global              female     aeh                     964            5   TRUE     
+radc         global              female     aehplus                 962            5   TRUE     
+radc         global              male       aeh                     335            5   TRUE     
+radc         global              male       aehplus                 334            5   TRUE     
+radc         knowledge           female     aeh                     963            5   TRUE     
+radc         knowledge           female     aehplus                 961            5   TRUE     
+radc         knowledge           female     age                    1946            5   TRUE     
+radc         knowledge           male       aeh                     335            5   TRUE     
+radc         knowledge           male       aehplus                 334            5   TRUE     
+radc         knowledge           male       age                     722            5   TRUE     
+radc         language            female     aeh                     963            5   TRUE     
+radc         language            female     aeh                     964            5   TRUE     
+radc         language            female     aehplus                 961            5   TRUE     
+radc         language            female     aehplus                 962            5   TRUE     
+radc         language            male       aeh                     335            5   TRUE     
+radc         language            male       aeh                     335            5   TRUE     
+radc         language            male       aehplus                 334            5   TRUE     
+radc         memory              female     aeh                     964            5   TRUE     
+radc         memory              female     aeh                     964            5   TRUE     
+radc         memory              female     aeh                     964            5   TRUE     
+radc         memory              female     aeh                     964            5   TRUE     
+radc         memory              female     aeh                     964            5   TRUE     
+radc         memory              female     aeh                     964            5   TRUE     
+radc         memory              female     aehplus                 962            5   TRUE     
+radc         memory              female     aehplus                 962            5   TRUE     
+radc         memory              female     aehplus                 962            5   TRUE     
+radc         memory              female     aehplus                 962            5   TRUE     
+radc         memory              female     aehplus                 962            5   TRUE     
+radc         memory              female     aehplus                 962            5   TRUE     
+radc         memory              female     aehplus                 962            5   TRUE     
+radc         memory              male       aeh                     335            5   TRUE     
+radc         memory              male       aeh                     335            5   TRUE     
+radc         memory              male       aeh                     335            5   TRUE     
+radc         memory              male       aeh                     335            5   TRUE     
+radc         memory              male       aeh                     335            5   TRUE     
+radc         memory              male       aeh                     335            5   TRUE     
+radc         memory              male       aeh                     335            5   TRUE     
+radc         memory              male       aehplus                 334            5   TRUE     
+radc         memory              male       aehplus                 334           NA  FALSE     
+radc         memory              male       aehplus                 334            5   TRUE     
+radc         memory              male       aehplus                 334            5   TRUE     
+radc         memory              male       aehplus                 334            5   TRUE     
+radc         memory              male       aehplus                 334            5   TRUE     
+radc         reasoning           female     aeh                     947            5   TRUE     
+radc         reasoning           female     aehplus                 945            5   TRUE     
+radc         reasoning           female     age                    1930            5   TRUE     
+radc         reasoning           male       aeh                     317            5   TRUE     
+radc         reasoning           male       aehplus                 316            5   TRUE     
+radc         reasoning           male       age                     704            5   TRUE     
+radc         speed               female     aeh                     963            5   TRUE     
+radc         speed               female     aeh                     963            5   TRUE     
+radc         speed               female     aehplus                 961            5   TRUE     
+radc         speed               female     aehplus                 961            5   TRUE     
+radc         speed               female     age                    1950            5   TRUE     
+radc         speed               male       aeh                     335            5   TRUE     
+radc         speed               male       aeh                     335            5   TRUE     
+radc         speed               male       aehplus                 334            5   TRUE     
+radc         speed               male       aehplus                 334            5   TRUE     
+radc         speed               male       age                     722            5   TRUE     
+radc         visuospatial        female     aeh                     963            5   TRUE     
+radc         visuospatial        female     aehplus                 961            5   TRUE     
+radc         visuospatial        female     age                    1950            5   TRUE     
+radc         visuospatial        male       aeh                     335            5   TRUE     
+radc         visuospatial        male       aehplus                 334            5   TRUE     
+radc         visuospatial        male       age                     722            5   TRUE     
+
+
+![](figure_meta/forest_static-17.png) ![](figure_meta/forest_static-18.png) ![](figure_meta/forest_static-19.png) ![](figure_meta/forest_static-20.png) ![](figure_meta/forest_static-21.png) ![](figure_meta/forest_static-22.png) 
+
+```
+Warning: Removed 1 rows containing missing values (geom_segment).
+```
+
+![](figure_meta/forest_static-23.png) ![](figure_meta/forest_static-24.png) ![](figure_meta/forest_static-25.png) ![](figure_meta/forest_static-26.png) ![](figure_meta/forest_static-27.png) 
 
 ## `pulmonary` 
 
@@ -191,33 +373,165 @@ Studies with this physical variable listed in the model output: eas, nas, octo, 
 
 study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
 -----------  ------------------  ---------  -----------  --------------  -----------  ----------
-eas          block               female     age                     563            9  TRUE      
-eas          block               female     full                    563            9  TRUE      
-eas          block               male       age                     350            9  TRUE      
-eas          block               male       full                    350            9  TRUE      
-nas          executive           male       ae                     1122            6  TRUE      
-nas          executive           male       aeplus                 1122            6  TRUE      
-nas          executive           male       age                    1127            6  TRUE      
-nas          memory              male       ae                     1124            6  TRUE      
-nas          memory              male       aeplus                 1124            6  TRUE      
-nas          memory              male       age                    1129            6  TRUE      
-nas          mental              male       ae                     1127            6  TRUE      
-nas          mental              male       aeplus                 1127            6  TRUE      
-nas          mental              male       age                    1132            6  TRUE      
-nas          visuospatial        male       ae                     1125            6  TRUE      
-nas          visuospatial        male       aeplus                 1125            6  TRUE      
-nas          visuospatial        male       age                    1130            6  TRUE      
+eas          knowledge           female     ae                      594            8  TRUE      
+eas          executive           female     ae                      580            9  TRUE      
+eas          executive           female     aeh                     150            8  TRUE      
+eas          executive           female     aehplus                 150            8  TRUE      
+eas          executive           female     age                     580            9  TRUE      
+eas          executive           female     full                    150            8  TRUE      
+eas          executive           male       ae                      368            9  TRUE      
+eas          executive           male       aeh                      72            8  TRUE      
+eas          executive           male       aehplus                  72            8  TRUE      
+eas          executive           male       age                     368            9  TRUE      
+eas          executive           male       full                     72            8  TRUE      
+eas          fluency             female     ae                      594            8  TRUE      
+eas          fluency             female     ae                      593            9  TRUE      
+eas          fluency             female     ae                      571            8  TRUE      
+eas          fluency             female     aeh                     150            8  TRUE      
+eas          fluency             female     aeh                     150            9  TRUE      
+eas          fluency             female     aeh                     150            8  TRUE      
+eas          fluency             female     aehplus                 150            8  TRUE      
+eas          fluency             female     aehplus                 150            9  TRUE      
+eas          fluency             female     aehplus                 150            8  TRUE      
+eas          fluency             female     age                     594            8  TRUE      
+eas          fluency             female     age                     593            9  TRUE      
+eas          fluency             female     age                     571            8  TRUE      
+eas          fluency             female     full                    150            8  TRUE      
+eas          fluency             female     full                    150            9  TRUE      
+eas          fluency             female     full                    150            8  TRUE      
+eas          fluency             male       ae                      376            8  TRUE      
+eas          fluency             male       ae                      376            9  TRUE      
+eas          fluency             male       ae                      358            8  TRUE      
+eas          fluency             male       aeh                      72            8  TRUE      
+eas          fluency             male       aeh                      72            8  TRUE      
+eas          fluency             male       aeh                      72            8  TRUE      
+eas          fluency             male       aehplus                  72            8  TRUE      
+eas          fluency             male       aehplus                  72            8  TRUE      
+eas          fluency             male       aehplus                  72            8  TRUE      
+eas          fluency             male       age                     376            8  TRUE      
+eas          fluency             male       age                     376            9  TRUE      
+eas          fluency             male       age                     358            9  TRUE      
+eas          fluency             male       full                     72            8  TRUE      
+eas          fluency             male       full                     72            8  TRUE      
+eas          fluency             male       full                     72            8  TRUE      
+eas          global              female     ae                      600            7  TRUE      
+eas          global              female     aeh                     150            7  TRUE      
+eas          global              female     aehplus                 150            7  TRUE      
+eas          global              female     age                     600            7  TRUE      
+eas          global              female     full                    150            7  TRUE      
+eas          global              male       ae                      383            7  TRUE      
+eas          global              male       aeh                      72            7  TRUE      
+eas          global              male       aehplus                  72            7  TRUE      
+eas          global              male       age                     383            7  TRUE      
+eas          global              male       full                     72            7  TRUE      
+eas          knowledge           female     ae                      543            7  TRUE      
+eas          knowledge           female     ae                      571            8  TRUE      
+eas          knowledge           female     aeh                     150            7  TRUE      
+eas          knowledge           female     aeh                     150            8  TRUE      
+eas          knowledge           female     aehplus                 150            7  TRUE      
+eas          knowledge           female     aehplus                 150            8  TRUE      
+eas          knowledge           female     age                     543            7  TRUE      
+eas          knowledge           female     age                     594            8  TRUE      
+eas          knowledge           female     full                    150            7  TRUE      
+eas          knowledge           female     full                    150            8  TRUE      
+eas          knowledge           male       ae                      353            7  TRUE      
+eas          knowledge           male       ae                      377            8  TRUE      
+eas          knowledge           male       aeh                      72            7  TRUE      
+eas          knowledge           male       aeh                      72            8  TRUE      
+eas          knowledge           male       aehplus                  72            7  TRUE      
+eas          knowledge           male       aehplus                  72            8  TRUE      
+eas          knowledge           male       age                     353            7  TRUE      
+eas          knowledge           male       age                     358            8  TRUE      
+eas          knowledge           male       full                     72            7  TRUE      
+eas          knowledge           male       full                     72            8  TRUE      
+eas          memory              female     ae                      595            8  TRUE      
+eas          memory              female     ae                      554            9  TRUE      
+eas          memory              female     aeh                     150            8  TRUE      
+eas          memory              female     aeh                     150            9  TRUE      
+eas          memory              female     aehplus                 150            8  TRUE      
+eas          memory              female     aehplus                 150            9  TRUE      
+eas          memory              female     age                     595            8  TRUE      
+eas          memory              female     age                     554            9  TRUE      
+eas          memory              female     full                    150            9  TRUE      
+eas          memory              female     full                    150            9  TRUE      
+eas          memory              male       ae                      379            8  TRUE      
+eas          memory              male       ae                      349            9  TRUE      
+eas          memory              male       aeh                      72            7  TRUE      
+eas          memory              male       aeh                      72            8  TRUE      
+eas          memory              male       aehplus                  72            8  TRUE      
+eas          memory              male       aehplus                  72            8  TRUE      
+eas          memory              male       age                     379            8  TRUE      
+eas          memory              male       age                     349            9  TRUE      
+eas          memory              male       full                     72            8  TRUE      
+eas          memory              male       full                     72            8  TRUE      
+eas          reasoning           female     ae                      563            9  TRUE      
+eas          reasoning           female     aeh                     150            8  TRUE      
+eas          reasoning           female     aehplus                 150            8  TRUE      
+eas          reasoning           female     age                     563            9  TRUE      
+eas          reasoning           female     full                    150            8  TRUE      
+eas          reasoning           male       ae                      350            9  TRUE      
+eas          reasoning           male       aeh                      72            8  TRUE      
+eas          reasoning           male       aehplus                  72            8  TRUE      
+eas          reasoning           male       age                     350            9  TRUE      
+eas          reasoning           male       full                     72            8  TRUE      
+eas          speed               female     ae                      592            7  TRUE      
+eas          speed               female     aeh                     150            6  TRUE      
+eas          speed               female     aehplus                 150            6  TRUE      
+eas          speed               female     age                     592            9  TRUE      
+eas          speed               female     full                    150            6  TRUE      
+eas          speed               male       ae                      377            5  TRUE      
+eas          speed               male       aeh                      72            6  TRUE      
+eas          speed               male       aehplus                  72            6  TRUE      
+eas          speed               male       age                     377            9  TRUE      
+eas          speed               male       full                     72            6  TRUE      
+nas          fluidreasoning      male       ae                     1125            6  TRUE      
+nas          fluidreasoning      male       ae                     1123            4  TRUE      
+nas          fluidreasoning      male       ae                     1125            6  TRUE      
+nas          fluidreasoning      male       ae                     1123            4  TRUE      
+nas          fluidreasoning      male       aeplus                 1124            6  TRUE      
+nas          fluidreasoning      male       aeplus                 1122            4  TRUE      
+nas          fluidreasoning      male       aeplus                 1124            6  TRUE      
+nas          fluidreasoning      male       aeplus                 1122            4  TRUE      
+nas          fluidreasoning      male       age                    1130            6  TRUE      
+nas          fluidreasoning      male       age                    1128            4  TRUE      
+nas          fluidreasoning      male       age                    1130            6  TRUE      
+nas          fluidreasoning      male       age                    1128            4  TRUE      
+nas          global              male       ae                     1127            6  TRUE      
+nas          global              male       ae                     1127            6  TRUE      
+nas          global              male       aeplus                 1126            6  TRUE      
+nas          global              male       aeplus                 1126            6  TRUE      
+nas          global              male       age                    1132            6  TRUE      
+nas          global              male       age                    1132            6  TRUE      
+nas          memoryattention     male       ae                     1124            6  TRUE      
+nas          memoryattention     male       ae                     1122            6  TRUE      
+nas          memoryattention     male       ae                     1124            6  TRUE      
+nas          memoryattention     male       ae                     1124            6  TRUE      
+nas          memoryattention     male       ae                     1122            6  TRUE      
+nas          memoryattention     male       ae                     1124            6  TRUE      
+nas          memoryattention     male       aeplus                 1123            6  TRUE      
+nas          memoryattention     male       aeplus                 1123            6  TRUE      
+nas          memoryattention     male       aeplus                 1123            6  TRUE      
+nas          memoryattention     male       aeplus                 1121            6  TRUE      
+nas          memoryattention     male       aeplus                 1123            6  TRUE      
+nas          memoryattention     male       age                    1129            6  TRUE      
+nas          memoryattention     male       age                    1127            6  TRUE      
+nas          memoryattention     male       age                    1129            6  TRUE      
+nas          memoryattention     male       age                    1127            6  TRUE      
+nas          memoryattention     male       age                    1129            6  TRUE      
+nas          memoryattention     male       age                    1129            6  TRUE      
+nas          verbalfluency       male       ae                     1124            6  TRUE      
+nas          verbalfluency       male       ae                     1124            6  TRUE      
+nas          verbalfluency       male       aeplus                 1123            6  TRUE      
+nas          verbalfluency       male       aeplus                 1123            6  TRUE      
+nas          verbalfluency       male       age                    1129            6  TRUE      
+nas          verbalfluency       male       age                    1129            6  TRUE      
 octo         block               female     aeh                     272            5  TRUE      
 octo         block               female     aehplus                 271            5  TRUE      
 octo         block               female     age                     293            5  TRUE      
-octo         block               female     age                     293            5  TRUE      
-octo         block               female     full                    289            5  TRUE      
 octo         block               female     full                    289            5  TRUE      
 octo         block               male       aeh                     136            5  TRUE      
 octo         block               male       aehplus                 136            5  TRUE      
 octo         block               male       age                     151            5  TRUE      
-octo         block               male       age                     151            5  TRUE      
-octo         block               male       full                    151            5  TRUE      
 octo         block               male       full                    151            5  TRUE      
 octo         digitbackward       female     aeh                     276            5  TRUE      
 octo         digitbackward       female     aehplus                 275            5  TRUE      
@@ -243,6 +557,34 @@ octo         figurelogic         female     age                     284         
 octo         figurelogic         male       aeh                     133            5  TRUE      
 octo         figurelogic         male       aehplus                 133            5  TRUE      
 octo         figurelogic         male       age                     146            5  TRUE      
+octo         global              female     aeh                     276            5  TRUE      
+octo         global              female     age                     311            5  TRUE      
+octo         global              male       aeh                     140            5  TRUE      
+octo         global              male       age                     164            5  TRUE      
+octo         knowledge           female     aeh                     275            5  TRUE      
+octo         knowledge           female     aeh                     265            5  TRUE      
+octo         knowledge           female     age                     301            5  TRUE      
+octo         knowledge           female     age                     280            5  TRUE      
+octo         knowledge           male       aeh                     138            5  TRUE      
+octo         knowledge           male       aeh                     132            5  TRUE      
+octo         knowledge           male       age                     156            5  TRUE      
+octo         knowledge           male       age                     142            5  TRUE      
+octo         memory              female     aeh                     276            5  TRUE      
+octo         memory              female     aeh                     276            5  TRUE      
+octo         memory              female     aeh                     271            5  TRUE      
+octo         memory              female     aeh                     268            5  TRUE      
+octo         memory              female     age                     299            5  TRUE      
+octo         memory              female     age                     300            5  TRUE      
+octo         memory              female     age                     293            5  TRUE      
+octo         memory              female     age                     289            5  TRUE      
+octo         memory              male       aeh                     138            5  TRUE      
+octo         memory              male       aeh                     138            5  TRUE      
+octo         memory              male       aeh                     137            5  TRUE      
+octo         memory              male       aeh                     136            5  TRUE      
+octo         memory              male       age                     158            5  TRUE      
+octo         memory              male       age                     158            5  TRUE      
+octo         memory              male       age                     153            5  TRUE      
+octo         memory              male       age                     153            5  TRUE      
 octo         mirrecall           female     aeh                     271            5  TRUE      
 octo         mirrecall           female     aehplus                 270            5  TRUE      
 octo         mirrecall           female     age                     293            5  TRUE      
@@ -257,15 +599,85 @@ octo         proserecall         male       aeh                     136         
 octo         proserecall         male       aehplus                 136            5  TRUE      
 octo         proserecall         male       age                     153            5  TRUE      
 octo         proserecall         male       full                    153            5  TRUE      
+octo         reasoning           female     aeh                     272            5  TRUE      
+octo         reasoning           female     aeh                     268            5  TRUE      
+octo         reasoning           female     age                     293            5  TRUE      
+octo         reasoning           female     age                     284            5  TRUE      
+octo         reasoning           male       aeh                     136            5  TRUE      
+octo         reasoning           male       aeh                     133            5  TRUE      
+octo         reasoning           male       age                     151            5  TRUE      
+octo         reasoning           male       age                     146            5  TRUE      
+octo         speed               female     aeh                     264            5  TRUE      
+octo         speed               female     aeh                     254            4  TRUE      
+octo         speed               female     age                     278            5  TRUE      
+octo         speed               female     age                     268            4  TRUE      
+octo         speed               male       aeh                     133            5  TRUE      
+octo         speed               male       aeh                     127            4  TRUE      
+octo         speed               male       age                     142            5  TRUE      
+octo         speed               male       age                     135            4  TRUE      
+radc         attention           female     aehplus                 962            5  TRUE      
+radc         attention           male       aeh                     335            5  TRUE      
+radc         attention           male       aehplus                 334            5  TRUE      
+radc         executive           female     aehplus                 962            5  TRUE      
+radc         executive           female     aehplus                 962            5  TRUE      
 radc         executive           female     age                    1950            5  TRUE      
+radc         executive           male       aeh                     335            5  TRUE      
+radc         executive           male       aeh                     335            5  TRUE      
+radc         executive           male       aehplus                 334            5  TRUE      
+radc         executive           male       aehplus                 334            5  TRUE      
 radc         executive           male       age                     722            5  TRUE      
+radc         global              female     aehplus                 962            5  TRUE      
+radc         global              male       aeh                     335            5  TRUE      
+radc         global              male       aehplus                 334            5  TRUE      
+radc         knowledge           female     aehplus                 961            5  TRUE      
 radc         knowledge           female     age                    1516            5  TRUE      
+radc         knowledge           male       aeh                     335            5  TRUE      
+radc         knowledge           male       aehplus                 334            5  TRUE      
 radc         knowledge           male       age                     590            5  TRUE      
+radc         language            female     aehplus                 961            5  TRUE      
+radc         language            female     aehplus                 962            5  TRUE      
+radc         language            male       aeh                     335            5  TRUE      
+radc         language            male       aeh                     335            5  TRUE      
+radc         language            male       aehplus                 334            5  TRUE      
+radc         language            male       aehplus                 334            5  TRUE      
+radc         memory              female     aehplus                 962            5  TRUE      
+radc         memory              female     aehplus                 962            5  TRUE      
+radc         memory              female     aehplus                 962            5  TRUE      
+radc         memory              female     aehplus                 962            5  TRUE      
+radc         memory              female     aehplus                 962            5  TRUE      
+radc         memory              female     aehplus                 962            5  TRUE      
+radc         memory              female     aehplus                 962            5  TRUE      
+radc         memory              male       aeh                     335            5  TRUE      
+radc         memory              male       aeh                     335            5  TRUE      
+radc         memory              male       aeh                     335            5  TRUE      
+radc         memory              male       aeh                     335            5  TRUE      
+radc         memory              male       aeh                     335            5  TRUE      
+radc         memory              male       aeh                     335            5  TRUE      
+radc         memory              male       aeh                     335            5  TRUE      
+radc         memory              male       aehplus                 334            5  TRUE      
+radc         memory              male       aehplus                 334            5  TRUE      
+radc         memory              male       aehplus                 334            5  TRUE      
+radc         memory              male       aehplus                 334            5  TRUE      
+radc         memory              male       aehplus                 334            5  TRUE      
+radc         memory              male       aehplus                 334            5  TRUE      
+radc         memory              male       aehplus                 334            5  TRUE      
+radc         reasoning           female     aehplus                 945            5  TRUE      
 radc         reasoning           female     age                    1927            5  TRUE      
+radc         reasoning           male       aeh                     317            5  TRUE      
+radc         reasoning           male       aehplus                 316            5  TRUE      
 radc         reasoning           male       age                     702            5  TRUE      
+radc         speed               female     aehplus                 961            5  TRUE      
+radc         speed               female     aehplus                 961            5  TRUE      
 radc         speed               female     age                    1947            5  TRUE      
+radc         speed               male       aeh                     335            5  TRUE      
+radc         speed               male       aeh                     335            5  TRUE      
+radc         speed               male       aehplus                 334            5  TRUE      
+radc         speed               male       aehplus                 334            5  TRUE      
 radc         speed               male       age                     720            5  TRUE      
+radc         visuospatial        female     aehplus                 961            5  TRUE      
 radc         visuospatial        female     age                    1947            5  TRUE      
+radc         visuospatial        male       aeh                     335            5  TRUE      
+radc         visuospatial        male       aehplus                 334            5  TRUE      
 radc         visuospatial        male       age                     720            5  TRUE      
 satsa        memory              female     ae                      487            7  TRUE      
 satsa        memory              female     aec                     430            7  TRUE      
@@ -288,7 +700,7 @@ satsa        verbal              male       ae                      341         
 satsa        verbal              male       age                     247            7  TRUE      
 
 
-![](figure_meta/forest_static-22.png) ![](figure_meta/forest_static-23.png) ![](figure_meta/forest_static-24.png) ![](figure_meta/forest_static-25.png) ![](figure_meta/forest_static-26.png) ![](figure_meta/forest_static-27.png) ![](figure_meta/forest_static-28.png) ![](figure_meta/forest_static-29.png) ![](figure_meta/forest_static-30.png) ![](figure_meta/forest_static-31.png) ![](figure_meta/forest_static-32.png) ![](figure_meta/forest_static-33.png) ![](figure_meta/forest_static-34.png) ![](figure_meta/forest_static-35.png) ![](figure_meta/forest_static-36.png) ![](figure_meta/forest_static-37.png) 
+![](figure_meta/forest_static-28.png) ![](figure_meta/forest_static-29.png) ![](figure_meta/forest_static-30.png) ![](figure_meta/forest_static-31.png) ![](figure_meta/forest_static-32.png) ![](figure_meta/forest_static-33.png) ![](figure_meta/forest_static-34.png) ![](figure_meta/forest_static-35.png) ![](figure_meta/forest_static-36.png) ![](figure_meta/forest_static-37.png) ![](figure_meta/forest_static-38.png) ![](figure_meta/forest_static-39.png) ![](figure_meta/forest_static-40.png) ![](figure_meta/forest_static-41.png) ![](figure_meta/forest_static-42.png) ![](figure_meta/forest_static-43.png) ![](figure_meta/forest_static-44.png) ![](figure_meta/forest_static-45.png) ![](figure_meta/forest_static-46.png) ![](figure_meta/forest_static-47.png) ![](figure_meta/forest_static-48.png) ![](figure_meta/forest_static-49.png) 
 
 ## `tug` 
 
@@ -298,29 +710,21 @@ Studies with this physical variable listed in the model output: ilse
 
 study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
 -----------  ------------------  ---------  -----------  --------------  -----------  ----------
-ilse         executive           female     age                     252            3  TRUE      
-ilse         executive           male       age                     279            3  TRUE      
-ilse         knowledge           female     aeh                     250            3  TRUE      
-ilse         knowledge           female     age                     252            3  TRUE      
-ilse         knowledge           male       aeh                     279            3  TRUE      
-ilse         knowledge           male       age                     279            3  TRUE      
-ilse         reasoning           female     aeh                     250            3  TRUE      
-ilse         reasoning           female     age                     252            3  TRUE      
-ilse         reasoning           male       aeh                     279            3  TRUE      
-ilse         reasoning           male       age                     279            3  TRUE      
-ilse         speed               female     age                     252            3  TRUE      
-ilse         speed               male       age                     279            3  TRUE      
-ilse         visuospatial        female     aeh                     250            3  TRUE      
-ilse         visuospatial        female     aeh                     250            3  TRUE      
-ilse         visuospatial        female     age                     252            3  TRUE      
-ilse         visuospatial        female     age                     252            3  TRUE      
-ilse         visuospatial        male       aeh                     279            3  TRUE      
-ilse         visuospatial        male       aeh                     279            3  TRUE      
-ilse         visuospatial        male       age                     279            3  TRUE      
-ilse         visuospatial        male       age                     279            3  TRUE      
+ilse         fluency             female     age                     228            3  TRUE      
+ilse         fluency             male       age                     253            3  TRUE      
+ilse         knowledge           female     age                     228            3  TRUE      
+ilse         knowledge           male       age                     253            3  TRUE      
+ilse         reasoning           female     age                     228            3  TRUE      
+ilse         reasoning           female     age                     228            3  TRUE      
+ilse         reasoning           female     age                     228            3  TRUE      
+ilse         reasoning           male       age                     253            3  TRUE      
+ilse         reasoning           male       age                     253            3  TRUE      
+ilse         reasoning           male       age                     253            3  TRUE      
+ilse         speed               female     age                     228            3  TRUE      
+ilse         speed               male       age                     253            3  TRUE      
 
 
-![](figure_meta/forest_static-38.png) ![](figure_meta/forest_static-39.png) ![](figure_meta/forest_static-40.png) ![](figure_meta/forest_static-41.png) ![](figure_meta/forest_static-42.png) 
+![](figure_meta/forest_static-50.png) ![](figure_meta/forest_static-51.png) ![](figure_meta/forest_static-52.png) ![](figure_meta/forest_static-53.png) 
 
 ## `walking` 
 
@@ -330,31 +734,37 @@ Studies with this physical variable listed in the model output: habc, obas
 
 study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
 -----------  ------------------  ---------  -----------  --------------  -----------  ----------
-habc         executive           female     aeh                    1552           10  TRUE      
-habc         executive           female     aehplus                1513           10  TRUE      
-habc         executive           female     age                    1558           10  TRUE      
-habc         executive           male       aeh                    1471           10  TRUE      
-habc         executive           male       aehplus                1446           10  TRUE      
-habc         executive           male       age                    1473           10  TRUE      
 habc         mental              female     aeh                    1578           11  TRUE      
+habc         mental              female     aeh                    1552           10  TRUE      
 habc         mental              female     aehplus                1538           11  TRUE      
+habc         mental              female     aehplus                1513           10  TRUE      
 habc         mental              female     age                    1584           11  TRUE      
+habc         mental              female     age                    1558           10  TRUE      
+habc         mental              female     full                   1536           11  TRUE      
+habc         mental              female     full                   1511           10  TRUE      
 habc         mental              male       aeh                    1489           11  TRUE      
+habc         mental              male       aeh                    1471           10  TRUE      
 habc         mental              male       aehplus                1464           11  TRUE      
+habc         mental              male       aehplus                1446           10  TRUE      
 habc         mental              male       age                    1491           11  TRUE      
+habc         mental              male       age                    1473           10  TRUE      
+habc         mental              male       full                   1454           11  TRUE      
+habc         mental              male       full                   1436           10  TRUE      
 habc         speed               female     aeh                    1575           11  TRUE      
 habc         speed               female     aehplus                1535           11  TRUE      
 habc         speed               female     age                    1581           11  TRUE      
+habc         speed               female     full                   1533           11  TRUE      
 habc         speed               male       aeh                    1485           11  TRUE      
 habc         speed               male       aehplus                1460           11  TRUE      
 habc         speed               male       age                    1487           11  TRUE      
+habc         speed               male       full                   1450           11  TRUE      
 obas         global              female     aeh                     145           10  TRUE      
 obas         global              female     age                     155           10  TRUE      
 obas         global              male       aeh                     108           10  TRUE      
 obas         global              male       age                     111           10  TRUE      
 
 
-![](figure_meta/forest_static-43.png) ![](figure_meta/forest_static-44.png) ![](figure_meta/forest_static-45.png) ![](figure_meta/forest_static-46.png) 
+![](figure_meta/forest_static-54.png) ![](figure_meta/forest_static-55.png) ![](figure_meta/forest_static-56.png) 
 
 # Forest Plot (Animated)
 
@@ -373,7 +783,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-02-26, 15:24 Pacific Standard Time
+Report rendered by koval_000 at 2015-03-07, 08:20 Pacific Standard Time
 ```
 
 ```
