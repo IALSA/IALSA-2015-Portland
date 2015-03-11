@@ -1,0 +1,457 @@
+Mplus VERSION 5.1
+MUTHEN & MUTHEN
+03/11/2015  11:44 AM
+
+INPUT INSTRUCTIONS
+
+    TITLE: 3MS, Linear LGM, aeh Conditional, Male
+    DATA: FILE IS e:\IALSA\IALSA_retour.dat;
+    FORMAT IS FREE;
+    VARIABLE: NAMES ARE sujetno
+  sex
+  age
+  age_t2
+  age_t3
+  age_t4
+  scolart1
+  revfamt1
+  reveokt1
+  scodmst1
+  scotmst1
+  taimest1
+  poimest1
+  imct1
+  walkf4m1
+  tugt1
+  leve1xt1
+  leve5xt1
+  tlev5xt1
+  unipont1
+  unipodt1
+  march1t1
+  march2t1
+  marrapt1
+  maxvd0t1
+  maxvg0t1
+  maxbd0t1
+  maxbg0t1
+  maxqd0t1
+  maxqg0t1
+  paset1
+  exclut1
+  pcst1
+  mcst1
+  reveokt2
+  scodmst2
+  scotmst2
+  poimest2
+  taimest2
+  imct2
+  tugt2
+  walkf4m2
+  leve1xt2
+  leve5xt2
+  tlev5xt2
+  unipont2
+  unipodt2
+  march1t2
+  march2t2
+  marrapt2
+  maxbd0t2
+  maxbg0t2
+  maxqd0t2
+  maxqg0t2
+  maxvd0t2
+  maxvg0t2
+  paset2
+  pcst2
+  mcst2
+  revacct3
+  revfamt3
+  reveokt3
+  scodmst3
+  scotmst3
+  poimest3
+  imct3
+  tugt3
+  walkf4m3
+  leve1xt3
+  leve5xt3
+  tlev5xt3
+  unipont3
+  unipodt3
+  march1t3
+  march2t3
+  marrapt3
+  maxbd0t3
+  maxbg0t3
+  maxqd0t3
+  maxqg0t3
+  maxvd0t3
+  maxvg0t3
+  paset3
+  pcst3
+  mcst3
+  revacct4
+  revfamt4
+  reveokt4
+  scodmst4
+  scotmst4
+  tugt4
+  walkf4m4
+  leve1xt4
+  leve5xt4
+  tlev5xt4
+  unipont4
+  unipodt4
+  march1t4
+  march2t4
+  marrapt4
+  maxbd0t4
+  maxbg0t4
+  maxqd0t4
+  maxqg0t4
+  maxvd0t4
+  maxvg0t4
+  paset4
+  pcst4
+  mcst4
+  gdst1
+  gdst2
+  gdst3
+  gdst4
+  walkn4m1
+  walkn4m2
+  walkn4m3
+  walkn4m4
+  marital1
+  marital2
+  marital3
+  marital4
+  seslow
+  packyears
+  smokert1
+  chronic1
+  chronic2
+  chronic3
+  chronic4
+  hypertt1
+  hypertt2
+  hypertt3
+  hypertt4
+  diabet1
+  diabet2
+  diabet3
+  diabet4
+  heartat1
+  heartat2
+  heartat3
+  heartat4
+  dead
+  alcohot1
+  alcohot2
+  alcohot3
+  alcohot4
+  smokert2
+  smokert3
+  smokert4
+  daydeath
+  monthdeath
+  yeardeath
+  time1
+  time2
+  time3
+  time4
+  gript1
+  gript2
+  gript3
+  gript4
+  ;
+  MISSING are ALL (-9999);
+
+         USEVAR are  time1 time2 time3 time4
+                     c1 c2 c3 c4
+                     Bage Educ Height;
+
+         TSCORES =   time1 time2 time3 time4;
+
+
+  USEOBSERVATIONS are sex EQ 1; !female=0
+
+  Define: !p1=gript1; p2=gript2; p3=gript3; p4=gript4;
+         c1=scotmst1; c2=scotmst2; c3=scotmst3; c4=scotmst4;
+          Bage=age-70;   !Centered at Age 70
+          Bagesq=(age)**2;
+          !Dage=YTDead;
+          !Sex=sex;         !0=Male
+           Educ=scolart1-7;   ! Centered at 7 years
+         ! SEP=seslow;
+          !Marstat;
+          Height=taimest1-1.72; ! Centered at 1.72 meters for men
+          !Weight
+          !BMI
+          !SmokHist=Smokert1;
+          !Alcohol;
+          !CompExp;
+          !PhysAct;
+          !BP;
+          !DepSymp;
+          !Cardio;
+          !Diab;
+          !MorbInd;
+
+          !BageSex=Bage*Sex;
+          !BageEduc=Bage*Educ;
+          !SexEduc=Sex*Educ;
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ic sc | c1-c4 AT time1-time4;
+
+          ic sc ON Bage Educ Height ;
+
+          c1-c4 (res_c);
+
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: PACKYEARS
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: MONTHDEATH
+*** WARNING
+  Variable name contains more than 8 characters.
+  Only the first 8 characters will be printed in the output.
+  Variable: YEARDEATH
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  6
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+3MS, Linear LGM, aeh Conditional, Male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         847
+
+Number of dependent variables                                    4
+Number of independent variables                                  3
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   C1          C2          C3          C4
+
+Observed independent variables
+   BAGE        EDUC        HEIGHT
+
+Continuous latent variables
+   IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  e:\IALSA\IALSA_retour.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             9
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              C1            C2            C3            C4            BAGE
+              ________      ________      ________      ________      ________
+ C1             0.998
+ C2             0.876         0.878
+ C3             0.845         0.828         0.848
+ C4             0.786         0.773         0.776         0.789
+ BAGE           0.998         0.878         0.848         0.789         1.000
+ EDUC           0.998         0.878         0.848         0.789         1.000
+ HEIGHT         0.998         0.878         0.848         0.789         1.000
+
+
+           Covariance Coverage
+              EDUC          HEIGHT
+              ________      ________
+ EDUC           1.000
+ HEIGHT         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              C1            C2            C3            C4            BAGE
+              ________      ________      ________      ________      ________
+ 1             93.165        91.377        91.228        90.684         4.279
+
+
+           Means
+              EDUC          HEIGHT
+              ________      ________
+ 1              4.936        -0.039
+
+
+           Covariances
+              C1            C2            C3            C4            BAGE
+              ________      ________      ________      ________      ________
+ C1            20.354
+ C2            17.930        38.539
+ C3            20.331        30.747        46.979
+ C4            19.977        28.279        33.991        44.655
+ BAGE          -3.370        -3.744        -4.620        -5.901        17.162
+ EDUC          10.212        14.117        14.257        13.320        -1.222
+ HEIGHT         0.056         0.072         0.076         0.089        -0.030
+
+
+           Covariances
+              EDUC          HEIGHT
+              ________      ________
+ EDUC          25.547
+ HEIGHT         0.053         0.005
+
+
+           Correlations
+              C1            C2            C3            C4            BAGE
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.640         1.000
+ C3             0.657         0.723         1.000
+ C4             0.663         0.682         0.742         1.000
+ BAGE          -0.180        -0.146        -0.163        -0.213         1.000
+ EDUC           0.448         0.450         0.412         0.394        -0.058
+ HEIGHT         0.182         0.170         0.162         0.195        -0.105
+
+
+           Correlations
+              EDUC          HEIGHT
+              ________      ________
+ EDUC           1.000
+ HEIGHT         0.152         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -12415.824
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+TESTS OF MODEL FIT
+
+Loglikelihood
+
+          H0 Value                       -8594.331
+          H0 Scaling Correction Factor       1.241
+            for MLR
+
+Information Criteria
+
+          Number of Free Parameters             12
+          Akaike (AIC)                   17212.662
+          Bayesian (BIC)                 17269.562
+          Sample-Size Adjusted BIC       17231.454
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IC         ON
+    BAGE              -0.143      0.034     -4.203      0.000
+    EDUC               0.427      0.028     15.485      0.000
+    HEIGHT             6.612      1.982      3.337      0.001
+
+ SC         ON
+    BAGE              -0.046      0.016     -2.904      0.004
+    EDUC               0.033      0.013      2.619      0.009
+    HEIGHT             1.509      0.886      1.703      0.089
+
+ SC       WITH
+    IC                 2.373      0.368      6.456      0.000
+
+ Intercepts
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    IC                91.570      0.262    349.634      0.000
+    SC                -0.687      0.111     -6.193      0.000
+
+ Residual Variances
+    C1                11.322      0.571     19.819      0.000
+    C2                11.322      0.571     19.819      0.000
+    C3                11.322      0.571     19.819      0.000
+    C4                11.322      0.571     19.819      0.000
+    IC                 8.786      0.997      8.816      0.000
+    SC                 0.702      0.310      2.263      0.024
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.813E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  11:44:44
+        Ending Time:  11:44:53
+       Elapsed Time:  00:00:09
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2008 Muthen & Muthen
