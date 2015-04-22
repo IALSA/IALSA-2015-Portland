@@ -766,7 +766,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-03-07, 08:28 Pacific Standard Time
+Report rendered by koval_000 at 2015-04-03, 17:32 Pacific Daylight Time
 ```
 
 ```
@@ -781,10 +781,10 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] testit_0.3         ggplot2_1.0.0      RColorBrewer_1.0-5 scales_0.2.4       knitr_1.9         
+[1] testit_0.4         ggplot2_1.0.0      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.9         
 
 loaded via a namespace (and not attached):
- [1] colorspace_1.2-4 digest_0.6.8     evaluate_0.5.5   formatR_1.0      gtable_0.1.2     htmltools_0.2.6 
+ [1] colorspace_1.2-6 digest_0.6.8     evaluate_0.5.5   formatR_1.0      gtable_0.1.2     htmltools_0.2.6 
  [7] MASS_7.3-35      munsell_0.4.2    plyr_1.8.1       proto_0.3-10     Rcpp_0.11.2      reshape2_1.4    
-[13] rmarkdown_0.4.2  stringr_0.6.2    tools_3.0.3      yaml_2.1.13     
+[13] rmarkdown_0.5.1  stringr_0.6.2    tools_3.0.3      yaml_2.1.13     
 ```
