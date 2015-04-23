@@ -116,8 +116,7 @@ results=data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
 names(results) <-  dto.vars
 
 for(i in seq_along(mpar)){
-    mplus_output <-
-        scan(out_list[i], what='character', sep='\n')
+    mplus_output <- scan(out_list[i], what='character', sep='\n')
     ## Populate with header info
     results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
@@ -136,6 +135,7 @@ for(i in seq_along(mpar)){
         grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
     has_converged <- conv==1
     results[i, 'converged'] <- has_converged
+    ## has_converged LOOP BEGINS
     if(has_converged) {
         ## obtain model for current loop
         model <- mpar[[i]]
@@ -150,6 +150,7 @@ for(i in seq_along(mpar)){
         ## Look for at least 4 WITH statements - otherwise fall back to 'Means' and 'Variances' (Baseline Models)
         modtype <- (length(grep("WITH", model$paramHeader))>=4)
         modtype
+        ## modtype LOOP BEGINS
         if(modtype) { # if modtype==1 we have WITH statements
             x <- model[grep("WITH", model$paramHeader),]
             ## find factor coavariances IP wiht IC and SP with SC
@@ -189,6 +190,7 @@ for(i in seq_along(mpar)){
               results[i, 'notes'] <- paste(results[i, 'notes'], "Heterogeneous Res Covs", sep='_')
             }
         }
+        ## modtype LOOP ENDS
         ##
         ## ################
         ##  Variances   ##
@@ -222,6 +224,8 @@ for(i in seq_along(mpar)){
         #else {
          #    results[i,'notes'] <- paste(results[i,'notes'], 'Cog ResCov unconstrained', sep='_')}
     }
+    ## has_converged LOOP ENDS
+
     ## ####################
     ##  Additional info ##
     ## ####################
