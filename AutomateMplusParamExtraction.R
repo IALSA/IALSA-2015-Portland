@@ -53,7 +53,7 @@ if(length(conflict)>=1){
 
 ## extractModelParameters() sometimes breakes down if it encounters confidence intervals in out file.
 ## Temporary fix
-## Solution: Identify outputfiles with CI and delete that section before reading them in
+## Solution: Identify output files with CI and delete that section before reading them in
 out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
 length(out_list)
 
@@ -81,7 +81,7 @@ for(i in 1:length(out_list)){
 
 
 ## Define variable names needed for our tables
-msum_names <- c("Mplus.version","Title","AnalysisType","Estimator","Observations","Parameters","LL","AIC","BIC","aBIC","AICC","Filename") 
+msum_names <- c("Mplus.version","Title","AnalysisType","Estimator","Observations","Parameters","LL","AIC","BIC","aBIC","AICC","Filename")
 
 ## init msum object
 msum <- data.frame(matrix(ncol=length(msum_names)))
