@@ -59,14 +59,15 @@ length(out_list)
 
 ##
 for(i in 1:length(out_list)){
-    ## Check whether there is a CI block at all
-    is_ci <- (length(grep("CONFIDENCE INTERVALS OF MODEL", scan(out_list[i], what='character', sep='\n')))==1)
-    if(is_ci) {
-        ## Find line where CI block begins
-        CI.line <-
-            grep("CONFIDENCE INTERVALS OF MODEL", scan(out_list[i], what='character', sep='\n'))
+  # Check whether there is a CI block at all
+  # scan the content into a character verctor with each line as an element
+  fileContent <- scan(out_list[i], what='character', sep='\n')
+  is_ci <- (length(grep("CONFIDENCE INTERVALS OF MODEL", fileContent))==1)
+  if(is_ci) {
+    # Find line where CI block begins
+      CI.line <- grep("CONFIDENCE INTERVALS OF MODEL", fileContent)
         ## Remove anything below CI.Line and save out file again.
-        amended <- scan(out_list[i], what='character', sep='\n')[1:(CI.line-1)]
+        amended <- fileContent[1:(CI.line-1)]
         writeLines(amended, out_list[i])
     }
 }
