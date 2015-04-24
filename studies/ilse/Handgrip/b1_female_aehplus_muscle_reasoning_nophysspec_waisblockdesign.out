@@ -1,0 +1,421 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+03/03/2015   2:46 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Timed Up and Go, Block Design, AEHplus, Female
+
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 03.03.dat;
+
+  VARIABLE: Names are
+   T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center t1beer t1wine
+   t1k t1pc t1vf t1sa t1spf t2dss t2bd
+      t2fs t2fsb t2beer t2wine t2k t2pc t2vf t2sa t2spf t3dss t3bd
+      t3k t3pc t3vf t3sa t3spf t2age t3age
+      T1TUG t1height t1weight T2TUG t2height t2weight T3TUG t3height
+      t3weight time1 time2r time3r time3
+      time2 T1HAVIR1 T1HAVIL1 T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2
+      T2HAVIL1 T2HAVIL2 T3HAVIR1x T3HAVIR2x
+      T3HAVIL1x T3HAVIL2x t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH
+      Educ element Haupt second others Smoker
+      Former;
+
+         MISSING are ALL(-9999);
+         USEVAR are time1 time2 time3 Haupt second others T1APEC Smoker Former
+                     p1 p2 p3 c1 c2 c3
+                     Bage height;
+         TSCORES = time1 time2 time3;
+
+
+         USEOBSERVATIONS are sex EQ 1;
+
+  Define: p1=t1hg; p2=t2hg; p3=t3hg;
+          c1=t1bd; c2=t2bd; c3=t3bd;
+
+          Bage=t1age-70;   !Centered at Age 70
+          Bagesq=(t1age-70)**2;
+          height=t1height-160; !centered for female
+
+  ANALYSIS: TYPE = RANDOM; Estimator=MLF;
+
+  MODEL:  ip sp | p1-p3 AT time1-time3;
+          ic sc | c1-c3 AT time1-time3;
+          ip; sp; ic; sc;
+          ip sp ic sc WITH ip sp ic sc;
+
+          ip sp ic sc ON Haupt second others T1APEC Smoker Former Bage height;
+
+          p1-p3 (res_p);
+          c1-c3 (res_c);
+          p1-p3 pwith c1-c3(res_cov); !Paired covariances constrained to be equal
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  15
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Timed Up and Go, Block Design, AEHplus, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         225
+
+Number of dependent variables                                    6
+Number of independent variables                                  8
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          C1          C2          C3
+
+Observed independent variables
+   HAUPT       SECOND      OTHERS      T1APEC      SMOKER      FORMER
+   BAGE        HEIGHT
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLF
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Besitzer\Desktop\ilse 03.03.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            10
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             0.978
+ P2             0.871         0.884
+ P3             0.307         0.311         0.316
+ C1             0.978         0.884         0.316         1.000
+ C2             0.884         0.884         0.316         0.902         0.902
+ C3             0.653         0.662         0.316         0.667         0.667
+ HAUPT          0.978         0.884         0.316         1.000         0.902
+ SECOND         0.978         0.884         0.316         1.000         0.902
+ OTHERS         0.978         0.884         0.316         1.000         0.902
+ T1APEC         0.978         0.884         0.316         1.000         0.902
+ SMOKER         0.978         0.884         0.316         1.000         0.902
+ FORMER         0.978         0.884         0.316         1.000         0.902
+ BAGE           0.978         0.884         0.316         1.000         0.902
+ HEIGHT         0.978         0.884         0.316         1.000         0.902
+
+
+           Covariance Coverage
+              C3            HAUPT         SECOND        OTHERS        T1APEC
+              ________      ________      ________      ________      ________
+ C3             0.667
+ HAUPT          0.667         1.000
+ SECOND         0.667         1.000         1.000
+ OTHERS         0.667         1.000         1.000         1.000
+ T1APEC         0.667         1.000         1.000         1.000         1.000
+ SMOKER         0.667         1.000         1.000         1.000         1.000
+ FORMER         0.667         1.000         1.000         1.000         1.000
+ BAGE           0.667         1.000         1.000         1.000         1.000
+ HEIGHT         0.667         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              SMOKER        FORMER        BAGE          HEIGHT
+              ________      ________      ________      ________
+ SMOKER         1.000
+ FORMER         1.000         1.000
+ BAGE           1.000         1.000         1.000
+ HEIGHT         1.000         1.000         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ 1             67.814        56.298        41.490        25.756        23.515
+
+
+           Means
+              C3            HAUPT         SECOND        OTHERS        T1APEC
+              ________      ________      ________      ________      ________
+ 1             22.282         0.764         0.027         0.138         0.271
+
+
+           Means
+              SMOKER        FORMER        BAGE          HEIGHT
+              ________      ________      ________      ________
+ 1              0.196         0.164        -7.049         2.018
+
+
+           Covariances
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1           789.268
+ P2           158.154       161.201
+ P3            93.845        63.759       126.810
+ C1           -18.861        -0.692        -2.121        61.714
+ C2           -39.646        -6.311         4.614        52.540        72.256
+ C3           -16.398        -4.184        10.691        41.055        50.471
+ HAUPT          0.718        -0.204         0.105        -0.462        -0.471
+ SECOND        -0.013        -0.039        -0.022         0.224         0.177
+ OTHERS        -1.020        -0.068         0.105         0.620         0.569
+ T1APEC         0.408        -0.206        -0.036        -0.032         0.220
+ SMOKER         0.085         0.791        -0.642         0.070        -0.155
+ FORMER        -1.178        -0.849        -0.318        -0.546        -0.299
+ BAGE           3.315        -1.370         0.633        -0.529        -0.889
+ HEIGHT        18.736        25.971        16.526         2.142        -1.132
+
+
+           Covariances
+              C3            HAUPT         SECOND        OTHERS        T1APEC
+              ________      ________      ________      ________      ________
+ C3            62.986
+ HAUPT         -0.275         0.180
+ SECOND         0.009        -0.020         0.026
+ OTHERS         0.454        -0.105        -0.004         0.119
+ T1APEC         0.245         0.011        -0.003        -0.002         0.198
+ SMOKER        -0.167        -0.016        -0.001         0.004         0.014
+ FORMER        -0.338         0.012        -0.004         0.000        -0.005
+ BAGE          -0.223        -0.004        -0.003        -0.027         0.008
+ HEIGHT         2.043        -0.147         0.017         0.078        -0.254
+
+
+           Covariances
+              SMOKER        FORMER        BAGE          HEIGHT
+              ________      ________      ________      ________
+ SMOKER         0.157
+ FORMER        -0.032         0.137
+ BAGE           0.039         0.002         0.846
+ HEIGHT         0.299         0.086         0.092        39.849
+
+
+           Correlations
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.443         1.000
+ P3             0.297         0.446         1.000
+ C1            -0.085        -0.007        -0.024         1.000
+ C2            -0.166        -0.058         0.048         0.787         1.000
+ C3            -0.074        -0.042         0.120         0.658         0.748
+ HAUPT          0.060        -0.038         0.022        -0.139        -0.131
+ SECOND        -0.003        -0.019        -0.012         0.177         0.130
+ OTHERS        -0.105        -0.015         0.027         0.229         0.194
+ T1APEC         0.033        -0.036        -0.007        -0.009         0.058
+ SMOKER         0.008         0.157        -0.144         0.022        -0.046
+ FORMER        -0.113        -0.180        -0.076        -0.188        -0.095
+ BAGE           0.128        -0.117         0.061        -0.073        -0.114
+ HEIGHT         0.106         0.324         0.232         0.043        -0.021
+
+
+           Correlations
+              C3            HAUPT         SECOND        OTHERS        T1APEC
+              ________      ________      ________      ________      ________
+ C3             1.000
+ HAUPT         -0.082         1.000
+ SECOND         0.007        -0.298         1.000
+ OTHERS         0.166        -0.720        -0.066         1.000
+ T1APEC         0.070         0.056        -0.039        -0.012         1.000
+ SMOKER        -0.053        -0.096        -0.012         0.030         0.077
+ FORMER        -0.115         0.077        -0.073        -0.003        -0.028
+ BAGE          -0.031        -0.011        -0.019        -0.085         0.019
+ HEIGHT         0.041        -0.055         0.017         0.036        -0.090
+
+
+           Correlations
+              SMOKER        FORMER        BAGE          HEIGHT
+              ________      ________      ________      ________
+ SMOKER         1.000
+ FORMER        -0.219         1.000
+ BAGE           0.106         0.005         1.000
+ HEIGHT         0.119         0.037         0.016         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -5241.462
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       49
+
+Loglikelihood
+
+          H0 Value                       -3965.902
+
+Information Criteria
+
+          Akaike (AIC)                    8029.805
+          Bayesian (BIC)                  8197.194
+          Sample-Size Adjusted BIC        8041.903
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    HAUPT             -2.001      9.816     -0.204      0.839
+    SECOND            -5.514     17.389     -0.317      0.751
+    OTHERS            -9.322     10.467     -0.891      0.373
+    T1APEC             1.788      4.452      0.402      0.688
+    SMOKER            -1.628      4.568     -0.356      0.721
+    FORMER            -9.445      5.432     -1.739      0.082
+    BAGE               2.390      1.912      1.250      0.211
+    HEIGHT             0.587      0.322      1.823      0.068
+
+ SP         ON
+    HAUPT              0.470      1.548      0.303      0.762
+    SECOND             0.397      6.912      0.057      0.954
+    OTHERS             1.694      1.641      1.033      0.302
+    T1APEC            -0.141      0.636     -0.222      0.824
+    SMOKER             0.216      0.739      0.292      0.771
+    FORMER             0.647      0.746      0.868      0.385
+    BAGE              -0.502      0.346     -1.451      0.147
+    HEIGHT            -0.008      0.041     -0.203      0.839
+
+ IC         ON
+    HAUPT              4.721      3.635      1.299      0.194
+    SECOND            13.448      4.864      2.765      0.006
+    OTHERS             9.804      3.903      2.512      0.012
+    T1APEC             0.160      1.237      0.129      0.897
+    SMOKER            -0.319      1.475     -0.217      0.829
+    FORMER            -3.549      1.641     -2.163      0.031
+    BAGE              -0.426      0.652     -0.654      0.513
+    HEIGHT             0.031      0.098      0.322      0.748
+
+ SC         ON
+    HAUPT             -0.266      0.280     -0.950      0.342
+    SECOND            -0.962      0.874     -1.101      0.271
+    OTHERS            -0.386      0.309     -1.248      0.212
+    T1APEC             0.122      0.110      1.104      0.269
+    SMOKER            -0.135      0.146     -0.923      0.356
+    FORMER             0.100      0.123      0.814      0.416
+    BAGE               0.019      0.056      0.345      0.730
+    HEIGHT             0.002      0.009      0.176      0.860
+
+ IP       WITH
+    SP               -42.173      9.250     -4.559      0.000
+    IC               -25.934     15.157     -1.711      0.087
+    SC                 0.448      1.440      0.311      0.756
+
+ SP       WITH
+    IC                 3.167      2.273      1.393      0.164
+    SC                -0.026      0.215     -0.123      0.902
+
+ IC       WITH
+    SC                -0.163      0.412     -0.395      0.693
+
+ P1       WITH
+    C1                 7.004      4.337      1.615      0.106
+
+ P2       WITH
+    C2                 7.004      4.337      1.615      0.106
+
+ P3       WITH
+    C3                 7.004      4.337      1.615      0.106
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    IP                86.900     16.411      5.295      0.000
+    SP                -6.533      2.597     -2.516      0.012
+    IC                17.601      5.415      3.250      0.001
+    SC                 0.091      0.481      0.189      0.850
+
+ Residual Variances
+    P1               174.102     23.252      7.488      0.000
+    P2               174.102     23.252      7.488      0.000
+    P3               174.102     23.252      7.488      0.000
+    C1                14.405      1.790      8.050      0.000
+    C2                14.405      1.790      8.050      0.000
+    C3                14.405      1.790      8.050      0.000
+    IP               401.703     74.487      5.393      0.000
+    SP                 4.501      1.416      3.178      0.001
+    IC                43.094      6.584      6.545      0.000
+    SC                 0.076      0.046      1.664      0.096
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.245E-06
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\handgrip\b1_female_
+
+     Beginning Time:  14:46:28
+        Ending Time:  14:46:32
+       Elapsed Time:  00:00:04
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

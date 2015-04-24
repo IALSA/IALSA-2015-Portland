@@ -1,0 +1,319 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+03/02/2015   8:21 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: M5 Handgrip, Speed, Age Conditional, Female
+
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 02.03.dat;
+
+  VARIABLE: Names are
+   T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center t1beer
+   t1wine t1k t1pc t1vf t1sa t1spf t2dss t2bd
+      t2fs t2fsb t2beer t2wine t2k t2pc t2vf t2sa t2spf
+      t3dss t3bd t3k t3pc t3vf t3sa t3spf t2age t3age
+      T1TUG t1height t1weight T2TUG t2height t2weight
+      T3TUG t3height t3weight time1 time2r time3r time3
+      time2 no_sec Haupts Reals Second specials others
+       T1HAVIR1 T1HAVIL1 T1HAVIR2 T1HAVIL2 T2HAVIR1
+      T2HAVIR2 T2HAVIL1 T2HAVIL2 T3HAVIR1x
+      T3HAVIR2x T3HAVIL1x T3HAVIL2x t1hg t2hg t3hg;
+
+         MISSING are ALL(-9999);
+         USEVAR are  time1 time2 time3
+                     p1 p2 p3
+                     c1 c2 c3
+                     Bage;
+         TSCORES =   time1 time2 time3;
+
+         USEOBSERVATIONS are sex EQ 1;
+
+  Define: p1=t1hg; p2=t2hg; p3=t3hg;
+          c1=t1dss; c2=t2dss; c3=t3dss;
+          Bage=t1age-70;
+          Bagesq=(t1age-70)**2;
+
+
+
+  ANALYSIS: TYPE = RANDOM;
+
+   Estimator=MLF;
+
+  MODEL:  ip sp | p1-p3 AT time1-time3;
+          ic sc | c1-c3 AT time1-time3;
+
+
+          ip sp ic sc ON Bage;
+
+          p1-p3 ;
+          c1-c3 (res_c);
+
+          p1-p3 pwith c1-c3(res_cov);
+          !Paired covariances constrained to be equal across time
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  12
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M5 Handgrip, Speed, Age Conditional, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         228
+
+Number of dependent variables                                    6
+Number of independent variables                                  1
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          C1          C2          C3
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLF
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Besitzer\Desktop\ilse 02.03.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            10
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             0.978
+ P2             0.868         0.882
+ P3             0.307         0.311         0.316
+ C1             0.978         0.882         0.316         1.000
+ C2             0.882         0.882         0.316         0.899         0.899
+ C3             0.654         0.662         0.316         0.667         0.667
+ BAGE           0.978         0.882         0.316         1.000         0.899
+
+
+           Covariance Coverage
+              C3            BAGE
+              ________      ________
+ C3             0.667
+ BAGE           0.667         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ 1             67.985        56.119        41.287        44.904        44.541
+
+
+           Means
+              C3            BAGE
+              ________      ________
+ 1             40.015        -7.048
+
+
+           Covariances
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1           784.402
+ P2           154.677       161.747
+ P3            93.241        66.541       128.751
+ C1           -57.094        -9.826         4.920       125.947
+ C2           -72.065       -16.865        -0.162       108.974       120.166
+ C3           -56.721        -6.888         1.115       105.459       106.055
+ BAGE           3.326        -1.439         0.075        -0.736        -0.352
+
+
+           Covariances
+              C3            BAGE
+              ________      ________
+ C3           122.437
+ BAGE          -0.238         0.839
+
+
+           Correlations
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.434         1.000
+ P3             0.293         0.461         1.000
+ C1            -0.182        -0.069         0.039         1.000
+ C2            -0.235        -0.121        -0.001         0.886         1.000
+ C3            -0.183        -0.049         0.009         0.849         0.874
+ BAGE           0.130        -0.124         0.007        -0.072        -0.035
+
+
+           Correlations
+              C3            BAGE
+              ________      ________
+ C3             1.000
+ BAGE          -0.024         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -4352.877
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       23
+
+Loglikelihood
+
+          H0 Value                       -4068.521
+
+Information Criteria
+
+          Akaike (AIC)                    8183.042
+          Bayesian (BIC)                  8261.917
+          Sample-Size Adjusted BIC        8189.023
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.688      1.410     -0.488      0.625
+
+ SP         ON
+    BAGE              -0.081      0.239     -0.338      0.735
+
+ IC         ON
+    BAGE              -0.787      0.916     -0.860      0.390
+
+ SC         ON
+    BAGE               0.055      0.050      1.096      0.273
+
+ SP       WITH
+    IP               -11.155      5.557     -2.007      0.045
+
+ IC       WITH
+    IP               -32.400     17.150     -1.889      0.059
+    SP                 3.750      2.162      1.734      0.083
+
+ SC       WITH
+    IP                 0.260      0.856      0.304      0.761
+    SP                 0.008      0.112      0.070      0.944
+    IC                -0.556      0.632     -0.880      0.379
+
+ P1       WITH
+    C1                -4.070      3.299     -1.233      0.217
+
+ P2       WITH
+    C2                -4.070      3.299     -1.233      0.217
+
+ P3       WITH
+    C3                -4.070      3.299     -1.233      0.217
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    IP                60.457     10.099      5.987      0.000
+    SP                -2.721      1.679     -1.621      0.105
+    IC                39.827      6.438      6.186      0.000
+    SC                -0.045      0.354     -0.128      0.898
+
+ Residual Variances
+    P1               588.908     92.740      6.350      0.000
+    P2                43.284     19.131      2.263      0.024
+    P3                61.752     70.005      0.882      0.378
+    C1                14.220      1.102     12.905      0.000
+    C2                14.220      1.102     12.905      0.000
+    C3                14.220      1.102     12.905      0.000
+    IP               187.889     42.831      4.387      0.000
+    SP                 1.036      1.123      0.923      0.356
+    IC               111.757     13.072      8.550      0.000
+    SC                 0.066      0.043      1.527      0.127
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.414E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\handgrip\b1_female_
+
+     Beginning Time:  20:21:57
+        Ending Time:  20:22:04
+       Elapsed Time:  00:00:07
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

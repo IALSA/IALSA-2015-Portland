@@ -1,0 +1,482 @@
+Mplus VERSION 7.3
+MUTHEN & MUTHEN
+02/24/2015   2:41 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: M2 WS, Quadratic LGM, Age Conditional, non-demented, 10 yrs, Male
+
+   DATA:  File = unshared\IALSA_OBAS_021815.dat;
+
+  VARIABLE: Names are VSTpatid female	Rsex educyrs	MMSE1
+  	MMSE2	MMSE3	MMSE4	MMSE5	MMSE6	MMSE7	MMSE8
+      	MMSE9	MMSE10	MMSE11	MMSE12	MMSE13	MMSE14	
+          MMSE15	MMSE16	MMSE17	MMSE18	MMSE19	MMSE20
+          	MMSE21	MMSE22	MMSE23	age1	age2	
+              age3	age4	age5	age6	age7	age8
+              	age9	age10	age11	age12	age13	
+                  age14	age15	age16	age17	age18	
+
+                 age19	age20	age21	age22	age23	
+                 cdr1	cdr2	cdr3	cdr4	cdr5	cdr6
+                 	cdr7	cdr8	cdr9	cdr10	cdr11	
+                  cdr12	cdr13	cdr14	cdr15	cdr16	
+                  cdr17	cdr18	cdr19	cdr20	cdr21	
+                  cdr22	cdr23	WS1	WS2	WS3	WS4	WS5	WS6	
+                  WS7	WS8	WS9	WS10	WS11	WS12	WS13
+                  	WS14	WS15	WS16	WS17	WS18	
+                      WS19	WS20	WS21	WS22
+                      	WS23	GS1	GS2	GS3	GS4	GS5	GS6	GS7	GS8
+                          	GS9	GS10	GS11	GS12	GS13	
+                              GS14	GS15	GS16	GS17	GS18
+                              	GS19	GS20	GS21	GS22	GS23
+                       	CS1	CS2	CS3	CS4	CS5	CS6	CS7	CS8	CS9	CS10	CS11
+                       	CS12	CS13	CS14	CS15	CS16	CS17	
+                   CS18	CS19	CS20	CS21	CS22	CS23	baseage ;
+
+         MISSING is all (-9999);
+         USEVAR are
+                     p1-p10
+                     Bage time1 time2 time3 time4 time5 time6 time7 time8
+                     time9 time10;
+                     !time11 time12 time13 time14 time15 time16 time17 time18 time19 time20
+                     !time21 time22;
+         TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8 time9
+         time10;
+                     !time11 time12 time13 time14 time15 time16 time17 time18 time19 time20
+                     !time21 time22;
+
+         USEOBSERVATIONS are CDR1 LE 0.5 and CDR2 LE 0.5 and CDR3 LE 0.5 and CDR4 LE 0.5
+         and CDR5 LE 0.5 and CDR6 LE 0.5 and CDR7 LE 0.5
+         and CDR8 LE 0.5 and CDR9 LE 0.5 and CDR10 LE 0.5 and female EQ 0;
+         !and
+         !CDR11 LE 0.5 and CDR12 LE 0.5 and CDR13 LE 0.5 and CDR14 LE 0.5
+         !and CDR15 LE 0.5
+         !and CDR16 LE 0.5 and CDR17 LE 0.5 and CDR18 LE 0.5 and CDR19 LE 0.5
+         !and CDR20 LE 0.5 and CDR21 LE 0.5 and CDR22 LE 0.5
+         !and female EQ 1;
+
+  Define: p1=ws1; p2=ws2; p3=ws3; p4=ws4; p5=ws5; p6=ws6; p7=ws7; p8=ws8;
+  p9=ws9; p10=ws10; p11=ws11; p12=ws12; p13=ws13; p14=ws14; p15=ws15;
+  p16=ws16; p17=ws17; p18=ws18; p19=ws19; p20=ws20; p21=ws21; p22=ws22;
+  p23=ws23;
+
+          Bage=age1-70;   !Centered at Age 82
+          Bagesq=(age1-70)**2;
+          ! Dage=YTDead;
+          Sex=female;         !0=Male
+          Educ=Educyrs-7;     ! Centered at 14.5 years
+          !SEP=SESgrp;
+          !Marstat;
+          !Height
+          !Weight
+          !BMI
+          !SmokHist=Smoke;
+          !Alcohol;
+          !CompExp;
+          !PhysAct;
+          !BP;
+          !DepSymp;
+          !Cardio;
+          !Diab;
+          !MorbInd;
+
+          BageSex=Bage*Sex;
+          BageEduc=Bage*Educ;
+          SexEduc=Sex*Educ;
+          time1=age1-age1;
+          time2=age2-age1;
+          time3=age3-age1;
+          time4=age4-age1;
+          time5=age5-age1;
+          time6=age6-age1;
+          time7=age7-age1;
+          time8=age8-age1;
+          time9=age9-age1;
+          time10=age10-age1;
+          time11=age11-age1;
+          time12=age12-age1;
+          time13=age13-age1;
+          time14=age14-age1;
+          time15=age15-age1;
+          time16=age16-age1;
+          time17=age17-age1;
+          time18=age18-age1;
+          time19=age19-age1;
+          time20=age20-age1;
+          time21=age21-age1;
+          time22=age22-age1;
+          time23=age23-age1;
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp qp | p1-p10 AT time1-time10;
+
+          ip sp qp ON Bage;
+
+          p1-p10 (res_p);
+
+  OUTPUT: sampstat;
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+M2 WS, Quadratic LGM, Age Conditional, non-demented, 10 yrs, Male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         111
+
+Number of dependent variables                                   10
+Number of independent variables                                  1
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5          P6
+   P7          P8          P9          P10
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IP          SP          QP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
+   TIME7       TIME8       TIME9       TIME10
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  unshared\IALSA_OBAS_021815.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            35
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.964
+ P2             0.730         0.748
+ P3             0.892         0.694         0.910
+ P4             0.784         0.694         0.784         0.802
+ P5             0.802         0.613         0.802         0.703         0.820
+ P6             0.703         0.568         0.685         0.622         0.685
+ P7             0.631         0.532         0.631         0.586         0.631
+ P8             0.541         0.495         0.559         0.514         0.559
+ P9             0.523         0.441         0.523         0.495         0.523
+ P10            0.477         0.405         0.477         0.450         0.477
+ BAGE           0.964         0.748         0.910         0.802         0.820
+
+
+           Covariance Coverage
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             0.721
+ P7             0.631         0.667
+ P8             0.550         0.559         0.577
+ P9             0.514         0.514         0.495         0.541
+ P10            0.477         0.477         0.450         0.486         0.495
+ BAGE           0.721         0.667         0.577         0.541         0.495
+
+
+           Covariance Coverage
+              BAGE
+              ________
+ BAGE           1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1              0.957         0.896         0.874         0.866         0.808
+
+
+           Means
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ 1              0.804         0.791         0.769         0.738         0.740
+
+
+           Means
+              BAGE
+              ________
+ 1             10.876
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.050
+ P2             0.035         0.054
+ P3             0.032         0.027         0.050
+ P4             0.023         0.024         0.029         0.039
+ P5             0.029         0.028         0.026         0.020         0.044
+ P6             0.027         0.029         0.032         0.026         0.029
+ P7             0.024         0.029         0.027         0.026         0.023
+ P8             0.028         0.032         0.031         0.027         0.031
+ P9             0.029         0.034         0.031         0.032         0.030
+ P10            0.025         0.027         0.025         0.029         0.027
+ BAGE          -1.149        -0.904        -0.990        -0.908        -1.074
+
+
+           Covariances
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             0.035
+ P7             0.028         0.043
+ P8             0.029         0.034         0.050
+ P9             0.033         0.034         0.038         0.052
+ P10            0.028         0.031         0.034         0.040         0.046
+ BAGE          -0.824        -0.735        -1.237        -0.887        -0.804
+
+
+           Covariances
+              BAGE
+              ________
+ BAGE          80.076
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.682         1.000
+ P3             0.637         0.517         1.000
+ P4             0.523         0.517         0.655         1.000
+ P5             0.612         0.581         0.554         0.496         1.000
+ P6             0.635         0.657         0.774         0.716         0.738
+ P7             0.530         0.606         0.598         0.633         0.535
+ P8             0.560         0.619         0.613         0.606         0.653
+ P9             0.559         0.642         0.605         0.705         0.629
+ P10            0.513         0.541         0.519         0.699         0.607
+ BAGE          -0.574        -0.435        -0.497        -0.517        -0.571
+
+
+           Correlations
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             1.000
+ P7             0.715         1.000
+ P8             0.686         0.743         1.000
+ P9             0.770         0.722         0.735         1.000
+ P10            0.689         0.709         0.701         0.815         1.000
+ BAGE          -0.493        -0.398        -0.616        -0.433        -0.417
+
+
+           Correlations
+              BAGE
+              ________
+ BAGE           1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS 42.205
+
+
+UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P1                    0.961       0.105       0.457    0.93%       0.762      0.914      0.914
+             107.000       0.050      -0.388       1.523    1.87%       1.016      1.143
+     P2                    0.941      -0.119       0.538    6.02%       0.762      0.914      0.914
+              83.000       0.047      -0.770       1.306   10.84%       1.016      1.143
+     P3                    0.887       0.077       0.305    0.99%       0.703      0.831      0.914
+             101.000       0.048      -0.385       1.325    0.99%       1.016      1.016
+     P4                    0.880       0.542       0.508    2.25%       0.762      0.831      0.839
+              89.000       0.036       0.624       1.523    1.12%       0.914      1.016
+     P5                    0.818       0.243       0.397    1.10%       0.609      0.762      0.831
+              91.000       0.042       0.519       1.523    1.10%       0.914      1.016
+     P6                    0.824      -0.263       0.326    1.25%       0.653      0.762      0.831
+              80.000       0.033       0.132       1.306    1.25%       0.914      0.962
+     P7                    0.817      -0.093       0.305    1.35%       0.653      0.762      0.831
+              74.000       0.040       0.193       1.306    2.70%       0.831      0.972
+     P8                    0.836      -0.402       0.381    3.12%       0.653      0.831      0.831
+              64.000       0.039      -0.552       1.143    7.81%       0.914      1.016
+     P9                    0.802       0.142       0.237    1.67%       0.609      0.762      0.831
+              60.000       0.040       0.642       1.306    3.33%       0.831      0.914
+     P10                   0.810      -0.154       0.389    1.82%       0.653      0.762      0.831
+              55.000       0.036      -0.466       1.187    1.82%       0.839      0.942
+     BAGE                 10.876      -0.553     -14.600    0.90%       1.400     10.800     14.700
+             111.000      80.076      -0.476      30.500    0.90%      15.400     17.500
+
+     THE ESTIMATED COVARIANCE MATRIX IS NOT POSITIVE DEFINITE AS IT SHOULD BE.
+     COMPUTATION COULD NOT BE COMPLETED.
+     PROBLEM INVOLVING VARIABLE QP.
+     THE CORRELATION BETWEEN QP AND SP IS -1.078
+     THE RESIDUAL CORRELATION BETWEEN QP AND SP IS -1.078
+     THE PROBLEM MAY BE RESOLVED BY SETTING ALGORITHM=EM AND MCONVERGENCE
+     TO A LARGE VALUE.
+
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN ERROR IN THE
+     COMPUTATION.  CHANGE YOUR MODEL AND/OR STARTING VALUES.
+
+
+
+
+
+
+MODEL RESULTS
+
+                    Estimate
+
+ IP         ON
+    BAGE              -0.013
+
+ SP         ON
+    BAGE               0.000
+
+ QP         ON
+    BAGE               0.000
+
+ SP       WITH
+    IP                -0.001
+
+ QP       WITH
+    IP                 0.000
+    SP                 0.000
+
+ Intercepts
+    P1                 0.000
+    P2                 0.000
+    P3                 0.000
+    P4                 0.000
+    P5                 0.000
+    P6                 0.000
+    P7                 0.000
+    P8                 0.000
+    P9                 0.000
+    P10                0.000
+    IP                 1.085
+    SP                -0.034
+    QP                 0.001
+
+ Residual Variances
+    P1                 0.015
+    P2                 0.015
+    P3                 0.015
+    P4                 0.015
+    P5                 0.015
+    P6                 0.015
+    P7                 0.015
+    P8                 0.015
+    P9                 0.015
+    P10                0.015
+    IP                 0.020
+    SP                 0.001
+    QP                 0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     ip sp qp | p1-p10 AT time1-time10;
+
+     ip ON bage*-0.01321;
+     sp ON bage*0.00009;
+     qp ON bage*-0.00001;
+
+     sp WITH ip*-0.00127;
+     qp WITH ip*0.00006;
+     qp WITH sp*-0.00005;
+
+     [ p1@0 ];
+     [ p2@0 ];
+     [ p3@0 ];
+     [ p4@0 ];
+     [ p5@0 ];
+     [ p6@0 ];
+     [ p7@0 ];
+     [ p8@0 ];
+     [ p9@0 ];
+     [ p10@0 ];
+     [ ip*1.08502 ];
+     [ sp*-0.03375 ];
+     [ qp*0.00122 ];
+
+     p1*0.01544 (res_p);
+     p2*0.01544 (res_p);
+     p3*0.01544 (res_p);
+     p4*0.01544 (res_p);
+     p5*0.01544 (res_p);
+     p6*0.01544 (res_p);
+     p7*0.01544 (res_p);
+     p8*0.01544 (res_p);
+     p9*0.01544 (res_p);
+     p10*0.01544 (res_p);
+     ip*0.01986;
+     sp*0.00084;
+     qp*0.00000;
+
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\ialsa workshop\documents\github\ialsa-2015-portland\studies\obas\unshared\u2_male_age_w
+
+     Beginning Time:  14:41:54
+        Ending Time:  14:42:01
+       Elapsed Time:  00:00:07
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
