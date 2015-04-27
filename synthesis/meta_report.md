@@ -145,25 +145,114 @@ satsa        verbal              male       age                     247         
 
 ## `memory` 
 
-Studies with this physical variable listed in the model output: radc 
+Studies with this physical variable listed in the model output: eas, radc 
 
 
 
 study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
 -----------  ------------------  ---------  -----------  --------------  -----------  ----------
+eas          grip                male       muscle                   72            8  TRUE      
 radc         memory              female     aeh                     964            5  TRUE      
 
 
-![](figure_meta/forest_static-16.png) 
+![](figure_meta/forest_static-16.png) ![](figure_meta/forest_static-17.png) 
 
 ## `muscle` 
 
-Studies with this physical variable listed in the model output: eas, habc, ilse, octo, radc 
+Studies with this physical variable listed in the model output: eas, habc, ilse, nuage, octo, radc 
 
 
 
 study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
 -----------  ------------------  ---------  -----------  --------------  -----------  ----------
+eas          fluency             female     ae                      594            8   TRUE     
+eas          fluency             female     ae                      593            8   TRUE     
+eas          fluency             female     ae                      571            8   TRUE     
+eas          fluency             female     aeh                     150            8   TRUE     
+eas          fluency             female     aeh                     150            8   TRUE     
+eas          fluency             female     aeh                     150            8   TRUE     
+eas          fluency             female     aehplus                 150            8   TRUE     
+eas          fluency             female     aehplus                 150            8   TRUE     
+eas          fluency             female     aehplus                 150            8   TRUE     
+eas          fluency             female     age                     594            8   TRUE     
+eas          fluency             female     age                     593            8   TRUE     
+eas          fluency             female     age                     571            8   TRUE     
+eas          fluency             female     age                     538            7   TRUE     
+eas          fluency             female     full                    150            8   TRUE     
+eas          fluency             female     full                    150            8   TRUE     
+eas          fluency             female     full                    150            8   TRUE     
+eas          fluency             male       ae                      376            8   TRUE     
+eas          fluency             male       ae                      376            8   TRUE     
+eas          fluency             male       ae                      358            8   TRUE     
+eas          fluency             male       ae                      353            7   TRUE     
+eas          fluency             male       aeh                      72            8   TRUE     
+eas          fluency             male       aeh                      72            8   TRUE     
+eas          fluency             male       aeh                      72            8   TRUE     
+eas          fluency             male       aeh                      72            7   TRUE     
+eas          fluency             male       aehplus                  72            8   TRUE     
+eas          fluency             male       aehplus                  72            8   TRUE     
+eas          fluency             male       aehplus                  72            8   TRUE     
+eas          fluency             male       aehplus                  72            7   TRUE     
+eas          fluency             male       age                     376            8   TRUE     
+eas          fluency             male       age                     376            8   TRUE     
+eas          fluency             male       age                     358            8   TRUE     
+eas          fluency             male       age                     353            7   TRUE     
+eas          fluency             male       full                     72            8   TRUE     
+eas          fluency             male       full                     72            8   TRUE     
+eas          fluency             male       full                     72            8   TRUE     
+eas          fluency             male       full                     72            7   TRUE     
+eas          fluid               female     ae                      580            8   TRUE     
+eas          fluid               female     aeh                     150            8   TRUE     
+eas          fluid               female     aehplus                 150            8   TRUE     
+eas          fluid               female     age                     580            8   TRUE     
+eas          fluid               female     full                    150            8   TRUE     
+eas          fluid               male       ae                      368            8   TRUE     
+eas          fluid               male       aeh                      72            8   TRUE     
+eas          fluid               male       aehplus                  72            8   TRUE     
+eas          fluid               male       age                     368            8   TRUE     
+eas          fluid               male       full                     72            8   TRUE     
+eas          global              female     ae                      600            8   TRUE     
+eas          global              female     aeh                     150            8   TRUE     
+eas          global              female     aehplus                 150            8   TRUE     
+eas          global              female     age                     600            8   TRUE     
+eas          global              female     full                    150            8   TRUE     
+eas          global              male       ae                      383            8   TRUE     
+eas          global              male       aeh                      72            8   TRUE     
+eas          global              male       aehplus                  72            8   TRUE     
+eas          global              male       age                     383            8   TRUE     
+eas          global              male       full                     72            8   TRUE     
+eas          knowledge           female     ae                      538            7   TRUE     
+eas          knowledge           female     ae                      594            8   TRUE     
+eas          knowledge           female     aeh                     145            7   TRUE     
+eas          knowledge           female     aeh                     150            8   TRUE     
+eas          knowledge           female     aehplus                 145            7   TRUE     
+eas          knowledge           female     aehplus                 150            8   TRUE     
+eas          knowledge           female     age                     594            8   TRUE     
+eas          knowledge           female     full                    145            7   TRUE     
+eas          knowledge           female     full                    150            8   TRUE     
+eas          knowledge           male       ae                      377            8   TRUE     
+eas          knowledge           male       aeh                      72            8   TRUE     
+eas          knowledge           male       aehplus                  72            8   TRUE     
+eas          knowledge           male       age                     377            8   TRUE     
+eas          knowledge           male       full                     72            8   TRUE     
+eas          memory              female     ae                      554            8   TRUE     
+eas          memory              female     aeh                     150            8   TRUE     
+eas          memory              female     aeh                     150            8   TRUE     
+eas          memory              female     aehplus                 150            8   TRUE     
+eas          memory              female     aehplus                 150            8   TRUE     
+eas          memory              female     age                     595            8   TRUE     
+eas          memory              female     age                     554            8   TRUE     
+eas          memory              female     full                    150            8   TRUE     
+eas          memory              female     full                    150            8   TRUE     
+eas          memory              male       ae                      379            8   TRUE     
+eas          memory              male       ae                      349            8   TRUE     
+eas          memory              male       aeh                      72            8   TRUE     
+eas          memory              male       aehplus                  72            8   TRUE     
+eas          memory              male       aehplus                  72            8   TRUE     
+eas          memory              male       age                     379            8   TRUE     
+eas          memory              male       age                     349            8   TRUE     
+eas          memory              male       full                     72            8   TRUE     
+eas          memory              male       full                     72            8   TRUE     
 eas          reasoning           female     ae                      563            8   TRUE     
 eas          reasoning           female     aeh                     150            8   TRUE     
 eas          reasoning           female     aehplus                 150            8   TRUE     
@@ -174,6 +263,16 @@ eas          reasoning           male       aeh                      72         
 eas          reasoning           male       aehplus                  72            8   TRUE     
 eas          reasoning           male       age                     350            8   TRUE     
 eas          reasoning           male       full                     72            8   TRUE     
+eas          speed               female     ae                      592            8   TRUE     
+eas          speed               female     aeh                     150            8   TRUE     
+eas          speed               female     aehplus                 150            8   TRUE     
+eas          speed               female     age                     592            8   TRUE     
+eas          speed               female     full                    150            8   TRUE     
+eas          speed               male       ae                      377            8   TRUE     
+eas          speed               male       aeh                      72            8   TRUE     
+eas          speed               male       aehplus                  72            8   TRUE     
+eas          speed               male       age                     377            8   TRUE     
+eas          speed               male       full                     72            8   TRUE     
 habc         mental              female     aeh                    1578           11   TRUE     
 habc         mental              female     aeh                    1575           10   TRUE     
 habc         mental              female     aehplus                1538           11   TRUE     
@@ -230,6 +329,12 @@ ilse         speed               female     age                     228         
 ilse         speed               male       aeh                     253            3   TRUE     
 ilse         speed               male       aehplus                 252            3   TRUE     
 ilse         speed               male       age                     253            3   TRUE     
+nuage        global              female     aeh                     934            4   TRUE     
+nuage        global              female     aehplus                 934            4   TRUE     
+nuage        global              female     age                     939            4   TRUE     
+nuage        global              male       aeh                     847            4   TRUE     
+nuage        global              male       aehplus                 847            4   TRUE     
+nuage        global              male       age                     851            4   TRUE     
 octo         global              female     aeh                     276            5   TRUE     
 octo         global              female     age                     311            5   TRUE     
 octo         global              male       aeh                     140            5   TRUE     
@@ -357,13 +462,26 @@ radc         visuospatial        male       aehplus                 334         
 radc         visuospatial        male       age                     722            5   TRUE     
 
 
-![](figure_meta/forest_static-17.png) ![](figure_meta/forest_static-18.png) ![](figure_meta/forest_static-19.png) ![](figure_meta/forest_static-20.png) ![](figure_meta/forest_static-21.png) ![](figure_meta/forest_static-22.png) 
+![](figure_meta/forest_static-18.png) ![](figure_meta/forest_static-19.png) ![](figure_meta/forest_static-20.png) ![](figure_meta/forest_static-21.png) ![](figure_meta/forest_static-22.png) ![](figure_meta/forest_static-23.png) ![](figure_meta/forest_static-24.png) 
 
 ```
 Warning: Removed 1 rows containing missing values (geom_segment).
 ```
 
-![](figure_meta/forest_static-23.png) ![](figure_meta/forest_static-24.png) ![](figure_meta/forest_static-25.png) ![](figure_meta/forest_static-26.png) ![](figure_meta/forest_static-27.png) 
+![](figure_meta/forest_static-25.png) ![](figure_meta/forest_static-26.png) ![](figure_meta/forest_static-27.png) ![](figure_meta/forest_static-28.png) ![](figure_meta/forest_static-29.png) 
+
+## `muslce` 
+
+Studies with this physical variable listed in the model output: eas 
+
+
+
+study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
+-----------  ------------------  ---------  -----------  --------------  -----------  ----------
+eas          memory              female     ae                      595            8  TRUE      
+
+
+![](figure_meta/forest_static-30.png) 
 
 ## `pulmonary` 
 
@@ -700,7 +818,7 @@ satsa        verbal              male       ae                      341         
 satsa        verbal              male       age                     247            7  TRUE      
 
 
-![](figure_meta/forest_static-28.png) ![](figure_meta/forest_static-29.png) ![](figure_meta/forest_static-30.png) ![](figure_meta/forest_static-31.png) ![](figure_meta/forest_static-32.png) ![](figure_meta/forest_static-33.png) ![](figure_meta/forest_static-34.png) ![](figure_meta/forest_static-35.png) ![](figure_meta/forest_static-36.png) ![](figure_meta/forest_static-37.png) ![](figure_meta/forest_static-38.png) ![](figure_meta/forest_static-39.png) ![](figure_meta/forest_static-40.png) ![](figure_meta/forest_static-41.png) ![](figure_meta/forest_static-42.png) ![](figure_meta/forest_static-43.png) ![](figure_meta/forest_static-44.png) ![](figure_meta/forest_static-45.png) ![](figure_meta/forest_static-46.png) ![](figure_meta/forest_static-47.png) ![](figure_meta/forest_static-48.png) ![](figure_meta/forest_static-49.png) 
+![](figure_meta/forest_static-31.png) ![](figure_meta/forest_static-32.png) ![](figure_meta/forest_static-33.png) ![](figure_meta/forest_static-34.png) ![](figure_meta/forest_static-35.png) ![](figure_meta/forest_static-36.png) ![](figure_meta/forest_static-37.png) ![](figure_meta/forest_static-38.png) ![](figure_meta/forest_static-39.png) ![](figure_meta/forest_static-40.png) ![](figure_meta/forest_static-41.png) ![](figure_meta/forest_static-42.png) ![](figure_meta/forest_static-43.png) ![](figure_meta/forest_static-44.png) ![](figure_meta/forest_static-45.png) ![](figure_meta/forest_static-46.png) ![](figure_meta/forest_static-47.png) ![](figure_meta/forest_static-48.png) ![](figure_meta/forest_static-49.png) ![](figure_meta/forest_static-50.png) ![](figure_meta/forest_static-51.png) ![](figure_meta/forest_static-52.png) 
 
 ## `tug` 
 
@@ -710,21 +828,45 @@ Studies with this physical variable listed in the model output: ilse
 
 study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
 -----------  ------------------  ---------  -----------  --------------  -----------  ----------
+ilse         fluency             female     aeh                     226            3  TRUE      
+ilse         fluency             female     aehplus                 225            3  TRUE      
 ilse         fluency             female     age                     228            3  TRUE      
+ilse         fluency             male       aeh                     253            3  TRUE      
+ilse         fluency             male       aehplus                 252            3  TRUE      
 ilse         fluency             male       age                     253            3  TRUE      
+ilse         knowledge           female     aeh                     226            3  TRUE      
+ilse         knowledge           female     aehplus                 225            3  TRUE      
 ilse         knowledge           female     age                     228            3  TRUE      
+ilse         knowledge           male       aeh                     253            3  TRUE      
+ilse         knowledge           male       aehplus                 252            3  TRUE      
 ilse         knowledge           male       age                     253            3  TRUE      
+ilse         reasoning           female     aeh                     226            3  TRUE      
+ilse         reasoning           female     aeh                     226            3  TRUE      
+ilse         reasoning           female     aeh                     226            3  TRUE      
+ilse         reasoning           female     aehplus                 225            3  TRUE      
+ilse         reasoning           female     aehplus                 225            3  TRUE      
+ilse         reasoning           female     aehplus                 225            3  TRUE      
 ilse         reasoning           female     age                     228            3  TRUE      
 ilse         reasoning           female     age                     228            3  TRUE      
 ilse         reasoning           female     age                     228            3  TRUE      
+ilse         reasoning           male       aeh                     253            3  TRUE      
+ilse         reasoning           male       aeh                     253            3  TRUE      
+ilse         reasoning           male       aeh                     253            3  TRUE      
+ilse         reasoning           male       aehplus                 252            3  TRUE      
+ilse         reasoning           male       aehplus                 252            3  TRUE      
+ilse         reasoning           male       aehplus                 252            3  TRUE      
 ilse         reasoning           male       age                     253            3  TRUE      
 ilse         reasoning           male       age                     253            3  TRUE      
 ilse         reasoning           male       age                     253            3  TRUE      
+ilse         speed               female     aeh                     226            3  TRUE      
+ilse         speed               female     aehplus                 225            3  TRUE      
 ilse         speed               female     age                     228            3  TRUE      
+ilse         speed               male       aeh                     253            3  TRUE      
+ilse         speed               male       aehplus                 252            3  TRUE      
 ilse         speed               male       age                     253            3  TRUE      
 
 
-![](figure_meta/forest_static-50.png) ![](figure_meta/forest_static-51.png) ![](figure_meta/forest_static-52.png) ![](figure_meta/forest_static-53.png) 
+![](figure_meta/forest_static-53.png) ![](figure_meta/forest_static-54.png) ![](figure_meta/forest_static-55.png) ![](figure_meta/forest_static-56.png) 
 
 ## `walking` 
 
@@ -764,7 +906,7 @@ obas         global              male       aeh                     108         
 obas         global              male       age                     111           10  TRUE      
 
 
-![](figure_meta/forest_static-54.png) ![](figure_meta/forest_static-55.png) ![](figure_meta/forest_static-56.png) 
+![](figure_meta/forest_static-57.png) ![](figure_meta/forest_static-58.png) ![](figure_meta/forest_static-59.png) 
 
 # Forest Plot (Animated)
 
@@ -783,7 +925,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-04-03, 17:24 Pacific Daylight Time
+Report rendered by koval_000 at 2015-04-27, 12:34 Pacific Daylight Time
 ```
 
 ```
