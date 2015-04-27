@@ -27,7 +27,81 @@ This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 <!-- Tweak the datasets.   -->
 
 
+
+<!-- FREQS across studies and outcomes.   -->
+
+```
+           
+            eas habc ilse nas nuage obas octo radc satsa
+  gait        0    0    0   0     0    0    0    0    20
+  grip        0    0    0   0     0    0   42    0    20
+  muscle    108   24   32   0     6    0   44   81     0
+  muslce      1    0    0   0     0    0    0    0     0
+  pulmonary 111    0    0  41     0    0   90   64    19
+  tug         0    0   36   0     0    0    0    0     0
+  walking     0   24    0   0     0    4    0    0     0
+```
+
+```
+                 
+                  eas habc ilse nas nuage obas octo radc satsa
+  attention         0    0    0   0     0    0    0    7     0
+  block             0    0    0   0     0    0   14    0     0
+  digitbackward     0    0    0   0     0    0   12    0     0
+  digitforward      0    0    0   0     0    0   12    0     0
+  digitsymbol       0    0    0   0     0    0   12    0     0
+  executive        10    0    0   0     0    0    0   20     0
+  figurelogic       0    0    0   0     0    0   12    0     0
+  fluency          66    0   12   0     0    0    0    0     0
+  fluid            10    0    0   0     0    0    0    0     0
+  fluidreasoning    0    0    0  12     0    0    0    0     0
+  global           20    0    0   6     6    4    8    7     0
+  knowledge        35    0   12   0     0    0   16   11     0
+  language          0    0    0   0     0    0    0   13     0
+  memory           39    0    0   0     0    0   32   47    15
+  memoryattention   0    0    0  17     0    0    0    0     0
+  mental            0   32    0   0     0    0    0    0     0
+  mirrecall         0    0    0   0     0    0   12    0     0
+  proserecall       0    0    0   0     0    0   14    0     0
+  reasoning        20    0   32   0     0    0   16   11     0
+  spatial           0    0    0   0     0    0    0    0    15
+  speed            20   16   12   0     0    0   16   18    15
+  verbal            0    0    0   0     0    0    0    0    14
+  verbalfluency     0    0    0   6     0    0    0    0     0
+  visuospatial      0    0    0   0     0    0    0   11     0
+```
+
+```
+                 
+                  gait grip muscle muslce pulmonary tug walking
+  attention          0    0      4      0         3   0       0
+  block              0    6      0      0         8   0       0
+  digitbackward      0    6      0      0         6   0       0
+  digitforward       0    6      0      0         6   0       0
+  digitsymbol        0    6      0      0         6   0       0
+  executive          0    0     12      0        18   0       0
+  figurelogic        0    6      0      0         6   0       0
+  fluency            0    0     42      0        30   6       0
+  fluid              0    0     10      0         0   0       0
+  fluidreasoning     0    0      0      0        12   0       0
+  global             0    0     24      0        23   0       4
+  knowledge          0    0     34      0        34   6       0
+  language           0    0      7      0         6   0       0
+  memory             5    5     60      1        62   0       0
+  memoryattention    0    0      0      0        17   0       0
+  mental             0    0     16      0         0   0      16
+  mirrecall          0    6      0      0         6   0       0
+  proserecall        0    6      0      0         8   0       0
+  reasoning          0    0     38      0        23  18       0
+  spatial            5    5      0      0         5   0       0
+  speed              5    5     42      0        31   6       8
+  verbal             5    5      0      0         4   0       0
+  verbalfluency      0    0      0      0         6   0       0
+  visuospatial       0    0      6      0         5   0       0
+```
+
 <!-- Calculate the forest results (but don't plot yet).   -->
+
 
 
 ## Notes
@@ -142,20 +216,6 @@ satsa        verbal              male       age                     247         
 
 
 ![](figure_meta/forest_static-5.png) ![](figure_meta/forest_static-6.png) ![](figure_meta/forest_static-7.png) ![](figure_meta/forest_static-8.png) ![](figure_meta/forest_static-9.png) ![](figure_meta/forest_static-10.png) ![](figure_meta/forest_static-11.png) ![](figure_meta/forest_static-12.png) ![](figure_meta/forest_static-13.png) ![](figure_meta/forest_static-14.png) ![](figure_meta/forest_static-15.png) 
-
-## `memory` 
-
-Studies with this physical variable listed in the model output: eas, radc 
-
-
-
-study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_count  converged 
------------  ------------------  ---------  -----------  --------------  -----------  ----------
-eas          grip                male       muscle                   72            8  TRUE      
-radc         memory              female     aeh                     964            5  TRUE      
-
-
-![](figure_meta/forest_static-16.png) ![](figure_meta/forest_static-17.png) 
 
 ## `muscle` 
 
@@ -462,13 +522,13 @@ radc         visuospatial        male       aehplus                 334         
 radc         visuospatial        male       age                     722            5   TRUE     
 
 
-![](figure_meta/forest_static-18.png) ![](figure_meta/forest_static-19.png) ![](figure_meta/forest_static-20.png) ![](figure_meta/forest_static-21.png) ![](figure_meta/forest_static-22.png) ![](figure_meta/forest_static-23.png) ![](figure_meta/forest_static-24.png) 
+![](figure_meta/forest_static-16.png) ![](figure_meta/forest_static-17.png) ![](figure_meta/forest_static-18.png) ![](figure_meta/forest_static-19.png) ![](figure_meta/forest_static-20.png) ![](figure_meta/forest_static-21.png) ![](figure_meta/forest_static-22.png) 
 
 ```
 Warning: Removed 1 rows containing missing values (geom_segment).
 ```
 
-![](figure_meta/forest_static-25.png) ![](figure_meta/forest_static-26.png) ![](figure_meta/forest_static-27.png) ![](figure_meta/forest_static-28.png) ![](figure_meta/forest_static-29.png) 
+![](figure_meta/forest_static-23.png) ![](figure_meta/forest_static-24.png) ![](figure_meta/forest_static-25.png) ![](figure_meta/forest_static-26.png) ![](figure_meta/forest_static-27.png) 
 
 ## `muslce` 
 
@@ -481,7 +541,7 @@ study_name   cognitive_outcome   subgroup   model_type    subject_count   wave_c
 eas          memory              female     ae                      595            8  TRUE      
 
 
-![](figure_meta/forest_static-30.png) 
+![](figure_meta/forest_static-28.png) 
 
 ## `pulmonary` 
 
@@ -818,7 +878,7 @@ satsa        verbal              male       ae                      341         
 satsa        verbal              male       age                     247            7  TRUE      
 
 
-![](figure_meta/forest_static-31.png) ![](figure_meta/forest_static-32.png) ![](figure_meta/forest_static-33.png) ![](figure_meta/forest_static-34.png) ![](figure_meta/forest_static-35.png) ![](figure_meta/forest_static-36.png) ![](figure_meta/forest_static-37.png) ![](figure_meta/forest_static-38.png) ![](figure_meta/forest_static-39.png) ![](figure_meta/forest_static-40.png) ![](figure_meta/forest_static-41.png) ![](figure_meta/forest_static-42.png) ![](figure_meta/forest_static-43.png) ![](figure_meta/forest_static-44.png) ![](figure_meta/forest_static-45.png) ![](figure_meta/forest_static-46.png) ![](figure_meta/forest_static-47.png) ![](figure_meta/forest_static-48.png) ![](figure_meta/forest_static-49.png) ![](figure_meta/forest_static-50.png) ![](figure_meta/forest_static-51.png) ![](figure_meta/forest_static-52.png) 
+![](figure_meta/forest_static-29.png) ![](figure_meta/forest_static-30.png) ![](figure_meta/forest_static-31.png) ![](figure_meta/forest_static-32.png) ![](figure_meta/forest_static-33.png) ![](figure_meta/forest_static-34.png) ![](figure_meta/forest_static-35.png) ![](figure_meta/forest_static-36.png) ![](figure_meta/forest_static-37.png) ![](figure_meta/forest_static-38.png) ![](figure_meta/forest_static-39.png) ![](figure_meta/forest_static-40.png) ![](figure_meta/forest_static-41.png) ![](figure_meta/forest_static-42.png) ![](figure_meta/forest_static-43.png) ![](figure_meta/forest_static-44.png) ![](figure_meta/forest_static-45.png) ![](figure_meta/forest_static-46.png) ![](figure_meta/forest_static-47.png) ![](figure_meta/forest_static-48.png) ![](figure_meta/forest_static-49.png) ![](figure_meta/forest_static-50.png) 
 
 ## `tug` 
 
@@ -866,7 +926,7 @@ ilse         speed               male       aehplus                 252         
 ilse         speed               male       age                     253            3  TRUE      
 
 
-![](figure_meta/forest_static-53.png) ![](figure_meta/forest_static-54.png) ![](figure_meta/forest_static-55.png) ![](figure_meta/forest_static-56.png) 
+![](figure_meta/forest_static-51.png) ![](figure_meta/forest_static-52.png) ![](figure_meta/forest_static-53.png) ![](figure_meta/forest_static-54.png) 
 
 ## `walking` 
 
@@ -906,7 +966,7 @@ obas         global              male       aeh                     108         
 obas         global              male       age                     111           10  TRUE      
 
 
-![](figure_meta/forest_static-57.png) ![](figure_meta/forest_static-58.png) ![](figure_meta/forest_static-59.png) 
+![](figure_meta/forest_static-55.png) ![](figure_meta/forest_static-56.png) ![](figure_meta/forest_static-57.png) 
 
 # Forest Plot (Animated)
 
@@ -925,7 +985,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-04-27, 12:34 Pacific Daylight Time
+Report rendered by koval_000 at 2015-04-27, 12:52 Pacific Daylight Time
 ```
 
 ```

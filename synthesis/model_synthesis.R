@@ -23,6 +23,12 @@ range_int <- range(ds$sd_int, ds$cil_sd_int, ds$ciu_sd_int, na.rm=T)
 range_slope <- range(ds$sd_slope, ds$cil_sd_slope, ds$ciu_sd_slope, na.rm=T)
 range_residual <- range(ds$sd_residual, ds$cil_sd_residual, ds$ciu_sd_residual, na.rm=T)
 
+## @knitr studyfreqs
+table(ds$physical_outcome, ds$study_name)
+table(ds$cognitive_outcome, ds$study_name)
+table(ds$cognitive_outcome, ds$physical_outcome)
+
+
 #####################################
 ## @knitr calculate_forest
 #TODO: Andrey, calcalulate the graph coordinates, using Philipe's equations that start with

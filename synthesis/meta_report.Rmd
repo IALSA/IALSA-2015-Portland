@@ -61,9 +61,15 @@ read_chunk("./synthesis/model_synthesis.R") #This allows knitr to call chunks ta
 ```{r tweak_data, echo=echoChunks, results='show', message=FALSE}
 ```
 
+
+<!-- FREQS across studies and outcomes.   -->
+```{r studyfreqs, echo=echoChunks, results='show', message=FALSE}
+```
+
 <!-- Calculate the forest results (but don't plot yet).   -->
 ```{r calculate_forest, echo=echoChunks, message=TRUE, results='asis'}
 ```
+
 
 ## Notes
 
