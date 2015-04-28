@@ -1,4 +1,4 @@
-# Collected Outcomes -- Study-Specific
+# Overview : estimated models by study
 
 
 
@@ -27,6 +27,10 @@
 
 
 <!-- Frequency counts   -->
+
+```
+[1] 767
+```
 
 ```
 
@@ -112,7 +116,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-04-28, 10:36 Pacific Daylight Time
+Report rendered by koval_000 at 2015-04-28, 11:24 Pacific Daylight Time
 ```
 
 ```

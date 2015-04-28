@@ -9,7 +9,7 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 #####################################
 ## @knitr load_packages
 # library(xtable)
-library(printr)
+# library(printr)
 library(knitr)
 library(scales) #For formating values in graphs
 library(RColorBrewer)
@@ -32,6 +32,7 @@ unique(dsb$study_name)
 names(dsb)
 
 ## @knitr all_freqs
+length(dsb$study_name)
 table(dsb$study_name)
 table(dsb$physical_outcome,dsb$study_name)
 table(dsb$cognitive_outcome,dsb$study_name)
