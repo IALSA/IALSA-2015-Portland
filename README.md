@@ -5,6 +5,8 @@
 ## Dynamic reports
 *last updated 2015-03-07, 16:35 GMT*
 
+- [Overview: counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html): tallies of estimated models by study and outcomes
+
 - [tabled results](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/synthesis/study_report.html) for each study across all models.
 
 - [graphed results](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/synthesis/meta_report.html) for each **outcome pair** across all models that contain this change. 
