@@ -1,22 +1,25 @@
 library(shiny)
 
-# Define UI for dataset viewer application
+# Define UI for study viewer application
 shinyUI(fluidPage(
 
   # Application title
   titlePanel("Shiny Text"),
 
-  # Sidebar with controls to select a dataset and specify the
+  # Sidebar with controls to select a study and specify the
   # number of observations to view
   sidebarLayout(
     sidebarPanel(
-      selectInput("dataset", "Choose a study:",
+      selectInput("study", "Choose a study:",
                   choices = c("eas", "habc", "ilse")),
+
+      selectInput("physical", "Choose physical outcome:",
+                  choices = physicalInput),
 
       numericInput("obs", "Number of observations to view:", 10)
     ),
 
-    # Show a summary of the dataset and an HTML table with the
+    # Show a summary of the study and an HTML table with the
 	 # requested number of observations
     mainPanel(
       verbatimTextOutput("summary"),
