@@ -3,29 +3,25 @@ library(shiny)
 
 dsb <- readRDS('../../data/shared/dsb.rds')
 ds <- dsb[ , c("model_number","study_name", "model_type","physical_outcome","cognitive_outcome","physical_specific","cognitive_specific","sd_int","p_cov_int","sd_slope","p_cov_slope")]
+head(ds)
+unique(ds$study_name)
+unique(ds$physical_outcome)
+
 
 # Define server logic required to summarize and view the selected
 # study
 shinyServer(function(input, output) {
 
-  # Return the requested study
-  studyInput <- reactive({
-    switch(input$study,
-           "eas" = ds[ds$study_name=="eas", ],
-           "habc" = ds[ds$study_name=="habc", ],
-           "ilse" = ds[ds$study_name=="ilse", ])
-  })
-    # Select physical outcome
-  physicalInput <- reactive({
-    switch(input$physical,unique(study$physical_outcome))
-  })
+  # Generate frequency count for the study
+  output$freqs <- renderPrint({
+    data <- switch(input$study,
+     "eas" = ds[ds$study_name=="eas", ]
+    )
+    PO <- switch(input$physical,
 
-  # Generate a summary of the study
-  output$summary <- renderPrint({
-    study <- studyInput()
-    # table(study$physical_outcome)
-#     table(study$cognitive_outcome)
-    table(study$physical_outcome, study$cognitive_outcome)
+    )
+
+    table(data$cognitive_outcome,data$physicalO)
 
   })
 

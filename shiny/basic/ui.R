@@ -11,18 +11,18 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       selectInput("study", "Choose a study:",
-                  choices = c("eas", "habc", "ilse")),
+                  choices = unique(ds$study_name)),
 
       selectInput("physical", "Choose physical outcome:",
-                  choices = physicalInput),
+                  choices = unique(ds$physical_outcome)),
 
-      numericInput("obs", "Number of observations to view:", 10)
+      numericInput("obs", "Number of observations to view:", value=10)
     ),
 
     # Show a summary of the study and an HTML table with the
 	 # requested number of observations
     mainPanel(
-      verbatimTextOutput("summary"),
+      verbatimTextOutput("freqs"),
 
       tableOutput("view")
     )
