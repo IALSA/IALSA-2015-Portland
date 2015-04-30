@@ -1,0 +1,4 @@
+studies/(\S+)/(\S+)\.md
+
+data/cache/README.md,data/shared/ELSArn_Disease Groups BL at W1_long to wide_141024.dat,data/shared/README.md,data/unshared/README.md,IALSA-2015-Portland.Rproj,libs/css/sidebar.css,libs/images/ialsa_long.png,LICENSE,README.md,studies/elsa/extract_mplus.R,studies/elsa/m1_mlm growth wcovs_ELSAfull_redintxn.inp,studies/elsa/m1_mlm growth wcovs_elsafull_redintxn.out,studies/elsa/README.md,studies/octo/README.md,studies/README.md,studies/rush/README.md,synthesis/bivariate/bivariate.md,synthesis/bivariate/bivariate.R,synthesis/bivariate/bivariate.Rmd,synthesis/README.md
+
