@@ -24,7 +24,7 @@ shinyUI(fluidPage(
     mainPanel(
       verbatimTextOutput("freqs"),
 
-      tableOutput("view")
+      dataTableOutput("view")
     )
   )
 ))
