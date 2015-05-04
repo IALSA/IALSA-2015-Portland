@@ -20,7 +20,9 @@ library(testit, quietly=TRUE) #For asserts
 
 ## @knitr load_data
 dsb <- readRDS('./data/shared/dsb.rds')
-ds <- dsb[ , c("model_number","study_name", "model_type","physical_outcome","cognitive_outcome","physical_specific","cognitive_specific", "output_file")]
+keepvar <- c("model_number","study_name", "model_type","physical_outcome","cognitive_outcome","physical_specific","cognitive_specific", "output_file")
+
+ds <- dsb[ , keepvar]
 
 ## @knitr dummy
 # key columns/variables
@@ -36,6 +38,21 @@ length(dsb$study_name)
 table(dsb$study_name)
 table(dsb$physical_outcome,dsb$study_name)
 table(dsb$cognitive_outcome,dsb$study_name)
-table(dsb$cognitive_outcome,dsb$physical_outcome)
+t1 <- table(dsb$study_name, dsb$cognitive_outcome,dsb$physical_outcome)
+ftable(t1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
