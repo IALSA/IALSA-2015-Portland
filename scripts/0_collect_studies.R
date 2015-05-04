@@ -7,7 +7,7 @@ library(MplusAutomation)
 ## @knitr setPaths
 
 pathDir <- getwd() # establish home directory
-pathStudies <- file.path(pathDir,"studies") 
+pathStudies <- file.path(pathDir,"studies")
 list.files(pathStudies) # inspect participating studies
 
 ## @knitr setGlobals
@@ -15,7 +15,7 @@ studies <- c("eas", "elsa")
 out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
 
 ## @knitr loadFunctionsThatCollect
-source("./scripts/functions_that_collect.R")
+source("./scripts/0a_functions_that_collect.R")
 
 ## @knitr find.Conflicts
 find.Conflicts("eas")
