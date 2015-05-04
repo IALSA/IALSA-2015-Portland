@@ -2,7 +2,7 @@
 library(shiny)
 
 dsb <- readRDS('../../data/shared/dsb.rds')
-ds <- dsb[ , c("model_number","study_name", "model_type","physical_outcome","cognitive_outcome","physical_specific","cognitive_specific","sd_int","p_cov_int","sd_slope","p_cov_slope")]
+ds <- dsb[ , c("study_name", "model_type","physical_outcome","cognitive_outcome","physical_specific","cognitive_specific","sd_int","p_cov_int","sd_slope","p_cov_slope")]
 head(ds)
 
 
@@ -31,7 +31,7 @@ ds_study <- reactive({
   # Generate frequency count for the study
   output$freqs <- renderPrint({
 
-    table(ds_study()$cognitive_outcome,ds_study()$physical_outcome)
+    table(ds_study()$physical_outcome,ds_study()$cognitive_outcome)
 #
   })
 #
