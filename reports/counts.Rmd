@@ -1,5 +1,5 @@
 ---
-title: "Overview : estimated models by study"
+title: "Progress report: IALSA Portland 2015"
 output:
   html_document:
     css: css/sidebar.css
@@ -61,7 +61,41 @@ read_chunk("./scripts/individual_study_report.R") #This allows knitr to call chu
 ```
 
 <!-- Frequency counts   -->
-```{r all_freqs, echo=echoChunks, results='show', message=FALSE}
+
+## Overview
+
+We are yet to receive model results from the following studies:  
+```{r missing_studies, echo=echoChunks, results='show', message=FALSE}
+```
+
+
+Presently, the number of **bivariate models** provided by participating studies is:
+```{r number_studies, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Frequency counts   -->
+Counting valid models in each study:
+```{r freq_studies, echo=echoChunks, results='show', message=FALSE}
+```
+
+## Outcomes 
+
+Models using the following **Physical contructs**, by study
+```{r freq_phys_studies, echo=echoChunks, results='show', message=FALSE}
+```
+
+Models using the following **Cognitive contructs**, by study
+```{r freq_cog_studies, echo=echoChunks, results='show', message=FALSE}
+```
+
+Counting models with uniuqe **Physical + Cognitive** combination of outcomes:
+```{r freq_cog_phys, echo=echoChunks, results='show', message=FALSE}
+```
+
+## Pairs by Study
+
+Counting models with uniuqe **Physical + Cognitive** combination of outcomes **by study**:
+```{r freq_cog_phys_studies, echo=echoChunks, results='show', message=FALSE}
 ```
 
 
