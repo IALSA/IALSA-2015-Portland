@@ -15,6 +15,7 @@ library(RColorBrewer)
 library(grid) #For graphing
 library(ggplot2) #For graphing
 library(testit, quietly=TRUE) #For asserts
+library(dplyr)
 
 ## @knitr load_data
 dsb <- readRDS('./data/shared/dsb.rds')
@@ -84,6 +85,10 @@ ftable(t5)
 # names(dsb)
 
 ds <- dsb
+ds[ds$model_type=="age","model_type"] <- "a"
+
+ds <- ds %>%
+
 # makes the data ready for reporting look pretty
 
 ds$p_cov_int_pretty <- gsub("0.(\\d{1,})", ".\\1", ds$p_cov_int) #Drop the leading zero, to match APA guidelines
