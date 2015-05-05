@@ -88,6 +88,7 @@ ds <- dsb
 ds[ds$model_type=="age","model_type"] <- "a"
 
 ds <- ds %>%
+  dplyr::arrange(physical_outcome, cognitive_outcome,model_type, subgroup)
 
 # makes the data ready for reporting look pretty
 
