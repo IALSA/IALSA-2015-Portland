@@ -92,13 +92,16 @@ Counting models with uniuqe **Physical + Cognitive** combination of outcomes:
 ```{r freq_cog_phys, echo=echoChunks, results='show', message=FALSE}
 ```
 
-## Pairs by Study
-
-Counting models with uniuqe **Physical + Cognitive** combination of outcomes **by study**:
-```{r freq_cog_phys_studies, echo=echoChunks, results='show', message=FALSE}
+<!-- Prepare pretty data   -->
+Counting valid models in each study:
+```{r prepare_pretty, echo=echoChunks, results='show', message=FALSE}
 ```
 
+# Study-Specific Tables
+Two tables are created for each study: one for univariate models, another for bivariate models
 
+```{r study_tables, echo=echoChunks, message=TRUE, results='asis'}
+```
 
 
 
