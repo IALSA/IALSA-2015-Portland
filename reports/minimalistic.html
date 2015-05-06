@@ -95,14 +95,26 @@ img {
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p>We are yet to receive model results from the following studies:</p>
-<pre><code>[1] &quot;elsa&quot; &quot;hrs&quot;  &quot;lasa&quot; &quot;nshd&quot;</code></pre>
+<pre><code> [1] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas&quot;  
+ [2] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa&quot; 
+ [3] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/habc&quot; 
+ [4] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs&quot;  
+ [5] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/ilse&quot; 
+ [6] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa&quot; 
+ [7] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/nas&quot;  
+ [8] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/nshd&quot; 
+ [9] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/nuage&quot;
+[10] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/obas&quot; 
+[11] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo&quot; 
+[12] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/radc&quot; 
+[13] &quot;C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/satsa&quot;</code></pre>
 <p>Presently, the number of <strong>bivariate models</strong> provided by participating studies is:</p>
-<pre><code>[1] 767</code></pre>
+<pre><code>[1] 726</code></pre>
 <!-- Frequency counts   -->
 <p>Counting valid models in each study:</p>
 <pre><code>
   eas  habc  ilse   nas nuage  obas  octo  radc satsa 
-  220    48    68    41     6     4   176   145    59 </code></pre>
+  220    48    27    41     6     4   176   145    59 </code></pre>
 </div>
 <div id="outcomes" class="section level2">
 <h2>Outcomes</h2>
@@ -111,9 +123,8 @@ img {
             eas habc ilse nas nuage obas octo radc satsa
   gait      .   .    .    .   .     .    .    .    20   
   grip      .   .    .    .   .     .    42   .    20   
-  muscle    109 24   32   .   6     .    44   81   .    
+  muscle    109 24   27   .   6     .    44   81   .    
   pulmonary 111 .    .    41  .     .    90   64   19   
-  tug       .   .    36   .   .     .    .    .    .    
   walking   .   24   .    .   .     4    .    .    .    </code></pre>
 <p>Models using the following <strong>Cognitive contructs</strong>, by study</p>
 <pre><code>                 
@@ -125,52 +136,55 @@ img {
   digitsymbol     .   .    .    .   .     .    12   .    .    
   executive       10  .    .    .   .     .    .    20   .    
   figurelogic     .   .    .    .   .     .    12   .    .    
-  fluency         66  .    12   .   .     .    .    .    .    
+  fluency         66  .    6    .   .     .    .    .    .    
   fluid           10  .    .    .   .     .    .    .    .    
   fluidreasoning  .   .    .    12  .     .    .    .    .    
   global          20  .    .    6   6     4    8    7    .    
-  knowledge       35  .    12   .   .     .    16   11   .    
+  knowledge       35  .    6    .   .     .    16   11   .    
   language        .   .    .    .   .     .    .    13   .    
   memory          39  .    .    .   .     .    32   47   15   
   memoryattention .   .    .    17  .     .    .    .    .    
   mental          .   32   .    .   .     .    .    .    .    
   mirrecall       .   .    .    .   .     .    12   .    .    
   proserecall     .   .    .    .   .     .    14   .    .    
-  reasoning       20  .    32   .   .     .    16   11   .    
+  reasoning       20  .    9    .   .     .    16   11   .    
   spatial         .   .    .    .   .     .    .    .    15   
-  speed           20  16   12   .   .     .    16   18   15   
+  speed           20  16   6    .   .     .    16   18   15   
   verbal          .   .    .    .   .     .    .    .    14   
   verbalfluency   .   .    .    6   .     .    .    .    .    
   visuospatial    .   .    .    .   .     .    .    11   .    </code></pre>
 <p>Counting models with uniuqe <strong>Physical + Cognitive</strong> combination of outcomes:</p>
 <pre><code>                 
-                  gait grip muscle pulmonary tug walking
-  attention       .    .    4      3         .   .      
-  block           .    6    .      8         .   .      
-  digitbackward   .    6    .      6         .   .      
-  digitforward    .    6    .      6         .   .      
-  digitsymbol     .    6    .      6         .   .      
-  executive       .    .    12     18        .   .      
-  figurelogic     .    6    .      6         .   .      
-  fluency         .    .    42     30        6   .      
-  fluid           .    .    10     .         .   .      
-  fluidreasoning  .    .    .      12        .   .      
-  global          .    .    24     23        .   4      
-  knowledge       .    .    34     34        6   .      
-  language        .    .    7      6         .   .      
-  memory          5    5    61     62        .   .      
-  memoryattention .    .    .      17        .   .      
-  mental          .    .    16     .         .   16     
-  mirrecall       .    6    .      6         .   .      
-  proserecall     .    6    .      8         .   .      
-  reasoning       .    .    38     23        18  .      
-  spatial         5    5    .      5         .   .      
-  speed           5    5    42     31        6   8      
-  verbal          5    5    .      4         .   .      
-  verbalfluency   .    .    .      6         .   .      
-  visuospatial    .    .    6      5         .   .      </code></pre>
+                  gait grip muscle pulmonary walking
+  attention       .    .    4      3         .      
+  block           .    6    .      8         .      
+  digitbackward   .    6    .      6         .      
+  digitforward    .    6    .      6         .      
+  digitsymbol     .    6    .      6         .      
+  executive       .    .    12     18        .      
+  figurelogic     .    6    .      6         .      
+  fluency         .    .    42     30        .      
+  fluid           .    .    10     .         .      
+  fluidreasoning  .    .    .      12        .      
+  global          .    .    24     23        4      
+  knowledge       .    .    34     34        .      
+  language        .    .    7      6         .      
+  memory          5    5    61     62        .      
+  memoryattention .    .    .      17        .      
+  mental          .    .    16     .         16     
+  mirrecall       .    6    .      6         .      
+  proserecall     .    6    .      8         .      
+  reasoning       .    .    33     23        .      
+  spatial         5    5    .      5         .      
+  speed           5    5    42     31        8      
+  verbal          5    5    .      4         .      
+  verbalfluency   .    .    .      6         .      
+  visuospatial    .    .    6      5         .      </code></pre>
 <!-- Prepare pretty data   -->
 <p>Counting valid models in each study:</p>
+<pre><code>[1] &quot;0_collect_studies.R&quot;         &quot;0a_functions_that_collect.R&quot; &quot;1_prepare_for_reporting.R&quot;  
+[4] &quot;1a_make_pretty.R&quot;            &quot;1a_make_pretty_small.R&quot;      &quot;thesaurus.r&quot;                
+[7] &quot;x_individual_study_report.R&quot;</code></pre>
 </div>
 <div id="study-specific-tables" class="section level1">
 <h1>Study-Specific Tables</h1>
@@ -3883,32 +3897,6 @@ img {
 </tr>
 <tr class="even">
 <td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">muscle</td>
-<td align="left">reasoning</td>
-<td align="left">-0.13</td>
-<td align="left">0.31</td>
-<td align="left">–</td>
-<td align="right">0.304</td>
-<td align="right">0.433</td>
-<td align="right">0.477</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">muscle</td>
-<td align="left">reasoning</td>
-<td align="left">-0.01</td>
-<td align="left">0.02</td>
-<td align="left">–</td>
-<td align="right">0.962</td>
-<td align="right">0.983</td>
-<td align="right">0.388</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
 <td align="left">male</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
@@ -3961,19 +3949,6 @@ img {
 </tr>
 <tr class="even">
 <td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">muscle</td>
-<td align="left">reasoning</td>
-<td align="left">-0.16</td>
-<td align="left">-0.05</td>
-<td align="left">0.15</td>
-<td align="right">0.142</td>
-<td align="right">0.887</td>
-<td align="right">0.067</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
 <td align="left">muscle</td>
@@ -3985,7 +3960,7 @@ img {
 <td align="right">0.155</td>
 <td align="right">0.581</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">ilse</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -3997,19 +3972,6 @@ img {
 <td align="right">0.070</td>
 <td align="right">0.480</td>
 <td align="right">0.114</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">muscle</td>
-<td align="left">reasoning</td>
-<td align="left">0.10</td>
-<td align="left">0.36</td>
-<td align="left">-0.09</td>
-<td align="right">0.368</td>
-<td align="right">0.601</td>
-<td align="right">0.278</td>
 </tr>
 <tr class="even">
 <td align="left">ilse</td>
@@ -4026,19 +3988,6 @@ img {
 </tr>
 <tr class="odd">
 <td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">muscle</td>
-<td align="left">reasoning</td>
-<td align="left">-0.20</td>
-<td align="left">-0.04</td>
-<td align="left">0.14</td>
-<td align="right">0.087</td>
-<td align="right">0.902</td>
-<td align="right">0.106</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
 <td align="left">muscle</td>
@@ -4050,7 +3999,7 @@ img {
 <td align="right">0.478</td>
 <td align="right">0.125</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">ilse</td>
 <td align="left">female</td>
 <td align="left">a</td>
@@ -4063,7 +4012,7 @@ img {
 <td align="right">0.944</td>
 <td align="right">0.217</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">ilse</td>
 <td align="left">male</td>
 <td align="left">a</td>
@@ -4076,7 +4025,7 @@ img {
 <td align="right">0.374</td>
 <td align="right">0.209</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">ilse</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -4089,7 +4038,7 @@ img {
 <td align="right">0.490</td>
 <td align="right">0.786</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">ilse</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -4102,7 +4051,7 @@ img {
 <td align="right">0.940</td>
 <td align="right">0.445</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">ilse</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -4115,7 +4064,7 @@ img {
 <td align="right">0.484</td>
 <td align="right">0.820</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">ilse</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -4127,474 +4076,6 @@ img {
 <td align="right">0.531</td>
 <td align="right">0.965</td>
 <td align="right">0.458</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">fluency</td>
-<td align="left">-0.12</td>
-<td align="left">0.34</td>
-<td align="left">–</td>
-<td align="right">0.392</td>
-<td align="right">0.646</td>
-<td align="right">0.181</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">fluency</td>
-<td align="left">-0.36</td>
-<td align="left">-0.21</td>
-<td align="left">–</td>
-<td align="right">0.250</td>
-<td align="right">0.961</td>
-<td align="right">0.980</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">fluency</td>
-<td align="left">-0.08</td>
-<td align="left">0.71</td>
-<td align="left">-0.10</td>
-<td align="right">0.656</td>
-<td align="right">0.643</td>
-<td align="right">0.353</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">fluency</td>
-<td align="left">-0.62</td>
-<td align="left">0.00</td>
-<td align="left">-0.01</td>
-<td align="right">0.707</td>
-<td align="right">0.997</td>
-<td align="right">0.957</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">fluency</td>
-<td align="left">-0.03</td>
-<td align="left">0.64</td>
-<td align="left">-0.09</td>
-<td align="right">0.856</td>
-<td align="right">0.675</td>
-<td align="right">0.424</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">fluency</td>
-<td align="left">-0.63</td>
-<td align="left">0.00</td>
-<td align="left">-0.01</td>
-<td align="right">0.737</td>
-<td align="right">0.997</td>
-<td align="right">0.943</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">knowledge</td>
-<td align="left">-0.14</td>
-<td align="left">-0.38</td>
-<td align="left">–</td>
-<td align="right">0.305</td>
-<td align="right">0.319</td>
-<td align="right">0.647</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">knowledge</td>
-<td align="left">-0.33</td>
-<td align="left">0.00</td>
-<td align="left">–</td>
-<td align="right">0.142</td>
-<td align="right">0.987</td>
-<td align="right">0.828</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">knowledge</td>
-<td align="left">-0.03</td>
-<td align="left">0.29</td>
-<td align="left">-0.01</td>
-<td align="right">0.833</td>
-<td align="right">0.732</td>
-<td align="right">0.894</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">knowledge</td>
-<td align="left">-0.43</td>
-<td align="left">0.00</td>
-<td align="left">-0.06</td>
-<td align="right">0.685</td>
-<td align="right">0.990</td>
-<td align="right">0.703</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">knowledge</td>
-<td align="left">-0.02</td>
-<td align="left">0.15</td>
-<td align="left">-0.02</td>
-<td align="right">0.916</td>
-<td align="right">0.817</td>
-<td align="right">0.820</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">knowledge</td>
-<td align="left">-0.54</td>
-<td align="left">0.00</td>
-<td align="left">-0.06</td>
-<td align="right">0.687</td>
-<td align="right">0.999</td>
-<td align="right">0.749</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.14</td>
-<td align="left">-0.31</td>
-<td align="left">–</td>
-<td align="right">0.292</td>
-<td align="right">0.600</td>
-<td align="right">0.656</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.16</td>
-<td align="left">-0.35</td>
-<td align="left">–</td>
-<td align="right">0.159</td>
-<td align="right">0.394</td>
-<td align="right">0.317</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.15</td>
-<td align="left">-0.40</td>
-<td align="left">–</td>
-<td align="right">0.328</td>
-<td align="right">0.389</td>
-<td align="right">0.978</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.31</td>
-<td align="left">0.27</td>
-<td align="left">–</td>
-<td align="right">0.178</td>
-<td align="right">0.815</td>
-<td align="right">0.510</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.22</td>
-<td align="left">0.27</td>
-<td align="left">–</td>
-<td align="right">0.380</td>
-<td align="right">0.881</td>
-<td align="right">0.383</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.31</td>
-<td align="left">-0.60</td>
-<td align="left">–</td>
-<td align="right">0.297</td>
-<td align="right">0.703</td>
-<td align="right">0.674</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.06</td>
-<td align="left">-0.12</td>
-<td align="left">-0.05</td>
-<td align="right">0.687</td>
-<td align="right">0.926</td>
-<td align="right">0.648</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.09</td>
-<td align="left">0.06</td>
-<td align="left">0.08</td>
-<td align="right">0.552</td>
-<td align="right">0.917</td>
-<td align="right">0.384</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.05</td>
-<td align="left">0.52</td>
-<td align="left">-0.01</td>
-<td align="right">0.823</td>
-<td align="right">0.686</td>
-<td align="right">0.906</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.51</td>
-<td align="left">0.00</td>
-<td align="left">0.04</td>
-<td align="right">0.701</td>
-<td align="right">0.999</td>
-<td align="right">0.848</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.29</td>
-<td align="left">0.00</td>
-<td align="left">-0.05</td>
-<td align="right">0.818</td>
-<td align="right">0.995</td>
-<td align="right">0.772</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.22</td>
-<td align="left">-0.42</td>
-<td align="left">0.04</td>
-<td align="right">0.878</td>
-<td align="right">0.931</td>
-<td align="right">0.861</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.01</td>
-<td align="left">0.52</td>
-<td align="left">-0.01</td>
-<td align="right">0.968</td>
-<td align="right">0.693</td>
-<td align="right">0.935</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.03</td>
-<td align="left">-0.17</td>
-<td align="left">-0.05</td>
-<td align="right">0.845</td>
-<td align="right">0.943</td>
-<td align="right">0.657</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.08</td>
-<td align="left">0.23</td>
-<td align="left">0.07</td>
-<td align="right">0.651</td>
-<td align="right">0.803</td>
-<td align="right">0.435</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.18</td>
-<td align="left">-0.45</td>
-<td align="left">0.04</td>
-<td align="right">0.917</td>
-<td align="right">0.943</td>
-<td align="right">0.867</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.49</td>
-<td align="left">0.07</td>
-<td align="left">0.04</td>
-<td align="right">0.753</td>
-<td align="right">0.990</td>
-<td align="right">0.854</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">-0.21</td>
-<td align="left">0.15</td>
-<td align="left">-0.05</td>
-<td align="right">0.897</td>
-<td align="right">0.993</td>
-<td align="right">0.808</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">speed</td>
-<td align="left">-0.18</td>
-<td align="left">-0.03</td>
-<td align="left">–</td>
-<td align="right">0.133</td>
-<td align="right">0.931</td>
-<td align="right">0.858</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">speed</td>
-<td align="left">-0.49</td>
-<td align="left">-0.52</td>
-<td align="left">–</td>
-<td align="right">0.068</td>
-<td align="right">0.633</td>
-<td align="right">0.883</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">speed</td>
-<td align="left">-0.19</td>
-<td align="left">0.13</td>
-<td align="left">0.04</td>
-<td align="right">0.204</td>
-<td align="right">0.901</td>
-<td align="right">0.699</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">speed</td>
-<td align="left">-0.51</td>
-<td align="left">-0.62</td>
-<td align="left">0.04</td>
-<td align="right">0.687</td>
-<td align="right">0.847</td>
-<td align="right">0.809</td>
-</tr>
-<tr class="odd">
-<td align="left">ilse</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">speed</td>
-<td align="left">-0.16</td>
-<td align="left">0.23</td>
-<td align="left">0.04</td>
-<td align="right">0.349</td>
-<td align="right">0.889</td>
-<td align="right">0.730</td>
-</tr>
-<tr class="even">
-<td align="left">ilse</td>
-<td align="left">male</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">speed</td>
-<td align="left">-0.48</td>
-<td align="left">-0.61</td>
-<td align="left">0.04</td>
-<td align="right">0.742</td>
-<td align="right">0.888</td>
-<td align="right">0.806</td>
 </tr>
 </tbody>
 </table>
@@ -10344,26 +9825,26 @@ img {
 <div id="session-information" class="section level1">
 <h1>Session Information</h1>
 <p>For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.</p>
-<pre><code>Report rendered by andkov at 2015-05-05, 16:23 -0700</code></pre>
+<pre><code>Report rendered by koval_000 at 2015-05-06, 13:07 -0700</code></pre>
 <pre><code>R version 3.2.0 (2015-04-16)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 7 x64 (build 7601) Service Pack 1
+Running under: Windows 8 x64 (build 9200)
 
 locale:
-[1] LC_COLLATE=English_Canada.1252  LC_CTYPE=English_Canada.1252    LC_MONETARY=English_Canada.1252
-[4] LC_NUMERIC=C                    LC_TIME=English_Canada.1252    
+[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
 
 attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10        
+[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10.5      
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 highr_0.5       
- [7] stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1       
-[13] htmltools_0.2.6  lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1  
-[19] formatR_1.2      evaluate_0.7     rmarkdown_0.5.1  stringi_0.4-1    proto_0.3-10    </code></pre>
+ [1] Rcpp_0.11.6       magrittr_1.5      MASS_7.3-40       munsell_0.4.2     colorspace_1.2-6  highr_0.5        
+ [7] stringr_1.0.0     plyr_1.8.2        tools_3.2.0       parallel_3.2.0    gtable_0.1.2      DBI_0.3.1        
+[13] htmltools_0.2.6   lazyeval_0.1.10   yaml_2.1.13       digest_0.6.8      assertthat_0.1    reshape2_1.4.1   
+[19] formatR_1.2       evaluate_0.7      rmarkdown_0.5.3.2 stringi_0.4-1     proto_0.3-10     </code></pre>
 </div>
 
 

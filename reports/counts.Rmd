@@ -99,6 +99,16 @@ Counting models with uniuqe **Physical + Cognitive** combination of outcomes **b
 ```
 
 
+## Specific Physical outcomes
+
+
+```{r freq_phys_specific, echo=echoChunks, results='show', message=FALSE}
+```
+
+## Specific Cognitive outcomes
+
+```{r freq_cog_specific, echo=echoChunks, results='show', message=FALSE}
+```
 
 
 

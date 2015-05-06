@@ -26,7 +26,7 @@ options(show.signif.stars=F) #Turn off the annotations on p-values
 
 path_input <- "."
 
-no_variable_labels <- c("nocog", "noCog", "cocogn", "nophys", "noPhys","nophysspec")
+no_variable_labels <- c("nocog", "noCog", "cocogn", "nophys", "noPhys","nophysspec","nophyscog")
 #####################################
 ## @knitr load_data
 # pattern <- "dto_bivariate.csv$"
@@ -66,6 +66,8 @@ ds <- ds[order(ds$study_name, ds$physical_outcome, ds$cognitive_outcome, ds$subg
 #Exclude the univariate models, by remove the variables like `nocog` and `nophys`
 ds <- ds[!(ds$cognitive_outcome %in% no_variable_labels), ]
 ds <- ds[!(ds$physical_outcome %in% no_variable_labels), ]
+ds <- ds[!(ds$physical_specific %in% no_variable_labels), ]
+ds <- ds[!(ds$cognitive_specific %in% no_variable_labels), ]
 # Exclude junk models
 ds <- ds[!(ds$model_number) %in% c("test"),]
 
@@ -80,6 +82,14 @@ table(ds$physical_outcome, ds$study_name)
 
 ds$physical_outcome <- tolower(stringr::str_trim(ds$physical_outcome))
 
+#### corrections to CovSet in model_type ####
+ds[ds$model_type=="age","model_type"] <- "a"
+
+#### Correction to PHYSICAL SPECIFIC ####
+
+table(ds$physical_specific, ds$study_name)
+ds$physical_specific <- tolower(stringr::str_trim(ds$physical_specific))
+
 
 #### Corrections to the COGNITIVE outcome ####
 # sort(unique(ds$cognitive_outcome))
@@ -91,6 +101,23 @@ ds$cognitive_outcome <- tolower(stringr::str_trim(ds$cognitive_outcome))
 
 # tbl <- table(ds$physical_outcome, ds$cognitive_outcome, ds$study_name)
 # ftable(tbl)
+
+#### Correction to PHYSICAL SPECIFIC ####
+ds$cognitive_specific <- tolower(stringr::str_trim(ds$cognitive_specific))
+
+
+ds[!is.na(ds$cognitive_specific) & ds$cognitive_specific=="bostonmaning", c("study_name", "cognitive_specific")][,2] <- "bostonnaming"
+
+
+ds[!is.na(ds$cognitive_specific) & ds$cognitive_specific=="digitsback", c("study_name", "cognitive_specific")][,2] <-
+  "digitbackward"
+
+
+# tcs <- table(ds$cognitive_specific, ds$study_name)
+# tcs[tcs==0] <- "."
+# tcs
+
+
 
 ### Standardize coefficients
 

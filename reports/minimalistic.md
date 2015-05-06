@@ -33,14 +33,26 @@
 We are yet to receive model results from the following studies:  
 
 ```
-[1] "elsa" "hrs"  "lasa" "nshd"
+ [1] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas"  
+ [2] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa" 
+ [3] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/habc" 
+ [4] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs"  
+ [5] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/ilse" 
+ [6] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa" 
+ [7] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/nas"  
+ [8] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/nshd" 
+ [9] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/nuage"
+[10] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/obas" 
+[11] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo" 
+[12] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/radc" 
+[13] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/satsa"
 ```
 
 
 Presently, the number of **bivariate models** provided by participating studies is:
 
 ```
-[1] 767
+[1] 726
 ```
 
 <!-- Frequency counts   -->
@@ -49,7 +61,7 @@ Counting valid models in each study:
 ```
 
   eas  habc  ilse   nas nuage  obas  octo  radc satsa 
-  220    48    68    41     6     4   176   145    59 
+  220    48    27    41     6     4   176   145    59 
 ```
 
 ## Outcomes 
@@ -61,9 +73,8 @@ Models using the following **Physical contructs**, by study
             eas habc ilse nas nuage obas octo radc satsa
   gait      .   .    .    .   .     .    .    .    20   
   grip      .   .    .    .   .     .    42   .    20   
-  muscle    109 24   32   .   6     .    44   81   .    
+  muscle    109 24   27   .   6     .    44   81   .    
   pulmonary 111 .    .    41  .     .    90   64   19   
-  tug       .   .    36   .   .     .    .    .    .    
   walking   .   24   .    .   .     4    .    .    .    
 ```
 
@@ -79,20 +90,20 @@ Models using the following **Cognitive contructs**, by study
   digitsymbol     .   .    .    .   .     .    12   .    .    
   executive       10  .    .    .   .     .    .    20   .    
   figurelogic     .   .    .    .   .     .    12   .    .    
-  fluency         66  .    12   .   .     .    .    .    .    
+  fluency         66  .    6    .   .     .    .    .    .    
   fluid           10  .    .    .   .     .    .    .    .    
   fluidreasoning  .   .    .    12  .     .    .    .    .    
   global          20  .    .    6   6     4    8    7    .    
-  knowledge       35  .    12   .   .     .    16   11   .    
+  knowledge       35  .    6    .   .     .    16   11   .    
   language        .   .    .    .   .     .    .    13   .    
   memory          39  .    .    .   .     .    32   47   15   
   memoryattention .   .    .    17  .     .    .    .    .    
   mental          .   32   .    .   .     .    .    .    .    
   mirrecall       .   .    .    .   .     .    12   .    .    
   proserecall     .   .    .    .   .     .    14   .    .    
-  reasoning       20  .    32   .   .     .    16   11   .    
+  reasoning       20  .    9    .   .     .    16   11   .    
   spatial         .   .    .    .   .     .    .    .    15   
-  speed           20  16   12   .   .     .    16   18   15   
+  speed           20  16   6    .   .     .    16   18   15   
   verbal          .   .    .    .   .     .    .    .    14   
   verbalfluency   .   .    .    6   .     .    .    .    .    
   visuospatial    .   .    .    .   .     .    .    11   .    
@@ -102,36 +113,41 @@ Counting models with uniuqe **Physical + Cognitive** combination of outcomes:
 
 ```
                  
-                  gait grip muscle pulmonary tug walking
-  attention       .    .    4      3         .   .      
-  block           .    6    .      8         .   .      
-  digitbackward   .    6    .      6         .   .      
-  digitforward    .    6    .      6         .   .      
-  digitsymbol     .    6    .      6         .   .      
-  executive       .    .    12     18        .   .      
-  figurelogic     .    6    .      6         .   .      
-  fluency         .    .    42     30        6   .      
-  fluid           .    .    10     .         .   .      
-  fluidreasoning  .    .    .      12        .   .      
-  global          .    .    24     23        .   4      
-  knowledge       .    .    34     34        6   .      
-  language        .    .    7      6         .   .      
-  memory          5    5    61     62        .   .      
-  memoryattention .    .    .      17        .   .      
-  mental          .    .    16     .         .   16     
-  mirrecall       .    6    .      6         .   .      
-  proserecall     .    6    .      8         .   .      
-  reasoning       .    .    38     23        18  .      
-  spatial         5    5    .      5         .   .      
-  speed           5    5    42     31        6   8      
-  verbal          5    5    .      4         .   .      
-  verbalfluency   .    .    .      6         .   .      
-  visuospatial    .    .    6      5         .   .      
+                  gait grip muscle pulmonary walking
+  attention       .    .    4      3         .      
+  block           .    6    .      8         .      
+  digitbackward   .    6    .      6         .      
+  digitforward    .    6    .      6         .      
+  digitsymbol     .    6    .      6         .      
+  executive       .    .    12     18        .      
+  figurelogic     .    6    .      6         .      
+  fluency         .    .    42     30        .      
+  fluid           .    .    10     .         .      
+  fluidreasoning  .    .    .      12        .      
+  global          .    .    24     23        4      
+  knowledge       .    .    34     34        .      
+  language        .    .    7      6         .      
+  memory          5    5    61     62        .      
+  memoryattention .    .    .      17        .      
+  mental          .    .    16     .         16     
+  mirrecall       .    6    .      6         .      
+  proserecall     .    6    .      8         .      
+  reasoning       .    .    33     23        .      
+  spatial         5    5    .      5         .      
+  speed           5    5    42     31        8      
+  verbal          5    5    .      4         .      
+  verbalfluency   .    .    .      6         .      
+  visuospatial    .    .    6      5         .      
 ```
 
 <!-- Prepare pretty data   -->
 Counting valid models in each study:
 
+```
+[1] "0_collect_studies.R"         "0a_functions_that_collect.R" "1_prepare_for_reporting.R"  
+[4] "1a_make_pretty.R"            "1a_make_pretty_small.R"      "thesaurus.r"                
+[7] "x_individual_study_report.R"
+```
 
 # Study-Specific Tables
 Two tables are created for each study: one for univariate models, another for bivariate models
@@ -439,18 +455,13 @@ ilse         male       aeh              muscle                 knowledge       
 ilse         female     aehplus          muscle                 knowledge               0.05               0.45           -0.08                          0.618                 0.263               0.331
 ilse         male       aehplus          muscle                 knowledge               0.13               0.24           -0.04                          0.265                 0.835               0.673
 ilse         female     a                muscle                 reasoning               -0.11              -0.19          --                             0.376                 0.761               0.183
-ilse         female     a                muscle                 reasoning               -0.13              0.31           --                             0.304                 0.433               0.477
-ilse         female     a                muscle                 reasoning               -0.01              0.02           --                             0.962                 0.983               0.388
 ilse         male       a                muscle                 reasoning               0.30               0.35           --                             0.003                 0.238               0.470
 ilse         male       a                muscle                 reasoning               0.23               0.31           0.15                           0.077                 0.517               0.121
 ilse         female     aeh              muscle                 reasoning               0.02               0.33           -0.02                          0.820                 0.580               0.809
 ilse         female     aeh              muscle                 reasoning               0.06               0.31           0.01                           0.639                 0.469               0.929
-ilse         female     aeh              muscle                 reasoning               -0.16              -0.05          0.15                           0.142                 0.887               0.067
 ilse         male       aeh              muscle                 reasoning               0.19               0.43           -0.04                          0.057                 0.155               0.581
 ilse         male       aeh              muscle                 reasoning               0.23               0.32           0.15                           0.070                 0.480               0.114
-ilse         male       aeh              muscle                 reasoning               0.10               0.36           -0.09                          0.368                 0.601               0.278
 ilse         female     aehplus          muscle                 reasoning               0.03               0.30           0.01                           0.783                 0.527               0.903
-ilse         female     aehplus          muscle                 reasoning               -0.20              -0.04          0.14                           0.087                 0.902               0.106
 ilse         male       aehplus          muscle                 reasoning               0.22               0.40           0.16                           0.080                 0.478               0.125
 ilse         female     a                muscle                 speed                   -0.22              0.03           --                             0.059                 0.944               0.217
 ilse         male       a                muscle                 speed                   0.09               -0.29          --                             0.419                 0.374               0.209
@@ -458,42 +469,6 @@ ilse         female     aeh              muscle                 speed           
 ilse         male       aeh              muscle                 speed                   -0.06              -0.02          0.06                           0.558                 0.940               0.445
 ilse         female     aehplus          muscle                 speed                   -0.23              0.22           -0.02                          0.034                 0.484               0.820
 ilse         male       aehplus          muscle                 speed                   -0.06              -0.01          0.06                           0.531                 0.965               0.458
-ilse         female     a                tug                    fluency                 -0.12              0.34           --                             0.392                 0.646               0.181
-ilse         male       a                tug                    fluency                 -0.36              -0.21          --                             0.250                 0.961               0.980
-ilse         female     aeh              tug                    fluency                 -0.08              0.71           -0.10                          0.656                 0.643               0.353
-ilse         male       aeh              tug                    fluency                 -0.62              0.00           -0.01                          0.707                 0.997               0.957
-ilse         female     aehplus          tug                    fluency                 -0.03              0.64           -0.09                          0.856                 0.675               0.424
-ilse         male       aehplus          tug                    fluency                 -0.63              0.00           -0.01                          0.737                 0.997               0.943
-ilse         female     a                tug                    knowledge               -0.14              -0.38          --                             0.305                 0.319               0.647
-ilse         male       a                tug                    knowledge               -0.33              0.00           --                             0.142                 0.987               0.828
-ilse         female     aeh              tug                    knowledge               -0.03              0.29           -0.01                          0.833                 0.732               0.894
-ilse         male       aeh              tug                    knowledge               -0.43              0.00           -0.06                          0.685                 0.990               0.703
-ilse         female     aehplus          tug                    knowledge               -0.02              0.15           -0.02                          0.916                 0.817               0.820
-ilse         male       aehplus          tug                    knowledge               -0.54              0.00           -0.06                          0.687                 0.999               0.749
-ilse         female     a                tug                    reasoning               -0.14              -0.31          --                             0.292                 0.600               0.656
-ilse         female     a                tug                    reasoning               -0.16              -0.35          --                             0.159                 0.394               0.317
-ilse         female     a                tug                    reasoning               -0.15              -0.40          --                             0.328                 0.389               0.978
-ilse         male       a                tug                    reasoning               -0.31              0.27           --                             0.178                 0.815               0.510
-ilse         male       a                tug                    reasoning               -0.22              0.27           --                             0.380                 0.881               0.383
-ilse         male       a                tug                    reasoning               -0.31              -0.60          --                             0.297                 0.703               0.674
-ilse         female     aeh              tug                    reasoning               -0.06              -0.12          -0.05                          0.687                 0.926               0.648
-ilse         female     aeh              tug                    reasoning               -0.09              0.06           0.08                           0.552                 0.917               0.384
-ilse         female     aeh              tug                    reasoning               -0.05              0.52           -0.01                          0.823                 0.686               0.906
-ilse         male       aeh              tug                    reasoning               -0.51              0.00           0.04                           0.701                 0.999               0.848
-ilse         male       aeh              tug                    reasoning               -0.29              0.00           -0.05                          0.818                 0.995               0.772
-ilse         male       aeh              tug                    reasoning               -0.22              -0.42          0.04                           0.878                 0.931               0.861
-ilse         female     aehplus          tug                    reasoning               -0.01              0.52           -0.01                          0.968                 0.693               0.935
-ilse         female     aehplus          tug                    reasoning               -0.03              -0.17          -0.05                          0.845                 0.943               0.657
-ilse         female     aehplus          tug                    reasoning               -0.08              0.23           0.07                           0.651                 0.803               0.435
-ilse         male       aehplus          tug                    reasoning               -0.18              -0.45          0.04                           0.917                 0.943               0.867
-ilse         male       aehplus          tug                    reasoning               -0.49              0.07           0.04                           0.753                 0.990               0.854
-ilse         male       aehplus          tug                    reasoning               -0.21              0.15           -0.05                          0.897                 0.993               0.808
-ilse         female     a                tug                    speed                   -0.18              -0.03          --                             0.133                 0.931               0.858
-ilse         male       a                tug                    speed                   -0.49              -0.52          --                             0.068                 0.633               0.883
-ilse         female     aeh              tug                    speed                   -0.19              0.13           0.04                           0.204                 0.901               0.699
-ilse         male       aeh              tug                    speed                   -0.51              -0.62          0.04                           0.687                 0.847               0.809
-ilse         female     aehplus          tug                    speed                   -0.16              0.23           0.04                           0.349                 0.889               0.730
-ilse         male       aehplus          tug                    speed                   -0.48              -0.61          0.04                           0.742                 0.888               0.806
 
 ## nas
 
@@ -981,27 +956,27 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by andkov at 2015-05-05, 16:23 -0700
+Report rendered by koval_000 at 2015-05-06, 13:07 -0700
 ```
 
 ```
 R version 3.2.0 (2015-04-16)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 7 x64 (build 7601) Service Pack 1
+Running under: Windows 8 x64 (build 9200)
 
 locale:
-[1] LC_COLLATE=English_Canada.1252  LC_CTYPE=English_Canada.1252    LC_MONETARY=English_Canada.1252
-[4] LC_NUMERIC=C                    LC_TIME=English_Canada.1252    
+[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
 
 attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10        
+[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10.5      
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 highr_0.5       
- [7] stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1       
-[13] htmltools_0.2.6  lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1  
-[19] formatR_1.2      evaluate_0.7     rmarkdown_0.5.1  stringi_0.4-1    proto_0.3-10    
+ [1] Rcpp_0.11.6       magrittr_1.5      MASS_7.3-40       munsell_0.4.2     colorspace_1.2-6  highr_0.5        
+ [7] stringr_1.0.0     plyr_1.8.2        tools_3.2.0       parallel_3.2.0    gtable_0.1.2      DBI_0.3.1        
+[13] htmltools_0.2.6   lazyeval_0.1.10   yaml_2.1.13       digest_0.6.8      assertthat_0.1    reshape2_1.4.1   
+[19] formatR_1.2       evaluate_0.7      rmarkdown_0.5.3.2 stringi_0.4-1     proto_0.3-10     
 ```
