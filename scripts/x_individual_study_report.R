@@ -34,31 +34,8 @@ names(dsb)
 
 ## @knitr number_studies
 length(dsb$study_name)
-<<<<<<< HEAD:scripts/x_individual_study_report.R
-table(dsb$study_name)
-table(dsb$physical_outcome,dsb$study_name)
-table(dsb$cognitive_outcome,dsb$study_name)
-t1 <- table(dsb$study_name, dsb$cognitive_outcome,dsb$physical_outcome)
-ftable(t1)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> origin/master:scripts/individual_study_report.R
-
-
-## @knitr missing_studies
+# @knitr missing_studies
 pathDir <- getwd() # establish home directory
 pathStudies <- file.path(pathDir,"studies")
 misslong <- list.dirs(pathStudies, recursive = F)
