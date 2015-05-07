@@ -31,14 +31,18 @@ ds_pretty$ciu_sd_residual <- prettify_coefficients(ds_pretty$ciu_sd_residual)
 
 desired_columns_bivariate<- c(
   "study_name",
-  "subgroup",
-  "model_type",
+
+
 
   "physical_outcome",
   "cognitive_outcome",
 
   "physical_specific",
   "cognitive_specific",
+
+  "subgroup",
+  "model_type",
+
 
   "sd_int",
   "sd_slope",
@@ -47,6 +51,7 @@ desired_columns_bivariate<- c(
   "p_cov_int",
   "p_cov_slope",
   "p_cov_res"
+
 
 #   "cil_sd_int",
 #   "ciu_sd_int",
@@ -63,21 +68,21 @@ ds_bivariate_pretty <- ds_pretty[ds_pretty$outcome_count==2L, desired_columns_bi
 ds_bivariate_pretty <- plyr::rename(ds_bivariate_pretty, replace=c(
 
   "subgroup" = "subgroup",
-  "model_type" = "model<br/>type",
+  "model_type" = "predictor<br/>set",
 
-  "physical_outcome" = "outcome<br/>physical",
-  "cognitive_outcome"=  "cognitive<br/>outcome",
+  "physical_outcome" = "physical<br/>construct",
+  "cognitive_outcome"=  "cognitive<br/>construct",
 
-  "physical_specific" = "physical<br/>specific",
-  "cognitive_specific" = "cognitive<br/>specific",
+  "physical_specific" = "physical<br/>measure",
+  "cognitive_specific" = "cognitive<br/>measure",
 
-  "sd_int" = "sd<br/>intercept",
-  "sd_slope" = "sd<br/>slope",
-  "sd_residual" ="sd<br/>residual",
+  "sd_int" = "correlation<br/>between<br/>intercepts",
+  "sd_slope" = "correlation<br/>between<br/>slopes",
+  "sd_residual" ="correlation<br/>between<br/>residuals",
 
-  "p_cov_int"=  "p<br/>cov<br/>int",
-  "p_cov_slope"=  "p<br/>cov<br/>slope",
-  "p_cov_res"= "p<br/>cov<br/>res"
+  "p_cov_int"=  "p<br/>value<br/>int",
+  "p_cov_slope"=  "p<br/>value<br/>slope",
+  "p_cov_res"= "p<br/>value<br/>res"
 
 
 #   "cil_sd_int" = "CIL<br/>cor<br/>int",

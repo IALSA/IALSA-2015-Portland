@@ -2,16 +2,13 @@
 # IALSA research retreat: Portland, OR, 2015
 ![logl](libs/images/ialsa_long.png)
 
-## Dynamic reports
-*last updated 2015-03-07, 16:35 GMT*
+## Available reports
+*last updated 07-May-2015, 08:35 GMT*
 
-- [Overview: counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html): tallies of estimated models by study and outcomes
+For available combinations of constructs and measures in bivariate models see the report [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html)
 
-- [minimal report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/minimalistic.html)
 
-- [tabled results](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/synthesis/study_report.html) for each study across all models.
-
-- [graphed results](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/synthesis/meta_report.html) for each **outcome pair** across all models that contain this change. 
+For correlation between random terms in bivariate models, see the report [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html)
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# Progress report: IALSA Portland 2015
+# Model Counts: IALSA Portland 2015
 
 
 
@@ -28,28 +28,18 @@
 
 <!-- Frequency counts   -->
 
+This report tabulates frequency counts of bivariate models that are available in the workshop collective at the current time. For correlation between random terms in bivariate models, see the report [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html)
+
 ## Overview
 
 We are yet to receive model results from the following studies:  
 
 ```
- [1] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas"  
- [2] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa" 
- [3] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/habc" 
- [4] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs"  
- [5] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/ilse" 
- [6] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa" 
- [7] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/nas"  
- [8] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/nshd" 
- [9] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/nuage"
-[10] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/obas" 
-[11] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo" 
-[12] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/radc" 
-[13] "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/satsa"
+[1] "elsa" "hrs"  "lasa" "nshd"
 ```
 
 
-Presently, the number of **bivariate models** provided by participating studies is:
+Presently, the number of **bivariate models** supplied by the participating studies is:
 
 ```
 [1] 726
@@ -64,9 +54,9 @@ Counting valid models in each study:
   220    48    27    41     6     4   176   145    59 
 ```
 
-## Outcomes 
+## Physical constructs 
 
-Models using the following **Physical contructs**, by study
+Number of models that use the following **Physical contructs**
 
 ```
            
@@ -78,7 +68,9 @@ Models using the following **Physical contructs**, by study
   walking   .   24   .    .   .     4    .    .    .    
 ```
 
-Models using the following **Cognitive contructs**, by study
+## Cognitive constructs 
+
+Number of models that use the following  **Cognitive contructs**
 
 ```
                  
@@ -109,7 +101,9 @@ Models using the following **Cognitive contructs**, by study
   visuospatial    .   .    .    .   .     .    .    11   .    
 ```
 
-Counting models with uniuqe **Physical + Cognitive** combination of outcomes:
+## Bivariate models
+
+Number of models with a uniuqe **Physical + Cognitive** combination of constructs:
 
 ```
                  
@@ -139,10 +133,11 @@ Counting models with uniuqe **Physical + Cognitive** combination of outcomes:
   verbalfluency   .    .    .      6         .      
   visuospatial    .    .    6      5         .      
 ```
+It is important to remember that these numbers reflect only the combinations of **constructs**, the  **operationalizations** of these construct (specifc outcomes) that may differ from model to model. 
 
-## Pairs by Study
+## Bivariate by Study
 
-Counting models with uniuqe **Physical + Cognitive** combination of outcomes **by study**:
+Number of models with a uniuqe **Physical + Cognitive** combination of constructs **by study**:
 
 ```
                        gait grip muscle pulmonary walking
@@ -366,243 +361,283 @@ satsa attention          .    .      .         .       .
 ```
 
 
-## Specific Physical outcomes
+## Specific Physical 
 
 
-
+### muscle
+Operationalizations of the physical construct **muscle**: 
 ```
-            gait grip muscle pulmonary walking
-                                              
-eas   fev    .    .      .         .       .  
-      fev1   .    .      .         .       .  
-      fevc   .    .      .         .       .  
-      fvc    .    .      .         .       .  
-      gait   .    .      .         .       .  
-      grip   .    .      109       .       .  
-      hand   .    .      .         .       .  
-      pek    .    .      .         111     .  
-habc  fev    .    .      .         .       .  
-      fev1   .    .      .         .       .  
-      fevc   .    .      .         .       .  
-      fvc    .    .      .         .       .  
-      gait   .    .      1         .       24 
-      grip   .    .      .         .       .  
-      hand   .    .      23        .       .  
-      pek    .    .      .         .       .  
-ilse  fev    .    .      .         .       .  
-      fev1   .    .      .         .       .  
-      fevc   .    .      .         .       .  
-      fvc    .    .      .         .       .  
-      gait   .    .      .         .       .  
-      grip   .    .      27        .       .  
-      hand   .    .      .         .       .  
-      pek    .    .      .         .       .  
-nas   fev    .    .      .         .       .  
-      fev1   .    .      .         20      .  
-      fevc   .    .      .         1       .  
-      fvc    .    .      .         20      .  
-      gait   .    .      .         .       .  
-      grip   .    .      .         .       .  
-      hand   .    .      .         .       .  
-      pek    .    .      .         .       .  
-nuage fev    .    .      .         .       .  
-      fev1   .    .      .         .       .  
-      fevc   .    .      .         .       .  
-      fvc    .    .      .         .       .  
-      gait   .    .      .         .       .  
-      grip   .    .      6         .       .  
-      hand   .    .      .         .       .  
-      pek    .    .      .         .       .  
-obas  fev    .    .      .         .       .  
-      fev1   .    .      .         .       .  
-      fevc   .    .      .         .       .  
-      fvc    .    .      .         .       .  
-      gait   .    .      .         .       .  
-      grip   .    .      .         .       .  
-      hand   .    .      .         .       .  
-      pek    .    .      .         .       .  
-octo  fev    .    .      .         .       .  
-      fev1   .    .      .         .       .  
-      fevc   .    .      .         .       .  
-      fvc    .    .      .         .       .  
-      gait   .    .      .         .       .  
-      grip   .    .      44        .       .  
-      hand   .    .      .         .       .  
-      pek    .    .      .         44      .  
-radc  fev    .    .      .         54      .  
-      fev1   .    .      .         .       .  
-      fevc   .    .      .         .       .  
-      fvc    .    .      .         .       .  
-      gait   .    .      .         .       .  
-      grip   .    .      71        .       .  
-      hand   .    .      .         .       .  
-      pek    .    .      .         .       .  
-satsa fev    .    .      .         .       .  
-      fev1   .    .      .         .       .  
-      fevc   .    .      .         .       .  
-      fvc    .    .      .         .       .  
-      gait   .    .      .         .       .  
-      grip   .    .      .         .       .  
-      hand   .    .      .         .       .  
-      pek    .    .      .         .       .  
+      
+       eas habc ilse nuage octo radc
+  gait .   1    .    .     .    .   
+  grip 109 .    27   6     44   71  
+  hand .   23   .    .     .    .   
 ```
 
-## Specific Cognitive outcomes
+### pulmonary
+Operationalizations of the physical construct **pulmonary**: 
+```
+      
+       eas nas octo radc satsa
+  fev  .   .   .    54   .    
+  fev1 .   20  .    .    .    
+  fevc .   1   .    .    .    
+  fvc  .   20  .    .    .    
+  pek  111 .   44   .    .    
+```
 
+### walking
+Operationalizations of the physical construct **walking**: 
+```
+      
+       habc obas
+  gait 24   .   
+```
+
+### grip
+Operationalizations of the physical construct **grip**: 
+```
+Error in file naming: specific measurement was not specified for physical construct **grip**.*
 
 ```
- ## fluency
-                   eas ilse
-                           
-bostonnaming        20   . 
-category            20   . 
-fas                 20   . 
-information         6    . 
-verbalfluencytest   .    6 
 
- ## fluid
-         eas
-            
-trailsb   10
+### gait
+Operationalizations of the physical construct **gait**: 
+```
+Error in file naming: specific measurement was not specified for physical construct **gait**.*
 
- ## global
-      eas nas nuage obas octo radc
-                                  
-mmms   .   .     6    .    .    . 
-mmse   20  6     .    .    8    7 
-
- ## knowledge
-                      eas ilse octo radc
-                                        
-information            14   .    8    . 
-nart                   .    .    .    7 
-synonyms               .    .    8    . 
-waisgeneralknowledge   .    6    .    . 
-waisvocab              21   .    .    . 
-
- ## memory
-                      eas octo radc satsa
-                                         
-bostonstorydelay       .    .    7     . 
-bostonstoryimmediate   .    .    7     . 
-digitspan              8    .    .     . 
-digitspanbackward      .    8    .     . 
-digitspanforward       .    8    .     . 
-digitspantotal         6    .    .     . 
-digitsymbol            5    .    .     . 
-digitsymboltotal       1    .    .     . 
-logicalmemory          10   .    .     . 
-logicalmemorydelay     .    .    7     . 
-logicalmemoryimmed     .    .    5     . 
-logicalmemorytotal     9    .    .     . 
-mirrecall              .    8    .     . 
-proserecall            .    8    .     . 
-wordlistdelay          .    .    7     . 
-wordlistimmed          .    .    7     . 
-wordlistrecog          .    .    7     . 
-
- ## reasoning
-                       eas ilse octo radc
-                                         
-block                   20   .    .    . 
-blockdesign             .    .    8    . 
-figurelogic             .    .    8    . 
-lpsspacialability       .    4    .    . 
-matrices                .    .    .    7 
-waispicturecompletion   .    5    .    . 
-
- ## speed
-                             eas habc ilse octo radc satsa
-                                                          
-digitsymbol                   19   16   .    8    7     . 
-digitsymbolsubstitutiontest   .    .    6    .    .     . 
-digitsymol                    1    .    .    .    .     . 
-numbercomparison              .    .    .    .    7     . 
-psif                          .    .    .    8    .     . 
-
- ## executive
-                 eas radc
-                         
-categoryfluency   .    4 
-digitbackward     .    6 
-digitordering     .    6 
-trailsb           10   . 
-
- ## mental
-       habc
-           
-3ms      16
-clock    16
-
- ## fluidreasoning
-                   nas
-                      
-figurecopy           6
-patterncomparison    6
-
- ## memoryattention
-                   nas
-                      
-delayedwordrecall    6
-digitbackward        5
-immediaterecall      6
-
- ## verbalfluency
-         nas
-            
-animals    6
-
- ## block
-No specific for this outcome.*
+```
 
 
- ## digitbackward
-No specific for this outcome.*
 
+## Specific Cognitive 
 
- ## digitforward
-No specific for this outcome.*
-
-
- ## digitsymbol
-No specific for this outcome.*
-
-
- ## figurelogic
-No specific for this outcome.*
-
-
- ## mirrecall
-No specific for this outcome.*
-
-
- ## proserecall
-No specific for this outcome.*
-
-
- ## attention
-               radc
+### fluency
+Operationalizations of the cognitive construct **fluency**: 
+```
                    
-digitsforward     7
-
- ## language
-              radc
-                  
-bnt              6
-complexideas     7
-
- ## visuospatial
-                 radc
-                     
-lineorientation     7
-
- ## spatial
-No specific for this outcome.*
-
-
- ## verbal
-No specific for this outcome.*
+                    eas ilse
+  bostonnaming      20  .   
+  category          20  .   
+  fas               20  .   
+  information       6   .   
+  verbalfluencytest .   6   
 ```
+
+### fluid
+Operationalizations of the cognitive construct **fluid**: 
+```
+         
+          eas
+  trailsb 10 
+```
+
+### global
+Operationalizations of the cognitive construct **global**: 
+```
+      
+       eas nas nuage obas octo radc
+  mmms .   .   6     .    .    .   
+  mmse 20  6   .     .    8    7   
+```
+
+### knowledge
+Operationalizations of the cognitive construct **knowledge**: 
+```
+                      
+                       eas ilse octo radc
+  information          14  .    8    .   
+  nart                 .   .    .    7   
+  synonyms             .   .    8    .   
+  waisgeneralknowledge .   6    .    .   
+  waisvocab            21  .    .    .   
+```
+
+### memory
+Operationalizations of the cognitive construct **memory**: 
+```
+                      
+                       eas octo radc satsa
+  bostonstorydelay     .   .    7    .    
+  bostonstoryimmediate .   .    7    .    
+  digitspan            8   .    .    .    
+  digitspanbackward    .   8    .    .    
+  digitspanforward     .   8    .    .    
+  digitspantotal       6   .    .    .    
+  digitsymbol          5   .    .    .    
+  digitsymboltotal     1   .    .    .    
+  logicalmemory        10  .    .    .    
+  logicalmemorydelay   .   .    7    .    
+  logicalmemoryimmed   .   .    5    .    
+  logicalmemorytotal   9   .    .    .    
+  mirrecall            .   8    .    .    
+  proserecall          .   8    .    .    
+  wordlistdelay        .   .    7    .    
+  wordlistimmed        .   .    7    .    
+  wordlistrecog        .   .    7    .    
+```
+
+### reasoning
+Operationalizations of the cognitive construct **reasoning**: 
+```
+                       
+                        eas ilse octo radc
+  block                 20  .    .    .   
+  blockdesign           .   .    8    .   
+  figurelogic           .   .    8    .   
+  lpsspacialability     .   4    .    .   
+  matrices              .   .    .    7   
+  waispicturecompletion .   5    .    .   
+```
+
+### speed
+Operationalizations of the cognitive construct **speed**: 
+```
+                             
+                              eas habc ilse octo radc satsa
+  digitsymbol                 19  16   .    8    7    .    
+  digitsymbolsubstitutiontest .   .    6    .    .    .    
+  digitsymol                  1   .    .    .    .    .    
+  numbercomparison            .   .    .    .    7    .    
+  psif                        .   .    .    8    .    .    
+```
+
+### executive
+Operationalizations of the cognitive construct **executive**: 
+```
+                 
+                  eas radc
+  categoryfluency .   4   
+  digitbackward   .   6   
+  digitordering   .   6   
+  trailsb         10  .   
+```
+
+### mental
+Operationalizations of the cognitive construct **mental**: 
+```
+       
+        habc
+  3ms   16  
+  clock 16  
+```
+
+### fluidreasoning
+Operationalizations of the cognitive construct **fluidreasoning**: 
+```
+                   
+                    nas
+  figurecopy        6  
+  patterncomparison 6  
+```
+
+### memoryattention
+Operationalizations of the cognitive construct **memoryattention**: 
+```
+                   
+                    nas
+  delayedwordrecall 6  
+  digitbackward     5  
+  immediaterecall   6  
+```
+
+### verbalfluency
+Operationalizations of the cognitive construct **verbalfluency**: 
+```
+         
+          nas
+  animals 6  
+```
+
+### block
+Operationalizations of the cognitive construct **block**: 
+```
+Error in file naming: specific measurement was not specified for cogntive construct **block**.*
+
+```
+
+### digitbackward
+Operationalizations of the cognitive construct **digitbackward**: 
+```
+Error in file naming: specific measurement was not specified for cogntive construct **digitbackward**.*
+
+```
+
+### digitforward
+Operationalizations of the cognitive construct **digitforward**: 
+```
+Error in file naming: specific measurement was not specified for cogntive construct **digitforward**.*
+
+```
+
+### digitsymbol
+Operationalizations of the cognitive construct **digitsymbol**: 
+```
+Error in file naming: specific measurement was not specified for cogntive construct **digitsymbol**.*
+
+```
+
+### figurelogic
+Operationalizations of the cognitive construct **figurelogic**: 
+```
+Error in file naming: specific measurement was not specified for cogntive construct **figurelogic**.*
+
+```
+
+### mirrecall
+Operationalizations of the cognitive construct **mirrecall**: 
+```
+Error in file naming: specific measurement was not specified for cogntive construct **mirrecall**.*
+
+```
+
+### proserecall
+Operationalizations of the cognitive construct **proserecall**: 
+```
+Error in file naming: specific measurement was not specified for cogntive construct **proserecall**.*
+
+```
+
+### attention
+Operationalizations of the cognitive construct **attention**: 
+```
+               
+                radc
+  digitsforward 7   
+```
+
+### language
+Operationalizations of the cognitive construct **language**: 
+```
+              
+               radc
+  bnt          6   
+  complexideas 7   
+```
+
+### visuospatial
+Operationalizations of the cognitive construct **visuospatial**: 
+```
+                 
+                  radc
+  lineorientation 7   
+```
+
+### spatial
+Operationalizations of the cognitive construct **spatial**: 
+```
+Error in file naming: specific measurement was not specified for cogntive construct **spatial**.*
+
+```
+
+### verbal
+Operationalizations of the cognitive construct **verbal**: 
+```
+Error in file naming: specific measurement was not specified for cogntive construct **verbal**.*
+
+```
+
+
 
 
 
@@ -611,7 +646,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-05-06, 13:08 -0700
+Report rendered by koval_000 at 2015-05-07, 01:56 -0700
 ```
 
 ```

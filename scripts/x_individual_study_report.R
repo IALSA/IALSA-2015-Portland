@@ -39,7 +39,7 @@ length(dsb$study_name)
 pathDir <- getwd() # establish home directory
 pathStudies <- file.path(pathDir,"studies")
 misslong <- list.dirs(pathStudies, recursive = F)
-missing <- gsub("C:/Users/andkov/Documents/GitHub/IALSA-2015-Portland/studies/","",misslong)
+missing <- basename(misslong)
 present <- unique(dsb$study_name)
 miss <- missing[!(missing %in% present)]
 miss
@@ -77,6 +77,31 @@ t6 <- table(dsb$study, dsb$physical_specific, dsb$physical_outcome)
 t6[t6==0] <- "."
 ftable(t6)
 
+
+## @knitr freq_phys_specific
+
+  for( cs in unique(dsb$physical_outcome)){
+    ds <- dsb[dsb$physical_outcome==cs,]
+    t7 <- table( ds$physical_specific, ds$study_name)
+    t7[t7==0] <- "."
+
+  cat("") #Force a new line
+  cat(paste0("### ", cs))
+  cat("\n")
+  cat(paste0("Operationalizations of the physical construct **",cs,"**: "))
+  cat("\n")
+  cat("```")
+  cat("\n")
+    if( !is.na(t7[1])){
+    # print(ftable(t7))
+      print(t7)
+    } else {
+    cat(paste0("Error in file naming: specific measurement was not specified for physical construct **", cs, "**.*\n\n"))
+    }
+    cat("```")
+    cat("\n\n")
+  }
+
 ## @knitr freq_cog_specific
 
   for( cs in unique(dsb$cognitive_outcome)){
@@ -84,19 +109,26 @@ ftable(t6)
     t7 <- table( ds$cognitive_specific, ds$study_name)
     t7[t7==0] <- "."
 
-  cat(" ") #Force a new line
-  cat(paste0("## ", cs))
-
-  cat("\n") #Force a new line
-
+  cat("") #Force a new line
+  cat(paste0("### ", cs))
+  cat("\n")
+  cat(paste0("Operationalizations of the cognitive construct **",cs,"**: "))
+  cat("\n")
+  cat("```")
+  cat("\n")
     if( !is.na(t7[1])){
-    print(ftable(t7))
+    # print(ftable(t7))
+      print(t7)
     } else {
-    cat("No specific for this outcome.*\n\n")
+    cat(paste0("Error in file naming: specific measurement was not specified for cogntive construct **", cs, "**.*\n\n"))
     }
-    cat("\n")
-}
+    cat("```")
+    cat("\n\n")
+  }
 
+
+
+## @knitr dummy
 
 
 ## @knitr dummy
@@ -113,9 +145,9 @@ dplyr::arrange(physSpec, name)
 # names(dsb)
 
 ds <- dsb %>%
-  dplyr::arrange(physical_outcome, cognitive_outcome,model_type, subgroup)
+  dplyr::arrange(physical_outcome, cognitive_outcome, physical_specific, cognitive_specific, subgroup, model_type)
 
-list.files("./scripts")
+
 source("./scripts/1a_make_pretty_small.R")
 
 
@@ -128,19 +160,52 @@ for( i in seq_along(present) ) {
 
 
   d_bivariate_study <- ds_bivariate_pretty[ds_bivariate_pretty$study==study_name, ]
-
+  # d_bivariate_study <- d_bivariate_study[ , -(1:2)]
   cat("") #Force a new line
   cat(paste0("## ", study_name))
+  cat("\n") #Force a new line
 
-    cat("\n") #Force a new line
-  # cat("#### Bivariate results")
-  # cat("\n") #Force a new line
+#   for(gender in unique(d_bivariate_study$subgroup)){
+#   cat("") #Force a new line
+#   cat(paste0("### ", gender))
+#   cat("\n") #Force a new line
+  d <- d_bivariate_study
 
-  if( nrow(d_bivariate_study) > 0L) {
-    print(knitr::kable(d_bivariate_study, caption="Bivariate Results", row.names= F))
-  } else {
-    cat("*No bivariate models were supplied from the study.*\n\n")
+    if( nrow(d_bivariate_study) > 0L) {
+      print(knitr::kable(d[ , -(1)], caption="Bivariate Results", row.names= F))
+    } else {
+      cat("*No bivariate models were supplied from the study.*\n\n")
+    }
+    cat("\n")
   }
 
-  cat("\n")
-}
+# }
+
+#
+# for( i in seq_along(present) ) {
+#
+#   study_name <- present[i]
+#
+#
+#   d_bivariate_study <- ds_bivariate_pretty[ds_bivariate_pretty$study==study_name, ]
+#   # d_bivariate_study <- d_bivariate_study[ , -(1:2)]
+#   cat("") #Force a new line
+#   cat(paste0("## ", study_name))
+#   cat("\n") #Force a new line
+#
+#   for(gender in unique(d_bivariate_study$subgroup)){
+#   cat("") #Force a new line
+#   cat(paste0("### ", gender))
+#   cat("\n") #Force a new line
+#   d <- d_bivariate_study[d_bivariate_study$subgroup==gender, ]
+#
+#     if( nrow(d_bivariate_study) > 0L) {
+#       print(knitr::kable(d[ , -(1:2)], caption="Bivariate Results", row.names= F))
+#     } else {
+#       cat("*No bivariate models were supplied from the study.*\n\n")
+#     }
+#     cat("\n")
+#   }
+#
+# }
+
