@@ -28,7 +28,7 @@
 
 <!-- Frequency counts   -->
 
-This report tabulates frequency counts of bivariate models that are available in the workshop collective at the current time. For correlation between random terms in bivariate models, see the report [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html)
+This report tabulates frequency counts of bivariate models that are available in the workshop collective at the current time. For correlations between random terms in bivariate models consult [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html)
 
 ## Overview
 
@@ -54,7 +54,7 @@ Counting valid models in each study:
   220    48    27    41     6     4   176   145    59 
 ```
 
-## Physical constructs 
+## Physical Constructs 
 
 Number of models that use the following **Physical contructs**
 
@@ -68,7 +68,7 @@ Number of models that use the following **Physical contructs**
   walking   .   24   .    .   .     4    .    .    .    
 ```
 
-## Cognitive constructs 
+## Cognitive Constructs 
 
 Number of models that use the following  **Cognitive contructs**
 
@@ -361,7 +361,7 @@ satsa attention          .    .      .         .       .
 ```
 
 
-## Specific Physical 
+## Physical Measures
 
 
 ### muscle
@@ -410,7 +410,7 @@ Error in file naming: specific measurement was not specified for physical constr
 
 
 
-## Specific Cognitive 
+## Cognitive Measures 
 
 ### fluency
 Operationalizations of the cognitive construct **fluency**: 
@@ -646,7 +646,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-05-07, 01:56 -0700
+Report rendered by koval_000 at 2015-05-07, 02:17 -0700
 ```
 
 ```

@@ -31,7 +31,7 @@
 
 
 
-This report tabulates pivotal results to the workshop's researhc agenda: correlations between the random intercepts, slopes, and residuals in each bivariate model. For available combinations of constructs and measures in bivariate models see the report [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html)
+This report tabulates pivotal results to the workshop's research agenda: correlations between  random intercepts, slopes, and residuals in each bivariate model. For available combinations of constructs and measures in bivariate models [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html)
 
 
 
@@ -852,7 +852,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-05-07, 01:57 -0700
+Report rendered by koval_000 at 2015-05-07, 02:17 -0700
 ```
 
 ```

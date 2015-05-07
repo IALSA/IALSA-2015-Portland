@@ -67,7 +67,7 @@ read_chunk("./scripts/x_individual_study_report.R") #This allows knitr to call c
 ```{r prepare_pretty, echo=echoChunks, results='hide', message=FALSE}
 ```
 
-This report tabulates pivotal results to the workshop's researhc agenda: correlations between the random intercepts, slopes, and residuals in each bivariate model. For available combinations of constructs and measures in bivariate models see the report [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html)
+This report tabulates pivotal results to the workshop's research agenda: correlations between  random intercepts, slopes, and residuals in each bivariate model. For available combinations of constructs and measures in bivariate models [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html)
 
 
 

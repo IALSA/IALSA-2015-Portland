@@ -62,7 +62,7 @@ read_chunk("./scripts/x_individual_study_report.R") #This allows knitr to call c
 
 <!-- Frequency counts   -->
 
-This report tabulates frequency counts of bivariate models that are available in the workshop collective at the current time. For correlation between random terms in bivariate models, see the report [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html)
+This report tabulates frequency counts of bivariate models that are available in the workshop collective at the current time. For correlations between random terms in bivariate models consult [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html)
 
 ## Overview
 
@@ -80,13 +80,13 @@ Counting valid models in each study:
 ```{r freq_studies, echo=echoChunks, results='show', message=FALSE}
 ```
 
-## Physical constructs 
+## Physical Constructs 
 
 Number of models that use the following **Physical contructs**
 ```{r freq_phys_studies, echo=echoChunks, results='show', message=FALSE}
 ```
 
-## Cognitive constructs 
+## Cognitive Constructs 
 
 Number of models that use the following  **Cognitive contructs**
 ```{r freq_cog_studies, echo=echoChunks, results='show', message=FALSE}
@@ -106,7 +106,7 @@ Number of models with a uniuqe **Physical + Cognitive** combination of construct
 ```
 
 
-## Specific Physical 
+## Physical Measures
 
 
 ```{r freq_phys_specific, echo=echoChunks, results='asis', message=FALSE}
@@ -114,7 +114,7 @@ Number of models with a uniuqe **Physical + Cognitive** combination of construct
 
 
 
-## Specific Cognitive 
+## Cognitive Measures 
 
 ```{r freq_cog_specific, echo=echoChunks, results='asis', message=FALSE}
 ```
