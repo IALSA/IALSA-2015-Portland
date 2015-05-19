@@ -33,3 +33,11 @@ str(a) # character vector with 557 element
 # return the number of the element that contains the patten
 b <- grep("CONFIDENCE INTERVALS OF MODEL", a)
 b
+
+
+# Converting lists of character elements with unequal length into a dataframe
+a <- c("a1", "b1", "c1")
+b <- c("a2","b2")
+lc <- list(a,b)
+x <- as.data.frame(plyr::rbind.fill.matrix(lapply(lc,t)))
+x
