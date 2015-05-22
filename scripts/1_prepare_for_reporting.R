@@ -63,11 +63,12 @@ ds <- plyr::ldply(dtos, data.frame)
 
 
 ds <- ds[order(ds$study_name, ds$physical_outcome, ds$cognitive_outcome, ds$subgroup, ds$model_type), ]
-#Exclude the univariate models, by remove the variables like `nocog` and `nophys`
-ds <- ds[!(ds$cognitive_outcome %in% no_variable_labels), ]
-ds <- ds[!(ds$physical_outcome %in% no_variable_labels), ]
-ds <- ds[!(ds$physical_specific %in% no_variable_labels), ]
-ds <- ds[!(ds$cognitive_specific %in% no_variable_labels), ]
+# #Exclude the univariate models, by remove the variables like `nocog` and `nophys`
+# ds <- ds[!(ds$cognitive_outcome %in% no_variable_labels), ]
+# ds <- ds[!(ds$physical_outcome %in% no_variable_labels), ]
+# ds <- ds[!(ds$physical_specific %in% no_variable_labels), ]
+# ds <- ds[!(ds$cognitive_specific %in% no_variable_labels), ]
+
 # Exclude junk models
 ds <- ds[!(ds$model_number) %in% c("test"),]
 
@@ -102,15 +103,16 @@ ds$cognitive_outcome <- tolower(stringr::str_trim(ds$cognitive_outcome))
 # tbl <- table(ds$physical_outcome, ds$cognitive_outcome, ds$study_name)
 # ftable(tbl)
 
-#### Correction to PHYSICAL SPECIFIC ####
+#### Correction to COGNITIVE SPECIFIC ####
 ds$cognitive_specific <- tolower(stringr::str_trim(ds$cognitive_specific))
 
 
 ds[!is.na(ds$cognitive_specific) & ds$cognitive_specific=="bostonmaning", c("study_name", "cognitive_specific")][,2] <- "bostonnaming"
 
 
-ds[!is.na(ds$cognitive_specific) & ds$cognitive_specific=="digitsback", c("study_name", "cognitive_specific")][,2] <-
-  "digitbackward"
+ds[!is.na(ds$cognitive_specific) & ds$cognitive_specific=="digitsback", c("study_name", "cognitive_specific")][,2] <- "digitbackward"
+
+ds[!is.na(ds$cognitive_specific) & ds$cognitive_specific=="digitsymol", c("study_name", "cognitive_specific")][,2] <- "digitsymbol"
 
 
 # tcs <- table(ds$cognitive_specific, ds$study_name)
@@ -150,6 +152,11 @@ ds$residual_zetau <- ds$sd_residual + (limit * sqrt( 1 / (ds$subject_count - 3) 
 ds$residual_zetal <- ds$sd_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
 ds$ciu_sd_residual <- tanh(ds$residual_zetau)
 ds$cil_sd_residual <- tanh(ds$residual_zetal)
+
+
+## add uni/bi indicator
+# table(ds$model_number)
+ds$uni_bi <- stringr::str_sub(ds$model_number,1,1)
 
 
 saveRDS(ds,"./data/shared/dsb.rds")

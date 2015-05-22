@@ -51,7 +51,8 @@ find.CI("radc")
 find.CI("satsa")
 
 
-
+## Each of the following collects models in the specific study and places them in a .csv file
+## these data transfer objects (dto) are then fed to 1_prepare_for_reporting.R
 
 ## @knitr get.Models
 get.Models("eas")

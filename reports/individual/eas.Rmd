@@ -1,0 +1,137 @@
+---
+title: "Individual study report: count models"
+output:
+  html_document:
+    css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar.css
+    keep_md: yes
+    toc: yes
+---
+
+
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
+```{r, echo=F, message=F} 
+# cat("Working directory: ", getwd())
+  library(knitr)
+  opts_knit$set(root.dir='../../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external code file. -->
+```{r set_options, echo=F}
+# cat("Working directory: ", getwd())
+opts_chunk$set(
+  results='show', 
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 6.5, 
+  fig.height = 4, 
+  fig.path = 'figure_study/'
+)
+# dpi = 400,
+# out.width = "650px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+
+echoChunks <- FALSE
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./reports/individual/individualized.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+```
+
+<!-- Load the sources.  Suppress the output when loading sources. --> 
+```{r load_sources, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load 'sourced' R files.  Suppress the output when loading packages. --> 
+```{r load_packages, echo=echoChunks, message=FALSE}
+```
+
+<!-- load global data -->
+```{r load_data, echo=echoChunks, message=FALSE}
+```
+
+<!-- load sepecific data -->
+```{r load_eas, echo=echoChunks, message=FALSE}
+```
+
+<!-- load functions used in the report -->
+```{r load_functions, echo=echoChunks, message=FALSE}
+```
+
+
+This report tallies the models that you have provided to the workshop collective so far.  For general frequency count (all studies) consult [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html) report.  For genearl (all studies) correlations between random terms in bivariate models consult [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html)
+
+## Brief summary
+
+You have provided us with the total number of 
+```{r count_total, echo=echoChunks, message=FALSE}
+```
+models, using univariate and bivariate specifications:
+```{r count_unibi, echo=echoChunks, message=FALSE}
+```
+
+To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
+
+The figure below shows the proper naming convention for the models you estimated in your study. Our scripts rely on this naming convention for the key information about the model. Therefore, it is of utmost importance you follow these rules. **If named incorrectly, models cannot be used in the collective analysis**. Some mistakes (like some typos) could be corrected automatically. Other, however, require your attention.
+
+
+
+This report aims to accomplish two things:   
+  1. Help you identify and **correct the errors** in the filenames so that your models can be processed properly  
+  2. Help you identify what models should be added to **maximize replicability** effect  
+
+
+  
+
+## Rules for naming your models
+![naming convntion](../../libs/images/model_naming_convention.png)
+The name of the file **must always contain 7 components** separated by an underscore ( _ ) symbol. The figure above shows the anatomy of a protypical file name with examples of particular values.
+
+### Filename components
+From left to right, the components of filename are:
+
+  1. Model number (*e.g.* b1, u0) - specification(u, b) and highest random term (0,1,2)  
+  2. Sex (*e.g.* male, female) - model fitted using this subset of data
+  3. covariateSet - a set of predictors entered into the model on the second level:
+    - empty : no covariate included into the model  
+    - a : age is entered as a baseline measure, second level  
+    - ae : age + education  
+    - aeh : age + education + height  
+    - aehplus: age + education + height + diabetes + smoking history + cardiovascular  
+    - full : all covariate availible in the study (will be different across studies)  
+  4. Physical Construct (*e.g.* pulmonary, muscle) - general physical function that can have a number of specific operationalizations or measurements.
+  5. Cognitive Construct (*e.g.* reasoning, memory) - general cognitive function that can have a number of specific operationalizations or measurements.
+  6. Physical Measure (e.g. pek, grip ) - a specific way to operationalize the measurement of a physical construct
+  7. Cognitive Measure (e.g. block, digitspan ) - a specific way to operationalize the measurement of a cognitive construct  
+  
+### Additional rules
+ 
+ - Construct and Measure names cannot be the same  
+ - In univariate models, the absence of a modeling term must be explicit:
+ 
+ ```
+ u1_male_aeh_pulmonary_noCog_pek_noCogSpec
+ ```
+ instead of  
+ ```
+ u1_male_aeh_pulmonary_pek
+ ```
+  
+## Inspect models in the study
+```{r inspect_bivariate, echo=echoChunks, message=FALSE}
+```
+
+
+## Cross-tabs of Constructs
+```{r constructs_bivariate, echo=echoChunks, message=FALSE}
+```
+
+## Cross-tabs of Measures
+```{r measures_bivariate, echo=echoChunks, message=FALSE}
+```
+
+
+# Session Information
+For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
+
+```{r session_info, echo=FALSE}
+cat("Report rendered by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
+sessionInfo()
+```

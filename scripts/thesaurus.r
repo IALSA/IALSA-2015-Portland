@@ -41,3 +41,24 @@ b <- c("a2","b2")
 lc <- list(a,b)
 x <- as.data.frame(plyr::rbind.fill.matrix(lapply(lc,t)))
 x
+
+
+## @knitr select_from_character_vector
+# http://journal.r-project.org/archive/2010-2/RJournal_2010-2_Wickham.pdf
+a <- "My name is"
+# the first character
+b <- stringr::str_sub(a,1,1); b
+# the last character
+c <- stringr::str_sub(a,-1,-1); c
+# the last two characters
+d <- stringr::str_sub(a,-2,-1); d
+
+
+
+
+
+
+
+
+
+
