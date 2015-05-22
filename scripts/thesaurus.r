@@ -70,7 +70,7 @@ subparts <- strsplit(ds$model_name,"_") # break up each  model_name, store in a 
 subpart_count <- sapply(subparts, length) # count compents in each element of the list
 is_valid <- (subpart_count==desired_subpart_count) # create logical vector
 
-ds$output_file[is_valid]
+ds$output_file[!is_valid]
 
 
 

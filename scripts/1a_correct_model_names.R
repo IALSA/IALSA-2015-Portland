@@ -22,7 +22,18 @@ ds1 <- readRDS('./data/shared/ds1.rds')
 ds <- ds1 %>% dplyr::filter(study_name=="eas")
 
 ds %>% dplyr::count(physical_outcome)
+ds %>% dplyr::count(physical_specific)
 
+
+## @knitr bring_forth_wrong
+ds %>% dplyr::filter(physical_outcome=="nophysspec") %>% select(output_file)
+ds %>% dplyr::filter(physical_specific=="NA") %>% select(output_file)
+
+d <- ds %>% dplyr::filter(model_number=="u1", subgroup=="female", model_type=="aeh") %>% select(output_file)
+
+table(ds$physical_specific,ds$model_number, useNA="always")
+table(ds$physical_specific,ds$subgroup, useNA="always")
+table(ds$physical_specific,ds$model_type, useNA="always")
 
 ## @knitr fix_phys_construct
 #### Corrections to PHYSICAL outcome ####

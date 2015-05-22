@@ -20,36 +20,36 @@ library(testit, quietly=TRUE) #For asserts
 library(dplyr)
 
 ## @knitr load_data
-dsb <- readRDS('./data/shared/dsb.rds')
+ds1 <- readRDS('./data/shared/ds1.rds')
 keepvar <- c("model_number","study_name","model_type", "subgroup", "physical_outcome","cognitive_outcome","physical_specific","cognitive_specific", "output_file")
-# ds <- dsb[ , keepvar]
+# ds <- ds1[ , keepvar]
 
 ## @knitr load_eas
-ds <- dsb[dsb$study_name=="eas",]
+ds <- ds1[ds1$study_name=="eas",]
 
 # ## @knitr load_habc
-# ds <- dsb[dsb$study_name=="habc",]
+# ds <- ds1[ds1$study_name=="habc",]
 #
 # ## @knitr load_ilse
-# ds <- dsb[dsb$study_name=="ilse",]
+# ds <- ds1[ds1$study_name=="ilse",]
 #
 # ## @knitr load_nas
-# ds <- dsb[dsb$study_name=="nas",]
+# ds <- ds1[ds1$study_name=="nas",]
 #
 # ## @knitr load_nuage
-# ds <- dsb[dsb$study_name=="nuage",]
+# ds <- ds1[ds1$study_name=="nuage",]
 #
 # ## @knitr load_obas
-# ds <- dsb[dsb$study_name=="obas",]
+# ds <- ds1[ds1$study_name=="obas",]
 #
 # ## @knitr load_octo
-# ds <- dsb[dsb$study_name=="octo",]
+# ds <- ds1[ds1$study_name=="octo",]
 #
 # ## @knitr load_radc
-# ds <- dsb[dsb$study_name=="radc",]
+# ds <- ds1[ds1$study_name=="radc",]
 #
 # ## @knitr load_satsa
-# ds <- dsb[dsb$study_name=="satsa",]
+# ds <- ds1[ds1$study_name=="satsa",]
 
 
 
@@ -70,14 +70,17 @@ a <- ds %>% group_by(cog.measure=cognitive_specific) %>% summarize(count=length(
 ## List constructs
 list.constructs <- function(unibi){
 ds <- ds[ds$uni_bi==unibi,]
-# t1 <- table(ds$model_number, ds$physical_outcome )
-t1 <- table(ds$physical_outcome )
-t1[t1==0] <- "."
-ftable(t1)
+# # t1 <- table(ds$model_number, ds$physical_outcome )
+# t1 <- table(ds$physical_outcome )
+# t1[t1==0] <- "."
+# # ftable(t1)
+# print(t1)
+ds %>% dplyr::count(physical_outcome)
+
 }
 # list.constructs("u")
 # list.constructs("b")
-ds %>% dplyr::count(physical_specific)
+
 
 ## Cross tab of constructs
 cross.constructs <- function(unibi){
@@ -126,6 +129,17 @@ t1 <- table(ds$model_number)
 t1[t1==0] <- "."
 t1
 
+
+## @knitr list.omissions
+desired_subpart_count <- 7L
+ds$model_name <- gsub(pattern=".out",replacement="",ds$output_file) # remove .out ending
+subparts <- strsplit(ds$model_name,"_") # break up each  model_name, store in a list
+subpart_count <- sapply(subparts, length) # count compents in each element of the list
+is_valid <- (subpart_count==desired_subpart_count) # create logical vector
+
+ds$output_file[!is_valid]
+
+ds <- ds[is_valid,] # keep only the legal names
 
 
 ## @knitr list.constructs.u

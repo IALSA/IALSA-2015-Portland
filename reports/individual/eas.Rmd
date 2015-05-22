@@ -113,6 +113,14 @@ From left to right, the components of filename are:
  ```
  u1_male_aeh_pulmonary_pek
  ```
+
+## Errors of omission
+The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and variables were used in your models:
+```{r list.omissions, echo=echoChunks, message=FALSE}
+```
+
+
+
   
 ## Inspect models in the study
 ```{r list.constructs.u, echo=echoChunks, message=FALSE}
