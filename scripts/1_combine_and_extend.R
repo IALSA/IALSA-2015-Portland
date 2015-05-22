@@ -64,19 +64,19 @@ ds <- plyr::ldply(dtos, data.frame)
 # table( ds$model_number, ds$study_name)
 
 # sort for proper tabeling
-ds <- ds[order(ds$study_name, ds$physical_outcome, ds$cognitive_outcome, ds$subgroup, ds$model_type), ]
+ds <- ds[order(ds$study_name, ds$physical_construct, ds$cognitive_construct, ds$subgroup, ds$model_type), ]
 # #Exclude the univariate models, by remove the variables like `nocog` and `nophys`
-# ds <- ds[!(ds$cognitive_outcome %in% no_variable_labels), ]
-# ds <- ds[!(ds$physical_outcome %in% no_variable_labels), ]
-# ds <- ds[!(ds$physical_specific %in% no_variable_labels), ]
-# ds <- ds[!(ds$cognitive_specific %in% no_variable_labels), ]
+# ds <- ds[!(ds$cognitive_construct %in% no_variable_labels), ]
+# ds <- ds[!(ds$physical_construct %in% no_variable_labels), ]
+# ds <- ds[!(ds$physical_measure %in% no_variable_labels), ]
+# ds <- ds[!(ds$cognitive_measure %in% no_variable_labels), ]
 
 # Exclude junk models
 ds <- ds[!(ds$model_number) %in% c("test"),]
 
-# sort(unique(ds$physical_outcome))
-# table(ds$physical_outcome)
-# ds[ds$physical_outcome=="memory",c("output_file","study_name")]
+# sort(unique(ds$physical_construct))
+# table(ds$physical_construct)
+# ds[ds$physical_construct=="memory",c("output_file","study_name")]
 
 
 ## @knitr standardize_coefficients

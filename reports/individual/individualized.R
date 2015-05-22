@@ -21,7 +21,7 @@ library(dplyr)
 
 ## @knitr load_data
 ds1 <- readRDS('./data/shared/ds1.rds')
-keepvar <- c("model_number","study_name","model_type", "subgroup", "physical_outcome","cognitive_outcome","physical_specific","cognitive_specific", "output_file")
+keepvar <- c("model_number","study_name","model_type", "subgroup", "physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
 # ds <- ds1[ , keepvar]
 
 ## @knitr load_eas
@@ -61,21 +61,21 @@ inspect.study <- function(unibi){
 ds <- ds[ds$uni_bi==unibi,]
 a <- ds %>% group_by(subgroup) %>% summarize(count=length(converged)); print(a); cat("\n");
 a <- ds %>% group_by(covariates=model_type) %>% summarize(count=length(converged)); print(a); cat("\n");
-a <- ds %>% group_by(phys.construct=physical_outcome) %>% summarize(count=length(converged)); print(a); cat("\n");
-a <- ds %>% group_by(phys.measure=physical_specific) %>% summarize(count=length(converged)); print(a); cat("\n\n\n");
-a <- ds %>% group_by(cog.construct=cognitive_outcome) %>% summarize(count=length(converged)); print(a); cat("\n");
-a <- ds %>% group_by(cog.measure=cognitive_specific) %>% summarize(count=length(converged)); print(a); cat("\n\n\n");
+a <- ds %>% group_by(phys.construct=physical_construct) %>% summarize(count=length(converged)); print(a); cat("\n");
+a <- ds %>% group_by(phys.measure=physical_measure) %>% summarize(count=length(converged)); print(a); cat("\n\n\n");
+a <- ds %>% group_by(cog.construct=cognitive_construct) %>% summarize(count=length(converged)); print(a); cat("\n");
+a <- ds %>% group_by(cog.measure=cognitive_measure) %>% summarize(count=length(converged)); print(a); cat("\n\n\n");
 }
 
 ## List constructs
 list.constructs <- function(unibi){
 ds <- ds[ds$uni_bi==unibi,]
-# # t1 <- table(ds$model_number, ds$physical_outcome )
-# t1 <- table(ds$physical_outcome )
+# # t1 <- table(ds$model_number, ds$physical_construct )
+# t1 <- table(ds$physical_construct )
 # t1[t1==0] <- "."
 # # ftable(t1)
 # print(t1)
-ds %>% dplyr::count(physical_outcome)
+ds %>% dplyr::count(physical_construct)
 
 }
 # list.constructs("u")
@@ -85,7 +85,7 @@ ds %>% dplyr::count(physical_outcome)
 ## Cross tab of constructs
 cross.constructs <- function(unibi){
 ds <- ds[ds$uni_bi==unibi,]
-t1 <- table(ds$cognitive_outcome,ds$physical_outcome)
+t1 <- table(ds$cognitive_construct,ds$physical_construct)
 t1[t1==0] <- "."
 t1
 }
@@ -94,7 +94,7 @@ t1
 ## Cross tab of measures
 cross.measures <- function(unibi){
 ds <- ds[ds$uni_bi==unibi,]
-t1 <- table(ds$cognitive_specific,ds$physical_specific)
+t1 <- table(ds$cognitive_measure,ds$physical_measure)
 t1[t1==0] <- "."
 t1
 }
@@ -102,7 +102,7 @@ t1
 ## Cross tab of physical
 cross.physical <- function(unibi){
 ds <- ds[ds$uni_bi==unibi,]
-t1 <- table(ds$physical_specific,ds$physical_outcome)
+t1 <- table(ds$physical_measure,ds$physical_construct)
 t1[t1==0] <- "."
 t1
 }
@@ -112,7 +112,7 @@ t1
 ## Cross tab of cognitive
 cross.cognitive<- function(unibi){
 ds <- ds[ds$uni_bi==unibi,]
-t1 <- table(ds$cognitive_specific,ds$cognitive_outcome)
+t1 <- table(ds$cognitive_measure,ds$cognitive_construct)
 t1[t1==0] <- "."
 t1
 }
@@ -147,7 +147,7 @@ list.constructs("u")
 
 head(ds)
 
-ds %>% filter(uni_bi=="u", cognitive_outcome=="memory") %>% select(output_file)
+ds %>% filter(uni_bi=="u", cognitive_construct=="memory") %>% select(output_file)
 
 ## @knitr constructs_bivariate
 cross.constructs("b")

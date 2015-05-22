@@ -19,7 +19,7 @@ library(dplyr)
 
 ## @knitr load_data
 dsb <- readRDS('./data/shared/dsb.rds')
-keepvar <- c("model_number","study_name", "model_type","physical_outcome","cognitive_outcome","physical_specific","cognitive_specific", "output_file")
+keepvar <- c("model_number","study_name", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
 
 # ds <- dsb[ , keepvar]
 
@@ -51,38 +51,38 @@ t1[t1==0] <- "."
 t1
 
 ## @knitr freq_phys_studies
-t2 <- table(dsb$physical_outcome,dsb$study_name)
+t2 <- table(dsb$physical_construct,dsb$study_name)
 t2[t2==0] <- "."
 t2
 
 ## @knitr freq_cog_studies
-t3 <- table(dsb$cognitive_outcome,dsb$study_name)
+t3 <- table(dsb$cognitive_construct,dsb$study_name)
 t3[t3==0] <- "."
 t3
 
 ## @knitr freq_cog_phys
-t4 <- table(dsb$cognitive_outcome,dsb$physical_outcome)
+t4 <- table(dsb$cognitive_construct,dsb$physical_construct)
 t4[t4==0] <- "."
 t4
 
 ## @knitr freq_cog_phys_studies
 
-t5 <- table(dsb$study,dsb$cognitive_outcome,dsb$physical_outcome)
+t5 <- table(dsb$study,dsb$cognitive_construct,dsb$physical_construct)
 t5[t5==0] <- "."
 ftable(t5)
 
 
-## @knitr freq_phys_specific
-t6 <- table(dsb$study, dsb$physical_specific, dsb$physical_outcome)
+## @knitr freq_phys_measure
+t6 <- table(dsb$study, dsb$physical_measure, dsb$physical_construct)
 t6[t6==0] <- "."
 ftable(t6)
 
 
-## @knitr freq_phys_specific
+## @knitr freq_phys_measure
 
-  for( cs in unique(dsb$physical_outcome)){
-    ds <- dsb[dsb$physical_outcome==cs,]
-    t7 <- table( ds$physical_specific, ds$study_name)
+  for( cs in unique(dsb$physical_construct)){
+    ds <- dsb[dsb$physical_construct==cs,]
+    t7 <- table( ds$physical_measure, ds$study_name)
     t7[t7==0] <- "."
 
   cat("") #Force a new line
@@ -102,11 +102,11 @@ ftable(t6)
     cat("\n\n")
   }
 
-## @knitr freq_cog_specific
+## @knitr freq_cog_measure
 
-  for( cs in unique(dsb$cognitive_outcome)){
-    ds <- dsb[dsb$cognitive_outcome==cs,]
-    t7 <- table( ds$cognitive_specific, ds$study_name)
+  for( cs in unique(dsb$cognitive_construct)){
+    ds <- dsb[dsb$cognitive_construct==cs,]
+    t7 <- table( ds$cognitive_measure, ds$study_name)
     t7[t7==0] <- "."
 
   cat("") #Force a new line
@@ -132,8 +132,8 @@ ftable(t6)
 
 
 ## @knitr dummy
-cogSpec <- as.data.frame(unique(dsb$cognitive_specific))
-physSpec <- as.data.frame(unique(dsb$physical_specific))
+cogSpec <- as.data.frame(unique(dsb$cognitive_measure))
+physSpec <- as.data.frame(unique(dsb$physical_measure))
 names(cogSpec) <- "name"
 names(physSpec) <- "name"
 # class(cogSpec); str(cogSpec)
@@ -145,7 +145,7 @@ dplyr::arrange(physSpec, name)
 # names(dsb)
 
 ds <- dsb %>%
-  dplyr::arrange(physical_outcome, cognitive_outcome, physical_specific, cognitive_specific, subgroup, model_type)
+  dplyr::arrange(physical_construct, cognitive_construct, physical_measure, cognitive_measure, subgroup, model_type)
 
 
 source("./scripts/2a_make_pretty_small.R")

@@ -34,11 +34,11 @@ desired_columns_bivariate<- c(
 
 
 
-  "physical_outcome",
-  "cognitive_outcome",
+  "physical_construct",
+  "cognitive_construct",
 
-  "physical_specific",
-  "cognitive_specific",
+  "physical_measure",
+  "cognitive_measure",
 
   "subgroup",
   "model_type",
@@ -70,11 +70,11 @@ ds_bivariate_pretty <- plyr::rename(ds_bivariate_pretty, replace=c(
   "subgroup" = "subgroup",
   "model_type" = "predictor<br/>set",
 
-  "physical_outcome" = "physical<br/>construct",
-  "cognitive_outcome"=  "cognitive<br/>construct",
+  "physical_construct" = "physical<br/>construct",
+  "cognitive_construct"=  "cognitive<br/>construct",
 
-  "physical_specific" = "physical<br/>measure",
-  "cognitive_specific" = "cognitive<br/>measure",
+  "physical_measure" = "physical<br/>measure",
+  "cognitive_measure" = "cognitive<br/>measure",
 
   "sd_int" = "correlation<br/>between<br/>intercepts",
   "sd_slope" = "correlation<br/>between<br/>slopes",

@@ -9,12 +9,12 @@ pathStudy <- paste0(pathStudies,"/",study)
 # point to the folder of the particular study
 out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
 
-# locate conflicts 
+# locate conflicts
 conf_file <- array(NA, dim=length(out_list)) # set up empty object
 ## scan for github insert symbols <<<<
 for(i in 1:length(out_list)){
   fileContent <- scan(out_list[i], what='character', sep='\n')
-    ## Check whether there is a sync conflict 
+    ## Check whether there is a sync conflict
     is_conflict <- (length(grep("<<<<", fileContent))>=1)
     if(is_conflict) {
         ## record file location
@@ -50,7 +50,7 @@ conf_file <- array(NA, dim=length(out_list)) # set up empty object
 ## scan for CONFIDENCE INTERVALS
 for(i in 1:length(out_list)){
   fileContent <- scan(out_list[i], what='character', sep='\n')
-    ## Check whether there is a sync conflict 
+    ## Check whether there is a sync conflict
     is_conflict <- (length(grep("CONFIDENCE INTERVALS OF MODEL", fileContent))>=1)
     if(is_conflict) {
         ## record file location
@@ -59,7 +59,7 @@ for(i in 1:length(out_list)){
         CI.line <- grep("CONFIDENCE INTERVALS OF MODEL", fileContent)
         ## Remove anything below CI.Line and save out file again.
         amended <- fileContent[1:(CI.line-1)]
-        writeLines(amended, out_list[i])  
+        writeLines(amended, out_list[i])
     }
 }
 ## collect conflicting files
@@ -107,25 +107,25 @@ nmodels==length(out_list)
 
 # Declare what will be collected in DTO (data transfer object)
  dto.vars <- c(
-  "model_number", "version", "active","valid", "best_in_gender", 
+  "model_number", "version", "active","valid", "best_in_gender",
   "study_name", "date", "time", "converged", "subgroup", "model_type",
-  "physical_outcome", 
-       "var_int_physical",      "se_int_physical", 
-     "var_slope_physical",    "se_slope_physical", 
-  "var_residual_physical", "se_residual_physical", 
-  
-  "cognitive_outcome", 
-       "var_int_cog",      "se_int_cog", 
-     "var_slope_cog",    "se_slope_cog", 
-  "var_residual_cog", "se_residual_cog", 
-  
-    "cov_int",   "cov_slope", "cov_residual", 
-  "p_cov_int", "p_cov_slope","p_cov_res", 
-  
-    "subject_count", 
+  "physical_construct",
+       "var_int_physical",      "se_int_physical",
+     "var_slope_physical",    "se_slope_physical",
+  "var_residual_physical", "se_residual_physical",
+
+  "cognitive_construct",
+       "var_int_cog",      "se_int_cog",
+     "var_slope_cog",    "se_slope_cog",
+  "var_residual_cog", "se_residual_cog",
+
+    "cov_int",   "cov_slope", "cov_residual",
+  "p_cov_int", "p_cov_slope","p_cov_res",
+
+    "subject_count",
        "wave_count",
-  "datapoint_count", 
-  "parameter_count", 
+  "datapoint_count",
+  "parameter_count",
   "deviance", "software", "output_file", "model_description", "results_descriptions", "notes" )
 # Generate empty data frame to be populated by Mplus values
 results=data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
@@ -144,10 +144,10 @@ for(i in seq_along(mpar)){
     results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][selector+1]
     results[i,"data_file"] <-
     strsplit(mplus_output[grep("File", mplus_output, ignore.case=TRUE)], 'IS| is |=|;')[[1]][2]
-    results[i, c("physical_outcome","cognitive_outcome")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
-    results[i, "physical_specific"] <- strsplit(msum$Filename[i], '_|.out')[[1]][6]
-    results[i, "cognitive_specific"] <- strsplit(msum$Filename[i], '_|.out')[[1]][7]
-    
+    results[i, c("physical_construct","cognitive_construct")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
+    results[i, "physical_measure"] <- strsplit(msum$Filename[i], '_|.out')[[1]][6]
+    results[i, "cognitive_measure"] <- strsplit(msum$Filename[i], '_|.out')[[1]][7]
+
     ## #################### Basic info ######################
     results[i, 'subject_count'] <- msum[i, 'Observations']
     results[i, 'parameter_count'] <- msum[i, 'Parameters']
@@ -159,7 +159,7 @@ for(i in seq_along(mpar)){
     results[i, c('bic')] <-  msum[i,c('BIC')]
     results[i, c('adj_bic')] <-  msum[i,c('aBIC')]
     results[i, c('aaic')] <-  msum[i,c('AICC')]
-    
+
     ## Check for model convergence
     conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
     has_converged <- conv==1
@@ -173,7 +173,7 @@ for(i in seq_along(mpar)){
         results[i, 'wave_count'] <- max(as.numeric(gsub("[^0-9]", '', wc)), na.rm=T)
 
         ################# Covariances #################
-        ## Look for at least 4 WITH statements  
+        ## Look for at least 4 WITH statements
         ## otherwise fall back to 'Means' and 'Variances' (Baseline Models)
         modtype <- (length(grep("WITH", model$paramHeader))>=4)
         modtype
@@ -188,21 +188,21 @@ for(i in seq_along(mpar)){
             ## Focus on factor covariances
             fc <- x[grep("I|S", x$param),]
             fc
-            
+
             ############# Covariance among intercepts  #################
             ## reduce to I in paramHeader. Note. Use "^" to avoid the I in  WITHIN
             IpH <- fc[grep("^I", fc$paramHeader),]
             ## get I in param
             results[i, c("cov_int", "p_cov_int")] <-  IpH[grep("^I", IpH$param),c('est', 'pval')]
             results[i, c("se_cov_int")] <-  IpH[grep("^I", IpH$param),c('se')]
-         
+
             ############ Covariance among slopes  ####################
             ## reduce to S in paramHeader. Play it save, use ^
             SpH <- fc[grep("^S", fc$paramHeader),]
             ## get S in param
             results[i, c("cov_slope", "p_cov_slope")] <- SpH[grep("S", SpH$param),c('est', 'pval')]
             results[i, c("se_cov_slope")] <- SpH[grep("S", SpH$param),c('se')]
-            
+
             ############# Covariance among residuals  ##################
             ## Obtain resid cov
             rc <- x[-grep("I|S", x$param),]
