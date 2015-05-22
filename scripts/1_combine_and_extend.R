@@ -1,6 +1,10 @@
+## This script takes the individual dtos (data transfer objects) from each study
+## and combines it into a single dataset
+## Executed after 0_collect_studies creates these separate dtos
+
 # rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
-#####################################
+####### load sources ##############################
 ## @knitr load_sources
 #Load any source files that contain/define functions, but that don't load any other types of variables
 #   into memory.  Avoid side effects and don't pollute the global environment.
@@ -8,7 +12,7 @@
 ## Collect studies with:
 # source("./Scripts/0_collect_studies.R")
 
-#####################################
+####### load packages #############################
 ## @knitr load_packages
 # library(xtable)
 library(knitr)
@@ -27,41 +31,39 @@ options(show.signif.stars=F) #Turn off the annotations on p-values
 path_input <- "."
 
 no_variable_labels <- c("nocog", "noCog", "cocogn", "nophys", "noPhys","nophysspec","nophyscog")
-#####################################
+######## load data #############################
 ## @knitr load_data
-# pattern <- "dto_bivariate.csv$"
-# pattern <- "collected_params.csv$" # Andrey
-pattern <- "study_automation_result.csv$" # Philippe
+pattern <- "study_automation_result.csv$"
 dto_paths <- list.files(path=path_input, pattern=pattern, recursive=TRUE)
 # dto_paths; #paste(dto_paths, collapse = ",")
 directories <- gsub(pattern, "\\1", dto_paths, perl=T)
 # directories
 study_names <- basename(directories)
 # study_names
-
 dtos <- list()
 
+# combine dtos into a list object
 for( i in seq_along(dto_paths) ) {
   dto_path <- dto_paths[i]
   study_name <- study_names[i]
   dto <- read.csv(dto_path, stringsAsFactors=F)
 #   dto$date <- as.Date(dto$date)
-
   dtos[[i]] <- dto
 #   print(study_name)
 }
 rm(dto_path, study_name, dto)
 
-#####################################
+######## tweak data #############################
 ## @knitr tweak_data
 
+# convert dtos into a dataframe
 # http://stackoverflow.com/questions/2851327/converting-a-list-of-data-frames-into-one-data-frame-in-r
 ds <- plyr::ldply(dtos, data.frame)
 # table(ds$study_name)
 # table(ds$model_number)
 # table( ds$model_number, ds$study_name)
 
-
+# sort for proper tabeling
 ds <- ds[order(ds$study_name, ds$physical_outcome, ds$cognitive_outcome, ds$subgroup, ds$model_type), ]
 # #Exclude the univariate models, by remove the variables like `nocog` and `nophys`
 # ds <- ds[!(ds$cognitive_outcome %in% no_variable_labels), ]
@@ -76,52 +78,8 @@ ds <- ds[!(ds$model_number) %in% c("test"),]
 # table(ds$physical_outcome)
 # ds[ds$physical_outcome=="memory",c("output_file","study_name")]
 
-#### Corrections to PHYSICAL outcome ####
-ds[ds$physical_outcome==" pulmonary","physical_outcome"] <- "pulmonary"
 
-table(ds$physical_outcome, ds$study_name)
-
-ds$physical_outcome <- tolower(stringr::str_trim(ds$physical_outcome))
-
-#### corrections to CovSet in model_type ####
-ds[ds$model_type=="age","model_type"] <- "a"
-
-#### Correction to PHYSICAL SPECIFIC ####
-
-table(ds$physical_specific, ds$study_name)
-ds$physical_specific <- tolower(stringr::str_trim(ds$physical_specific))
-
-
-#### Corrections to the COGNITIVE outcome ####
-# sort(unique(ds$cognitive_outcome))
-# table(ds$cognitive_outcome)
-ds[ds$cognitive_outcome==" knowledge","cognitive_outcome"] <- "knowledge"
-table(ds$cognitive_outcome, ds$study_name)
-
-ds$cognitive_outcome <- tolower(stringr::str_trim(ds$cognitive_outcome))
-
-# tbl <- table(ds$physical_outcome, ds$cognitive_outcome, ds$study_name)
-# ftable(tbl)
-
-#### Correction to COGNITIVE SPECIFIC ####
-ds$cognitive_specific <- tolower(stringr::str_trim(ds$cognitive_specific))
-
-
-ds[!is.na(ds$cognitive_specific) & ds$cognitive_specific=="bostonmaning", c("study_name", "cognitive_specific")][,2] <- "bostonnaming"
-
-
-ds[!is.na(ds$cognitive_specific) & ds$cognitive_specific=="digitsback", c("study_name", "cognitive_specific")][,2] <- "digitbackward"
-
-ds[!is.na(ds$cognitive_specific) & ds$cognitive_specific=="digitsymol", c("study_name", "cognitive_specific")][,2] <- "digitsymbol"
-
-
-# tcs <- table(ds$cognitive_specific, ds$study_name)
-# tcs[tcs==0] <- "."
-# tcs
-
-
-
-### Standardize coefficients
+## @knitr standardize_coefficients
 
 ds$sd_int <- ds$cov_int/ (sqrt(ds$var_int_physical)*sqrt(ds$var_int_cog))
 ds$sd_slope <- ds$cov_slope/ (sqrt(ds$var_slope_physical)*sqrt(ds$var_slope_cog))
@@ -158,10 +116,11 @@ ds$cil_sd_residual <- tanh(ds$residual_zetal)
 # table(ds$model_number)
 ds$uni_bi <- stringr::str_sub(ds$model_number,1,1)
 
+## @knitr export_dataset
 
-saveRDS(ds,"./data/shared/dsb.rds")
+saveRDS(ds,"./data/shared/ds1.rds")
 #
-source("./scripts/make_pretty.r")
+# source("./scripts/make_pretty.r")
 
 
 

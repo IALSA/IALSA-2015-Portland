@@ -1,7 +1,9 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
+
 #####################################
 ## @knitr load_sources
-
+# source("./scripts/0_collect_studies.R")
+# source("./scripts/1_combine_and_extend.R")
 
 
 #####################################
@@ -73,8 +75,9 @@ t1 <- table(ds$physical_outcome )
 t1[t1==0] <- "."
 ftable(t1)
 }
-list.constructs("u")
-list.constructs("b")
+# list.constructs("u")
+# list.constructs("b")
+ds %>% dplyr::count(physical_specific)
 
 ## Cross tab of constructs
 cross.constructs <- function(unibi){
@@ -125,7 +128,7 @@ t1
 
 
 
-## @knitr inspect_bivariate
+## @knitr list.constructs.u
 list.constructs("u")
 
 head(ds)

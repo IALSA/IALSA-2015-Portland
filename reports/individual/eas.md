@@ -58,7 +58,7 @@ This report aims to accomplish two things:
 ![naming convntion](../../libs/images/model_naming_convention.png)
 The name of the file **must always contain 7 components** separated by an underscore ( _ ) symbol. The figure above shows the anatomy of a protypical file name with examples of particular values.
 
-### Components of filename
+### Filename components
 From left to right, the components of filename are:
 
   1. Model number (*e.g.* b1, u0) - specification(u, b) and highest random term (0,1,2)  
@@ -69,7 +69,7 @@ From left to right, the components of filename are:
     - ae : age + education  
     - aeh : age + education + height  
     - aehplus: age + education + height + diabetes + smoking history + cardiovascular  
-    - full : all covariate availible in the study (will be different across studies)  
+    - full : all covariates availible in the study (will be different across studies)  
   4. Physical Construct (*e.g.* pulmonary, muscle) - general physical function that can have a number of specific operationalizations or measurements.
   5. Cognitive Construct (*e.g.* reasoning, memory) - general cognitive function that can have a number of specific operationalizations or measurements.
   6. Physical Measure (e.g. pek, grip ) - a specific way to operationalize the measurement of a physical construct
@@ -77,65 +77,19 @@ From left to right, the components of filename are:
   
 ### Additional rules
  
- 1. Construct and Measure names cannot be the same  
- 2. In univariate models, the absence of a modeling term must be explicit:
+ - Construct and Measure names cannot be the same  
+ - In univariate models, the absence of a modeling term must be explicit:
  
  ```
  u1_male_aeh_pulmonary_noCog_pek_noCogSpec
  ```
- instead of
+ instead of  
  ```
  u1_male_aeh_pulmonary_pek
  ```
   
 ## Inspect models in the study
 
-```
-                   muscle nophys nophysspec pulmonary
-                                                     
-u0 female a            .      .          .         . 
-          ae           .      .          .         . 
-          aeh          .      .          .         . 
-          aehplus      .      .          .         . 
-          aheplus      .      .          .         . 
-          empty        1      1          .         1 
-          full         .      .          .         . 
-   male   a            .      .          .         . 
-          ae           .      .          .         . 
-          aeh          .      .          .         . 
-          aehplus      .      .          .         . 
-          aheplus      .      .          .         . 
-          empty        1      1          .         1 
-          full         .      .          .         . 
-u1 female a            1      11         .         1 
-          ae           1      11         .         1 
-          aeh          1      13         .         1 
-          aehplus      1      11         .         1 
-          aheplus      .      .          .         . 
-          empty        .      .          .         . 
-          full         1      11         .         1 
-   male   a            1      11         .         1 
-          ae           1      11         .         1 
-          aeh          1      11         .         1 
-          aehplus      1      10         .         1 
-          aheplus      .      .          .         . 
-          empty        .      .          .         . 
-          full         1      11         .         1 
-u2 female a            1      11         .         1 
-          ae           1      11         .         1 
-          aeh          1      11         .         1 
-          aehplus      1      11         .         1 
-          aheplus      .      .          .         . 
-          empty        .      .          .         . 
-          full         1      11         .         1 
-   male   a            1      11         .         2 
-          ae           1      11         .         1 
-          aeh          1      11         .         1 
-          aehplus      1      10         .         1 
-          aheplus      .      1          .         . 
-          empty        .      .          .         . 
-          full         1      10         1         1 
-```
 
 
 ## Cross-tabs of Constructs
@@ -180,7 +134,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-05-21, 17:01 -0700
+Report rendered by koval_000 at 2015-05-22, 09:55 -0700
 ```
 
 ```
@@ -196,11 +150,13 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10.5      
+[1] MplusAutomation_0.6-3 testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
+[6] knitr_1.10.5          dplyr_0.4.1          
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 stringr_1.0.0   
- [7] plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1        htmltools_0.2.6 
-[13] yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1   formatR_1.2      evaluate_0.7    
-[19] rmarkdown_0.6.1  stringi_0.4-1    proto_0.3-10    
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    xtable_1.7-4     lattice_0.20-31 
+ [7] colorspace_1.2-6 R6_2.0.1         stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
+[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
+[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
+[25] evaluate_0.7     rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
 ```

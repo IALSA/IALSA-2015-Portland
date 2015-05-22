@@ -95,7 +95,7 @@ From left to right, the components of filename are:
     - ae : age + education  
     - aeh : age + education + height  
     - aehplus: age + education + height + diabetes + smoking history + cardiovascular  
-    - full : all covariate availible in the study (will be different across studies)  
+    - full : all covariates availible in the study (will be different across studies)  
   4. Physical Construct (*e.g.* pulmonary, muscle) - general physical function that can have a number of specific operationalizations or measurements.
   5. Cognitive Construct (*e.g.* reasoning, memory) - general cognitive function that can have a number of specific operationalizations or measurements.
   6. Physical Measure (e.g. pek, grip ) - a specific way to operationalize the measurement of a physical construct
@@ -115,7 +115,7 @@ From left to right, the components of filename are:
  ```
   
 ## Inspect models in the study
-```{r inspect_bivariate, echo=echoChunks, message=FALSE}
+```{r list.constructs.u, echo=echoChunks, message=FALSE}
 ```
 
 

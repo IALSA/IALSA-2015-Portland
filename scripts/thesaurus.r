@@ -55,6 +55,23 @@ d <- stringr::str_sub(a,-2,-1); d
 
 
 
+## @knitr testing_number_of_components
+a <- "b1_male_aehplus_pulmonary_visuospatial_fev_lineorientation.out"
+b <- "u1_female_aeh_nophys_block.out"
+c <- "u1_female_aeh_chairstand_nocog.out"
+
+ds <- as.data.frame(output_file <- c(a,b,c))
+ds$output_file <- as.character(ds$output_file)
+head(ds)
+
+desired_subpart_count <- 7L
+ds$model_name <- gsub(pattern=".out",replacement="",ds$output_file) # remove .out ending
+subparts <- strsplit(ds$model_name,"_") # break up each  model_name, store in a list
+subpart_count <- sapply(subparts, length) # count compents in each element of the list
+is_valid <- (subpart_count==desired_subpart_count) # create logical vector
+
+ds$output_file[is_valid]
+
 
 
 

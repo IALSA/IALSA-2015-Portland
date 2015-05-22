@@ -148,7 +148,7 @@ ds <- dsb %>%
   dplyr::arrange(physical_outcome, cognitive_outcome, physical_specific, cognitive_specific, subgroup, model_type)
 
 
-source("./scripts/1a_make_pretty_small.R")
+source("./scripts/2a_make_pretty_small.R")
 
 
 
