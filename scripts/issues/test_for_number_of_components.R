@@ -15,8 +15,11 @@ dsb <- readRDS('./data/shared/dsb.rds')
 ##
 ds <- dplyr::select(dsb, model_number, subgroup, model_type, physical_outcome, cognitive_outcome, physical_specific, cognitive_specific, output_file)
 
-head(ds)
-ds$short <- gsub(".out","",ds$output_file)
-a <- strsplit(ds$short,"_")
 
-## needed test: ff a is less than 7 components, then print output_file
+desired_subpart_count <- 7L
+ds$short <- gsub(".out","",ds$output_file)
+subparts <- strsplit(ds$short,"_")
+subpart_count <- sapply(subparts, length)
+is_valid <- (subpart_count==desired_subpart_count)
+
+ds$output_file[is_valid]
