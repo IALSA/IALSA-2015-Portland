@@ -22,21 +22,6 @@
 
 <!-- load functions used in the report -->
 
-```
-Source: local data frame [10 x 2]
-
-   physical_specific   n
-1               grip 131
-2          noPhySpec   8
-3          noPhysSec   5
-4         noPhysSpec  46
-5          nocogspec   1
-6         nophsyspec   1
-7         nophysSpec   3
-8         nophysspec 158
-9                pek 133
-10                NA   1
-```
 
 
 This report tallies the models that you have provided to the workshop collective so far.  For general frequency count (all studies) consult [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html) report.  For genearl (all studies) correlations between random terms in bivariate models consult [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html)
@@ -58,7 +43,7 @@ models, using univariate and bivariate specifications:
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
 
-The figure below shows the proper naming convention for the models you estimated in your study. Our scripts rely on this naming convention for the key information about the model. Therefore, it is of utmost importance you follow these rules. **If named incorrectly, models cannot be used in the collective analysis**. Some mistakes (like some typos) could be corrected automatically. Other, however, require your attention.
+The figure below (next section) shows the proper naming convention for the models you estimated in your study. Our scripts rely on this naming convention for the key information about the model. Therefore, it is of utmost importance you follow these rules. **If named incorrectly, models cannot be used in the collective analysis**. Some mistakes (like some typos) could be corrected automatically. Other, however, require your attention.
 
 
 
@@ -69,7 +54,7 @@ This report aims to accomplish two things:
 
   
 
-## Rules for naming your models
+## Naming rules
 ![naming convntion](../../libs/images/model_naming_convention.png)
 The name of the file **must always contain 7 components** separated by an underscore ( _ ) symbol. The figure above shows the anatomy of a protypical file name with examples of particular values.
 
@@ -79,12 +64,12 @@ From left to right, the components of filename are:
   1. Model number (*e.g.* b1, u0) - specification(u, b) and highest random term (0,1,2)  
   2. Sex (*e.g.* male, female) - model fitted using this subset of data
   3. covariateSet - a set of predictors entered into the model on the second level:
-    - empty : no covariate included into the model  
-    - a : age is entered as a baseline measure, second level  
-    - ae : age + education  
-    - aeh : age + education + height  
-    - aehplus: age + education + height + diabetes + smoking history + cardiovascular  
-    - full : all covariates availible in the study (will be different across studies)  
+    - **empty** : no covariate included into the model  
+    - **a** : age is entered as a baseline measure, second level  
+    - **ae** : age + education  
+    - **aeh** : age + education + height  
+    - **aehplus**: age + education + height + diabetes + smoking history + cardiovascular  
+    - **full** : all covariates availible in the study (will be different across studies)  
   4. Physical Construct (*e.g.* pulmonary, muscle) - general physical function that can have a number of specific operationalizations or measurements.
   5. Cognitive Construct (*e.g.* reasoning, memory) - general cognitive function that can have a number of specific operationalizations or measurements.
   6. Physical Measure (e.g. pek, grip ) - a specific way to operationalize the measurement of a physical construct
@@ -93,6 +78,11 @@ From left to right, the components of filename are:
 ### Additional rules
  
  - Construct and Measure names cannot be the same  
+ For example, such file names as
+ ```
+ u1_male_eah_pulmonary_noCog_pulmonary_noCogSpec
+ ``` 
+ should be avoided.  
  - In univariate models, the absence of a modeling term must be explicit:
  
  ```
@@ -102,167 +92,197 @@ From left to right, the components of filename are:
  ```
  u1_male_aeh_pulmonary_pek
  ```
+The exact spelling of the explicit absence is not very important: *noPhys*, *nophys*, *noghys* will work just fine and will be caught by an automatic filter.
 
 ## Errors of omission
-The most common mistake is omitting some of the 7 elements of output file's name. The following files need to be renamed so that our scripts can understand what constructs and variables were used in these models:
+The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and measures were used in your models:
 
 ```
 [1] "u1_female_aeh_nophys_block.out"           "u1_female_aeh_nophys_block_nocogspec.out"
 ```
 
-
-
-  
-## Inspect models in the study
+After removing incorrectly named files, there are
 
 ```
-t1 1 161 22 23 59
-                 
-   1   1  1  1  1
+485
 ```
+models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
+
+# Simple Counts
+In this section, **model specification (columns)** are cross-tabulated with **constructs or measures (rows)**, displaying the number of valid models in each category. 
+
+## Physical constructs
+
 
 ```
-   model_number version active valid best_in_gender study_name       date     time converged subgroup model_type
-1            b1     0.1     NA    NA             NA        eas 03/25/2015  8:31 AM      TRUE   female         ae
-2            b1     0.1     NA    NA             NA        eas 03/25/2015  8:23 AM      TRUE   female         ae
-3            b1     0.1     NA    NA             NA        eas 03/25/2015  7:15 AM      TRUE   female         ae
-24           b1     0.1     NA    NA             NA        eas 03/25/2015  8:33 AM      TRUE   female        aeh
-25           b1     0.1     NA    NA             NA        eas 03/25/2015  8:22 AM      TRUE   female        aeh
-26           b1     0.1     NA    NA             NA        eas 03/25/2015  7:17 AM      TRUE   female        aeh
-   physical_outcome var_int_physical se_int_physical var_slope_physical se_slope_physical var_residual_physical
-1            muscle           33.059           4.998              1.018             0.314                 6.923
-2            muscle           33.654           4.877              0.962             0.281                 6.872
-3            muscle           34.044           5.104              1.001             0.280                 6.889
-24           muscle           25.739           5.488              0.223             0.177                 5.745
-25           muscle           25.446           4.895              0.195             0.153                 5.784
-26           muscle           25.363           4.787              0.192             0.171                 5.763
-   se_residual_physical cognitive_outcome var_int_cog se_int_cog var_slope_cog se_slope_cog var_residual_cog
-1                 0.387           fluency       4.331      0.413         0.009        0.014            1.933
-2                 0.391           fluency      52.973      4.459         0.755        0.164           17.911
-3                 0.394           fluency     114.395      9.321         0.290        0.221           28.527
-24                0.417           fluency       3.484      0.854         0.023        0.027            1.787
-25                0.439           fluency      58.863     10.514         0.914        0.345           17.307
-26                0.470           fluency     114.596     21.086         0.178        0.315           25.829
-   se_residual_cog cov_int cov_slope cov_residual p_cov_int p_cov_slope p_cov_res subject_count wave_count
-1            0.084   3.085     0.007        0.135     0.017       0.882     0.537           594          8
-2            0.802   5.411     0.053       -0.795     0.270       0.802     0.248           593          8
-3            1.235  14.543     0.334        0.656     0.027       0.120     0.434           571          8
-24           0.145   3.691     0.026        0.025     0.016       0.677     0.914           150          8
-25           1.299   8.137     0.150       -0.486     0.137       0.455     0.493           150          8
-26           1.934  13.160     0.042        0.757     0.088       0.795     0.450           150          8
-   datapoint_count parameter_count deviance          software                                        output_file
-1               NA              25       NA Mplus VERSION 7.3  b1_female_ae_muscle_fluency_grip_bostonnaming.out
-2               NA              25       NA Mplus VERSION 7.3      b1_female_ae_muscle_fluency_grip_category.out
-3               NA              25       NA Mplus VERSION 7.3           b1_female_ae_muscle_fluency_grip_fas.out
-24              NA              29       NA Mplus VERSION 7.3 b1_female_aeh_muscle_fluency_grip_bostonnaming.out
-25              NA              29       NA Mplus VERSION 7.3     b1_female_aeh_muscle_fluency_grip_category.out
-26              NA              29       NA Mplus VERSION 7.3          b1_female_aeh_muscle_fluency_grip_fas.out
-   model_description results_descriptions notes                                         data_file physical_specific
-1                 ??                   NA  <NA>  C:\\Users\\Andrea Zammit\\Desktop\\EASMaster.csv              grip
-2                 ??                   NA  <NA>  C:\\Users\\Andrea Zammit\\Desktop\\EASMaster.csv              grip
-3                 ??                   NA  <NA>  C:\\Users\\Andrea Zammit\\Desktop\\EASMaster.csv              grip
-24                ??                   NA  <NA>  C:\\Users\\Andrea Zammit\\Desktop\\EASMaster.csv              grip
-25                ??                   NA  <NA>  C:\\Users\\Andrea Zammit\\Desktop\\EASMaster.csv              grip
-26                ??                   NA  <NA>  C:\\Users\\Andrea Zammit\\Desktop\\EASMaster.csv              grip
-   cognitive_specific        LL       aic       bic   adj_bic      aaic se_cov_int se_cov_slope se_cov_residual
-1        bostonnaming -5494.595 11039.190 11148.862 11069.494 11041.479      1.287        0.049           0.218
-2            category -7587.787 15225.574 15335.204 15255.836 15227.867      4.901        0.212           0.688
-3                 fas -7797.886 15645.772 15754.457 15675.093 15648.157      6.557        0.215           0.840
-24       bostonnaming -2505.361  5068.723  5156.031  5064.252  5083.223      1.533        0.062           0.230
-25           category -3266.486  6590.971  6678.280  6586.500  6605.471      5.475        0.201           0.709
-26                fas -3392.868  6843.736  6931.044  6839.265  6858.236      7.723        0.161           1.002
-      sd_int   sd_slope  sd_residual outcome_count int_zetau  int_zetal ciu_sd_int cil_sd_int slope_zetau slope_zetal
-1  0.2578198 0.07313123  0.036903765             2 0.2979259 0.21771363  0.2894134 0.21433780   0.1132374  0.03302509
-2  0.1281539 0.06218918 -0.071658157             2 0.1682940 0.08801381  0.1667230 0.08778725   0.1023293  0.02204907
-3  0.2330398 0.61991255  0.046794811             2 0.2739499 0.19212976  0.2672964 0.18980007   0.6608226  0.57900246
-24 0.3897707 0.36304211  0.007802481             2 0.4701873 0.30935401  0.4383506 0.29984930   0.4434588  0.28262546
-25 0.2102487 0.35530462 -0.048574823             2 0.2906654 0.12983207  0.2827471 0.12910746   0.4357213  0.27488798
-26 0.2441017 0.22718972  0.062046569             2 0.3245184 0.16368508  0.3135867 0.16223872   0.3076064  0.14677307
-   ciu_sd_slope cil_sd_slope residual_zetau residual_zetal ciu_sd_residual cil_sd_residual uni_bi
-1     0.1127558   0.03301309     0.07700991   -0.003202376      0.07685803    -0.003202365      b
-2     0.1019736   0.02204550    -0.03151804   -0.111798272     -0.03150761    -0.111334806      b
-3     0.5789106   0.52194002     0.08770490    0.005884720      0.08748071     0.005884652      b
-24    0.4165073   0.27533326     0.08821913   -0.072614164      0.08799098    -0.072486805      b
-25    0.4100915   0.26816722     0.03184182   -0.128991468      0.03183106    -0.128280777      b
-26    0.2982580   0.14572813     0.14246321   -0.018370075      0.14150717    -0.018368009      b
-                                       model_name
-1   b1_female_ae_muscle_fluency_grip_bostonnaming
-2       b1_female_ae_muscle_fluency_grip_category
-3            b1_female_ae_muscle_fluency_grip_fas
-24 b1_female_aeh_muscle_fluency_grip_bostonnaming
-25     b1_female_aeh_muscle_fluency_grip_category
-26          b1_female_aeh_muscle_fluency_grip_fas
-```
-
-```
-                                                     output_file
-1       u1_female_ae_nophys_memory_nophysspec_digitspantotal.out
-2        u1_female_ae_nophys_memory_nophysspec_logicalmemory.out
-3       u2_female_ae_nophys_memory_nophysspec_digitspantotal.out
-4        u2_female_ae_nophys_memory_nophysspec_logicalmemory.out
-5      u1_female_aeh_nophys_memory_nophysspec_digitspantotal.out
-6       u1_female_aeh_nophys_memory_nophysspec_logicalmemory.out
-7      u2_female_aeh_nophys_memory_nophysspec_digitspantotal.out
-8       u2_female_aeh_nophys_memory_nophysspec_logicalmemory.out
-9  u1_female_aehplus_nophys_memory_nophysspec_digitspantotal.out
-10  u1_female_aehplus_nophys_memory_nophysspec_logicalmemory.out
-11 u2_female_aehplus_nophys_memory_nophysspec_digitspantotal.out
-12  u2_female_aehplus_nophys_memory_nophysspec_logicalmemory.out
-13     u1_female_age_nophys_memory_nophysspec_digitspantotal.out
-14      u1_female_age_nophys_memory_nophysspec_logicalmemory.out
-15     u2_female_age_nophys_memory_nophysspec_digitspantotal.out
-16      u2_female_age_nophys_memory_nophysspec_logicalmemory.out
-17    u1_female_full_nophys_memory_nophysspec_digitspantotal.out
-18     u1_female_full_nophys_memory_nophysspec_logicalmemory.out
-19    u2_female_full_nophys_memory_nophysspec_digitspantotal.out
-20     u2_female_full_nophys_memory_nophysspec_logicalmemory.out
-21        u1_male_ae_nophys_memory_nophysspec_digitspantotal.out
-22         u1_male_ae_nophys_memory_nophysspec_logicalmemory.out
-23       u2_male_ae_nophys_memory_nophysspec_disigtspantotal.out
-24         u2_male_ae_nophys_memory_nophysspec_logicalmemory.out
-25       u1_male_aeh_nophys_memory_nophysspec_digitspantotal.out
-26        u1_male_aeh_nophys_memory_nophysspec_logicalmemory.out
-27       u2_male_aeh_nophys_memory_nophysspec_digitspantotal.out
-28        u2_male_aeh_nophys_memory_nophysspec_logicalmemory.out
-29   u1_male_aehplus_nophys_memory_nophysspec_digitspantotal.out
-30    u1_male_aehplus_nophys_memory_nophysspec_logicalmemory.out
-31   u2_male_aehplus_nophys_memory_nophysspec_digitspantotal.out
-32    u2_male_aehplus_nophys_memory_nophysspec_logicalmemory.out
-33       u1_male_age_nophys_memory_nophsyspec_digitspantotal.out
-34        u1_male_age_nophys_memory_nophysspec_logicalmemory.out
-35       u2_male_age_nophys_memory_nophysspec_digitspantotal.out
-36        u2_male_age_nophys_memory_nophysspec_logicalmemory.out
-37      u1_male_full_nophys_memory_nophysspec_digitspantotal.out
-38       u1_male_full_nophys_memory_nophysspec_logicalmemory.out
-39       u2_male_full_nophys_memory_nophysspec_logicalmemory.out
-40  u2_male_full_nophysspec_memory_nophysspec_digitspantotal.out
+           
+            b1  u0 u1  u2 
+  muscle    109 2  10  10 
+  nophys    .   2  109 110
+  pulmonary 110 2  10  11 
 ```
 
 
-## Cross-tabs of Constructs
+## Physical measures
+
 
 ```
             
-             muscle pulmonary
-   knowledge .      1        
-  executive  .      9        
-  fluency    36     30       
-  fluid      10     .        
-  global     10     10       
-  knowledge  14     20       
-  memory     19     20       
-  reasoning  10     10       
-  speed      10     10       
+             b1  u0 u1  u2 
+  grip       109 2  10  10 
+  nophysspec .   2  109 110
+  pek        110 2  10  11 
 ```
 
-## Cross-tabs of Measures
+## Cognitive constructs
+
+
+```
+           
+            b1 u0 u1 u2
+  executive 9  .  9  11
+  fluency   66 .  30 30
+  fluid     10 .  .  . 
+  global    20 .  10 10
+  knowledge 35 .  20 20
+  memory    39 .  20 20
+  nocog     .  4  20 20
+  reasoning 20 2  10 10
+  speed     20 .  10 10
+```
+
+
+## Cognitive measures
+
+
+```
+                    
+                     b1 u0 u1 u2
+  block              20 2  10 10
+  bostonnaming       20 .  10 10
+  category           20 .  10 10
+  digitspan          8  .  .  . 
+  digitspantotal     6  .  10 9 
+  digitsymbol        24 .  10 10
+  digitsymboltotal   1  .  .  . 
+  digitsymol         1  .  .  . 
+  disigtspantotal    .  .  .  1 
+  fas                20 .  10 10
+  information        20 .  10 10
+  logicalmemory      10 .  10 10
+  logicalmemorytotal 9  .  .  . 
+  mmse               20 .  10 10
+  nocogspec          .  4  20 20
+  trailsb            19 .  9  11
+  waisvocab          21 .  10 10
+```
+</br></br></br>
+
+# BIVARIATE MODELS
+
+In this section, **constructs (columns)** are cross-tabulated with  **measures (rows)** that opeationalize them in the models. Each non-blank element in a column indicates a unique **measure (row)** of the **construct (column)**. The numeric value counts the different versions of the model (sex, covariates) that used this specific pair of construct and measure.
+
+
+## Physical 
+Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE models
+
+```
+      
+       muscle pulmonary
+  grip 109    .        
+  pek  .      110      
+```
+
+## Cognitive 
+Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE models
+
+```
+                    
+                     executive fluency fluid global knowledge memory reasoning speed
+  block              .         .       .     .      .         .      20        .    
+  bostonnaming       .         20      .     .      .         .      .         .    
+  category           .         20      .     .      .         .      .         .    
+  digitspan          .         .       .     .      .         8      .         .    
+  digitspantotal     .         .       .     .      .         6      .         .    
+  digitsymbol        .         .       .     .      .         5      .         19   
+  digitsymboltotal   .         .       .     .      .         1      .         .    
+  digitsymol         .         .       .     .      .         .      .         1    
+  fas                .         20      .     .      .         .      .         .    
+  information        .         6       .     .      14        .      .         .    
+  logicalmemory      .         .       .     .      .         10     .         .    
+  logicalmemorytotal .         .       .     .      .         9      .         .    
+  mmse               .         .       .     20     .         .      .         .    
+  trailsb            9         .       10    .      .         .      .         .    
+  waisvocab          .         .       .     .      21        .      .         .    
+```
+
+# Key pairs
+The focus of our collective modeling is concomitant change in physical and cognitive functioning. Therefore, the following tables are th
+
+## Constructs
+Number of models with the following **physical constructs** (columns) and  **cognitive constructs** (rows)
+
+
+```
+           
+            muscle pulmonary
+  executive .      9        
+  fluency   36     30       
+  fluid     10     .        
+  global    10     10       
+  knowledge 14     21       
+  memory    19     20       
+  reasoning 10     10       
+  speed     10     10       
+```
+
+## Phys.Constructs
+Number of models with the following  **physical constructs** (columns) and  **cognitive measures** (rows)
+
+```
+                    
+                     muscle pulmonary
+  block              10     10       
+  bostonnaming       10     10       
+  category           10     10       
+  digitspan          6      2        
+  digitspantotal     .      6        
+  digitsymbol        13     11       
+  digitsymboltotal   .      1        
+  digitsymol         1      .        
+  fas                10     10       
+  information        10     10       
+  logicalmemory      9      1        
+  logicalmemorytotal .      9        
+  mmse               10     10       
+  trailsb            10     9        
+  waisvocab          10     11       
+```
+
+## Cog.Constructs
+Number of models with the following  **physical measure** (columns) and  **cognitive constructs** (rows)
+
+```
+           
+            grip pek
+  executive .    9  
+  fluency   36   30 
+  fluid     10   .  
+  global    10   10 
+  knowledge 14   21 
+  memory    19   20 
+  reasoning 10   10 
+  speed     10   10 
+```
+
+## Measures
+Number of models with the following  **physical measures** (columns) and  **cognitive measures** (rows)
 
 ```
                     
                      grip pek
   block              10   10 
-  bostonmaning       .    1  
-  bostonnaming       10   9  
+  bostonnaming       10   10 
   category           10   10 
   digitspan          6    2  
   digitspantotal     .    6  
@@ -274,18 +294,87 @@ t1 1 161 22 23 59
   logicalmemory      9    1  
   logicalmemorytotal .    9  
   mmse               10   10 
-  trailsb            10   8  
-  trailsB            .    1  
+  trailsb            10   9  
   waisvocab          10   11 
 ```
+</br></br></br>
 
+
+# UNIVARIATE MODELS
+
+In this section, **constructs (columns)** are cross-tabulated with  **measures (rows)** that opeationalize them in the models. Each non-blank element in a column indicates a unique **measure (row)** of the **construct (column)**. The numeric value counts the different versions of the model (sex, covariates) that used this specific pair of construct and measure. 
+
+## Physical Uni
+Physical constructs (columns) by physical measures (rows) in UNIVARIATE models
+
+```
+               muscle nophys pulmonary
+                                      
+u0 grip           2      .         .  
+   nophysspec     .      2         .  
+   pek            .      .         2  
+u1 grip           10     .         .  
+   nophysspec     .      109       .  
+   pek            .      .         10 
+u2 grip           10     .         .  
+   nophysspec     .      110       .  
+   pek            .      .         11 
+```
+
+## Cognitive Uni
+Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models
+
+```
+                    executive fluency global knowledge memory nocog reasoning speed
+                                                                                   
+u0 block                   .       .      .         .      .     .         2     . 
+   bostonnaming            .       .      .         .      .     .         .     . 
+   category                .       .      .         .      .     .         .     . 
+   digitspantotal          .       .      .         .      .     .         .     . 
+   digitsymbol             .       .      .         .      .     .         .     . 
+   disigtspantotal         .       .      .         .      .     .         .     . 
+   fas                     .       .      .         .      .     .         .     . 
+   information             .       .      .         .      .     .         .     . 
+   logicalmemory           .       .      .         .      .     .         .     . 
+   mmse                    .       .      .         .      .     .         .     . 
+   nocogspec               .       .      .         .      .     4         .     . 
+   trailsb                 .       .      .         .      .     .         .     . 
+   waisvocab               .       .      .         .      .     .         .     . 
+u1 block                   .       .      .         .      .     .         10    . 
+   bostonnaming            .       10     .         .      .     .         .     . 
+   category                .       10     .         .      .     .         .     . 
+   digitspantotal          .       .      .         .      10    .         .     . 
+   digitsymbol             .       .      .         .      .     .         .     10
+   disigtspantotal         .       .      .         .      .     .         .     . 
+   fas                     .       10     .         .      .     .         .     . 
+   information             .       .      .         10     .     .         .     . 
+   logicalmemory           .       .      .         .      10    .         .     . 
+   mmse                    .       .      10        .      .     .         .     . 
+   nocogspec               .       .      .         .      .     20        .     . 
+   trailsb                 9       .      .         .      .     .         .     . 
+   waisvocab               .       .      .         10     .     .         .     . 
+u2 block                   .       .      .         .      .     .         10    . 
+   bostonnaming            .       10     .         .      .     .         .     . 
+   category                .       10     .         .      .     .         .     . 
+   digitspantotal          .       .      .         .      9     .         .     . 
+   digitsymbol             .       .      .         .      .     .         .     10
+   disigtspantotal         .       .      .         .      1     .         .     . 
+   fas                     .       10     .         .      .     .         .     . 
+   information             .       .      .         10     .     .         .     . 
+   logicalmemory           .       .      .         .      10    .         .     . 
+   mmse                    .       .      10        .      .     .         .     . 
+   nocogspec               .       .      .         .      .     20        .     . 
+   trailsb                 11      .      .         .      .     .         .     . 
+   waisvocab               .       .      .         10     .     .         .     . 
+```
+</br></br></br>
 
 # Session Information
 For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
 
 
 ```
-Report rendered by koval_000 at 2015-05-22, 14:45 -0700
+Report rendered by koval_000 at 2015-05-22, 18:44 -0700
 ```
 
 ```

@@ -2,8 +2,8 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 
 #####################################
 ## @knitr load_sources
-# source("./scripts/0_collect_studies.R")
-# source("./scripts/1_combine_and_extend.R")
+# source("./scripts/0_collect_studies.R") # extracts models into individual dtos
+# source("./scripts/1_combine_and_extend.R") # combines, process, and saves as RDS
 
 
 #####################################
@@ -21,11 +21,14 @@ library(dplyr)
 
 ## @knitr load_data
 ds1 <- readRDS('./data/shared/ds1.rds')
+ds1a <- readRDS('./data/shared/ds1a.rds') # names corrected
 keepvar <- c("model_number","study_name","model_type", "subgroup", "physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
 # ds <- ds1[ , keepvar]
 
 ## @knitr load_eas
-ds <- ds1[ds1$study_name=="eas",]
+selected_study <- "eas"
+ds <- ds1[ds1$study_name==selected_study,]
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 # ## @knitr load_habc
 # ds <- ds1[ds1$study_name=="habc",]
@@ -54,6 +57,111 @@ ds <- ds1[ds1$study_name=="eas",]
 
 
 
+
+
+
+## @knitr count_total
+cat(nrow(ds))
+
+## @knitr count_unibi
+t1 <- table(ds$model_number)
+t1[t1==0] <- "."
+t1
+
+
+## @knitr list.omissions
+desired_subpart_count <- 7L
+ds$model_name <- gsub(pattern=".out",replacement="",ds$output_file) # remove .out ending
+subparts <- strsplit(ds$model_name,"_") # break up each  model_name, store in a list
+subpart_count <- sapply(subparts, length) # count compents in each element of the list
+is_valid <- (subpart_count==desired_subpart_count) # create logical vector
+
+print(ds$output_file[!is_valid])
+
+# ds <- ds[is_valid,] # keep only the legal names
+ds <- dsa # same as above, filter in 1a_correct_model_names
+
+## @knitr list.full.number
+cat(nrow(ds))
+
+## @knitr list.phys.constructs
+t1 <- table(ds$physical_construct, ds$model_number)
+t1[t1==0] <- "."
+t1
+
+## @knitr list.phys.measures
+t1 <- table(ds$physical_measure, ds$model_number)
+t1[t1==0] <- "."
+t1
+
+## @knitr list.cog.constructs
+t1 <- table(ds$cognitive_construct, ds$model_number)
+t1[t1==0] <- "."
+t1
+
+## @knitr list.cog.measures
+t1 <- table(ds$cognitive_measure, ds$model_number)
+t1[t1==0] <- "."
+t1
+
+
+## @knitr cross.phys.uni
+d <- ds %>% dplyr::filter(model_number %in% c("u0","u1","u2"))
+t1 <- table(d$model_number, d$physical_measure, d$physical_construct)
+t1[t1==0] <- "."
+ftable(t1)
+
+## @knitr cross.cog.uni
+d <- ds %>% dplyr::filter(model_number %in% c("u0","u1","u2"))
+t1 <- table(d$model_number, d$cognitive_measure, d$cognitive_construct)
+t1[t1==0] <- "."
+ftable(t1)
+
+
+## @knitr cross.phys.bi
+d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+t1 <- table(d$physical_measure, d$physical_construct)
+t1[t1==0] <- "."
+t1
+
+## @knitr cross.cog.bi
+d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+t1 <- table(d$cognitive_measure, d$cognitive_construct)
+t1[t1==0] <- "."
+t1
+
+
+
+
+
+## @knitr cog.construct.phys.construct
+d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+t1 <- table(d$cognitive_construct, d$physical_construct)
+t1[t1==0] <- "."
+t1
+
+## @knitr cog.measures.phys.construct
+d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+t1 <- table(d$cognitive_measure, d$physical_construct)
+t1[t1==0] <- "."
+t1
+
+## @knitr cog.construct.phys.measure
+d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+t1 <- table(d$cognitive_construct, d$physical_measure)
+t1[t1==0] <- "."
+t1
+
+## @knitr cog.measure.phys.measure
+d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+t1 <- table(d$cognitive_measure, d$physical_measure)
+t1[t1==0] <- "."
+t1
+
+
+
+
+######################################################
 ## @knitr load_functions
 
 ## Basic summary
@@ -120,30 +228,11 @@ t1
 
 
 
-
-## @knitr count_total
-cat(nrow(ds))
-
-## @knitr count_unibi
-t1 <- table(ds$model_number)
-t1[t1==0] <- "."
-t1
+## @knitr list.constructs.b
+ds %>% dplyr::filter(model_number %in% c("b0", "b1", "b2")) %>%
+  count(physical_construct)
 
 
-## @knitr list.omissions
-desired_subpart_count <- 7L
-ds$model_name <- gsub(pattern=".out",replacement="",ds$output_file) # remove .out ending
-subparts <- strsplit(ds$model_name,"_") # break up each  model_name, store in a list
-subpart_count <- sapply(subparts, length) # count compents in each element of the list
-is_valid <- (subpart_count==desired_subpart_count) # create logical vector
-
-ds$output_file[!is_valid]
-
-ds <- ds[is_valid,] # keep only the legal names
-
-
-## @knitr list.constructs.u
-list.constructs("u")
 
 head(ds)
 
