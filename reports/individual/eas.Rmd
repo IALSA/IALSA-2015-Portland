@@ -1,5 +1,5 @@
 ---
-title: "Individual study report: count models"
+title: "Model catalog"
 output:
   html_document:
     css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar.css
@@ -48,7 +48,7 @@ read_chunk("./reports/individual/individualized.R") #This allows knitr to call c
 ```
 
 <!-- load sepecific data -->
-```{r load_eas, echo=echoChunks, message=FALSE}
+```{r load_nas, echo=echoChunks, message=FALSE}
 ```
 
 <!-- load functions used in the report -->
@@ -58,7 +58,12 @@ read_chunk("./reports/individual/individualized.R") #This allows knitr to call c
 
 This report tallies the models that you have provided to the workshop collective so far.  For general frequency count (all studies) consult [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html) report.  For genearl (all studies) correlations between random terms in bivariate models consult [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html)
 
-## Brief summary
+This report aims to accomplish two things:     
+    1. Help you identify and **correct the errors** in the filenames so that your models can be processed properly  
+    2. Help you identify what models should be added to **maximize replicability** effect across studies 
+
+
+## Introduction and Rationale
 
 You have provided us with the total number of 
 ```{r count_total, echo=echoChunks, message=FALSE}
@@ -69,16 +74,15 @@ models, using univariate and bivariate specifications:
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
 
-The figure below (next section) shows the proper naming convention for the models you estimated in your study. Our scripts rely on this naming convention for the key information about the model. Therefore, it is of utmost importance you follow these rules. **If named incorrectly, models cannot be used in the collective analysis**. Some mistakes (like some typos) could be corrected automatically. Other, however, require your attention.
+The figure below (next section) shows the proper naming convention for the models you estimated in your study. Please use it to correct the names of some of your models. Our scripts rely on this naming convention for the key information about the model (most importantly, names of the constructs and measures). Therefore, it is of utmost importance that these rules are followed. **If named incorrectly, models might not be used in the collective analysis**.   
+
+Some mistakes could be corrected automatically. Other, however, require *specifically* your attention. To illustrate, consider a cognitive construct *knowledge*. We've encountered entries *knowlegde*, *knowledg*, and *knwoledge*; it is obvious that these three spellings meant to say *knowledge*, and we program the script to correct it automatically. On the other hand, consider a physical construct *pulmonary*, which has two similarly spelled measures, *fev* and *fvc*. When we see a measure of *pulmonary* called *fevc*, we don't know how to interpret it, it could be a misspelling of either one. This is where we need your help.
+
+
+**THINGS TO LOOK FOR**  
 
 
 
-This report aims to accomplish two things:   
-  1. Help you identify and **correct the errors** in the filenames so that your models can be processed properly  
-  2. Help you identify what models should be added to **maximize replicability** effect  
-
-
-  
 
 ## Naming rules
 ![naming convntion](../../libs/images/model_naming_convention.png)
@@ -171,8 +175,6 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
 ```{r cross.cog.bi, echo=echoChunks, message=FALSE}
 ```
 
-# Key pairs
-The focus of our collective modeling is concomitant change in physical and cognitive functioning. Therefore, the following tables are th
 
 ## Constructs
 Number of models with the following **physical constructs** (columns) and  **cognitive constructs** (rows)
@@ -201,16 +203,21 @@ Number of models with the following  **physical measures** (columns) and  **cogn
 
 In this section, **constructs (columns)** are cross-tabulated with  **measures (rows)** that opeationalize them in the models. Each non-blank element in a column indicates a unique **measure (row)** of the **construct (column)**. The numeric value counts the different versions of the model (sex, covariates) that used this specific pair of construct and measure. 
 
-## Physical Uni
+## Physical 
 Physical constructs (columns) by physical measures (rows) in UNIVARIATE models
 ```{r cross.phys.uni, echo=echoChunks, message=FALSE}
 ```
 
-## Cognitive Uni
+## Cognitive
 Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models
 ```{r cross.cog.uni, echo=echoChunks, message=FALSE}
 ```
 </br></br></br>
+
+# List of models
+```{r list.all.models, echo=echoChunks, message=FALSE, results='asis'}
+```
+
 
 # Session Information
 For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.

@@ -30,29 +30,45 @@ selected_study <- "eas"
 ds <- ds1[ds1$study_name==selected_study,]
 dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
-# ## @knitr load_habc
-# ds <- ds1[ds1$study_name=="habc",]
-#
-# ## @knitr load_ilse
-# ds <- ds1[ds1$study_name=="ilse",]
-#
-# ## @knitr load_nas
-# ds <- ds1[ds1$study_name=="nas",]
-#
-# ## @knitr load_nuage
-# ds <- ds1[ds1$study_name=="nuage",]
-#
-# ## @knitr load_obas
-# ds <- ds1[ds1$study_name=="obas",]
-#
-# ## @knitr load_octo
-# ds <- ds1[ds1$study_name=="octo",]
-#
-# ## @knitr load_radc
-# ds <- ds1[ds1$study_name=="radc",]
-#
-# ## @knitr load_satsa
-# ds <- ds1[ds1$study_name=="satsa",]
+## @knitr load_habc
+selected_study <- "habc"
+ds <- ds1[ds1$study_name==selected_study,]
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+
+## @knitr load_ilse
+selected_study <- "ilse"
+ds <- ds1[ds1$study_name==selected_study,]
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+
+## @knitr load_nas
+selected_study <- "nas"
+ds <- ds1[ds1$study_name==selected_study,]
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+
+## @knitr load_nuage
+selected_study <- "nuage"
+ds <- ds1[ds1$study_name==selected_study,]
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+
+## @knitr load_obas
+selected_study <- "obas"
+ds <- ds1[ds1$study_name==selected_study,]
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+
+## @knitr load_octo
+selected_study <- "octo"
+ds <- ds1[ds1$study_name==selected_study,]
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+
+## @knitr load_radc
+selected_study <- "radc"
+ds <- ds1[ds1$study_name==selected_study,]
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+
+## @knitr load_satsa
+selected_study <- "satsa"
+ds <- ds1[ds1$study_name==selected_study,]
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 
 
@@ -76,7 +92,9 @@ subparts <- strsplit(ds$model_name,"_") # break up each  model_name, store in a 
 subpart_count <- sapply(subparts, length) # count compents in each element of the list
 is_valid <- (subpart_count==desired_subpart_count) # create logical vector
 
-print(ds$output_file[!is_valid])
+if(sum(!is_valid)>0){ ds$output_file[!is_valid]}else{
+  cat("All your models were named properly")
+}
 
 # ds <- ds[is_valid,] # keep only the legal names
 ds <- dsa # same as above, filter in 1a_correct_model_names
@@ -107,139 +125,124 @@ t1
 
 ## @knitr cross.phys.uni
 d <- ds %>% dplyr::filter(model_number %in% c("u0","u1","u2"))
+if(nrow(d)>0){
 t1 <- table(d$model_number, d$physical_measure, d$physical_construct)
 t1[t1==0] <- "."
 ftable(t1)
+}else{cat("Empty category")}
 
 ## @knitr cross.cog.uni
 d <- ds %>% dplyr::filter(model_number %in% c("u0","u1","u2"))
+if(nrow(d)>0){
 t1 <- table(d$model_number, d$cognitive_measure, d$cognitive_construct)
 t1[t1==0] <- "."
 ftable(t1)
-
+}else{cat("Empty category")}
 
 ## @knitr cross.phys.bi
 d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+if(nrow(d)>0){
 t1 <- table(d$physical_measure, d$physical_construct)
 t1[t1==0] <- "."
 t1
+}else{cat("Empty category")}
 
 ## @knitr cross.cog.bi
 d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+if(nrow(d)>0){
 t1 <- table(d$cognitive_measure, d$cognitive_construct)
 t1[t1==0] <- "."
 t1
-
-
+}else{cat("Empty category")}
 
 
 
 ## @knitr cog.construct.phys.construct
 d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+if(nrow(d)>0){
 t1 <- table(d$cognitive_construct, d$physical_construct)
 t1[t1==0] <- "."
 t1
+}else{cat("Empty category")}
 
 ## @knitr cog.measures.phys.construct
 d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+if(nrow(d)>0){
 t1 <- table(d$cognitive_measure, d$physical_construct)
 t1[t1==0] <- "."
 t1
+}else{cat("Empty category")}
 
 ## @knitr cog.construct.phys.measure
 d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+if(nrow(d)>0){
 t1 <- table(d$cognitive_construct, d$physical_measure)
 t1[t1==0] <- "."
 t1
+}else{cat("Empty category")}
 
 ## @knitr cog.measure.phys.measure
 d <- ds %>% dplyr::filter(model_number %in% c("b0","b1","b2"))
+if(nrow(d)>0){
 t1 <- table(d$cognitive_measure, d$physical_measure)
 t1[t1==0] <- "."
 t1
+}else{cat("Empty category")}
 
 
 
 
-######################################################
-## @knitr load_functions
+## @knitr list.all.models
+ds <- ds[order(ds$model_number, ds$physical_construct, ds$cognitive_construct, ds$physical_measure, ds$cognitive_measure, ds$subgroup, ds$model_type), ]
+desired_columns <- c(
+  "study_name",
+  "model_number",
+  "subgroup",
+  "model_type",
+  "physical_construct",
+  "cognitive_construct",
+  "physical_measure",
+  "cognitive_measure",
+  "output_file"
+)
+ds_pretty <- ds[,desired_columns]
+# head(ds_pretty,20)
+ds_pretty <- plyr::rename(ds_pretty, replace=c(
+  "model_number"="model<br/>tag",
+  "subgroup" = "sex",
+  "model_type" = "predictor<br/>set",
+  "physical_construct" = "physical<br/>construct",
+  "cognitive_construct"=  "cognitive<br/>construct",
+  "physical_measure" = "physical<br/>measure",
+  "cognitive_measure" = "cognitive<br/>measure",
+  "output_file"= "file name"
+))
 
-## Basic summary
-inspect.study <- function(unibi){
-ds <- ds[ds$uni_bi==unibi,]
-a <- ds %>% group_by(subgroup) %>% summarize(count=length(converged)); print(a); cat("\n");
-a <- ds %>% group_by(covariates=model_type) %>% summarize(count=length(converged)); print(a); cat("\n");
-a <- ds %>% group_by(phys.construct=physical_construct) %>% summarize(count=length(converged)); print(a); cat("\n");
-a <- ds %>% group_by(phys.measure=physical_measure) %>% summarize(count=length(converged)); print(a); cat("\n\n\n");
-a <- ds %>% group_by(cog.construct=cognitive_construct) %>% summarize(count=length(converged)); print(a); cat("\n");
-a <- ds %>% group_by(cog.measure=cognitive_measure) %>% summarize(count=length(converged)); print(a); cat("\n\n\n");
+# print(knitr::kable(ds_pretty[ , -(1)], caption="All your models", row.names= F))
+#
+
+tags <- unique(ds_pretty$`model<br/>tag`)
+for( i in 1:length(tags) ){
+  d <- ds_pretty[ds_pretty$`model<br/>tag`==tags[i], ]
+  cat("") #Force a new line
+  cat(paste0("## ", tags[i]))
+  cat("\n") #Force a new line
+    if( nrow(d) > 0L) {
+      print(knitr::kable(d[ , -(1)], caption="Models with this tag", row.names= F))
+    } else {
+      cat("*No models of this specification were supplied from the study.*\n\n")
+    }
+    cat("\n")
 }
 
-## List constructs
-list.constructs <- function(unibi){
-ds <- ds[ds$uni_bi==unibi,]
-# # t1 <- table(ds$model_number, ds$physical_construct )
-# t1 <- table(ds$physical_construct )
-# t1[t1==0] <- "."
-# # ftable(t1)
-# print(t1)
-ds %>% dplyr::count(physical_construct)
-
-}
-# list.constructs("u")
-# list.constructs("b")
-
-
-## Cross tab of constructs
-cross.constructs <- function(unibi){
-ds <- ds[ds$uni_bi==unibi,]
-t1 <- table(ds$cognitive_construct,ds$physical_construct)
-t1[t1==0] <- "."
-t1
-}
-
-
-## Cross tab of measures
-cross.measures <- function(unibi){
-ds <- ds[ds$uni_bi==unibi,]
-t1 <- table(ds$cognitive_measure,ds$physical_measure)
-t1[t1==0] <- "."
-t1
-}
-
-## Cross tab of physical
-cross.physical <- function(unibi){
-ds <- ds[ds$uni_bi==unibi,]
-t1 <- table(ds$physical_measure,ds$physical_construct)
-t1[t1==0] <- "."
-t1
-}
-# cross.physical("b")
-
-
-## Cross tab of cognitive
-cross.cognitive<- function(unibi){
-ds <- ds[ds$uni_bi==unibi,]
-t1 <- table(ds$cognitive_measure,ds$cognitive_construct)
-t1[t1==0] <- "."
-t1
-}
-# cross.cognitive("b")
 
 
 
-## @knitr list.constructs.b
-ds %>% dplyr::filter(model_number %in% c("b0", "b1", "b2")) %>%
-  count(physical_construct)
 
 
 
-head(ds)
 
-ds %>% filter(uni_bi=="u", cognitive_construct=="memory") %>% select(output_file)
 
-## @knitr constructs_bivariate
-cross.constructs("b")
 
-## @knitr measures_bivariate
-cross.measures("b")
+
+

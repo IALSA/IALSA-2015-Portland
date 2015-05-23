@@ -16,8 +16,9 @@ library(dplyr)
 
 ## @knitr load_data
 ds1 <- readRDS('./data/shared/ds1.rds')
-ds <- ds1 %>% dplyr::filter(study_name=="eas")
-
+# ds <- ds1 %>% dplyr::filter(study_name=="satsa")
+ds <- ds1
+nrow(ds)
 ## @knitr remove_omissions
 desired_subpart_count <- 7L # necessary number of componets in legal filename
 ds$model_name <- gsub(pattern=".out",replacement="",ds$output_file) # remove .out ending
@@ -25,9 +26,11 @@ subparts <- strsplit(ds$model_name,"_") # break up each  model_name, store in a 
 subpart_count <- sapply(subparts, length) # count compents in each element of the list
 is_valid <- (subpart_count==desired_subpart_count) # create logical vector
 length(ds$output_file[!is_valid]) # that many models with omitted elements in the name
+
+if(sum(!is_valid)>0){ print(ds$output_file[!is_valid])}else{
+  cat("All your models were named properly")
+}
 ds <- ds[is_valid,] # keep only the legal names
-
-
 
 ## @knitr common_corrections
 
@@ -41,10 +44,29 @@ ds$cognitive_construct <- tolower(stringr::str_trim(ds$cognitive_construct))
 ds$cognitive_measure <- tolower(stringr::str_trim(ds$cognitive_measure))
 
 
+#### look for bad names ####
+
+ds %>% dplyr::count(model_number)
+ds %>% dplyr::count(subgroup)
+ds %>% dplyr::count(model_type)
+ds %>% dplyr::count(physical_construct)
+ds %>% dplyr::count(physical_measure)
+ds %>% dplyr::count(cognitive_construct)
+ds %>% dplyr::count(cognitive_measure)
+ds %>% dplyr::count(output_file)
+
+table(ds$model_number)
+table(ds$subgroup)
+table(ds$model_type)
+table(ds$physical_construct)
+table(ds$physical_measure)
+table(ds$cognitive_construct)
+table(ds$cognitive_measure)
+table(ds$output_file)
 
 ## @knitr bring_forth_wrong
 ds %>% dplyr::filter(physical_construct=="nophysspec") %>% select(output_file)
-ds %>% dplyr::filter(physical_measure=="nocogspec") %>% select(output_file)
+ds %>% dplyr::filter(physical_measure=="fevc") %>% select(output_file)
 ds %>% dplyr::filter(cognitive_construct=="nophysspec") %>% select(output_file)
 ds %>% dplyr::filter(cognitive_measure=="nostonnaming") %>% select(output_file)
 
@@ -65,7 +87,7 @@ ds[ds$physical_construct=="nophysspec","physical_construct"] <- "nophys"
 ds[ds$cognitive_construct %in% c(" knowledge", "knoledge", "knowlegde"),"cognitive_construct"] <- "knowledge"
 
 #### Corrections to the COGNITIVE construct ####
-ds[ds$physical_measure %in% c("nophsyspec","nophyspec","nophyssec" ),"physical_measure"] <- "nophysspec"
+ds[ds$physical_measure %in% c("nophsyspec","nophyspec","nophyssec","nophyscog" ),"physical_measure"] <- "nophysspec"
 
 #### Correction to COGNITIVE measure ####
 ds[ds$cognitive_measure %in% c("bostonmaning","nostonnaming"),"cognitive_measure"] <- "bostonnaming"
@@ -75,10 +97,7 @@ ds[ds$cognitive_measure %in% c("wasivocab"),"cognitive_measure"] <- "waisvocab"
 saveRDS(ds,"./data/shared/ds1a.rds") # save corrected dataset
 
 #### Test the naming ####
-ds %>% dplyr::count(physical_construct)
-ds %>% dplyr::count(cognitive_construct)
-ds %>% dplyr::count(physical_measure)
-ds %>% dplyr::count(cognitive_measure)
+
 
 
 
