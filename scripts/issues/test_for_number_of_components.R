@@ -10,10 +10,10 @@ library(testit, quietly=TRUE) #For asserts
 library(dplyr)
 
 ## @knitr load_data
-dsb <- readRDS('./data/shared/dsb.rds')
+ds1 <- readRDS('./data/shared/ds1.rds')
 
 ##
-ds <- dplyr::select(dsb, model_number, subgroup, model_type, physical_outcome, cognitive_outcome, physical_specific, cognitive_specific, output_file)
+ds <- dplyr::select(ds1, model_number, subgroup, model_type, physical_construct, cognitive_construct, physical_measure, cognitive_measure, output_file)
 
 
 desired_subpart_count <- 7L

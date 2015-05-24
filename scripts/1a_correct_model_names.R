@@ -30,7 +30,7 @@ length(ds$output_file[!is_valid]) # that many models with omitted elements in th
 if(sum(!is_valid)>0){ print(ds$output_file[!is_valid])}else{
   cat("All your models were named properly")
 }
-ds <- ds[is_valid,] # keep only the legal names
+# ds <- ds[is_valid,] # keep only the legal names
 
 ## @knitr common_corrections
 
@@ -94,7 +94,7 @@ ds[ds$cognitive_measure %in% c("bostonmaning","nostonnaming"),"cognitive_measure
 ds[ds$cognitive_measure %in% c("wasivocab"),"cognitive_measure"] <- "waisvocab"
 
 
-saveRDS(ds,"./data/shared/ds1a.rds") # save corrected dataset
+saveRDS(ds,"./data/shared/ds1.rds") # save corrected dataset
 
 #### Test the naming ####
 

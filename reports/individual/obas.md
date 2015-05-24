@@ -1,59 +1,27 @@
----
-title: "Model catalog"
-output:
-  html_document:
-    css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar.css
-    keep_md: yes
-    toc: yes
----
+# Model catalog
 
 
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
-```{r, echo=F, message=F} 
-# cat("Working directory: ", getwd())
-  library(knitr)
-  opts_knit$set(root.dir='../../')  #Don't combine this call with any other chunk -especially one that uses file paths.
-```
+
 
 <!-- Set the report-wide options, and point to the external code file. -->
-```{r set_options, echo=F}
-# cat("Working directory: ", getwd())
-opts_chunk$set(
-  results='show', 
-  comment = NA, 
-  tidy = FALSE,
-  fig.width = 6.5, 
-  fig.height = 4, 
-  fig.path = 'figure_study/'
-)
-# dpi = 400,
-# out.width = "650px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
 
-echoChunks <- FALSE
-options(width=120) #So the output is 50% wider than the default.
-read_chunk("./reports/individual/individualized.R") #This allows knitr to call chunks tagged in the underlying *.R file.
-```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
-```{r load_sources, echo=echoChunks, message=FALSE}
-```
+
 
 <!-- Load 'sourced' R files.  Suppress the output when loading packages. --> 
-```{r load_packages, echo=echoChunks, message=FALSE}
-```
+
 
 <!-- load global data -->
-```{r load_data, echo=echoChunks, message=FALSE}
-```
+
 
 <!-- load sepecific data -->
-```{r load_eas, echo=echoChunks, message=FALSE}
-```
+
 
 <!-- load functions used in the report -->
-```{r load_functions, echo=echoChunks, message=FALSE}
-```
+
 
 
 This report tallies the models that you have provided to the workshop collective so far.  For frequency counts  across studies consult [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html) report.  For correlations between random terms in bivariate models across all studies consult [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html)
@@ -66,14 +34,22 @@ This report **AIMS** to accomplish two things:
 ## Introduction and Rationale
 
 Your study
-```{r id.study, echo=echoChunks, message=FALSE}
+
+```
+[1] "obas"
 ```
 
 has provided us with the total number of 
-```{r count_total, echo=echoChunks, message=FALSE}
+
+```
+12
 ```
 models, using univariate and bivariate specifications:
-```{r count_unibi, echo=echoChunks, message=FALSE}
+
+```
+
+b1 u1 u2 
+ 4  4  4 
 ```
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
@@ -130,11 +106,27 @@ The exact spelling of the explicit absence is not very important: *noPhys*, *nop
 
 ## Errors of omission
 The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and measures were used in your models:
-```{r list.omissions, echo=echoChunks, message=FALSE}
+
+```
+          ds$output_file[!is_valid]
+1   u1_female_age_nophys_global.out
+2   u2_female_age_nophys_global.out
+3     u1_male_age_nophys_global.out
+4     u2_male_age_nophys_global.out
+5  b1_female_aeh_walking_global.out
+6  b1_female_age_walking_global.out
+7    b1_male_aeh_walking_global.out
+8    b1_male_age_walking_global.out
+9   u2_female_age_walking_nocog.out
+10    u2_male_age_walking_nocog.out
+11  u1_female_age_walking_noCog.out
+12    u1_male_age_walking_noCog.out
 ```
 
 After removing incorrectly named files, there are
-```{r list.full.number, echo=echoChunks, message=FALSE}
+
+```
+0
 ```
 models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
 
@@ -143,24 +135,32 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 ## Physical constructs
 
-```{r list.phys.constructs, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 
 
 ## Physical measures
 
-```{r list.phys.measures, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 
 ## Cognitive constructs
 
-```{r list.cog.constructs, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 
 
 ## Cognitive measures
 
-```{r list.cog.measures, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 </br></br></br>
 
@@ -171,34 +171,46 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 
 ## Physical 
 Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE models
-```{r cross.phys.bi, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 
 ## Cognitive 
 Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE models
-```{r cross.cog.bi, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 
 
 ## Constructs
 Number of models with the following **physical constructs** (columns) and  **cognitive constructs** (rows)
 
-```{r cog.construct.phys.construct, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 
 ## Phys.Constructs
 Number of models with the following  **physical constructs** (columns) and  **cognitive measures** (rows)
-```{r cog.measures.phys.construct, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 
 ## Cog.Constructs
 Number of models with the following  **physical measure** (columns) and  **cognitive constructs** (rows)
-```{r cog.construct.phys.measure, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 
 ## Measures
 Number of models with the following  **physical measures** (columns) and  **cognitive measures** (rows)
-```{r cog.measure.phys.measure, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 </br></br></br>
 
@@ -209,24 +221,77 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 
 ## Physical 
 Physical constructs (columns) by physical measures (rows) in UNIVARIATE models
-```{r cross.phys.uni, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 
 ## Cognitive
 Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models
-```{r cross.cog.uni, echo=echoChunks, message=FALSE}
+
+```
+Empty category
 ```
 </br></br></br>
 
 # List of models
-```{r list.all.models, echo=echoChunks, message=FALSE, results='asis'}
-```
+## u1
+
+
+model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                       
+--------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------
+u1              female   a                   nophys                   global                    NA                     NA                      u1_female_age_nophys_global.out 
+u1              male     a                   nophys                   global                    NA                     NA                      u1_male_age_nophys_global.out   
+u1              female   a                   walking                  nocog                     NA                     NA                      u1_female_age_walking_noCog.out 
+u1              male     a                   walking                  nocog                     NA                     NA                      u1_male_age_walking_noCog.out   
+
+## u2
+
+
+model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                       
+--------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------
+u2              female   a                   nophys                   global                    NA                     NA                      u2_female_age_nophys_global.out 
+u2              male     a                   nophys                   global                    NA                     NA                      u2_male_age_nophys_global.out   
+u2              female   a                   walking                  nocog                     NA                     NA                      u2_female_age_walking_nocog.out 
+u2              male     a                   walking                  nocog                     NA                     NA                      u2_male_age_walking_nocog.out   
+
+## b1
+
+
+model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                        
+--------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ---------------------------------
+b1              female   aeh                 walking                  global                    NA                     NA                      b1_female_aeh_walking_global.out 
+b1              female   a                   walking                  global                    NA                     NA                      b1_female_age_walking_global.out 
+b1              male     aeh                 walking                  global                    NA                     NA                      b1_male_aeh_walking_global.out   
+b1              male     a                   walking                  global                    NA                     NA                      b1_male_age_walking_global.out   
 
 
 # Session Information
 For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
 
-```{r session_info, echo=FALSE}
-cat("Report rendered by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
-sessionInfo()
+
+```
+Report rendered by koval_000 at 2015-05-23, 17:35 -0700
+```
+
+```
+R version 3.2.0 (2015-04-16)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 8 x64 (build 9200)
+
+locale:
+[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
+
+attached base packages:
+[1] grid      stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10.5      
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 highr_0.5       
+ [7] stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1       
+[13] htmltools_0.2.6  lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1  
+[19] formatR_1.2      evaluate_0.7     rmarkdown_0.6.1  stringi_0.4-1    proto_0.3-10    
 ```

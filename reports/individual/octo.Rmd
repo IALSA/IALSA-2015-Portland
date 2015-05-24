@@ -48,7 +48,7 @@ read_chunk("./reports/individual/individualized.R") #This allows knitr to call c
 ```
 
 <!-- load sepecific data -->
-```{r load_eas, echo=echoChunks, message=FALSE}
+```{r load_octo, echo=echoChunks, message=FALSE}
 ```
 
 <!-- load functions used in the report -->
