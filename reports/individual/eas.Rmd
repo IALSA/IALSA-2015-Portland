@@ -1,5 +1,5 @@
 ---
-title: "Model catalog"
+title: "EAS: Model catalog"
 output:
   html_document:
     css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar.css
