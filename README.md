@@ -11,16 +11,22 @@
 
 #### Individual study reports
 
-- [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html)   
-- [HABC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/habc.html)  
-- [ILSE](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/ilse.html)  
-- [NAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nas.html)  
-- [NUAGE](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nuage.html)  
-- [OBAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/obas.html)  
-- [OCTO](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/octo.html)  
-- [RADC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/radc.html)  
-- [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html)  
+- [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html) - [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu)
+- [HABC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/habc.html) - [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) 
+- [ILSE](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/ilse.html) - [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de)
+- [NAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nas.html) - [Lewina Lee](mailto:lewina@bu.edu)
+- [NuAge](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nuage.html) - [Valerie Jarry ](mailto:valerie.jarry@umontreal.ca )
+- [OBAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/obas.html) - [Nora Mattek](mailto:mattekn@ohsu.edu) 
+- [OCTO-Twin](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/octo.html) - [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se)
+- [RADC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/radc.html) - [Cassandra Brown](mailto:clb@uvic.ca)
+- [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html) - [Deborah Finkel](mailto:dfinkel@ius.edu)
 
+
+#### Contact IALSA team
+
+ - [Andrey Koval](mailto:andkov@uvic.ca)  
+ - [Andrea Piccinin](mailto:piccinin@uvic.ca)   
+ - [Andrey Koval](mailto:gm299@cam.ac.uk)  
 
 
 ## Overview
