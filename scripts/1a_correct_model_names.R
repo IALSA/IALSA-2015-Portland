@@ -18,6 +18,8 @@ library(dplyr)
 ds1 <- readRDS('./data/shared/ds1.rds')
 # ds <- ds1 %>% dplyr::filter(study_name=="satsa")
 ds <- ds1
+# ds <- ds1[ds1$study_name=="eas",]
+
 nrow(ds)
 ## @knitr remove_omissions
 desired_subpart_count <- 7L # necessary number of componets in legal filename
@@ -30,7 +32,7 @@ length(ds$output_file[!is_valid]) # that many models with omitted elements in th
 if(sum(!is_valid)>0){ print(ds$output_file[!is_valid])}else{
   cat("All your models were named properly")
 }
-# ds <- ds[is_valid,] # keep only the legal names
+ds <- ds[is_valid,] # keep only the legal names
 
 ## @knitr common_corrections
 
@@ -66,7 +68,7 @@ table(ds$output_file)
 
 ## @knitr bring_forth_wrong
 ds %>% dplyr::filter(physical_construct=="nophysspec") %>% select(output_file)
-ds %>% dplyr::filter(physical_measure=="fevc") %>% select(output_file)
+ds %>% dplyr::filter(physical_measure=="nocogspec") %>% select(output_file)
 ds %>% dplyr::filter(cognitive_construct=="nophysspec") %>% select(output_file)
 ds %>% dplyr::filter(cognitive_measure=="nostonnaming") %>% select(output_file)
 
@@ -78,6 +80,8 @@ table(ds$physical_measure,ds$subgroup, useNA="always")
 table(ds$physical_measure,ds$model_type, useNA="always")
 
 
+#### Corrections to model_type ####
+ds[ds$model_type=="aheplus","model_type"] <- "aehplus"
 
 
 #### Corrections to PHYSICAL construct ####
@@ -93,8 +97,10 @@ ds[ds$physical_measure %in% c("nophsyspec","nophyspec","nophyssec","nophyscog" )
 ds[ds$cognitive_measure %in% c("bostonmaning","nostonnaming"),"cognitive_measure"] <- "bostonnaming"
 ds[ds$cognitive_measure %in% c("wasivocab"),"cognitive_measure"] <- "waisvocab"
 
+ds[ds$cognitive_measure %in% c("digitsymol"),"cognitive_measure"] <- "digitsymbol"
 
-saveRDS(ds,"./data/shared/ds1.rds") # save corrected dataset
+
+saveRDS(ds,"./data/shared/ds1a.rds") # save corrected dataset
 
 #### Test the naming ####
 

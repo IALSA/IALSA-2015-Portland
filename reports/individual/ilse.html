@@ -113,11 +113,11 @@ img {
 <p>Your study</p>
 <pre><code>[1] &quot;ilse&quot;</code></pre>
 <p>has provided us with the total number of</p>
-<pre><code>95</code></pre>
+<pre><code>123</code></pre>
 <p>models, using univariate and bivariate specifications:</p>
 <pre><code>
 b1 u0 u1 
-68  9 18 </code></pre>
+72 14 37 </code></pre>
 <p>To remind you, <strong>model_number</strong> (<em>b1, u0, u1, u2</em>) refers to the model specification, as shown in the figure below. The first letter (<em>b</em> or <em>u</em>) indicates whether the models specifies a single outcome (<em>u</em> for <em>univariate</em>) or two outcomes (<em>b</em> for <em>bivariate</em>), while the number (e.g. u<em>0</em>, u<em>1</em>, u<em>2</em>) indicates the highest random term on the first level. </br></p>
 <p>The figure below (next section) shows the proper naming convention for the models you estimated in your study. Please use it to correct the names of some of your models. Our scripts rely on this naming convention for the key information about the model (most importantly, names of the constructs and measures). Therefore, it is of utmost importance that these rules are followed. <strong>If named incorrectly, models might not be used in the collective analysis</strong>.</p>
 <p>Some mistakes could be corrected automatically. Other, however, require <em>specifically</em> your attention. To illustrate, consider a cognitive construct <em>knowledge</em>. We’ve encountered entries <em>knowlegde</em>, <em>knowledg</em>, and <em>knwoledge</em>; it is obvious that these three spellings meant to say <em>knowledge</em>, and we program the script to correct it automatically. On the other hand, consider a physical construct <em>pulmonary</em>, which has two similarly spelled measures, <em>fev</em> and <em>fvc</em>. When we see a measure of <em>pulmonary</em> called <em>fevc</em>, we don’t know how to interpret it, it could be a misspelling of either one. This is where we need your help.</p>
@@ -159,10 +159,9 @@ b1 u0 u1
 <div id="errors-of-omission" class="section level2">
 <h2>Errors of omission</h2>
 <p>The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and measures were used in your models:</p>
-<pre><code>                ds$output_file[!is_valid]
-1 u0_female_empty_noPhys_VisioSpacial.out</code></pre>
+<pre><code>All your models were named properly</code></pre>
 <p>After removing incorrectly named files, there are</p>
-<pre><code>94</code></pre>
+<pre><code>123</code></pre>
 <p>models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention.</p>
 </div>
 <div id="simple-counts" class="section level1">
@@ -172,41 +171,39 @@ b1 u0 u1
 <h2>Physical constructs</h2>
 <pre><code>        
          b1 u0 u1
-  muscle 32 2  6 
-  nophys .  4  6 
+  muscle 36 2  7 
+  nophys .  10 24
   tug    36 2  6 </code></pre>
 </div>
 <div id="physical-measures" class="section level2">
 <h2>Physical measures</h2>
 <pre><code>            
              b1 u0 u1
-  grip       27 .  2 
-  nophysspec 41 8  16</code></pre>
+  grip       36 2  6 
+  nophysspec 36 12 31</code></pre>
 </div>
 <div id="cognitive-constructs" class="section level2">
 <h2>Cognitive constructs</h2>
 <pre><code>           
             b1 u0 u1
-  fluency   12 .  . 
+  fluency   12 2  6 
   knowledge 12 .  . 
-  nocog     .  4  12
-  reasoning 32 2  6 
-  speed     12 2  . </code></pre>
+  nocog     .  4  13
+  reasoning 36 6  12
+  speed     12 2  6 </code></pre>
 </div>
 <div id="cognitive-measures" class="section level2">
 <h2>Cognitive measures</h2>
-<pre><code>                                 
-                                  b1 u0 u1
-  digitsmybolsubstitutiontest     .  2  . 
-  digitsymbolsubstitutiontest     8  .  . 
-  lpsspacialability               10 .  . 
-  nocogspec                       .  4  12
-  verbalfluencytest               12 .  . 
-  waisblockdesign                 10 2  6 
-  waisdigitsymbolsubstitution     2  .  . 
-  waisdigitsymbolsubstitutiontest 2  .  . 
-  waisgeneralknowledge            12 .  . 
-  waispicturecompletion           12 .  . </code></pre>
+<pre><code>                             
+                              b1 u0 u1
+  digitsymbolsubstitutiontest 12 2  6 
+  lpsspacialability           12 2  . 
+  nocogspec                   .  4  13
+  picturecompletion           .  2  6 
+  verbalfluencytest           12 2  6 
+  waisblockdesign             12 2  6 
+  waisgeneralknowledge        12 .  . 
+  waispicturecompletion       12 .  . </code></pre>
 <p></br></br></br></p>
 </div>
 </div>
@@ -218,22 +215,20 @@ b1 u0 u1
 <p>Physical <strong>constructs</strong> (columns) by physical <strong>measures</strong> (rows) in BIVARIATE models</p>
 <pre><code>            
              muscle tug
-  grip       27     .  
-  nophysspec 5      36 </code></pre>
+  grip       36     .  
+  nophysspec .      36 </code></pre>
 </div>
 <div id="cognitive" class="section level2">
 <h2>Cognitive</h2>
 <p>Cognitive <strong>constructs</strong> (columns) by cognitive <strong>measures</strong> (rows) in BIVARIATE models</p>
-<pre><code>                                 
-                                  fluency knowledge reasoning speed
-  digitsymbolsubstitutiontest     .       .         .         8    
-  lpsspacialability               .       .         10        .    
-  verbalfluencytest               12      .         .         .    
-  waisblockdesign                 .       .         10        .    
-  waisdigitsymbolsubstitution     .       .         .         2    
-  waisdigitsymbolsubstitutiontest .       .         .         2    
-  waisgeneralknowledge            .       12        .         .    
-  waispicturecompletion           .       .         12        .    </code></pre>
+<pre><code>                             
+                              fluency knowledge reasoning speed
+  digitsymbolsubstitutiontest .       .         .         12   
+  lpsspacialability           .       .         12        .    
+  verbalfluencytest           12      .         .         .    
+  waisblockdesign             .       .         12        .    
+  waisgeneralknowledge        .       12        .         .    
+  waispicturecompletion       .       .         12        .    </code></pre>
 </div>
 <div id="constructs" class="section level2">
 <h2>Constructs</h2>
@@ -242,22 +237,20 @@ b1 u0 u1
             muscle tug
   fluency   6      6  
   knowledge 6      6  
-  reasoning 14     18 
+  reasoning 18     18 
   speed     6      6  </code></pre>
 </div>
 <div id="phys.constructs" class="section level2">
 <h2>Phys.Constructs</h2>
 <p>Number of models with the following <strong>physical constructs</strong> (columns) and <strong>cognitive measures</strong> (rows)</p>
-<pre><code>                                 
-                                  muscle tug
-  digitsymbolsubstitutiontest     6      2  
-  lpsspacialability               4      6  
-  verbalfluencytest               6      6  
-  waisblockdesign                 4      6  
-  waisdigitsymbolsubstitution     .      2  
-  waisdigitsymbolsubstitutiontest .      2  
-  waisgeneralknowledge            6      6  
-  waispicturecompletion           6      6  </code></pre>
+<pre><code>                             
+                              muscle tug
+  digitsymbolsubstitutiontest 6      6  
+  lpsspacialability           6      6  
+  verbalfluencytest           6      6  
+  waisblockdesign             6      6  
+  waisgeneralknowledge        6      6  
+  waispicturecompletion       6      6  </code></pre>
 </div>
 <div id="cog.constructs" class="section level2">
 <h2>Cog.Constructs</h2>
@@ -266,22 +259,20 @@ b1 u0 u1
             grip nophysspec
   fluency   6    6         
   knowledge 6    6         
-  reasoning 9    23        
+  reasoning 18   18        
   speed     6    6         </code></pre>
 </div>
 <div id="measures" class="section level2">
 <h2>Measures</h2>
 <p>Number of models with the following <strong>physical measures</strong> (columns) and <strong>cognitive measures</strong> (rows)</p>
-<pre><code>                                 
-                                  grip nophysspec
-  digitsymbolsubstitutiontest     6    2         
-  lpsspacialability               4    6         
-  verbalfluencytest               6    6         
-  waisblockdesign                 .    10        
-  waisdigitsymbolsubstitution     .    2         
-  waisdigitsymbolsubstitutiontest .    2         
-  waisgeneralknowledge            6    6         
-  waispicturecompletion           5    7         </code></pre>
+<pre><code>                             
+                              grip nophysspec
+  digitsymbolsubstitutiontest 6    6         
+  lpsspacialability           6    6         
+  verbalfluencytest           6    6         
+  waisblockdesign             6    6         
+  waisgeneralknowledge        6    6         
+  waispicturecompletion       6    6         </code></pre>
 <p></br></br></br></p>
 </div>
 </div>
@@ -293,22 +284,28 @@ b1 u0 u1
 <p>Physical constructs (columns) by physical measures (rows) in UNIVARIATE models</p>
 <pre><code>               muscle nophys tug
                                 
-u0 grip             .      .   .
-   nophysspec       2      4   2
-u1 grip             2      .   .
-   nophysspec       4      6   6</code></pre>
+u0 grip            2      .   . 
+   nophysspec      .      10  2 
+u1 grip            6      .   . 
+   nophysspec      1      24  6 </code></pre>
 </div>
 <div id="cognitive-1" class="section level2">
 <h2>Cognitive</h2>
 <p>Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models</p>
-<pre><code>                                nocog reasoning speed
-                                                     
-u0 digitsmybolsubstitutiontest     .         .     2 
-   nocogspec                       4         .     . 
-   waisblockdesign                 .         2     . 
-u1 digitsmybolsubstitutiontest     .         .     . 
-   nocogspec                       12        .     . 
-   waisblockdesign                 .         6     . </code></pre>
+<pre><code>                                fluency nocog reasoning speed
+                                                             
+u0 digitsymbolsubstitutiontest       .     .         .     2 
+   lpsspacialability                 .     .         2     . 
+   nocogspec                         .     4         .     . 
+   picturecompletion                 .     .         2     . 
+   verbalfluencytest                 2     .         .     . 
+   waisblockdesign                   .     .         2     . 
+u1 digitsymbolsubstitutiontest       .     .         .     6 
+   lpsspacialability                 .     .         .     . 
+   nocogspec                         .     13        .     . 
+   picturecompletion                 .     .         6     . 
+   verbalfluencytest                 6     .         .     . 
+   waisblockdesign                   .     .         6     . </code></pre>
 <p></br></br></br></p>
 </div>
 </div>
@@ -333,6 +330,16 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
+<td align="left">a</td>
+<td align="left">muscle</td>
+<td align="left">fluency</td>
+<td align="left">grip</td>
+<td align="left">verbalfluencytest</td>
+<td align="left">b1_female_a_muscle_fluency_grip_verbalfluencytest.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">female</td>
 <td align="left">aeh</td>
 <td align="left">muscle</td>
 <td align="left">fluency</td>
@@ -340,7 +347,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">verbalfluencytest</td>
 <td align="left">b1_female_aeh_muscle_fluency_grip_verbalfluencytest.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -350,17 +357,17 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">verbalfluencytest</td>
 <td align="left">b1_female_aehplus_muscle_fluency_grip_verbalfluencytest.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
 <td align="left">fluency</td>
 <td align="left">grip</td>
 <td align="left">verbalfluencytest</td>
-<td align="left">b1_female_age_muscle_fluency_grip_verbalfluencytest.out</td>
+<td align="left">b1_male_a_muscle_fluency_grip_verbalfluencytest.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -370,7 +377,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">verbalfluencytest</td>
 <td align="left">b1_male_aeh_muscle_fluency_grip_verbalfluencytest.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -380,17 +387,17 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">verbalfluencytest</td>
 <td align="left">b1_male_aehplus_muscle_fluency_grip_verbalfluencytest.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
-<td align="left">male</td>
+<td align="left">female</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
-<td align="left">fluency</td>
+<td align="left">knowledge</td>
 <td align="left">grip</td>
-<td align="left">verbalfluencytest</td>
-<td align="left">b1_male_age_muscle_fluency_grip_verbalfluencytest.out</td>
+<td align="left">waisgeneralknowledge</td>
+<td align="left">b1_female_a_muscle_knowledge_grip_waisgeneralknowledge.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -400,7 +407,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisgeneralknowledge</td>
 <td align="left">b1_female_aeh_muscle_knowledge_grip_waisgeneralknowledge.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -410,17 +417,17 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisgeneralknowledge</td>
 <td align="left">b1_female_aehplus_muscle_knowledge_grip_waisgeneralknowledge.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
 <td align="left">knowledge</td>
 <td align="left">grip</td>
 <td align="left">waisgeneralknowledge</td>
-<td align="left">b1_female_age_muscle_knowledge_grip_waisgeneralknowledge.out</td>
+<td align="left">b1_male_a_muscle_knowledge_grip_waisgeneralknowledge.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -430,7 +437,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisgeneralknowledge</td>
 <td align="left">b1_male_aeh_muscle_knowledge_grip_waisgeneralknowledge.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -440,17 +447,37 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisgeneralknowledge</td>
 <td align="left">b1_male_aehplus_muscle_knowledge_grip_waisgeneralknowledge.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
-<td align="left">male</td>
+<td align="left">female</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
-<td align="left">knowledge</td>
+<td align="left">reasoning</td>
 <td align="left">grip</td>
-<td align="left">waisgeneralknowledge</td>
-<td align="left">b1_male_age_muscle_knowledge_grip_waisgeneralknowledge.out</td>
+<td align="left">lpsspacialability</td>
+<td align="left">b1_female_a_muscle_reasoning_grip_lpsspacialability.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">muscle</td>
+<td align="left">reasoning</td>
+<td align="left">grip</td>
+<td align="left">waisblockdesign</td>
+<td align="left">b1_female_a_muscle_reasoning_grip_waisblockdesign.out</td>
 </tr>
 <tr class="odd">
+<td align="left">b1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">muscle</td>
+<td align="left">reasoning</td>
+<td align="left">grip</td>
+<td align="left">waispicturecompletion</td>
+<td align="left">b1_female_a_muscle_reasoning_grip_waispicturecompletion.out</td>
+</tr>
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -459,6 +486,16 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">grip</td>
 <td align="left">lpsspacialability</td>
 <td align="left">b1_female_aeh_muscle_reasoning_grip_lpsspacialability.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">female</td>
+<td align="left">aeh</td>
+<td align="left">muscle</td>
+<td align="left">reasoning</td>
+<td align="left">grip</td>
+<td align="left">waisblockdesign</td>
+<td align="left">b1_female_aeh_muscle_reasoning_grip_waisblockdesign.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
@@ -473,14 +510,24 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
-<td align="left">aeh</td>
+<td align="left">aehplus</td>
 <td align="left">muscle</td>
 <td align="left">reasoning</td>
-<td align="left">nophysspec</td>
-<td align="left">waisblockdesign</td>
-<td align="left">b1_female_aeh_muscle_reasoning_nophysspec_waisblockdesign.out</td>
+<td align="left">grip</td>
+<td align="left">lpsspacialability</td>
+<td align="left">b1_female_aehplus_muscle_reasoning_grip_lpsspacialability.out</td>
 </tr>
 <tr class="even">
+<td align="left">b1</td>
+<td align="left">female</td>
+<td align="left">aehplus</td>
+<td align="left">muscle</td>
+<td align="left">reasoning</td>
+<td align="left">grip</td>
+<td align="left">waisblockdesign</td>
+<td align="left">b1_female_aehplus_muscle_reasoning_grip_waisblockdesign.out</td>
+</tr>
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -490,45 +537,35 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waispicturecompletion</td>
 <td align="left">b1_female_aehplus_muscle_reasoning_grip_waispicturecompletion.out</td>
 </tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">muscle</td>
-<td align="left">reasoning</td>
-<td align="left">nophysspec</td>
-<td align="left">waisblockdesign</td>
-<td align="left">b1_female_aehplus_muscle_reasoning_nophysspec_waisblockdesign.out</td>
-</tr>
 <tr class="even">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
 <td align="left">reasoning</td>
 <td align="left">grip</td>
 <td align="left">lpsspacialability</td>
-<td align="left">b1_female_age_muscle_reasoning_grip_lpsspacialability.out</td>
+<td align="left">b1_male_a_muscle_reasoning_grip_lpsspacialability.out</td>
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
 <td align="left">reasoning</td>
-<td align="left">nophysspec</td>
+<td align="left">grip</td>
 <td align="left">waisblockdesign</td>
-<td align="left">b1_female_age_muscle_reasoning_nophysspec_waisblockdesign.out</td>
+<td align="left">b1_male_a_muscle_reasoning_grip_waisblockdesign.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
 <td align="left">reasoning</td>
-<td align="left">nophysspec</td>
+<td align="left">grip</td>
 <td align="left">waispicturecompletion</td>
-<td align="left">b1_female_age_muscle_reasoning_nophysspec_waispicturecompletion.out</td>
+<td align="left">b1_male_a_muscle_reasoning_grip_waispicturecompletion.out</td>
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
@@ -547,8 +584,8 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">muscle</td>
 <td align="left">reasoning</td>
 <td align="left">grip</td>
-<td align="left">waispicturecompletion</td>
-<td align="left">b1_male_aeh_muscle_reasoning_grip_waispicturecompletion.out</td>
+<td align="left">waisblockdesign</td>
+<td align="left">b1_male_aeh_muscle_reasoning_grip_waisblockdesign.out</td>
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
@@ -556,9 +593,29 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">aeh</td>
 <td align="left">muscle</td>
 <td align="left">reasoning</td>
-<td align="left">nophysspec</td>
+<td align="left">grip</td>
+<td align="left">waispicturecompletion</td>
+<td align="left">b1_male_aeh_muscle_reasoning_grip_waispicturecompletion.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">muscle</td>
+<td align="left">reasoning</td>
+<td align="left">grip</td>
+<td align="left">lpsspacialability</td>
+<td align="left">b1_male_aehplus_muscle_reasoning_grip_lpsspacialability.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">muscle</td>
+<td align="left">reasoning</td>
+<td align="left">grip</td>
 <td align="left">waisblockdesign</td>
-<td align="left">b1_male_aeh_muscle_reasoning_nophysspec_waisblockdesign.out</td>
+<td align="left">b1_male_aehplus_muscle_reasoning_grip_waisblockdesign.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
@@ -572,25 +629,15 @@ u1 digitsmybolsubstitutiontest     .         .     .
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
-<td align="left">male</td>
+<td align="left">female</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
-<td align="left">reasoning</td>
+<td align="left">speed</td>
 <td align="left">grip</td>
-<td align="left">lpsspacialability</td>
-<td align="left">b1_male_age_muscle_reasoning_grip_lpsspacialability.out</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">b1_female_a_muscle_speed_grip_digitsymbolsubstitutiontest.out</td>
 </tr>
 <tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">muscle</td>
-<td align="left">reasoning</td>
-<td align="left">grip</td>
-<td align="left">waispicturecompletion</td>
-<td align="left">b1_male_age_muscle_reasoning_grip_waispicturecompletion.out</td>
-</tr>
-<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -600,7 +647,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">digitsymbolsubstitutiontest</td>
 <td align="left">b1_female_aeh_muscle_speed_grip_digitsymbolsubstitutiontest.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -610,17 +657,17 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">digitsymbolsubstitutiontest</td>
 <td align="left">b1_female_aehplus_muscle_speed_grip_digitsymbolsubstitutiontest.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
 <td align="left">speed</td>
 <td align="left">grip</td>
 <td align="left">digitsymbolsubstitutiontest</td>
-<td align="left">b1_female_age_muscle_speed_grip_digitsymbolsubstitutiontest.out</td>
+<td align="left">b1_male_a_muscle_speed_grip_digitsymbolsubstitutiontest.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -630,7 +677,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">digitsymbolsubstitutiontest</td>
 <td align="left">b1_male_aeh_muscle_speed_grip_digitsymbolsubstitutiontest.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -640,17 +687,17 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">digitsymbolsubstitutiontest</td>
 <td align="left">b1_male_aehplus_muscle_speed_grip_digitsymbolsubstitutiontest.out</td>
 </tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">muscle</td>
-<td align="left">speed</td>
-<td align="left">grip</td>
-<td align="left">digitsymbolsubstitutiontest</td>
-<td align="left">b1_male_age_muscle_speed_grip_digitsymbolsubstitutiontest.out</td>
-</tr>
 <tr class="odd">
+<td align="left">b1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">tug</td>
+<td align="left">fluency</td>
+<td align="left">nophysspec</td>
+<td align="left">verbalfluencytest</td>
+<td align="left">b1_female_a_tug_fluency_nophysspec_verbalfluencytest.out</td>
+</tr>
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -660,7 +707,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">verbalfluencytest</td>
 <td align="left">b1_female_aeh_tug_fluency_nophysspec_verbalfluencytest.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -670,17 +717,17 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">verbalfluencytest</td>
 <td align="left">b1_female_aehplus_tug_fluency_nophysspec_verbalfluencytest.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">tug</td>
 <td align="left">fluency</td>
 <td align="left">nophysspec</td>
 <td align="left">verbalfluencytest</td>
-<td align="left">b1_female_age_tug_fluency_nophysspec_verbalfluencytest.out</td>
+<td align="left">b1_male_a_tug_fluency_nophysspec_verbalfluencytest.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -690,7 +737,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">verbalfluencytest</td>
 <td align="left">b1_male_aeh_tug_fluency_nophysspec_verbalfluencytest.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -700,17 +747,17 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">verbalfluencytest</td>
 <td align="left">b1_male_aehplus_tug_fluency_nophysspec_verbalfluencytest.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
-<td align="left">male</td>
+<td align="left">female</td>
 <td align="left">a</td>
 <td align="left">tug</td>
-<td align="left">fluency</td>
+<td align="left">knowledge</td>
 <td align="left">nophysspec</td>
-<td align="left">verbalfluencytest</td>
-<td align="left">b1_male_age_tug_fluency_nophysspec_verbalfluencytest.out</td>
+<td align="left">waisgeneralknowledge</td>
+<td align="left">b1_female_a_tug_knowledge_nophysspec_waisgeneralknowledge.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -720,7 +767,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisgeneralknowledge</td>
 <td align="left">b1_female_aeh_tug_knowledge_nophysspec_waisgeneralknowledge.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -730,17 +777,17 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisgeneralknowledge</td>
 <td align="left">b1_female_aehplus_tug_knowledge_nophysspec_waisgeneralknowledge.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">tug</td>
 <td align="left">knowledge</td>
 <td align="left">nophysspec</td>
 <td align="left">waisgeneralknowledge</td>
-<td align="left">b1_female_age_tug_knowledge_nophysspec_waisgeneralknowledge.out</td>
+<td align="left">b1_male_a_tug_knowledge_nophysspec_waisgeneralknowledge.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -750,7 +797,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisgeneralknowledge</td>
 <td align="left">b1_male_aeh_tug_knowledge_nophysspec_waisgeneralknowledge.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -760,17 +807,37 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisgeneralknowledge</td>
 <td align="left">b1_male_aehplus_tug_knowledge_nophysspec_waisgeneralknowledge.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
-<td align="left">male</td>
+<td align="left">female</td>
 <td align="left">a</td>
 <td align="left">tug</td>
-<td align="left">knowledge</td>
+<td align="left">reasoning</td>
 <td align="left">nophysspec</td>
-<td align="left">waisgeneralknowledge</td>
-<td align="left">b1_male_age_tug_knowledge_nophysspec_waisgeneralknowledge.out</td>
+<td align="left">lpsspacialability</td>
+<td align="left">b1_female_a_tug_reasoning_nophysspec_lpsspacialability.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">tug</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">waisblockdesign</td>
+<td align="left">b1_female_a_tug_reasoning_nophysspec_waisblockdesign.out</td>
 </tr>
 <tr class="odd">
+<td align="left">b1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">tug</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">waispicturecompletion</td>
+<td align="left">b1_female_a_tug_reasoning_nophysspec_waispicturecompletion.out</td>
+</tr>
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -780,7 +847,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">lpsspacialability</td>
 <td align="left">b1_female_aeh_tug_reasoning_nophysspec_lpsspacialability.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -790,7 +857,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisblockdesign</td>
 <td align="left">b1_female_aeh_tug_reasoning_nophysspec_waisblockdesign.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -800,17 +867,17 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waispicturecompletion</td>
 <td align="left">b1_female_aeh_tug_reasoning_nophysspec_waispicturecompletion.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
 <td align="left">tug</td>
 <td align="left">reasoning</td>
-<td align="left">nophysspec</td>
+<td align="left">nophyscog</td>
 <td align="left">waispicturecompletion</td>
 <td align="left">b1_female_aehplus_tug_reasoning_nophyscog_waispicturecompletion.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -820,7 +887,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">lpsspacialability</td>
 <td align="left">b1_female_aehplus_tug_reasoning_nophysspec_lpsspacialability.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -830,37 +897,37 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisblockdesign</td>
 <td align="left">b1_female_aehplus_tug_reasoning_nophysspec_waisblockdesign.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">tug</td>
 <td align="left">reasoning</td>
 <td align="left">nophysspec</td>
 <td align="left">lpsspacialability</td>
-<td align="left">b1_female_age_tug_reasoning_nophysspec_lpsspacialability.out</td>
+<td align="left">b1_male_a_tug_reasoning_nophysspec_lpsspacialability.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">tug</td>
 <td align="left">reasoning</td>
 <td align="left">nophysspec</td>
 <td align="left">waisblockdesign</td>
-<td align="left">b1_female_age_tug_reasoning_nophysspec_waisblockdesign.out</td>
+<td align="left">b1_male_a_tug_reasoning_nophysspec_waisblockdesign.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">tug</td>
 <td align="left">reasoning</td>
 <td align="left">nophysspec</td>
 <td align="left">waispicturecompletion</td>
-<td align="left">b1_female_age_tug_reasoning_nophysspec_waispicturecompletion.out</td>
+<td align="left">b1_male_a_tug_reasoning_nophysspec_waispicturecompletion.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -870,7 +937,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">lpsspacialability</td>
 <td align="left">b1_male_aeh_tug_reasoning_nophysspec_lpsspacialability.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -880,7 +947,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisblockdesign</td>
 <td align="left">b1_male_aeh_tug_reasoning_nophysspec_waisblockdesign.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -890,17 +957,17 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waispicturecompletion</td>
 <td align="left">b1_male_aeh_tug_reasoning_nophysspec_waispicturecompletion.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
 <td align="left">tug</td>
 <td align="left">reasoning</td>
-<td align="left">nophysspec</td>
+<td align="left">nophyscog</td>
 <td align="left">waispicturecompletion</td>
 <td align="left">b1_male_aehplus_tug_reasoning_nophyscog_waispicturecompletion.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -910,7 +977,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">lpsspacialability</td>
 <td align="left">b1_male_aehplus_tug_reasoning_nophysspec_lpsspacialability.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -920,56 +987,6 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">waisblockdesign</td>
 <td align="left">b1_male_aehplus_tug_reasoning_nophysspec_waisblockdesign.out</td>
 </tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">nophysspec</td>
-<td align="left">lpsspacialability</td>
-<td align="left">b1_male_age_tug_reasoning_nophysspec_lpsspacialability.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">nophysspec</td>
-<td align="left">waisblockdesign</td>
-<td align="left">b1_male_age_tug_reasoning_nophysspec_waisblockdesign.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">reasoning</td>
-<td align="left">nophysspec</td>
-<td align="left">waispicturecompletion</td>
-<td align="left">b1_male_age_tug_reasoning_nophysspec_waispicturecompletion.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">speed</td>
-<td align="left">nophysspec</td>
-<td align="left">waisdigitsymbolsubstitutiontest</td>
-<td align="left">b1_female_aeh_tug_speed_nophysspec_waisdigitsymbolsubstitutiontest.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">speed</td>
-<td align="left">nophysspec</td>
-<td align="left">waisdigitsymbolsubstitution</td>
-<td align="left">b1_female_aehplus_tug_speed_nophysspec_waisdigitsymbolsubstitution.out</td>
-</tr>
 <tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
@@ -978,27 +995,27 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">speed</td>
 <td align="left">nophysspec</td>
 <td align="left">digitsymbolsubstitutiontest</td>
-<td align="left">b1_female_age_tug_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
+<td align="left">b1_female_a_tug_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
-<td align="left">male</td>
+<td align="left">female</td>
 <td align="left">aeh</td>
 <td align="left">tug</td>
 <td align="left">speed</td>
 <td align="left">nophysspec</td>
-<td align="left">waisdigitsymbolsubstitutiontest</td>
-<td align="left">b1_male_aeh_tug_speed_nophysspec_waisdigitsymbolsubstitutiontest.out</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">b1_female_aeh_tug_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
-<td align="left">male</td>
+<td align="left">female</td>
 <td align="left">aehplus</td>
 <td align="left">tug</td>
 <td align="left">speed</td>
 <td align="left">nophysspec</td>
-<td align="left">waisdigitsymbolsubstitution</td>
-<td align="left">b1_male_aehplus_tug_speed_nophysspec_waisdigitsymbolsubstitution.out</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">b1_female_aehplus_tug_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
@@ -1008,7 +1025,27 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">speed</td>
 <td align="left">nophysspec</td>
 <td align="left">digitsymbolsubstitutiontest</td>
-<td align="left">b1_male_age_tug_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
+<td align="left">b1_male_a_tug_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">tug</td>
+<td align="left">speed</td>
+<td align="left">nophysspec</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">b1_male_aeh_tug_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">tug</td>
+<td align="left">speed</td>
+<td align="left">nophysspec</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">b1_male_aehplus_tug_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
 </tr>
 </tbody>
 </table>
@@ -1032,6 +1069,26 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <tr class="odd">
 <td align="left">u1</td>
 <td align="left">female</td>
+<td align="left">a</td>
+<td align="left">muscle</td>
+<td align="left">nocog</td>
+<td align="left">grip</td>
+<td align="left">nocogspec</td>
+<td align="left">u1_female_a_muscle_nocog_grip_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aeh</td>
+<td align="left">muscle</td>
+<td align="left">nocog</td>
+<td align="left">grip</td>
+<td align="left">nocogspec</td>
+<td align="left">u1_female_aeh_muscle_nocog_grip_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">female</td>
 <td align="left">aeh</td>
 <td align="left">muscle</td>
 <td align="left">nocog</td>
@@ -1051,13 +1108,13 @@ u1 digitsmybolsubstitutiontest     .         .     .
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">muscle</td>
 <td align="left">nocog</td>
-<td align="left">nophysspec</td>
+<td align="left">grip</td>
 <td align="left">nocogspec</td>
-<td align="left">u1_female_age_muscle_nocog_nophysspec_nocogspec.out</td>
+<td align="left">u1_male_a_muscle_nocog_grip_nocogspec.out</td>
 </tr>
 <tr class="even">
 <td align="left">u1</td>
@@ -1065,9 +1122,9 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">aeh</td>
 <td align="left">muscle</td>
 <td align="left">nocog</td>
-<td align="left">nophysspec</td>
+<td align="left">grip</td>
 <td align="left">nocogspec</td>
-<td align="left">u1_male_aeh_muscle_nocog_nophysspec_nocogspec.out</td>
+<td align="left">u1_male_aeh_muscle_nocog_grip_nocogspec.out</td>
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
@@ -1081,13 +1138,93 @@ u1 digitsmybolsubstitutiontest     .         .     .
 </tr>
 <tr class="even">
 <td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">nophys</td>
+<td align="left">fluency</td>
+<td align="left">nophysspec</td>
+<td align="left">verbalfluencytest</td>
+<td align="left">u1_female_a_nophys_fluency_nophysspec_verbalfluencytest.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aeh</td>
+<td align="left">nophys</td>
+<td align="left">fluency</td>
+<td align="left">nophysspec</td>
+<td align="left">verbalfluencytest</td>
+<td align="left">u1_female_aeh_nophys_fluency_nophysspec_verbalfluencytest.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aehplus</td>
+<td align="left">nophys</td>
+<td align="left">fluency</td>
+<td align="left">nophysspec</td>
+<td align="left">verbalfluencytest</td>
+<td align="left">u1_female_aehplus_nophys_fluency_nophysspec_verbalfluencytest.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
 <td align="left">male</td>
 <td align="left">a</td>
-<td align="left">muscle</td>
-<td align="left">nocog</td>
+<td align="left">nophys</td>
+<td align="left">fluency</td>
 <td align="left">nophysspec</td>
-<td align="left">nocogspec</td>
-<td align="left">u1_male_age_muscle_nocog_nophysspec_nocogspec.out</td>
+<td align="left">verbalfluencytest</td>
+<td align="left">u1_male_a_nophys_fluency_nophysspec_verbalfluencytest.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">nophys</td>
+<td align="left">fluency</td>
+<td align="left">nophysspec</td>
+<td align="left">verbalfluencytest</td>
+<td align="left">u1_male_aeh_nophys_fluency_nophysspec_verbalfluencytest.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">nophys</td>
+<td align="left">fluency</td>
+<td align="left">nophysspec</td>
+<td align="left">verbalfluencytest</td>
+<td align="left">u1_male_aehplus_nophys_fluency_nophysspec_verbalfluencytest.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">picturecompletion</td>
+<td align="left">u1_female_a_nophys_reasoning_nophysspec_picturecompletion.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">waisblockdesign</td>
+<td align="left">u1_female_a_nophys_reasoning_nophysspec_waisblockdesign.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aeh</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">picturecompletion</td>
+<td align="left">u1_female_aeh_nophys_reasoning_nophysspec_picturecompletion.out</td>
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
@@ -1106,18 +1243,38 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">nophys</td>
 <td align="left">reasoning</td>
 <td align="left">nophysspec</td>
-<td align="left">waisblockdesign</td>
-<td align="left">u1_female_aehplus_nophys_reasoning_nophysspec_waisblockdesign.out</td>
+<td align="left">picturecompletion</td>
+<td align="left">u1_female_aehplus_nophys_reasoning_nophysspec_picturecompletion.out</td>
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
 <td align="left">female</td>
+<td align="left">aehplus</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">waisblockdesign</td>
+<td align="left">u1_female_aehplus_nophys_reasoning_nophysspec_waisblockdesign.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">picturecompletion</td>
+<td align="left">u1_male_a_nophys_reasoning_nophysspec_picturecompletion.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">nophys</td>
 <td align="left">reasoning</td>
 <td align="left">nophysspec</td>
 <td align="left">waisblockdesign</td>
-<td align="left">u1_female_age_nophys_reasoning_nophysspec_waisblockdesign.out</td>
+<td align="left">u1_male_a_nophys_reasoning_nophysspec_waisblockdesign.out</td>
 </tr>
 <tr class="even">
 <td align="left">u1</td>
@@ -1126,8 +1283,28 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">nophys</td>
 <td align="left">reasoning</td>
 <td align="left">nophysspec</td>
+<td align="left">picturecompletion</td>
+<td align="left">u1_male_aeh_nophys_reasoning_nophysspec_picturecompletion.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
 <td align="left">waisblockdesign</td>
 <td align="left">u1_male_aeh_nophys_reasoning_nophysspec_waisblockdesign.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">picturecompletion</td>
+<td align="left">u1_male_aehplus_nophys_reasoning_nophysspec_picturecompletion.out</td>
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
@@ -1141,13 +1318,73 @@ u1 digitsmybolsubstitutiontest     .         .     .
 </tr>
 <tr class="even">
 <td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">nophys</td>
+<td align="left">speed</td>
+<td align="left">nophysspec</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">u1_female_a_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aeh</td>
+<td align="left">nophys</td>
+<td align="left">speed</td>
+<td align="left">nophysspec</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">u1_female_aeh_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aehplus</td>
+<td align="left">nophys</td>
+<td align="left">speed</td>
+<td align="left">nophysspec</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">u1_female_aehplus_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
 <td align="left">male</td>
 <td align="left">a</td>
 <td align="left">nophys</td>
-<td align="left">reasoning</td>
+<td align="left">speed</td>
 <td align="left">nophysspec</td>
-<td align="left">waisblockdesign</td>
-<td align="left">u1_male_age_nophys_reasoning_nophysspec_waisblockdesign.out</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">u1_male_a_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">nophys</td>
+<td align="left">speed</td>
+<td align="left">nophysspec</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">u1_male_aeh_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">nophys</td>
+<td align="left">speed</td>
+<td align="left">nophysspec</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">u1_male_aehplus_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">tug</td>
+<td align="left">nocog</td>
+<td align="left">nophysspec</td>
+<td align="left">nocogspec</td>
+<td align="left">u1_female_a_tug_nocog_nophysspec_nocogspec.out</td>
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
@@ -1171,13 +1408,13 @@ u1 digitsmybolsubstitutiontest     .         .     .
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
-<td align="left">female</td>
+<td align="left">male</td>
 <td align="left">a</td>
 <td align="left">tug</td>
 <td align="left">nocog</td>
 <td align="left">nophysspec</td>
 <td align="left">nocogspec</td>
-<td align="left">u1_female_age_tug_nocog_nophysspec_nocogspec.out</td>
+<td align="left">u1_male_a_tug_nocog_nophysspec_nocogspec.out</td>
 </tr>
 <tr class="even">
 <td align="left">u1</td>
@@ -1198,16 +1435,6 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">nophysspec</td>
 <td align="left">nocogspec</td>
 <td align="left">u1_male_aehplus_tug_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">nocog</td>
-<td align="left">nophysspec</td>
-<td align="left">nocogspec</td>
-<td align="left">u1_male_age_tug_nocog_nophysspec_nocogspec.out</td>
 </tr>
 </tbody>
 </table>
@@ -1234,9 +1461,9 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">empty</td>
 <td align="left">muscle</td>
 <td align="left">nocog</td>
-<td align="left">nophysspec</td>
+<td align="left">grip</td>
 <td align="left">nocogspec</td>
-<td align="left">u0_female_empty_muscle_nocog_nophysspec_nocogspec.out</td>
+<td align="left">u0_female_empty_muscle_nocog_grip_nocogspec.out</td>
 </tr>
 <tr class="even">
 <td align="left">u0</td>
@@ -1244,9 +1471,49 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">empty</td>
 <td align="left">muscle</td>
 <td align="left">nocog</td>
-<td align="left">nophysspec</td>
+<td align="left">grip</td>
 <td align="left">nocogspec</td>
-<td align="left">u0_male_empty_muscle_nocog_nophysspec_nocogspec.out</td>
+<td align="left">u0_male_empty_muscle_nocog_grip_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u0</td>
+<td align="left">female</td>
+<td align="left">empty</td>
+<td align="left">nophys</td>
+<td align="left">fluency</td>
+<td align="left">nophysspec</td>
+<td align="left">verbalfluencytest</td>
+<td align="left">u0_female_empty_nophys_fluency_nophysspec_verbalfluencytest.out</td>
+</tr>
+<tr class="even">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">empty</td>
+<td align="left">nophys</td>
+<td align="left">fluency</td>
+<td align="left">nophysspec</td>
+<td align="left">verbalfluencytest</td>
+<td align="left">u0_male_empty_nophys_fluency_nophysspec_verbalfluencytest.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u0</td>
+<td align="left">female</td>
+<td align="left">empty</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">lpsspacialability</td>
+<td align="left">u0_female_empty_nophys_reasoning_nophysspec_lpsspacialability.out</td>
+</tr>
+<tr class="even">
+<td align="left">u0</td>
+<td align="left">female</td>
+<td align="left">empty</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">picturecompletion</td>
+<td align="left">u0_female_empty_nophys_reasoning_nophysspec_picturecompletion.out</td>
 </tr>
 <tr class="odd">
 <td align="left">u0</td>
@@ -1265,6 +1532,26 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">nophys</td>
 <td align="left">reasoning</td>
 <td align="left">nophysspec</td>
+<td align="left">lpsspacialability</td>
+<td align="left">u0_male_empty_nophys_reasoning_nophysspec_lpsspacialability.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">empty</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
+<td align="left">picturecompletion</td>
+<td align="left">u0_male_empty_nophys_reasoning_nophysspec_picturecompletion.out</td>
+</tr>
+<tr class="even">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">empty</td>
+<td align="left">nophys</td>
+<td align="left">reasoning</td>
+<td align="left">nophysspec</td>
 <td align="left">waisblockdesign</td>
 <td align="left">u0_male_empty_nophys_reasoning_nophysspec_waisblockdesign.out</td>
 </tr>
@@ -1275,8 +1562,8 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">nophys</td>
 <td align="left">speed</td>
 <td align="left">nophysspec</td>
-<td align="left">digitsmybolsubstitutiontest</td>
-<td align="left">u0_female_empty_nophys_speed_nophysspec_digitsmybolsubstitutiontest.out</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">u0_female_empty_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
 </tr>
 <tr class="even">
 <td align="left">u0</td>
@@ -1285,20 +1572,10 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">nophys</td>
 <td align="left">speed</td>
 <td align="left">nophysspec</td>
-<td align="left">digitsmybolsubstitutiontest</td>
-<td align="left">u0_male_empty_nophys_speed_nophysspec_digitsmybolsubstitutiontest.out</td>
+<td align="left">digitsymbolsubstitutiontest</td>
+<td align="left">u0_male_empty_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out</td>
 </tr>
 <tr class="odd">
-<td align="left">u0</td>
-<td align="left">female</td>
-<td align="left">empty</td>
-<td align="left">nophys</td>
-<td align="left">visiospacial</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">u0_female_empty_noPhys_VisioSpacial.out</td>
-</tr>
-<tr class="even">
 <td align="left">u0</td>
 <td align="left">female</td>
 <td align="left">empty</td>
@@ -1308,7 +1585,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <td align="left">nocogspec</td>
 <td align="left">u0_female_empty_tug_nocog_nophysspec_nocogspec.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">u0</td>
 <td align="left">male</td>
 <td align="left">empty</td>
@@ -1325,7 +1602,7 @@ u1 digitsmybolsubstitutiontest     .         .     .
 <div id="session-information" class="section level1">
 <h1>Session Information</h1>
 <p>For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.</p>
-<pre><code>Report rendered by koval_000 at 2015-05-26, 09:48 -0700</code></pre>
+<pre><code>Report rendered by koval_000 at 2015-05-26, 12:01 -0700</code></pre>
 <pre><code>R version 3.2.0 (2015-04-16)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 8 x64 (build 9200)

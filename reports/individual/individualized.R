@@ -21,54 +21,54 @@ library(dplyr)
 
 ## @knitr load_data
 ds1 <- readRDS('./data/shared/ds1.rds')
-# ds1a <- readRDS('./data/shared/ds1a.rds') # names corrected
+ds1a <- readRDS('./data/shared/ds1a.rds') # names corrected
 keepvar <- c("model_number","study_name","model_type", "subgroup", "physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
 ds <- ds1[ , keepvar]
 
 ## @knitr load_eas
 selected_study <- "eas"
 ds <- ds1[ds1$study_name==selected_study,]
-# dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_habc
 selected_study <- "habc"
 ds <- ds1[ds1$study_name==selected_study,]
-# dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_ilse
 selected_study <- "ilse"
 ds <- ds1[ds1$study_name==selected_study,]
-# dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_nas
 selected_study <- "nas"
 ds <- ds1[ds1$study_name==selected_study,]
-# dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_nuage
 selected_study <- "nuage"
 ds <- ds1[ds1$study_name==selected_study,]
-# dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_obas
 selected_study <- "obas"
 ds <- ds1[ds1$study_name==selected_study,]
-# dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_octo
 selected_study <- "octo"
 ds <- ds1[ds1$study_name==selected_study,]
-# dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_radc
 selected_study <- "radc"
 ds <- ds1[ds1$study_name==selected_study,]
-# dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_satsa
 selected_study <- "satsa"
 ds <- ds1[ds1$study_name==selected_study,]
-# dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
 
 
@@ -97,8 +97,8 @@ if(sum(!is_valid)>0){print(as.data.frame(ds$output_file[!is_valid]))}else{
 }
 
 
-ds <- ds[is_valid,] # keep only the legal names
-# ds <- dsa # same as above, filter in 1a_correct_model_names
+# ds <- ds[is_valid,] # keep only the legal names
+ds <- dsa # same as above, filter in 1a_correct_model_names
 
 ## @knitr list.full.number
 cat(nrow(ds))

@@ -175,9 +175,8 @@ In this section, **model specification (columns)** are cross-tabulated with **co
   category           20 .  10 10
   digitspan          8  .  .  . 
   digitspantotal     6  .  10 9 
-  digitsymbol        24 .  10 10
+  digitsymbol        25 .  10 10
   digitsymboltotal   1  .  .  . 
-  digitsymol         1  .  .  . 
   disigtspantotal    .  .  .  1 
   fas                20 .  10 10
   information        20 .  10 10
@@ -216,9 +215,8 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
   category           .         20      .     .      .         .      .         .    
   digitspan          .         .       .     .      .         8      .         .    
   digitspantotal     .         .       .     .      .         6      .         .    
-  digitsymbol        .         .       .     .      .         5      .         19   
+  digitsymbol        .         .       .     .      .         5      .         20   
   digitsymboltotal   .         .       .     .      .         1      .         .    
-  digitsymol         .         .       .     .      .         .      .         1    
   fas                .         20      .     .      .         .      .         .    
   information        .         6       .     .      14        .      .         .    
   logicalmemory      .         .       .     .      .         10     .         .    
@@ -257,9 +255,8 @@ Number of models with the following  **physical constructs** (columns) and  **co
   category           10     10       
   digitspan          6      2        
   digitspantotal     .      6        
-  digitsymbol        13     11       
+  digitsymbol        14     11       
   digitsymboltotal   .      1        
-  digitsymol         1      .        
   fas                10     10       
   information        10     10       
   logicalmemory      9      1        
@@ -296,9 +293,8 @@ Number of models with the following  **physical measures** (columns) and  **cogn
   category           10   10 
   digitspan          6    2  
   digitspantotal     .    6  
-  digitsymbol        13   11 
+  digitsymbol        14   11 
   digitsymboltotal   .    1  
-  digitsymol         1    .  
   fas                10   10 
   information        10   10 
   logicalmemory      9    1  
@@ -394,10 +390,10 @@ b1              female   aeh                 muscle                   fluency   
 b1              female   aehplus             muscle                   fluency                   grip                   bostonnaming            b1_female_aehplus_muscle_fluency_grip_bostonnaming.out        
 b1              female   aehplus             muscle                   fluency                   grip                   category                b1_female_aehplus_muscle_fluency_grip_category.out            
 b1              female   aehplus             muscle                   fluency                   grip                   fas                     b1_female_aehplus_muscle_fluency_grip_fas.out                 
-b1              female   a                   muscle                   fluency                   grip                   bostonnaming            b1_female_age_muscle_fluency_grip_bostonnaming.out            
-b1              female   a                   muscle                   fluency                   grip                   category                b1_female_age_muscle_fluency_grip_category.out                
-b1              female   a                   muscle                   fluency                   grip                   fas                     b1_female_age_muscle_fluency_grip_fas.out                     
-b1              female   a                   muscle                   fluency                   grip                   information             b1_female_age_muscle_fluency_grip_information.out             
+b1              female   age                 muscle                   fluency                   grip                   bostonnaming            b1_female_age_muscle_fluency_grip_bostonnaming.out            
+b1              female   age                 muscle                   fluency                   grip                   category                b1_female_age_muscle_fluency_grip_category.out                
+b1              female   age                 muscle                   fluency                   grip                   fas                     b1_female_age_muscle_fluency_grip_fas.out                     
+b1              female   age                 muscle                   fluency                   grip                   information             b1_female_age_muscle_fluency_grip_information.out             
 b1              female   full                muscle                   fluency                   grip                   bostonnaming            b1_female_full_muscle_fluency_grip_bostonnaming.out           
 b1              female   full                muscle                   fluency                   grip                   category                b1_female_full_muscle_fluency_grip_category.out               
 b1              female   full                muscle                   fluency                   grip                   fas                     b1_female_full_muscle_fluency_grip_fas.out                    
@@ -413,10 +409,10 @@ b1              male     aehplus             muscle                   fluency   
 b1              male     aehplus             muscle                   fluency                   grip                   category                b1_male_aehplus_muscle_fluency_grip_category.out              
 b1              male     aehplus             muscle                   fluency                   grip                   fas                     b1_male_aehplus_muscle_fluency_grip_fas.out                   
 b1              male     aehplus             muscle                   fluency                   grip                   information             b1_male_aehplus_muscle_fluency_grip_information.out           
-b1              male     a                   muscle                   fluency                   grip                   bostonnaming            b1_male_age_muscle_fluency_grip_bostonnaming.out              
-b1              male     a                   muscle                   fluency                   grip                   category                b1_male_age_muscle_fluency_grip_category.out                  
-b1              male     a                   muscle                   fluency                   grip                   fas                     b1_male_age_muscle_fluency_grip_fas.out                       
-b1              male     a                   muscle                   fluency                   grip                   information             b1_male_age_muscle_fluency_grip_information.out               
+b1              male     age                 muscle                   fluency                   grip                   bostonnaming            b1_male_age_muscle_fluency_grip_bostonnaming.out              
+b1              male     age                 muscle                   fluency                   grip                   category                b1_male_age_muscle_fluency_grip_category.out                  
+b1              male     age                 muscle                   fluency                   grip                   fas                     b1_male_age_muscle_fluency_grip_fas.out                       
+b1              male     age                 muscle                   fluency                   grip                   information             b1_male_age_muscle_fluency_grip_information.out               
 b1              male     full                muscle                   fluency                   grip                   bostonnaming            b1_male_full_muscle_fluency_grip_bostonnaming.out             
 b1              male     full                muscle                   fluency                   grip                   category                b1_male_full_muscle_fluency_grip_category.out                 
 b1              male     full                muscle                   fluency                   grip                   fas                     b1_male_full_muscle_fluency_grip_fas.out                      
@@ -424,22 +420,22 @@ b1              male     full                muscle                   fluency   
 b1              female   ae                  muscle                   fluid                     grip                   trailsb                 b1_female_ae_muscle_fluid_grip_trailsb.out                    
 b1              female   aeh                 muscle                   fluid                     grip                   trailsb                 b1_female_aeh_muscle_fluid_grip_trailsb.out                   
 b1              female   aehplus             muscle                   fluid                     grip                   trailsb                 b1_female_aehplus_muscle_fluid_grip_trailsb.out               
-b1              female   a                   muscle                   fluid                     grip                   trailsb                 b1_female_age_muscle_fluid_grip_trailsb.out                   
+b1              female   age                 muscle                   fluid                     grip                   trailsb                 b1_female_age_muscle_fluid_grip_trailsb.out                   
 b1              female   full                muscle                   fluid                     grip                   trailsb                 b1_female_full_muscle_fluid_grip_trailsb.out                  
 b1              male     ae                  muscle                   fluid                     grip                   trailsb                 b1_male_ae_muscle_fluid_grip_trailsb.out                      
 b1              male     aeh                 muscle                   fluid                     grip                   trailsb                 b1_male_aeh_muscle_fluid_grip_trailsb.out                     
 b1              male     aehplus             muscle                   fluid                     grip                   trailsb                 b1_male_aehplus_muscle_fluid_grip_trailsb.out                 
-b1              male     a                   muscle                   fluid                     grip                   trailsb                 b1_male_age_muscle_fluid_grip_trailsb.out                     
+b1              male     age                 muscle                   fluid                     grip                   trailsb                 b1_male_age_muscle_fluid_grip_trailsb.out                     
 b1              male     full                muscle                   fluid                     grip                   trailsb                 b1_male_full_muscle_fluid_grip_trailsb.out                    
 b1              female   ae                  muscle                   global                    grip                   mmse                    b1_female_ae_muscle_global_grip_mmse.out                      
 b1              female   aeh                 muscle                   global                    grip                   mmse                    b1_female_aeh_muscle_global_grip_mmse.out                     
 b1              female   aehplus             muscle                   global                    grip                   mmse                    b1_female_aehplus_muscle_global_grip_mmse.out                 
-b1              female   a                   muscle                   global                    grip                   mmse                    b1_female_age_muscle_global_grip_mmse.out                     
+b1              female   age                 muscle                   global                    grip                   mmse                    b1_female_age_muscle_global_grip_mmse.out                     
 b1              female   full                muscle                   global                    grip                   mmse                    b1_female_full_muscle_global_grip_mmse.out                    
 b1              male     ae                  muscle                   global                    grip                   mmse                    b1_male_ae_muscle_global_grip_mmse.out                        
 b1              male     aeh                 muscle                   global                    grip                   mmse                    b1_male_aeh_muscle_global_grip_mmse.out                       
 b1              male     aehplus             muscle                   global                    grip                   mmse                    b1_male_aehplus_muscle_global_grip_mmse.out                   
-b1              male     a                   muscle                   global                    grip                   mmse                    b1_male_age_muscle_global_grip_mmse.out                       
+b1              male     age                 muscle                   global                    grip                   mmse                    b1_male_age_muscle_global_grip_mmse.out                       
 b1              male     full                muscle                   global                    grip                   mmse                    b1_male_full_muscle_global_grip_mmse.out                      
 b1              female   ae                  muscle                   knowledge                 grip                   information             b1_female_ae_muscle_knowledge_grip_information.out            
 b1              female   ae                  muscle                   knowledge                 grip                   waisvocab               b1_female_ae_muscle_knowledge_grip_waisvocab.out              
@@ -447,13 +443,13 @@ b1              female   aeh                 muscle                   knowledge 
 b1              female   aeh                 muscle                   knowledge                 grip                   waisvocab               b1_female_aeh_muscle_knowledge_grip_waisvocab.out             
 b1              female   aehplus             muscle                   knowledge                 grip                   information             b1_female_aehplus_muscle_knowledge_grip_information.out       
 b1              female   aehplus             muscle                   knowledge                 grip                   waisvocab               b1_female_aehplus_muscle_knowledge_grip_waisvocab.out         
-b1              female   a                   muscle                   knowledge                 grip                   waisvocab               b1_female_age_muscle_knowledge_grip_waisvocab.out             
+b1              female   age                 muscle                   knowledge                 grip                   waisvocab               b1_female_age_muscle_knowledge_grip_waisvocab.out             
 b1              female   full                muscle                   knowledge                 grip                   information             b1_female_full_muscle_knowledge_grip_information.out          
 b1              female   full                muscle                   knowledge                 grip                   waisvocab               b1_female_full_muscle_knowledge_grip_waisvocab.out            
 b1              male     ae                  muscle                   knowledge                 grip                   waisvocab               b1_male_ae_muscle_knowledge_grip_waisvocab.out                
 b1              male     aeh                 muscle                   knowledge                 grip                   waisvocab               b1_male_aeh_muscle_knowledge_grip_waisvocab.out               
 b1              male     aehplus             muscle                   knowledge                 grip                   waisvocab               b1_male_aehplus_muscle_knowledge_grip_waisvocab.out           
-b1              male     a                   muscle                   knowledge                 grip                   waisvocab               b1_male_age_muscle_knowledge_grip_waisvocab.out               
+b1              male     age                 muscle                   knowledge                 grip                   waisvocab               b1_male_age_muscle_knowledge_grip_waisvocab.out               
 b1              male     full                muscle                   knowledge                 grip                   waisvocab               b1_male_full_muscle_knowledge_grip_waisvocab.out              
 b1              female   ae                  muscle                   memory                    grip                   digitsymbol             b1_female_ae_muscle_memory_grip_digitsymbol.out               
 b1              female   ae                  muscle                   memory                    grip                   logicalmemory           b1_female_ae_muscle_memory_grip_logicalmemory.out             
@@ -461,8 +457,8 @@ b1              female   aeh                 muscle                   memory    
 b1              female   aeh                 muscle                   memory                    grip                   logicalmemory           b1_female_aeh_muscle_memory_grip_logicalmemory.out            
 b1              female   aehplus             muscle                   memory                    grip                   digitsymbol             b1_female_aehplus_muscle_memory_grip_digitsymbol.out          
 b1              female   aehplus             muscle                   memory                    grip                   logicalmemory           b1_female_aehplus_muscle_memory_grip_logicalmemory.out        
-b1              female   a                   muscle                   memory                    grip                   digitspan               b1_female_age_muscle_memory_grip_digitspan.out                
-b1              female   a                   muscle                   memory                    grip                   logicalmemory           b1_female_age_muscle_memory_grip_logicalmemory.out            
+b1              female   age                 muscle                   memory                    grip                   digitspan               b1_female_age_muscle_memory_grip_digitspan.out                
+b1              female   age                 muscle                   memory                    grip                   logicalmemory           b1_female_age_muscle_memory_grip_logicalmemory.out            
 b1              female   full                muscle                   memory                    grip                   digitsymbol             b1_female_full_muscle_memory_grip_digitsymbol.out             
 b1              female   full                muscle                   memory                    grip                   logicalmemory           b1_female_full_muscle_memory_grip_logicalmemory.out           
 b1              male     ae                  muscle                   memory                    grip                   digitspan               b1_male_ae_muscle_memory_grip_digitspan.out                   
@@ -470,35 +466,35 @@ b1              male     ae                  muscle                   memory    
 b1              male     aeh                 muscle                   memory                    grip                   digitspan               b1_male_aeh_muscle_memory_grip_digitspan.out                  
 b1              male     aehplus             muscle                   memory                    grip                   digitspan               b1_male_aehplus_muscle_memory_grip_digitspan.out              
 b1              male     aehplus             muscle                   memory                    grip                   logicalmemory           b1_male_aehplus_muscle_memory_grip_logicalmemory.out          
-b1              male     a                   muscle                   memory                    grip                   digitspan               b1_male_age_muscle_memory_grip_digitspan.out                  
-b1              male     a                   muscle                   memory                    grip                   logicalmemory           b1_male_age_muscle_memory_grip_logicalmemory.out              
+b1              male     age                 muscle                   memory                    grip                   digitspan               b1_male_age_muscle_memory_grip_digitspan.out                  
+b1              male     age                 muscle                   memory                    grip                   logicalmemory           b1_male_age_muscle_memory_grip_logicalmemory.out              
 b1              male     full                muscle                   memory                    grip                   digitspan               b1_male_full_muscle_memory_grip_digitspan.out                 
 b1              male     full                muscle                   memory                    grip                   logicalmemory           b1_male_full_muscle_memory_grip_logicalmemory.out             
 b1              female   ae                  muscle                   reasoning                 grip                   block                   b1_female_ae_muscle_reasoning_grip_block.out                  
 b1              female   aeh                 muscle                   reasoning                 grip                   block                   b1_female_aeh_muscle_reasoning_grip_block.out                 
 b1              female   aehplus             muscle                   reasoning                 grip                   block                   b1_female_aehplus_muscle_reasoning_grip_block.out             
-b1              female   a                   muscle                   reasoning                 grip                   block                   b1_female_age_muscle_reasoning_grip_block.out                 
+b1              female   age                 muscle                   reasoning                 grip                   block                   b1_female_age_muscle_reasoning_grip_block.out                 
 b1              female   full                muscle                   reasoning                 grip                   block                   b1_female_full_muscle_reasoning_grip_block.out                
 b1              male     ae                  muscle                   reasoning                 grip                   block                   b1_male_ae_muscle_reasoning_grip_block.out                    
 b1              male     aeh                 muscle                   reasoning                 grip                   block                   b1_male_aeh_muscle_reasoning_grip_block.out                   
 b1              male     aehplus             muscle                   reasoning                 grip                   block                   b1_male_aehplus_muscle_reasoning_grip_block.out               
-b1              male     a                   muscle                   reasoning                 grip                   block                   b1_male_age_muscle_reasoning_grip_block.out                   
+b1              male     age                 muscle                   reasoning                 grip                   block                   b1_male_age_muscle_reasoning_grip_block.out                   
 b1              male     full                muscle                   reasoning                 grip                   block                   b1_male_full_muscle_reasoning_grip_block.out                  
 b1              female   ae                  muscle                   speed                     grip                   digitsymbol             b1_female_ae_muscle_speed_grip_digitsymbol.out                
 b1              female   aeh                 muscle                   speed                     grip                   digitsymbol             b1_female_aeh_muscle_speed_grip_digitsymbol.out               
 b1              female   aehplus             muscle                   speed                     grip                   digitsymbol             b1_female_aehplus_muscle_speed_grip_digitsymbol.out           
-b1              female   a                   muscle                   speed                     grip                   digitsymbol             b1_female_age_muscle_speed_grip_digitsymbol.out               
+b1              female   age                 muscle                   speed                     grip                   digitsymbol             b1_female_age_muscle_speed_grip_digitsymbol.out               
 b1              female   full                muscle                   speed                     grip                   digitsymbol             b1_female_full_muscle_speed_grip_digitsymbol.out              
 b1              male     ae                  muscle                   speed                     grip                   digitsymbol             b1_male_ae_muscle_speed_grip_digitsymbol.out                  
 b1              male     aeh                 muscle                   speed                     grip                   digitsymbol             b1_male_aeh_muscle_speed_grip_digitsymbol.out                 
 b1              male     aehplus             muscle                   speed                     grip                   digitsymbol             b1_male_aehplus_muscle_speed_grip_digitsymbol.out             
-b1              male     a                   muscle                   speed                     grip                   digitsymbol             b1_male_age_muscle_speed_grip_digitsymbol.out                 
+b1              male     age                 muscle                   speed                     grip                   digitsymbol             b1_male_age_muscle_speed_grip_digitsymbol.out                 
 b1              male     full                muscle                   speed                     grip                   digitsymol              b1_male_full_muscle_speed_grip_digitsymol.out                 
 b1              female   ae                  pulmonary                knowledge                 pek                    waisvocab               b1_female_ae_pulmonary_ knowledge_pek_waisvocab.out           
 b1              female   ae                  pulmonary                executive                 pek                    trailsb                 b1_female_ae_pulmonary_executive_pek_trailsb.out              
 b1              female   aeh                 pulmonary                executive                 pek                    trailsb                 b1_female_aeh_pulmonary_executive_pek_trailsb.out             
 b1              female   aehplus             pulmonary                executive                 pek                    trailsb                 b1_female_aehplus_pulmonary_executive_pek_trailsb.out         
-b1              female   a                   pulmonary                executive                 pek                    trailsb                 b1_female_age_pulmonary_executive_pek_trailsB.out             
+b1              female   age                 pulmonary                executive                 pek                    trailsB                 b1_female_age_pulmonary_executive_pek_trailsB.out             
 b1              female   full                pulmonary                executive                 pek                    trailsb                 b1_female_full_pulmonary_executive_pek_trailsb.out            
 b1              male     ae                  pulmonary                executive                 pek                    trailsb                 b1_male_ae_pulmonary_executive_pek_trailsb.out                
 b1              male     aeh                 pulmonary                executive                 pek                    trailsb                 b1_male_aeh_pulmonary_executive_pek_trailsb.out               
@@ -513,13 +509,13 @@ b1              female   aeh                 pulmonary                fluency   
 b1              female   aehplus             pulmonary                fluency                   pek                    bostonnaming            b1_female_aehplus_pulmonary_fluency_pek_bostonnaming.out      
 b1              female   aehplus             pulmonary                fluency                   pek                    category                b1_female_aehplus_pulmonary_fluency_pek_category.out          
 b1              female   aehplus             pulmonary                fluency                   pek                    fas                     b1_female_aehplus_pulmonary_fluency_pek_fas.out               
-b1              female   a                   pulmonary                fluency                   pek                    bostonnaming            b1_female_age_pulmonary_fluency_pek_bostonnaming.out          
-b1              female   a                   pulmonary                fluency                   pek                    category                b1_female_age_pulmonary_fluency_pek_category.out              
-b1              female   a                   pulmonary                fluency                   pek                    fas                     b1_female_age_pulmonary_fluency_pek_fas.out                   
+b1              female   age                 pulmonary                fluency                   pek                    bostonnaming            b1_female_age_pulmonary_fluency_pek_bostonnaming.out          
+b1              female   age                 pulmonary                fluency                   pek                    category                b1_female_age_pulmonary_fluency_pek_category.out              
+b1              female   age                 pulmonary                fluency                   pek                    fas                     b1_female_age_pulmonary_fluency_pek_fas.out                   
 b1              female   full                pulmonary                fluency                   pek                    bostonnaming            b1_female_full_pulmonary_fluency_pek_bostonnaming.out         
 b1              female   full                pulmonary                fluency                   pek                    category                b1_female_full_pulmonary_fluency_pek_category.out             
 b1              female   full                pulmonary                fluency                   pek                    fas                     b1_female_full_pulmonary_fluency_pek_fas.out                  
-b1              male     ae                  pulmonary                fluency                   pek                    bostonnaming            b1_male_ae_pulmonary_fluency_pek_bostonmaning.out             
+b1              male     ae                  pulmonary                fluency                   pek                    bostonmaning            b1_male_ae_pulmonary_fluency_pek_bostonmaning.out             
 b1              male     ae                  pulmonary                fluency                   pek                    category                b1_male_ae_pulmonary_fluency_pek_category.out                 
 b1              male     ae                  pulmonary                fluency                   pek                    fas                     b1_male_ae_pulmonary_fluency_pek_fas.out                      
 b1              male     aeh                 pulmonary                fluency                   pek                    bostonnaming            b1_male_aeh_pulmonary_fluency_pek_bostonnaming.out            
@@ -528,21 +524,21 @@ b1              male     aeh                 pulmonary                fluency   
 b1              male     aehplus             pulmonary                fluency                   pek                    bostonnaming            b1_male_aehplus_pulmonary_fluency_pek_bostonnaming.out        
 b1              male     aehplus             pulmonary                fluency                   pek                    category                b1_male_aehplus_pulmonary_fluency_pek_category.out            
 b1              male     aehplus             pulmonary                fluency                   pek                    fas                     b1_male_aehplus_pulmonary_fluency_pek_fas.out                 
-b1              male     a                   pulmonary                fluency                   pek                    bostonnaming            b1_male_age_pulmonary_fluency_pek_bostonnaming.out            
-b1              male     a                   pulmonary                fluency                   pek                    category                b1_male_age_pulmonary_fluency_pek_category.out                
-b1              male     a                   pulmonary                fluency                   pek                    fas                     b1_male_age_pulmonary_fluency_pek_fas.out                     
+b1              male     age                 pulmonary                fluency                   pek                    bostonnaming            b1_male_age_pulmonary_fluency_pek_bostonnaming.out            
+b1              male     age                 pulmonary                fluency                   pek                    category                b1_male_age_pulmonary_fluency_pek_category.out                
+b1              male     age                 pulmonary                fluency                   pek                    fas                     b1_male_age_pulmonary_fluency_pek_fas.out                     
 b1              male     full                pulmonary                fluency                   pek                    bostonnaming            b1_male_full_pulmonary_fluency_pek_bostonnaming.out           
 b1              male     full                pulmonary                fluency                   pek                    category                b1_male_full_pulmonary_fluency_pek_category.out               
 b1              male     full                pulmonary                fluency                   pek                    fas                     b1_male_full_pulmonary_fluency_pek_fas.out                    
 b1              female   ae                  pulmonary                global                    pek                    mmse                    b1_female_ae_pulmonary_global_pek_mmse.out                    
 b1              female   aeh                 pulmonary                global                    pek                    mmse                    b1_female_aeh_pulmonary_global_pek_mmse.out                   
 b1              female   aehplus             pulmonary                global                    pek                    mmse                    b1_female_aehplus_pulmonary_global_pek_mmse.out               
-b1              female   a                   pulmonary                global                    pek                    mmse                    b1_female_age_pulmonary_global_pek_mmse.out                   
+b1              female   age                 pulmonary                global                    pek                    mmse                    b1_female_age_pulmonary_global_pek_mmse.out                   
 b1              female   full                pulmonary                global                    pek                    mmse                    b1_female_full_pulmonary_global_pek_mmse.out                  
 b1              male     ae                  pulmonary                global                    pek                    mmse                    b1_male_ae_pulmonary_global_pek_mmse.out                      
 b1              male     aeh                 pulmonary                global                    pek                    mmse                    b1_male_aeh_pulmonary_global_pek_mmse.out                     
 b1              male     aehplus             pulmonary                global                    pek                    mmse                    b1_male_aehplus_pulmonary_global_pek_mmse.out                 
-b1              male     a                   pulmonary                global                    pek                    mmse                    b1_male_age_pulmonary_global_pek_mmse.out                     
+b1              male     age                 pulmonary                global                    pek                    mmse                    b1_male_age_pulmonary_global_pek_mmse.out                     
 b1              male     full                pulmonary                global                    pek                    mmse                    b1_male_full_pulmonary_global_pek_mmse.out                    
 b1              female   ae                  pulmonary                knowledge                 pek                    information             b1_female_ae_pulmonary_knowledge_pek_information.out          
 b1              female   ae                  pulmonary                knowledge                 pek                    waisvocab               b1_female_ae_pulmonary_knowledge_pek_waisvocab.out            
@@ -550,8 +546,8 @@ b1              female   aeh                 pulmonary                knowledge 
 b1              female   aeh                 pulmonary                knowledge                 pek                    waisvocab               b1_female_aeh_pulmonary_knowledge_pek_waisvocab.out           
 b1              female   aehplus             pulmonary                knowledge                 pek                    information             b1_female_aehplus_pulmonary_knowledge_pek_information.out     
 b1              female   aehplus             pulmonary                knowledge                 pek                    waisvocab               b1_female_aehplus_pulmonary_knowledge_pek_waisvocab.out       
-b1              female   a                   pulmonary                knowledge                 pek                    information             b1_female_age_pulmonary_knowledge_pek_information.out         
-b1              female   a                   pulmonary                knowledge                 pek                    waisvocab               b1_female_age_pulmonary_knowledge_pek_waisvocab.out           
+b1              female   age                 pulmonary                knowledge                 pek                    information             b1_female_age_pulmonary_knowledge_pek_information.out         
+b1              female   age                 pulmonary                knowledge                 pek                    waisvocab               b1_female_age_pulmonary_knowledge_pek_waisvocab.out           
 b1              female   full                pulmonary                knowledge                 pek                    information             b1_female_full_pulmonary_knowledge_pek_information.out        
 b1              female   full                pulmonary                knowledge                 pek                    waisvocab               b1_female_full_pulmonary_knowledge_pek_waisvocab.out          
 b1              male     ae                  pulmonary                knowledge                 pek                    information             b1_male_ae_pulmonary_knowledge_pek_information.out            
@@ -560,8 +556,8 @@ b1              male     aeh                 pulmonary                knowledge 
 b1              male     aeh                 pulmonary                knowledge                 pek                    waisvocab               b1_male_aeh_pulmonary_knowledge_pek_waisvocab.out             
 b1              male     aehplus             pulmonary                knowledge                 pek                    information             b1_male_aehplus_pulmonary_knowledge_pek_information.out       
 b1              male     aehplus             pulmonary                knowledge                 pek                    waisvocab               b1_male_aehplus_pulmonary_knowledge_pek_waisvocab.out         
-b1              male     a                   pulmonary                knowledge                 pek                    information             b1_male_age_pulmonary_knowledge_pek_information.out           
-b1              male     a                   pulmonary                knowledge                 pek                    waisvocab               b1_male_age_pulmonary_knowledge_pek_waisvocab.out             
+b1              male     age                 pulmonary                knowledge                 pek                    information             b1_male_age_pulmonary_knowledge_pek_information.out           
+b1              male     age                 pulmonary                knowledge                 pek                    waisvocab               b1_male_age_pulmonary_knowledge_pek_waisvocab.out             
 b1              male     full                pulmonary                knowledge                 pek                    information             b1_male_full_pulmonary_knowledge_pek_information.out          
 b1              male     full                pulmonary                knowledge                 pek                    waisvocab               b1_male_full_pulmonary_knowledge_pek_waisvocab.out            
 b1              female   ae                  pulmonary                memory                    pek                    digitspantotal          b1_female_ae_pulmonary_memory_pek_digitspantotal.out          
@@ -570,8 +566,8 @@ b1              female   aeh                 pulmonary                memory    
 b1              female   aeh                 pulmonary                memory                    pek                    logicalmemorytotal      b1_female_aeh_pulmonary_memory_pek_logicalmemorytotal.out     
 b1              female   aehplus             pulmonary                memory                    pek                    digitspan               b1_female_aehplus_pulmonary_memory_pek_digitspan.out          
 b1              female   aehplus             pulmonary                memory                    pek                    logicalmemorytotal      b1_female_aehplus_pulmonary_memory_pek_logicalmemorytotal.out 
-b1              female   a                   pulmonary                memory                    pek                    digitspantotal          b1_female_age_pulmonary_memory_pek_digitspantotal.out         
-b1              female   a                   pulmonary                memory                    pek                    logicalmemory           b1_female_age_pulmonary_memory_pek_logicalmemory.out          
+b1              female   age                 pulmonary                memory                    pek                    digitspantotal          b1_female_age_pulmonary_memory_pek_digitspantotal.out         
+b1              female   age                 pulmonary                memory                    pek                    logicalmemory           b1_female_age_pulmonary_memory_pek_logicalmemory.out          
 b1              female   full                pulmonary                memory                    pek                    digitsymboltotal        b1_female_full_pulmonary_memory_pek_digitsymboltotal.out      
 b1              female   full                pulmonary                memory                    pek                    logicalmemorytotal      b1_female_full_pulmonary_memory_pek_logicalmemorytotal.out    
 b1              male     ae                  pulmonary                memory                    pek                    digitspantotal          b1_male_ae_pulmonary_memory_pek_digitspantotal.out            
@@ -580,29 +576,29 @@ b1              male     aeh                 pulmonary                memory    
 b1              male     aeh                 pulmonary                memory                    pek                    logicalmemorytotal      b1_male_aeh_pulmonary_memory_pek_logicalmemorytotal.out       
 b1              male     aehplus             pulmonary                memory                    pek                    digitspantotal          b1_male_aehplus_pulmonary_memory_pek_digitspantotal.out       
 b1              male     aehplus             pulmonary                memory                    pek                    logicalmemorytotal      b1_male_aehplus_pulmonary_memory_pek_logicalmemorytotal.out   
-b1              male     a                   pulmonary                memory                    pek                    digitspantotal          b1_male_age_pulmonary_memory_pek_digitspantotal.out           
-b1              male     a                   pulmonary                memory                    pek                    logicalmemorytotal      b1_male_age_pulmonary_memory_pek_logicalmemorytotal.out       
+b1              male     age                 pulmonary                memory                    pek                    digitspantotal          b1_male_age_pulmonary_memory_pek_digitspantotal.out           
+b1              male     age                 pulmonary                memory                    pek                    logicalmemorytotal      b1_male_age_pulmonary_memory_pek_logicalmemorytotal.out       
 b1              male     full                pulmonary                memory                    pek                    digitspantotal          b1_male_full_pulmonary_memory_pek_digitspantotal.out          
 b1              male     full                pulmonary                memory                    pek                    logicalmemorytotal      b1_male_full_pulmonary_memory_pek_logicalmemorytotal.out      
 b1              female   ae                  pulmonary                reasoning                 pek                    block                   b1_female_ae_pulmonary_reasoning_pek_block.out                
 b1              female   aeh                 pulmonary                reasoning                 pek                    block                   b1_female_aeh_pulmonary_reasoning_pek_block.out               
 b1              female   aehplus             pulmonary                reasoning                 pek                    block                   b1_female_aehplus_pulmonary_reasoning_pek_block.out           
-b1              female   a                   pulmonary                reasoning                 pek                    block                   b1_female_age_pulmonary_reasoning_pek_block.out               
+b1              female   age                 pulmonary                reasoning                 pek                    block                   b1_female_age_pulmonary_reasoning_pek_block.out               
 b1              female   full                pulmonary                reasoning                 pek                    block                   b1_female_full_pulmonary_reasoning_pek_block.out              
 b1              male     ae                  pulmonary                reasoning                 pek                    block                   b1_male_ae_pulmonary_reasoning_pek_block.out                  
 b1              male     aeh                 pulmonary                reasoning                 pek                    block                   b1_male_aeh_pulmonary_reasoning_pek_block.out                 
 b1              male     aehplus             pulmonary                reasoning                 pek                    block                   b1_male_aehplus_pulmonary_reasoning_pek_block.out             
-b1              male     a                   pulmonary                reasoning                 pek                    block                   b1_male_age_pulmonary_reasoning_pek_block.out                 
+b1              male     age                 pulmonary                reasoning                 pek                    block                   b1_male_age_pulmonary_reasoning_pek_block.out                 
 b1              male     full                pulmonary                reasoning                 pek                    block                   b1_male_full_pulmonary_reasoning_pek_block.out                
 b1              female   ae                  pulmonary                speed                     pek                    digitsymbol             b1_female_ae_pulmonary_speed_pek_digitsymbol.out              
 b1              female   aeh                 pulmonary                speed                     pek                    digitsymbol             b1_female_aeh_pulmonary_speed_pek_digitsymbol.out             
 b1              female   aehplus             pulmonary                speed                     pek                    digitsymbol             b1_female_aehplus_pulmonary_speed_pek_digitsymbol.out         
-b1              female   a                   pulmonary                speed                     pek                    digitsymbol             b1_female_age_pulmonary_speed_pek_digitsymbol.out             
+b1              female   age                 pulmonary                speed                     pek                    digitsymbol             b1_female_age_pulmonary_speed_pek_digitsymbol.out             
 b1              female   full                pulmonary                speed                     pek                    digitsymbol             b1_female_full_pulmonary_speed_pek_digitsymbol.out            
 b1              male     ae                  pulmonary                speed                     pek                    digitsymbol             b1_male_ae_pulmonary_speed_pek_digitsymbol.out                
 b1              male     aeh                 pulmonary                speed                     pek                    digitsymbol             b1_male_aeh_pulmonary_speed_pek_digitsymbol.out               
 b1              male     aehplus             pulmonary                speed                     pek                    digitsymbol             b1_male_aehplus_pulmonary_speed_pek_digitsymbol.out           
-b1              male     a                   pulmonary                speed                     pek                    digitsymbol             b1_male_age_pulmonary_speed_pek_digitsymbol.out               
+b1              male     age                 pulmonary                speed                     pek                    digitsymbol             b1_male_age_pulmonary_speed_pek_digitsymbol.out               
 b1              male     full                pulmonary                speed                     pek                    digitsymbol             b1_male_full_pulmonary_speed_pek_digitsymbol.out              
 
 ## u1
@@ -613,12 +609,12 @@ model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<
 u1              female   ae                  muscle                   nocog                     grip                   nocogspec               u1_female_ae_muscle_nocog_grip_nocogspec.out                  
 u1              female   aeh                 muscle                   nocog                     grip                   nocogspec               u1_female_aeh_muscle_nocog_grip_nocogspec.out                 
 u1              female   aehplus             muscle                   nocog                     grip                   nocogspec               u1_female_aehplus_muscle_nocog_grip_nocogspec.out             
-u1              female   a                   muscle                   nocog                     grip                   nocogspec               u1_female_age_muscle_nocog_grip_nocogspec.out                 
+u1              female   age                 muscle                   nocog                     grip                   nocogspec               u1_female_age_muscle_nocog_grip_nocogspec.out                 
 u1              female   full                muscle                   nocog                     grip                   nocogspec               u1_female_full_muscle_nocog_grip_nocogspec.out                
 u1              male     ae                  muscle                   nocog                     grip                   nocogspec               u1_male_ae_muscle_nocog_grip_nocogspec.out                    
 u1              male     aeh                 muscle                   nocog                     grip                   nocogspec               u1_male_aeh_muscle_nocog_grip_nocogspec.out                   
 u1              male     aehplus             muscle                   nocog                     grip                   nocogspec               u1_male_aehplus_muscle_nocog_grip_nocogspec.out               
-u1              male     a                   muscle                   nocog                     grip                   nocogspec               u1_male_age_muscle_nocog_grip_nocogspec.out                   
+u1              male     age                 muscle                   nocog                     grip                   nocogspec               u1_male_age_muscle_nocog_grip_nocogspec.out                   
 u1              male     full                muscle                   nocog                     grip                   nocogspec               u1_male_full_muscle_nocog_grip_nocogspec.out                  
 u1              female   aeh                 nophys                   block                     NA                     NA                      u1_female_aeh_nophys_block.out                                
 u1              female   aeh                 nophys                   block                     nocogspec              NA                      u1_female_aeh_nophys_block_nocogspec.out                      
@@ -631,9 +627,9 @@ u1              female   aeh                 nophys                   fluency   
 u1              female   aehplus             nophys                   fluency                   nophysspec             bostonnaming            u1_female_aehplus_nophys_fluency_nophysspec_bostonnaming.out  
 u1              female   aehplus             nophys                   fluency                   nophysspec             category                u1_female_aehplus_nophys_fluency_nophysspec_category.out      
 u1              female   aehplus             nophys                   fluency                   nophysspec             fas                     u1_female_aehplus_nophys_fluency_nophysspec_fas.out           
-u1              female   a                   nophys                   fluency                   nophysspec             bostonnaming            u1_female_age_nophys_fluency_nophysspec_bostonnaming.out      
-u1              female   a                   nophys                   fluency                   nophysspec             category                u1_female_age_nophys_fluency_nophysspec_category.out          
-u1              female   a                   nophys                   fluency                   nophysspec             fas                     u1_female_age_nophys_fluency_nophysspec_fas.out               
+u1              female   age                 nophys                   fluency                   nophysspec             bostonnaming            u1_female_age_nophys_fluency_nophysspec_bostonnaming.out      
+u1              female   age                 nophys                   fluency                   nophysspec             category                u1_female_age_nophys_fluency_nophysspec_category.out          
+u1              female   age                 nophys                   fluency                   nophysspec             fas                     u1_female_age_nophys_fluency_nophysspec_fas.out               
 u1              female   full                nophys                   fluency                   nophysspec             bostonnaming            u1_female_full_nophys_fluency_nophysspec_bostonnaming.out     
 u1              female   full                nophys                   fluency                   nophysspec             category                u1_female_full_nophys_fluency_nophysspec_category.out         
 u1              female   full                nophys                   fluency                   nophysspec             fas                     u1_female_full_nophys_fluency_nophysspec_fas.out              
@@ -646,30 +642,30 @@ u1              male     aeh                 nophys                   fluency   
 u1              male     aehplus             nophys                   fluency                   nophysspec             bostonnaming            u1_male_aehplus_nophys_fluency_nophysspec_bostonnaming.out    
 u1              male     aehplus             nophys                   fluency                   nophysspec             category                u1_male_aehplus_nophys_fluency_nophysspec_category.out        
 u1              male     aehplus             nophys                   fluency                   nophysspec             fas                     u1_male_aehplus_nophys_fluency_nophysspec_fas.out             
-u1              male     a                   nophys                   fluency                   nophysspec             category                u1_male_age_nophys_fluency_nophysspec_category.out            
-u1              male     a                   nophys                   fluency                   nophysspec             fas                     u1_male_age_nophys_fluency_nophysspec_fas.out                 
-u1              male     a                   nophys                   fluency                   nophysspec             bostonnaming            u1_male_age_nophys_fluency_nophysspec_nostonnaming.out        
+u1              male     age                 nophys                   fluency                   nophysspec             category                u1_male_age_nophys_fluency_nophysspec_category.out            
+u1              male     age                 nophys                   fluency                   nophysspec             fas                     u1_male_age_nophys_fluency_nophysspec_fas.out                 
+u1              male     age                 nophys                   fluency                   nophysspec             nostonnaming            u1_male_age_nophys_fluency_nophysspec_nostonnaming.out        
 u1              male     full                nophys                   fluency                   nophysspec             bostonnaming            u1_male_full_nophys_fluency_nophysspec_bostonnaming.out       
 u1              male     full                nophys                   fluency                   nophysspec             category                u1_male_full_nophys_fluency_nophysspec_category.out           
 u1              male     full                nophys                   fluency                   nophysspec             fas                     u1_male_full_nophys_fluency_nophysspec_fas.out                
 u1              female   ae                  nophys                   global                    nophysspec             mmse                    u1_female_ae_nophys_global_nophysspec_mmse.out                
 u1              female   aeh                 nophys                   global                    nophysspec             mmse                    u1_female_aeh_nophys_global_nophysspec_mmse.out               
 u1              female   aehplus             nophys                   global                    nophysspec             mmse                    u1_female_aehplus_nophys_global_nophysspec_mmse.out           
-u1              female   a                   nophys                   global                    nophysspec             mmse                    u1_female_age_nophys_global_nophysspec_mmse.out               
+u1              female   age                 nophys                   global                    nophysspec             mmse                    u1_female_age_nophys_global_nophysspec_mmse.out               
 u1              female   full                nophys                   global                    nophysspec             mmse                    u1_female_full_nophys_global_nophysspec_mmse.out              
 u1              male     ae                  nophys                   global                    nophysspec             mmse                    u1_male_ae_nophys_global_nophysspec_mmse.out                  
 u1              male     aeh                 nophys                   global                    nophysspec             mmse                    u1_male_aeh_nophys_global_nophysspec_mmse.out                 
 u1              male     aehplus             nophys                   global                    nophysspec             mmse                    u1_male_aehplus_nophys_global_nophysspec_mmse.out             
-u1              male     a                   nophys                   global                    nophysspec             mmse                    u1_male_age_nophys_global_nophysspec_mmse.out                 
+u1              male     age                 nophys                   global                    nophysspec             mmse                    u1_male_age_nophys_global_nophysspec_mmse.out                 
 u1              male     full                nophys                   global                    nophysspec             mmse                    u1_male_full_nophys_global_nophysspec_mmse.out                
 u1              female   ae                  nophys                   knowledge                 nophysspec             information             u1_female_ae_nophys_knowledge_nophysspec_information.out      
 u1              female   ae                  nophys                   knowledge                 nophysspec             waisvocab               u1_female_ae_nophys_knowledge_nophysspec_waisvocab.out        
 u1              female   aeh                 nophys                   knowledge                 nophysspec             information             u1_female_aeh_nophys_knowledge_nophysspec_information.out     
-u1              female   aeh                 nophys                   knowledge                 nophysspec             waisvocab               u1_female_aeh_nophys_knowledge_nophysspec_wasivocab.out       
+u1              female   aeh                 nophys                   knowledge                 nophysspec             wasivocab               u1_female_aeh_nophys_knowledge_nophysspec_wasivocab.out       
 u1              female   aehplus             nophys                   knowledge                 nophysspec             information             u1_female_aehplus_nophys_knowledge_nophysspec_information.out 
-u1              female   aehplus             nophys                   knowledge                 nophysspec             waisvocab               u1_female_aehplus_nophys_knowledge_nophysSpec_waisvocab.out   
-u1              female   a                   nophys                   knowledge                 nophysspec             information             u1_female_age_nophys_knowledge_nophysspec_information.out     
-u1              female   a                   nophys                   knowledge                 nophysspec             waisvocab               u1_female_age_nophys_knowledge_nophysspec_waisvocab.out       
+u1              female   aehplus             nophys                   knowledge                 nophysSpec             waisvocab               u1_female_aehplus_nophys_knowledge_nophysSpec_waisvocab.out   
+u1              female   age                 nophys                   knowledge                 nophysspec             information             u1_female_age_nophys_knowledge_nophysspec_information.out     
+u1              female   age                 nophys                   knowledge                 nophysspec             waisvocab               u1_female_age_nophys_knowledge_nophysspec_waisvocab.out       
 u1              female   full                nophys                   knowledge                 nophysspec             information             u1_female_full_nophys_knowledge_nophysspec_information.out    
 u1              female   full                nophys                   knowledge                 nophysspec             waisvocab               u1_female_full_nophys_knowledge_nophysspec_waisvocab.out      
 u1              male     ae                  nophys                   knowledge                 nophysspec             information             u1_male_ae_nophys_knowledge_nophysspec_information.out        
@@ -678,18 +674,18 @@ u1              male     aeh                 nophys                   knowledge 
 u1              male     aeh                 nophys                   knowledge                 nophysspec             waisvocab               u1_male_aeh_nophys_knowledge_nophysspec_waisvocab.out         
 u1              male     aehplus             nophys                   knowledge                 nophysspec             information             u1_male_aehplus_nophys_knowledge_nophysspec_information.out   
 u1              male     aehplus             nophys                   knowledge                 nophysspec             waisvocab               u1_male_aehplus_nophys_knowledge_nophysspec_waisvocab.out     
-u1              male     a                   nophys                   knowledge                 nophysspec             information             u1_male_age_nophys_knowledge_nophysspec_information.out       
+u1              male     age                 nophys                   knowledge                 nophysspec             information             u1_male_age_nophys_knowledge_nophysspec_information.out       
 u1              male     full                nophys                   knowledge                 nophysspec             information             u1_male_full_nophys_knowledge_nophysspec_information.out      
 u1              male     full                nophys                   knowledge                 nophysspec             waisvocab               u1_male_full_nophys_knowledge_nophysspec_waisvocab.out        
-u1              male     a                   nophys                   knowledge                 nophysspec             waisvocab               u1_male_age_nophys_knowlegde_nophysspec_waisvocab.out         
+u1              male     age                 nophys                   knowlegde                 nophysspec             waisvocab               u1_male_age_nophys_knowlegde_nophysspec_waisvocab.out         
 u1              female   ae                  nophys                   memory                    nophysspec             digitspantotal          u1_female_ae_nophys_memory_nophysspec_digitspantotal.out      
 u1              female   ae                  nophys                   memory                    nophysspec             logicalmemory           u1_female_ae_nophys_memory_nophysspec_logicalmemory.out       
 u1              female   aeh                 nophys                   memory                    nophysspec             digitspantotal          u1_female_aeh_nophys_memory_nophysspec_digitspantotal.out     
 u1              female   aeh                 nophys                   memory                    nophysspec             logicalmemory           u1_female_aeh_nophys_memory_nophysspec_logicalmemory.out      
 u1              female   aehplus             nophys                   memory                    nophysspec             digitspantotal          u1_female_aehplus_nophys_memory_nophysspec_digitspantotal.out 
 u1              female   aehplus             nophys                   memory                    nophysspec             logicalmemory           u1_female_aehplus_nophys_memory_nophysspec_logicalmemory.out  
-u1              female   a                   nophys                   memory                    nophysspec             digitspantotal          u1_female_age_nophys_memory_nophysspec_digitspantotal.out     
-u1              female   a                   nophys                   memory                    nophysspec             logicalmemory           u1_female_age_nophys_memory_nophysspec_logicalmemory.out      
+u1              female   age                 nophys                   memory                    nophysspec             digitspantotal          u1_female_age_nophys_memory_nophysspec_digitspantotal.out     
+u1              female   age                 nophys                   memory                    nophysspec             logicalmemory           u1_female_age_nophys_memory_nophysspec_logicalmemory.out      
 u1              female   full                nophys                   memory                    nophysspec             digitspantotal          u1_female_full_nophys_memory_nophysspec_digitspantotal.out    
 u1              female   full                nophys                   memory                    nophysspec             logicalmemory           u1_female_full_nophys_memory_nophysspec_logicalmemory.out     
 u1              male     ae                  nophys                   memory                    nophysspec             digitspantotal          u1_male_ae_nophys_memory_nophysspec_digitspantotal.out        
@@ -698,49 +694,49 @@ u1              male     aeh                 nophys                   memory    
 u1              male     aeh                 nophys                   memory                    nophysspec             logicalmemory           u1_male_aeh_nophys_memory_nophysspec_logicalmemory.out        
 u1              male     aehplus             nophys                   memory                    nophysspec             digitspantotal          u1_male_aehplus_nophys_memory_nophysspec_digitspantotal.out   
 u1              male     aehplus             nophys                   memory                    nophysspec             logicalmemory           u1_male_aehplus_nophys_memory_nophysspec_logicalmemory.out    
-u1              male     a                   nophys                   memory                    nophysspec             digitspantotal          u1_male_age_nophys_memory_nophsyspec_digitspantotal.out       
-u1              male     a                   nophys                   memory                    nophysspec             logicalmemory           u1_male_age_nophys_memory_nophysspec_logicalmemory.out        
+u1              male     age                 nophys                   memory                    nophsyspec             digitspantotal          u1_male_age_nophys_memory_nophsyspec_digitspantotal.out       
+u1              male     age                 nophys                   memory                    nophysspec             logicalmemory           u1_male_age_nophys_memory_nophysspec_logicalmemory.out        
 u1              male     full                nophys                   memory                    nophysspec             digitspantotal          u1_male_full_nophys_memory_nophysspec_digitspantotal.out      
 u1              male     full                nophys                   memory                    nophysspec             logicalmemory           u1_male_full_nophys_memory_nophysspec_logicalmemory.out       
-u1              female   ae                  nophys                   executive                 nophysspec             trailsb                 u1_female_ae_noPhys_executive_noPhySpec_trailsb.out           
-u1              female   aeh                 nophys                   executive                 nophysspec             trailsb                 u1_female_aeh_noPhys_executive_noPhysSpec_trailsb.out         
-u1              female   aehplus             nophys                   executive                 nophysspec             trailsb                 u1_female_aehplus_noPhys_executive_noPhysSpec_trailsb.out     
-u1              female   a                   nophys                   executive                 nophysspec             trailsb                 u1_female_age_noPhys_executive_noPhySpec_trailsb.out          
-u1              female   full                nophys                   executive                 nophysspec             trailsb                 u1_female_full_noPhys_executive_noPhysSpec_trailsb.out        
-u1              male     ae                  nophys                   executive                 nophysspec             trailsb                 u1_male_ae_noPhys_executive_noPhySpec_trailsb.out             
-u1              male     aeh                 nophys                   executive                 nophysspec             trailsb                 u1_male_aeh_noPhys_executive_noPhysSpec_trailsb.out           
-u1              male     a                   nophys                   executive                 nophysspec             trailsb                 u1_male_age_noPhys_executive_noPhySpec_trailsb.out            
-u1              male     full                nophys                   executive                 nophysspec             trailsb                 u1_male_full_noPhys_executive_noPhysSpec_trailsb.out          
-u1              female   ae                  nophys                   reasoning                 nophysspec             block                   u1_female_ae_noPhys_reasoning_noPhysSpec_block.out            
-u1              female   aeh                 nophys                   reasoning                 nophysspec             block                   u1_female_aeh_noPhys_reasoning_noPhysSpec_block.out           
-u1              female   aehplus             nophys                   reasoning                 nophysspec             block                   u1_female_aehplus_noPhys_reasoning_noPhysSpec_block.out       
-u1              female   a                   nophys                   reasoning                 nophysspec             block                   u1_female_age_noPhys_reasoning_noPhysSpec_block.out           
-u1              female   full                nophys                   reasoning                 nophysspec             block                   u1_female_full_noPhys_reasoning_noPhysSec_block.out           
-u1              male     ae                  nophys                   reasoning                 nophysspec             block                   u1_male_ae_noPhys_reasoning_noPhysSpec_block.out              
-u1              male     aeh                 nophys                   reasoning                 nophysspec             block                   u1_male_aeh_noPhys_reasoning_noPhysSpec_block.out             
-u1              male     aehplus             nophys                   reasoning                 nophysspec             block                   u1_male_aehplus_noPhys_reasoning_noPhysSpec_block.out         
-u1              male     a                   nophys                   reasoning                 nophysspec             block                   u1_male_age_noPhys_reasoning_noPhysSpec_block.out             
-u1              male     full                nophys                   reasoning                 nophysspec             block                   u1_male_full_noPhys_reasoning_noPhysSec_block.out             
-u1              female   ae                  nophys                   speed                     nophysspec             digitsymbol             u1_female_ae_noPhys_speed_noPhysSpec_digitsymbol.out          
-u1              female   aeh                 nophys                   speed                     nophysspec             digitsymbol             u1_female_aeh_noPhys_speed_noPhysSpec_digitsymbol.out         
-u1              female   aehplus             nophys                   speed                     nophysspec             digitsymbol             u1_female_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out     
-u1              female   a                   nophys                   speed                     nophysspec             digitsymbol             u1_female_age_noPhys_speed_noPhysSpec_digitsymbol.out         
-u1              female   full                nophys                   speed                     nophysspec             digitsymbol             u1_female_full_noPhys_speed_noPhysSpec_digitsymbol.out        
-u1              male     ae                  nophys                   speed                     nophysspec             digitsymbol             u1_male_ae_noPhys_speed_noPhysSpec_digitsymbol.out            
-u1              male     aeh                 nophys                   speed                     nophysspec             digitsymbol             u1_male_aeh_noPhys_speed_noPhysSpec_digitsymbol.out           
-u1              male     aehplus             nophys                   speed                     nophysspec             digitsymbol             u1_male_aehplus_noPhys_speed_noPhysSec_digitsymbol.out        
-u1              male     a                   nophys                   speed                     nophysspec             digitsymbol             u1_male_age_noPhys_speed_noPhysSpec_digitsymbol.out           
-u1              male     full                nophys                   speed                     nophysspec             digitsymbol             u1_male_full_noPhys_speed_noPhysSpec_digitsymbol.out          
-u1              female   ae                  pulmonary                nocog                     pek                    nocogspec               u1_female_ae_pulmonary_noCog_pek_noCogSpec.out                
-u1              female   aeh                 pulmonary                nocog                     pek                    nocogspec               u1_female_aeh_pulmonary_noCog_pek_noCogSpec.out               
-u1              female   aehplus             pulmonary                nocog                     pek                    nocogspec               u1_female_aehplus_pulmonary_noCog_pek_noCogSpec.out           
-u1              female   a                   pulmonary                nocog                     pek                    nocogspec               u1_female_age_pulmonary_noCog_pek_noCogSpec.out               
-u1              female   full                pulmonary                nocog                     pek                    nocogspec               u1_female_full_pulmonary_noCog_pek_noCogSpec.out              
-u1              male     ae                  pulmonary                nocog                     pek                    nocogspec               u1_male_ae_pulmonary_noCog_pek_noCogSpec.out                  
-u1              male     aeh                 pulmonary                nocog                     pek                    nocogspec               u1_male_aeh_pulmonary_noCog_pek_noCogSpec.out                 
-u1              male     aehplus             pulmonary                nocog                     pek                    nocogspec               u1_male_aehplus_pulmonary_noCog_pek_noCogSpec.out             
-u1              male     a                   pulmonary                nocog                     pek                    nocogspec               u1_male_age_pulmonary_noCog_pek_noCogSpec.out                 
-u1              male     full                pulmonary                nocog                     pek                    nocogspec               u1_male_full_pulmonary_noCog_pek_noCogSpec.out                
+u1              female   ae                  noPhys                   executive                 noPhySpec              trailsb                 u1_female_ae_noPhys_executive_noPhySpec_trailsb.out           
+u1              female   aeh                 noPhys                   executive                 noPhysSpec             trailsb                 u1_female_aeh_noPhys_executive_noPhysSpec_trailsb.out         
+u1              female   aehplus             noPhys                   executive                 noPhysSpec             trailsb                 u1_female_aehplus_noPhys_executive_noPhysSpec_trailsb.out     
+u1              female   age                 noPhys                   executive                 noPhySpec              trailsb                 u1_female_age_noPhys_executive_noPhySpec_trailsb.out          
+u1              female   full                noPhys                   executive                 noPhysSpec             trailsb                 u1_female_full_noPhys_executive_noPhysSpec_trailsb.out        
+u1              male     ae                  noPhys                   executive                 noPhySpec              trailsb                 u1_male_ae_noPhys_executive_noPhySpec_trailsb.out             
+u1              male     aeh                 noPhys                   executive                 noPhysSpec             trailsb                 u1_male_aeh_noPhys_executive_noPhysSpec_trailsb.out           
+u1              male     age                 noPhys                   executive                 noPhySpec              trailsb                 u1_male_age_noPhys_executive_noPhySpec_trailsb.out            
+u1              male     full                noPhys                   executive                 noPhysSpec             trailsb                 u1_male_full_noPhys_executive_noPhysSpec_trailsb.out          
+u1              female   ae                  noPhys                   reasoning                 noPhysSpec             block                   u1_female_ae_noPhys_reasoning_noPhysSpec_block.out            
+u1              female   aeh                 noPhys                   reasoning                 noPhysSpec             block                   u1_female_aeh_noPhys_reasoning_noPhysSpec_block.out           
+u1              female   aehplus             noPhys                   reasoning                 noPhysSpec             block                   u1_female_aehplus_noPhys_reasoning_noPhysSpec_block.out       
+u1              female   age                 noPhys                   reasoning                 noPhysSpec             block                   u1_female_age_noPhys_reasoning_noPhysSpec_block.out           
+u1              female   full                noPhys                   reasoning                 noPhysSec              block                   u1_female_full_noPhys_reasoning_noPhysSec_block.out           
+u1              male     ae                  noPhys                   reasoning                 noPhysSpec             block                   u1_male_ae_noPhys_reasoning_noPhysSpec_block.out              
+u1              male     aeh                 noPhys                   reasoning                 noPhysSpec             block                   u1_male_aeh_noPhys_reasoning_noPhysSpec_block.out             
+u1              male     aehplus             noPhys                   reasoning                 noPhysSpec             block                   u1_male_aehplus_noPhys_reasoning_noPhysSpec_block.out         
+u1              male     age                 noPhys                   reasoning                 noPhysSpec             block                   u1_male_age_noPhys_reasoning_noPhysSpec_block.out             
+u1              male     full                noPhys                   reasoning                 noPhysSec              block                   u1_male_full_noPhys_reasoning_noPhysSec_block.out             
+u1              female   ae                  noPhys                   speed                     noPhysSpec             digitsymbol             u1_female_ae_noPhys_speed_noPhysSpec_digitsymbol.out          
+u1              female   aeh                 noPhys                   speed                     noPhysSpec             digitsymbol             u1_female_aeh_noPhys_speed_noPhysSpec_digitsymbol.out         
+u1              female   aehplus             noPhys                   speed                     noPhysSpec             digitsymbol             u1_female_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out     
+u1              female   age                 noPhys                   speed                     noPhysSpec             digitsymbol             u1_female_age_noPhys_speed_noPhysSpec_digitsymbol.out         
+u1              female   full                noPhys                   speed                     noPhysSpec             digitsymbol             u1_female_full_noPhys_speed_noPhysSpec_digitsymbol.out        
+u1              male     ae                  noPhys                   speed                     noPhysSpec             digitsymbol             u1_male_ae_noPhys_speed_noPhysSpec_digitsymbol.out            
+u1              male     aeh                 noPhys                   speed                     noPhysSpec             digitsymbol             u1_male_aeh_noPhys_speed_noPhysSpec_digitsymbol.out           
+u1              male     aehplus             noPhys                   speed                     noPhysSec              digitsymbol             u1_male_aehplus_noPhys_speed_noPhysSec_digitsymbol.out        
+u1              male     age                 noPhys                   speed                     noPhysSpec             digitsymbol             u1_male_age_noPhys_speed_noPhysSpec_digitsymbol.out           
+u1              male     full                noPhys                   speed                     noPhysSpec             digitsymbol             u1_male_full_noPhys_speed_noPhysSpec_digitsymbol.out          
+u1              female   ae                  pulmonary                noCog                     pek                    noCogSpec               u1_female_ae_pulmonary_noCog_pek_noCogSpec.out                
+u1              female   aeh                 pulmonary                noCog                     pek                    noCogSpec               u1_female_aeh_pulmonary_noCog_pek_noCogSpec.out               
+u1              female   aehplus             pulmonary                noCog                     pek                    noCogSpec               u1_female_aehplus_pulmonary_noCog_pek_noCogSpec.out           
+u1              female   age                 pulmonary                noCog                     pek                    noCogSpec               u1_female_age_pulmonary_noCog_pek_noCogSpec.out               
+u1              female   full                pulmonary                noCog                     pek                    noCogSpec               u1_female_full_pulmonary_noCog_pek_noCogSpec.out              
+u1              male     ae                  pulmonary                noCog                     pek                    noCogSpec               u1_male_ae_pulmonary_noCog_pek_noCogSpec.out                  
+u1              male     aeh                 pulmonary                noCog                     pek                    noCogSpec               u1_male_aeh_pulmonary_noCog_pek_noCogSpec.out                 
+u1              male     aehplus             pulmonary                noCog                     pek                    noCogSpec               u1_male_aehplus_pulmonary_noCog_pek_noCogSpec.out             
+u1              male     age                 pulmonary                noCog                     pek                    noCogSpec               u1_male_age_pulmonary_noCog_pek_noCogSpec.out                 
+u1              male     full                pulmonary                noCog                     pek                    noCogSpec               u1_male_full_pulmonary_noCog_pek_noCogSpec.out                
 
 ## u2
 
@@ -750,12 +746,12 @@ model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<
 u2              female   ae                  muscle                   nocog                     grip                   nocogspec               u2_female_ae_muscle_nocog_grip_nocogspec.out                  
 u2              female   aeh                 muscle                   nocog                     grip                   nocogspec               u2_female_aeh_muscle_nocog_grip_nocogspec.out                 
 u2              female   aehplus             muscle                   nocog                     grip                   nocogspec               u2_female_aehplus_muscle_nocog_grip_nocogspec.out             
-u2              female   a                   muscle                   nocog                     grip                   nocogspec               u2_female_age_muscle_nocog_grip_nocogspec.out                 
+u2              female   age                 muscle                   nocog                     grip                   nocogspec               u2_female_age_muscle_nocog_grip_nocogspec.out                 
 u2              female   full                muscle                   nocog                     grip                   nocogspec               u2_female_full_muscle_nocog_grip_nocogspec.out                
 u2              male     ae                  muscle                   nocog                     grip                   nocogspec               u2_male_ae_muscle_nocog_grip_nocogspec.out                    
 u2              male     aeh                 muscle                   nocog                     grip                   nocogspec               u2_male_aeh_muscle_nocog_grip_nocogspec.out                   
 u2              male     aehplus             muscle                   nocog                     grip                   nocogspec               u2_male_aehplus_muscle_nocog_grip_nocogspec.out               
-u2              male     a                   muscle                   nocog                     grip                   nocogspec               u2_male_age_muscle_nocog_grip_nocogspec.out                   
+u2              male     age                 muscle                   nocog                     grip                   nocogspec               u2_male_age_muscle_nocog_grip_nocogspec.out                   
 u2              male     full                muscle                   nocog                     grip                   nocogspec               u2_male_full_muscle_nocog_grip_nocogspec.out                  
 u2              female   ae                  nophys                   fluency                   nophysspec             bostonnaming            u2_female_ae_nophys_fluency_nophysspec_bostonnaming.out       
 u2              female   ae                  nophys                   fluency                   nophysspec             category                u2_female_ae_nophys_fluency_nophysspec_category.out           
@@ -766,9 +762,9 @@ u2              female   aeh                 nophys                   fluency   
 u2              female   aehplus             nophys                   fluency                   nophysspec             bostonnaming            u2_female_aehplus_nophys_fluency_nophysspec_bostonnaming.out  
 u2              female   aehplus             nophys                   fluency                   nophysspec             category                u2_female_aehplus_nophys_fluency_nophysspec_category.out      
 u2              female   aehplus             nophys                   fluency                   nophysspec             fas                     u2_female_aehplus_nophys_fluency_nophysspec_fas.out           
-u2              female   a                   nophys                   fluency                   nophysspec             bostonnaming            u2_female_age_nophys_fluency_nophysspec_bostonnaming.out      
-u2              female   a                   nophys                   fluency                   nophysspec             category                u2_female_age_nophys_fluency_nophysspec_category.out          
-u2              female   a                   nophys                   fluency                   nophysspec             fas                     u2_female_age_nophys_fluency_nophysspec_fas.out               
+u2              female   age                 nophys                   fluency                   nophysspec             bostonnaming            u2_female_age_nophys_fluency_nophysspec_bostonnaming.out      
+u2              female   age                 nophys                   fluency                   nophysspec             category                u2_female_age_nophys_fluency_nophysspec_category.out          
+u2              female   age                 nophys                   fluency                   nophysspec             fas                     u2_female_age_nophys_fluency_nophysspec_fas.out               
 u2              female   full                nophys                   fluency                   nophysspec             bostonnaming            u2_female_full_nophys_fluency_nophysspec_bostonnaming.out     
 u2              female   full                nophys                   fluency                   nophysspec             category                u2_female_full_nophys_fluency_nophysspec_category.out         
 u2              female   full                nophys                   fluency                   nophysspec             fas                     u2_female_full_nophys_fluency_nophysspec_fas.out              
@@ -780,9 +776,9 @@ u2              male     aeh                 nophys                   fluency   
 u2              male     aeh                 nophys                   fluency                   nophysspec             fas                     u2_male_aeh_nophys_fluency_nophysspec_fas.out                 
 u2              male     aehplus             nophys                   fluency                   nophysspec             category                u2_male_aehplus_nophys_fluency_nophysspec_category.out        
 u2              male     aehplus             nophys                   fluency                   nophysspec             fas                     u2_male_aehplus_nophys_fluency_nophysspec_fas.out             
-u2              male     a                   nophys                   fluency                   nophysspec             bostonnaming            u2_male_age_nophys_fluency_nophysspec_bostonnaming.out        
-u2              male     a                   nophys                   fluency                   nophysspec             category                u2_male_age_nophys_fluency_nophysspec_category.out            
-u2              male     a                   nophys                   fluency                   nophysspec             fas                     u2_male_age_nophys_fluency_nophysspec_fas.out                 
+u2              male     age                 nophys                   fluency                   nophysspec             bostonnaming            u2_male_age_nophys_fluency_nophysspec_bostonnaming.out        
+u2              male     age                 nophys                   fluency                   nophysspec             category                u2_male_age_nophys_fluency_nophysspec_category.out            
+u2              male     age                 nophys                   fluency                   nophysspec             fas                     u2_male_age_nophys_fluency_nophysspec_fas.out                 
 u2              male     aheplus             nophys                   fluency                   nophysspec             bostonnaming            u2_male_aheplus_nophys_fluency_nophysspec_bostonnaming.out    
 u2              male     full                nophys                   fluency                   nophysspec             bostonnaming            u2_male_full_nophys_fluency_nophysspec_bostonnaming.out       
 u2              male     full                nophys                   fluency                   nophysspec             category                u2_male_full_nophys_fluency_nophysspec_category.out           
@@ -790,31 +786,31 @@ u2              male     full                nophys                   fluency   
 u2              female   ae                  nophys                   global                    nophysspec             mmse                    u2_female_ae_nophys_global_nophysspec_mmse.out                
 u2              female   aeh                 nophys                   global                    nophysspec             mmse                    u2_female_aeh_nophys_global_nophysspec_mmse.out               
 u2              female   aehplus             nophys                   global                    nophysspec             mmse                    u2_female_aehplus_nophys_global_nophysspec_mmse.out           
-u2              female   a                   nophys                   global                    nophysspec             mmse                    u2_female_age_nophys_global_nophysspec_mmse.out               
+u2              female   age                 nophys                   global                    nophysspec             mmse                    u2_female_age_nophys_global_nophysspec_mmse.out               
 u2              female   full                nophys                   global                    nophysspec             mmse                    u2_female_full_nophys_global_nophysspec_mmse.out              
 u2              male     ae                  nophys                   global                    nophysspec             mmse                    u2_male_ae_nophys_global_nophysspec_mmse.out                  
 u2              male     aeh                 nophys                   global                    nophysspec             mmse                    u2_male_aeh_nophys_global_nophysspec_mmse.out                 
 u2              male     aehplus             nophys                   global                    nophysspec             mmse                    u2_male_aehplus_nophys_global_nophysspec_mmse.out             
-u2              male     a                   nophys                   global                    nophysspec             mmse                    u2_male_age_nophys_global_nophysspec_mmse.out                 
+u2              male     age                 nophys                   global                    nophysspec             mmse                    u2_male_age_nophys_global_nophysspec_mmse.out                 
 u2              male     full                nophys                   global                    nophysspec             mmse                    u2_male_full_nophys_global_nophysspec_mmse.out                
-u2              female   a                   nophys                   knowledge                 nophysspec             information             u2_female_age_nophys_knoledge_nophysspec_information.out      
+u2              female   age                 nophys                   knoledge                  nophysspec             information             u2_female_age_nophys_knoledge_nophysspec_information.out      
 u2              female   ae                  nophys                   knowledge                 nophysspec             information             u2_female_ae_nophys_knowledge_nophysspec_information.out      
 u2              female   ae                  nophys                   knowledge                 nophysspec             waisvocab               u2_female_ae_nophys_knowledge_nophysspec_waisvocab.out        
 u2              female   aeh                 nophys                   knowledge                 nophysspec             information             u2_female_aeh_nophys_knowledge_nophysspec_information.out     
 u2              female   aeh                 nophys                   knowledge                 nophysspec             waisvocab               u2_female_aeh_nophys_knowledge_nophysspec_waisvocab.out       
 u2              female   aehplus             nophys                   knowledge                 nophysspec             information             u2_female_aehplus_nophys_knowledge_nophysspec_information.out 
-u2              female   aehplus             nophys                   knowledge                 nophysspec             waisvocab               u2_female_aehplus_nophys_knowledge_nophysSpec_wasivocab.out   
-u2              female   a                   nophys                   knowledge                 nophysspec             waisvocab               u2_female_age_nophys_knowledge_nophysspec_waisvocab.out       
+u2              female   aehplus             nophys                   knowledge                 nophysSpec             wasivocab               u2_female_aehplus_nophys_knowledge_nophysSpec_wasivocab.out   
+u2              female   age                 nophys                   knowledge                 nophysspec             waisvocab               u2_female_age_nophys_knowledge_nophysspec_waisvocab.out       
 u2              female   full                nophys                   knowledge                 nophysspec             information             u2_female_full_nophys_knowledge_nophysspec_information.out    
 u2              female   full                nophys                   knowledge                 nophysspec             waisvocab               u2_female_full_nophys_knowledge_nophysspec_waisvocab.out      
 u2              male     ae                  nophys                   knowledge                 nophysspec             information             u2_male_ae_nophys_knowledge_nophysspec_information.out        
 u2              male     ae                  nophys                   knowledge                 nophysspec             waisvocab               u2_male_ae_nophys_knowledge_nophysspec_waisvocab.out          
 u2              male     aeh                 nophys                   knowledge                 nophysspec             information             u2_male_aeh_nophys_knowledge_nophysspec_information.out       
-u2              male     aeh                 nophys                   knowledge                 nophysspec             waisvocab               u2_male_aeh_nophys_knowledge_nophysSpec_waisvocab.out         
+u2              male     aeh                 nophys                   knowledge                 nophysSpec             waisvocab               u2_male_aeh_nophys_knowledge_nophysSpec_waisvocab.out         
 u2              male     aehplus             nophys                   knowledge                 nophysspec             information             u2_male_aehplus_nophys_knowledge_nophysspec_information.out   
 u2              male     aehplus             nophys                   knowledge                 nophysspec             waisvocab               u2_male_aehplus_nophys_knowledge_nophysspec_waisvocab.out     
-u2              male     a                   nophys                   knowledge                 nophysspec             information             u2_male_age_nophys_knowledge_nophysspec_information.out       
-u2              male     a                   nophys                   knowledge                 nophysspec             waisvocab               u2_male_age_nophys_knowledge_nophysspec_waisvocab.out         
+u2              male     age                 nophys                   knowledge                 nophysspec             information             u2_male_age_nophys_knowledge_nophysspec_information.out       
+u2              male     age                 nophys                   knowledge                 nophysspec             waisvocab               u2_male_age_nophys_knowledge_nophysspec_waisvocab.out         
 u2              male     full                nophys                   knowledge                 nophysspec             information             u2_male_full_nophys_knowledge_nophysspec_information.out      
 u2              male     full                nophys                   knowledge                 nophysspec             waisvocab               u2_male_full_nophys_knowledge_nophysspec_waisvocab.out        
 u2              female   ae                  nophys                   memory                    nophysspec             digitspantotal          u2_female_ae_nophys_memory_nophysspec_digitspantotal.out      
@@ -823,8 +819,8 @@ u2              female   aeh                 nophys                   memory    
 u2              female   aeh                 nophys                   memory                    nophysspec             logicalmemory           u2_female_aeh_nophys_memory_nophysspec_logicalmemory.out      
 u2              female   aehplus             nophys                   memory                    nophysspec             digitspantotal          u2_female_aehplus_nophys_memory_nophysspec_digitspantotal.out 
 u2              female   aehplus             nophys                   memory                    nophysspec             logicalmemory           u2_female_aehplus_nophys_memory_nophysspec_logicalmemory.out  
-u2              female   a                   nophys                   memory                    nophysspec             digitspantotal          u2_female_age_nophys_memory_nophysspec_digitspantotal.out     
-u2              female   a                   nophys                   memory                    nophysspec             logicalmemory           u2_female_age_nophys_memory_nophysspec_logicalmemory.out      
+u2              female   age                 nophys                   memory                    nophysspec             digitspantotal          u2_female_age_nophys_memory_nophysspec_digitspantotal.out     
+u2              female   age                 nophys                   memory                    nophysspec             logicalmemory           u2_female_age_nophys_memory_nophysspec_logicalmemory.out      
 u2              female   full                nophys                   memory                    nophysspec             digitspantotal          u2_female_full_nophys_memory_nophysspec_digitspantotal.out    
 u2              female   full                nophys                   memory                    nophysspec             logicalmemory           u2_female_full_nophys_memory_nophysspec_logicalmemory.out     
 u2              male     ae                  nophys                   memory                    nophysspec             disigtspantotal         u2_male_ae_nophys_memory_nophysspec_disigtspantotal.out       
@@ -833,51 +829,51 @@ u2              male     aeh                 nophys                   memory    
 u2              male     aeh                 nophys                   memory                    nophysspec             logicalmemory           u2_male_aeh_nophys_memory_nophysspec_logicalmemory.out        
 u2              male     aehplus             nophys                   memory                    nophysspec             digitspantotal          u2_male_aehplus_nophys_memory_nophysspec_digitspantotal.out   
 u2              male     aehplus             nophys                   memory                    nophysspec             logicalmemory           u2_male_aehplus_nophys_memory_nophysspec_logicalmemory.out    
-u2              male     a                   nophys                   memory                    nophysspec             digitspantotal          u2_male_age_nophys_memory_nophysspec_digitspantotal.out       
-u2              male     a                   nophys                   memory                    nophysspec             logicalmemory           u2_male_age_nophys_memory_nophysspec_logicalmemory.out        
+u2              male     age                 nophys                   memory                    nophysspec             digitspantotal          u2_male_age_nophys_memory_nophysspec_digitspantotal.out       
+u2              male     age                 nophys                   memory                    nophysspec             logicalmemory           u2_male_age_nophys_memory_nophysspec_logicalmemory.out        
 u2              male     full                nophys                   memory                    nophysspec             logicalmemory           u2_male_full_nophys_memory_nophysspec_logicalmemory.out       
-u2              female   ae                  nophys                   executive                 nophysspec             trailsb                 u2_female_ae_noPhys_executive_noPhySpec_trailsb.out           
-u2              female   aeh                 nophys                   executive                 nophysspec             trailsb                 u2_female_aeh_noPhys_executive_noPhysSpec_trailsb.out         
-u2              female   aehplus             nophys                   executive                 nophysspec             trailsb                 u2_female_aehplus_noPhys_executive_noPhysSpec_trailsb.out     
-u2              female   a                   nophys                   executive                 nophysspec             trailsb                 u2_female_age_noPhys_executive_noPhySpec_trailsb.out          
-u2              female   full                nophys                   executive                 nophysspec             trailsb                 u2_female_full_noPhys_executive_noPhysSpec_trailsb.out        
-u2              male     ae                  nophys                   executive                 nophysspec             trailsb                 u2_male_ae_noPhys_executive_noPhySpec_trailsb.out             
-u2              male     aeh                 nophys                   executive                 nophysspec             trailsb                 u2_male_aeh_noPhys_executive_noPhysSpec_trailsb.out           
-u2              male     aehplus             nophys                   executive                 nophysspec             trailsb                 u2_male_aehplus_noPhys_executive_noPhysSpec_trailsb.out       
-u2              male     a                   nophys                   executive                 nophysspec             trailsb                 u2_male_age_noPhys_executive_noPhySpec_trailsb.out            
-u2              male     full                nophys                   executive                 nophysspec             trailsb                 u2_male_full_noPhys_executive_noPhysSpec_trailsb.out          
-u2              female   ae                  nophys                   reasoning                 nophysspec             block                   u2_female_ae_noPhys_reasoning_noPhysSpec_block.out            
-u2              female   aeh                 nophys                   reasoning                 nophysspec             block                   u2_female_aeh_noPhys_reasoning_noPhysSpec_block.out           
-u2              female   aehplus             nophys                   reasoning                 nophysspec             block                   u2_female_aehplus_noPhys_reasoning_noPhysSpec_block.out       
-u2              female   a                   nophys                   reasoning                 nophysspec             block                   u2_female_age_noPhys_reasoning_noPhysSpec_block.out           
-u2              female   full                nophys                   reasoning                 nophysspec             block                   u2_female_full_noPhys_reasoning_noPhysSec_block.out           
-u2              male     ae                  nophys                   reasoning                 nophysspec             block                   u2_male_ae_noPhys_reasoning_noPhysSpec_block.out              
-u2              male     aeh                 nophys                   reasoning                 nophysspec             block                   u2_male_aeh_noPhys_reasoning_noPhysSpec_block.out             
-u2              male     aehplus             nophys                   reasoning                 nophysspec             block                   u2_male_aehplus_noPhys_reasoning_noPhysSpec_block.out         
-u2              male     a                   nophys                   reasoning                 nophysspec             block                   u2_male_age_noPhys_reasoning_noPhysSpec_block.out             
-u2              male     full                nophys                   reasoning                 nophysspec             block                   u2_male_full_noPhys_reasoning_noPhysSec_block.out             
-u2              female   ae                  nophys                   speed                     nophysspec             digitsymbol             u2_female_ae_noPhys_speed_noPhysSpec_digitsymbol.out          
-u2              female   aeh                 nophys                   speed                     nophysspec             digitsymbol             u2_female_aeh_noPhys_speed_noPhysSpec_digitsymbol.out         
-u2              female   aehplus             nophys                   speed                     nophysspec             digitsymbol             u2_female_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out     
-u2              female   a                   nophys                   speed                     nophysspec             digitsymbol             u2_female_age_noPhys_speed_noPhysSpec_digitsymbol.out         
-u2              female   full                nophys                   speed                     nophysspec             digitsymbol             u2_female_full_noPhys_speed_noPhysSpec_digitsymbol.out        
-u2              male     ae                  nophys                   speed                     nophysspec             digitsymbol             u2_male_ae_noPhys_speed_noPhysSpec_digitsymbol.out            
-u2              male     aeh                 nophys                   speed                     nophysspec             digitsymbol             u2_male_aeh_noPhys_speed_noPhysSpec_digitsymbol.out           
-u2              male     aehplus             nophys                   speed                     nophysspec             digitsymbol             u2_male_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out       
-u2              male     a                   nophys                   speed                     nophysspec             digitsymbol             u2_male_age_noPhys_speed_noPhysSpec_digitsymbol.out           
-u2              male     full                nophys                   speed                     nophysspec             digitsymbol             u2_male_full_noPhys_speed_noPhysSpec_digitsymbol.out          
-u2              male     full                nophys                   memory                    nophysspec             digitspantotal          u2_male_full_nophysspec_memory_nophysspec_digitspantotal.out  
-u2              male     a                   pulmonary                executive                 pek                    trailsb                 u2_male_age_pulmonary_executive_pek_trailsB.out               
-u2              female   ae                  pulmonary                nocog                     pek                    nocogspec               u2_female_ae_pulmonary_noCog_pek_noCogSpec.out                
-u2              female   aeh                 pulmonary                nocog                     pek                    nocogspec               u2_female_aeh_pulmonary_noCog_pek_noCogSpec.out               
-u2              female   aehplus             pulmonary                nocog                     pek                    nocogspec               u2_female_aehplus_pulmonary_noCog_pek_noCogSpec.out           
-u2              female   a                   pulmonary                nocog                     pek                    nocogspec               u2_female_age_pulmonary_noCog_pek_noCogSpec.out               
-u2              female   full                pulmonary                nocog                     pek                    nocogspec               u2_female_full_pulmonary_noCog_pek_noCogSpec.out              
-u2              male     ae                  pulmonary                nocog                     pek                    nocogspec               u2_male_ae_pulmonary_noCog_pek_noCogSpec.out                  
-u2              male     aeh                 pulmonary                nocog                     pek                    nocogspec               u2_male_aeh_pulmonary_noCog_pek_noCogSpec.out                 
-u2              male     aehplus             pulmonary                nocog                     pek                    nocogspec               u2_male_aehplus_pulmonary_noCog_pek_noCogSpec.out             
-u2              male     a                   pulmonary                nocog                     pek                    nocogspec               u2_male_age_pulmonary_noCog_pek_noCogSpec.out                 
-u2              male     full                pulmonary                nocog                     pek                    nocogspec               u2_male_full_pulmonary_noCog_pek_noCogSpec.out                
+u2              female   ae                  noPhys                   executive                 noPhySpec              trailsb                 u2_female_ae_noPhys_executive_noPhySpec_trailsb.out           
+u2              female   aeh                 noPhys                   executive                 noPhysSpec             trailsb                 u2_female_aeh_noPhys_executive_noPhysSpec_trailsb.out         
+u2              female   aehplus             noPhys                   executive                 noPhysSpec             trailsb                 u2_female_aehplus_noPhys_executive_noPhysSpec_trailsb.out     
+u2              female   age                 noPhys                   executive                 noPhySpec              trailsb                 u2_female_age_noPhys_executive_noPhySpec_trailsb.out          
+u2              female   full                noPhys                   executive                 noPhysSpec             trailsb                 u2_female_full_noPhys_executive_noPhysSpec_trailsb.out        
+u2              male     ae                  noPhys                   executive                 noPhySpec              trailsb                 u2_male_ae_noPhys_executive_noPhySpec_trailsb.out             
+u2              male     aeh                 noPhys                   executive                 noPhysSpec             trailsb                 u2_male_aeh_noPhys_executive_noPhysSpec_trailsb.out           
+u2              male     aehplus             noPhys                   executive                 noPhysSpec             trailsb                 u2_male_aehplus_noPhys_executive_noPhysSpec_trailsb.out       
+u2              male     age                 noPhys                   executive                 noPhySpec              trailsb                 u2_male_age_noPhys_executive_noPhySpec_trailsb.out            
+u2              male     full                noPhys                   executive                 noPhysSpec             trailsb                 u2_male_full_noPhys_executive_noPhysSpec_trailsb.out          
+u2              female   ae                  noPhys                   reasoning                 noPhysSpec             block                   u2_female_ae_noPhys_reasoning_noPhysSpec_block.out            
+u2              female   aeh                 noPhys                   reasoning                 noPhysSpec             block                   u2_female_aeh_noPhys_reasoning_noPhysSpec_block.out           
+u2              female   aehplus             noPhys                   reasoning                 noPhysSpec             block                   u2_female_aehplus_noPhys_reasoning_noPhysSpec_block.out       
+u2              female   age                 noPhys                   reasoning                 noPhysSpec             block                   u2_female_age_noPhys_reasoning_noPhysSpec_block.out           
+u2              female   full                noPhys                   reasoning                 noPhysSec              block                   u2_female_full_noPhys_reasoning_noPhysSec_block.out           
+u2              male     ae                  noPhys                   reasoning                 noPhysSpec             block                   u2_male_ae_noPhys_reasoning_noPhysSpec_block.out              
+u2              male     aeh                 noPhys                   reasoning                 noPhysSpec             block                   u2_male_aeh_noPhys_reasoning_noPhysSpec_block.out             
+u2              male     aehplus             noPhys                   reasoning                 noPhysSpec             block                   u2_male_aehplus_noPhys_reasoning_noPhysSpec_block.out         
+u2              male     age                 noPhys                   reasoning                 noPhysSpec             block                   u2_male_age_noPhys_reasoning_noPhysSpec_block.out             
+u2              male     full                noPhys                   reasoning                 noPhysSec              block                   u2_male_full_noPhys_reasoning_noPhysSec_block.out             
+u2              female   ae                  noPhys                   speed                     noPhysSpec             digitsymbol             u2_female_ae_noPhys_speed_noPhysSpec_digitsymbol.out          
+u2              female   aeh                 noPhys                   speed                     noPhysSpec             digitsymbol             u2_female_aeh_noPhys_speed_noPhysSpec_digitsymbol.out         
+u2              female   aehplus             noPhys                   speed                     noPhysSpec             digitsymbol             u2_female_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out     
+u2              female   age                 noPhys                   speed                     noPhysSpec             digitsymbol             u2_female_age_noPhys_speed_noPhysSpec_digitsymbol.out         
+u2              female   full                noPhys                   speed                     noPhysSpec             digitsymbol             u2_female_full_noPhys_speed_noPhysSpec_digitsymbol.out        
+u2              male     ae                  noPhys                   speed                     noPhysSpec             digitsymbol             u2_male_ae_noPhys_speed_noPhysSpec_digitsymbol.out            
+u2              male     aeh                 noPhys                   speed                     noPhysSpec             digitsymbol             u2_male_aeh_noPhys_speed_noPhysSpec_digitsymbol.out           
+u2              male     aehplus             noPhys                   speed                     noPhysSpec             digitsymbol             u2_male_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out       
+u2              male     age                 noPhys                   speed                     noPhysSpec             digitsymbol             u2_male_age_noPhys_speed_noPhysSpec_digitsymbol.out           
+u2              male     full                noPhys                   speed                     noPhysSpec             digitsymbol             u2_male_full_noPhys_speed_noPhysSpec_digitsymbol.out          
+u2              male     full                nophysspec               memory                    nophysspec             digitspantotal          u2_male_full_nophysspec_memory_nophysspec_digitspantotal.out  
+u2              male     age                 pulmonary                executive                 pek                    trailsB                 u2_male_age_pulmonary_executive_pek_trailsB.out               
+u2              female   ae                  pulmonary                noCog                     pek                    noCogSpec               u2_female_ae_pulmonary_noCog_pek_noCogSpec.out                
+u2              female   aeh                 pulmonary                noCog                     pek                    noCogSpec               u2_female_aeh_pulmonary_noCog_pek_noCogSpec.out               
+u2              female   aehplus             pulmonary                noCog                     pek                    noCogSpec               u2_female_aehplus_pulmonary_noCog_pek_noCogSpec.out           
+u2              female   age                 pulmonary                noCog                     pek                    noCogSpec               u2_female_age_pulmonary_noCog_pek_noCogSpec.out               
+u2              female   full                pulmonary                noCog                     pek                    noCogSpec               u2_female_full_pulmonary_noCog_pek_noCogSpec.out              
+u2              male     ae                  pulmonary                noCog                     pek                    noCogSpec               u2_male_ae_pulmonary_noCog_pek_noCogSpec.out                  
+u2              male     aeh                 pulmonary                noCog                     pek                    noCogSpec               u2_male_aeh_pulmonary_noCog_pek_noCogSpec.out                 
+u2              male     aehplus             pulmonary                noCog                     pek                    noCogSpec               u2_male_aehplus_pulmonary_noCog_pek_noCogSpec.out             
+u2              male     age                 pulmonary                noCog                     pek                    noCogSpec               u2_male_age_pulmonary_noCog_pek_noCogSpec.out                 
+u2              male     full                pulmonary                noCog                     pek                    noCogSpec               u2_male_full_pulmonary_noCog_pek_noCogSpec.out                
 
 ## u0
 
@@ -888,8 +884,8 @@ u0              female   empty               muscle                   nocog     
 u0              male     empty               muscle                   nocog                     grip                   nocogspec               u0_male_empty_muscle_nocog_grip_nocogspec.out         
 u0              female   empty               nophys                   reasoning                 nophysspec             block                   u0_female_empty_nophys_reasoning_nophysspec_block.out 
 u0              male     empty               nophys                   reasoning                 nophysspec             block                   u0_male_empty_nophys_reasoning_nophysspec_block.out   
-u0              female   empty               pulmonary                nocog                     pek                    nocogspec               u0_female_empty_pulmonary_noCog_pek_noCogSpec.out     
-u0              male     empty               pulmonary                nocog                     pek                    nocogspec               u0_male_empty_pulmonary_noCog_pek_noCogSpec.out       
+u0              female   empty               pulmonary                noCog                     pek                    noCogSpec               u0_female_empty_pulmonary_noCog_pek_noCogSpec.out     
+u0              male     empty               pulmonary                noCog                     pek                    noCogSpec               u0_male_empty_pulmonary_noCog_pek_noCogSpec.out       
 
 
 # Session Information
@@ -897,7 +893,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-05-26, 09:48 -0700
+Report rendered by koval_000 at 2015-05-26, 12:03 -0700
 ```
 
 ```
