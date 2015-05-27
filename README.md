@@ -22,6 +22,11 @@
 - [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html) - [Deborah Finkel](mailto:dfinkel@ius.edu)
 
 
+#### Catalog of names  
+  Different studies may have the data for the same measures, but modelers may name them differently in their models, which results in our scripts treating them as different measures. To avoid this, please consult our [Catalog of names](https://github.com/IALSA/IALSA-2015-Portland/blob/master/Catalog of names.md) and make sure that your models reflect the convention established there. Any member of the collective can [edit the catalog](https://github.com/IALSA/IALSA-2015-Portland/edit/master/Catalog of names.md) and we encourage you to do so: this will greatly increase the replicability effect of the project. 
+  
+
+
 #### Contact IALSA team
 
  - [Andrey Koval](mailto:andkov@uvic.ca)  
