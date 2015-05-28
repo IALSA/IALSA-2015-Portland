@@ -1,13 +1,14 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-02/25/2015   8:24 AM
+05/25/2015  12:25 AM
 
 INPUT INSTRUCTIONS
 
   TITLE: M1 Pulmonary Function, Linear LGM, Age Conditional, digit symbol, Female
 
   Data:
-  	File is radc_wide.dat;
+  	File is
+  Z:\data\Data_IALSA\RADC\DATASETS\DERIVED\radcMAP_wide.dat;
   Variable:
   	Names are
   projid study_x scaled_to_x agreeableness conscientiousness extraversion
@@ -297,24 +298,23 @@ INPUT INSTRUCTIONS
   wtkg_13 wtkg_14 wtkg_15 wtkg_16 wtkg_17 wtkg_18 wtkg_19 wtkg_20 T0 T1 T2 T3 T4
   T5 T6 T7 T8 T9 T10 T11 T12 T13 T14 T15 T16 T17 T18 T19 T20;
 
-
            Missing are all (-9999);
            USEVAR are  time1-time5 p1-p5 c1-c5 Bage;
            TSCORES =   time1-time5;
 
-           USEOBSERVATIONS are dementia_01 NE 1 and dementia_02 NE 1 and
+           USEOBSERVATIONS are study_x EQ 1 dementia_01 NE 1 and dementia_02 NE 1 and
               dementia_03 NE 1 and dementia_04 NE 1 and dementia_05 NE 1 and
               dementia_06 NE 1 and dementia_07 NE 1 and dementia_08 NE 1 and
               dementia_09 NE 1 and dementia_10 NE 1 and dementia_11 NE 1 and
               dementia_12 NE 1 and dementia_13 NE 1 and dementia_14 NE 1 and
               dementia_15 NE 1 and dementia_16 NE 1 and dementia_17 NE 1 and
               dementia_18 NE 1 and dementia_19 NE 1 and dementia_20 NE 1 and
-              msex EQ 0;
+               msex EQ 0;
 
     Define: p1=gripavg_00; p2=gripavg_01; p3=gripavg_02; p4=gripavg_03;
      p5=gripavg_04;
-            c1=cts_lopair_00; c2=cts_lopair_01; c3=cts_lopair_02;
-            c4=cts_lopair_03; c5=cts_lopair_04;
+            c1=cts_sdmt_00; c2=cts_sdmt_01; c3=cts_sdmt_02;
+            c4=cts_sdmt_03; c5=cts_sdmt_04;
 
             time1=T0; time2 =T1; time3=T2; time4=T3; time5=T4;
 
@@ -343,7 +343,7 @@ INPUT INSTRUCTIONS
 
 
   ANALYSIS: TYPE = RANDOM;
-            COVERAGE=.05;
+            !COVERAGE=.05;
 
   MODEL:  ip sp | p1-p5 AT time1-time5;
           ic sc | c1-c5 AT time1-time5;
@@ -359,361 +359,15 @@ INPUT INSTRUCTIONS
 
 
 
-
-
 *** WARNING
   Input line exceeded 90 characters. Some input may be truncated.
           p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across time
-*** WARNING
-  Data set contains cases with missing on all variables.
-  These cases were not included in the analysis.
-  Number of cases with missing on all variables:  1
-*** WARNING
-  Data set contains cases with missing on all variables except
-  x-variables.  These cases were not included in the analysis.
-  Number of cases with missing on all variables except x-variables:  187
-   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
-
-
-
-M1 Pulmonary Function, Linear LGM, Age Conditional, digit symbol, Female
-
-SUMMARY OF ANALYSIS
-
-Number of groups                                                 1
-Number of observations                                        1950
-
-Number of dependent variables                                   10
-Number of independent variables                                  1
-Number of continuous latent variables                            4
-
-Observed dependent variables
-
-  Continuous
-   P1          P2          P3          P4          P5          C1
-   C2          C3          C4          C5
-
-Observed independent variables
-   BAGE
-
-Continuous latent variables
-   IP          SP          IC          SC
-
-Variables with special functions
-
-  Time scores
-   TIME1       TIME2       TIME3       TIME4       TIME5
-
-
-Estimator                                                      MLR
-Information matrix                                        OBSERVED
-Maximum number of iterations                                   100
-Convergence criterion                                    0.100D-05
-Maximum number of EM iterations                                500
-Convergence criteria for the EM algorithm
-  Loglikelihood change                                   0.100D-02
-  Relative loglikelihood change                          0.100D-05
-  Derivative                                             0.100D-03
-Minimum variance                                         0.100D-03
-Maximum number of steepest descent iterations                   20
-Maximum number of iterations for H1                           2000
-Convergence criterion for H1                             0.100D-03
-Optimization algorithm                                         EMA
-
-Input data file(s)
-  radc_wide.dat
-Input data format  FREE
-
-
-SUMMARY OF DATA
-
-     Number of missing data patterns           143
-
-
-COVARIANCE COVERAGE OF DATA
-
-Minimum covariance coverage value   0.050
-
-
-     PROPORTION OF DATA PRESENT
-
-
-           Covariance Coverage
-              P1            P2            P3            P4            P5
-              ________      ________      ________      ________      ________
- P1             0.824
- P2             0.507         0.535
- P3             0.379         0.357         0.436
- P4             0.268         0.256         0.285         0.402
- P5             0.183         0.171         0.201         0.268         0.308
- C1             0.816         0.530         0.433         0.397         0.306
- C2             0.666         0.526         0.419         0.387         0.293
- C3             0.552         0.440         0.427         0.384         0.293
- C4             0.442         0.372         0.350         0.392         0.295
- C5             0.372         0.307         0.288         0.316         0.298
- BAGE           0.824         0.535         0.436         0.402         0.308
-
-
-           Covariance Coverage
-              C1            C2            C3            C4            C5
-              ________      ________      ________      ________      ________
- C1             0.990
- C2             0.814         0.816
- C3             0.696         0.671         0.698
- C4             0.578         0.560         0.555         0.580
- C5             0.501         0.484         0.477         0.470         0.501
- BAGE           0.990         0.816         0.698         0.580         0.501
-
-
-           Covariance Coverage
-              BAGE
-              ________
- BAGE           1.000
-
-
-SAMPLE STATISTICS
-
-
-     ESTIMATED SAMPLE STATISTICS
-
-
-           Means
-              P1            P2            P3            P4            P5
-              ________      ________      ________      ________      ________
- 1             44.993        43.965        42.977        41.744        40.930
-
-
-           Means
-              C1            C2            C3            C4            C5
-              ________      ________      ________      ________      ________
- 1              9.138         9.361         9.293         9.281         9.118
-
-
-           Means
-              BAGE
-              ________
- 1              6.265
-
-
-           Covariances
-              P1            P2            P3            P4            P5
-              ________      ________      ________      ________      ________
- P1           187.166
- P2           164.585       193.009
- P3           160.159       164.095       184.013
- P4           162.779       168.278       167.600       195.023
- P5           163.458       168.938       164.947       175.369       197.972
- C1             4.760         4.257         5.541         4.423         5.396
- C2             3.579         3.512         3.888         3.460         2.991
- C3             3.375         3.866         5.033         4.466         4.735
- C4             5.042         4.616         5.386         5.180         5.373
- C5             3.466         3.995         4.264         4.011         4.457
- BAGE         -53.226       -55.609       -56.364       -56.975       -57.550
-
-
-           Covariances
-              C1            C2            C3            C4            C5
-              ________      ________      ________      ________      ________
- C1             9.990
- C2             6.012        10.107
- C3             5.914         6.259        10.189
- C4             5.907         6.177         6.142         9.737
- C5             5.806         5.599         5.918         6.246        10.163
- BAGE          -1.695        -1.340        -1.726        -2.051        -1.536
-
-
-           Covariances
-              BAGE
-              ________
- BAGE          61.664
-
-
-           Correlations
-              P1            P2            P3            P4            P5
-              ________      ________      ________      ________      ________
- P1             1.000
- P2             0.866         1.000
- P3             0.863         0.871         1.000
- P4             0.852         0.867         0.885         1.000
- P5             0.849         0.864         0.864         0.893         1.000
- C1             0.110         0.097         0.129         0.100         0.121
- C2             0.082         0.080         0.090         0.078         0.067
- C3             0.077         0.087         0.116         0.100         0.105
- C4             0.118         0.106         0.127         0.119         0.122
- C5             0.079         0.090         0.099         0.090         0.099
- BAGE          -0.495        -0.510        -0.529        -0.520        -0.521
-
-
-           Correlations
-              C1            C2            C3            C4            C5
-              ________      ________      ________      ________      ________
- C1             1.000
- C2             0.598         1.000
- C3             0.586         0.617         1.000
- C4             0.599         0.623         0.617         1.000
- C5             0.576         0.552         0.582         0.628         1.000
- BAGE          -0.068        -0.054        -0.069        -0.084        -0.061
-
-
-           Correlations
-              BAGE
-              ________
- BAGE           1.000
-
-
-     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -40343.675
-
-
-UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
-
-     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
-         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
-        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
-
-     P1                   44.716       0.251       0.000    0.19%      33.250     41.000     43.750
-            1606.000     189.251       0.256      97.750    0.06%      47.500     56.250
-     P2                   43.368       0.198       0.000    0.10%      32.000     39.250     42.500
-            1043.000     181.960       0.086      89.000    0.10%      45.750     54.500
-     P3                   43.231       0.214       0.000    0.12%      32.250     39.250     42.500
-             851.000     178.809       0.006      88.750    0.12%      46.000     54.500
-     P4                   42.357       0.282       6.000    0.13%      30.500     38.250     41.375
-             784.000     180.473      -0.178      83.750    0.13%      45.250     53.750
-     P5                   42.530       0.234       0.000    0.33%      30.500     38.250     41.500
-             601.000     191.683       0.065      83.500    0.17%      45.250     53.500
-     C1                    9.144      -0.441       0.000    0.67%       7.000      9.000      9.000
-            1931.000       9.989      -0.161      15.000    1.97%      10.000     12.000
-     C2                    9.467      -0.388       0.000    0.25%       7.000      9.000     10.000
-            1592.000       9.893      -0.337      15.000    3.39%      10.000     12.000
-     C3                    9.515      -0.412       0.000    0.37%       7.000      9.000     10.000
-            1361.000       9.868      -0.271      15.000    3.67%      11.000     12.000
-     C4                    9.656      -0.348       1.000    0.62%       7.000      9.000     10.000
-            1131.000       9.372      -0.338      15.000    4.51%      11.000     13.000
-     C5                    9.535      -0.521       0.000    0.61%       7.000      9.000     10.000
-             977.000       9.725      -0.082      15.000    2.66%      11.000     12.000
-     BAGE                  6.265       0.090     -16.653    0.05%      -1.162      3.807      6.088
-            1950.000      61.664      -0.456      29.811    0.05%       8.582     13.351
-
-
-THE MODEL ESTIMATION TERMINATED NORMALLY
-
-
-
-MODEL FIT INFORMATION
-
-Number of Free Parameters                       21
-
-Loglikelihood
-
-          H0 Value                      -33589.966
-          H0 Scaling Correction Factor      1.1766
-            for MLR
-
-Information Criteria
-
-          Akaike (AIC)                   67221.932
-          Bayesian (BIC)                 67339.020
-          Sample-Size Adjusted BIC       67272.302
-            (n* = (n + 2) / 24)
-
-
-
-MODEL RESULTS
-
-                                                    Two-Tailed
-                    Estimate       S.E.  Est./S.E.    P-Value
-
- IP         ON
-    BAGE              -0.868      0.036    -24.063      0.000
-
- SP         ON
-    BAGE              -0.020      0.009     -2.340      0.019
-
- IC         ON
-    BAGE              -0.026      0.008     -3.130      0.002
-
- SC         ON
-    BAGE               0.000      0.002     -0.049      0.961
-
- SP       WITH
-    IP                -1.308      0.980     -1.334      0.182
-
- IC       WITH
-    IP                 2.794      0.899      3.108      0.002
-    SP                 0.033      0.251      0.133      0.894
-
- SC       WITH
-    IP                -0.093      0.271     -0.343      0.732
-    SP                 0.016      0.062      0.261      0.794
-    IC                -0.088      0.065     -1.353      0.176
-
- P1       WITH
-    C1                 0.238      0.189      1.256      0.209
-
- P2       WITH
-    C2                 0.238      0.189      1.256      0.209
-
- P3       WITH
-    C3                 0.238      0.189      1.256      0.209
-
- P4       WITH
-    C4                 0.238      0.189      1.256      0.209
-
- P5       WITH
-    C5                 0.238      0.189      1.256      0.209
-
- Intercepts
-    P1                 0.000      0.000    999.000    999.000
-    P2                 0.000      0.000    999.000    999.000
-    P3                 0.000      0.000    999.000    999.000
-    P4                 0.000      0.000    999.000    999.000
-    P5                 0.000      0.000    999.000    999.000
-    C1                 0.000      0.000    999.000    999.000
-    C2                 0.000      0.000    999.000    999.000
-    C3                 0.000      0.000    999.000    999.000
-    C4                 0.000      0.000    999.000    999.000
-    C5                 0.000      0.000    999.000    999.000
-    IP                50.419      0.388    129.844      0.000
-    SP                -0.896      0.096     -9.290      0.000
-    IC                 9.407      0.087    107.566      0.000
-    SC                -0.004      0.022     -0.165      0.869
-
- Residual Variances
-    P1                23.464      1.026     22.873      0.000
-    P2                23.464      1.026     22.873      0.000
-    P3                23.464      1.026     22.873      0.000
-    P4                23.464      1.026     22.873      0.000
-    P5                23.464      1.026     22.873      0.000
-    C1                 3.927      0.122     32.129      0.000
-    C2                 3.927      0.122     32.129      0.000
-    C3                 3.927      0.122     32.129      0.000
-    C4                 3.927      0.122     32.129      0.000
-    C5                 3.927      0.122     32.129      0.000
-    IP               117.527      5.222     22.507      0.000
-    SP                 0.852      0.280      3.046      0.002
-    IC                 6.140      0.291     21.086      0.000
-    SC                 0.049      0.024      2.050      0.040
-
-
-QUALITY OF NUMERICAL RESULTS
-
-     Condition Number for the Information Matrix              0.440E-04
-       (ratio of smallest to largest eigenvalue)
-
-
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    c:\users\cassandra\documents\github\ialsa-2015-portland\studies\radc\unshared\brown\b1_female_ag
-
-     Beginning Time:  08:24:20
-        Ending Time:  08:24:37
-       Elapsed Time:  00:00:17
-
+*** ERROR
+  The number of observations is 0.  Check your data and format statement.
+  Data file:  c:\users\cassandra\documents\github\ialsa-2015-portland\studies\radc\unshared\brown\ra
+*** ERROR
+  Invalid symbol in data file:
+  "MAP" at record #: 1, field #: 2
 
 
 MUTHEN & MUTHEN
