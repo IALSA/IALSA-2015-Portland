@@ -12,19 +12,19 @@ Please abide by the following naming rules
 
 ## Cognitive measures
 
-|Full name                |Common name  | EAS  | HABC | ILSE | NAS  | NuAge| OBAS | OCTO | RADC | SATSA|
-|-------------------------|-------------|------|------|------|------|------|------|------|------|------|
-|WAIS Block Design        |waisblock    |  X   |      |  X   |      |      |      |  X   |      |      |
-|Boston Naming            |bnt          |  X   |      |      |      |      |      |      |  X   |      |
-|Category                 |catfluency   |  X   |      |      |      |      |      |      |  X   |      |
-|WAIS Digit Span          |waisdigspant |  X   |      |      |      |      |      |  X   |  X   |      |
-|WAIS Digit symbol        |waisdigsymbol|  X   |      |  X   |      |      |      |  X   |  X   |      |
-|FAS                      |fas          |  X   |      |      |      |      |      |      |      |      |
-|Information              |waisinfo     |  X   |      |  X   |      |      |      |  X   |      |      |
-|WAIS Logical Memory      |waisLM       |  X   |      |      |      |      |      |      |      |      |
-|MMSE                     |mmse         |  X   |      |      |      |      |      |  X   |  X   |      |
-|Trails B                 |trailsb      |  X   |      |      |      |      |      |      |      |      |
-|WAIS Vocab               |waisvocab    |  X   |      |      |      |      |      |      |      |      |
+|Full name                |Common name  | EAS           | HABC | ILSE | NAS  | NuAge| OBAS | OCTO | RADC | SATSA|
+|-------------------------|-------------|---------------|------|------|------|------|------|------|------|------|
+|WAIS Block Design        |waisblock    |waisblock      |      |  X   |      |      |      |  X   |      |      |
+|Boston Naming            |bnt          |bnt            |      |      |      |      |      |      |  X   |      |
+|Category                 |catfluency   |catfluency     |      |      |      |      |      |      |  X   |      |
+|WAIS Digit Span          |waisdigspant |waisdigitspant |      |      |      |      |      |  X   |  X   |      |
+|WAIS Digit symbol        |waisdigsymbol|waisdigitsymbol|      |  X   |      |      |      |  X   |  X   |      |
+|FAS                      |fas          |  X            |      |      |      |      |      |      |      |      |
+|Information              |waisinfo     |waisinfo       |      |  X   |      |      |      |  X   |      |      |
+|WAIS Logical Memory      |waisLM       |waisLM         |      |      |      |      |      |      |      |      |
+|MMSE                     |mmse         |  X            |      |      |      |      |      |  X   |  X   |      |
+|Trails B                 |trailsb      |  X            |      |      |      |      |      |      |      |      |
+|WAIS Vocab               |waisvocab    |  X            |      |      |      |      |      |      |      |      |
 
 
 ## Physical measures
