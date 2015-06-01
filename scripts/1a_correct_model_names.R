@@ -86,6 +86,7 @@ ds[ds$model_type=="aheplus","model_type"] <- "aehplus"
 
 #### Corrections to PHYSICAL construct ####
 ds[ds$physical_construct=="nophysspec","physical_construct"] <- "nophys"
+ds[ds$physical_construct=="pumonary","physical_construct"] <- "pulmonary"
 
 #### Correction to PHYSICAL measure ####
 ds[ds$cognitive_construct %in% c(" knowledge", "knoledge", "knowlegde"),"cognitive_construct"] <- "knowledge"
