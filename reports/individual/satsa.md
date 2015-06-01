@@ -42,14 +42,14 @@ Your study
 has provided us with the total number of 
 
 ```
-59
+92
 ```
 models, using univariate and bivariate specifications:
 
 ```
 
 b1 
-59 
+92 
 ```
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
@@ -108,72 +108,13 @@ The exact spelling of the explicit absence is not very important: *noPhys*, *nop
 The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and measures were used in your models:
 
 ```
-             ds$output_file[!is_valid]
-1         b1_female_ae_gait_memory.out
-2        b1_female_aec_gait_memory.out
-3        b1_female_age_gait_memory.out
-4           b1_male_ae_gait_memory.out
-5          b1_male_age_gait_memory.out
-6        b1_female_ae_gait_spatial.out
-7       b1_female_aec_gait_spatial.out
-8       b1_female_age_gait_spatial.out
-9          b1_male_ae_gait_spatial.out
-10        b1_male_age_gait_spatial.out
-11         b1_female_ae_gait_speed.out
-12        b1_female_aec_gait_speed.out
-13        b1_female_age_gait_speed.out
-14           b1_male_ae_gait_speed.out
-15          b1_male_age_gait_speed.out
-16        b1_female_ae_gait_verbal.out
-17       b1_female_aec_gait_verbal.out
-18       b1_female_age_gait_verbal.out
-19          b1_male_ae_gait_verbal.out
-20         b1_male_age_gait_verbal.out
-21        b1_female_ae_grip_memory.out
-22       b1_female_aec_grip_memory.out
-23       b1_female_age_grip_memory.out
-24          b1_male_ae_grip_memory.out
-25         b1_male_age_grip_memory.out
-26       b1_female_ae_grip_spatial.out
-27      b1_female_aec_grip_spatial.out
-28      b1_female_age_grip_spatial.out
-29         b1_male_ae_grip_spatial.out
-30        b1_male_age_grip_spatial.out
-31         b1_female_ae_grip_speed.out
-32        b1_female_aec_grip_speed.out
-33        b1_female_age_grip_speed.out
-34           b1_male_ae_grip_speed.out
-35          b1_male_age_grip_speed.out
-36        b1_female_ae_grip_verbal.out
-37       b1_female_aec_grip_verbal.out
-38       b1_female_age_grip_verbal.out
-39          b1_male_ae_grip_verbal.out
-40         b1_male_age_grip_verbal.out
-41   b1_female_ae_pulmonary_memory.out
-42  b1_female_aec_pulmonary_memory.out
-43  b1_female_age_pulmonary_memory.out
-44     b1_male_ae_pulmonary_memory.out
-45    b1_male_age_pulmonary_memory.out
-46  b1_female_ae_pulmonary_spatial.out
-47 b1_female_aec_pulmonary_spatial.out
-48 b1_female_age_pulmonary_spatial.out
-49    b1_male_ae_pulmonary_spatial.out
-50   b1_male_age_pulmonary_spatial.out
-51    b1_female_ae_pulmonary_speed.out
-52   b1_female_aec_pulmonary_speed.out
-53   b1_female_age_pulmonary_speed.out
-54      b1_male_ae_pulmonary_speed.out
-55     b1_male_age_pulmonary_speed.out
-56   b1_female_ae_pulmonary_verbal.out
-57  b1_female_aec_pulmonary_verbal.out
-58     b1_male_ae_pulmonary_verbal.out
-59    b1_male_age_pulmonary_verbal.out
+All your models were named properly
 ```
 
 After removing incorrectly named files, there are
 
 ```
-0
+92
 ```
 models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
 
@@ -184,7 +125,10 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-Empty category
+           
+            b1
+  muscle    46
+  pulmonary 46
 ```
 
 
@@ -192,14 +136,21 @@ Empty category
 
 
 ```
-Empty category
+      
+       b1
+  fev  46
+  grip 46
 ```
 
 ## Cognitive constructs
 
 
 ```
-Empty category
+           
+            b1
+  global    16
+  knowledge 48
+  speed     28
 ```
 
 
@@ -207,7 +158,14 @@ Empty category
 
 
 ```
-Empty category
+        
+         b1
+  anal   16
+  figid  12
+  info   16
+  mmse   16
+  symbol 16
+  synon  16
 ```
 </br></br></br>
 
@@ -220,14 +178,24 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE models
 
 ```
-Empty category
+      
+       muscle pulmonary
+  fev  .      46       
+  grip 46     .        
 ```
 
 ## Cognitive 
 Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE models
 
 ```
-Empty category
+        
+         global knowledge speed
+  anal   .      16        .    
+  figid  .      .         12   
+  info   .      16        .    
+  mmse   16     .         .    
+  symbol .      .         16   
+  synon  .      16        .    
 ```
 
 
@@ -236,28 +204,50 @@ Number of models with the following **physical constructs** (columns) and  **cog
 
 
 ```
-Empty category
+           
+            muscle pulmonary
+  global    8      8        
+  knowledge 24     24       
+  speed     14     14       
 ```
 
 ## Phys.Constructs
 Number of models with the following  **physical constructs** (columns) and  **cognitive measures** (rows)
 
 ```
-Empty category
+        
+         muscle pulmonary
+  anal   8      8        
+  figid  6      6        
+  info   8      8        
+  mmse   8      8        
+  symbol 8      8        
+  synon  8      8        
 ```
 
 ## Cog.Constructs
 Number of models with the following  **physical measure** (columns) and  **cognitive constructs** (rows)
 
 ```
-Empty category
+           
+            fev grip
+  global    8   8   
+  knowledge 24  24  
+  speed     14  14  
 ```
 
 ## Measures
 Number of models with the following  **physical measures** (columns) and  **cognitive measures** (rows)
 
 ```
-Empty category
+        
+         fev grip
+  anal   8   8   
+  figid  6   6   
+  info   8   8   
+  mmse   8   8   
+  symbol 8   8   
+  synon  8   8   
 ```
 </br></br></br>
 
@@ -285,67 +275,100 @@ Empty category
 ## b1
 
 
-model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                           
---------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ------------------------------------
-b1              female   ae                  gait                     memory                    NA                     NA                      b1_female_ae_gait_memory.out        
-b1              female   aec                 gait                     memory                    NA                     NA                      b1_female_aec_gait_memory.out       
-b1              female   a                   gait                     memory                    NA                     NA                      b1_female_age_gait_memory.out       
-b1              male     ae                  gait                     memory                    NA                     NA                      b1_male_ae_gait_memory.out          
-b1              male     a                   gait                     memory                    NA                     NA                      b1_male_age_gait_memory.out         
-b1              female   ae                  gait                     spatial                   NA                     NA                      b1_female_ae_gait_spatial.out       
-b1              female   aec                 gait                     spatial                   NA                     NA                      b1_female_aec_gait_spatial.out      
-b1              female   a                   gait                     spatial                   NA                     NA                      b1_female_age_gait_spatial.out      
-b1              male     ae                  gait                     spatial                   NA                     NA                      b1_male_ae_gait_spatial.out         
-b1              male     a                   gait                     spatial                   NA                     NA                      b1_male_age_gait_spatial.out        
-b1              female   ae                  gait                     speed                     NA                     NA                      b1_female_ae_gait_speed.out         
-b1              female   aec                 gait                     speed                     NA                     NA                      b1_female_aec_gait_speed.out        
-b1              female   a                   gait                     speed                     NA                     NA                      b1_female_age_gait_speed.out        
-b1              male     ae                  gait                     speed                     NA                     NA                      b1_male_ae_gait_speed.out           
-b1              male     a                   gait                     speed                     NA                     NA                      b1_male_age_gait_speed.out          
-b1              female   ae                  gait                     verbal                    NA                     NA                      b1_female_ae_gait_verbal.out        
-b1              female   aec                 gait                     verbal                    NA                     NA                      b1_female_aec_gait_verbal.out       
-b1              female   a                   gait                     verbal                    NA                     NA                      b1_female_age_gait_verbal.out       
-b1              male     ae                  gait                     verbal                    NA                     NA                      b1_male_ae_gait_verbal.out          
-b1              male     a                   gait                     verbal                    NA                     NA                      b1_male_age_gait_verbal.out         
-b1              female   ae                  grip                     memory                    NA                     NA                      b1_female_ae_grip_memory.out        
-b1              female   aec                 grip                     memory                    NA                     NA                      b1_female_aec_grip_memory.out       
-b1              female   a                   grip                     memory                    NA                     NA                      b1_female_age_grip_memory.out       
-b1              male     ae                  grip                     memory                    NA                     NA                      b1_male_ae_grip_memory.out          
-b1              male     a                   grip                     memory                    NA                     NA                      b1_male_age_grip_memory.out         
-b1              female   ae                  grip                     spatial                   NA                     NA                      b1_female_ae_grip_spatial.out       
-b1              female   aec                 grip                     spatial                   NA                     NA                      b1_female_aec_grip_spatial.out      
-b1              female   a                   grip                     spatial                   NA                     NA                      b1_female_age_grip_spatial.out      
-b1              male     ae                  grip                     spatial                   NA                     NA                      b1_male_ae_grip_spatial.out         
-b1              male     a                   grip                     spatial                   NA                     NA                      b1_male_age_grip_spatial.out        
-b1              female   ae                  grip                     speed                     NA                     NA                      b1_female_ae_grip_speed.out         
-b1              female   aec                 grip                     speed                     NA                     NA                      b1_female_aec_grip_speed.out        
-b1              female   a                   grip                     speed                     NA                     NA                      b1_female_age_grip_speed.out        
-b1              male     ae                  grip                     speed                     NA                     NA                      b1_male_ae_grip_speed.out           
-b1              male     a                   grip                     speed                     NA                     NA                      b1_male_age_grip_speed.out          
-b1              female   ae                  grip                     verbal                    NA                     NA                      b1_female_ae_grip_verbal.out        
-b1              female   aec                 grip                     verbal                    NA                     NA                      b1_female_aec_grip_verbal.out       
-b1              female   a                   grip                     verbal                    NA                     NA                      b1_female_age_grip_verbal.out       
-b1              male     ae                  grip                     verbal                    NA                     NA                      b1_male_ae_grip_verbal.out          
-b1              male     a                   grip                     verbal                    NA                     NA                      b1_male_age_grip_verbal.out         
-b1              female   ae                  pulmonary                memory                    NA                     NA                      b1_female_ae_pulmonary_memory.out   
-b1              female   aec                 pulmonary                memory                    NA                     NA                      b1_female_aec_pulmonary_memory.out  
-b1              female   a                   pulmonary                memory                    NA                     NA                      b1_female_age_pulmonary_memory.out  
-b1              male     ae                  pulmonary                memory                    NA                     NA                      b1_male_ae_pulmonary_memory.out     
-b1              male     a                   pulmonary                memory                    NA                     NA                      b1_male_age_pulmonary_memory.out    
-b1              female   ae                  pulmonary                spatial                   NA                     NA                      b1_female_ae_pulmonary_spatial.out  
-b1              female   aec                 pulmonary                spatial                   NA                     NA                      b1_female_aec_pulmonary_spatial.out 
-b1              female   a                   pulmonary                spatial                   NA                     NA                      b1_female_age_pulmonary_spatial.out 
-b1              male     ae                  pulmonary                spatial                   NA                     NA                      b1_male_ae_pulmonary_spatial.out    
-b1              male     a                   pulmonary                spatial                   NA                     NA                      b1_male_age_pulmonary_spatial.out   
-b1              female   ae                  pulmonary                speed                     NA                     NA                      b1_female_ae_pulmonary_speed.out    
-b1              female   aec                 pulmonary                speed                     NA                     NA                      b1_female_aec_pulmonary_speed.out   
-b1              female   a                   pulmonary                speed                     NA                     NA                      b1_female_age_pulmonary_speed.out   
-b1              male     ae                  pulmonary                speed                     NA                     NA                      b1_male_ae_pulmonary_speed.out      
-b1              male     a                   pulmonary                speed                     NA                     NA                      b1_male_age_pulmonary_speed.out     
-b1              female   ae                  pulmonary                verbal                    NA                     NA                      b1_female_ae_pulmonary_verbal.out   
-b1              female   aec                 pulmonary                verbal                    NA                     NA                      b1_female_aec_pulmonary_verbal.out  
-b1              male     ae                  pulmonary                verbal                    NA                     NA                      b1_male_ae_pulmonary_verbal.out     
-b1              male     a                   pulmonary                verbal                    NA                     NA                      b1_male_age_pulmonary_verbal.out    
+model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                           
+--------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ----------------------------------------------------
+b1              female   ae                  muscle                   global                    grip                   mmse                    b1_female_ae_muscle_global_grip_mmse.out            
+b1              female   aeh                 muscle                   global                    grip                   mmse                    b1_female_aeh_muscle_global_grip_mmse.out           
+b1              female   aehplus             muscle                   global                    grip                   mmse                    b1_female_aehplus_muscle_global_grip_mmse.out       
+b1              female   age                 muscle                   global                    grip                   mmse                    b1_female_age_muscle_global_grip_mmse.out           
+b1              male     ae                  muscle                   global                    grip                   mmse                    b1_male_ae_muscle_global_grip_mmse.out              
+b1              male     aeh                 muscle                   global                    grip                   mmse                    b1_male_aeh_muscle_global_grip_mmse.out             
+b1              male     aehplus             muscle                   global                    grip                   mmse                    b1_male_aehplus_muscle_global_grip_mmse.out         
+b1              male     age                 muscle                   global                    grip                   mmse                    b1_male_age_muscle_global_grip_mmse.out             
+b1              female   ae                  muscle                   knowledge                 grip                   anal                    b1_female_ae_muscle_knowledge_grip_anal.out         
+b1              female   ae                  muscle                   knowledge                 grip                   info                    b1_female_ae_muscle_knowledge_grip_info.out         
+b1              female   ae                  muscle                   knowledge                 grip                   synon                   b1_female_ae_muscle_knowledge_grip_synon.out        
+b1              female   aeh                 muscle                   knowledge                 grip                   anal                    b1_female_aeh_muscle_knowledge_grip_anal.out        
+b1              female   aeh                 muscle                   knowledge                 grip                   info                    b1_female_aeh_muscle_knowledge_grip_info.out        
+b1              female   aeh                 muscle                   knowledge                 grip                   synon                   b1_female_aeh_muscle_knowledge_grip_synon.out       
+b1              female   aehplus             muscle                   knowledge                 grip                   anal                    b1_female_aehplus_muscle_knowledge_grip_anal.out    
+b1              female   aehplus             muscle                   knowledge                 grip                   info                    b1_female_aehplus_muscle_knowledge_grip_info.out    
+b1              female   aehplus             muscle                   knowledge                 grip                   synon                   b1_female_aehplus_muscle_knowledge_grip_synon.out   
+b1              female   age                 muscle                   knowledge                 grip                   anal                    b1_female_age_muscle_knowledge_grip_anal.out        
+b1              female   age                 muscle                   knowledge                 grip                   info                    b1_female_age_muscle_knowledge_grip_info.out        
+b1              female   age                 muscle                   knowledge                 grip                   synon                   b1_female_age_muscle_knowledge_grip_synon.out       
+b1              male     ae                  muscle                   knowledge                 grip                   anal                    b1_male_ae_muscle_knowledge_grip_anal.out           
+b1              male     ae                  muscle                   knowledge                 grip                   info                    b1_male_ae_muscle_knowledge_grip_info.out           
+b1              male     ae                  muscle                   knowledge                 grip                   synon                   b1_male_ae_muscle_knowledge_grip_synon.out          
+b1              male     aeh                 muscle                   knowledge                 grip                   anal                    b1_male_aeh_muscle_knowledge_grip_anal.out          
+b1              male     aeh                 muscle                   knowledge                 grip                   info                    b1_male_aeh_muscle_knowledge_grip_info.out          
+b1              male     aeh                 muscle                   knowledge                 grip                   synon                   b1_male_aeh_muscle_knowledge_grip_synon.out         
+b1              male     aehplus             muscle                   knowledge                 grip                   anal                    b1_male_aehplus_muscle_knowledge_grip_anal.out      
+b1              male     aehplus             muscle                   knowledge                 grip                   info                    b1_male_aehplus_muscle_knowledge_grip_info.out      
+b1              male     aehplus             muscle                   knowledge                 grip                   synon                   b1_male_aehplus_muscle_knowledge_grip_synon.out     
+b1              male     age                 muscle                   knowledge                 grip                   anal                    b1_male_age_muscle_knowledge_grip_anal.out          
+b1              male     age                 muscle                   knowledge                 grip                   info                    b1_male_age_muscle_knowledge_grip_info.out          
+b1              male     age                 muscle                   knowledge                 grip                   synon                   b1_male_age_muscle_knowledge_grip_synon.out         
+b1              female   ae                  muscle                   speed                     grip                   figid                   b1_female_ae_muscle_speed_grip_figid.out            
+b1              female   ae                  muscle                   speed                     grip                   symbol                  b1_female_ae_muscle_speed_grip_symbol.out           
+b1              female   aeh                 muscle                   speed                     grip                   figid                   b1_female_aeh_muscle_speed_grip_figid.out           
+b1              female   aeh                 muscle                   speed                     grip                   symbol                  b1_female_aeh_muscle_speed_grip_symbol.out          
+b1              female   aehplus             muscle                   speed                     grip                   symbol                  b1_female_aehplus_muscle_speed_grip_symbol.out      
+b1              female   age                 muscle                   speed                     grip                   figid                   b1_female_age_muscle_speed_grip_figid.out           
+b1              female   age                 muscle                   speed                     grip                   symbol                  b1_female_age_muscle_speed_grip_symbol.out          
+b1              male     ae                  muscle                   speed                     grip                   figid                   b1_male_ae_muscle_speed_grip_figid.out              
+b1              male     ae                  muscle                   speed                     grip                   symbol                  b1_male_ae_muscle_speed_grip_symbol.out             
+b1              male     aeh                 muscle                   speed                     grip                   figid                   b1_male_aeh_muscle_speed_grip_figid.out             
+b1              male     aeh                 muscle                   speed                     grip                   symbol                  b1_male_aeh_muscle_speed_grip_symbol.out            
+b1              male     aehplus             muscle                   speed                     grip                   symbol                  b1_male_aehplus_muscle_speed_grip_symbol.out        
+b1              male     age                 muscle                   speed                     grip                   figid                   b1_male_age_muscle_speed_grip_figid.out             
+b1              male     age                 muscle                   speed                     grip                   symbol                  b1_male_age_muscle_speed_grip_symbol.out            
+b1              female   ae                  pulmonary                global                    fev                    mmse                    b1_female_ae_pulmonary_global_fev_mmse.out          
+b1              female   aeh                 pulmonary                global                    fev                    mmse                    b1_female_aeh_pulmonary_global_fev_mmse.out         
+b1              female   aehplus             pulmonary                global                    fev                    mmse                    b1_female_aehplus_pulmonary_global_fev_mmse.out     
+b1              female   age                 pulmonary                global                    fev                    mmse                    b1_female_age_pulmonary_global_fev_mmse.out         
+b1              male     ae                  pulmonary                global                    fev                    mmse                    b1_male_ae_pulmonary_global_fev_mmse.out            
+b1              male     aeh                 pulmonary                global                    fev                    mmse                    b1_male_aeh_pulmonary_global_fev_mmse.out           
+b1              male     aehplus             pulmonary                global                    fev                    mmse                    b1_male_aehplus_pulmonary_global_fev_mmse.out       
+b1              male     age                 pulmonary                global                    fev                    mmse                    b1_male_age_pulmonary_global_fev_mmse.out           
+b1              female   ae                  pulmonary                knowledge                 fev                    anal                    b1_female_ae_pulmonary_knowledge_fev_anal.out       
+b1              female   ae                  pulmonary                knowledge                 fev                    info                    b1_female_ae_pulmonary_knowledge_fev_info.out       
+b1              female   ae                  pulmonary                knowledge                 fev                    synon                   b1_female_ae_pulmonary_knowledge_fev_synon.out      
+b1              female   aeh                 pulmonary                knowledge                 fev                    anal                    b1_female_aeh_pulmonary_knowledge_fev_anal.out      
+b1              female   aeh                 pulmonary                knowledge                 fev                    info                    b1_female_aeh_pulmonary_knowledge_fev_info.out      
+b1              female   aeh                 pulmonary                knowledge                 fev                    synon                   b1_female_aeh_pulmonary_knowledge_fev_synon.out     
+b1              female   aehplus             pulmonary                knowledge                 fev                    anal                    b1_female_aehplus_pulmonary_knowledge_fev_anal.out  
+b1              female   aehplus             pulmonary                knowledge                 fev                    info                    b1_female_aehplus_pulmonary_knowledge_fev_info.out  
+b1              female   aehplus             pulmonary                knowledge                 fev                    synon                   b1_female_aehplus_pulmonary_knowledge_fev_synon.out 
+b1              female   age                 pulmonary                knowledge                 fev                    anal                    b1_female_age_pulmonary_knowledge_fev_anal.out      
+b1              female   age                 pulmonary                knowledge                 fev                    info                    b1_female_age_pulmonary_knowledge_fev_info.out      
+b1              female   age                 pulmonary                knowledge                 fev                    synon                   b1_female_age_pulmonary_knowledge_fev_synon.out     
+b1              male     ae                  pulmonary                knowledge                 fev                    anal                    b1_male_ae_pulmonary_knowledge_fev_anal.out         
+b1              male     ae                  pulmonary                knowledge                 fev                    info                    b1_male_ae_pulmonary_knowledge_fev_info.out         
+b1              male     ae                  pulmonary                knowledge                 fev                    synon                   b1_male_ae_pulmonary_knowledge_fev_synon.out        
+b1              male     aeh                 pulmonary                knowledge                 fev                    anal                    b1_male_aeh_pulmonary_knowledge_fev_anal.out        
+b1              male     aeh                 pulmonary                knowledge                 fev                    info                    b1_male_aeh_pulmonary_knowledge_fev_info.out        
+b1              male     aeh                 pulmonary                knowledge                 fev                    synon                   b1_male_aeh_pulmonary_knowledge_fev_synon.out       
+b1              male     aehplus             pulmonary                knowledge                 fev                    anal                    b1_male_aehplus_pulmonary_knowledge_fev_anal.out    
+b1              male     aehplus             pulmonary                knowledge                 fev                    info                    b1_male_aehplus_pulmonary_knowledge_fev_info.out    
+b1              male     aehplus             pulmonary                knowledge                 fev                    synon                   b1_male_aehplus_pulmonary_knowledge_fev_synon.out   
+b1              male     age                 pulmonary                knowledge                 fev                    anal                    b1_male_age_pulmonary_knowledge_fev_anal.out        
+b1              male     age                 pulmonary                knowledge                 fev                    info                    b1_male_age_pulmonary_knowledge_fev_info.out        
+b1              male     age                 pulmonary                knowledge                 fev                    synon                   b1_male_age_pulmonary_knowledge_fev_synon.out       
+b1              female   ae                  pulmonary                speed                     fev                    figid                   b1_female_ae_pulmonary_speed_fev_figid.out          
+b1              female   ae                  pulmonary                speed                     fev                    symbol                  b1_female_ae_pulmonary_speed_fev_symbol.out         
+b1              female   aeh                 pulmonary                speed                     fev                    figid                   b1_female_aeh_pulmonary_speed_fev_figid.out         
+b1              female   aeh                 pulmonary                speed                     fev                    symbol                  b1_female_aeh_pulmonary_speed_fev_symbol.out        
+b1              female   aehplus             pulmonary                speed                     fev                    symbol                  b1_female_aehplus_pulmonary_speed_fev_symbol.out    
+b1              female   age                 pulmonary                speed                     fev                    figid                   b1_female_age_pulmonary_speed_fev_figid.out         
+b1              female   age                 pulmonary                speed                     fev                    symbol                  b1_female_age_pulmonary_speed_fev_symbol.out        
+b1              male     ae                  pulmonary                speed                     fev                    figid                   b1_male_ae_pulmonary_speed_fev_figid.out            
+b1              male     ae                  pulmonary                speed                     fev                    symbol                  b1_male_ae_pulmonary_speed_fev_symbol.out           
+b1              male     aeh                 pulmonary                speed                     fev                    figid                   b1_male_aeh_pulmonary_speed_fev_figid.out           
+b1              male     aeh                 pulmonary                speed                     fev                    symbol                  b1_male_aeh_pulmonary_speed_fev_symbol.out          
+b1              male     aehplus             pulmonary                speed                     fev                    symbol                  b1_male_aehplus_pulmonary_speed_fev_symbol.out      
+b1              male     age                 pulmonary                speed                     fev                    figid                   b1_male_age_pulmonary_speed_fev_figid.out           
+b1              male     age                 pumonary                 speed                     fev                    symbol                  b1_male_age_pumonary_speed_fev_symbol.out           
 
 
 # Session Information
@@ -353,7 +376,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-05-26, 09:49 -0700
+Report rendered by koval_000 at 2015-06-01, 11:08 -0700
 ```
 
 ```
@@ -369,11 +392,13 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10.5      
+[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
+[6] knitr_1.10.5          MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 highr_0.5       
- [7] stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1       
-[13] htmltools_0.2.6  lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1  
-[19] formatR_1.2      evaluate_0.7     rmarkdown_0.6.1  stringi_0.4-1    proto_0.3-10    
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
+ [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
+[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
+[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
+[25] evaluate_0.7     rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
 ```

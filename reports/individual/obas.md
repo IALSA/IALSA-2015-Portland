@@ -240,20 +240,20 @@ Empty category
 
 model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                       
 --------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------
-u1              female   a                   nophys                   global                    NA                     NA                      u1_female_age_nophys_global.out 
-u1              male     a                   nophys                   global                    NA                     NA                      u1_male_age_nophys_global.out   
-u1              female   a                   walking                  nocog                     NA                     NA                      u1_female_age_walking_noCog.out 
-u1              male     a                   walking                  nocog                     NA                     NA                      u1_male_age_walking_noCog.out   
+u1              female   age                 nophys                   global                    NA                     NA                      u1_female_age_nophys_global.out 
+u1              male     age                 nophys                   global                    NA                     NA                      u1_male_age_nophys_global.out   
+u1              female   age                 walking                  noCog                     NA                     NA                      u1_female_age_walking_noCog.out 
+u1              male     age                 walking                  noCog                     NA                     NA                      u1_male_age_walking_noCog.out   
 
 ## u2
 
 
 model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                       
 --------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------
-u2              female   a                   nophys                   global                    NA                     NA                      u2_female_age_nophys_global.out 
-u2              male     a                   nophys                   global                    NA                     NA                      u2_male_age_nophys_global.out   
-u2              female   a                   walking                  nocog                     NA                     NA                      u2_female_age_walking_nocog.out 
-u2              male     a                   walking                  nocog                     NA                     NA                      u2_male_age_walking_nocog.out   
+u2              female   age                 nophys                   global                    NA                     NA                      u2_female_age_nophys_global.out 
+u2              male     age                 nophys                   global                    NA                     NA                      u2_male_age_nophys_global.out   
+u2              female   age                 walking                  nocog                     NA                     NA                      u2_female_age_walking_nocog.out 
+u2              male     age                 walking                  nocog                     NA                     NA                      u2_male_age_walking_nocog.out   
 
 ## b1
 
@@ -261,9 +261,9 @@ u2              male     a                   walking                  nocog     
 model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                        
 --------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ---------------------------------
 b1              female   aeh                 walking                  global                    NA                     NA                      b1_female_aeh_walking_global.out 
-b1              female   a                   walking                  global                    NA                     NA                      b1_female_age_walking_global.out 
+b1              female   age                 walking                  global                    NA                     NA                      b1_female_age_walking_global.out 
 b1              male     aeh                 walking                  global                    NA                     NA                      b1_male_aeh_walking_global.out   
-b1              male     a                   walking                  global                    NA                     NA                      b1_male_age_walking_global.out   
+b1              male     age                 walking                  global                    NA                     NA                      b1_male_age_walking_global.out   
 
 
 # Session Information
@@ -271,7 +271,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-05-26, 09:49 -0700
+Report rendered by koval_000 at 2015-06-01, 11:08 -0700
 ```
 
 ```
@@ -287,11 +287,13 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10.5      
+[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
+[6] knitr_1.10.5          MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 highr_0.5       
- [7] stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1       
-[13] htmltools_0.2.6  lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1  
-[19] formatR_1.2      evaluate_0.7     rmarkdown_0.6.1  stringi_0.4-1    proto_0.3-10    
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
+ [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
+[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
+[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
+[25] evaluate_0.7     rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
 ```

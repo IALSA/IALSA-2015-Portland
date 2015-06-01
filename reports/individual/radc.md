@@ -389,22 +389,22 @@ b1              female   aeh                 muscle                   executive 
 b1              female   aehplus             muscle                   executive                 grip                   categoryfluency         b1_female_aehplus_muscle_executive_grip_categoryfluency.out      
 b1              female   aehplus             muscle                   executive                 grip                   digitordering           b1_female_aehplus_muscle_executive_grip_digitordering.out        
 b1              female   aehplus             muscle                   executive                 grip                   digitsback              b1_female_aehplus_muscle_executive_grip_digitsback.out           
-b1              female   a                   muscle                   executive                 NA                     NA                      b1_female_age_muscle_executive.out                               
+b1              female   age                 muscle                   executive                 NA                     NA                      b1_female_age_muscle_executive.out                               
 b1              male     aeh                 muscle                   executive                 grip                   categoryfluency         b1_male_aeh_muscle_executive_grip_categoryfluency.out            
 b1              male     aehplus             muscle                   executive                 grip                   categoryfluency         b1_male_aehplus_muscle_executive_grip_categoryfluency.out        
 b1              male     aehplus             muscle                   executive                 grip                   digitordering           b1_male_aehplus_muscle_executive_grip_digitordering.out          
 b1              male     aehplus             muscle                   executive                 grip                   digitsback              b1_male_aehplus_muscle_executive_grip_digitsback.out             
-b1              male     a                   muscle                   executive                 NA                     NA                      b1_male_age_muscle_executive.out                                 
+b1              male     age                 muscle                   executive                 NA                     NA                      b1_male_age_muscle_executive.out                                 
 b1              female   aeh                 muscle                   global                    grip                   mmse                    b1_female_aeh_muscle_global_grip_mmse.out                        
 b1              female   aehplus             muscle                   global                    grip                   mmse                    b1_female_aehplus_muscle_global_grip_mmse.out                    
 b1              male     aeh                 muscle                   global                    grip                   mmse                    b1_male_aeh_muscle_global_grip_mmse.out                          
 b1              male     aehplus             muscle                   global                    grip                   mmse                    b1_male_aehplus_muscle_global_grip_mmse.out                      
 b1              female   aeh                 muscle                   knowledge                 grip                   nart                    b1_female_aeh_muscle_knowledge_grip_nart.out                     
 b1              female   aehplus             muscle                   knowledge                 grip                   nart                    b1_female_aehplus_muscle_knowledge_grip_nart.out                 
-b1              female   a                   muscle                   knowledge                 NA                     NA                      b1_female_age_muscle_knowledge.out                               
+b1              female   age                 muscle                   knowledge                 NA                     NA                      b1_female_age_muscle_knowledge.out                               
 b1              male     aeh                 muscle                   knowledge                 grip                   nart                    b1_male_aeh_muscle_knowledge_grip_nart.out                       
 b1              male     aehplus             muscle                   knowledge                 grip                   nart                    b1_male_aehplus_muscle_knowledge_grip_nart.out                   
-b1              male     a                   muscle                   knowledge                 NA                     NA                      b1_male_age_muscle_knowledge.out                                 
+b1              male     age                 muscle                   knowledge                 NA                     NA                      b1_male_age_muscle_knowledge.out                                 
 b1              female   aeh                 muscle                   language                  grip                   bnt                     b1_female_aeh_muscle_language_grip_bnt.out                       
 b1              female   aeh                 muscle                   language                  grip                   complexideas            b1_female_aeh_muscle_language_grip_complexideas.out              
 b1              female   aehplus             muscle                   language                  grip                   bnt                     b1_female_aehplus_muscle_language_grip_bnt.out                   
@@ -440,45 +440,45 @@ b1              male     aehplus             muscle                   memory    
 b1              male     aehplus             muscle                   memory                    grip                   wordlistrecog           b1_male_aehplus_muscle_memory_grip_wordlistrecog.out             
 b1              female   aeh                 muscle                   reasoning                 grip                   matrices                b1_female_aeh_muscle_reasoning_grip_matrices.out                 
 b1              female   aehplus             muscle                   reasoning                 grip                   matrices                b1_female_aehplus_muscle_reasoning_grip_matrices.out             
-b1              female   a                   muscle                   reasoning                 NA                     NA                      b1_female_age_muscle_reasoning.out                               
+b1              female   age                 muscle                   reasoning                 NA                     NA                      b1_female_age_muscle_reasoning.out                               
 b1              male     aeh                 muscle                   reasoning                 grip                   matrices                b1_male_aeh_muscle_reasoning_grip_matrices.out                   
 b1              male     aehplus             muscle                   reasoning                 grip                   matrices                b1_male_aehplus_muscle_reasoning_grip_matrices.out               
-b1              male     a                   muscle                   reasoning                 NA                     NA                      b1_male_age_muscle_reasoning.out                                 
+b1              male     age                 muscle                   reasoning                 NA                     NA                      b1_male_age_muscle_reasoning.out                                 
 b1              female   aeh                 muscle                   speed                     grip                   digitsymbol             b1_female_aeh_muscle_speed_grip_digitsymbol.out                  
 b1              female   aeh                 muscle                   speed                     grip                   numbercomparison        b1_female_aeh_muscle_speed_grip_numbercomparison.out             
 b1              female   aehplus             muscle                   speed                     grip                   digitsymbol             b1_female_aehplus_muscle_speed_grip_digitsymbol.out              
 b1              female   aehplus             muscle                   speed                     grip                   numbercomparison        b1_female_aehplus_muscle_speed_grip_numbercomparison.out         
-b1              female   a                   muscle                   speed                     NA                     NA                      b1_female_age_muscle_speed.out                                   
+b1              female   age                 muscle                   speed                     NA                     NA                      b1_female_age_muscle_speed.out                                   
 b1              male     aeh                 muscle                   speed                     grip                   digitsymbol             b1_male_aeh_muscle_speed_grip_digitsymbol.out                    
 b1              male     aeh                 muscle                   speed                     grip                   numbercomparison        b1_male_aeh_muscle_speed_grip_numbercomparison.out               
 b1              male     aehplus             muscle                   speed                     grip                   digitsymbol             b1_male_aehplus_muscle_speed_grip_digitsymbol.out                
 b1              male     aehplus             muscle                   speed                     grip                   numbercomparison        b1_male_aehplus_muscle_speed_grip_numbercomparison.out           
-b1              male     a                   muscle                   speed                     NA                     NA                      b1_male_age_muscle_speed.out                                     
+b1              male     age                 muscle                   speed                     NA                     NA                      b1_male_age_muscle_speed.out                                     
 b1              female   aeh                 muscle                   visuospatial              grip                   lineorientation         b1_female_aeh_muscle_visuospatial_grip_lineorientation.out       
 b1              female   aehplus             muscle                   visuospatial              grip                   lineorientation         b1_female_aehplus_muscle_visuospatial_grip_lineorientation.out   
-b1              female   a                   muscle                   visuospatial              NA                     NA                      b1_female_age_muscle_visuospatial.out                            
+b1              female   age                 muscle                   visuospatial              NA                     NA                      b1_female_age_muscle_visuospatial.out                            
 b1              male     aeh                 muscle                   visuospatial              grip                   lineorientation         b1_male_aeh_muscle_visuospatial_grip_lineorientation.out         
 b1              male     aehplus             muscle                   visuospatial              grip                   lineorientation         b1_male_aehplus_muscle_visuospatial_grip_lineorientation.out     
-b1              male     a                   muscle                   visuospatial              NA                     NA                      b1_male_age_muscle_visuospatial.out                              
+b1              male     age                 muscle                   visuospatial              NA                     NA                      b1_male_age_muscle_visuospatial.out                              
 b1              female   aehplus             pulmonary                attention                 fev                    digitsforward           b1_female_aehplus_pulmonary_attention_fev_digitsforward.out      
 b1              male     aeh                 pulmonary                attention                 fev                    digitsforward           b1_male_aeh_pulmonary_attention_fev_digitsforward.out            
 b1              male     aehplus             pulmonary                attention                 fev                    digitsforward           b1_male_aehplus_pulmonary_attention_fev_digitsforward.out        
 b1              female   aehplus             pulmonary                executive                 fev                    digitordering           b1_female_aehplus_pulmonary_executive_fev_digitordering.out      
 b1              female   aehplus             pulmonary                executive                 fev                    digitsback              b1_female_aehplus_pulmonary_executive_fev_digitsback.out         
-b1              female   a                   pulmonary                executive                 NA                     NA                      b1_female_age_pulmonary_executive.out                            
+b1              female   age                 pulmonary                executive                 NA                     NA                      b1_female_age_pulmonary_executive.out                            
 b1              male     aeh                 pulmonary                executive                 fev                    digitordering           b1_male_aeh_pulmonary_executive_fev_digitordering.out            
 b1              male     aeh                 pulmonary                executive                 fev                    digitsback              b1_male_aeh_pulmonary_executive_fev_digitsback.out               
 b1              male     aehplus             pulmonary                executive                 fev                    digitordering           b1_male_aehplus_pulmonary_executive_fev_digitordering.out        
 b1              male     aehplus             pulmonary                executive                 fev                    digitsback              b1_male_aehplus_pulmonary_executive_fev_digitsback.out           
-b1              male     a                   pulmonary                executive                 NA                     NA                      b1_male_age_pulmonary_executive.out                              
+b1              male     age                 pulmonary                executive                 NA                     NA                      b1_male_age_pulmonary_executive.out                              
 b1              female   aehplus             pulmonary                global                    fev                    mmse                    b1_female_aehplus_pulmonary_global_fev_mmse.out                  
 b1              male     aeh                 pulmonary                global                    fev                    mmse                    b1_male_aeh_pulmonary_global_fev_mmse.out                        
 b1              male     aehplus             pulmonary                global                    fev                    mmse                    b1_male_aehplus_pulmonary_global_fev_mmse.out                    
 b1              female   aehplus             pulmonary                knowledge                 fev                    nart                    b1_female_aehplus_pulmonary_knowledge_fev_nart.out               
-b1              female   a                   pulmonary                knowledge                 NA                     NA                      b1_female_age_pulmonary_knowledge.out                            
+b1              female   age                 pulmonary                knowledge                 NA                     NA                      b1_female_age_pulmonary_knowledge.out                            
 b1              male     aeh                 pulmonary                knowledge                 fev                    nart                    b1_male_aeh_pulmonary_knowledge_fev_nart.out                     
 b1              male     aehplus             pulmonary                knowledge                 fev                    nart                    b1_male_aehplus_pulmonary_knowledge_fev_nart.out                 
-b1              male     a                   pulmonary                knowledge                 NA                     NA                      b1_male_age_pulmonary_knowledge.out                              
+b1              male     age                 pulmonary                knowledge                 NA                     NA                      b1_male_age_pulmonary_knowledge.out                              
 b1              female   aehplus             pulmonary                language                  fev                    bnt                     b1_female_aehplus_pulmonary_language_fev_bnt.out                 
 b1              female   aehplus             pulmonary                language                  fev                    complexideas            b1_female_aehplus_pulmonary_language_fev_complexideas.out        
 b1              male     aeh                 pulmonary                language                  fev                    bnt                     b1_male_aeh_pulmonary_language_fev_bnt.out                       
@@ -507,38 +507,38 @@ b1              male     aehplus             pulmonary                memory    
 b1              male     aehplus             pulmonary                memory                    fev                    wordlistimmed           b1_male_aehplus_pulmonary_memory_fev_wordlistimmed.out           
 b1              male     aehplus             pulmonary                memory                    fev                    wordlistrecog           b1_male_aehplus_pulmonary_memory_fev_wordlistrecog.out           
 b1              female   aehplus             pulmonary                reasoning                 fev                    matrices                b1_female_aehplus_pulmonary_reasoning_fev_matrices.out           
-b1              female   a                   pulmonary                reasoning                 NA                     NA                      b1_female_age_pulmonary_reasoning.out                            
+b1              female   age                 pulmonary                reasoning                 NA                     NA                      b1_female_age_pulmonary_reasoning.out                            
 b1              male     aeh                 pulmonary                reasoning                 fev                    matrices                b1_male_aeh_pulmonary_reasoning_fev_matrices.out                 
 b1              male     aehplus             pulmonary                reasoning                 fev                    matrices                b1_male_aehplus_pulmonary_reasoning_fev_matrices.out             
-b1              male     a                   pulmonary                reasoning                 NA                     NA                      b1_male_age_pulmonary_reasoning.out                              
+b1              male     age                 pulmonary                reasoning                 NA                     NA                      b1_male_age_pulmonary_reasoning.out                              
 b1              female   aehplus             pulmonary                speed                     fev                    digitsymbol             b1_female_aehplus_pulmonary_speed_fev_digitsymbol.out            
 b1              female   aehplus             pulmonary                speed                     fev                    numbercomparison        b1_female_aehplus_pulmonary_speed_fev_numbercomparison.out       
-b1              female   a                   pulmonary                speed                     NA                     NA                      b1_female_age_pulmonary_speed.out                                
+b1              female   age                 pulmonary                speed                     NA                     NA                      b1_female_age_pulmonary_speed.out                                
 b1              male     aeh                 pulmonary                speed                     fev                    digitsymbol             b1_male_aeh_pulmonary_speed_fev_digitsymbol.out                  
 b1              male     aeh                 pulmonary                speed                     fev                    numbercomparison        b1_male_aeh_pulmonary_speed_fev_numbercomparison.out             
 b1              male     aehplus             pulmonary                speed                     fev                    digitsymbol             b1_male_aehplus_pulmonary_speed_fev_digitsymbol.out              
 b1              male     aehplus             pulmonary                speed                     fev                    numbercomparison        b1_male_aehplus_pulmonary_speed_fev_numbercomparison.out         
-b1              male     a                   pulmonary                speed                     NA                     NA                      b1_male_age_pulmonary_speed.out                                  
+b1              male     age                 pulmonary                speed                     NA                     NA                      b1_male_age_pulmonary_speed.out                                  
 b1              female   aehplus             pulmonary                visuospatial              fev                    lineorientation         b1_female_aehplus_pulmonary_visuospatial_fev_lineorientation.out 
-b1              female   a                   pulmonary                visuospatial              NA                     NA                      b1_female_age_pulmonary_visuospatial.out                         
+b1              female   age                 pulmonary                visuospatial              NA                     NA                      b1_female_age_pulmonary_visuospatial.out                         
 b1              male     aeh                 pulmonary                visuospatial              fev                    lineorientation         b1_male_aeh_pulmonary_visuospatial_fev_lineorientation.out       
 b1              male     aehplus             pulmonary                visuospatial              fev                    lineorientation         b1_male_aehplus_pulmonary_visuospatial_fev_lineorientation.out   
-b1              male     a                   pulmonary                visuospatial              NA                     NA                      b1_male_age_pulmonary_visuospatial.out                           
+b1              male     age                 pulmonary                visuospatial              NA                     NA                      b1_male_age_pulmonary_visuospatial.out                           
 
 ## u1
 
 
 model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                         
 --------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------------------------
-u1              female   a                   muscle                   nocog                     NA                     NA                      u1_female_age_muscle_nocog.out                    
+u1              female   age                 muscle                   nocog                     NA                     NA                      u1_female_age_muscle_nocog.out                    
 u1              female   empty               muscle                   nocog                     grip                   nocogspec               u1_female_empty_muscle_nocog_grip_nocogspec.out   
 u1              male     empty               muscle                   nocog                     grip                   nocogspec               u1_male_empty_muscle_nocog_grip_nocogspec.out     
 u1              female   empty               pulmonary                nocog                     fev                    nocogspec               u1_female_empty_pulmonary_nocog_fev_nocogspec.out 
 u1              male     empty               pulmonary                nocog                     fev                    nocogspec               u1_male_empty_pulmonary_nocog_fev_nocogspec.out   
-u1              female   a                   pulmonary                nocog                     NA                     NA                      u1_female_age_pulmonary_noCog.out                 
-u1              male     a                   pulmonary                nocog                     NA                     NA                      u1_male_age_pulmonary_noCog.out                   
-u1              female   a                   walking                  nocog                     NA                     NA                      u1_female_age_walking_noCog.out                   
-u1              male     a                   walking                  nocog                     NA                     NA                      u1_male_age_walking_noCog.out                     
+u1              female   age                 pulmonary                noCog                     NA                     NA                      u1_female_age_pulmonary_noCog.out                 
+u1              male     age                 pulmonary                noCog                     NA                     NA                      u1_male_age_pulmonary_noCog.out                   
+u1              female   age                 walking                  noCog                     NA                     NA                      u1_female_age_walking_noCog.out                   
+u1              male     age                 walking                  noCog                     NA                     NA                      u1_male_age_walking_noCog.out                     
 
 
 # Session Information
@@ -546,7 +546,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-05-26, 09:49 -0700
+Report rendered by koval_000 at 2015-06-01, 11:08 -0700
 ```
 
 ```
@@ -562,11 +562,13 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10.5      
+[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
+[6] knitr_1.10.5          MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 highr_0.5       
- [7] stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1       
-[13] htmltools_0.2.6  lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1  
-[19] formatR_1.2      evaluate_0.7     rmarkdown_0.6.1  stringi_0.4-1    proto_0.3-10    
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
+ [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
+[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
+[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
+[25] evaluate_0.7     rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
 ```

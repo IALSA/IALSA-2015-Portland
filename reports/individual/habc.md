@@ -286,49 +286,49 @@ b1              female   aeh                 muscle                   mental    
 b1              female   aeh                 muscle                   mental                    hand                   clock                   b1_female_aeh_muscle_mental_hand_clock.out           
 b1              female   aehplus             muscle                   mental                    hand                   3ms                     b1_female_aehplus_muscle_mental_hand_3ms.out         
 b1              female   aehplus             muscle                   mental                    hand                   clock                   b1_female_aehplus_muscle_mental_hand_clock.out       
-b1              female   a                   muscle                   mental                    hand                   3ms                     b1_female_age_muscle_mental_hand_3ms.out             
-b1              female   a                   muscle                   mental                    hand                   clock                   b1_female_age_muscle_mental_hand_clock.out           
+b1              female   age                 muscle                   mental                    hand                   3ms                     b1_female_age_muscle_mental_hand_3ms.out             
+b1              female   age                 muscle                   mental                    hand                   clock                   b1_female_age_muscle_mental_hand_clock.out           
 b1              female   full                muscle                   mental                    hand                   3ms                     b1_female_full_muscle_mental_hand_3ms.out            
 b1              female   full                muscle                   mental                    hand                   clock                   b1_female_full_muscle_mental_hand_clock.out          
 b1              male     aeh                 muscle                   mental                    hand                   3ms                     b1_male_aeh_muscle_mental_hand_3ms.out               
 b1              male     aeh                 muscle                   mental                    hand                   clock                   b1_male_aeh_muscle_mental_hand_clock.out             
 b1              male     aehplus             muscle                   mental                    hand                   3ms                     b1_male_aehplus_muscle_mental_hand_3ms.out           
 b1              male     aehplus             muscle                   mental                    hand                   clock                   b1_male_aehplus_muscle_mental_hand_clock.out         
-b1              male     a                   muscle                   mental                    hand                   3ms                     b1_male_age_muscle_mental_hand_3ms.out               
-b1              male     a                   muscle                   mental                    hand                   clock                   b1_male_age_muscle_mental_hand_clock.out             
+b1              male     age                 muscle                   mental                    hand                   3ms                     b1_male_age_muscle_mental_hand_3ms.out               
+b1              male     age                 muscle                   mental                    hand                   clock                   b1_male_age_muscle_mental_hand_clock.out             
 b1              male     full                muscle                   mental                    gait                   clock                   b1_male_full_muscle_mental_gait_clock.out            
 b1              male     full                muscle                   mental                    hand                   3ms                     b1_male_full_muscle_mental_hand_3ms.out              
 b1              female   aeh                 muscle                   speed                     hand                   digitsymbol             b1_female_aeh_muscle_speed_hand_digitsymbol.out      
 b1              female   aehplus             muscle                   speed                     hand                   digitsymbol             b1_female_aehplus_muscle_speed_hand_digitsymbol.out  
-b1              female   a                   muscle                   speed                     hand                   digitsymbol             b1_female_age_muscle_speed_hand_digitsymbol.out      
+b1              female   age                 muscle                   speed                     hand                   digitsymbol             b1_female_age_muscle_speed_hand_digitsymbol.out      
 b1              female   full                muscle                   speed                     hand                   digitsymbol             b1_female_full_muscle_speed_hand_digitsymbol.out     
 b1              male     aeh                 muscle                   speed                     hand                   digitsymbol             b1_male_aeh_muscle_speed_hand_digitsymbol.out        
 b1              male     aehplus             muscle                   speed                     hand                   digitsymbol             b1_male_aehplus_muscle_speed_hand_digitsymbol.out    
-b1              male     a                   muscle                   speed                     hand                   digitsymbol             b1_male_age_muscle_speed_hand_digitsymbol.out        
+b1              male     age                 muscle                   speed                     hand                   digitsymbol             b1_male_age_muscle_speed_hand_digitsymbol.out        
 b1              male     full                muscle                   speed                     hand                   digitsymbol             b1_male_full_muscle_speed_hand_digitsymbol.out       
 b1              female   aeh                 walking                  mental                    gait                   3ms                     b1_female_aeh_walking_mental_gait_3ms.out            
 b1              female   aeh                 walking                  mental                    gait                   clock                   b1_female_aeh_walking_mental_gait_clock.out          
 b1              female   aehplus             walking                  mental                    gait                   3ms                     b1_female_aehplus_walking_mental_gait_3ms.out        
 b1              female   aehplus             walking                  mental                    gait                   clock                   b1_female_aehplus_walking_mental_gait_clock.out      
-b1              female   a                   walking                  mental                    gait                   3ms                     b1_female_age_walking_mental_gait_3ms.out            
-b1              female   a                   walking                  mental                    gait                   clock                   b1_female_age_walking_mental_gait_clock.out          
+b1              female   age                 walking                  mental                    gait                   3ms                     b1_female_age_walking_mental_gait_3ms.out            
+b1              female   age                 walking                  mental                    gait                   clock                   b1_female_age_walking_mental_gait_clock.out          
 b1              female   full                walking                  mental                    gait                   3ms                     b1_female_full_walking_mental_gait_3ms.out           
 b1              female   full                walking                  mental                    gait                   clock                   b1_female_full_walking_mental_gait_clock.out         
 b1              male     aeh                 walking                  mental                    gait                   3ms                     b1_male_aeh_walking_mental_gait_3ms.out              
 b1              male     aeh                 walking                  mental                    gait                   clock                   b1_male_aeh_walking_mental_gait_clock.out            
 b1              male     aehplus             walking                  mental                    gait                   3ms                     b1_male_aehplus_walking_mental_gait_3ms.out          
 b1              male     aehplus             walking                  mental                    gait                   clock                   b1_male_aehplus_walking_mental_gait_clock.out        
-b1              male     a                   walking                  mental                    gait                   3ms                     b1_male_age_walking_mental_gait_3ms.out              
-b1              male     a                   walking                  mental                    gait                   clock                   b1_male_age_walking_mental_gait_clock.out            
+b1              male     age                 walking                  mental                    gait                   3ms                     b1_male_age_walking_mental_gait_3ms.out              
+b1              male     age                 walking                  mental                    gait                   clock                   b1_male_age_walking_mental_gait_clock.out            
 b1              male     full                walking                  mental                    gait                   3ms                     b1_male_full_walking_mental_gait_3ms.out             
 b1              male     full                walking                  mental                    gait                   clock                   b1_male_full_walking_mental_gait_clock.out           
 b1              female   aeh                 walking                  speed                     gait                   digitsymbol             b1_female_aeh_walking_speed_gait_digitsymbol.out     
 b1              female   aehplus             walking                  speed                     gait                   digitsymbol             b1_female_aehplus_walking_speed_gait_digitsymbol.out 
-b1              female   a                   walking                  speed                     gait                   digitsymbol             b1_female_age_walking_speed_gait_digitsymbol.out     
+b1              female   age                 walking                  speed                     gait                   digitsymbol             b1_female_age_walking_speed_gait_digitsymbol.out     
 b1              female   full                walking                  speed                     gait                   digitsymbol             b1_female_full_walking_speed_gait_digitsymbol.out    
 b1              male     aeh                 walking                  speed                     gait                   digitsymbol             b1_male_aeh_walking_speed_gait_digitsymbol.out       
 b1              male     aehplus             walking                  speed                     gait                   digitsymbol             b1_male_aehplus_walking_speed_gait_digitsymbol.out   
-b1              male     a                   walking                  speed                     gait                   digitsymbol             b1_male_age_walking_speed_gait_digitsymbol.out       
+b1              male     age                 walking                  speed                     gait                   digitsymbol             b1_male_age_walking_speed_gait_digitsymbol.out       
 b1              male     full                walking                  speed                     gait                   digitsymbol             b1_male_full_walking_speed_gait_digitsymbol.out      
 
 ## u1
@@ -336,52 +336,52 @@ b1              male     full                walking                  speed     
 
 model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                 
 --------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ----------------------------------------------------------
-u1              female   aeh                 muscle                   nocog                     hand                   nocogspec               u1_female_aeh_muscle_noCog_hand_noCogSpec.out             
-u1              female   aehplus             muscle                   nocog                     hand                   nocogspec               u1_female_aehplus_muscle_noCog_hand_noCogSpec.out         
-u1              female   a                   muscle                   nocog                     hand                   nocogspec               u1_female_age_muscle_noCog_hand_noCogSpec.out             
-u1              male     aeh                 muscle                   nocog                     hand                   nocogspec               u1_male_aeh_muscle_noCog_hand_noCogSpec.out               
-u1              male     aehplus             muscle                   nocog                     hand                   nocogspec               u1_male_aehplus_muscle_noCog_hand_noCogSpec.out           
-u1              male     a                   muscle                   nocog                     hand                   nocogspec               u1_male_age_muscle_noCog_hand_noCogSpec.out               
-u1              female   aeh                 nophys                   mental                    nophysspec             3ms                     u1_female_aeh_noPhys_mental_noPhysSpec_3ms.out            
-u1              female   aeh                 nophys                   mental                    nophysspec             clock                   u1_female_aeh_noPhys_mental_noPhysSpec_clock.out          
-u1              female   aehplus             nophys                   mental                    nophysspec             3ms                     u1_female_aehplus_noPhys_mental_noPhysSpec_3ms.out        
-u1              female   aehplus             nophys                   mental                    nophysspec             clock                   u1_female_aehplus_noPhys_mental_noPhysSpec_clock.out      
-u1              female   a                   nophys                   mental                    nophysspec             3ms                     u1_female_age_noPhys_mental_noPhysSpec_3ms.out            
-u1              female   a                   nophys                   mental                    nophysspec             clock                   u1_female_age_noPhys_mental_noPhysSpec_clock.out          
-u1              male     aeh                 nophys                   mental                    nophysspec             3ms                     u1_male_aeh_noPhys_mental_noPhysSpec_3ms.out              
-u1              male     aeh                 nophys                   mental                    nophysspec             clock                   u1_male_aeh_noPhys_mental_noPhysSpec_clock.out            
-u1              male     aehplus             nophys                   mental                    nophysspec             3ms                     u1_male_aehplus_noPhys_mental_noPhysSpec_3ms.out          
-u1              male     aehplus             nophys                   mental                    nophysspec             clock                   u1_male_aehplus_noPhys_mental_noPhysSpec_clock.out        
-u1              male     a                   nophys                   mental                    nophysspec             3ms                     u1_male_age_noPhys_mental_noPhysSpec_3ms.out              
-u1              male     a                   nophys                   mental                    nophysspec             clock                   u1_male_age_noPhys_mental_noPhysSpec_clock.out            
-u1              female   aeh                 nophys                   speed                     nophysspec             digitsymbol             u1_female_aeh_noPhys_speed_noPhysSpec_digitsymbol.out     
-u1              female   aehplus             nophys                   speed                     nophysspec             digitsymbol             u1_female_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out 
-u1              female   a                   nophys                   speed                     nophysspec             digitsymbol             u1_female_age_noPhys_speed_noPhysSpec_digitsymbol.out     
-u1              male     aeh                 nophys                   speed                     nophysspec             digitsymbol             u1_male_aeh_noPhys_speed_noPhysSpec_digitsymbol.out       
-u1              male     aehplus             nophys                   speed                     nophysspec             digitsymbol             u1_male_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out   
-u1              male     a                   nophys                   speed                     nophysspec             digitsymbol             u1_male_age_noPhys_speed_noPhysSpec_digitsymbol.out       
-u1              female   aeh                 walking                  nocog                     gait                   nocogspec               u1_female_aeh_walking_noCog_gait_noCogSpec.out            
-u1              female   aehplus             walking                  nocog                     gait                   nocogspec               u1_female_aehplus_walking_noCog_gait_noCogSpec.out        
-u1              female   a                   walking                  nocog                     gait                   nocogspec               u1_female_age_walking_noCog_gait_noCogSpec.out            
-u1              male     aeh                 walking                  nocog                     gait                   nocogspec               u1_male_aeh_walking_noCog_gait_noCogSpec.out              
-u1              male     aehplus             walking                  nocog                     gait                   nocogspec               u1_male_aehplus_walking_noCog_gait_noCogSpec.out          
-u1              male     a                   walking                  nocog                     gait                   nocogspec               u1_male_age_walking_noCog_gait_noCogSpec.out              
+u1              female   aeh                 muscle                   noCog                     hand                   noCogSpec               u1_female_aeh_muscle_noCog_hand_noCogSpec.out             
+u1              female   aehplus             muscle                   noCog                     hand                   noCogSpec               u1_female_aehplus_muscle_noCog_hand_noCogSpec.out         
+u1              female   age                 muscle                   noCog                     hand                   noCogSpec               u1_female_age_muscle_noCog_hand_noCogSpec.out             
+u1              male     aeh                 muscle                   noCog                     hand                   noCogSpec               u1_male_aeh_muscle_noCog_hand_noCogSpec.out               
+u1              male     aehplus             muscle                   noCog                     hand                   noCogSpec               u1_male_aehplus_muscle_noCog_hand_noCogSpec.out           
+u1              male     age                 muscle                   noCog                     hand                   noCogSpec               u1_male_age_muscle_noCog_hand_noCogSpec.out               
+u1              female   aeh                 noPhys                   mental                    noPhysSpec             3ms                     u1_female_aeh_noPhys_mental_noPhysSpec_3ms.out            
+u1              female   aeh                 noPhys                   mental                    noPhysSpec             clock                   u1_female_aeh_noPhys_mental_noPhysSpec_clock.out          
+u1              female   aehplus             noPhys                   mental                    noPhysSpec             3ms                     u1_female_aehplus_noPhys_mental_noPhysSpec_3ms.out        
+u1              female   aehplus             noPhys                   mental                    noPhysSpec             clock                   u1_female_aehplus_noPhys_mental_noPhysSpec_clock.out      
+u1              female   age                 noPhys                   mental                    noPhysSpec             3ms                     u1_female_age_noPhys_mental_noPhysSpec_3ms.out            
+u1              female   age                 noPhys                   mental                    noPhysSpec             clock                   u1_female_age_noPhys_mental_noPhysSpec_clock.out          
+u1              male     aeh                 noPhys                   mental                    noPhysSpec             3ms                     u1_male_aeh_noPhys_mental_noPhysSpec_3ms.out              
+u1              male     aeh                 noPhys                   mental                    noPhysSpec             clock                   u1_male_aeh_noPhys_mental_noPhysSpec_clock.out            
+u1              male     aehplus             noPhys                   mental                    noPhysSpec             3ms                     u1_male_aehplus_noPhys_mental_noPhysSpec_3ms.out          
+u1              male     aehplus             noPhys                   mental                    noPhysSpec             clock                   u1_male_aehplus_noPhys_mental_noPhysSpec_clock.out        
+u1              male     age                 noPhys                   mental                    noPhysSpec             3ms                     u1_male_age_noPhys_mental_noPhysSpec_3ms.out              
+u1              male     age                 noPhys                   mental                    noPhysSpec             clock                   u1_male_age_noPhys_mental_noPhysSpec_clock.out            
+u1              female   aeh                 noPhys                   speed                     noPhysSpec             digitsymbol             u1_female_aeh_noPhys_speed_noPhysSpec_digitsymbol.out     
+u1              female   aehplus             noPhys                   speed                     noPhysSpec             digitsymbol             u1_female_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out 
+u1              female   age                 noPhys                   speed                     noPhysSpec             digitsymbol             u1_female_age_noPhys_speed_noPhysSpec_digitsymbol.out     
+u1              male     aeh                 noPhys                   speed                     noPhysSpec             digitsymbol             u1_male_aeh_noPhys_speed_noPhysSpec_digitsymbol.out       
+u1              male     aehplus             noPhys                   speed                     noPhysSpec             digitsymbol             u1_male_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out   
+u1              male     age                 noPhys                   speed                     noPhysSpec             digitsymbol             u1_male_age_noPhys_speed_noPhysSpec_digitsymbol.out       
+u1              female   aeh                 walking                  noCog                     gait                   noCogSpec               u1_female_aeh_walking_noCog_gait_noCogSpec.out            
+u1              female   aehplus             walking                  noCog                     gait                   noCogSpec               u1_female_aehplus_walking_noCog_gait_noCogSpec.out        
+u1              female   age                 walking                  noCog                     gait                   noCogSpec               u1_female_age_walking_noCog_gait_noCogSpec.out            
+u1              male     aeh                 walking                  noCog                     gait                   noCogSpec               u1_male_aeh_walking_noCog_gait_noCogSpec.out              
+u1              male     aehplus             walking                  noCog                     gait                   noCogSpec               u1_male_aehplus_walking_noCog_gait_noCogSpec.out          
+u1              male     age                 walking                  noCog                     gait                   noCogSpec               u1_male_age_walking_noCog_gait_noCogSpec.out              
 
 ## u0
 
 
 model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                               
 --------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------------------------------
-u0              female   empty               muscle                   nocog                     hand                   nocogspec               u0_female_empty_muscle_noCog_hand_noCogSpec.out         
-u0              male     empty               muscle                   nocog                     hand                   nocogspec               u0_male_empty_muscle_noCog_hand_noCogSpec.out           
-u0              female   empty               nophys                   mental                    nophysspec             3ms                     u0_female_empty_noPhys_mental_noPhysSpec_3ms.out        
-u0              female   empty               nophys                   mental                    nophysspec             clock                   u0_female_empty_noPhys_mental_noPhysSpec_clock.out      
-u0              male     empty               nophys                   mental                    nophysspec             3ms                     u0_male_empty_noPhys_mental_noPhysSpec_3ms.out          
-u0              male     empty               nophys                   mental                    nophysspec             clock                   u0_male_empty_noPhys_mental_noPhysSpec_clock.out        
-u0              female   empty               nophys                   speed                     nophysspec             digitsymbol             u0_female_empty_noPhys_speed_noPhysSpec_digitsymbol.out 
-u0              male     empty               nophys                   speed                     nophysspec             digitsymbol             u0_male_empty_noPhys_speed_noPhysSpec_digitsymbol.out   
-u0              female   empty               walking                  nocog                     gait                   nocogspec               u0_female_empty_walking_noCog_gait_noCogSpec.out        
-u0              male     empty               walking                  nocog                     gait                   nocogspec               u0_male_empty_walking_noCog_gait_noCogSpec.out          
+u0              female   empty               muscle                   noCog                     hand                   noCogSpec               u0_female_empty_muscle_noCog_hand_noCogSpec.out         
+u0              male     empty               muscle                   noCog                     hand                   noCogSpec               u0_male_empty_muscle_noCog_hand_noCogSpec.out           
+u0              female   empty               noPhys                   mental                    noPhysSpec             3ms                     u0_female_empty_noPhys_mental_noPhysSpec_3ms.out        
+u0              female   empty               noPhys                   mental                    noPhysSpec             clock                   u0_female_empty_noPhys_mental_noPhysSpec_clock.out      
+u0              male     empty               noPhys                   mental                    noPhysSpec             3ms                     u0_male_empty_noPhys_mental_noPhysSpec_3ms.out          
+u0              male     empty               noPhys                   mental                    noPhysSpec             clock                   u0_male_empty_noPhys_mental_noPhysSpec_clock.out        
+u0              female   empty               noPhys                   speed                     noPhysSpec             digitsymbol             u0_female_empty_noPhys_speed_noPhysSpec_digitsymbol.out 
+u0              male     empty               noPhys                   speed                     noPhysSpec             digitsymbol             u0_male_empty_noPhys_speed_noPhysSpec_digitsymbol.out   
+u0              female   empty               walking                  noCog                     gait                   noCogSpec               u0_female_empty_walking_noCog_gait_noCogSpec.out        
+u0              male     empty               walking                  noCog                     gait                   noCogSpec               u0_male_empty_walking_noCog_gait_noCogSpec.out          
 
 
 # Session Information
@@ -389,7 +389,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-05-26, 09:48 -0700
+Report rendered by koval_000 at 2015-06-01, 11:08 -0700
 ```
 
 ```
@@ -405,11 +405,13 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10.5      
+[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
+[6] knitr_1.10.5          MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 highr_0.5       
- [7] stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1       
-[13] htmltools_0.2.6  lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1  
-[19] formatR_1.2      evaluate_0.7     rmarkdown_0.6.1  stringi_0.4-1    proto_0.3-10    
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
+ [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
+[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
+[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
+[25] evaluate_0.7     rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
 ```

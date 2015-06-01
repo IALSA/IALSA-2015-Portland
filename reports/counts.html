@@ -71,39 +71,8 @@ img {
 <li><a href="#cognitive-constructs">Cognitive Constructs</a></li>
 <li><a href="#bivariate-models">Bivariate models</a></li>
 <li><a href="#bivariate-by-study">Bivariate by Study</a></li>
-<li><a href="#physical-measures">Physical Measures</a><ul>
-<li><a href="#muscle">muscle</a></li>
-<li><a href="#pulmonary">pulmonary</a></li>
-<li><a href="#walking">walking</a></li>
-<li><a href="#grip">grip</a></li>
-<li><a href="#gait">gait</a></li>
-</ul></li>
-<li><a href="#cognitive-measures">Cognitive Measures</a><ul>
-<li><a href="#fluency">fluency</a></li>
-<li><a href="#fluid">fluid</a></li>
-<li><a href="#global">global</a></li>
-<li><a href="#knowledge">knowledge</a></li>
-<li><a href="#memory">memory</a></li>
-<li><a href="#reasoning">reasoning</a></li>
-<li><a href="#speed">speed</a></li>
-<li><a href="#executive">executive</a></li>
-<li><a href="#mental">mental</a></li>
-<li><a href="#fluidreasoning">fluidreasoning</a></li>
-<li><a href="#memoryattention">memoryattention</a></li>
-<li><a href="#verbalfluency">verbalfluency</a></li>
-<li><a href="#block">block</a></li>
-<li><a href="#digitbackward">digitbackward</a></li>
-<li><a href="#digitforward">digitforward</a></li>
-<li><a href="#digitsymbol">digitsymbol</a></li>
-<li><a href="#figurelogic">figurelogic</a></li>
-<li><a href="#mirrecall">mirrecall</a></li>
-<li><a href="#proserecall">proserecall</a></li>
-<li><a href="#attention">attention</a></li>
-<li><a href="#language">language</a></li>
-<li><a href="#visuospatial">visuospatial</a></li>
-<li><a href="#spatial">spatial</a></li>
-<li><a href="#verbal">verbal</a></li>
-</ul></li>
+<li><a href="#physical-measures">Physical Measures</a></li>
+<li><a href="#cognitive-measures">Cognitive Measures</a></li>
 <li><a href="#session-information">Session Information</a></li>
 </ul>
 </div>
@@ -121,559 +90,215 @@ img {
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p>We are yet to receive model results from the following studies:</p>
-<pre><code>[1] &quot;elsa&quot; &quot;hrs&quot;  &quot;lasa&quot; &quot;nshd&quot;</code></pre>
+<pre><code>[1] &quot;elsa&quot; &quot;hrs&quot;  &quot;lasa&quot; &quot;nshd&quot; &quot;obas&quot;</code></pre>
 <p>Presently, the number of <strong>bivariate models</strong> supplied by the participating studies is:</p>
-<pre><code>[1] 726</code></pre>
+<pre><code>[1] 1064</code></pre>
 <!-- Frequency counts   -->
 <p>Counting valid models in each study:</p>
 <pre><code>
-  eas  habc  ilse   nas nuage  obas  octo  radc satsa 
-  220    48    27    41     6     4   176   145    59 </code></pre>
+  eas  habc  ilse   nas nuage  octo  radc satsa 
+  485    88   123    41    18    88   129    92 </code></pre>
 </div>
 <div id="physical-constructs" class="section level2">
 <h2>Physical Constructs</h2>
 <p>Number of models that use the following <strong>Physical contructs</strong></p>
 <pre><code>           
-            eas habc ilse nas nuage obas octo radc satsa
-  gait      .   .    .    .   .     .    .    .    20   
-  grip      .   .    .    .   .     .    42   .    20   
-  muscle    109 24   27   .   6     .    44   81   .    
-  pulmonary 111 .    .    41  .     .    90   64   19   
-  walking   .   24   .    .   .     4    .    .    .    </code></pre>
+            eas habc ilse nas nuage octo radc satsa
+  muscle    131 32   45   .   12    44   73   46   
+  nophys    221 24   34   .   6     .    .    .    
+  pulmonary 133 .    .    41  .     44   56   46   
+  tug       .   .    44   .   .     .    .    .    
+  walking   .   32   .    .   .     .    .    .    </code></pre>
 </div>
 <div id="cognitive-constructs" class="section level2">
 <h2>Cognitive Constructs</h2>
 <p>Number of models that use the following <strong>Cognitive contructs</strong></p>
 <pre><code>                 
-                  eas habc ilse nas nuage obas octo radc satsa
-  attention       .   .    .    .   .     .    .    7    .    
-  block           .   .    .    .   .     .    14   .    .    
-  digitbackward   .   .    .    .   .     .    12   .    .    
-  digitforward    .   .    .    .   .     .    12   .    .    
-  digitsymbol     .   .    .    .   .     .    12   .    .    
-  executive       10  .    .    .   .     .    .    20   .    
-  figurelogic     .   .    .    .   .     .    12   .    .    
-  fluency         66  .    6    .   .     .    .    .    .    
-  fluid           10  .    .    .   .     .    .    .    .    
-  fluidreasoning  .   .    .    12  .     .    .    .    .    
-  global          20  .    .    6   6     4    8    7    .    
-  knowledge       35  .    6    .   .     .    16   11   .    
-  language        .   .    .    .   .     .    .    13   .    
-  memory          39  .    .    .   .     .    32   47   15   
-  memoryattention .   .    .    17  .     .    .    .    .    
-  mental          .   32   .    .   .     .    .    .    .    
-  mirrecall       .   .    .    .   .     .    12   .    .    
-  proserecall     .   .    .    .   .     .    14   .    .    
-  reasoning       20  .    9    .   .     .    16   11   .    
-  spatial         .   .    .    .   .     .    .    .    15   
-  speed           20  16   6    .   .     .    16   18   15   
-  verbal          .   .    .    .   .     .    .    .    14   
-  verbalfluency   .   .    .    6   .     .    .    .    .    
-  visuospatial    .   .    .    .   .     .    .    11   .    </code></pre>
+                  eas habc ilse nas nuage octo radc satsa
+  attention       .   .    .    .   .     .    7    .    
+  executive       29  .    .    .   .     .    16   .    
+  fluency         126 .    20   .   .     .    .    .    
+  fluid           10  .    .    .   .     .    .    .    
+  fluidreasoning  .   .    .    12  .     .    .    .    
+  global          40  .    .    6   12    8    7    16   
+  knowledge       75  .    12   .   .     16   7    48   
+  language        .   .    .    .   .     .    13   .    
+  memory          79  .    .    .   .     32   47   .    
+  memoryattention .   .    .    17  .     .    .    .    
+  mental          .   48   .    .   .     .    .    .    
+  nocog           44  16   17   .   6     .    4    .    
+  reasoning       42  .    54   .   .     16   7    .    
+  speed           40  24   20   .   .     16   14   28   
+  verbalfluency   .   .    .    6   .     .    .    .    
+  visuospatial    .   .    .    .   .     .    7    .    </code></pre>
 </div>
 <div id="bivariate-models" class="section level2">
 <h2>Bivariate models</h2>
 <p>Number of models with a uniuqe <strong>Physical + Cognitive</strong> combination of constructs:</p>
 <pre><code>                 
-                  gait grip muscle pulmonary walking
-  attention       .    .    4      3         .      
-  block           .    6    .      8         .      
-  digitbackward   .    6    .      6         .      
-  digitforward    .    6    .      6         .      
-  digitsymbol     .    6    .      6         .      
-  executive       .    .    12     18        .      
-  figurelogic     .    6    .      6         .      
-  fluency         .    .    42     30        .      
-  fluid           .    .    10     .         .      
-  fluidreasoning  .    .    .      12        .      
-  global          .    .    24     23        4      
-  knowledge       .    .    34     34        .      
-  language        .    .    7      6         .      
-  memory          5    5    61     62        .      
-  memoryattention .    .    .      17        .      
-  mental          .    .    16     .         16     
-  mirrecall       .    6    .      6         .      
-  proserecall     .    6    .      8         .      
-  reasoning       .    .    33     23        .      
-  spatial         5    5    .      5         .      
-  speed           5    5    42     31        8      
-  verbal          5    5    .      4         .      
-  verbalfluency   .    .    .      6         .      
-  visuospatial    .    .    6      5         .      </code></pre>
+                  muscle nophys pulmonary tug walking
+  attention       4      .      3         .   .      
+  executive       10     19     16        .   .      
+  fluency         42     68     30        6   .      
+  fluid           10     .      .         .   .      
+  fluidreasoning  .      .      12        .   .      
+  global          32     26     31        .   .      
+  knowledge       56     40     56        6   .      
+  language        7      .      6         .   .      
+  memory          61     40     57        .   .      
+  memoryattention .      .      17        .   .      
+  mental          16     16     .         .   16     
+  nocog           47     .      24        8   8      
+  reasoning       40     40     21        18  .      
+  speed           54     36     38        6   8      
+  verbalfluency   .      .      6         .   .      
+  visuospatial    4      .      3         .   .      </code></pre>
 <p>It is important to remember that these numbers reflect only the combinations of <strong>constructs</strong>, the <strong>operationalizations</strong> of these construct (specifc outcomes) that may differ from model to model.</p>
 </div>
 <div id="bivariate-by-study" class="section level2">
 <h2>Bivariate by Study</h2>
 <p>Number of models with a uniuqe <strong>Physical + Cognitive</strong> combination of constructs <strong>by study</strong>:</p>
-<pre><code>                       gait grip muscle pulmonary walking
-                                                         
-eas   attention          .    .      .         .       . 
-      block              .    .      .         .       . 
-      digitbackward      .    .      .         .       . 
-      digitforward       .    .      .         .       . 
-      digitsymbol        .    .      .         .       . 
-      executive          .    .      .         10      . 
-      figurelogic        .    .      .         .       . 
-      fluency            .    .      36        30      . 
-      fluid              .    .      10        .       . 
-      fluidreasoning     .    .      .         .       . 
-      global             .    .      10        10      . 
-      knowledge          .    .      14        21      . 
-      language           .    .      .         .       . 
-      memory             .    .      19        20      . 
-      memoryattention    .    .      .         .       . 
-      mental             .    .      .         .       . 
-      mirrecall          .    .      .         .       . 
-      proserecall        .    .      .         .       . 
-      reasoning          .    .      10        10      . 
-      spatial            .    .      .         .       . 
-      speed              .    .      10        10      . 
-      verbal             .    .      .         .       . 
-      verbalfluency      .    .      .         .       . 
-      visuospatial       .    .      .         .       . 
-habc  attention          .    .      .         .       . 
-      block              .    .      .         .       . 
-      digitbackward      .    .      .         .       . 
-      digitforward       .    .      .         .       . 
-      digitsymbol        .    .      .         .       . 
-      executive          .    .      .         .       . 
-      figurelogic        .    .      .         .       . 
-      fluency            .    .      .         .       . 
-      fluid              .    .      .         .       . 
-      fluidreasoning     .    .      .         .       . 
-      global             .    .      .         .       . 
-      knowledge          .    .      .         .       . 
-      language           .    .      .         .       . 
-      memory             .    .      .         .       . 
-      memoryattention    .    .      .         .       . 
-      mental             .    .      16        .       16
-      mirrecall          .    .      .         .       . 
-      proserecall        .    .      .         .       . 
-      reasoning          .    .      .         .       . 
-      spatial            .    .      .         .       . 
-      speed              .    .      8         .       8 
-      verbal             .    .      .         .       . 
-      verbalfluency      .    .      .         .       . 
-      visuospatial       .    .      .         .       . 
-ilse  attention          .    .      .         .       . 
-      block              .    .      .         .       . 
-      digitbackward      .    .      .         .       . 
-      digitforward       .    .      .         .       . 
-      digitsymbol        .    .      .         .       . 
-      executive          .    .      .         .       . 
-      figurelogic        .    .      .         .       . 
-      fluency            .    .      6         .       . 
-      fluid              .    .      .         .       . 
-      fluidreasoning     .    .      .         .       . 
-      global             .    .      .         .       . 
-      knowledge          .    .      6         .       . 
-      language           .    .      .         .       . 
-      memory             .    .      .         .       . 
-      memoryattention    .    .      .         .       . 
-      mental             .    .      .         .       . 
-      mirrecall          .    .      .         .       . 
-      proserecall        .    .      .         .       . 
-      reasoning          .    .      9         .       . 
-      spatial            .    .      .         .       . 
-      speed              .    .      6         .       . 
-      verbal             .    .      .         .       . 
-      verbalfluency      .    .      .         .       . 
-      visuospatial       .    .      .         .       . 
-nas   attention          .    .      .         .       . 
-      block              .    .      .         .       . 
-      digitbackward      .    .      .         .       . 
-      digitforward       .    .      .         .       . 
-      digitsymbol        .    .      .         .       . 
-      executive          .    .      .         .       . 
-      figurelogic        .    .      .         .       . 
-      fluency            .    .      .         .       . 
-      fluid              .    .      .         .       . 
-      fluidreasoning     .    .      .         12      . 
-      global             .    .      .         6       . 
-      knowledge          .    .      .         .       . 
-      language           .    .      .         .       . 
-      memory             .    .      .         .       . 
-      memoryattention    .    .      .         17      . 
-      mental             .    .      .         .       . 
-      mirrecall          .    .      .         .       . 
-      proserecall        .    .      .         .       . 
-      reasoning          .    .      .         .       . 
-      spatial            .    .      .         .       . 
-      speed              .    .      .         .       . 
-      verbal             .    .      .         .       . 
-      verbalfluency      .    .      .         6       . 
-      visuospatial       .    .      .         .       . 
-nuage attention          .    .      .         .       . 
-      block              .    .      .         .       . 
-      digitbackward      .    .      .         .       . 
-      digitforward       .    .      .         .       . 
-      digitsymbol        .    .      .         .       . 
-      executive          .    .      .         .       . 
-      figurelogic        .    .      .         .       . 
-      fluency            .    .      .         .       . 
-      fluid              .    .      .         .       . 
-      fluidreasoning     .    .      .         .       . 
-      global             .    .      6         .       . 
-      knowledge          .    .      .         .       . 
-      language           .    .      .         .       . 
-      memory             .    .      .         .       . 
-      memoryattention    .    .      .         .       . 
-      mental             .    .      .         .       . 
-      mirrecall          .    .      .         .       . 
-      proserecall        .    .      .         .       . 
-      reasoning          .    .      .         .       . 
-      spatial            .    .      .         .       . 
-      speed              .    .      .         .       . 
-      verbal             .    .      .         .       . 
-      verbalfluency      .    .      .         .       . 
-      visuospatial       .    .      .         .       . 
-obas  attention          .    .      .         .       . 
-      block              .    .      .         .       . 
-      digitbackward      .    .      .         .       . 
-      digitforward       .    .      .         .       . 
-      digitsymbol        .    .      .         .       . 
-      executive          .    .      .         .       . 
-      figurelogic        .    .      .         .       . 
-      fluency            .    .      .         .       . 
-      fluid              .    .      .         .       . 
-      fluidreasoning     .    .      .         .       . 
-      global             .    .      .         .       4 
-      knowledge          .    .      .         .       . 
-      language           .    .      .         .       . 
-      memory             .    .      .         .       . 
-      memoryattention    .    .      .         .       . 
-      mental             .    .      .         .       . 
-      mirrecall          .    .      .         .       . 
-      proserecall        .    .      .         .       . 
-      reasoning          .    .      .         .       . 
-      spatial            .    .      .         .       . 
-      speed              .    .      .         .       . 
-      verbal             .    .      .         .       . 
-      verbalfluency      .    .      .         .       . 
-      visuospatial       .    .      .         .       . 
-octo  attention          .    .      .         .       . 
-      block              .    6      .         8       . 
-      digitbackward      .    6      .         6       . 
-      digitforward       .    6      .         6       . 
-      digitsymbol        .    6      .         6       . 
-      executive          .    .      .         .       . 
-      figurelogic        .    6      .         6       . 
-      fluency            .    .      .         .       . 
-      fluid              .    .      .         .       . 
-      fluidreasoning     .    .      .         .       . 
-      global             .    .      4         4       . 
-      knowledge          .    .      8         8       . 
-      language           .    .      .         .       . 
-      memory             .    .      16        16      . 
-      memoryattention    .    .      .         .       . 
-      mental             .    .      .         .       . 
-      mirrecall          .    6      .         6       . 
-      proserecall        .    6      .         8       . 
-      reasoning          .    .      8         8       . 
-      spatial            .    .      .         .       . 
-      speed              .    .      8         8       . 
-      verbal             .    .      .         .       . 
-      verbalfluency      .    .      .         .       . 
-      visuospatial       .    .      .         .       . 
-radc  attention          .    .      4         3       . 
-      block              .    .      .         .       . 
-      digitbackward      .    .      .         .       . 
-      digitforward       .    .      .         .       . 
-      digitsymbol        .    .      .         .       . 
-      executive          .    .      12        8       . 
-      figurelogic        .    .      .         .       . 
-      fluency            .    .      .         .       . 
-      fluid              .    .      .         .       . 
-      fluidreasoning     .    .      .         .       . 
-      global             .    .      4         3       . 
-      knowledge          .    .      6         5       . 
-      language           .    .      7         6       . 
-      memory             .    .      26        21      . 
-      memoryattention    .    .      .         .       . 
-      mental             .    .      .         .       . 
-      mirrecall          .    .      .         .       . 
-      proserecall        .    .      .         .       . 
-      reasoning          .    .      6         5       . 
-      spatial            .    .      .         .       . 
-      speed              .    .      10        8       . 
-      verbal             .    .      .         .       . 
-      verbalfluency      .    .      .         .       . 
-      visuospatial       .    .      6         5       . 
-satsa attention          .    .      .         .       . 
-      block              .    .      .         .       . 
-      digitbackward      .    .      .         .       . 
-      digitforward       .    .      .         .       . 
-      digitsymbol        .    .      .         .       . 
-      executive          .    .      .         .       . 
-      figurelogic        .    .      .         .       . 
-      fluency            .    .      .         .       . 
-      fluid              .    .      .         .       . 
-      fluidreasoning     .    .      .         .       . 
-      global             .    .      .         .       . 
-      knowledge          .    .      .         .       . 
-      language           .    .      .         .       . 
-      memory             5    5      .         5       . 
-      memoryattention    .    .      .         .       . 
-      mental             .    .      .         .       . 
-      mirrecall          .    .      .         .       . 
-      proserecall        .    .      .         .       . 
-      reasoning          .    .      .         .       . 
-      spatial            5    5      .         5       . 
-      speed              5    5      .         5       . 
-      verbal             5    5      .         4       . 
-      verbalfluency      .    .      .         .       . 
-      visuospatial       .    .      .         .       . </code></pre>
+<pre><code>                       muscle nophys pulmonary tug walking
+                                                          
+eas   attention            .      .         .   .       . 
+      executive            .      19        10  .       . 
+      fluency              36     60        30  .       . 
+      fluid                10     .         .   .       . 
+      fluidreasoning       .      .         .   .       . 
+      global               10     20        10  .       . 
+      knowledge            14     40        21  .       . 
+      language             .      .         .   .       . 
+      memory               19     40        20  .       . 
+      memoryattention      .      .         .   .       . 
+      mental               .      .         .   .       . 
+      nocog                22     .         22  .       . 
+      reasoning            10     22        10  .       . 
+      speed                10     20        10  .       . 
+      verbalfluency        .      .         .   .       . 
+      visuospatial         .      .         .   .       . 
+habc  attention            .      .         .   .       . 
+      executive            .      .         .   .       . 
+      fluency              .      .         .   .       . 
+      fluid                .      .         .   .       . 
+      fluidreasoning       .      .         .   .       . 
+      global               .      .         .   .       . 
+      knowledge            .      .         .   .       . 
+      language             .      .         .   .       . 
+      memory               .      .         .   .       . 
+      memoryattention      .      .         .   .       . 
+      mental               16     16        .   .       16
+      nocog                8      .         .   .       8 
+      reasoning            .      .         .   .       . 
+      speed                8      8         .   .       8 
+      verbalfluency        .      .         .   .       . 
+      visuospatial         .      .         .   .       . 
+ilse  attention            .      .         .   .       . 
+      executive            .      .         .   .       . 
+      fluency              6      8         .   6       . 
+      fluid                .      .         .   .       . 
+      fluidreasoning       .      .         .   .       . 
+      global               .      .         .   .       . 
+      knowledge            6      .         .   6       . 
+      language             .      .         .   .       . 
+      memory               .      .         .   .       . 
+      memoryattention      .      .         .   .       . 
+      mental               .      .         .   .       . 
+      nocog                9      .         .   8       . 
+      reasoning            18     18        .   18      . 
+      speed                6      8         .   6       . 
+      verbalfluency        .      .         .   .       . 
+      visuospatial         .      .         .   .       . 
+nas   attention            .      .         .   .       . 
+      executive            .      .         .   .       . 
+      fluency              .      .         .   .       . 
+      fluid                .      .         .   .       . 
+      fluidreasoning       .      .         12  .       . 
+      global               .      .         6   .       . 
+      knowledge            .      .         .   .       . 
+      language             .      .         .   .       . 
+      memory               .      .         .   .       . 
+      memoryattention      .      .         17  .       . 
+      mental               .      .         .   .       . 
+      nocog                .      .         .   .       . 
+      reasoning            .      .         .   .       . 
+      speed                .      .         .   .       . 
+      verbalfluency        .      .         6   .       . 
+      visuospatial         .      .         .   .       . 
+nuage attention            .      .         .   .       . 
+      executive            .      .         .   .       . 
+      fluency              .      .         .   .       . 
+      fluid                .      .         .   .       . 
+      fluidreasoning       .      .         .   .       . 
+      global               6      6         .   .       . 
+      knowledge            .      .         .   .       . 
+      language             .      .         .   .       . 
+      memory               .      .         .   .       . 
+      memoryattention      .      .         .   .       . 
+      mental               .      .         .   .       . 
+      nocog                6      .         .   .       . 
+      reasoning            .      .         .   .       . 
+      speed                .      .         .   .       . 
+      verbalfluency        .      .         .   .       . 
+      visuospatial         .      .         .   .       . 
+octo  attention            .      .         .   .       . 
+      executive            .      .         .   .       . 
+      fluency              .      .         .   .       . 
+      fluid                .      .         .   .       . 
+      fluidreasoning       .      .         .   .       . 
+      global               4      .         4   .       . 
+      knowledge            8      .         8   .       . 
+      language             .      .         .   .       . 
+      memory               16     .         16  .       . 
+      memoryattention      .      .         .   .       . 
+      mental               .      .         .   .       . 
+      nocog                .      .         .   .       . 
+      reasoning            8      .         8   .       . 
+      speed                8      .         8   .       . 
+      verbalfluency        .      .         .   .       . 
+      visuospatial         .      .         .   .       . 
+radc  attention            4      .         3   .       . 
+      executive            10     .         6   .       . 
+      fluency              .      .         .   .       . 
+      fluid                .      .         .   .       . 
+      fluidreasoning       .      .         .   .       . 
+      global               4      .         3   .       . 
+      knowledge            4      .         3   .       . 
+      language             7      .         6   .       . 
+      memory               26     .         21  .       . 
+      memoryattention      .      .         .   .       . 
+      mental               .      .         .   .       . 
+      nocog                2      .         2   .       . 
+      reasoning            4      .         3   .       . 
+      speed                8      .         6   .       . 
+      verbalfluency        .      .         .   .       . 
+      visuospatial         4      .         3   .       . 
+satsa attention            .      .         .   .       . 
+      executive            .      .         .   .       . 
+      fluency              .      .         .   .       . 
+      fluid                .      .         .   .       . 
+      fluidreasoning       .      .         .   .       . 
+      global               8      .         8   .       . 
+      knowledge            24     .         24  .       . 
+      language             .      .         .   .       . 
+      memory               .      .         .   .       . 
+      memoryattention      .      .         .   .       . 
+      mental               .      .         .   .       . 
+      nocog                .      .         .   .       . 
+      reasoning            .      .         .   .       . 
+      speed                14     .         14  .       . 
+      verbalfluency        .      .         .   .       . 
+      visuospatial         .      .         .   .       . </code></pre>
 </div>
 <div id="physical-measures" class="section level2">
 <h2>Physical Measures</h2>
-<div id="muscle" class="section level3">
-<h3>muscle</h3>
-<p>Operationalizations of the physical construct <strong>muscle</strong>:</p>
-<pre><code>      
-       eas habc ilse nuage octo radc
-  gait .   1    .    .     .    .   
-  grip 109 .    27   6     44   71  
-  hand .   23   .    .     .    .   </code></pre>
-</div>
-<div id="pulmonary" class="section level3">
-<h3>pulmonary</h3>
-<p>Operationalizations of the physical construct <strong>pulmonary</strong>:</p>
-<pre><code>      
-       eas nas octo radc satsa
-  fev  .   .   .    54   .    
-  fev1 .   20  .    .    .    
-  fevc .   1   .    .    .    
-  fvc  .   20  .    .    .    
-  pek  111 .   44   .    .    </code></pre>
-</div>
-<div id="walking" class="section level3">
-<h3>walking</h3>
-<p>Operationalizations of the physical construct <strong>walking</strong>:</p>
-<pre><code>      
-       habc obas
-  gait 24   .   </code></pre>
-</div>
-<div id="grip" class="section level3">
-<h3>grip</h3>
-<p>Operationalizations of the physical construct <strong>grip</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for physical construct **grip**.*
-</code></pre>
-</div>
-<div id="gait" class="section level3">
-<h3>gait</h3>
-<p>Operationalizations of the physical construct <strong>gait</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for physical construct **gait**.*
-</code></pre>
-</div>
 </div>
 <div id="cognitive-measures" class="section level2">
 <h2>Cognitive Measures</h2>
-<div id="fluency" class="section level3">
-<h3>fluency</h3>
-<p>Operationalizations of the cognitive construct <strong>fluency</strong>:</p>
-<pre><code>                   
-                    eas ilse
-  bostonnaming      20  .   
-  category          20  .   
-  fas               20  .   
-  information       6   .   
-  verbalfluencytest .   6   </code></pre>
-</div>
-<div id="fluid" class="section level3">
-<h3>fluid</h3>
-<p>Operationalizations of the cognitive construct <strong>fluid</strong>:</p>
-<pre><code>         
-          eas
-  trailsb 10 </code></pre>
-</div>
-<div id="global" class="section level3">
-<h3>global</h3>
-<p>Operationalizations of the cognitive construct <strong>global</strong>:</p>
-<pre><code>      
-       eas nas nuage obas octo radc
-  mmms .   .   6     .    .    .   
-  mmse 20  6   .     .    8    7   </code></pre>
-</div>
-<div id="knowledge" class="section level3">
-<h3>knowledge</h3>
-<p>Operationalizations of the cognitive construct <strong>knowledge</strong>:</p>
-<pre><code>                      
-                       eas ilse octo radc
-  information          14  .    8    .   
-  nart                 .   .    .    7   
-  synonyms             .   .    8    .   
-  waisgeneralknowledge .   6    .    .   
-  waisvocab            21  .    .    .   </code></pre>
-</div>
-<div id="memory" class="section level3">
-<h3>memory</h3>
-<p>Operationalizations of the cognitive construct <strong>memory</strong>:</p>
-<pre><code>                      
-                       eas octo radc satsa
-  bostonstorydelay     .   .    7    .    
-  bostonstoryimmediate .   .    7    .    
-  digitspan            8   .    .    .    
-  digitspanbackward    .   8    .    .    
-  digitspanforward     .   8    .    .    
-  digitspantotal       6   .    .    .    
-  digitsymbol          5   .    .    .    
-  digitsymboltotal     1   .    .    .    
-  logicalmemory        10  .    .    .    
-  logicalmemorydelay   .   .    7    .    
-  logicalmemoryimmed   .   .    5    .    
-  logicalmemorytotal   9   .    .    .    
-  mirrecall            .   8    .    .    
-  proserecall          .   8    .    .    
-  wordlistdelay        .   .    7    .    
-  wordlistimmed        .   .    7    .    
-  wordlistrecog        .   .    7    .    </code></pre>
-</div>
-<div id="reasoning" class="section level3">
-<h3>reasoning</h3>
-<p>Operationalizations of the cognitive construct <strong>reasoning</strong>:</p>
-<pre><code>                       
-                        eas ilse octo radc
-  block                 20  .    .    .   
-  blockdesign           .   .    8    .   
-  figurelogic           .   .    8    .   
-  lpsspacialability     .   4    .    .   
-  matrices              .   .    .    7   
-  waispicturecompletion .   5    .    .   </code></pre>
-</div>
-<div id="speed" class="section level3">
-<h3>speed</h3>
-<p>Operationalizations of the cognitive construct <strong>speed</strong>:</p>
-<pre><code>                             
-                              eas habc ilse octo radc satsa
-  digitsymbol                 19  16   .    8    7    .    
-  digitsymbolsubstitutiontest .   .    6    .    .    .    
-  digitsymol                  1   .    .    .    .    .    
-  numbercomparison            .   .    .    .    7    .    
-  psif                        .   .    .    8    .    .    </code></pre>
-</div>
-<div id="executive" class="section level3">
-<h3>executive</h3>
-<p>Operationalizations of the cognitive construct <strong>executive</strong>:</p>
-<pre><code>                 
-                  eas radc
-  categoryfluency .   4   
-  digitbackward   .   6   
-  digitordering   .   6   
-  trailsb         10  .   </code></pre>
-</div>
-<div id="mental" class="section level3">
-<h3>mental</h3>
-<p>Operationalizations of the cognitive construct <strong>mental</strong>:</p>
-<pre><code>       
-        habc
-  3ms   16  
-  clock 16  </code></pre>
-</div>
-<div id="fluidreasoning" class="section level3">
-<h3>fluidreasoning</h3>
-<p>Operationalizations of the cognitive construct <strong>fluidreasoning</strong>:</p>
-<pre><code>                   
-                    nas
-  figurecopy        6  
-  patterncomparison 6  </code></pre>
-</div>
-<div id="memoryattention" class="section level3">
-<h3>memoryattention</h3>
-<p>Operationalizations of the cognitive construct <strong>memoryattention</strong>:</p>
-<pre><code>                   
-                    nas
-  delayedwordrecall 6  
-  digitbackward     5  
-  immediaterecall   6  </code></pre>
-</div>
-<div id="verbalfluency" class="section level3">
-<h3>verbalfluency</h3>
-<p>Operationalizations of the cognitive construct <strong>verbalfluency</strong>:</p>
-<pre><code>         
-          nas
-  animals 6  </code></pre>
-</div>
-<div id="block" class="section level3">
-<h3>block</h3>
-<p>Operationalizations of the cognitive construct <strong>block</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for cogntive construct **block**.*
-</code></pre>
-</div>
-<div id="digitbackward" class="section level3">
-<h3>digitbackward</h3>
-<p>Operationalizations of the cognitive construct <strong>digitbackward</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for cogntive construct **digitbackward**.*
-</code></pre>
-</div>
-<div id="digitforward" class="section level3">
-<h3>digitforward</h3>
-<p>Operationalizations of the cognitive construct <strong>digitforward</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for cogntive construct **digitforward**.*
-</code></pre>
-</div>
-<div id="digitsymbol" class="section level3">
-<h3>digitsymbol</h3>
-<p>Operationalizations of the cognitive construct <strong>digitsymbol</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for cogntive construct **digitsymbol**.*
-</code></pre>
-</div>
-<div id="figurelogic" class="section level3">
-<h3>figurelogic</h3>
-<p>Operationalizations of the cognitive construct <strong>figurelogic</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for cogntive construct **figurelogic**.*
-</code></pre>
-</div>
-<div id="mirrecall" class="section level3">
-<h3>mirrecall</h3>
-<p>Operationalizations of the cognitive construct <strong>mirrecall</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for cogntive construct **mirrecall**.*
-</code></pre>
-</div>
-<div id="proserecall" class="section level3">
-<h3>proserecall</h3>
-<p>Operationalizations of the cognitive construct <strong>proserecall</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for cogntive construct **proserecall**.*
-</code></pre>
-</div>
-<div id="attention" class="section level3">
-<h3>attention</h3>
-<p>Operationalizations of the cognitive construct <strong>attention</strong>:</p>
-<pre><code>               
-                radc
-  digitsforward 7   </code></pre>
-</div>
-<div id="language" class="section level3">
-<h3>language</h3>
-<p>Operationalizations of the cognitive construct <strong>language</strong>:</p>
-<pre><code>              
-               radc
-  bnt          6   
-  complexideas 7   </code></pre>
-</div>
-<div id="visuospatial" class="section level3">
-<h3>visuospatial</h3>
-<p>Operationalizations of the cognitive construct <strong>visuospatial</strong>:</p>
-<pre><code>                 
-                  radc
-  lineorientation 7   </code></pre>
-</div>
-<div id="spatial" class="section level3">
-<h3>spatial</h3>
-<p>Operationalizations of the cognitive construct <strong>spatial</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for cogntive construct **spatial**.*
-</code></pre>
-</div>
-<div id="verbal" class="section level3">
-<h3>verbal</h3>
-<p>Operationalizations of the cognitive construct <strong>verbal</strong>:</p>
-<pre><code>Error in file naming: specific measurement was not specified for cogntive construct **verbal**.*
-</code></pre>
-</div>
 </div>
 <div id="session-information" class="section level1">
 <h1>Session Information</h1>
 <p>For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.</p>
-<pre><code>Report rendered by koval_000 at 2015-05-07, 02:17 -0700</code></pre>
+<pre><code>Report rendered by koval_000 at 2015-06-01, 11:08 -0700</code></pre>
 <pre><code>R version 3.2.0 (2015-04-16)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 8 x64 (build 9200)
@@ -686,13 +311,15 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.4       knitr_1.10.5      
+[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
+[6] knitr_1.10.5          MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6       magrittr_1.5      MASS_7.3-40       munsell_0.4.2     colorspace_1.2-6  stringr_1.0.0    
- [7] plyr_1.8.2        tools_3.2.0       parallel_3.2.0    gtable_0.1.2      DBI_0.3.1         htmltools_0.2.6  
-[13] yaml_2.1.13       digest_0.6.8      assertthat_0.1    reshape2_1.4.1    formatR_1.2       evaluate_0.7     
-[19] rmarkdown_0.5.3.2 stringi_0.4-1     proto_0.3-10     </code></pre>
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
+ [7] lattice_0.20-31  stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0      parallel_3.2.0  
+[13] gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6  yaml_2.1.13     
+[19] lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1   evaluate_0.7    
+[25] rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    </code></pre>
 </div>
 
 

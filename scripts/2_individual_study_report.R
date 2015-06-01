@@ -18,7 +18,7 @@ library(testit, quietly=TRUE) #For asserts
 library(dplyr)
 
 ## @knitr load_data
-dsb <- readRDS('./data/shared/dsb.rds')
+dsb <- readRDS('./data/shared/ds1a.rds')
 keepvar <- c("model_number","study_name", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
 
 # ds <- dsb[ , keepvar]
