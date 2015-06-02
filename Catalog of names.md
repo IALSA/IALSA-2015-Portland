@@ -15,16 +15,16 @@ Please abide by the following naming rules
 |Full name                |Common name  | EAS           | HABC | ILSE | NAS  | NuAge| OBAS | OCTO | RADC | SATSA|
 |-------------------------|-------------|---------------|------|------|------|------|------|------|------|------|
 |WAIS Block Design        |waisblock    |waisblock      |      |  X   |      |      |      |  X   |      |      |
-|Boston Naming            |bnt          |bnt            |      |      |      |      |      |      |  X   |      |
-|Category                 |catfluency   |catfluency     |      |      |      |      |      |      |  X   |      |
+|Boston Naming            |bnt          |bnt            |      | NA   |      |      |      |      |  X   |      |
+|Category                 |catfluency   |catfluency     |      | NA   |      |      |      |      |  X   |      |
 |WAIS Digit Span          |waisdigspant |waisdigitspant |      |      |      |      |      |  X   |  X   |      |
-|WAIS Digit symbol        |waisdigsymbol|waisdigitsymbol|      |  waisdigitsymbolsubstitution   |      |      |      |  X   |  X   |      |
-|FAS                      |fas          |  X            |      |      |      |      |      |      |      |      |
-|Information              |waisinfo     |waisinfo       |      |  X   |      |      |      |  X   |      |      |
-|WAIS Logical Memory      |waisLM       |waisLM         |      |      |      |      |      |      |      |      |
-|MMSE                     |mmse         |  X            |      |      |      |      |      |  X   |  X   |      |
-|Trails B                 |trailsb      |  X            |      |      |      |      |      |      |      |      |
-|WAIS Vocab               |waisvocab    |  X            |      |      |      |      |      |      |      |      |
+|WAIS Digit symbol        |waisdigsymbol|waisdigitsymbol|      |waisdigitsymbolsubstitution|      |      |      |  X   |  X   |      |
+|FAS                      |fas          |  X            |      |verbalfluencytest|      |      |      |      |      |      |
+|Information              |waisinfo     |waisinfo       |      |Knowledge   |      |      |      |  X   |      |      |
+|WAIS Logical Memory      |waisLM       |waisLM         |      | NA   |      |      |      |      |      |      |
+|MMSE                     |mmse         |  X            |      | NA   |      |      |      |  X   |  X   |      |
+|Trails B                 |trailsb      |  X            |      | NA   |      |      |      |      |      |      |
+|WAIS Vocab               |waisvocab    |  X            |      | NA   |      |      |      |      |      |      |
 
 
 ## Physical measures
