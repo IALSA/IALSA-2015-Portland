@@ -25,7 +25,7 @@ Please abide by the following naming rules
 |MMSE                     |mmse         |  X            |      | NA   |      |      |      |  X   |  X   |      |
 |Trails B                 |trailsb      |  X            |      | NA   |      |      |      |      |      |      |
 |WAIS Vocab               |waisvocab    |  X            |      | NA   |      |      |      |      |      |      |
-
+|WAIS Picture Completion  |             |               |      | picturecompletion     |      |      |      |      |      |      |
 
 ## Physical measures
 
