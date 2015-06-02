@@ -18,7 +18,7 @@ Please abide by the following naming rules
 |Boston Naming            |bnt          |bnt            |      |      |      |      |      |      |  X   |      |
 |Category                 |catfluency   |catfluency     |      |      |      |      |      |      |  X   |      |
 |WAIS Digit Span          |waisdigspant |waisdigitspant |      |      |      |      |      |  X   |  X   |      |
-|WAIS Digit symbol        |waisdigsymbol|waisdigitsymbol|      |  X   |      |      |      |  X   |  X   |      |
+|WAIS Digit symbol        |waisdigsymbol|waisdigitsymbol|      |  waisdigitsymbolsubstitution   |      |      |      |  X   |  X   |      |
 |FAS                      |fas          |  X            |      |      |      |      |      |      |      |      |
 |Information              |waisinfo     |waisinfo       |      |  X   |      |      |      |  X   |      |      |
 |WAIS Logical Memory      |waisLM       |waisLM         |      |      |      |      |      |      |      |      |
