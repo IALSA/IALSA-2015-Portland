@@ -13,9 +13,10 @@ NA - Study has been inspected in regards to a suspected overlap and no applicabl
 " " - empty space implies no information is availible yet
 
 ### What to do
-1) find places where to put more Xs
-2) investigate each X to make into a variable name (how it's spelled in that study) or NA
-3) establish the equivalency by creating a common name
+
+1) find places where to put more Xs  
+2) investigate each X to make into a variable name (how it's spelled in that study) or NA  
+3) establish the equivalency by creating a common name  
 
 
 
