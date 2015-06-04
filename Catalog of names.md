@@ -8,6 +8,15 @@ Please abide by the following naming rules
   - avoid abbreviation, unless it's very common (mmse, wais)   
   - try no to make it too long  
   
+X - Suspected overlap. Inspect closer to detect overlaps  
+NA - Study has been inspected in regards to a suspected overlap and no applicable varialbes/measures have been found.
+" " - empty space implies no information is availible yet
+
+### What to do
+1) find places where to put more Xs
+2) investigate each X to make into a variable name (how it's spelled in that study) or NA
+3) establish the equivalency by creating a common name
+
 
 
 ## Cognitive measures
