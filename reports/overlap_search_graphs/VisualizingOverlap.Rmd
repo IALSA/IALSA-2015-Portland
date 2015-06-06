@@ -32,7 +32,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./reports/overlap search graphs/2b_visualizing_overlap.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./reports/overlap_search_graphs/2b_visualizing_overlap.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
