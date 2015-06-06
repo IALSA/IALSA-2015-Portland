@@ -35,7 +35,7 @@
 
  - [Andrey Koval](mailto:andkov@uvic.ca)  
  - [Andrea Piccinin](mailto:piccinin@uvic.ca)   
- - [Andrey Koval](mailto:gm299@cam.ac.uk)  
+ - [Graciela Muniz](mailto:gm299@cam.ac.uk)  
 
 
 ## Overview
