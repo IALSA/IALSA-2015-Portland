@@ -81,26 +81,35 @@ table(ds$physical_measure,ds$model_type, useNA="always")
 
 
 #### Corrections to model_type ####
+ds %>% dplyr::count(model_type)
 ds[ds$model_type=="aheplus","model_type"] <- "aehplus"
 
 
 #### Corrections to PHYSICAL construct ####
+ds %>% dplyr::count(physical_construct)
 ds[ds$physical_construct=="nophysspec","physical_construct"] <- "nophys"
 ds[ds$physical_construct=="pumonary","physical_construct"] <- "pulmonary"
 
 #### Correction to PHYSICAL measure ####
-ds[ds$cognitive_construct %in% c(" knowledge", "knoledge", "knowlegde"),"cognitive_construct"] <- "knowledge"
+ds %>% dplyr::count(physical_measure)
+ds[ds$physical_measure %in% c("nophysspec","nophsyspec","nophyscog", "nophyspec", "nophyssec" ), "physical_measure"] <- "nophys"
+ds[ds$physical_measure == "fevc","physical_measure"] <- "fev"
+
+
+
 
 #### Corrections to the COGNITIVE construct ####
-ds[ds$physical_measure %in% c("nophsyspec","nophyspec","nophyssec","nophyscog" ),"physical_measure"] <- "nophysspec"
+ds %>% dplyr::count(cognitive_construct)
+ds[ds$cognitive_construct %in% c(" knowledge", "knoledge", "knowlegde"),"cognitive_construct"] <- "knowledge"
 
 #### Correction to COGNITIVE measure ####
+print(ds %>% dplyr::count(cognitive_measure), n=66)
 ds[ds$cognitive_measure %in% c("bostonmaning","nostonnaming"),"cognitive_measure"] <- "bostonnaming"
 ds[ds$cognitive_measure %in% c("wasivocab"),"cognitive_measure"] <- "waisvocab"
-
 ds[ds$cognitive_measure %in% c("digitsymol"),"cognitive_measure"] <- "digitsymbol"
 
 
+#### Save #####
 saveRDS(ds,"./data/shared/ds1a.rds") # save corrected dataset
 
 #### Test the naming ####
