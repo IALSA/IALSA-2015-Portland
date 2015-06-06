@@ -2,6 +2,8 @@
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 
 #### Coordinated analysis with replication (CAR)
+![prototype](./reports/overlap search graphs/figure_overlap/combine_panels-01.png)
+
 #### Concomitant change in physical and cognitive functioning
 
 -  [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html) reports combinations of physical and cognitive constructs/measures in bivariate models of change available in the workshop collective to date. 
