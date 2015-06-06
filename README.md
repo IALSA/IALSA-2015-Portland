@@ -2,7 +2,9 @@
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 
 #### Coordinated analysis with replication (CAR)
-[![prototype](./reports/overlap search graphs/figure_overlap/combine_panels-01.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/overlap%20search%20graphs/figure_overlap/combine_panels-01.png)
+[![prototype](./reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)
+
+*the graphic is composed of the graphs defined in [this report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/overlap_search_graphs/VisualizingOverlap.html)*
 
 #### Concomitant change in physical and cognitive functioning
 
