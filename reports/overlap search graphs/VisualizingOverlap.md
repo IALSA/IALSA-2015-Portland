@@ -80,7 +80,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-06, 09:42 -0700
+Report rendered by koval_000 at 2015-06-06, 09:56 -0700
 ```
 
 ```
