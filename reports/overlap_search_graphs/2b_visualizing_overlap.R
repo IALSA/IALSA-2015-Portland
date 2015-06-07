@@ -71,6 +71,7 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
 
 ## @knitr 0_graph_phys_measure
 d <- ds %>% dplyr::count(cognitive_measure, physical_measure)
+
 g <- ggplot2::ggplot(d, aes(x=physical_measure, y=cognitive_measure, fill=n))
 g <- g + geom_tile()
 g <- g + geom_text(aes(label=n), size=baseSize-6)
