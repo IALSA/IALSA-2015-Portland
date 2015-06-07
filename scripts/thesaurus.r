@@ -75,7 +75,39 @@ ds$output_file[!is_valid]
 
 
 
+## @knitr passing_variable_names
+# passing unquoted variable names use aes() or dplyr::count() - NONSTANDARD EVALUATIONS (NSE)
+# passing quoted variable names use aes_string() or dplyr::count_() - STANDARD EVALUATION
 
+ds <- readRDS("./data/shared/ds1a.rds")
+
+requireNamespace("dplyr") # loads, but not really
+
+## @knitr define_themes
+baseSize <- 10
+theme1 <- ggplot2::theme_bw(base_size=baseSize) +
+  ggplot2::theme(title=ggplot2::element_text(colour="gray20",size = baseSize+1)) +
+  ggplot2::theme(axis.text=ggplot2::element_text(colour="gray40", size=baseSize-2)) +
+  ggplot2::theme(axis.title=ggplot2::element_text(colour="gray40")) +
+  ggplot2::theme(panel.border = ggplot2::element_rect(colour="gray80")) +
+  ggplot2::theme(axis.ticks.length = grid::unit(0, "cm")) +
+  ggplot2::theme(text = element_text(size =baseSize+7))
+
+basic_tile <- function(ds,pair){
+  d <- ds %>% dplyr::count_(c("cognitive_measure", pair))
+  g <- ggplot2::ggplot(d, aes_string(x=pair, y="cognitive_measure", fill="n", label="n"))
+  g <- g + geom_tile()
+  # g <- g + geom_text(size = baseSize-6)
+  # g <- g + scale_y_discrete(limits=rev(unique(d$cognitive_measure)))
+  # g <- g + scale_fill_gradient(low="white", high="#8da0cb", na.value = "white")
+  # g <- g + labs(title=paste0(pair), x=NULL, y="Cognitive Measures")
+  # g <- g + theme1
+#   g <- g + theme(axis.text.y = element_text(hjust=1, angle=0),
+#                  axis.text.x = element_text(hjust=1, angle=90, size=9),
+#                  legend.position="top")
+  return(g)
+}
+basic_tile(ds,"subgroup")
 
 
 
