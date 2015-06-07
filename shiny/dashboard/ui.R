@@ -17,7 +17,7 @@ shinyUI(fluidPage(
     # Show a summary of the study and an HTML table with the
 	 # requested number of observations
     mainPanel(
-      plotOutput("sudokuPlot")
+      plotOutput("dashboardPlot")
     )
   )
 ))

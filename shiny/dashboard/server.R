@@ -32,7 +32,7 @@ shinyServer(function(input, output) {
   d <- ds %>% dplyr::count(cognitive_measure, input$cogPair)
 
   # fill the spot for a plot
-  output$sudokuPlot <- renderPlot({
+  output$dashboardPlot <- renderPlot({
       g <- ggplot2::ggplot(d, aes(x=input$cogPair, y=cognitive_measure, fill=n))
       g <- g + geom_tile()
       g <- g + geom_text(aes(label=n), size=baseSize-6)
