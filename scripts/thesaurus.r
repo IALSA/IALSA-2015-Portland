@@ -76,6 +76,8 @@ ds$output_file[!is_valid]
 
 
 ## @knitr passing_variable_names
+###########  START creating a function for the tile graph ###############
+
 # passing unquoted variable names use aes() or dplyr::count() - NONSTANDARD EVALUATIONS (NSE)
 # passing quoted variable names use aes_string() or dplyr::count_() - STANDARD EVALUATION
 
@@ -93,21 +95,38 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
   ggplot2::theme(axis.ticks.length = grid::unit(0, "cm")) +
   ggplot2::theme(text = element_text(size =baseSize+7))
 
-basic_tile <- function(ds,pair){
-  d <- ds %>% dplyr::count_(c("cognitive_measure", pair))
-  g <- ggplot2::ggplot(d, aes_string(x=pair, y="cognitive_measure", fill="n", label="n"))
+
+
+basic_tile <- function(ds,x_name){
+  # Define color palette and display labels
+  x_name_colors <- c("physical_measure"="#e78ac3",
+                     "study_name"="#8da0cb",
+                     "model_type"="#fc8d62",
+                     "subgroup"="#66c2a5")
+  x_name_labels <- c("physical_measure"="Physical Measure",
+                     "study_name"="Study",
+                     "model_type"="Predictor Set",
+                     "subgroup"="Sex Subgroup")
+  # define the data
+  d <- ds %>% dplyr::count_(c("cognitive_measure", x_name))
+  g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", fill="n", label="n"))
   g <- g + geom_tile()
-  # g <- g + geom_text(size = baseSize-6)
-  # g <- g + scale_y_discrete(limits=rev(unique(d$cognitive_measure)))
-  # g <- g + scale_fill_gradient(low="white", high="#8da0cb", na.value = "white")
-  # g <- g + labs(title=paste0(pair), x=NULL, y="Cognitive Measures")
-  # g <- g + theme1
-#   g <- g + theme(axis.text.y = element_text(hjust=1, angle=0),
-#                  axis.text.x = element_text(hjust=1, angle=90, size=9),
-#                  legend.position="top")
+  g <- g + geom_text(size = baseSize-6)
+  g <- g + scale_y_discrete(limits=rev(unique(d$cognitive_measure)))
+  g <- g + scale_fill_gradient(low="white", high=x_name_colors[x_name], na.value = "white")
+  g <- g + labs(title=x_name_labels[x_name], x=NULL, y="Cognitive Measures")
+  g <- g + theme1
+  g <- g + theme(axis.text.y = element_text(hjust=1, angle=0),
+                 axis.text.x = element_text(hjust=1, angle=90, size=9),
+                 legend.position="top")
   return(g)
 }
+basic_tile(ds,"physical_measure")
+basic_tile(ds,"study_name")
+basic_tile(ds,"model_type")
 basic_tile(ds,"subgroup")
+
+###########  END creating a function for the tile graph ###############
 
 
 
