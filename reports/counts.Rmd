@@ -67,57 +67,105 @@ This report tabulates frequency counts of bivariate models that are available in
 ## Overview
 
 We are yet to receive model results from the following studies:  
-```{r missing_studies, echo=echoChunks, results='show', message=FALSE}
+```{r missing_studies, echo=echoChunks, results='asis', message=FALSE}
 ```
 
 
-Presently, the number of **bivariate models** supplied by the participating studies is:
-```{r number_studies, echo=echoChunks, results='show', message=FALSE}
+Presently, the **total number of legally named models** supplied by the participating studies is
+```{r number_studies, echo=echoChunks, results='asis', message=FALSE}
 ```
+: they include both *bivariate* and *univariate* models. Strings *"nophys"* and *"nocog"*, imply that the model is univariate (e.i. nocog == The particular cog predictor is "none")
 
 <!-- Frequency counts   -->
 Counting valid models in each study:
 ```{r freq_studies, echo=echoChunks, results='show', message=FALSE}
 ```
 
-## Physical Constructs 
+# Physcial Domain
+
+## Constructs 
 
 Number of models that use the following **Physical contructs**
-```{r freq_phys_studies, echo=echoChunks, results='show', message=FALSE}
+```{r freq_phys_constructs_studies, echo=echoChunks, results='show', message=FALSE}
 ```
 
-## Cognitive Constructs 
+## Measures
 
-Number of models that use the following  **Cognitive contructs**
-```{r freq_cog_studies, echo=echoChunks, results='show', message=FALSE}
+Number of models that use the following **Physical measures**
+```{r freq_phys_measures_studies, echo=echoChunks, results='show', message=FALSE}
 ```
 
-## Bivariate models
+## Measures by Constructs
 
-Number of models with a uniuqe **Physical + Cognitive** combination of constructs:
-```{r freq_cog_phys, echo=echoChunks, results='show', message=FALSE}
+Number of models using this **measure** of the  physical **construct**
+```{r freq_phys_measures_phys_construct, echo=echoChunks, results='show', message=FALSE}
+```
+
+## Measures by Constructs and Studies
+
+Number of models using this **measure** of the  physical **construct**, by study
+```{r freq_phys_measures_phys_construct_studies, echo=echoChunks, results='show', message=FALSE}
+```
+
+
+# Cognitive Domain
+
+## Constructs 
+
+Number of models that use the following **Cognitive contructs**
+```{r freq_cog_constructs_studies, echo=echoChunks, results='show', message=FALSE}
+```
+
+## Measures
+
+Number of models that use the following **Cognitive measures**
+```{r freq_cog_measures_studies, echo=echoChunks, results='show', message=FALSE}
+```
+
+## Measures by Constructs
+
+Number of models using this **measure** of the  cognitive **construct**
+```{r freq_cog_measures_cog_construct, echo=echoChunks, results='show', message=FALSE}
+```
+
+## Measures by Constructs and Studies
+
+Number of models using this **measure** of the  cognitive **construct**, by study
+```{r freq_cog_measures_cog_construct_studies, echo=echoChunks, results='show', message=FALSE}
+```
+
+
+
+
+
+
+
+# Bivariate models
+
+## Cross Constructs
+
+Number of models that uses this **physical construct** (column) and  **cognitive construct** (row):
+```{r freq_cog_construct_phys_construct, echo=echoChunks, results='show', message=FALSE}
 ```
 It is important to remember that these numbers reflect only the combinations of **constructs**, the  **operationalizations** of these construct (specifc outcomes) that may differ from model to model. 
 
-## Bivariate by Study
+## Cross Measures
 
-Number of models with a uniuqe **Physical + Cognitive** combination of constructs **by study**:
-```{r freq_cog_phys_studies, echo=echoChunks, results='show', message=FALSE}
+Number of models that uses this **physical measure** (column) and  **cognitive measure** (row):
+```{r freq_cog_measure_phys_measure, echo=echoChunks, results='show', message=FALSE}
+```
+
+## Cross Measures (fill)
+
+```{r freq_cog_measure_phys_measure_studies_allnames, echo=echoChunks, results='show', message=FALSE}
 ```
 
 
-## Physical Measures
+## Cross Measures by Study
 
-
-```{r freq_phys_specific, echo=echoChunks, results='asis', message=FALSE}
+```{r freq_cog_measure_phys_measure_studies, echo=echoChunks, results='asis', message=FALSE}
 ```
 
-
-
-## Cognitive Measures 
-
-```{r freq_cog_specific, echo=echoChunks, results='asis', message=FALSE}
-```
 
 
 
