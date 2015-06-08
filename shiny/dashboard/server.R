@@ -132,18 +132,6 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 
 
 
-## @knitr compile_tiles
-
-a <- basic_tile(ds,"physical_measure")
-b <- basic_tile(ds,"study_name")
-c <- basic_tile(ds,"model_type")
-d <- basic_tile(ds,"subgroup")
-
-names <- names_tile(ds,"physical_measure")
-# load the function
-source("./shiny/dashboard/scripts/multiplot_function.R")
-g <- multiplot(a,b,names,c,d, cols=5)
-
 
 # Define  a server for shiny app
 shinyServer(function(input, output) {
@@ -156,14 +144,17 @@ shinyServer(function(input, output) {
     c <- basic_tile(ds,"model_type")
     d <- basic_tile(ds,"subgroup")
 
-    g <-
+    names <- names_tile(ds,"physical_measure")
+
+    g <- multiplot(a,b,names,c,d, cols=5)
+
     return(g)
   })
 
 })
 
 
-multiplot(a,b,c,d, cols=4)
+
 
 
 
