@@ -109,6 +109,7 @@ basic_tile <- function(ds,x_name){
                      "subgroup"="Sex Subgroup")
   # define the data
   d <- ds %>% dplyr::count_(c("cognitive_measure", x_name))
+  #
   g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", fill="n", label="n"))
   g <- g + geom_tile()
   g <- g + geom_text(size = baseSize-6)
