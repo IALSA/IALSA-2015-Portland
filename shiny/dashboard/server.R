@@ -147,9 +147,10 @@ shinyServer(function(input, output) {
 
     a <- basic_tile(ds,"study_name")
     b <- basic_tile(ds,"physical_measure")
-    b <- b + theme(axis.text.y = element_text(vjust=1, angle=0, hjust=.5))
+    b <- b + theme(axis.text.y = element_text(vjust=1, angle=0, hjust=1))
     c <- basic_tile(ds,"model_type")
     d <- basic_tile(ds,"subgroup")
+    d <- d + theme(axis.text.y = element_text(vjust=1, angle=0, hjust=0))
     # names <- names_tile(ds,"physical_measure")
     g <- multiplot(a, b, c, d, cols=4)
 

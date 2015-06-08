@@ -64,6 +64,9 @@ These four graphs can be united into a display of a quantitative invormation, ne
 ![](figure_overlap/3_graph_subgroup-1.png) 
 
 
+## Composite
+![](figure_overlap/dashboard_tile_graph-1.png) 
+
 
 
 
@@ -80,7 +83,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-06, 10:01 -0700
+Report rendered by koval_000 at 2015-06-08, 10:21 -0700
 ```
 
 ```

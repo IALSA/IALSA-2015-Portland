@@ -1,24 +1,24 @@
-## @knitr dummy
-############## Developing the tile graph #######################
-
-## @knitr prep_for_tile
-library(shiny)
-library(ggplot2)
-library(dplyr)
-
-if(basename(getwd())=="dashboard"){
-dsb <- readRDS('../../data/shared/ds1a.rds')
-source("../../shiny/dashboard/scripts/multiplot_function.R")
-}else{
-dsb <- readRDS('./data/shared/ds1a.rds')
-source("./shiny/dashboard/scripts/multiplot_function.R")
-}
-
-keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
-
-ds <- dsb[ , keepvar]
-
-dplyr::tbl_df(ds)
+# ## @knitr dummy
+# ############## Developing the tile graph #######################
+#
+# ## @knitr prep_for_tile
+# library(shiny)
+# library(ggplot2)
+# library(dplyr)
+#
+# if(basename(getwd())=="dashboard"){
+# dsb <- readRDS('../../data/shared/ds1a.rds')
+# source("../../shiny/dashboard/scripts/multiplot_function.R")
+# }else{
+# dsb <- readRDS('./data/shared/ds1a.rds')
+# source("./shiny/dashboard/scripts/multiplot_function.R")
+# }
+#
+# keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
+#
+# ds <- dsb[ , keepvar]
+#
+# dplyr::tbl_df(ds)
 
 ## @knitr define_themes
 baseSize <- 10
@@ -86,6 +86,8 @@ names_tile <- function(ds,x_name){
 
 names_tile(ds,"physical_measure")
 
+
+
 ## @knitr define_multi_plot_function
 
 # Multiple plot function
@@ -139,25 +141,14 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 
 
 
-# Define  a server for shiny app
-shinyServer(function(input, output) {
-
-  d <- ds %>% dplyr::count(cognitive_measure, input$x_name)
-  # fill the spot for a plot
-  output$dashboardPlot <- renderPlot({
 
     a <- basic_tile(ds,"study_name")
     b <- basic_tile(ds,"physical_measure")
-    b <- b + theme(axis.text.y = element_text(vjust=1, angle=0, hjust=.5))
     c <- basic_tile(ds,"model_type")
     d <- basic_tile(ds,"subgroup")
+    d <- d + theme(axis.text.y = element_text(vjust=1, angle=0, hjust=0))
     # names <- names_tile(ds,"physical_measure")
-    g <- multiplot(a, b, c, d, cols=4)
-
-    return(g)
-  })
-
-})
+    g <- multiplot(a, b, d, c, cols=4)
 
 
 

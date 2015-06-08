@@ -97,6 +97,10 @@ These four graphs can be united into a display of a quantitative invormation, ne
 ```
 
 
+## Composite
+```{r dashboard_tile_graph, echo=echoChunks, results='show', message=FALSE, fig.width=12, fig.height=8, dpi=300}
+```
+
 
 
 
