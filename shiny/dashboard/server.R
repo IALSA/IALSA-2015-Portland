@@ -64,21 +64,26 @@ basic_tile <- function(ds,x_name){
 names_tile <- function(ds,x_name){
   #  # define the data
   d <- ds %>% dplyr::count_(c("cognitive_measure", x_name))
+  d <-d %>% dplyr::mutate(cog_meas = "cogmeas")
+  head(d)
   #
-  g <- ggplot2::ggplot(d, aes_string(x=1, y="cognitive_measure", label="cognitive_measure", fill=0))
+  g <- ggplot2::ggplot(d, aes_string(x="cog_meas", y="cognitive_measure", label="cognitive_measure", fill=0))
   g <- g + geom_tile()
-  g <- g + geom_hline(yintercept=seq(0,60,1), alpha=.1)
-  g <- g + geom_text(size = baseSize-6)
+  g <- g + geom_hline(yintercept=seq(0,60,1), alpha=.05)
+  g <- g + geom_text(size = baseSize-7)
   g <- g + scale_y_discrete(limits=rev(unique(d$cognitive_measure)))
   g <- g + scale_fill_gradient(low="white", high="white", na.value = "white")
   g <- g + labs(title=" ", x=NULL, y="Cognitive Measures")
   g <- g + theme1
   g <- g + theme(axis.text.y = element_blank(),
-                 axis.text.y = element_text(hjust=1, angle=90, size=9),
+                 axis.text.x = element_text(hjust=1, angle=90, size=9),
                  axis.title = element_blank(),
+
                  legend.position="top")
   return(g)
 }
+
+names_tile(ds,"physical_measure")
 
 ## @knitr define_multi_plot_function
 
@@ -139,23 +144,19 @@ shinyServer(function(input, output) {
   d <- ds %>% dplyr::count(cognitive_measure, input$x_name)
   # fill the spot for a plot
   output$dashboardPlot <- renderPlot({
-    a <- basic_tile(ds,"physical_measure")
-    b <- basic_tile(ds,"study_name")
+
+    a <- basic_tile(ds,"study_name")
+    b <- basic_tile(ds,"physical_measure")
+    b <- b + theme(axis.text.y = element_text(vjust=1, angle=0, hjust=.5))
     c <- basic_tile(ds,"model_type")
     d <- basic_tile(ds,"subgroup")
-
-    names <- names_tile(ds,"physical_measure")
-
-    g <- multiplot(a,b,names,c,d, cols=5)
+    # names <- names_tile(ds,"physical_measure")
+    g <- multiplot(a, b, c, d, cols=4)
 
     return(g)
   })
 
 })
-
-
-
-
 
 
 
