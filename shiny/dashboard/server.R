@@ -42,7 +42,7 @@ basic_tile <- function(ds,x_name){
 #                  legend.position="top")
   return(g)
 }
-basic_tile(ds,"subgroup")
+# basic_tile(ds,"subgroup")
 
 
 
@@ -51,21 +51,11 @@ basic_tile(ds,"subgroup")
 # Define  a server for shiny app
 shinyServer(function(input, output) {
 
-  d <- ds %>% dplyr::count(cognitive_measure, input$cogPair)
-
+  d <- ds %>% dplyr::count(cognitive_measure, study_name)
   # fill the spot for a plot
   output$dashboardPlot <- renderPlot({
-      g <- ggplot2::ggplot(d, aes(x=input$cogPair, y=cognitive_measure, fill=n))
-      g <- g + geom_tile()
-      g <- g + geom_text(aes(label=n), size=baseSize-6)
-      g <- g + scale_y_discrete(limits=rev(unique(d$cognitive_measure)))
-      g <- g + scale_fill_gradient(low="white", high="#e78ac3", na.value = "white")
-      g <- g + labs(title="Physical Measures ", x=element_blank(), y="Cognitive Measures")
-      g <- g + theme1
-      g <- g + theme(axis.text.y = element_text(hjust=1, angle=0),
-                     axis.text.x = element_text(hjust=1, angle=90, size=9),
-                     legend.position="top")
-      g
+    g <- basic_tile(ds, input$x_name)
+    return(g)
   })
 
 })
