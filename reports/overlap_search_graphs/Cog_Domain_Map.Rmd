@@ -68,19 +68,37 @@ read_chunk("./reports/overlap_search_graphs/cog_domain_map.R") #This allows knit
 Andrea, you've suggested the followed  structure to investigate replication potential across studies and cognitive domains:
 ![prototype](./images/Piccinin_Cognitive_Domains.PNG)  
 
-I developed the following interpretation of the demensionality in the graph above. 
+I like how it simplifies the search for overlaps among measures. I developed the following interpretation of the demensionality in the graph above. 
 
 ## Domain Map
 
-```{r cog_domain_map_v1, echo=echoChunks, results='show', message=FALSE, warning=FALSE, fig.width=15, fig.height=10, dpi=300}
+```{r define_graph_functions, echo=echoChunks, results='hide', message=FALSE}
 ```
 
+```{r , echo=echoChunks, results='show', message=FALSE, warning=FALSE, fig.width=15, fig.height=10, dpi=300}
+domain_map(dsb)
+```
+
+The domain map above is the actual data provided by the model in the Portland modeling collective right now. The colors  represent various cognitive domains, as identified by the participants in the model names. The colors are meant to be categorical, the change in hue is coincidental with alphabetic name.
+
+
+## Cross count
+
+We can augment this map with the tile graph of the bivariate model counts: 
+```{r combine_map_and_cross, echo=echoChunks, results='show', message=FALSE, warning=FALSE, fig.width=20, fig.height=10, dpi=300}
+
+```
 
 ## What to do
 
-So now
+Now we have a better system for planning our project. Itemizing, we can distinguish the following objectives: 
 
-
+  1. Reduce the number of colors in the domain map 
+    a. Combine measures into domains  
+    b. remove domains due to few  
+  2. Reduce the number of rows  
+  3. Reduce the number of columns
+  4. Increase the value of numbers
 
 
 

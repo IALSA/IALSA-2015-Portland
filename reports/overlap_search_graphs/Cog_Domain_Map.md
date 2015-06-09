@@ -33,13 +33,32 @@
 Andrea, you've suggested the followed  structure to investigate replication potential across studies and cognitive domains:
 ![prototype](./images/Piccinin_Cognitive_Domains.PNG)  
 
-I developed the following interpretation of the demensionality in the graph above. 
+I like how it simplifies the search for overlaps among measures. I developed the following interpretation of the demensionality in the graph above. 
 
 ## Domain Map
 
-![](figure_cog_domain_map/cog_domain_map_v1-1.png) 
 
 
+![](figure_cog_domain_map/unnamed-chunk-3-1.png) 
+
+The domain map above is the actual data provided by the model in the Portland modeling collective right now. The colors  represent various cognitive domains, as identified by the participants in the model names. The colors are meant to be categorical, the change in hue is coincidental with alphabetic name.
+
+
+## Cross count
+
+We can augment this map with the tile graph of the bivariate model counts: 
+![](figure_cog_domain_map/combine_map_and_cross-1.png) 
+
+## What to do
+
+Now we have a better system for planning our project. Itemizing, we can distinguish the following objectives: 
+
+  1. Reduce the number of colors in the domain map 
+    a. Combine measures into domains  
+    b. remove domains due to few  
+  2. Reduce the number of rows  
+  3. Reduce the number of columns
+  4. Increase the value of numbers
 
 
 
@@ -49,7 +68,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-09, 14:40 -0700
+Report rendered by koval_000 at 2015-06-09, 16:25 -0700
 ```
 
 ```
@@ -65,7 +84,7 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.10.5  dplyr_0.4.1   ggplot2_1.0.1 shiny_0.12.0 
+[1] lattice_0.20-31 knitr_1.10.5    dplyr_0.4.1     ggplot2_1.0.1   shiny_0.12.0   
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
