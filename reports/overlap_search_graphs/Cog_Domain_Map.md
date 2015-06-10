@@ -39,7 +39,7 @@ I like how it simplifies the search for overlaps among measures. I developed the
 
 
 
-![](figure_cog_domain_map/unnamed-chunk-3-1.png) 
+![](figure_cog_domain_map/domain_map-1.png) 
 
 The domain map above is the actual data provided by the model in the Portland modeling collective right now. The colors  represent various cognitive domains, as identified by the participants in the model names. The colors are meant to be categorical, the change in hue is coincidental with alphabetic name.
 
@@ -60,7 +60,9 @@ Now we have a better system for planning our project. Itemizing, we can distingu
   3. Reduce the number of columns
   4. Increase the value of numbers
 
+## Combine with lattice
 
+![](figure_cog_domain_map/combine_with_lattice-1.png) 
 
 
 ## Session Information
@@ -68,7 +70,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-09, 16:25 -0700
+Report rendered by koval_000 at 2015-06-10, 00:41 -0700
 ```
 
 ```
@@ -84,12 +86,12 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] lattice_0.20-31 knitr_1.10.5    dplyr_0.4.1     ggplot2_1.0.1   shiny_0.12.0   
+[1] knitr_1.10.5    lattice_0.20-31 dplyr_0.4.1     ggplot2_1.0.1   shiny_0.12.0   
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
  [7] R6_2.0.1         stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2    
 [13] DBI_0.3.1        htmltools_0.2.6  yaml_2.1.13      lazyeval_0.1.10  digest_0.6.8     assertthat_0.1  
-[19] gridExtra_0.9.1  formatR_1.2      reshape2_1.4.1   evaluate_0.7     mime_0.3         rmarkdown_0.6.1 
-[25] labeling_0.3     stringi_0.4-1    scales_0.2.4     jsonlite_0.9.16  httpuv_1.3.2     proto_0.3-10    
+[19] formatR_1.2      reshape2_1.4.1   evaluate_0.7     mime_0.3         rmarkdown_0.6.1  stringi_0.4-1   
+[25] scales_0.2.4     httpuv_1.3.2     proto_0.3-10    
 ```

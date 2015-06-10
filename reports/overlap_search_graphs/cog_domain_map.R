@@ -9,6 +9,7 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 library(lattice)
+library(grid)
 
 
 ## @knitr load_data
@@ -51,8 +52,8 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
                      "subgroup"="#66c2a5")
   x_name_labels <- c("physical_measure"="Physical Measure",
                      "study_name"="Study",
-                     "model_type"="Predictor Set",
-                     "subgroup"="Sex Subgroup")
+                     "model_type"="Covariates",
+                     "subgroup"="Subgroup")
 
 ## @knitr define_graph_functions
 
@@ -70,13 +71,13 @@ domain_map <- function(ds){
   #
   g <- ggplot2::ggplot(d, aes_string(x="dummy", y="cognitive_measure", label="cog_measure_display", fill="cognitive_construct"))
   g <- g + geom_tile()
-  g <- g + geom_text(size = baseSize-7)
+  g <- g + geom_text(size = baseSize-7, hjust=.4)
   g <- g + facet_grid(. ~ study_name )
   # g <- g + coord_flip()
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
   g <- g + scale_fill_discrete(name = "Domains")
   # g <- g + scale_fill_gradient(low="white", high="salmon", na.value = "white")
-  # g <- g + labs(title="Title", x=NULL, y="Y")
+  g <- g + labs(title="Studies")
   g <- g + theme1
   g <- g + theme(axis.text.y =  element_text(size=baseSize-1),
                  axis.text.x =  element_blank(),
@@ -84,36 +85,37 @@ domain_map <- function(ds){
                  axis.title.y = element_text("Cognitive measure"),
                  # legend.title = element_blank(),
                  legend.text =  element_text(),
-                 legend.position="right")
+                 legend.position="left")
   return(g)
 }
 
 
 cog_x_name <- function(ds, x_name){
   d <- ds %>%
-  dplyr::count_(c("cognitive_measure", "physical_measure"))
+  dplyr::count_(c("cognitive_measure", x_name))
   d$dummy <- factor("dummy")
   d$cog_meas <- stringr::str_sub(d$cognitive_measure,1,3)
   d$cog_measure_display <-paste0(d$cognitive_measure,", ",d$n)
   # d
   g <- ggplot2::ggplot(d, aes_string(x="dummy", y="cognitive_measure", label="n", fill="n"))
   g <- g + geom_tile()
-  g <- g + geom_text(size = baseSize-7)
-  g <- g + facet_grid(. ~ physical_measure )
+  g <- g + geom_text(size = baseSize-8)
+  g <- g + facet_grid(reformulate(x_name))
   # g <- g + coord_flip()
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
   # g <- g + scale_fill_discrete(name = "Domains")
   g <- g + scale_fill_gradient(low="white", high=x_name_colors[x_name], na.value = "white")
-  # g <- g + labs(title="Title", x=NULL, y="Y")
+  g <- g + labs(title=x_name_labels[x_name])
   g <- g + theme1
   g <- g + theme(axis.text.y =  element_text(size=baseSize-1),
                  axis.text.x =  element_blank(),
                  axis.title.x = element_blank(),
                  axis.title.y = element_blank(),
-                 # legend.title = element_blank(),
+                 legend.title = element_text(),
                  panel.grid.major.x = element_blank(),
-                 legend.text =  element_text(),
+                 # legend.text =  element_text(),
                  legend.position="none")
+  g <- g + theme(strip.text.x = element_text(angle = 0, size=baseSize-3, color="black"))
   g
 
   return(g)
@@ -121,14 +123,48 @@ cog_x_name <- function(ds, x_name){
 
 
 ## @knitr cog_domain_map_v1
-domain_map(dsb)
+a <- domain_map(dsb)
 
 
-## @knitr cog_phys_cross
+## @knitr cog_x_phys
+b <- cog_x_name(dsb, "physical_measure")
+
+## @knitr cog_x_study
+c <- cog_x_name(dsb, "study_name")
+
+
+## @knitr cog_x_covar
+d <- cog_x_name(dsb, "model_type")
+
+
+## @knitr cog_x_sex
+e <- cog_x_name(dsb, "subgroup")
 
 
 
-cog_x_name(dsb, "physical_measure")
+## @knitr  combine_with_lattice
+a <- domain_map(dsb)
+b <- cog_x_name(dsb, "physical_measure")
+b <- b + theme(axis.text.y = element_blank())
+c <- cog_x_name(dsb, "study_name")
+c <- c + theme(axis.text.y = element_blank())
+d <- cog_x_name(dsb, "model_type")
+d <- d + theme(axis.text.y = element_blank())
+e <- cog_x_name(dsb, "subgroup")
+e <- e + theme(axis.text.y = element_blank())
+# e <- e + theme(strip.text.x = element_text(angle = 90))
+e
+
+# Define grid layout to locate plots and print each graph
+
+pushViewport(viewport(layout = grid.layout(1,18 )))
+print(a, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:9))
+print(b, vp = viewport(layout.pos.row = 1, layout.pos.col = 10:12))
+print(c, vp = viewport(layout.pos.row = 1, layout.pos.col = 13:15))
+print(d, vp = viewport(layout.pos.row = 1, layout.pos.col = 16:17))
+print(e, vp = viewport(layout.pos.row = 1, layout.pos.col = 18))
+
+
 
 ######### Define multiplot function ##############
 ## @knitr define_multi_plot_function
@@ -194,7 +230,7 @@ a <- domain_map(dsb)
 b <- cog_x_name(dsb,"physical_measure")
 
 # Define grid layout to locate plots and print each graph
-pushViewport(viewport(layout = grid.layout(1, 10)))
+grid::pushViewport(viewport(layout = grid.layout(1, 10)))
 print(a, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:7))
 print(b, vp = viewport(layout.pos.row = 1, layout.pos.col = 8:10))
 
@@ -209,74 +245,112 @@ print(b, vp = viewport(layout.pos.row = 1, layout.pos.col = 8:10))
 
 
 ###################### COPIED FROM overlap_tile_graph.R ######################
-## @knitr define_names_tile_function
-names_tile <- function(ds,x_name){
-  #  # define the data
-  d <- ds %>% dplyr::count_(c("cognitive_measure", x_name))
-  d <-d %>% dplyr::mutate(cog_meas = "cogmeas")
-  head(d)
-  #
-  g <- ggplot2::ggplot(d, aes_string(x="cog_meas", y="cognitive_measure", label="cognitive_measure", fill=0))
-  g <- g + geom_tile()
-  g <- g + geom_hline(yintercept=seq(0,60,1), alpha=.05)
-  g <- g + geom_text(size = baseSize-7)
-  g <- g + scale_y_discrete(limits=rev(unique(d$cognitive_measure)))
-  g <- g + scale_fill_gradient(low="white", high="white", na.value = "white")
-  g <- g + labs(title=" ", x=NULL, y="Cognitive Measures")
-  g <- g + theme1
-  g <- g + theme(axis.text.y = element_blank(),
-                 axis.text.x = element_text(hjust=1, angle=90, size=9),
-                 axis.title = element_blank(),
-
-                 legend.position="top")
-  return(g)
-}
-
-names_tile(ds,"physical_measure")
-
-
-
-
-
-
-
-
-
-    a <- basic_tile(ds,"study_name")
-    b <- basic_tile(ds,"physical_measure")
-    c <- basic_tile(ds,"model_type")
-    d <- basic_tile(ds,"subgroup")
-    d <- d + theme(axis.text.y = element_text(vjust=1, angle=0, hjust=0))
-    # names <- names_tile(ds,"physical_measure")
-    g <- multiplot(a, b, d, c, cols=4)
-
 ###################### end COPIED FROM overlap_tile_graph.R ######################
 
-    ################ Graph Evolution #####################
 
-    ## @knitr study_by_cogdomain_map1
+
+################ Graph Evolution #####################
+
+## @knitr study_by_cogdomain_map1
+d <- ds %>%
+# dplyr::filter(study_name ==  "eas") %>%
+dplyr::count_(c("cognitive_construct","cognitive_measure", "study_name"))
+d$dummy <- factor("dummy")
+# d$cog_meas <- paste0(stringr::str_sub(d$cognitive_construct,1,3),".",stringr::str_sub(d$cognitive_measure,1,3))
+d$cog_meas <- stringr::str_sub(d$cognitive_measure,1,3)
+d
+# str(d)
+#
+g <- ggplot2::ggplot(d, aes_string(x="dummy", y="cognitive_measure", label="cognitive_measure", fill="cognitive_construct"))
+g <- g + geom_tile()
+g <- g + geom_text(size = baseSize-6)
+g <- g + facet_grid(study_name ~ cognitive_construct )
+# g <- g + coord_flip()
+# g <- g + scale_y_discrete(limits=(unique(d$cognitive_measure)))
+# g <- g + scale_fill_gradient(low="white", high="salmon", na.value = "white")
+# g <- g + labs(title="Title", x=NULL, y="Y")
+g <- g + theme1
+g <- g + theme(axis.text.y = element_blank(),
+           axis.text.x = element_text(hjust=1, angle=0, size=9),
+           axis.title = element_blank(),
+           legend.position="top")
+g
+
+
+
+
+## @knitr domain_map_phys
+
+domain_map <- function(ds){
+  # define the data
   d <- ds %>%
-   # dplyr::filter(study_name ==  "eas") %>%
-  dplyr::count_(c("cognitive_construct","cognitive_measure", "study_name"))
+  dplyr::count_(c("cognitive_measure", "cognitive_construct","study_name"))
   d$dummy <- factor("dummy")
-  # d$cog_meas <- paste0(stringr::str_sub(d$cognitive_construct,1,3),".",stringr::str_sub(d$cognitive_measure,1,3))
   d$cog_meas <- stringr::str_sub(d$cognitive_measure,1,3)
-  d
+  d$cog_measure_display <-paste0(d$cognitive_measure,", ",d$n)
+  # d
   # str(d)
   #
-  g <- ggplot2::ggplot(d, aes_string(x="dummy", y="cognitive_measure", label="cognitive_measure", fill="cognitive_construct"))
+  g <- ggplot2::ggplot(d, aes_string(x="dummy", y="cognitive_measure", label="cog_measure_display", fill="cognitive_construct"))
   g <- g + geom_tile()
-  g <- g + geom_text(size = baseSize-6)
-  g <- g + facet_grid(study_name ~ cognitive_construct )
+  g <- g + geom_text(size = baseSize-7)
+  g <- g + facet_grid(. ~ study_name )
   # g <- g + coord_flip()
-  # g <- g + scale_y_discrete(limits=(unique(d$cognitive_measure)))
+  g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
+  g <- g + scale_fill_discrete(name = "Domains")
   # g <- g + scale_fill_gradient(low="white", high="salmon", na.value = "white")
   # g <- g + labs(title="Title", x=NULL, y="Y")
   g <- g + theme1
-  g <- g + theme(axis.text.y = element_blank(),
-                 axis.text.x = element_text(hjust=1, angle=0, size=9),
-                 axis.title = element_blank(),
-                 legend.position="top")
+  g <- g + theme(axis.text.y =  element_text(size=baseSize-1),
+                 axis.text.x =  element_blank(),
+                 axis.title.x = element_blank(),
+                 axis.title.y = element_text("Cognitive measure"),
+                 # legend.title = element_blank(),
+                 legend.text =  element_text(),
+                 legend.position="right")
+  return(g)
+}
+
+
+cog_x_name <- function(ds, x_name){
+  d <- ds %>%
+  dplyr::count_(c("cognitive_measure", x_name))
+  d$dummy <- factor("dummy")
+  d$cog_meas <- stringr::str_sub(d$cognitive_measure,1,3)
+  d$cog_measure_display <-paste0(d$cognitive_measure,", ",d$n)
+  # d
+  g <- ggplot2::ggplot(d, aes_string(x="dummy", y="cognitive_measure", label="n", fill="n"))
+  g <- g + geom_tile()
+  g <- g + geom_text(size = baseSize-7)
+  g <- g + facet_grid(reformulate(x_name))
+  # g <- g + coord_flip()
+  g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
+  # g <- g + scale_fill_discrete(name = "Domains")
+  g <- g + scale_fill_gradient(low="white", high=x_name_colors[x_name], na.value = "white")
+  # g <- g + labs(title="Title", x=NULL, y="Y")
+  g <- g + theme1
+  g <- g + theme(axis.text.y =  element_text(size=baseSize-1),
+                 axis.text.x =  element_blank(),
+                 axis.title.x = element_blank(),
+                 axis.title.y = element_blank(),
+                 # legend.title = element_blank(),
+                 panel.grid.major.x = element_blank(),
+                 legend.text =  element_text(),
+                 legend.position="none")
   g
+
+  return(g)
+}
+
+## @knitr combine_map_and_cross
+
+a <- domain_map(dsb)
+b <- cog_x_name(dsb,"physical_measure")
+
+# Define grid layout to locate plots and print each graph
+pushViewport(viewport(layout = grid.layout(1, 10)))
+print(a, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:7))
+print(b, vp = viewport(layout.pos.row = 1, layout.pos.col = 8:10))
+
 
 

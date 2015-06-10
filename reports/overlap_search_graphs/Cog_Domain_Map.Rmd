@@ -75,7 +75,7 @@ I like how it simplifies the search for overlaps among measures. I developed the
 ```{r define_graph_functions, echo=echoChunks, results='hide', message=FALSE}
 ```
 
-```{r , echo=echoChunks, results='show', message=FALSE, warning=FALSE, fig.width=15, fig.height=10, dpi=300}
+```{r domain_map, echo=echoChunks, results='show', message=FALSE, warning=FALSE, fig.width=15, fig.height=10, dpi=300}
 domain_map(dsb)
 ```
 
@@ -100,7 +100,10 @@ Now we have a better system for planning our project. Itemizing, we can distingu
   3. Reduce the number of columns
   4. Increase the value of numbers
 
+## Combine with lattice
 
+```{r combine_with_lattice, echo=echoChunks, results='show', message=FALSE, warning=FALSE, fig.width=20, fig.height=10, dpi=300}
+```
 
 
 ## Session Information

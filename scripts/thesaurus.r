@@ -131,3 +131,15 @@ basic_tile(ds,"subgroup")
 
 
 
+## @knitr pass_strings_to_facet_grid
+# http://stackoverflow.com/questions/21588096/pass-string-to-facet-grid-ggplot2
+
+FUN <- function(data, x, y, fac1, fac2) {
+      ggplot(data = data, aes_string(x=x, y=y)) +
+      geom_point() + facet_grid(reformulate(fac2,fac1))
+}
+
+FUN(mtcars, 'hp', 'mpg', 'cyl', 'am')
+
+
+
