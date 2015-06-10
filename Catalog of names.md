@@ -31,7 +31,7 @@ NA - Study has been inspected in regards to a suspected overlap and no applicabl
 |WAIS Digit symbol        |waisdigsymbol|waisdigitsymbol|      |waisdigitsymbolsubstitution|      |      |      |  X   |  X   |      |
 |FAS                      |fas          |  X            |      |verbalfluencytest|      |      |      |      |      |      |
 |Information              |waisinfo     |waisinfo       |      |Knowledge   |      |      |      |  X   |      |      |
-|WAIS Logical Memory      |waisLM       |waisLM         |      | NA   |      |      |      |      |      |      |
+|WAIS Logical Memory      |waisLM       |waisLM         |      | NA   |      |      |      |      |  wmsLM    |      |
 |MMSE                     |mmse         |  X            |      | NA   |      |      |      |  X   |  X   |      |
 |Trails B                 |trailsb      |  X            |      | NA   |      |      |      |      |      |      |
 |WAIS Vocab               |waisvocab    |  X            |      | NA   |      |      |      |      |      |      |
