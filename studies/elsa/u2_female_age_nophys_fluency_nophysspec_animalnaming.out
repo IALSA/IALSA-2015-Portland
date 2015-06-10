@@ -1,0 +1,362 @@
+Mplus VERSION 7.2
+MUTHEN & MUTHEN
+06/10/2015   8:37 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Univariate quadratic,female,Empty,No physical,fluency,No physical spec, AnimalNamin
+
+  DATA:  File = ELSA_Portland_New.dat;
+
+      DATA LONGTOWIDE:
+      LONG = cfani | years;
+      WIDE = c1-c6 | time1-time6; !had to remove t6 because no data on cfani 6
+      IDVARIABLE = idauniq;
+      REPETITION = years (0 2 4 6 8 10);
+
+
+  VARIABLE: Names are
+     idauniq dimar hedia01 hedia02 hedia03 hedia04
+   hedia05 hedia06 hedia07 hedia08
+      hedia09 hedia10 heage hedib01 hedib02 hedib03
+      hedib04 hedib05 hedib06 hedib07 hedib08 hedib09
+      hedib10 hesmk heala heacta heactb heactc mmwlka
+      mmwlkb cflisen cfani cfmem cfpascr cflisd cfmscr
+      cfpbscr cfptscr cfwhz1 cfwhz2 cfwhz3 cfwhz4 psceda
+       pscedb pscedc pscedd pscede pscedf pscedg pscedh
+      edqual scfamm scsca scscc intdatm intdaty iintdtm
+       iintdty indobyr indager aethnicr wave heagcr
+      heagcry hedbwlu hedbwas hedbwar hedbwos hedbwca
+       hedbwpd hedbwps hedbwad hedbwde herosmd hemobcs
+      hehsm86 hehsm96 hedcc heaidcr iintdatm iintdaty
+       chesmk cfmersp cfprmem cfspeed cfanig cfexind
+      cfaccur cfrecal hedimbp hediman hedimmi hedimhf
+      hedimhm hedimar hedimdi hedbts hedimst hedimch
+      hediblu hedibas hedibar hedibos hedibca hedibpd
+       hedibps hedibad hedibde cfmeind cfind hedizm51
+      hedizm52 hediagbp hediagan hediagmi hediaghf
+      hediaghm hediagar hediagdh hediagdi hediagst hediaghc
+      hebdialu hebdiaas hebdiaar hebdiaos hebdiaca
+      hebdiapd hebdiaps hebdiaad hebdiade hepdiagl hepdiadi
+      hepdiamd hepdiaca cvd7dibt sex sysval diaval
+      pulval mapval mmgsd1 mmgsn1 mmgsd2 mmgsn2 mmgsd3
+      mmgsn3 chol trig fglu htval wtval bmival bmiobe
+       fvc1 fev1 pf1 fvc2 fev2 pf2 fvc3 fev3 pf3 htfvc
+      htfev htpf mmssre mmssti mmssna mmstre mmstti
+       mmftre2 mmftti mmlore mmloti mmlsre mmlsti mmcrre
+      mmrrre mmrrfti mmrrtti mmrroc vitd mmftre prfvc
+       pcfvc prfev pcfev htpef prpef pcpef nurmer bagey
+      years diab cardio;
+
+         MISSING is all(-99999, -8, -9, -1);
+
+         USEVAR are time1-time5 c1-c5 Bage;
+
+
+         TSCORES = time1-time5;
+
+         USEOBSERVATIONS are sex EQ 2
+         and hedib01 NE 8
+         and hedib01 NE 9
+         and hedib02 NE 8
+         and hedib02 NE 9
+         and hedib03 NE 8
+         and hedib03 NE 9
+         and hedib04 NE 8
+         and hedib04 NE 9
+         and hedib05 NE 8
+         and hedib05 NE 9
+         and hedib06 NE 8
+         and hedib06 NE 9
+         and hedib07 NE 8
+         and hedib07 NE 9
+         and hedib08 NE 8
+         and hedib08 NE 9
+         and hedib09 NE 8
+         and hedib09 NE 9
+         and hedib10 NE 8
+         and hedib10 NE 9;
+
+
+
+  Define:
+
+         Bage=bagey-80;   !Centered at Age 80
+
+          if (edqual eq 7) then Educl=1;
+          if (edqual NE 7) then Educl=0;
+
+          if (edqual eq 4) then Educsec=1;
+          if (edqual NE 4) then Educsec=0;
+
+          if(edqual eq 3) then Educpri=1;
+          if(edqual NE 3) then Educpri=0;
+
+          if(edqual eq 2) then EducHE=1;
+          if(edqual NE 2) then EducHE=0;
+
+          if(edqual eq 1) then EducDE=1;
+          if(edqual NE 1) then EducDE=0;
+
+
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ic sc qc | c1-c5 AT time1-time5;
+
+          ic sc qc ON Bage;
+
+          c1-c5(res_p);
+
+  OUTPUT: sampstat;
+
+
+
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  TITLE: Univariate quadratic,female,Empty,No physical,fluency,No physical spec, AnimalNaming
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  64
+*** WARNING
+  Data set contains cases with missing on or unknown values for the
+  repetition variable.  These cases were not included in the analysis.
+  Number of such cases:  2845
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Univariate quadratic,female,Empty,No physical,fluency,No physical spec, AnimalNaming
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        6117
+
+Number of dependent variables                                    5
+Number of independent variables                                  1
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   C1          C2          C3          C4          C5
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IC          SC          QC
+
+Variables with special functions
+
+  ID variable           IDAUNIQ
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  ELSA_Portland_New.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            31
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             0.973
+ C2             0.476         0.481
+ C3             0.521         0.371         0.527
+ C4             0.405         0.298         0.361         0.410
+ C5             0.372         0.282         0.331         0.316         0.377
+ BAGE           0.973         0.481         0.527         0.410         0.377
+
+
+           Covariance Coverage
+              BAGE
+              ________
+ BAGE           1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1             18.822        19.039        18.665        18.721        18.292
+
+
+           Means
+              BAGE
+              ________
+ 1            -14.804
+
+
+           Covariances
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1            39.005
+ C2            25.661        43.671
+ C3            25.356        28.734        45.986
+ C4            26.455        30.283        32.638        51.836
+ C5            26.967        30.682        32.538        38.393        54.822
+ BAGE         -22.715       -26.090       -27.566       -33.247       -35.817
+
+
+           Covariances
+              BAGE
+              ________
+ BAGE         103.983
+
+
+           Correlations
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.622         1.000
+ C3             0.599         0.641         1.000
+ C4             0.588         0.636         0.668         1.000
+ C5             0.583         0.627         0.648         0.720         1.000
+ BAGE          -0.357        -0.387        -0.399        -0.453        -0.474
+
+
+           Correlations
+              BAGE
+              ________
+ BAGE           1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -74882.003
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       13
+
+Loglikelihood
+
+          H0 Value                      -52013.332
+          H0 Scaling Correction Factor      1.4535
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                  104052.665
+          Bayesian (BIC)                104140.010
+          Sample-Size Adjusted BIC      104098.699
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IC         ON
+    BAGE              -0.219      0.007    -29.750      0.000
+
+ SC         ON
+    BAGE              -0.011      0.004     -2.850      0.004
+
+ QC         ON
+    BAGE              -0.001      0.001     -1.108      0.268
+
+ SC       WITH
+    IC                 0.351      0.354      0.991      0.322
+
+ QC       WITH
+    IC                -0.045      0.039     -1.157      0.247
+    SC                -0.031      0.027     -1.143      0.253
+
+ Intercepts
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    IC                15.602      0.126    123.346      0.000
+    SC                -0.116      0.071     -1.646      0.100
+    QC                -0.024      0.010     -2.471      0.013
+
+ Residual Variances
+    C1                15.392      0.580     26.554      0.000
+    C2                15.392      0.580     26.554      0.000
+    C3                15.392      0.580     26.554      0.000
+    C4                15.392      0.580     26.554      0.000
+    C5                15.392      0.580     26.554      0.000
+    IC                18.884      0.881     21.431      0.000
+    SC                 0.383      0.233      1.642      0.101
+    QC                 0.004      0.003      1.166      0.244
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.381E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\annie robitaille\dropbox\elsa_portland\animal naming\u2_female_age_nophys_fluency_nophy
+
+     Beginning Time:  08:37:11
+        Ending Time:  08:37:49
+       Elapsed Time:  00:00:38
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
