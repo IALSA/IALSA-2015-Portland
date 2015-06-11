@@ -6,9 +6,11 @@
 
 # GitHub Example - https://github.com/smartinsightsfromdata/rpivotTable/blob/master/inst/examples/canElections-shiny.R
 
+library(dplyr)
 library(shiny)
 library(rpivotTable)
-library(dplyr)
+library(htmlwidgets)
+
 
 if(basename(getwd())=="pivotTable"){
 dsb <- readRDS('../../data/shared/ds1a.rds')

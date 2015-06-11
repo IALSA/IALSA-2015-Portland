@@ -1,8 +1,8 @@
 name: pivotTable
 account: andkov
 server: shinyapps.io
-bundleId: 201590
+bundleId: 201616
 url: https://andkov.shinyapps.io/pivotTable
-when: 1434056382.08903
+when: 1434058651.04457
 asMultiple: FALSE
 asStatic: FALSE
