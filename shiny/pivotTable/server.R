@@ -34,10 +34,13 @@ ds <- ds %>%
 
 head(ds)
 
+
 # Define server logic required to summarize and view the selected
 # study
 shinyServer(function(input, output) {
-
+  rpivotTableOutput <- function(outputId, width = '100%', height = '400px'){
+    shinyWidgetOutput(outputId, 'rpivotTable', width, height, package = 'rpivotTable')
+}
 
  output$pivot <- renderRpivotTable({
    rpivotTable(data = ds)
