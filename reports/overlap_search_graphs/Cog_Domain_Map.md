@@ -28,6 +28,21 @@
 
 
 
+```
+List of 1
+ $ strip.text.x:List of 8
+  ..$ family    : NULL
+  ..$ face      : NULL
+  ..$ colour    : chr "black"
+  ..$ size      : num 7
+  ..$ hjust     : NULL
+  ..$ vjust     : NULL
+  ..$ angle     : num 0
+  ..$ lineheight: NULL
+  ..- attr(*, "class")= chr [1:2] "element_text" "element"
+ - attr(*, "class")= chr [1:2] "theme" "gg"
+ - attr(*, "complete")= logi FALSE
+```
 ## Prototype
 
 Andrea, you've suggested the followed  structure to investigate replication potential across studies and cognitive domains:
@@ -70,7 +85,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-10, 00:41 -0700
+Report rendered by koval_000 at 2015-06-10, 08:56 -0700
 ```
 
 ```

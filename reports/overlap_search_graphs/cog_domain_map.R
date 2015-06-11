@@ -13,6 +13,9 @@ library(grid)
 
 
 ## @knitr load_data
+## if-else conditions for Shiny production
+## "b" in "dsb" is for BASIC
+
 if(basename(getwd())=="dashboard"){
 dsb <- readRDS('../../data/shared/ds1a.rds')
 source("../../shiny/dashboard/scripts/multiplot_function.R")
@@ -23,14 +26,14 @@ source("./shiny/dashboard/scripts/multiplot_function.R")
 
 
 ## @knitr tweak_data
-keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
-
-ds <- dsb[ , keepvar]
-
+## trim to make more managable
+# keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
+# ds <- dsb[ , keepvar]
 # dplyr::tbl_df(ds)
 
 
-# @knitr define_themes
+## @knitr define_themes
+## define common graphical theme for all graphs
 baseSize <- 10
 theme1 <- ggplot2::theme_bw(base_size=baseSize) +
   ggplot2::theme(title=ggplot2::element_text(colour="gray20",size = baseSize+1)) +
@@ -43,9 +46,10 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
 #   ggplot2::theme(panel.grid.major.y = element_blank())
 #   ggplot2::theme(panel.grid.minor.x = element_blank())
 #   ggplot2::theme(panel.grid.minor.y = element_blank())
+ ggplot2::theme(strip.text.x = element_text(angle = 0, size=baseSize-3, color="black"))
 
 ## @knitr declare_globals
-  # Define color palette and display labels
+## Define color palette and display labels
   x_name_colors <- c("physical_measure"="#e78ac3",
                      "study_name"="#8da0cb",
                      "model_type"="#fc8d62",
@@ -58,14 +62,15 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
 ## @knitr define_graph_functions
 
 
-domain_map <- function(ds){
+domain_map <- function(ds, labels){
   # define the data
 
   d <- ds %>%
   dplyr::count_(c("cognitive_measure", "cognitive_construct","study_name"))
   d$dummy <- factor("dummy")
   d$cog_meas <- stringr::str_sub(d$cognitive_measure,1,3)
-  d$cog_measure_display <-paste0(d$cognitive_measure,", ",d$n)
+  d$cog_measure_display <-paste0(stringr::str_sub(d$cognitive_measure,1,6),
+                                 ", ",d$n)
   # d
   # str(d)
   #
@@ -95,7 +100,7 @@ cog_x_name <- function(ds, x_name){
   dplyr::count_(c("cognitive_measure", x_name))
   d$dummy <- factor("dummy")
   d$cog_meas <- stringr::str_sub(d$cognitive_measure,1,3)
-  d$cog_measure_display <-paste0(d$cognitive_measure,", ",d$n)
+
   # d
   g <- ggplot2::ggplot(d, aes_string(x="dummy", y="cognitive_measure", label="n", fill="n"))
   g <- g + geom_tile()
@@ -115,30 +120,42 @@ cog_x_name <- function(ds, x_name){
                  panel.grid.major.x = element_blank(),
                  # legend.text =  element_text(),
                  legend.position="none")
-  g <- g + theme(strip.text.x = element_text(angle = 0, size=baseSize-3, color="black"))
+  # g <- g + theme(strip.text.x = element_text(angle = 0, size=baseSize-3, color="black"))
   g
 
   return(g)
 }
 
 
-## @knitr cog_domain_map_v1
+## @knitr combine_map_and_cross
+
 a <- domain_map(dsb)
+b <- cog_x_name(dsb,"physical_measure")
+
+# Define grid layout to locate plots and print each graph
+grid::pushViewport(viewport(layout = grid.layout(1, 10)))
+print(a, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:7))
+print(b, vp = viewport(layout.pos.row = 1, layout.pos.col = 8:10))
 
 
-## @knitr cog_x_phys
-b <- cog_x_name(dsb, "physical_measure")
-
-## @knitr cog_x_study
-c <- cog_x_name(dsb, "study_name")
-
-
-## @knitr cog_x_covar
-d <- cog_x_name(dsb, "model_type")
-
-
-## @knitr cog_x_sex
-e <- cog_x_name(dsb, "subgroup")
+#
+# ## @knitr cog_domain_map_v1
+# a <- domain_map(dsb)
+#
+#
+# ## @knitr cog_x_phys
+# b <- cog_x_name(dsb, "physical_measure")
+#
+# ## @knitr cog_x_study
+# c <- cog_x_name(dsb, "study_name")
+#
+#
+# ## @knitr cog_x_covar
+# d <- cog_x_name(dsb, "model_type")
+#
+#
+# ## @knitr cog_x_sex
+# e <- cog_x_name(dsb, "subgroup")
 
 
 
@@ -223,16 +240,6 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 ######### END Define multiplot function ##############
 
 
-
-## @knitr combine_map_and_cross
-
-a <- domain_map(dsb)
-b <- cog_x_name(dsb,"physical_measure")
-
-# Define grid layout to locate plots and print each graph
-grid::pushViewport(viewport(layout = grid.layout(1, 10)))
-print(a, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:7))
-print(b, vp = viewport(layout.pos.row = 1, layout.pos.col = 8:10))
 
 
 
