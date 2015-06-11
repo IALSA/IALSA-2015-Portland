@@ -16,12 +16,9 @@ dsb <- readRDS('../../data/shared/ds1a.rds')
 dsb <- readRDS('./data/shared/ds1a.rds')
 }
 
-
-
 ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct",
                 "study_name", "model_type","subgroup", "converged", "output_file")]
 head(ds)
-
 
 unique(ds$study_name)
 unique(ds$physical_construct)
@@ -36,11 +33,17 @@ ds <- ds %>%
   dplyr::rename_("Sex" = "subgroup")
 
 head(ds)
+
+
 # Define server logic required to summarize and view the selected
 # study
 shinyServer(function(input, output) {
+  rpivotTableOutput <- function(outputId, width = '100%', height = '400px'){
+    shinyWidgetOutput(outputId, 'rpivotTable', width, height, package = 'rpivotTable')
+}
+
  output$pivot <- renderRpivotTable({
-   rpivotTable(data = ds, rows = , )
+   rpivotTable(data = ds)
  })
 
 })
