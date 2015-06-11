@@ -1,4 +1,5 @@
 library(shiny)
+library(rpivotTable)
 
 # Define UI for study viewer application
 shinyUI(fluidPage(
@@ -8,7 +9,7 @@ shinyUI(fluidPage(
 
   # Sidebar
   fluidRow(
-  column(1, rpivotTableOutput("pivot"))
+  column(1, rpivotTable::rpivotTableOutput("pivot"))
 
 
   ) # close fluidRow

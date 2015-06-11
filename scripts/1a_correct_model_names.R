@@ -89,7 +89,7 @@ ds[ds$model_type=="empty","model_type"] <- "0"
 #### Corrections to PHYSICAL construct ####
 ds %>% dplyr::count(physical_construct)
 # ds[ds$physical_construct=="nophysspec","physical_construct"] <- "nophys"
-ds[ds$physical_construct %in% c("nophysspec"),"physical_construct"] <- "Univar"
+ds[ds$physical_construct %in% c("nophys", "nophysspec"),"physical_construct"] <- "Univar"
 ds[ds$physical_construct %in% c("pumonary"),"physical_construct"] <- "pulmonary"
 
 #### Correction to PHYSICAL measure ####
@@ -102,12 +102,12 @@ ds[ds$physical_measure == "fevc","physical_measure"] <- "fev"
 
 #### Corrections to the COGNITIVE construct ####
 ds %>% dplyr::count(cognitive_construct)
-ds[ds$cognitive_construct %in% c("nocog"),"cognitive_construct"] <- "Univar"
+ds[ds$cognitive_construct %in% c("nocog", "nocogspec"),"cognitive_construct"] <- "Univar"
 ds[ds$cognitive_construct %in% c(" knowledge", "knoledge", "knowlegde"),"cognitive_construct"] <- "knowledge"
 
 #### Correction to COGNITIVE measure ####
 print(ds %>% dplyr::count(cognitive_measure), n=66)
-ds[ds$cognitive_measure %in% c("wasivocab"),"cognitive_measure"] <- "univar"
+ds[ds$cognitive_measure %in% c("nocog"),"cognitive_measure"] <- "univar"
 ds[ds$cognitive_measure %in% c("bostonmaning","nostonnaming"),"cognitive_measure"] <- "bostonnaming"
 ds[ds$cognitive_measure %in% c("wasivocab"),"cognitive_measure"] <- "waisvocab"
 ds[ds$cognitive_measure %in% c("digitsymol"),"cognitive_measure"] <- "digitsymbol"
