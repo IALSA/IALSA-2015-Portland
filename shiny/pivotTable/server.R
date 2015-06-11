@@ -39,7 +39,7 @@ ds <- ds %>%
   dplyr::rename_("Sex" = "subgroup") %>%
   dplyr::rename_("Corr.Intersepts" = "sd_int") %>%
   dplyr::rename_("Corr.Slopes" = "sd_slope") %>%
-  dplyr::rename_("Corr.Residuals" = "sd_residual") %>%
+  dplyr::rename_("Corr.Residuals" = "sd_residual")
 head(ds)
 # Define server logic required to summarize and view the selected
 # study
