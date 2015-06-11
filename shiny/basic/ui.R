@@ -6,17 +6,25 @@ shinyUI(fluidPage(
   # Application title
   titlePanel("Shiny Text"),
 
-  # Sidebar
+  # Sidebar with controls to select a study and specify the
+  # number of observations to view
   sidebarLayout(
     sidebarPanel(
       selectInput("study", "Choose a study:",
-                  choices = unique(ds$study_name))
+                  choices = unique(ds$study_name)),
+
+      selectInput("physical", "Choose physical outcome:",
+                  choices = unique(ds$physical_outcome)),
+
+      numericInput("obs", "Number of observations to view:", value=10)
     ),
 
-    # Main panel
+    # Show a summary of the study and an HTML table with the
+	 # requested number of observations
     mainPanel(
-      rpivotTableOutput("pivot")
+      verbatimTextOutput("freqs"),
 
+      dataTableOutput("view")
     )
-  ) # close sidebarLayout
-)) # close fluidPage, shinyUI
+  )
+))
