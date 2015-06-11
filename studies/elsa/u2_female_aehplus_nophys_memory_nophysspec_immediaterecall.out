@@ -1,0 +1,1137 @@
+Mplus VERSION 7.2
+MUTHEN & MUTHEN
+06/10/2015  12:03 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Univariate quadratic,female,all covariates,No physical,memory,No physical spec, Imm
+
+  DATA:  File = ELSA_Portland_New.dat;
+
+      DATA LONGTOWIDE:
+      LONG = cflisen|Height|years|SmokHist|diab|cardio;
+      WIDE = c1-c6|hei1-hei6|time1-time6|smoke1-smoke6|diab1-diab6|cardio1-cardio6; !had to
+      IDVARIABLE = idauniq;
+      REPETITION = years (0 2 4 6 8 10);
+
+
+  VARIABLE: Names are
+     idauniq dimar hedia01 hedia02 hedia03 hedia04
+   hedia05 hedia06 hedia07 hedia08
+      hedia09 hedia10 heage hedib01 hedib02 hedib03
+      hedib04 hedib05 hedib06 hedib07 hedib08 hedib09
+      hedib10 hesmk heala heacta heactb heactc mmwlka
+      mmwlkb cflisen cfani cfmem cfpascr cflisd cfmscr
+      cfpbscr cfptscr cfwhz1 cfwhz2 cfwhz3 cfwhz4 psceda
+       pscedb pscedc pscedd pscede pscedf pscedg pscedh
+      edqual scfamm scsca scscc intdatm intdaty iintdtm
+       iintdty indobyr indager aethnicr wave heagcr
+      heagcry hedbwlu hedbwas hedbwar hedbwos hedbwca
+       hedbwpd hedbwps hedbwad hedbwde herosmd hemobcs
+      hehsm86 hehsm96 hedcc heaidcr iintdatm iintdaty
+       chesmk cfmersp cfprmem cfspeed cfanig cfexind
+      cfaccur cfrecal hedimbp hediman hedimmi hedimhf
+      hedimhm hedimar hedimdi hedbts hedimst hedimch
+      hediblu hedibas hedibar hedibos hedibca hedibpd
+       hedibps hedibad hedibde cfmeind cfind hedizm51
+      hedizm52 hediagbp hediagan hediagmi hediaghf
+      hediaghm hediagar hediagdh hediagdi hediagst hediaghc
+      hebdialu hebdiaas hebdiaar hebdiaos hebdiaca
+      hebdiapd hebdiaps hebdiaad hebdiade hepdiagl hepdiadi
+      hepdiamd hepdiaca cvd7dibt sex sysval diaval
+      pulval mapval mmgsd1 mmgsn1 mmgsd2 mmgsn2 mmgsd3
+      mmgsn3 chol trig fglu htval wtval bmival bmiobe
+       fvc1 fev1 pf1 fvc2 fev2 pf2 fvc3 fev3 pf3 htfvc
+      htfev htpf mmssre mmssti mmssna mmstre mmstti
+       mmftre2 mmftti mmlore mmloti mmlsre mmlsti mmcrre
+      mmrrre mmrrfti mmrrtti mmrroc vitd mmftre prfvc
+       pcfvc prfev pcfev htpef prpef pcpef nurmer bagey
+      years diab cardio;
+
+         MISSING is all(-99999, -8, -9, -1);
+
+         USEVAR are time1-time6 c1-c6 Bage
+         educn educsec educDE educHE educF
+          educO hei2 smoke1 diab1 cardio1;
+
+
+         TSCORES = time1-time6;
+
+         USEOBSERVATIONS are sex EQ 2
+         and hedib01 NE 8
+         and hedib01 NE 9
+         and hedib02 NE 8
+         and hedib02 NE 9
+         and hedib03 NE 8
+         and hedib03 NE 9
+         and hedib04 NE 8
+         and hedib04 NE 9
+         and hedib05 NE 8
+         and hedib05 NE 9
+         and hedib06 NE 8
+         and hedib06 NE 9
+         and hedib07 NE 8
+         and hedib07 NE 9
+         and hedib08 NE 8
+         and hedib08 NE 9
+         and hedib09 NE 8
+         and hedib09 NE 9
+         and hedib10 NE 8
+         and hedib10 NE 9;
+
+
+
+  Define:
+
+          Bage=bagey-80;   !Centered at Age 80
+          Height=htval-1.60;
+          SmokHist=hesmk-1;
+
+          if (edqual eq 7) then Educn=1;
+          if (edqual NE 7) then Educn=0;
+
+          if (edqual eq 4) then Educsec=1;
+          if (edqual NE 4) then Educsec=0;
+
+          if(edqual eq 3) then Educpri=1;
+          if(edqual NE 3) then Educpri=0;
+
+          if(edqual eq 2) then EducHE=1;
+          if(edqual NE 2) then EducHE=0;
+
+          if(edqual eq 1) then EducDE=1;
+          if(edqual NE 1) then EducDE=0;
+
+
+          if(edqual eq 6) then EducF=1;
+          if(edqual NE 6) then EducF=0;
+
+          if(edqual eq 5) then EducO=1;
+          if(edqual NE 5) then EducO=0;
+
+
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ic sc qc | c1-c6 AT time1-time6;
+
+          ic sc qc ON Bage hei2 educn educsec educDE
+          educHE educF educO smoke1 diab1 cardio1;
+
+          c1-c6(res_p);
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  TITLE: Univariate quadratic,female,all covariates,No physical,memory,No physical spec, Imme
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+      WIDE = c1-c6|hei1-hei6|time1-time6|smoke1-smoke6|diab1-diab6|cardio1-cardio6; !had to r
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  64
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  3335
+*** WARNING
+  Data set contains cases with missing on or unknown values for the
+  repetition variable.  These cases were not included in the analysis.
+  Number of such cases:  2845
+   5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Univariate quadratic,female,all covariates,No physical,memory,No physical spec, Imme
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2782
+
+Number of dependent variables                                    6
+Number of independent variables                                 11
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   C1          C2          C3          C4          C5          C6
+
+Observed independent variables
+   BAGE        EDUCN       EDUCSEC     EDUCDE      EDUCHE      EDUCF
+   EDUCO       HEI2        SMOKE1      DIAB1       CARDIO1
+
+Continuous latent variables
+   IC          SC          QC
+
+Variables with special functions
+
+  ID variable           IDAUNIQ
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  ELSA_Portland_New.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            29
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             0.992
+ C2             0.992         0.999
+ C3             0.773         0.777         0.778
+ C4             0.625         0.628         0.584         0.629
+ C5             0.594         0.597         0.553         0.518         0.597
+ C6             0.496         0.497         0.464         0.432         0.459
+ BAGE           0.992         0.999         0.778         0.629         0.597
+ EDUCN          0.992         0.999         0.778         0.629         0.597
+ EDUCSEC        0.992         0.999         0.778         0.629         0.597
+ EDUCDE         0.992         0.999         0.778         0.629         0.597
+ EDUCHE         0.992         0.999         0.778         0.629         0.597
+ EDUCF          0.992         0.999         0.778         0.629         0.597
+ EDUCO          0.992         0.999         0.778         0.629         0.597
+ HEI2           0.992         0.999         0.778         0.629         0.597
+ SMOKE1         0.992         0.999         0.778         0.629         0.597
+ DIAB1          0.992         0.999         0.778         0.629         0.597
+ CARDIO1        0.992         0.999         0.778         0.629         0.597
+
+
+           Covariance Coverage
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ C6             0.499
+ BAGE           0.499         1.000
+ EDUCN          0.499         1.000         1.000
+ EDUCSEC        0.499         1.000         1.000         1.000
+ EDUCDE         0.499         1.000         1.000         1.000         1.000
+ EDUCHE         0.499         1.000         1.000         1.000         1.000
+ EDUCF          0.499         1.000         1.000         1.000         1.000
+ EDUCO          0.499         1.000         1.000         1.000         1.000
+ HEI2           0.499         1.000         1.000         1.000         1.000
+ SMOKE1         0.499         1.000         1.000         1.000         1.000
+ DIAB1          0.499         1.000         1.000         1.000         1.000
+ CARDIO1        0.499         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ EDUCHE         1.000
+ EDUCF          1.000         1.000
+ EDUCO          1.000         1.000         1.000
+ HEI2           1.000         1.000         1.000         1.000
+ SMOKE1         1.000         1.000         1.000         1.000         1.000
+ DIAB1          1.000         1.000         1.000         1.000         1.000
+ CARDIO1        1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          1.000
+ CARDIO1        1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1              5.723         5.797         5.734         5.677         5.577
+
+
+           Means
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ 1              5.547       -15.670         0.424         0.192         0.091
+
+
+           Means
+              EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ 1              0.102         0.114         0.022       157.643         0.441
+
+
+           Means
+              DIAB1         CARDIO1
+              ________      ________
+ 1              0.049         0.090
+
+
+           Covariances
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             2.712
+ C2             1.251         3.067
+ C3             1.303         1.529         3.221
+ C4             1.384         1.553         1.790         3.526
+ C5             1.484         1.538         1.697         1.925         3.638
+ C6             1.498         1.725         1.875         2.049         2.145
+ BAGE          -5.259        -6.412        -7.225        -8.570        -8.609
+ EDUCN         -0.248        -0.238        -0.307        -0.300        -0.271
+ EDUCSEC        0.086         0.078         0.108         0.094         0.090
+ EDUCDE         0.084         0.086         0.111         0.110         0.107
+ EDUCHE         0.064         0.070         0.069         0.081         0.065
+ EDUCF         -0.004        -0.021        -0.002        -0.003        -0.007
+ EDUCO         -0.005        -0.006        -0.006        -0.005        -0.007
+ HEI2           2.233         2.191         2.915         2.818         3.369
+ SMOKE1         0.038         0.018         0.057         0.021         0.005
+ DIAB1         -0.012        -0.027        -0.028        -0.029        -0.037
+ CARDIO1       -0.051        -0.059        -0.054        -0.074        -0.081
+
+
+           Covariances
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ C6             3.867
+ BAGE          -9.872        92.353
+ EDUCN         -0.293         1.250         0.244
+ EDUCSEC        0.115        -0.640        -0.081         0.155
+ EDUCDE         0.109        -0.388        -0.039        -0.017         0.083
+ EDUCHE         0.067        -0.123        -0.043        -0.020        -0.009
+ EDUCF         -0.029         0.085        -0.048        -0.022        -0.010
+ EDUCO         -0.011        -0.022        -0.009        -0.004        -0.002
+ HEI2           3.466       -22.683        -0.725         0.290         0.252
+ SMOKE1         0.010         0.026        -0.015         0.002         0.006
+ DIAB1         -0.027         0.150         0.004        -0.002        -0.002
+ CARDIO1       -0.080         0.571         0.013        -0.007        -0.004
+
+
+           Covariances
+              EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ EDUCHE         0.092
+ EDUCF         -0.012         0.101
+ EDUCO         -0.002        -0.003         0.022
+ HEI2           0.161         0.000        -0.007        45.294
+ SMOKE1         0.007         0.003         0.000        -0.082         0.247
+ DIAB1         -0.002         0.002         0.001        -0.011         0.000
+ CARDIO1       -0.002         0.001         0.000        -0.242        -0.008
+
+
+           Covariances
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          0.047
+ CARDIO1        0.008         0.082
+
+
+           Correlations
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.434         1.000
+ C3             0.441         0.486         1.000
+ C4             0.447         0.472         0.531         1.000
+ C5             0.472         0.460         0.496         0.537         1.000
+ C6             0.462         0.501         0.531         0.555         0.572
+ BAGE          -0.332        -0.381        -0.419        -0.475        -0.470
+ EDUCN         -0.305        -0.275        -0.347        -0.324        -0.287
+ EDUCSEC        0.133         0.113         0.153         0.127         0.119
+ EDUCDE         0.178         0.171         0.214         0.204         0.194
+ EDUCHE         0.128         0.132         0.126         0.143         0.113
+ EDUCF         -0.007        -0.037        -0.004        -0.006        -0.012
+ EDUCO         -0.020        -0.021        -0.023        -0.018        -0.025
+ HEI2           0.202         0.186         0.241         0.223         0.262
+ SMOKE1         0.046         0.021         0.064         0.023         0.005
+ DIAB1         -0.033        -0.071        -0.072        -0.070        -0.089
+ CARDIO1       -0.108        -0.118        -0.104        -0.138        -0.148
+
+
+           Correlations
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ C6             1.000
+ BAGE          -0.522         1.000
+ EDUCN         -0.302         0.263         1.000
+ EDUCSEC        0.148        -0.169        -0.418         1.000
+ EDUCDE         0.193        -0.141        -0.271        -0.154         1.000
+ EDUCHE         0.113        -0.042        -0.290        -0.165        -0.107
+ EDUCF         -0.047         0.028        -0.308        -0.175        -0.113
+ EDUCO         -0.037        -0.016        -0.129        -0.074        -0.048
+ HEI2           0.262        -0.351        -0.218         0.109         0.130
+ SMOKE1         0.010         0.005        -0.062         0.008         0.039
+ DIAB1         -0.065         0.072         0.037        -0.027        -0.026
+ CARDIO1       -0.141         0.207         0.093        -0.061        -0.052
+
+
+           Correlations
+              EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ EDUCHE         1.000
+ EDUCF         -0.121         1.000
+ EDUCO         -0.051        -0.054         1.000
+ HEI2           0.079         0.000        -0.007         1.000
+ SMOKE1         0.046         0.018        -0.007        -0.025         1.000
+ DIAB1         -0.028         0.033         0.022        -0.008        -0.002
+ CARDIO1       -0.028         0.009        -0.005        -0.125        -0.058
+
+
+           Correlations
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          1.000
+ CARDIO1        0.125         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -44911.027
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN ILL-CONDITIONED
+     FISHER INFORMATION MATRIX.  CHANGE YOUR MODEL AND/OR STARTING VALUES.
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO A NON-POSITIVE
+     DEFINITE FISHER INFORMATION MATRIX.  THIS MAY BE DUE TO THE STARTING VALUES
+     BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE CONDITION
+     NUMBER IS       0.500D-10.
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES COULD NOT BE
+     COMPUTED.  THIS IS OFTEN DUE TO THE STARTING VALUES BUT MAY ALSO BE
+     AN INDICATION OF MODEL NONIDENTIFICATION.  CHANGE YOUR MODEL AND/OR
+     STARTING VALUES.  PROBLEM INVOLVING THE FOLLOWING PARAMETER:
+     Parameter 33, QC ON EDUCO
+
+
+
+
+
+
+MODEL RESULTS
+
+                    Estimate
+
+ IC         ON
+    BAGE              -0.042
+    HEI2               0.012
+    EDUCN             -0.755
+    EDUCSEC           -0.065
+    EDUCDE             0.331
+    EDUCHE             0.205
+    EDUCF             -0.404
+    EDUCO             -0.615
+    SMOKE1             0.082
+    DIAB1             -0.018
+    CARDIO1           -0.143
+
+ SC         ON
+    BAGE              -0.006
+    HEI2              -0.001
+    EDUCN              0.017
+    EDUCSEC            0.021
+    EDUCDE             0.088
+    EDUCHE             0.059
+    EDUCF              0.060
+    EDUCO              0.044
+    SMOKE1             0.004
+    DIAB1             -0.108
+    CARDIO1            0.024
+
+ QC         ON
+    BAGE               0.000
+    HEI2               0.000
+    EDUCN             -0.002
+    EDUCSEC           -0.003
+    EDUCDE            -0.009
+    EDUCHE            -0.007
+    EDUCF             -0.007
+    EDUCO             -0.007
+    SMOKE1            -0.002
+    DIAB1              0.009
+    CARDIO1           -0.003
+
+ SC       WITH
+    IC                 0.010
+
+ QC       WITH
+    IC                 0.000
+    SC                -0.001
+
+ Intercepts
+    C1                 0.000
+    C2                 0.000
+    C3                 0.000
+    C4                 0.000
+    C5                 0.000
+    C6                 0.000
+    IC                 3.586
+    SC                -0.001
+    QC                -0.021
+
+ Residual Variances
+    C1                 1.618
+    C2                 1.618
+    C3                 1.618
+    C4                 1.618
+    C5                 1.618
+    C6                 1.618
+    IC                 0.669
+    SC                 0.012
+    QC                 0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     ic sc qc | c1-c6 AT time1-time6;
+
+     ic ON bage*-0.04194;
+     ic ON hei2*0.01156;
+     ic ON educn*-0.75535;
+     ic ON educsec*-0.06546;
+     ic ON educde*0.33118;
+     ic ON eduche*0.20513;
+     ic ON educf*-0.40385;
+     ic ON educo*-0.61497;
+     ic ON smoke1*0.08213;
+     ic ON diab1*-0.01773;
+     ic ON cardio1*-0.14267;
+     sc ON bage*-0.00573;
+     sc ON hei2*-0.00068;
+     sc ON educn*0.01695;
+     sc ON educsec*0.02052;
+     sc ON educde*0.08822;
+     sc ON eduche*0.05878;
+     sc ON educf*0.05969;
+     sc ON educo*0.04437;
+     sc ON smoke1*0.00351;
+     sc ON diab1*-0.10806;
+     sc ON cardio1*0.02400;
+     qc ON bage*0.00011;
+     qc ON hei2*0.00015;
+     qc ON educn*-0.00181;
+     qc ON educsec*-0.00299;
+     qc ON educde*-0.00852;
+     qc ON eduche*-0.00679;
+     qc ON educf*-0.00706;
+     qc ON educo*-0.00748;
+     qc ON smoke1*-0.00150;
+     qc ON diab1*0.00911;
+     qc ON cardio1*-0.00320;
+
+     sc WITH ic*0.01048;
+     qc WITH ic*-0.00010;
+     qc WITH sc*-0.00107;
+
+     [ c1@0 ];
+     [ c2@0 ];
+     [ c3@0 ];
+     [ c4@0 ];
+     [ c5@0 ];
+     [ c6@0 ];
+     [ ic*3.58601 ];
+     [ sc*-0.00143 ];
+     [ qc*-0.02062 ];
+
+     c1*1.61762 (res_p);
+     c2*1.61762 (res_p);
+     c3*1.61762 (res_p);
+     c4*1.61762 (res_p);
+     c5*1.61762 (res_p);
+     c6*1.61762 (res_p);
+     ic*0.66943;
+     sc*0.01218;
+     qc*0.00011;
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              DIAB1         CARDIO1
+              ________      ________
+ 1                  0             0
+
+
+           LAMBDA
+              IC            SC            QC            BAGE          EDUCN
+              ________      ________      ________      ________      ________
+ C1                 0             0             0             0             0
+ C2                 0             0             0             0             0
+ C3                 0             0             0             0             0
+ C4                 0             0             0             0             0
+ C5                 0             0             0             0             0
+ C6                 0             0             0             0             0
+ BAGE               0             0             0             0             0
+ EDUCN              0             0             0             0             0
+ EDUCSEC            0             0             0             0             0
+ EDUCDE             0             0             0             0             0
+ EDUCHE             0             0             0             0             0
+ EDUCF              0             0             0             0             0
+ EDUCO              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           LAMBDA
+              EDUCSEC       EDUCDE        EDUCHE        EDUCF         EDUCO
+              ________      ________      ________      ________      ________
+ C1                 0             0             0             0             0
+ C2                 0             0             0             0             0
+ C3                 0             0             0             0             0
+ C4                 0             0             0             0             0
+ C5                 0             0             0             0             0
+ C6                 0             0             0             0             0
+ BAGE               0             0             0             0             0
+ EDUCN              0             0             0             0             0
+ EDUCSEC            0             0             0             0             0
+ EDUCDE             0             0             0             0             0
+ EDUCHE             0             0             0             0             0
+ EDUCF              0             0             0             0             0
+ EDUCO              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           LAMBDA
+              HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________
+ C1                 0             0             0             0
+ C2                 0             0             0             0
+ C3                 0             0             0             0
+ C4                 0             0             0             0
+ C5                 0             0             0             0
+ C6                 0             0             0             0
+ BAGE               0             0             0             0
+ EDUCN              0             0             0             0
+ EDUCSEC            0             0             0             0
+ EDUCDE             0             0             0             0
+ EDUCHE             0             0             0             0
+ EDUCF              0             0             0             0
+ EDUCO              0             0             0             0
+ HEI2               0             0             0             0
+ SMOKE1             0             0             0             0
+ DIAB1              0             0             0             0
+ CARDIO1            0             0             0             0
+
+
+           THETA
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1                 1
+ C2                 0             1
+ C3                 0             0             1
+ C4                 0             0             0             1
+ C5                 0             0             0             0             1
+ C6                 0             0             0             0             0
+ BAGE               0             0             0             0             0
+ EDUCN              0             0             0             0             0
+ EDUCSEC            0             0             0             0             0
+ EDUCDE             0             0             0             0             0
+ EDUCHE             0             0             0             0             0
+ EDUCF              0             0             0             0             0
+ EDUCO              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           THETA
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ C6                 1
+ BAGE               0             0
+ EDUCN              0             0             0
+ EDUCSEC            0             0             0             0
+ EDUCDE             0             0             0             0             0
+ EDUCHE             0             0             0             0             0
+ EDUCF              0             0             0             0             0
+ EDUCO              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           THETA
+              EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ EDUCHE             0
+ EDUCF              0             0
+ EDUCO              0             0             0
+ HEI2               0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           THETA
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1              0
+ CARDIO1            0             0
+
+
+           ALPHA
+              IC            SC            QC            BAGE          EDUCN
+              ________      ________      ________      ________      ________
+ 1                  2             3             4             0             0
+
+
+           ALPHA
+              EDUCSEC       EDUCDE        EDUCHE        EDUCF         EDUCO
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           ALPHA
+              HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________
+ 1                  0             0             0             0
+
+
+           BETA
+              IC            SC            QC            BAGE          EDUCN
+              ________      ________      ________      ________      ________
+ IC                 0             0             0             5             6
+ SC                 0             0             0            16            17
+ QC                 0             0             0            27            28
+ BAGE               0             0             0             0             0
+ EDUCN              0             0             0             0             0
+ EDUCSEC            0             0             0             0             0
+ EDUCDE             0             0             0             0             0
+ EDUCHE             0             0             0             0             0
+ EDUCF              0             0             0             0             0
+ EDUCO              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           BETA
+              EDUCSEC       EDUCDE        EDUCHE        EDUCF         EDUCO
+              ________      ________      ________      ________      ________
+ IC                 7             8             9            10            11
+ SC                18            19            20            21            22
+ QC                29            30            31            32            33
+ BAGE               0             0             0             0             0
+ EDUCN              0             0             0             0             0
+ EDUCSEC            0             0             0             0             0
+ EDUCDE             0             0             0             0             0
+ EDUCHE             0             0             0             0             0
+ EDUCF              0             0             0             0             0
+ EDUCO              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           BETA
+              HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________
+ IC                12            13            14            15
+ SC                23            24            25            26
+ QC                34            35            36            37
+ BAGE               0             0             0             0
+ EDUCN              0             0             0             0
+ EDUCSEC            0             0             0             0
+ EDUCDE             0             0             0             0
+ EDUCHE             0             0             0             0
+ EDUCF              0             0             0             0
+ EDUCO              0             0             0             0
+ HEI2               0             0             0             0
+ SMOKE1             0             0             0             0
+ DIAB1              0             0             0             0
+ CARDIO1            0             0             0             0
+
+
+           PSI
+              IC            SC            QC            BAGE          EDUCN
+              ________      ________      ________      ________      ________
+ IC                38
+ SC                39            40
+ QC                41            42            43
+ BAGE               0             0             0             0
+ EDUCN              0             0             0             0             0
+ EDUCSEC            0             0             0             0             0
+ EDUCDE             0             0             0             0             0
+ EDUCHE             0             0             0             0             0
+ EDUCF              0             0             0             0             0
+ EDUCO              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           PSI
+              EDUCSEC       EDUCDE        EDUCHE        EDUCF         EDUCO
+              ________      ________      ________      ________      ________
+ EDUCSEC            0
+ EDUCDE             0             0
+ EDUCHE             0             0             0
+ EDUCF              0             0             0             0
+ EDUCO              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           PSI
+              HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________
+ HEI2               0
+ SMOKE1             0             0
+ DIAB1              0             0             0
+ CARDIO1            0             0             0             0
+
+
+     STARTING VALUES
+
+
+           NU
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              DIAB1         CARDIO1
+              ________      ________
+ 1              0.000         0.000
+
+
+           LAMBDA
+              IC            SC            QC            BAGE          EDUCN
+              ________      ________      ________      ________      ________
+ C1             0.000         0.000         0.000         0.000         0.000
+ C2             0.000         0.000         0.000         0.000         0.000
+ C3             0.000         0.000         0.000         0.000         0.000
+ C4             0.000         0.000         0.000         0.000         0.000
+ C5             0.000         0.000         0.000         0.000         0.000
+ C6             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         1.000         0.000
+ EDUCN          0.000         0.000         0.000         0.000         1.000
+ EDUCSEC        0.000         0.000         0.000         0.000         0.000
+ EDUCDE         0.000         0.000         0.000         0.000         0.000
+ EDUCHE         0.000         0.000         0.000         0.000         0.000
+ EDUCF          0.000         0.000         0.000         0.000         0.000
+ EDUCO          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              EDUCSEC       EDUCDE        EDUCHE        EDUCF         EDUCO
+              ________      ________      ________      ________      ________
+ C1             0.000         0.000         0.000         0.000         0.000
+ C2             0.000         0.000         0.000         0.000         0.000
+ C3             0.000         0.000         0.000         0.000         0.000
+ C4             0.000         0.000         0.000         0.000         0.000
+ C5             0.000         0.000         0.000         0.000         0.000
+ C6             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+ EDUCN          0.000         0.000         0.000         0.000         0.000
+ EDUCSEC        1.000         0.000         0.000         0.000         0.000
+ EDUCDE         0.000         1.000         0.000         0.000         0.000
+ EDUCHE         0.000         0.000         1.000         0.000         0.000
+ EDUCF          0.000         0.000         0.000         1.000         0.000
+ EDUCO          0.000         0.000         0.000         0.000         1.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________
+ C1             0.000         0.000         0.000         0.000
+ C2             0.000         0.000         0.000         0.000
+ C3             0.000         0.000         0.000         0.000
+ C4             0.000         0.000         0.000         0.000
+ C5             0.000         0.000         0.000         0.000
+ C6             0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000
+ EDUCN          0.000         0.000         0.000         0.000
+ EDUCSEC        0.000         0.000         0.000         0.000
+ EDUCDE         0.000         0.000         0.000         0.000
+ EDUCHE         0.000         0.000         0.000         0.000
+ EDUCF          0.000         0.000         0.000         0.000
+ EDUCO          0.000         0.000         0.000         0.000
+ HEI2           1.000         0.000         0.000         0.000
+ SMOKE1         0.000         1.000         0.000         0.000
+ DIAB1          0.000         0.000         1.000         0.000
+ CARDIO1        0.000         0.000         0.000         1.000
+
+
+           THETA
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.351
+ C2             0.000         1.531
+ C3             0.000         0.000         1.585
+ C4             0.000         0.000         0.000         1.693
+ C5             0.000         0.000         0.000         0.000         1.646
+ C6             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+ EDUCN          0.000         0.000         0.000         0.000         0.000
+ EDUCSEC        0.000         0.000         0.000         0.000         0.000
+ EDUCDE         0.000         0.000         0.000         0.000         0.000
+ EDUCHE         0.000         0.000         0.000         0.000         0.000
+ EDUCF          0.000         0.000         0.000         0.000         0.000
+ EDUCO          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ C6             1.644
+ BAGE           0.000         0.000
+ EDUCN          0.000         0.000         0.000
+ EDUCSEC        0.000         0.000         0.000         0.000
+ EDUCDE         0.000         0.000         0.000         0.000         0.000
+ EDUCHE         0.000         0.000         0.000         0.000         0.000
+ EDUCF          0.000         0.000         0.000         0.000         0.000
+ EDUCO          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ EDUCHE         0.000
+ EDUCF          0.000         0.000
+ EDUCO          0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          0.000
+ CARDIO1        0.000         0.000
+
+
+           ALPHA
+              IC            SC            QC            BAGE          EDUCN
+              ________      ________      ________      ________      ________
+ 1              5.391         0.056        -0.021         0.000         0.000
+
+
+           ALPHA
+              EDUCSEC       EDUCDE        EDUCHE        EDUCF         EDUCO
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000
+
+
+           BETA
+              IC            SC            QC            BAGE          EDUCN
+              ________      ________      ________      ________      ________
+ IC             0.000         0.000         0.000         0.000         0.000
+ SC             0.000         0.000         0.000         0.000         0.000
+ QC             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+ EDUCN          0.000         0.000         0.000         0.000         0.000
+ EDUCSEC        0.000         0.000         0.000         0.000         0.000
+ EDUCDE         0.000         0.000         0.000         0.000         0.000
+ EDUCHE         0.000         0.000         0.000         0.000         0.000
+ EDUCF          0.000         0.000         0.000         0.000         0.000
+ EDUCO          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              EDUCSEC       EDUCDE        EDUCHE        EDUCF         EDUCO
+              ________      ________      ________      ________      ________
+ IC             0.000         0.000         0.000         0.000         0.000
+ SC             0.000         0.000         0.000         0.000         0.000
+ QC             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+ EDUCN          0.000         0.000         0.000         0.000         0.000
+ EDUCSEC        0.000         0.000         0.000         0.000         0.000
+ EDUCDE         0.000         0.000         0.000         0.000         0.000
+ EDUCHE         0.000         0.000         0.000         0.000         0.000
+ EDUCF          0.000         0.000         0.000         0.000         0.000
+ EDUCO          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________
+ IC             0.000         0.000         0.000         0.000
+ SC             0.000         0.000         0.000         0.000
+ QC             0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000
+ EDUCN          0.000         0.000         0.000         0.000
+ EDUCSEC        0.000         0.000         0.000         0.000
+ EDUCDE         0.000         0.000         0.000         0.000
+ EDUCHE         0.000         0.000         0.000         0.000
+ EDUCF          0.000         0.000         0.000         0.000
+ EDUCO          0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000
+
+
+           PSI
+              IC            SC            QC            BAGE          EDUCN
+              ________      ________      ________      ________      ________
+ IC             2.643
+ SC             0.000         1.814
+ QC             0.000         0.000         0.095
+ BAGE           0.000         0.000         0.000        46.177
+ EDUCN          0.000         0.000         0.000         0.000         0.122
+ EDUCSEC        0.000         0.000         0.000         0.000         0.000
+ EDUCDE         0.000         0.000         0.000         0.000         0.000
+ EDUCHE         0.000         0.000         0.000         0.000         0.000
+ EDUCF          0.000         0.000         0.000         0.000         0.000
+ EDUCO          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              EDUCSEC       EDUCDE        EDUCHE        EDUCF         EDUCO
+              ________      ________      ________      ________      ________
+ EDUCSEC        0.078
+ EDUCDE         0.000         0.041
+ EDUCHE         0.000         0.000         0.046
+ EDUCF          0.000         0.000         0.000         0.050
+ EDUCO          0.000         0.000         0.000         0.000         0.011
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________
+ HEI2          22.647
+ SMOKE1         0.000         0.123
+ DIAB1          0.000         0.000         0.023
+ CARDIO1        0.000         0.000         0.000         0.041
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\annie robitaille\dropbox\elsa_portland\immediate recall\u2_female_aehplus_nophys_memory
+
+     Beginning Time:  00:03:51
+        Ending Time:  00:05:38
+       Elapsed Time:  00:01:47
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen

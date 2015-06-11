@@ -1,0 +1,460 @@
+Mplus VERSION 7.2
+MUTHEN & MUTHEN
+06/09/2015   2:46 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Univariate linear,female,age education height,No physical,memory,No physical spec,
+
+  DATA:  File = ELSA_Portland_New.dat;
+
+      DATA LONGTOWIDE:
+      LONG = cflisd | Height| years;
+      WIDE = c1-c6 |hei1-hei6| time1-time6; !had to remove time 6 because no cfani
+      IDVARIABLE = idauniq;
+      REPETITION = years (0 2 4 6 8 10);
+
+
+  VARIABLE: Names are
+     idauniq dimar hedia01 hedia02 hedia03 hedia04
+   hedia05 hedia06 hedia07 hedia08
+      hedia09 hedia10 heage hedib01 hedib02 hedib03
+      hedib04 hedib05 hedib06 hedib07 hedib08 hedib09
+      hedib10 hesmk heala heacta heactb heactc mmwlka
+      mmwlkb cflisen cfani cfmem cfpascr cflisd cfmscr
+      cfpbscr cfptscr cfwhz1 cfwhz2 cfwhz3 cfwhz4 psceda
+       pscedb pscedc pscedd pscede pscedf pscedg pscedh
+      edqual scfamm scsca scscc intdatm intdaty iintdtm
+       iintdty indobyr indager aethnicr wave heagcr
+      heagcry hedbwlu hedbwas hedbwar hedbwos hedbwca
+       hedbwpd hedbwps hedbwad hedbwde herosmd hemobcs
+      hehsm86 hehsm96 hedcc heaidcr iintdatm iintdaty
+       chesmk cfmersp cfprmem cfspeed cfanig cfexind
+      cfaccur cfrecal hedimbp hediman hedimmi hedimhf
+      hedimhm hedimar hedimdi hedbts hedimst hedimch
+      hediblu hedibas hedibar hedibos hedibca hedibpd
+       hedibps hedibad hedibde cfmeind cfind hedizm51
+      hedizm52 hediagbp hediagan hediagmi hediaghf
+      hediaghm hediagar hediagdh hediagdi hediagst hediaghc
+      hebdialu hebdiaas hebdiaar hebdiaos hebdiaca
+      hebdiapd hebdiaps hebdiaad hebdiade hepdiagl hepdiadi
+      hepdiamd hepdiaca cvd7dibt sex sysval diaval
+      pulval mapval mmgsd1 mmgsn1 mmgsd2 mmgsn2 mmgsd3
+      mmgsn3 chol trig fglu htval wtval bmival bmiobe
+       fvc1 fev1 pf1 fvc2 fev2 pf2 fvc3 fev3 pf3 htfvc
+      htfev htpf mmssre mmssti mmssna mmstre mmstti
+       mmftre2 mmftti mmlore mmloti mmlsre mmlsti mmcrre
+      mmrrre mmrrfti mmrrtti mmrroc vitd mmftre prfvc
+       pcfvc prfev pcfev htpef prpef pcpef nurmer bagey
+      years diab cardio;
+
+         MISSING is all(-99999, -8, -9, -1);
+
+         USEVAR are time1-time6 c1-c6 Bage
+         educn educsec educDE educHE educF educO hei2;
+
+
+         TSCORES = time1-time6;
+
+         USEOBSERVATIONS are sex EQ 2
+         and hedib01 NE 8
+         and hedib01 NE 9
+         and hedib02 NE 8
+         and hedib02 NE 9
+         and hedib03 NE 8
+         and hedib03 NE 9
+         and hedib04 NE 8
+         and hedib04 NE 9
+         and hedib05 NE 8
+         and hedib05 NE 9
+         and hedib06 NE 8
+         and hedib06 NE 9
+         and hedib07 NE 8
+         and hedib07 NE 9
+         and hedib08 NE 8
+         and hedib08 NE 9
+         and hedib09 NE 8
+         and hedib09 NE 9
+         and hedib10 NE 8
+         and hedib10 NE 9;
+
+
+
+  Define:
+
+         Bage=bagey-80;   !Centered at Age 80
+          Height=htval-1.60;
+
+          if (edqual eq 7) then Educn=1;
+          if (edqual NE 7) then Educn=0;
+
+          if (edqual eq 4) then Educsec=1;
+          if (edqual NE 4) then Educsec=0;
+
+          if(edqual eq 3) then Educpri=1;
+          if(edqual NE 3) then Educpri=0;
+
+          if(edqual eq 2) then EducHE=1;
+          if(edqual NE 2) then EducHE=0;
+
+          if(edqual eq 1) then EducDE=1;
+          if(edqual NE 1) then EducDE=0;
+
+
+          if(edqual eq 6) then EducF=1;
+          if(edqual NE 6) then EducF=0;
+
+          if(edqual eq 5) then EducO=1;
+          if(edqual NE 5) then EducO=0;
+
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ic sc | c1-c6 AT time1-time6;
+
+          ic sc ON Bage hei2 educn educsec educDE educHE educF educO;
+
+          c1-c6(res_p);
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  TITLE: Univariate linear,female,age education height,No physical,memory,No physical spec, D
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  64
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  3322
+*** WARNING
+  Data set contains cases with missing on or unknown values for the
+  repetition variable.  These cases were not included in the analysis.
+  Number of such cases:  2845
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Univariate linear,female,age education height,No physical,memory,No physical spec, D
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2795
+
+Number of dependent variables                                    6
+Number of independent variables                                  8
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   C1          C2          C3          C4          C5          C6
+
+Observed independent variables
+   BAGE        EDUCN       EDUCSEC     EDUCDE      EDUCHE      EDUCF
+   EDUCO       HEI2
+
+Continuous latent variables
+   IC          SC
+
+Variables with special functions
+
+  ID variable           IDAUNIQ
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  ELSA_Portland_New.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            29
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             0.987
+ C2             0.987         0.999
+ C3             0.770         0.777         0.777
+ C4             0.622         0.629         0.585         0.630
+ C5             0.591         0.596         0.552         0.519         0.597
+ C6             0.494         0.497         0.463         0.432         0.458
+ BAGE           0.987         0.999         0.777         0.630         0.597
+ EDUCN          0.987         0.999         0.777         0.630         0.597
+ EDUCSEC        0.987         0.999         0.777         0.630         0.597
+ EDUCDE         0.987         0.999         0.777         0.630         0.597
+ EDUCHE         0.987         0.999         0.777         0.630         0.597
+ EDUCF          0.987         0.999         0.777         0.630         0.597
+ EDUCO          0.987         0.999         0.777         0.630         0.597
+ HEI2           0.987         0.999         0.777         0.630         0.597
+
+
+           Covariance Coverage
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ C6             0.498
+ BAGE           0.498         1.000
+ EDUCN          0.498         1.000         1.000
+ EDUCSEC        0.498         1.000         1.000         1.000
+ EDUCDE         0.498         1.000         1.000         1.000         1.000
+ EDUCHE         0.498         1.000         1.000         1.000         1.000
+ EDUCF          0.498         1.000         1.000         1.000         1.000
+ EDUCO          0.498         1.000         1.000         1.000         1.000
+ HEI2           0.498         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              EDUCHE        EDUCF         EDUCO         HEI2
+              ________      ________      ________      ________
+ EDUCHE         1.000
+ EDUCF          1.000         1.000
+ EDUCO          1.000         1.000         1.000
+ HEI2           1.000         1.000         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1              4.287         4.490         4.481         4.351         4.201
+
+
+           Means
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ 1              4.256       -15.681         0.425         0.192         0.091
+
+
+           Means
+              EDUCHE        EDUCF         EDUCO         HEI2
+              ________      ________      ________      ________
+ 1              0.102         0.113         0.022       157.637
+
+
+           Covariances
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             4.127
+ C2             2.321         4.343
+ C3             2.448         2.753         4.835
+ C4             2.495         2.777         3.165         5.061
+ C5             2.644         2.850         3.265         3.414         5.626
+ C6             2.574         2.942         3.318         3.400         3.761
+ BAGE          -7.273        -8.530        -9.563       -10.965       -12.003
+ EDUCN         -0.302        -0.328        -0.351        -0.359        -0.371
+ EDUCSEC        0.101         0.113         0.133         0.125         0.131
+ EDUCDE         0.098         0.112         0.132         0.129         0.141
+ EDUCHE         0.074         0.092         0.080         0.090         0.101
+ EDUCF         -0.002        -0.024        -0.022        -0.015        -0.033
+ EDUCO         -0.006        -0.006        -0.004         0.000        -0.014
+ HEI2           3.165         3.336         4.038         3.889         4.742
+
+
+           Covariances
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ C6             5.608
+ BAGE         -13.053        92.337
+ EDUCN         -0.356         1.250         0.244
+ EDUCSEC        0.146        -0.645        -0.082         0.155
+ EDUCDE         0.122        -0.387        -0.039        -0.017         0.083
+ EDUCHE         0.078        -0.122        -0.043        -0.020        -0.009
+ EDUCF         -0.018         0.085        -0.048        -0.022        -0.010
+ EDUCO         -0.010        -0.022        -0.009        -0.004        -0.002
+ HEI2           4.720       -22.780        -0.729         0.290         0.255
+
+
+           Covariances
+              EDUCHE        EDUCF         EDUCO         HEI2
+              ________      ________      ________      ________
+ EDUCHE         0.092
+ EDUCF         -0.012         0.101
+ EDUCO         -0.002        -0.003         0.022
+ HEI2           0.162         0.000        -0.007        45.412
+
+
+           Correlations
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.548         1.000
+ C3             0.548         0.601         1.000
+ C4             0.546         0.592         0.640         1.000
+ C5             0.549         0.576         0.626         0.640         1.000
+ C6             0.535         0.596         0.637         0.638         0.670
+ BAGE          -0.373        -0.426        -0.453        -0.507        -0.527
+ EDUCN         -0.301        -0.318        -0.323        -0.323        -0.317
+ EDUCSEC        0.127         0.138         0.154         0.141         0.140
+ EDUCDE         0.168         0.187         0.209         0.199         0.207
+ EDUCHE         0.120         0.146         0.120         0.132         0.141
+ EDUCF         -0.003        -0.036        -0.031        -0.021        -0.044
+ EDUCO         -0.021        -0.018        -0.013        -0.001        -0.040
+ HEI2           0.231         0.238         0.273         0.257         0.297
+
+
+           Correlations
+              C6            BAGE          EDUCN         EDUCSEC       EDUCDE
+              ________      ________      ________      ________      ________
+ C6             1.000
+ BAGE          -0.574         1.000
+ EDUCN         -0.304         0.263         1.000
+ EDUCSEC        0.156        -0.170        -0.419         1.000
+ EDUCDE         0.179        -0.140        -0.272        -0.154         1.000
+ EDUCHE         0.108        -0.042        -0.290        -0.165        -0.107
+ EDUCF         -0.024         0.028        -0.307        -0.174        -0.113
+ EDUCO         -0.030        -0.016        -0.129        -0.073        -0.048
+ HEI2           0.296        -0.352        -0.219         0.109         0.132
+
+
+           Correlations
+              EDUCHE        EDUCF         EDUCO         HEI2
+              ________      ________      ________      ________
+ EDUCHE         1.000
+ EDUCF         -0.121         1.000
+ EDUCO         -0.051        -0.054         1.000
+ HEI2           0.079         0.000        -0.007         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -44493.420
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       22
+
+Loglikelihood
+
+          H0 Value                      -23994.498
+          H0 Scaling Correction Factor      1.0282
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   48032.996
+          Bayesian (BIC)                 48163.579
+          Sample-Size Adjusted BIC       48093.677
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IC         ON
+    BAGE              -0.060      0.004    -16.938      0.000
+    HEI2               0.021      0.005      4.396      0.000
+    EDUCN             -0.997      0.130     -7.696      0.000
+    EDUCSEC           -0.156      0.136     -1.144      0.253
+    EDUCDE             0.385      0.152      2.530      0.011
+    EDUCHE             0.219      0.155      1.411      0.158
+    EDUCF             -0.524      0.148     -3.550      0.000
+    EDUCO             -0.723      0.212     -3.417      0.001
+
+ SC         ON
+    BAGE              -0.006      0.001    -11.040      0.000
+    HEI2               0.001      0.001      0.888      0.375
+    EDUCN              0.017      0.019      0.895      0.371
+    EDUCSEC            0.011      0.019      0.580      0.562
+    EDUCDE             0.020      0.022      0.922      0.356
+    EDUCHE             0.013      0.021      0.597      0.551
+    EDUCF              0.001      0.021      0.067      0.947
+    EDUCO             -0.013      0.033     -0.400      0.689
+
+ SC       WITH
+    IC                -0.001      0.008     -0.071      0.943
+
+ Intercepts
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    C6                 0.000      0.000    999.000    999.000
+    IC                 0.628      0.748      0.839      0.402
+    SC                -0.215      0.110     -1.947      0.051
+
+ Residual Variances
+    C1                 1.893      0.039     49.134      0.000
+    C2                 1.893      0.039     49.134      0.000
+    C3                 1.893      0.039     49.134      0.000
+    C4                 1.893      0.039     49.134      0.000
+    C5                 1.893      0.039     49.134      0.000
+    C6                 1.893      0.039     49.134      0.000
+    IC                 1.418      0.070     20.158      0.000
+    SC                 0.005      0.001      3.278      0.001
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.443E-07
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\annie robitaille\dropbox\elsa_portland\delayedrecall\u1_female_aeh_nophys_memory_nophys
+
+     Beginning Time:  14:46:38
+        Ending Time:  14:47:10
+       Elapsed Time:  00:00:32
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
