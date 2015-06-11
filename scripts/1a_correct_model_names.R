@@ -83,16 +83,18 @@ table(ds$physical_measure,ds$model_type, useNA="always")
 #### Corrections to model_type ####
 ds %>% dplyr::count(model_type)
 ds[ds$model_type=="aheplus","model_type"] <- "aehplus"
+ds[ds$model_type=="empty","model_type"] <- "0"
 
 
 #### Corrections to PHYSICAL construct ####
 ds %>% dplyr::count(physical_construct)
-ds[ds$physical_construct=="nophysspec","physical_construct"] <- "nophys"
-ds[ds$physical_construct=="pumonary","physical_construct"] <- "pulmonary"
+# ds[ds$physical_construct=="nophysspec","physical_construct"] <- "nophys"
+ds[ds$physical_construct %in% c("nophysspec"),"physical_construct"] <- "Univar"
+ds[ds$physical_construct %in% c("pumonary"),"physical_construct"] <- "pulmonary"
 
 #### Correction to PHYSICAL measure ####
 ds %>% dplyr::count(physical_measure)
-ds[ds$physical_measure %in% c("nophysspec","nophsyspec","nophyscog", "nophyspec", "nophyssec" ), "physical_measure"] <- "nophys"
+ds[ds$physical_measure %in% c("nophysspec","nophsyspec","nophyscog", "nophyspec", "nophyssec" ), "physical_measure"] <- "univar"
 ds[ds$physical_measure == "fevc","physical_measure"] <- "fev"
 
 
@@ -100,10 +102,12 @@ ds[ds$physical_measure == "fevc","physical_measure"] <- "fev"
 
 #### Corrections to the COGNITIVE construct ####
 ds %>% dplyr::count(cognitive_construct)
+ds[ds$cognitive_construct %in% c("nocog"),"cognitive_construct"] <- "Univar"
 ds[ds$cognitive_construct %in% c(" knowledge", "knoledge", "knowlegde"),"cognitive_construct"] <- "knowledge"
 
 #### Correction to COGNITIVE measure ####
 print(ds %>% dplyr::count(cognitive_measure), n=66)
+ds[ds$cognitive_measure %in% c("wasivocab"),"cognitive_measure"] <- "univar"
 ds[ds$cognitive_measure %in% c("bostonmaning","nostonnaming"),"cognitive_measure"] <- "bostonnaming"
 ds[ds$cognitive_measure %in% c("wasivocab"),"cognitive_measure"] <- "waisvocab"
 ds[ds$cognitive_measure %in% c("digitsymol"),"cognitive_measure"] <- "digitsymbol"

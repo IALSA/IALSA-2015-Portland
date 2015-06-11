@@ -4,19 +4,22 @@ library(shiny)
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel("Shiny Text"),
+  titlePanel("Portland workshop aid: renaming, collapsing, subsetting"),
 
   # Sidebar
-  sidebarLayout(
-    sidebarPanel(
-      selectInput("study", "Choose a study:",
-                  choices = unique(ds$study_name))
-    ),
+  fluidRow(
+  column(1, rpivotTableOutput("pivot"))
 
-    # Main panel
-    mainPanel(
-      rpivotTableOutput("pivot")
 
-    )
-  ) # close sidebarLayout
+  ) # close fluidRow
 )) # close fluidPage, shinyUI
+
+
+# ui = shinyUI(fluidPage(
+#   fluidRow(
+#     column(2,sliderInput("integer", "Multiplier:",
+#                                   min=1, max=4, value=1)),
+#     column(8,
+#            rpivotTableOutput("pivot") )
+#
+# )))

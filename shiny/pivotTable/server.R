@@ -8,6 +8,7 @@
 
 library(shiny)
 library(rpivotTable)
+library(dplyr)
 
 if(basename(getwd())=="pivotTable"){
 dsb <- readRDS('../../data/shared/ds1a.rds')
@@ -18,19 +19,30 @@ dsb <- readRDS('./data/shared/ds1a.rds')
 
 
 ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct",
-                "study_name", "model_type","subgroup")]
+                "study_name", "model_type","subgroup", "converged", "output_file")]
 head(ds)
 
 
 unique(ds$study_name)
 unique(ds$physical_construct)
 
+ds <- ds %>%
+  dplyr::rename_("Phys.Domain" = "physical_construct") %>%
+  dplyr::rename_("Phys.Measure" = "physical_measure") %>%
+  dplyr::rename_("Cog.Domain" = "cognitive_construct") %>%
+  dplyr::rename_("Cog.Measure" = "cognitive_measure") %>%
+  dplyr::rename_("Study" = "study_name") %>%
+  dplyr::rename_("Covariates" = "model_type") %>%
+  dplyr::rename_("Sex" = "subgroup")
 
+head(ds)
 # Define server logic required to summarize and view the selected
 # study
 shinyServer(function(input, output) {
  output$pivot <- renderRpivotTable({
-   rpivotTable(data = ds)
+   rpivotTable(data = ds, rows = , )
  })
 
 })
+
+
