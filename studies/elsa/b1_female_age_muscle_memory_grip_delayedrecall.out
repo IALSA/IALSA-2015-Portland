@@ -1,0 +1,391 @@
+Mplus VERSION 7.2
+MUTHEN & MUTHEN
+06/11/2015  11:57 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Bivariate linear,female,Empty,muscle,Memory,grip,delayed recall
+
+  DATA:  File = ELSA_Portland_New.dat;
+
+      DATA LONGTOWIDE:
+      LONG = cflisd | grip| years;
+      WIDE = c1-c6 | p1-p6 | time1-time6;
+      IDVARIABLE = idauniq;
+      REPETITION = years (0 2 4 6 8 10);
+
+
+  VARIABLE: Names are
+    idauniq dimar hedia01 hedia02 hedia03 hedia04
+   hedia05 hedia06 hedia07 hedia08
+      hedia09 hedia10 heage hedib01 hedib02 hedib03
+      hedib04 hedib05 hedib06 hedib07 hedib08 hedib09
+      hedib10 hesmk heala heacta heactb heactc mmwlka
+      mmwlkb cflisen cfani cfmem cfpascr cflisd cfmscr
+      cfpbscr cfptscr cfwhz1 cfwhz2 cfwhz3 cfwhz4 psceda
+       pscedb pscedc pscedd pscede pscedf pscedg pscedh
+      edqual scfamm scsca scscc intdatm intdaty iintdtm
+       iintdty indobyr indager aethnicr wave heagcr
+      heagcry hedbwlu hedbwas hedbwar hedbwos hedbwca
+       hedbwpd hedbwps hedbwad hedbwde herosmd hemobcs
+      hehsm86 hehsm96 hedcc heaidcr iintdatm iintdaty
+       chesmk cfmersp cfprmem cfspeed cfanig cfexind
+      cfaccur cfrecal hedimbp hediman hedimmi hedimhf
+      hedimhm hedimar hedimdi hedbts hedimst hedimch
+      hediblu hedibas hedibar hedibos hedibca hedibpd
+       hedibps hedibad hedibde cfmeind cfind hedizm51
+      hedizm52 hediagbp hediagan hediagmi hediaghf
+      hediaghm hediagar hediagdh hediagdi hediagst hediaghc
+      hebdialu hebdiaas hebdiaar hebdiaos hebdiaca
+      hebdiapd hebdiaps hebdiaad hebdiade hepdiagl hepdiadi
+      hepdiamd hepdiaca cvd7dibt sex sysval diaval
+      pulval mapval mmgsd1 mmgsn1 mmgsd2 mmgsn2 mmgsd3
+      mmgsn3 chol trig fglu htval wtval bmival bmiobe
+       fvc1 fev1 pf1 fvc2 fev2 pf2 fvc3 fev3 pf3 htfvc
+      htfev htpf mmssre mmssti mmssna mmstre mmstti
+       mmftre2 mmftti mmlore mmloti mmlsre mmlsti mmcrre
+      mmrrre mmrrfti mmrrtti mmrroc vitd mmftre prfvc
+       pcfvc prfev pcfev htpef prpef pcpef nurmer bagey
+      years diab cardio;
+
+         MISSING is all(-99999, -8, -9, -1);
+
+         USEVAR are time2 time4 time6 p2 p4 p6
+         c2 c4 c6 Bage;
+
+
+         TSCORES = time2 time4 time6;
+
+         USEOBSERVATIONS are sex EQ 2
+         and hedib01 NE 8
+         and hedib01 NE 9
+         and hedib02 NE 8
+         and hedib02 NE 9
+         and hedib03 NE 8
+         and hedib03 NE 9
+         and hedib04 NE 8
+         and hedib04 NE 9
+         and hedib05 NE 8
+         and hedib05 NE 9
+         and hedib06 NE 8
+         and hedib06 NE 9
+         and hedib07 NE 8
+         and hedib07 NE 9
+         and hedib08 NE 8
+         and hedib08 NE 9
+         and hedib09 NE 8
+         and hedib09 NE 9
+         and hedib10 NE 8
+         and hedib10 NE 9;
+
+
+
+  Define:
+
+         Bage=bagey-80;   !Centered at Age 80
+       grip = (mmgsd1 + mmgsd2 + mmgsd3 + mmgsn1 + mmgsn2 + mmgsn3)/6;
+
+          if (edqual eq 7) then Educl=1;
+          if (edqual NE 7) then Educl=0;
+
+          if (edqual eq 4) then Educsec=1;
+          if (edqual NE 4) then Educsec=0;
+
+          if(edqual eq 3) then Educpri=1;
+          if(edqual NE 3) then Educpri=0;
+
+          if(edqual eq 2) then EducHE=1;
+          if(edqual NE 2) then EducHE=0;
+
+          if(edqual eq 1) then EducDE=1;
+          if(edqual NE 1) then EducDE=0;
+
+
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp | p2 p4 p6 AT time2 time4 time6;
+          ic sc | c2 c4 c6 AT time2 time4 time6;
+
+          ip sp ic sc ON Bage;
+
+          p2 p4 p6 pwith c2 c4 c6(res_cov);
+          p2 p4 p6(res_p);
+          c2 c4 c6(res_c);
+
+  OUTPUT: sampstat;
+
+
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  64
+*** WARNING
+  Data set contains cases with missing on or unknown values for the
+  repetition variable.  These cases were not included in the analysis.
+  Number of such cases:  2845
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Bivariate linear,female,Empty,muscle,Memory,grip,delayed recall
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        6117
+
+Number of dependent variables                                    6
+Number of independent variables                                  1
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P2          P4          P6          C2          C4          C6
+
+Observed independent variables
+   BAGE
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  ID variable           IDAUNIQ
+
+  Time scores
+   TIME2       TIME4       TIME6
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  ELSA_Portland_New.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            29
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2             0.463
+ P4             0.258         0.347
+ P6             0.216         0.223         0.300
+ C2             0.462         0.265         0.221         0.481
+ C4             0.289         0.347         0.242         0.299         0.410
+ C6             0.227         0.233         0.300         0.233         0.257
+ BAGE           0.463         0.347         0.300         0.481         0.410
+
+
+           Covariance Coverage
+              C6            BAGE
+              ________      ________
+ C6             0.318
+ BAGE           0.318         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ 1             20.660        19.196        17.993         4.364         4.234
+
+
+           Means
+              C6            BAGE
+              ________      ________
+ 1              4.121       -14.804
+
+
+           Covariances
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2            40.067
+ P4            33.715        44.965
+ P6            31.259        34.928        41.653
+ C2             4.753         5.433         5.094         4.556
+ C4             5.055         6.169         5.726         2.936         5.298
+ C6             5.850         6.833         6.708         3.108         3.509
+ BAGE         -33.581       -40.378       -38.727        -9.798       -12.063
+
+
+           Covariances
+              C6            BAGE
+              ________      ________
+ C6             5.786
+ BAGE         -14.029       103.983
+
+
+           Correlations
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2             1.000
+ P4             0.794         1.000
+ P6             0.765         0.807         1.000
+ C2             0.352         0.380         0.370         1.000
+ C4             0.347         0.400         0.385         0.598         1.000
+ C6             0.384         0.424         0.432         0.605         0.634
+ BAGE          -0.520        -0.591        -0.588        -0.450        -0.514
+
+
+           Correlations
+              C6            BAGE
+              ________      ________
+ C6             1.000
+ BAGE          -0.572         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -57599.557
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       21
+
+Loglikelihood
+
+          H0 Value                      -34728.912
+          H0 Scaling Correction Factor      1.1534
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   69499.823
+          Bayesian (BIC)                 69640.918
+          Sample-Size Adjusted BIC       69574.186
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.315      0.011    -27.997      0.000
+
+ SP         ON
+    BAGE              -0.008      0.002     -4.932      0.000
+
+ IC         ON
+    BAGE              -0.084      0.004    -20.153      0.000
+
+ SC         ON
+    BAGE              -0.005      0.001     -7.784      0.000
+
+ SP       WITH
+    IP                -0.326      0.143     -2.273      0.023
+
+ IC       WITH
+    IP                 1.446      0.295      4.901      0.000
+    SP                 0.007      0.035      0.196      0.845
+
+ SC       WITH
+    IP                -0.024      0.042     -0.566      0.572
+    SP                 0.001      0.005      0.105      0.916
+    IC                -0.006      0.024     -0.240      0.810
+
+ P2       WITH
+    C2                 0.152      0.100      1.513      0.130
+
+ P4       WITH
+    C4                 0.152      0.100      1.513      0.130
+
+ P6       WITH
+    C6                 0.152      0.100      1.513      0.130
+
+ Intercepts
+    P2                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C6                 0.000      0.000    999.000    999.000
+    IP                16.683      0.198     84.285      0.000
+    SP                -0.463      0.031    -15.054      0.000
+    IC                 3.179      0.080     39.935      0.000
+    SC                -0.108      0.013     -8.047      0.000
+
+ Residual Variances
+    P2                 8.241      0.459     17.957      0.000
+    P4                 8.241      0.459     17.957      0.000
+    P6                 8.241      0.459     17.957      0.000
+    C2                 1.930      0.073     26.520      0.000
+    C4                 1.930      0.073     26.520      0.000
+    C6                 1.930      0.073     26.520      0.000
+    IP                22.464      1.351     16.629      0.000
+    SP                 0.038      0.021      1.848      0.065
+    IC                 1.775      0.181      9.795      0.000
+    SC                 0.004      0.004      0.980      0.327
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.298E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\annie robitaille\dropbox\elsa_portland\biv delayed recall and grip\b1_female_age_muscle
+
+     Beginning Time:  11:57:05
+        Ending Time:  12:01:36
+       Elapsed Time:  00:04:31
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
