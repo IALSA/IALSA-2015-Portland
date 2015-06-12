@@ -1,0 +1,159 @@
+---
+title: "Track renaming in IALSA Portland 2015 model collective"
+output:
+  html_document:
+    css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar.css
+    keep_md: yes
+    theme: readable
+    toc: yes
+    toc_depth: 4
+---
+
+
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
+```{r, echo=F, message=F} 
+# cat("Working directory: ", getwd())
+  library(knitr)
+  opts_knit$set(root.dir='../../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external code file. -->
+```{r set_options, echo=F}
+# cat("Working directory: ", getwd())
+opts_chunk$set(
+  results='show', 
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 6.5, 
+  fig.height = 4, 
+  fig.path = 'figure_cog_domain_map/'
+)
+# dpi = 400,
+# out.width = "650px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+
+echoChunks <- FALSE
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./reports/rename_collapse/Track_renaming.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+```
+
+<!-- Load the sources.  Suppress the output when loading sources. --> 
+```{r load_sources, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load 'sourced' R files.  Suppress the output when loading packages. --> 
+```{r load_packages, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+```{r declare_globals, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+```{r, echo=echoChunks, message=FALSE}
+#Put code in here.  It doesn't call a chunk in the codebehind file.
+```
+
+<!-- Load the datasets.   -->
+Load the data from the rawest source.
+```{r load_data, echo=TRUE, results='show', message=FALSE}
+```
+Each row is a model.
+<!-- Tweak the datasets.   -->
+```{r tweak_data, echo=echoChunks, results='show', message=FALSE}
+```
+
+```{r define_themes, echo=echoChunks, results='show', message=FALSE}
+```
+
+Now I will throw out the models which were named illegaly, that is did not contain exactly 7 components.
+````{r remove_omissions, echo=TRUE, results='show', message=FALSE}
+```
+
+To simplify editing of the names, we'll convert them to lowercase
+````{r make_all_lower, echo=TRUE, results='show', message=FALSE}
+```
+
+## Spelling mistakes
+Now we will correct for what seemed to us were benign spelling issues. We'll keep the order from the model naming convention
+![naming convention](../../libs/images/model_naming_convention.png)
+
+### Model number
+````{r spell_model_number, echo=TRUE, results='show', message=FALSE}
+```
+No obvious typos were detected.
+
+### Subgroup
+````{r spell_subgroup, echo=TRUE, results='show', message=FALSE}
+```
+No obvious typos were detected.
+
+### Model type
+````{r spell_model_type, echo=TRUE, results='show', message=FALSE}
+```
+obvious typo "aheplus" was detected.  
+
+#### Correct model type
+
+````{r correct_model_type, echo=TRUE, results='show', message=FALSE}
+```
+#### QUESTIONS 
+ 1. Is "aeplus" a typo or particular model?  
+
+### Physical domain
+````{r spell_physical_construct, echo=TRUE, results='show', message=FALSE}
+```
+
+#### Correct Physical domain
+
+````{r correct_physical_construct, echo=TRUE, results='show', message=FALSE}
+```
+
+#### QUESTIONS 
+
+### Physical measure
+````{r spell_physical_measure, echo=TRUE, results='show', message=FALSE}
+```
+
+#### Correct Physical measure
+
+````{r correct_physical_measure, echo=TRUE, results='show', message=FALSE}
+```
+
+#### QUESTIONS 
+
+### Cognitive domain
+````{r spell_cognitive_construct, echo=TRUE, results='show', message=FALSE}
+```
+
+#### Correct Cognitive domain
+
+````{r correct_cognitive_construct, echo=TRUE, results='show', message=FALSE}
+```
+
+
+#### QUESTIONS 
+
+### Cognitive measure
+````{r spell_cognitive_measure, echo=TRUE, results='show', message=FALSE}
+```
+
+#### Correct Cognitive measure
+
+````{r correct_cognitive_measure, echo=TRUE, results='show', message=FALSE}
+```
+
+
+#### QUESTIONS 
+
+
+````{r save_renamed_file, echo=TRUE, results='show', message=FALSE}
+```
+
+## Session Information
+For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
+
+```{r session_info, echo=FALSE}
+cat("Report rendered by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
+sessionInfo()
+```
