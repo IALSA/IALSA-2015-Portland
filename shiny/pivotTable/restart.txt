@@ -1,3 +1,5 @@
+touch /srv/shiny-server/IALSA-2015-Portland/shiny/pivotTable/restart.txt
+
 From http://rstudio.github.io/shiny-server/latest/#restarting-an-application on 2014-12-08
 
 3.1.1 Restarting an Application
