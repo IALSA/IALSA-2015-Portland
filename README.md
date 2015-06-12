@@ -4,8 +4,14 @@
 ### Teleconference on June 12
 
 Please open these files for the teleconference  
-- review the [interactive pivot tables](shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
-- view the list of edits in the report on [renaming and collapsing](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  
+- review the [interactive pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
+- view the list of edits in the report on [renaming and collapsing](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.html)  
+
+TO DO LIST:  
+ - [ ] For each unique pair run 12 models (model_type by subgroup)
+ - [ ] See what cognitive and physical measures your study has, but the pair of which your study did not estimate in a bivariate model. Estimate all 12 versions of each unique pair. 
+ - [ ] Identify which cognitive measures your study does not report, but other studies do.  Estimate all 12 versions of each unique pair. 
+
 
 #### Coordinated analysis with replication (CAR)
 [![prototype](./reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)
