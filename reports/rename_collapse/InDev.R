@@ -27,8 +27,8 @@ source("../../shiny/dashboard/scripts/multiplot_function.R")
 dsb <- readRDS('./data/shared/ds1a.rds')
 source("./shiny/dashboard/scripts/multiplot_function.R")
 }
-
-
+ds <- dsb
+t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
 ## @knitr tweak_data
 ## trim to make more managable
 # keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
