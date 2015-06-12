@@ -46,7 +46,7 @@ head(ds)
 shinyServer(function(input, output) {
 
  output$pivot <- rpivotTable::renderRpivotTable({
-   rpivotTable(data = ds )
+   rpivotTable(data = ds, rows = c("Cog.Domain","Cog.Measure"), cols= c("Study") )
  })
 
 })

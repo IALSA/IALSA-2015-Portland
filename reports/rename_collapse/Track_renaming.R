@@ -94,6 +94,9 @@ ds[ds$physical_measure == "fevc","physical_measure"] <- "fev"
 ds[ds$physical_measure %in% c("nophysspec","nophsyspec","nophyscog", "nophyspec", "nophyssec" ), "physical_measure"] <- "univar"
 # collapse a category
 ds[ds$physical_measure == "hand","physical_measure"] <- "grip"
+ds[ds$physical_measure %in% c("fev1"), "physical_measure"] <- "fev"
+
+
 # inspect new names
 t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 
@@ -131,7 +134,7 @@ ds[ds$cognitive_measure %in% c("nocog", "nocogspec"),"cognitive_measure"] <- "un
 ds[ds$cognitive_measure %in% c("anal"),"cognitive_measure"] <- "analogies"
 
 # collapse categories
-ds[ds$cognitive_measure %in% c("bostonmaning","nostonnaming"),"cognitive_measure"] <- "bnt"
+ds[ds$cognitive_measure %in% c("bostonmaning","nostonnaming", "bostonnaming"),"cognitive_measure"] <- "bnt"
 #
 ds[ds$cognitive_measure %in% c("mmms"),"cognitive_measure"] <- "3ms"
 #
@@ -141,7 +144,7 @@ ds[ds$cognitive_measure %in% c("delayedwordrecall"),"cognitive_measure"] <- "wor
 #
 ds[ds$cognitive_measure %in% c("animals","categoryfluency","category"),"cognitive_measure"] <- "categories"
 #
-ds[ds$cognitive_measure %in% c("figid"),"cognitive_measure"] <- "figurelogic"
+ds[ds$cognitive_measure %in% c("figid"),"cognitive_measure"] <- "figureid"
 #
 ds[ds$cognitive_measure %in% c("information"),"cognitive_measure"] <- "info"
 #
@@ -156,7 +159,27 @@ ds[ds$cognitive_measure %in% c("digitsymbol","digitsymbolsubstitutiontest","digi
 ds[ds$cognitive_measure %in% c("digitbackward","digitspanbackward"),"cognitive_measure"] <- "digitsback"
 #
 ds[ds$cognitive_measure %in% c("digitsforward","digitspanforward"),"cognitive_measure"] <- "digitsforward"
+#
+ds[ds$cognitive_measure %in% c("digitspantotal","disigtspantotal"),"cognitive_measure"] <- "digitspan"
+#
+ds[ds$cognitive_measure %in% c("logicalmemorytotal"),"cognitive_measure"] <- "logicalmemory"
+
+# recategorize
+ds[ds$cognitive_measure %in% c("info"),"cognitive_construct"] <- "knowledge"
+ds[ds$cognitive_measure %in% c("symbol"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("bnt"),"cognitive_construct"] <- "language"
+ds[ds$cognitive_measure %in% c("categories"),"cognitive_construct"] <- "fluency"
+ds[ds$cognitive_measure %in% c("bnt"),"cognitive_construct"] <- "language"
+ds[ds$cognitive_measure %in% c("digitsback"),"cognitive_construct"] <- "executive"
+ds[ds$cognitive_measure %in% c("figurelogic"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("trailsb"),"cognitive_construct"] <- "executive"
+ds[ds$cognitive_measure %in% c("figureid"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("3ms"),"cognitive_construct"] <- "mental"
+
 t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
+#
+
+
 
 ## @knitr save_renamed_file
 saveRDS(ds,"./data/shared/ds1a.rds") # save corrected dataset

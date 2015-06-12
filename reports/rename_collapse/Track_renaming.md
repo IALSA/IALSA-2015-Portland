@@ -334,6 +334,9 @@ ds[ds$physical_measure == "fevc","physical_measure"] <- "fev"
 ds[ds$physical_measure %in% c("nophysspec","nophsyspec","nophyscog", "nophyspec", "nophyssec" ), "physical_measure"] <- "univar"
 # collapse a category
 ds[ds$physical_measure == "hand","physical_measure"] <- "grip"
+ds[ds$physical_measure %in% c("fev1"), "physical_measure"] <- "fev"
+
+
 # inspect new names
 t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 ```
@@ -341,8 +344,7 @@ t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 ```
         
          eas habc ilse nas nuage octo radc satsa
-  fev    .   .    .    1   .     .    62   46   
-  fev1   .   .    .    20  .     .    .    .    
+  fev    .   .    .    21  .     .    62   46   
   fvc    .   .    .    20  .     .    .    .    
   gait   .   33   .    .   .     .    .    .    
   grip   131 31   44   .   15    44   79   46   
@@ -509,22 +511,48 @@ ds[ds$cognitive_measure %in% c("nocog", "nocogspec"),"cognitive_measure"] <- "un
 ds[ds$cognitive_measure %in% c("anal"),"cognitive_measure"] <- "analogies"
 
 # collapse categories
-ds[ds$cognitive_measure %in% c("bostonmaning","nostonnaming"),"cognitive_measure"] <- "bnt"
+ds[ds$cognitive_measure %in% c("bostonmaning","nostonnaming", "bostonnaming"),"cognitive_measure"] <- "bnt"
+#
 ds[ds$cognitive_measure %in% c("mmms"),"cognitive_measure"] <- "3ms"
+#
 ds[ds$cognitive_measure %in% c("blockdesign","waisblockdesign"),"cognitive_measure"] <- "block"
+#
 ds[ds$cognitive_measure %in% c("delayedwordrecall"),"cognitive_measure"] <- "wordlistdelay"
+#
 ds[ds$cognitive_measure %in% c("animals","categoryfluency","category"),"cognitive_measure"] <- "categories"
-ds[ds$cognitive_measure %in% c("figid"),"cognitive_measure"] <- "figurelogic"
+#
+ds[ds$cognitive_measure %in% c("figid"),"cognitive_measure"] <- "figureid"
+#
 ds[ds$cognitive_measure %in% c("information"),"cognitive_measure"] <- "info"
+#
 ds[ds$cognitive_measure %in% c("immediaterecall"),"cognitive_measure"] <- "wordlistimmed"
+#
 ds[ds$cognitive_measure %in% c("synon"),"cognitive_measure"] <- "synonyms"
+#
 ds[ds$cognitive_measure %in% c("fas","verbalfluencytest"),"cognitive_measure"] <- "verbalfluency"
-
-
+#
 ds[ds$cognitive_measure %in% c("digitsymbol","digitsymbolsubstitutiontest","digitsymboltotal"),"cognitive_measure"] <- "symbol"
-
+#
 ds[ds$cognitive_measure %in% c("digitbackward","digitspanbackward"),"cognitive_measure"] <- "digitsback"
+#
 ds[ds$cognitive_measure %in% c("digitsforward","digitspanforward"),"cognitive_measure"] <- "digitsforward"
+#
+ds[ds$cognitive_measure %in% c("digitspantotal","disigtspantotal"),"cognitive_measure"] <- "digitspan"
+#
+ds[ds$cognitive_measure %in% c("logicalmemorytotal"),"cognitive_measure"] <- "logicalmemory"
+
+# recategorize
+ds[ds$cognitive_measure %in% c("info"),"cognitive_construct"] <- "knowledge"
+ds[ds$cognitive_measure %in% c("symbol"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("bnt"),"cognitive_construct"] <- "language"
+ds[ds$cognitive_measure %in% c("categories"),"cognitive_construct"] <- "fluency"
+ds[ds$cognitive_measure %in% c("bnt"),"cognitive_construct"] <- "language"
+ds[ds$cognitive_measure %in% c("digitsback"),"cognitive_construct"] <- "executive"
+ds[ds$cognitive_measure %in% c("figurelogic"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("trailsb"),"cognitive_construct"] <- "executive"
+ds[ds$cognitive_measure %in% c("figureid"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("3ms"),"cognitive_construct"] <- "mental"
+
 t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
 ```
 
@@ -534,8 +562,7 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
   3ms                   .   24   .    .   12    .    .    .    
   analogies             .   .    .    .   .     .    .    16   
   block                 42  .    20   .   .     8    .    .    
-  bnt                   2   .    .    .   .     .    7    .    
-  bostonnaming          38  .    .    .   .     .    .    .    
+  bnt                   40  .    .    .   .     .    7    .    
   bostonstorydelay      .   .    .    .   .     .    7    .    
   bostonstoryimmediate  .   .    .    .   .     .    7    .    
   categories            40  .    .    6   .     .    5    .    
@@ -544,17 +571,15 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
   digitordering         .   .    .    .   .     .    6    .    
   digitsback            .   .    .    5   .     8    8    .    
   digitsforward         .   .    .    .   .     8    7    .    
-  digitspan             8   .    .    .   .     .    .    .    
-  digitspantotal        25  .    .    .   .     .    .    .    
-  disigtspantotal       1   .    .    .   .     .    .    .    
+  digitspan             34  .    .    .   .     .    .    .    
   figurecopy            .   .    .    6   .     .    .    .    
-  figurelogic           .   .    .    .   .     8    .    12   
+  figureid              .   .    .    .   .     .    .    12   
+  figurelogic           .   .    .    .   .     8    .    .    
   info                  40  .    .    .   .     8    .    16   
   lineorientation       .   .    .    .   .     .    9    .    
-  logicalmemory         30  .    .    .   .     .    .    .    
+  logicalmemory         39  .    .    .   .     .    .    .    
   logicalmemorydelay    .   .    .    .   .     .    7    .    
   logicalmemoryimmed    .   .    .    .   .     .    5    .    
-  logicalmemorytotal    9   .    .    .   .     .    .    .    
   lpsspacialability     .   .    14   .   .     .    .    .    
   matrices              .   .    .    .   .     .    9    .    
   mirrecall             .   .    .    .   .     8    .    .    
@@ -578,6 +603,10 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
   wordlistrecog         .   .    .    .   .     .    7    .    
 ```
 
+```r
+#
+```
+
 
 #### QUESTIONS 
 
@@ -592,7 +621,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-12, 08:55 -0700
+Report rendered by koval_000 at 2015-06-12, 12:38 -0700
 ```
 
 ```
@@ -608,14 +637,16 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] rpivotTable_0.1.4.1   shiny_0.12.0          ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
-[6] MplusAutomation_0.6-3 dplyr_0.4.1           testit_0.4            knitr_1.10.5         
+ [1] devtools_1.8.0        lattice_0.20-31       rpivotTable_0.1.4.1   shiny_0.12.0          ggplot2_1.0.1        
+ [6] RColorBrewer_1.1-2    scales_0.2.4          MplusAutomation_0.6-3 dplyr_0.4.1           testit_0.4           
+[11] knitr_1.10.5         
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6       formatR_1.2       plyr_1.8.2        tools_3.2.0       boot_1.3-16       digest_0.6.8     
- [7] jsonlite_0.9.16   evaluate_0.7      gtable_0.1.2      lattice_0.20-31   texreg_1.35       rstudioapi_0.3.1 
-[13] DBI_0.3.1         yaml_2.1.13       parallel_3.2.0    proto_0.3-10      coda_0.17-1       stringr_1.0.0    
-[19] htmlwidgets_0.4.2 R6_2.0.1          tcltk_3.2.0       gsubfn_0.6-6      rmarkdown_0.6.1   reshape2_1.4.1   
-[25] magrittr_1.5      htmltools_0.2.6   MASS_7.3-40       rsconnect_0.3.79  assertthat_0.1    mime_0.3         
-[31] xtable_1.7-4      colorspace_1.2-6  httpuv_1.3.2      stringi_0.4-1     lazyeval_0.1.10   munsell_0.4.2    
+ [1] Rcpp_0.11.6       git2r_0.10.1      formatR_1.2       plyr_1.8.2        tools_3.2.0       boot_1.3-16      
+ [7] digest_0.6.8      memoise_0.2.1     jsonlite_0.9.16   evaluate_0.7      gtable_0.1.2      texreg_1.35      
+[13] rstudioapi_0.3.1  DBI_0.3.1         curl_0.8          yaml_2.1.13       parallel_3.2.0    proto_0.3-10     
+[19] coda_0.17-1       xml2_0.1.1        stringr_1.0.0     rversions_1.0.1   htmlwidgets_0.4.2 R6_2.0.1         
+[25] tcltk_3.2.0       gsubfn_0.6-6      rmarkdown_0.6.1   reshape2_1.4.1    magrittr_1.5      htmltools_0.2.6  
+[31] MASS_7.3-40       rsconnect_0.3.79  assertthat_0.1    mime_0.3          xtable_1.7-4      colorspace_1.2-6 
+[37] httpuv_1.3.2      stringi_0.4-1     lazyeval_0.1.10   munsell_0.4.2    
 ```

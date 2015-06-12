@@ -332,12 +332,14 @@ ds[ds$physical_measure == &quot;fevc&quot;,&quot;physical_measure&quot;] &lt;- &
 ds[ds$physical_measure %in% c(&quot;nophysspec&quot;,&quot;nophsyspec&quot;,&quot;nophyscog&quot;, &quot;nophyspec&quot;, &quot;nophyssec&quot; ), &quot;physical_measure&quot;] &lt;- &quot;univar&quot;
 # collapse a category
 ds[ds$physical_measure == &quot;hand&quot;,&quot;physical_measure&quot;] &lt;- &quot;grip&quot;
+ds[ds$physical_measure %in% c(&quot;fev1&quot;), &quot;physical_measure&quot;] &lt;- &quot;fev&quot;
+
+
 # inspect new names
 t &lt;- table(ds$physical_measure, ds$study_name);t[t==0]&lt;-&quot;.&quot;;t</code></pre>
 <pre><code>        
          eas habc ilse nas nuage octo radc satsa
-  fev    .   .    .    1   .     .    62   46   
-  fev1   .   .    .    20  .     .    .    .    
+  fev    .   .    .    21  .     .    62   46   
   fvc    .   .    .    20  .     .    .    .    
   gait   .   33   .    .   .     .    .    .    
   grip   131 31   44   .   15    44   79   46   
@@ -486,30 +488,55 @@ ds[ds$cognitive_measure %in% c(&quot;nocog&quot;, &quot;nocogspec&quot;),&quot;c
 ds[ds$cognitive_measure %in% c(&quot;anal&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;analogies&quot;
 
 # collapse categories
-ds[ds$cognitive_measure %in% c(&quot;bostonmaning&quot;,&quot;nostonnaming&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;bnt&quot;
+ds[ds$cognitive_measure %in% c(&quot;bostonmaning&quot;,&quot;nostonnaming&quot;, &quot;bostonnaming&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;bnt&quot;
+#
 ds[ds$cognitive_measure %in% c(&quot;mmms&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;3ms&quot;
+#
 ds[ds$cognitive_measure %in% c(&quot;blockdesign&quot;,&quot;waisblockdesign&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;block&quot;
+#
 ds[ds$cognitive_measure %in% c(&quot;delayedwordrecall&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;wordlistdelay&quot;
+#
 ds[ds$cognitive_measure %in% c(&quot;animals&quot;,&quot;categoryfluency&quot;,&quot;category&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;categories&quot;
-ds[ds$cognitive_measure %in% c(&quot;figid&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;figurelogic&quot;
+#
+ds[ds$cognitive_measure %in% c(&quot;figid&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;figureid&quot;
+#
 ds[ds$cognitive_measure %in% c(&quot;information&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;info&quot;
+#
 ds[ds$cognitive_measure %in% c(&quot;immediaterecall&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;wordlistimmed&quot;
+#
 ds[ds$cognitive_measure %in% c(&quot;synon&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;synonyms&quot;
+#
 ds[ds$cognitive_measure %in% c(&quot;fas&quot;,&quot;verbalfluencytest&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;verbalfluency&quot;
-
-
+#
 ds[ds$cognitive_measure %in% c(&quot;digitsymbol&quot;,&quot;digitsymbolsubstitutiontest&quot;,&quot;digitsymboltotal&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;symbol&quot;
-
+#
 ds[ds$cognitive_measure %in% c(&quot;digitbackward&quot;,&quot;digitspanbackward&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;digitsback&quot;
+#
 ds[ds$cognitive_measure %in% c(&quot;digitsforward&quot;,&quot;digitspanforward&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;digitsforward&quot;
+#
+ds[ds$cognitive_measure %in% c(&quot;digitspantotal&quot;,&quot;disigtspantotal&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;digitspan&quot;
+#
+ds[ds$cognitive_measure %in% c(&quot;logicalmemorytotal&quot;),&quot;cognitive_measure&quot;] &lt;- &quot;logicalmemory&quot;
+
+# recategorize
+ds[ds$cognitive_measure %in% c(&quot;info&quot;),&quot;cognitive_construct&quot;] &lt;- &quot;knowledge&quot;
+ds[ds$cognitive_measure %in% c(&quot;symbol&quot;),&quot;cognitive_construct&quot;] &lt;- &quot;speed&quot;
+ds[ds$cognitive_measure %in% c(&quot;bnt&quot;),&quot;cognitive_construct&quot;] &lt;- &quot;language&quot;
+ds[ds$cognitive_measure %in% c(&quot;categories&quot;),&quot;cognitive_construct&quot;] &lt;- &quot;fluency&quot;
+ds[ds$cognitive_measure %in% c(&quot;bnt&quot;),&quot;cognitive_construct&quot;] &lt;- &quot;language&quot;
+ds[ds$cognitive_measure %in% c(&quot;digitsback&quot;),&quot;cognitive_construct&quot;] &lt;- &quot;executive&quot;
+ds[ds$cognitive_measure %in% c(&quot;figurelogic&quot;),&quot;cognitive_construct&quot;] &lt;- &quot;speed&quot;
+ds[ds$cognitive_measure %in% c(&quot;trailsb&quot;),&quot;cognitive_construct&quot;] &lt;- &quot;executive&quot;
+ds[ds$cognitive_measure %in% c(&quot;figureid&quot;),&quot;cognitive_construct&quot;] &lt;- &quot;speed&quot;
+ds[ds$cognitive_measure %in% c(&quot;3ms&quot;),&quot;cognitive_construct&quot;] &lt;- &quot;mental&quot;
+
 t &lt;- table(ds$cognitive_measure, ds$study_name);t[t==0]&lt;-&quot;.&quot;;t</code></pre>
 <pre><code>                       
                         eas habc ilse nas nuage octo radc satsa
   3ms                   .   24   .    .   12    .    .    .    
   analogies             .   .    .    .   .     .    .    16   
   block                 42  .    20   .   .     8    .    .    
-  bnt                   2   .    .    .   .     .    7    .    
-  bostonnaming          38  .    .    .   .     .    .    .    
+  bnt                   40  .    .    .   .     .    7    .    
   bostonstorydelay      .   .    .    .   .     .    7    .    
   bostonstoryimmediate  .   .    .    .   .     .    7    .    
   categories            40  .    .    6   .     .    5    .    
@@ -518,17 +545,15 @@ t &lt;- table(ds$cognitive_measure, ds$study_name);t[t==0]&lt;-&quot;.&quot;;t</
   digitordering         .   .    .    .   .     .    6    .    
   digitsback            .   .    .    5   .     8    8    .    
   digitsforward         .   .    .    .   .     8    7    .    
-  digitspan             8   .    .    .   .     .    .    .    
-  digitspantotal        25  .    .    .   .     .    .    .    
-  disigtspantotal       1   .    .    .   .     .    .    .    
+  digitspan             34  .    .    .   .     .    .    .    
   figurecopy            .   .    .    6   .     .    .    .    
-  figurelogic           .   .    .    .   .     8    .    12   
+  figureid              .   .    .    .   .     .    .    12   
+  figurelogic           .   .    .    .   .     8    .    .    
   info                  40  .    .    .   .     8    .    16   
   lineorientation       .   .    .    .   .     .    9    .    
-  logicalmemory         30  .    .    .   .     .    .    .    
+  logicalmemory         39  .    .    .   .     .    .    .    
   logicalmemorydelay    .   .    .    .   .     .    7    .    
   logicalmemoryimmed    .   .    .    .   .     .    5    .    
-  logicalmemorytotal    9   .    .    .   .     .    .    .    
   lpsspacialability     .   .    14   .   .     .    .    .    
   matrices              .   .    .    .   .     .    9    .    
   mirrecall             .   .    .    .   .     8    .    .    
@@ -550,6 +575,7 @@ t &lt;- table(ds$cognitive_measure, ds$study_name);t[t==0]&lt;-&quot;.&quot;;t</
   wordlistdelay         .   .    .    6   .     .    7    .    
   wordlistimmed         .   .    .    6   .     .    7    .    
   wordlistrecog         .   .    .    .   .     .    7    .    </code></pre>
+<pre class="r"><code>#</code></pre>
 </div>
 <div id="questions-4" class="section level4">
 <h4>QUESTIONS</h4>
@@ -560,7 +586,7 @@ t &lt;- table(ds$cognitive_measure, ds$study_name);t[t==0]&lt;-&quot;.&quot;;t</
 <div id="session-information" class="section level2">
 <h2>Session Information</h2>
 <p>For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.</p>
-<pre><code>Report rendered by koval_000 at 2015-06-12, 08:55 -0700</code></pre>
+<pre><code>Report rendered by koval_000 at 2015-06-12, 12:38 -0700</code></pre>
 <pre><code>R version 3.2.0 (2015-04-16)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 8 x64 (build 9200)
@@ -573,16 +599,18 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] rpivotTable_0.1.4.1   shiny_0.12.0          ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
-[6] MplusAutomation_0.6-3 dplyr_0.4.1           testit_0.4            knitr_1.10.5         
+ [1] devtools_1.8.0        lattice_0.20-31       rpivotTable_0.1.4.1   shiny_0.12.0          ggplot2_1.0.1        
+ [6] RColorBrewer_1.1-2    scales_0.2.4          MplusAutomation_0.6-3 dplyr_0.4.1           testit_0.4           
+[11] knitr_1.10.5         
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6       formatR_1.2       plyr_1.8.2        tools_3.2.0       boot_1.3-16       digest_0.6.8     
- [7] jsonlite_0.9.16   evaluate_0.7      gtable_0.1.2      lattice_0.20-31   texreg_1.35       rstudioapi_0.3.1 
-[13] DBI_0.3.1         yaml_2.1.13       parallel_3.2.0    proto_0.3-10      coda_0.17-1       stringr_1.0.0    
-[19] htmlwidgets_0.4.2 R6_2.0.1          tcltk_3.2.0       gsubfn_0.6-6      rmarkdown_0.6.1   reshape2_1.4.1   
-[25] magrittr_1.5      htmltools_0.2.6   MASS_7.3-40       rsconnect_0.3.79  assertthat_0.1    mime_0.3         
-[31] xtable_1.7-4      colorspace_1.2-6  httpuv_1.3.2      stringi_0.4-1     lazyeval_0.1.10   munsell_0.4.2    </code></pre>
+ [1] Rcpp_0.11.6       git2r_0.10.1      formatR_1.2       plyr_1.8.2        tools_3.2.0       boot_1.3-16      
+ [7] digest_0.6.8      memoise_0.2.1     jsonlite_0.9.16   evaluate_0.7      gtable_0.1.2      texreg_1.35      
+[13] rstudioapi_0.3.1  DBI_0.3.1         curl_0.8          yaml_2.1.13       parallel_3.2.0    proto_0.3-10     
+[19] coda_0.17-1       xml2_0.1.1        stringr_1.0.0     rversions_1.0.1   htmlwidgets_0.4.2 R6_2.0.1         
+[25] tcltk_3.2.0       gsubfn_0.6-6      rmarkdown_0.6.1   reshape2_1.4.1    magrittr_1.5      htmltools_0.2.6  
+[31] MASS_7.3-40       rsconnect_0.3.79  assertthat_0.1    mime_0.3          xtable_1.7-4      colorspace_1.2-6 
+[37] httpuv_1.3.2      stringi_0.4-1     lazyeval_0.1.10   munsell_0.4.2    </code></pre>
 </div>
 
 
