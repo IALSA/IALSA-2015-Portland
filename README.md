@@ -4,7 +4,7 @@
 ### Teleconference on June 12
 
 Please open these files for the teleconference  
-- review the [interactive pivot tables](shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
+- review the [interactive pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
 - view the list of edits in the report on [renaming and collapsing](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  
 
 TO DO LIST:  
