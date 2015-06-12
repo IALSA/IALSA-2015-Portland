@@ -7,6 +7,15 @@ Please open these files for the teleconference
 - review the [interactive pivot tables](shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
 - view the list of edits in the report on [renaming and collapsing](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  
 
+TO DO LIST:  
+ - [ ]  For each unique pair run 12 models (model_type by subgroup)
+ - [ ] Eliminate uncertainties about potential pairs and run their 12 versions.
+( Note :Empty cell - I don't know  
+NA - I don't have )
+
+- [ ] Identify which cog measures your study does not report, but other studies do? Can you run all 12 models in your pairs?
+
+
 #### Coordinated analysis with replication (CAR)
 [![prototype](./reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)
 
