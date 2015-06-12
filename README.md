@@ -5,13 +5,12 @@
 
 Please open these files for the teleconference  
 - review the [interactive pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
-- view the list of edits in the report on [renaming and collapsing](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  
+- view the list of edits in the report on [renaming and collapsing](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.html)  
 
 TO DO LIST:  
- - [ ]  For each unique pair run 12 models (model_type by subgroup)
- - [ ] Eliminate uncertainties about potential pairs and run their 12 versions.
-( Note : Empty cell mean "I don't know", but NA means "I don't have")  
-- [ ] Identify which cog measures your study does not report, but other studies do? Can you run all 12 models in your pairs?
+ - [ ] For each unique pair run 12 models (model_type by subgroup)
+ - [ ] See what cognitive and physical measures your study has, but the pair of which your study did not estimate in a bivariate model. Estimate all 12 versions of each unique pair. 
+ - [ ] Identify which cognitive measures your study does not report, but other studies do.  Estimate all 12 versions of each unique pair. 
 
 
 #### Coordinated analysis with replication (CAR)
