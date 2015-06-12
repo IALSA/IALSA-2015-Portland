@@ -10,9 +10,7 @@ Please open these files for the teleconference
 TO DO LIST:  
  - [ ]  For each unique pair run 12 models (model_type by subgroup)
  - [ ] Eliminate uncertainties about potential pairs and run their 12 versions.
-( Note :Empty cell - I don't know  
-NA - I don't have )
-
+( Note : Empty cell mean "I don't know", but NA means "I don't have")  
 - [ ] Identify which cog measures your study does not report, but other studies do? Can you run all 12 models in your pairs?
 
 
