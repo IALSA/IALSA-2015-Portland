@@ -1,10 +1,22 @@
 
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 
+### Teleconference on June 12
+
+Please open these files for the teleconference  
+- review the [interactive pivot tables](shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
+- view the list of edits in the report on [renaming and collapsing](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  
+
 #### Coordinated analysis with replication (CAR)
 [![prototype](./reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)
 
 *the graphic is composed of the graphs defined in [this report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/overlap_search_graphs/VisualizingOverlap.html)*
+
+### Teleconference on June 12
+
+Please open these files for the teleconference  
+- review the [interactive pivot tables](shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
+- view the list of edits in the report on [renaming and collapsing](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  
 
 #### Concomitant change in physical and cognitive functioning
 
