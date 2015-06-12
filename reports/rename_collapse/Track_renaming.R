@@ -176,9 +176,7 @@ ds[ds$cognitive_measure %in% c("trailsb"),"cognitive_construct"] <- "executive"
 ds[ds$cognitive_measure %in% c("figureid"),"cognitive_construct"] <- "speed"
 ds[ds$cognitive_measure %in% c("3ms"),"cognitive_construct"] <- "mental"
 
-
-t <- table(ds$cognitive_measure, ds$cognitive_construct);t[t==0]<-".";t
-# t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
+t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
 #
 
 
