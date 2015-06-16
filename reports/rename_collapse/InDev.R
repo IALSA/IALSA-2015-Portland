@@ -95,14 +95,15 @@ rpivotTable(d)
 pt <- rpivotTable(d)
 print(pt)
 
-table(dsb$cognitive_construct, useNA="always")
-table(dsb$cognitive_measure, useNA="always")
-table(dsb$physical_construct, useNA="always")
-table(dsb$physical_measure, useNA="always")
-table(dsb$model_type, useNA="always")
-table(dsb$subgroup, useNA="always")
+
+## ptable_3
+ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct",
+                "study_name", "model_type","subgroup", "converged", "output_file", "sd_int", "sd_slope", "sd_residual")]
+head(ds)
+
 
   # rmarkdown::render(input = "./reports/rename_collapse/InDev.Rmd", output_format="html_document", clean=TRUE)
+
 
 
 

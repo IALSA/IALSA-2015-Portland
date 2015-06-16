@@ -63,14 +63,10 @@ read_chunk("./reports/rename_collapse/InDev.R") #This allows knitr to call chunk
 
 ```{r define_themes, echo=echoChunks, results='show', message=FALSE}
 ```
-## pivot table 1
-
-```{r ptable_1, echo=echoChunks, results='show', message=FALSE, warning=FALSE}
+## Table 3
+```{r ptable_3, echo=echoChunks, results='show', message=FALSE, warning=FALSE}
 ```
 
-## pivot table 2
-```{r ptable_2, echo=echoChunks, results='show', message=FALSE, warning=FALSE}
-```
 
 
 
