@@ -81,9 +81,9 @@ ds <- ds[!(ds$model_number) %in% c("test"),]
 
 ## @knitr standardize_coefficients
 
-ds$sd_int <- ds$cov_int/ (sqrt(ds$var_int_physical)*sqrt(ds$var_int_cog))
-ds$sd_slope <- ds$cov_slope/ (sqrt(ds$var_slope_physical)*sqrt(ds$var_slope_cog))
-ds$sd_residual <- ds$cov_residual/ (sqrt(ds$var_residual_physical)*sqrt(ds$var_residual_cog))
+ds$corr_int <- ds$cov_int/ (sqrt(ds$var_int_physical)*sqrt(ds$var_int_cog))
+ds$corr_slope <- ds$cov_slope/ (sqrt(ds$var_slope_physical)*sqrt(ds$var_slope_cog))
+ds$corr_residual <- ds$cov_residual/ (sqrt(ds$var_residual_physical)*sqrt(ds$var_residual_cog))
 
 is_univariate <- grepl(pattern="^u\\d$", x=ds$model_number)
 is_bivariate <- grepl(pattern="^b\\d$", x=ds$model_number)
@@ -94,22 +94,22 @@ alpha <- 0.05
 limit <- ((1 - (alpha/2)))
 
 # CI for the intercept
-ds$int_zetau <- ds$sd_int + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$int_zetal <- ds$sd_int - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$ciu_sd_int <- tanh(ds$int_zetau)
-ds$cil_sd_int <- tanh(ds$int_zetal)
+ds$int_zetau <- ds$corr_int + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$int_zetal <- ds$corr_int - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$ciu_corr_int <- tanh(ds$int_zetau)
+ds$cil_corr_int <- tanh(ds$int_zetal)
 
 # CI for the slope
-ds$slope_zetau <- ds$sd_slope + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$slope_zetal <- ds$sd_slope - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$ciu_sd_slope <- tanh(ds$slope_zetau)
-ds$cil_sd_slope <- tanh(ds$slope_zetal)
+ds$slope_zetau <- ds$corr_slope + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$slope_zetal <- ds$corr_slope - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$ciu_corr_slope <- tanh(ds$slope_zetau)
+ds$cil_corr_slope <- tanh(ds$slope_zetal)
 
 # CI for the residual
-ds$residual_zetau <- ds$sd_residual + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$residual_zetal <- ds$sd_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$ciu_sd_residual <- tanh(ds$residual_zetau)
-ds$cil_sd_residual <- tanh(ds$residual_zetal)
+ds$residual_zetau <- ds$corr_residual + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$residual_zetal <- ds$corr_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$ciu_corr_residual <- tanh(ds$residual_zetau)
+ds$cil_corr_residual <- tanh(ds$residual_zetal)
 
 
 ## add uni/bi indicator
