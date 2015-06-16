@@ -142,4 +142,8 @@ FUN <- function(data, x, y, fac1, fac2) {
 FUN(mtcars, 'hp', 'mpg', 'cyl', 'am')
 
 
+## @knitr remove_leading_zeros
+a <- c(100, 100/3, 1/3, -1/3, -100/3, "0.33b")
+gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", a)
+
 
