@@ -175,6 +175,12 @@ ds[ds$cognitive_measure %in% c("figurelogic"),"cognitive_construct"] <- "speed"
 ds[ds$cognitive_measure %in% c("trailsb"),"cognitive_construct"] <- "executive"
 ds[ds$cognitive_measure %in% c("figureid"),"cognitive_construct"] <- "speed"
 ds[ds$cognitive_measure %in% c("3ms"),"cognitive_construct"] <- "mental"
+ds[ds$cognitive_measure %in% c("digitsforward"),"cognitive_construct"] <- "memory"
+ds[ds$cognitive_measure %in% c("figurelogic"),"cognitive_construct"] <- "reasoning"
+ds[ds$cognitive_measure %in% c("mmse"),"cognitive_construct"] <- "mental"
+# Pending
+ds[ds$cognitive_measure %in% c("patterncomparison"),"cognitive_construct"] <- "speed"
+
 
 t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
 #

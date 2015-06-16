@@ -22,7 +22,7 @@ dsb <- readRDS('./data/shared/ds1a.rds')
 
 
 ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct",
-                "study_name", "model_type","subgroup", "converged", "output_file", "sd_int", "sd_slope", "sd_residual")]
+                "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual")]
 head(ds)
 
 
@@ -37,9 +37,9 @@ ds <- ds %>%
   dplyr::rename_("Study" = "study_name") %>%
   dplyr::rename_("Covariates" = "model_type") %>%
   dplyr::rename_("Sex" = "subgroup") %>%
-  dplyr::rename_("Corr.Intersepts" = "sd_int") %>%
-  dplyr::rename_("Corr.Slopes" = "sd_slope") %>%
-  dplyr::rename_("Corr.Residuals" = "sd_residual")
+  dplyr::rename_("Corr.Intersepts" = "corr_int") %>%
+  dplyr::rename_("Corr.Slopes" = "corr_slope") %>%
+  dplyr::rename_("Corr.Residuals" = "corr_residual")
 head(ds)
 # Define server logic required to summarize and view the selected
 # study

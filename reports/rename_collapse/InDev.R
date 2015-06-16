@@ -14,6 +14,7 @@ library(lattice)
 library(grid)
 library(devtools)
 library(rpivotTable)
+library(scales)
 
 
 ## @knitr load_data
@@ -84,21 +85,26 @@ library(devtools)
 ## Load rpivotTable
 library(rpivotTable)
 
-## ptable_1
-  d <- dsb %>%
-  dplyr::count_(c("cognitive_construct","cognitive_measure"))
-rpivotTable(d)
-
-## ptable_2
-  d <- dsb %>%
-  dplyr::count_(c("cognitive_construct","cognitive_measure","physical_measure", "study_name", "model_type", "subgroup"))
-pt <- rpivotTable(d)
-print(pt)
+# ## ptable_1
+#   d <- dsb %>%
+#   dplyr::count_(c("cognitive_construct","cognitive_measure"))
+# rpivotTable(d)
+#
+# ## ptable_2
+#   d <- dsb %>%
+#   dplyr::count_(c("cognitive_construct","cognitive_measure","physical_measure", "study_name", "model_type", "subgroup"))
+# pt <- rpivotTable(d)
+# print(pt)
 
 
 ## ptable_3
 ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct",
-                "study_name", "model_type","subgroup", "converged", "output_file", "sd_int", "sd_slope", "sd_residual")]
+                "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "ciu_corr_int", "cil_corr_int", "ciu_corr_slope", "cil_corr_slope", "ciu_corr_residual", "cil_corr_residual", "p_cov_int", "p_cov_slope", "p_cov_res")]
+ds$display_int <- paste0(
+  round(ds$corr_int, 2), "(*",
+  round(ds$cil_corr_int,2), ",",
+  round(ds$ciu_corr_int,2), "*)")
+
 head(ds)
 
 
