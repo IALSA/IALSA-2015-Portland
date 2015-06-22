@@ -1,7 +1,7 @@
 
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 
-Most recent analytics:  [interactive pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) of the model results and the report narrating the decisions on [renaming and collapsing](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.html) 
+[interactive pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) and [renaming and collapsing report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.html) 
 - 
 #### Teleconference on June 26, 2015
 
