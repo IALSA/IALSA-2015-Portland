@@ -233,12 +233,12 @@ shinyServer(function(input, output) {
      d <- filter_study_measure(ds,
                                study = input$study,
                                physical_measure = input$physical_measure
-                               # , covars = input$covars
+                               , covars = input$covars
                                )
      pink_plot(d,
                                study = input$study,
                                physical_measure = input$physical_measure
-               # ,               covars = input$covars
+               ,               covars = input$covars
                )
   })
 })

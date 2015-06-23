@@ -20,14 +20,14 @@ shinyUI(fluidPage(
                   choices = c("Correlation" = "corr",
                                "Correlation & CI" = "display",
                                "p-value" = "pvalue")),
-      checkboxGroupInput("model_type", "Covariate set:",
+      checkboxGroupInput("covars", "Covariate set:",
                    c("Empty" = "0",
                      "a" = "a",
                      "ae" = "ae",
                      "aeh" = "aeh",
                      "aeh+" = "aehplus",
                      "full" = "full"
-                     ))),
+                     ), selected = 1:5)),
 
     ### Main panel
     mainPanel(
