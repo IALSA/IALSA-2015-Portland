@@ -4,14 +4,24 @@ library(rpivotTable)
 # Define UI for study viewer application
 shinyUI(fluidPage(
 
-  # Application title
-  titlePanel("Table 2"),
+  ## Application title
+  titlePanel("Table 2: Correlations among ISR"),
 
-  # Sidebar
-  fluidRow(
-    shiny::plotOutput(outputId = "table2", width='95%', height='400px')
 
-  ) # close fluidRow
+
+  ## Generate a row with a sidebar
+  sidebarLayout(
+
+    ### Sidebar panel
+    sidebarPanel(
+      selectInput("study","Select study:", choices=c("octo","satsa"))),
+
+    ### Main panel
+    mainPanel(
+    fluidRow(
+      shiny::plotOutput(outputId = "table2", width='95%', height='900px')))
+
+  ) ## close sidebarLayout
 )) # close fluidPage, shinyUI
 
 

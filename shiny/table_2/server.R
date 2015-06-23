@@ -278,6 +278,7 @@ shinyServer(function(input, output) {
 
 
   output$table2 <- renderPlot({
+
     table_2(ds
       # select
       , study = "satsa" # dropbox, select one
@@ -291,6 +292,7 @@ shinyServer(function(input, output) {
       , x_facet = "model_type" # grouped horizontally
       , y_facet = "subgroup" # grouped vertically
     )
+
   })
 })
 
