@@ -227,11 +227,19 @@ pink_plot <- function(d
 # study
 shinyServer(function(input, output) {
 
-
+# browser()
   output$table2 <- renderPlot({
      # browser()
-     d <- filter_study_measure(ds)
-     pink_plot(d)
+     d <- filter_study_measure(ds,
+                               study = input$study,
+                               physical_measure = input$physical_measure,
+                               covars = input$covars,
+                               cognitive_construct = input$cognitive_construct)
+     pink_plot(d,
+                               study = input$study,
+                               physical_measure = input$physical_measure,
+                               covars = input$covars,
+                               cognitive_construct = input$cognitive_construct)
   })
 })
 

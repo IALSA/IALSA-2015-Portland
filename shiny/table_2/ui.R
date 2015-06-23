@@ -14,8 +14,8 @@ shinyUI(fluidPage(
 
     ### Sidebar panel
     sidebarPanel(
-      selectInput("study","Select study:", choices=c("octo","satsa")),
-      selectInput("physical_measure", "Physical measure:", choices = c("grip", "gait")),
+      selectInput("study","Select study:", choices=c("habc", "ilse", "nuage", "octo","radc", "satsa")),
+      selectInput("physical_measure", "Physical measure:", choices = c("grip","fev", "fvc",  "pek",  "gait")),
       selectInput("display", "Display mode:",
                   choices = c("Correlation" = "corr",
                                "Correlation & CI" = "display",
