@@ -51,6 +51,19 @@ TO DO LIST:
 - [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html) - [Deborah Finkel](mailto:dfinkel@ius.edu)
 
 
+| Study | Contact |
+| :---- | :------ |
+| [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html) | [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu) |
+| [HABC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/habc.html) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |
+| [ILSE](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/ilse.html) | [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de) |
+| [NAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nas.html) | [Lewina Lee](mailto:lewina@bu.edu) |
+| [NuAge](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nuage.html) | [Valerie Jarry ](mailto:valerie.jarry@umontreal.ca ) |
+| [OBAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/obas.html) | [Nora Mattek](mailto:mattekn@ohsu.edu) |
+| [OCTO-Twin](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/octo.html) | [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se) |
+| [RADC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/radc.html) | [Cassandra Brown](mailto:clb@uvic.ca) |
+| [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html) | [Deborah Finkel](mailto:dfinkel@ius.edu) |
+
+
 ### Catalog of names  
   Different studies may have the data for the same measures, but modelers may name them differently in their models, which results in our scripts treating them as different measures. To avoid this, please consult our [Catalog of names](https://github.com/IALSA/IALSA-2015-Portland/blob/master/Catalog of names.md) and make sure that your models reflect the convention established there. Any member of the collective can [edit the catalog](https://github.com/IALSA/IALSA-2015-Portland/edit/master/Catalog of names.md) and we encourage you to do so: this will greatly increase the replicability effect of the project. (inspect the latest [html version](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/Catalog_of_names.html)) 
   
