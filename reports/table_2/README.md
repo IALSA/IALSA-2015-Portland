@@ -1,6 +1,15 @@
 Project "Table 2"
 ---
 
+## Overview
+"Table 2" refers to the collection of statistical devices designed to explore the correlations between random intercepts (I), slopes (S), and residuals (R) from bivariate models of concomitant decline in physical and cognitive performance.
+
+### Current objectives  
+ - [ ] ktable of ISR and their confidence intervals. 
+     - X: 
+ 
+
+## General Model Specification
   Summarizes correlation estimates between intercepts, slopes, and residuals of cognitive and physical measures in bivariate growth models, specified as  
 ![bivariate model specification](../../libs/images/general_model_specification.png)  
 where    
@@ -19,13 +28,13 @@ where
   <sub>o</sub> *u*<sub>1</sub> - is    
   
   
-  *i* - individual  
-  *t* - timepoint
-  *o* - outcome
-  *p* - physical measure used in estimation
-  *c* - cognitive measure used in estimation
+  *i* - individual    
+  *t* - timepoint   
+  *o* - outcome   
+  *p* - physical measure used in estimation  
+  *c* - cognitive measure used in estimation  
   
-## Mixed Effects
+## Reporting Mixed Effects
 
 Random and Fixed effects of each model can be organized into the following table  
 
