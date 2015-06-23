@@ -5,10 +5,12 @@
 # rpivotTable Documentation - https://github.com/smartinsightsfromdata/rpivotTable
 
 # GitHub Example - https://github.com/smartinsightsfromdata/rpivotTable/blob/master/inst/examples/canElections-shiny.R
-
-library(dplyr)
 library(shiny)
-library(rpivotTable)
+library(dplyr)
+library(ggplot2)
+library(dplyr)
+library(lattice)
+library(grid)
 
 
 
