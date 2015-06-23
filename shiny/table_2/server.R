@@ -86,7 +86,7 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
   ggplot2::theme(axis.title=ggplot2::element_text(colour="gray40")) +
   ggplot2::theme(panel.border = ggplot2::element_rect(colour="gray80")) +
   ggplot2::theme(axis.ticks.length = grid::unit(0, "cm")) +
-  ggplot2::theme(text = element_text(size =baseSize+7))
+  ggplot2::theme(text = ggplot2::element_text(size =baseSize+7))
 #   ggplot2::theme(panel.grid.major.x = element_blank())
 #   ggplot2::theme(panel.grid.major.y = element_blank())
 #   ggplot2::theme(panel.grid.minor.x = element_blank())
@@ -238,15 +238,15 @@ for( i in seq_along(d$parameter)){
   # g <- g + scale_fill_gradient(low="white", high=x_name_colors["subgroup"], na.value = "grey")
   g <- g + labs(title=paste0("STUDY: ",study,"     PHYSICAL MEASURE: ", physical_measure, "     DISPLAY: ", display_value))
   g <- g + theme1
-  g <- g + theme(axis.text.y =  element_text(size=baseSize-1),
+  g <- g + theme(axis.text.y =  ggplot2::element_text(size=baseSize-1),
                  # axis.text.x =  element_blank(),
                  # axis.title.x = element_blank(),
                  # axis.title.y = element_blank(),
-                 legend.title = element_text(),
+                 legend.title = ggplot2::element_text(),
                  panel.grid.major.x = element_blank(),
-                 legend.text =  element_text(),
+                 legend.text =  ggplot2::element_text(),
                  legend.position="right")
-  g <- g + theme(strip.text.x = element_text(angle = 0, size=baseSize-3, color="black"))
+  g <- g + theme(strip.text.x = ggplot2::element_text(angle = 0, size=baseSize-3, color="black"))
   # g
 
   return(g)
