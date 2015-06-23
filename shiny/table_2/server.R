@@ -124,22 +124,13 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
 # covars = unique(ds$model_type)
 # #
 
-#   # @knitr define_graph_functions
-table_2 <- function(ds
+filter_study_measure <- function(ds
                     # select
                     , study = "octo"
                     , physical_measure = "grip"
                     , covars = unique(ds$model_type) # model_type
                     , cognitive_construct = unique(ds$cognitive_construct)
-                    # map
-                    , x_name = "parameter" # x-axis
-                    , display_value = "pvalue" # number that prints
-                    # arrange
-                    , x_facet = "model_type" # grouped horizontally
-                    , y_facet = "subgroup" # grouped vertically
-                    ){
-
-
+){
 
   d <- ds[ds$study_name %in% study &
           ds$physical_measure %in% physical_measure &
@@ -150,33 +141,6 @@ table_2 <- function(ds
   d <- d %>%
   dplyr::filter(!cognitive_construct %in% c("Univar")) %>% #, !physical_construct %in% c("Univar")) %>%
   dplyr::count_(c("study_name", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure","corr_int", "corr_slope", "corr_residual" , "display_int", "display_slope", "display_residual", "p_cov_int", "p_cov_slope", 'p_cov_res')) %>%
-
-# ## one long gather
-#   tidyr::gather_("parameter","value", c("p_cov_int", "p_cov_slope", 'p_cov_res'))
-#
-#   d$parameter <- stringr::str_replace(d$parameter, "cov_res", "cov_residual")
-#   d$parameter <- stringr::str_replace(d$parameter, "p_cov", "pvalue")
-# for( i in seq_along(d$parameter)){
-#   d[i, "value_type"] <- stringr::str_split(d$parameter, pattern = "_")[[i]][1]
-#   d[i, "parameter"] <- stringr::str_split(d$parameter, pattern = "_")[[i]][2]
-# }
-#   d <- tidyr::spread_(d,"value_type","value")
-#   d$corr_int <- round(as.numeric(d$corr_int),3)
-#   d$corr_slope <- round(as.numeric(d$corr_slope),3)
-#   d$corr_residual <- round(as.numeric(d$corr_residual),3)
-#   d$pvalue <- round(as.numeric(d$pvalue),3)
-#   d$parameter <- factor(d$parameter, levels= c("int", "slope","residual"))
-#   head(as.data.frame(d),20)
-#   str(d)
-
-## test for dublicates
-# attach(d)
-#   d$test <- paste(subgroup,model_type, physical_construct, physical_measure, cognitive_construct, cognitive_measure, sep = "-")
-# detach(d)
-#   nrow(d)
-#   table(d$test)
-#
-# test <- dplyr::count_(d, c("study_name", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure"))
 
 
 
@@ -196,12 +160,6 @@ for( i in seq_along(d$parameter)){
   head(as.data.frame(d),20)
   str(d)
 
-
-
-
-
-# create dummy for coloring significance
-
   d$unsign <- d$pvalue > .10
   d$sign10 <- d$pvalue <= .10 & d$pvalue > .05
   d$sign05 <- d$pvalue <= .05 & d$pvalue > .01
@@ -215,17 +173,26 @@ for( i in seq_along(d$parameter)){
                     ifelse(d$pvalue <= .001, "<=.001", NA)))))
 
   head(as.data.frame(d))
+}
 
 
 
-#   head(as.data.frame(d))
-#   str(d)
-# head(d)
+
+#   # @knitr define_graph_functions
 
 
-
-  # d %>% dplyr::count_( c("study_name", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure"))
-  # table(d$test)
+pink_plot <- function(d
+                    , study = "octo"
+                    , physical_measure = "grip"
+                    , covars = unique(ds$model_type) # model_type
+                    , cognitive_construct = unique(ds$cognitive_construct)
+                    # map
+                    , x_name = "parameter" # x-axis
+                    , display_value = "pvalue" # number that prints
+                    # arrange
+                    , x_facet = "model_type" # grouped horizontally
+                    , y_facet = "subgroup" # grouped vertically
+                    ){
   g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", label=display_value, fill="sign"))
   g <- g + geom_tile()
   g <- g + geom_text(size = baseSize-5)
@@ -251,25 +218,9 @@ for( i in seq_along(d$parameter)){
 
   return(g)
 }
-#
-# table_2(ds
-#   # select
-#   , study = "satsa" # dropbox, select one
-#   , physical_measure = "grip" # dropbox, select one
-#   # , covars = c("a","ae","aeh") # model_type # checkbox, select many
-#   # , cognitive_construct = unique(ds$cognitive_construct), # checkbox, select many
-#   # map
-#   , x_name = "parameter" # x-axis
-#   , display_value = "display" # number that prints # corr, display, pvalue, # dropbox, select one
-#   # arrange
-#   , x_facet = "model_type" # grouped horizontally
-#   , y_facet = "subgroup" # grouped vertically
-# )
 
-# study - dropbox, select one
-# physical_measure - dropbox, select one
-# display_value - dropbox, select one
-# covars - - checkbox, select many
+
+
 
 ###################################################
 # Define server logic required to summarize and view the selected
@@ -278,21 +229,9 @@ shinyServer(function(input, output) {
 
 
   output$table2 <- renderPlot({
-
-    table_2(ds
-      # select
-      , study = "satsa" # dropbox, select one
-      , physical_measure = "grip" # dropbox, select one
-      # , covars = c("a","ae","aeh") # model_type # checkbox, select many
-      # , cognitive_construct = unique(ds$cognitive_construct), # checkbox, select many
-      # map
-      , x_name = "parameter" # x-axis
-      , display_value = "display" # number that prints # corr, display, pvalue, # dropbox, select one
-      # arrange
-      , x_facet = "model_type" # grouped horizontally
-      , y_facet = "subgroup" # grouped vertically
-    )
-
+     # browser()
+     d <- filter_study_measure(ds)
+     pink_plot(d)
   })
 })
 
