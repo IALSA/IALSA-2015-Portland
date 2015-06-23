@@ -28,20 +28,20 @@ keepvar <- c("study_name", "subgroup", "model_type","physical_construct","physic
 ds <- dsb[ , keepvar]
 
 ds$display_int <- paste0(
-  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$corr_int, 2)), " \n (",
-  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$cil_corr_int,2)), ",",
-  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$ciu_corr_int,2)), ")"
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$corr_int, 2)), " \n (",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$cil_corr_int,2)), ",",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$ciu_corr_int,2)), ")"
 )
 
 ds$display_slope <- paste0(
-  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$corr_slope, 2)), " \n (",
-  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$cil_corr_slope,2)), ",",
-  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$ciu_corr_slope,2)), ")")
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$corr_slope, 2)), " \n (",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$cil_corr_slope,2)), ",",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$ciu_corr_slope,2)), ")")
 
 ds$display_residual <- paste0(
-  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$corr_residual, 2)), " \n (",
-  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$cil_corr_residual,2)), ",",
-  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$ciu_corr_residual,2)), ")")
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$corr_residual, 2)), " \n (",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$cil_corr_residual,2)), ",",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$ciu_corr_residual,2)), ")")
 
 
 head(ds)
