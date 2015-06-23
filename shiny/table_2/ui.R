@@ -14,13 +14,13 @@ shinyUI(fluidPage(
 
     ### Sidebar panel
     sidebarPanel(
-      selectInput("study","Select study:", choices=c("habc", "ilse", "nuage", "octo","radc", "satsa")),
+      selectInput("study","Select study:", choices=c("octo","habc", "ilse", "nuage", "radc", "satsa")),
       selectInput("physical_measure", "Physical measure:", choices = c("grip","fev", "fvc",  "pek",  "gait")),
       selectInput("display", "Display mode:",
                   choices = c("Correlation" = "corr",
                                "Correlation & CI" = "display",
                                "p-value" = "pvalue")),
-      checkboxGroupInput("variable", "Variable:",
+      checkboxGroupInput("model_type", "Covariate set:",
                    c("Empty" = "0",
                      "a" = "a",
                      "ae" = "ae",
