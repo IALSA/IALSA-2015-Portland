@@ -239,9 +239,9 @@ for( i in seq_along(d$parameter)){
 
   # g <- g + scale_x_discrete(labels = c("int"="INT", "slope"="SLP" , "res"="RES"))
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
-  g <- g + scale_fill_manual(name = "Significance", values = pvalueColors)
+  g <- g + scale_fill_manual(name = "p-value", values = pvalueColors)
   # g <- g + scale_fill_gradient(low="white", high=x_name_colors["subgroup"], na.value = "grey")
-  g <- g + labs(title=paste0(study,"--", physical_measure, "--", display_value))
+  g <- g + labs(title=paste0("STUDY: ",study,"     PHYSICAL MEASURE: ", physical_measure, "     DISPLAY: ", display_value))
   g <- g + theme1
   g <- g + theme(axis.text.y =  element_text(size=baseSize-1),
                  # axis.text.x =  element_blank(),
@@ -264,12 +264,12 @@ for( i in seq_along(d$parameter)){
 table_2(ds
   # select
   , study = "satsa"
-  , physical_measure = "pek"
+  , physical_measure = "grip"
   # , covars = c("a","ae","aeh") # model_type
   # , cognitive_construct = unique(ds$cognitive_construct)
   # map
   , x_name = "parameter" # x-axis
-  , display_value = "corr" # number that prints # corr, display, pvalue
+  , display_value = "display" # number that prints # corr, display, pvalue
   # arrange
   , x_facet = "model_type" # grouped horizontally
   , y_facet = "subgroup" # grouped vertically
