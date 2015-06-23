@@ -14,7 +14,20 @@ shinyUI(fluidPage(
 
     ### Sidebar panel
     sidebarPanel(
-      selectInput("study","Select study:", choices=c("octo","satsa"))),
+      selectInput("study","Select study:", choices=c("octo","satsa")),
+      selectInput("physical_measure", "Physical measure:", choices = c("grip", "gait")),
+      selectInput("display", "Display mode:",
+                  choices = c("Correlation" = "corr",
+                               "Correlation & CI" = "display",
+                               "p-value" = "pvalue")),
+      checkboxGroupInput("variable", "Variable:",
+                   c("Empty" = "0",
+                     "a" = "a",
+                     "ae" = "ae",
+                     "aeh" = "aeh",
+                     "aeh+" = "aehplus",
+                     "full" = "full"
+                     ))),
 
     ### Main panel
     mainPanel(
