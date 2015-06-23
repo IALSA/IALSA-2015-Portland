@@ -249,20 +249,20 @@ for( i in seq_along(d$parameter)){
 
   return(g)
 }
-
-table_2(ds
-  # select
-  , study = "satsa" # dropbox, select one
-  , physical_measure = "grip" # dropbox, select one
-  # , covars = c("a","ae","aeh") # model_type # checkbox, select many
-  # , cognitive_construct = unique(ds$cognitive_construct), # checkbox, select many
-  # map
-  , x_name = "parameter" # x-axis
-  , display_value = "display" # number that prints # corr, display, pvalue, # dropbox, select one
-  # arrange
-  , x_facet = "model_type" # grouped horizontally
-  , y_facet = "subgroup" # grouped vertically
-)
+#
+# table_2(ds
+#   # select
+#   , study = "satsa" # dropbox, select one
+#   , physical_measure = "grip" # dropbox, select one
+#   # , covars = c("a","ae","aeh") # model_type # checkbox, select many
+#   # , cognitive_construct = unique(ds$cognitive_construct), # checkbox, select many
+#   # map
+#   , x_name = "parameter" # x-axis
+#   , display_value = "display" # number that prints # corr, display, pvalue, # dropbox, select one
+#   # arrange
+#   , x_facet = "model_type" # grouped horizontally
+#   , y_facet = "subgroup" # grouped vertically
+# )
 
 # study - dropbox, select one
 # physical_measure - dropbox, select one
@@ -274,10 +274,23 @@ table_2(ds
 # study
 shinyServer(function(input, output) {
 
- output$pivot <- rpivotTable::renderRpivotTable({
-   rpivotTable(data = ds, rows = c("Cog.Domain","Cog.Measure"), cols= c("Study") )
- })
 
+  output$table2 <- renderPlot({
+    table_2(ds
+      # select
+      , study = "satsa" # dropbox, select one
+      , physical_measure = "grip" # dropbox, select one
+      # , covars = c("a","ae","aeh") # model_type # checkbox, select many
+      # , cognitive_construct = unique(ds$cognitive_construct), # checkbox, select many
+      # map
+      , x_name = "parameter" # x-axis
+      , display_value = "display" # number that prints # corr, display, pvalue, # dropbox, select one
+      # arrange
+      , x_facet = "model_type" # grouped horizontally
+      , y_facet = "subgroup" # grouped vertically
+    )
+  })
 })
+
 
 

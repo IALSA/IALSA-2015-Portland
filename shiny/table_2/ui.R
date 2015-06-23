@@ -9,8 +9,7 @@ shinyUI(fluidPage(
 
   # Sidebar
   fluidRow(
-  column(1, rpivotTable::rpivotTableOutput("pivot"))
-
+    shiny::plotOutput(outputId = "table2", width='95%', height='400px')
 
   ) # close fluidRow
 )) # close fluidPage, shinyUI
