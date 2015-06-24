@@ -5,6 +5,10 @@
 # rpivotTable Documentation - https://github.com/smartinsightsfromdata/rpivotTable
 
 # GitHub Example - https://github.com/smartinsightsfromdata/rpivotTable/blob/master/inst/examples/canElections-shiny.R
+
+rm(list=ls(all=TRUE))
+cat("\f")
+
 library(shiny)
 library(dplyr)
 library(ggplot2)
@@ -16,9 +20,9 @@ library(grid)
 
 
 if(basename(getwd())=="table_2"){
-dsb <- readRDS('../../data/shared/ds1a.rds')
+ds1a <- readRDS('../../data/shared/ds1a.rds')
 }else{
-dsb <- readRDS('./data/shared/ds1a.rds')
+ds1a <- readRDS('./data/shared/ds1a.rds')
 }
 ##################################################
 
@@ -27,7 +31,7 @@ dsb <- readRDS('./data/shared/ds1a.rds')
 keepvar <- c("study_name", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "ciu_corr_int", "cil_corr_int", "ciu_corr_slope", "cil_corr_slope", "ciu_corr_residual", "cil_corr_residual", "p_cov_int", "p_cov_slope", "p_cov_res")
 
 # keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
-ds <- dsb[ , keepvar]
+ds <- ds1a[ , keepvar]
 
 ds$display_int <- paste0(
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$corr_int, 2)), " \n (",
@@ -124,29 +128,35 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
 # covars = unique(ds$model_type)
 # #
 
-filter_study_measure <- function(ds
+########### Select dataset  #######
+#                      study = "satsa"
+#                      physical_measure = "grip"
+#                      covars = unique(ds$model_type) # model_type
+#                      cognitive_construct = unique(ds$cognitive_construct)
+
+filter_model <- function(ds = ds
                     # select
-                    , study = "octo"
+                    , study = "satsa"
                     , physical_measure = "grip"
                     , covars = unique(ds$model_type) # model_type
                     , cognitive_construct = unique(ds$cognitive_construct)
 ){
 
-  d <- ds[ds$study_name %in% study &
+  ds <- ds[ds$study_name %in% study &
           ds$physical_measure %in% physical_measure &
           ds$model_type %in% covars &
           ds$cognitive_construct %in% cognitive_construct , ]
 
 
-  d <- d %>%
-  dplyr::filter(!cognitive_construct %in% c("Univar")) %>% #, !physical_construct %in% c("Univar")) %>%
-  dplyr::count_(c("study_name", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure","corr_int", "corr_slope", "corr_residual" , "display_int", "display_slope", "display_residual", "p_cov_int", "p_cov_slope", 'p_cov_res')) %>%
+#   d <- ds %>%
+#   dplyr::filter(!cognitive_construct %in% c("Univar")) %>% #, !physical_construct %in% c("Univar")) %>%
+#   dplyr::count_(c("study_name", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure","corr_int", "corr_slope", "corr_residual" , "display_int", "display_slope", "display_residual", "p_cov_int", "p_cov_slope", 'p_cov_res')) %>%
 
 
 
 
 ## three long gather
-  tidyr::gather_("parameter","value", c("corr_int", "corr_slope", "corr_residual" , "display_int", "display_slope", "display_residual", "p_cov_int", "p_cov_slope", 'p_cov_res'))
+d <- ds %>% tidyr::gather_("parameter","value", c("corr_int", "corr_slope", "corr_residual" , "display_int", "display_slope", "display_residual", "p_cov_int", "p_cov_slope", 'p_cov_res'))
   d$parameter <- stringr::str_replace(d$parameter, "cov_res", "cov_residual")
   d$parameter <- stringr::str_replace(d$parameter, "p_cov", "pvalue")
 for( i in seq_along(d$parameter)){
@@ -173,7 +183,10 @@ for( i in seq_along(d$parameter)){
                     ifelse(d$pvalue <= .001, "<=.001", NA)))))
 
   head(as.data.frame(d))
+  return(d)
 }
+
+d <- filter_model(ds = ds, "satsa", "grip")
 
 
 
@@ -181,8 +194,9 @@ for( i in seq_along(d$parameter)){
 #   # @knitr define_graph_functions
 
 
-pink_plot <- function(d
-                    , study = "octo"
+ISR_plot <- function(ds = d
+                    # select
+                    , study = "satsa"
                     , physical_measure = "grip"
                     , covars = unique(ds$model_type) # model_type
                     , cognitive_construct = unique(ds$cognitive_construct)
@@ -192,13 +206,12 @@ pink_plot <- function(d
                     # arrange
                     , x_facet = "model_type" # grouped horizontally
                     , y_facet = "subgroup" # grouped vertically
-                    ){
+){
   g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", label=display_value, fill="sign"))
   g <- g + geom_tile()
   g <- g + geom_text(size = baseSize-5)
   # g <- g + facet_grid(subgroup ~ model_type)
   g <- g + facet_grid(as.formula(paste0(y_facet," ~ ", x_facet)))
-
   # g <- g + scale_x_discrete(labels = c("int"="INT", "slope"="SLP" , "res"="RES"))
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
   g <- g + scale_fill_manual(name = "p-value", values = pvalueColors)
@@ -220,6 +233,9 @@ pink_plot <- function(d
 }
 
 
+d <- filter_model(ds = ds, "satsa", "grip")
+ISR_plot(ds = d, "satsa", "grip", display_value="display")
+
 
 
 ###################################################
@@ -230,16 +246,18 @@ shinyServer(function(input, output) {
 # browser()
   output$table2 <- renderPlot({
      # browser()
-     d <- filter_study_measure(ds,
-                               study = input$study,
-                               physical_measure = input$physical_measure
-                               , covars = input$covars
-                               )
-     pink_plot(d,
-                               study = input$study,
-                               physical_measure = input$physical_measure
-               ,               covars = input$covars
-               )
+    d <- filter_model(ds = ds
+                     , study = input$study
+                     , physical_measure = input$physical_measure
+                     , display = input$display
+                     , covars = input$covars
+    )
+    ISR_plot(ds = d
+            , study = input$study
+            , physical_measure = input$physical_measure
+            , display = input$display
+            , covars = input$covars
+    )
   })
 })
 
