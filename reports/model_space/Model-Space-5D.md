@@ -29,20 +29,31 @@
 <!-- Frequency counts   -->
 
 
-This report establishes four key graphs that go into compiling the Model Catalog, which will be used to find and view replicated models. 
+This report establishes four key graphs that go into compiling the Model Catalog, which will be used to find and view replicated models. The following table gives model counts presently available in the collectivs. Rows list model specifications: *u* or *b* for univariate or bivariate growth model respectively. The numeric suffix (*0*, *1*, *2*) indicate the highest random growth term on the first level (*0* - intercept, *1* - linear, *2* - quadratic).
 
 
 
 ```
-Source: local data frame [2 x 2]
+    
+     eas habc ilse nas nuage octo radc satsa
+  b1 219   48   72  41     6   88  137    92
+  u0   6   10   14   0    10    0    0     0
+  u1 129   30   37   0    36    0    4     0
+  u2 131    0    0   0     0    0    0     0
+```
 
-  converged    n
-1     FALSE    1
-2      TRUE 1109
+```
+    
+     eas habc ilse nas nuage octo radc satsa
+  b1 219 48   72   41  6     88   137  92   
+  u0 6   10   14   .   10    .    .    .    
+  u1 129 30   37   .   36    .    4    .    
+  u2 131 .    .    .   .     .    .    .    
 ```
 
 
-## Prototype
+## Fi5ve dimensions of model space
+
 Each bivariate growth model in our collective can be described with respect to the following **fi5e** primary dimensions: study, physical measure, cognitive measure, subgroup,and model type.     
 **Study** - (eas, elsa, ilse, habc,...) - separate data collection efforts. Longitudinal studies vary on sampling procedure, sample composition, temporal design, availablity and type of anthropometric measures. ["Table 1" Report](./reports/table_1/table_1.md) records these descriptives for each study.   
 **Physical measure** - (gait, grip, pek, fvc,...)  - **add more**   
@@ -52,11 +63,7 @@ Each bivariate growth model in our collective can be described with respect to t
 
 *Cognitive measure* is the longest and thus chosen to span the **vertical axis** of the 2D surface of the graph. The other fou4 primary dimensions are designed into the **horizontal axis**. Each cell contains a  **number** counting models with those  specifications. Number on the background of the same color add to 100% of the submitted models. Transparancy is mapped onto the magnitude of the number. The hue is categorical. Combining cognitive measure with each of the four demensions results in **four tile plots**
 
-These four graphs  can be united into a display of a quantitative invormation, necessary to identify overlaps in models across studies. To prototype the tool, I just produced the graph by manually joining the individual graphs.
-![prototype](./figure_overlap_(old)/combine_panels-01.png)
-
-## Composite
-This it the result of joining with scripts. Should be used as the starting point for future developments. The graph is produced with  [./reports/model_space/scripts/tile_model_5D.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/reports/model_space/scripts/tile_model_5D.R) script. 
+These four graphs  can be united into a display of a quantitative invormation, necessary to identify overlaps in models across studies. The following graph is the current draft of the 5-dimensional model space of the Portland-2105 collective. The graph is produced with  [./reports/model_space/scripts/tile_model_5D.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/reports/model_space/scripts/tile_model_5D.R) script. 
 
 ![](figure_modelSpace5D/dashboard_tile_graph-1.png) 
 
@@ -83,22 +90,12 @@ To inspect the built of each graph
 
 
 
-
-
-
-
-
-
-
-
-
-
 # Session Information
 For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
 
 
 ```
-Report rendered by koval_000 at 2015-06-24, 15:44 -0700
+Report rendered by koval_000 at 2015-06-24, 16:05 -0700
 ```
 
 ```

@@ -52,8 +52,10 @@ ds <- dsDemo
 # dplyr::tbl_df(ds)
 # dplyr::glimpse(ds)
 # utils::View(ds)
-ds %>% dplyr::count(converged)
-
+# ds %>% dplyr::count(converged)
+t2<-table(dsb$model_number, dsb$study_name)
+t2[t2==0] <- "."
+t2
 
 ## @knitr define_themes
 baseSize <- 10

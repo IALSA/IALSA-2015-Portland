@@ -14,7 +14,7 @@
  - [ ] Operationalization and centering of covariates
 
 #### Coordinated analysis with replication (CAR)
-[![prototype](./reports/model_space/figure_overlap_(old)/combine_panels-01.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)
+ [![model space 5D](./figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/scripts/tile_model_5D.R)
 
 *the graphic is composed of the graphs defined in [this report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/overlap_search_graphs/VisualizingOverlap.html)*
 
