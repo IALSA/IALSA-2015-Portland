@@ -1,8 +1,11 @@
 
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 
-[interactive pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) and [renaming and collapsing report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.html) 
-- 
+##  Latest tool updates
+ - [model_space](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/README.md) is a series of reports that tries to understand how best to organize our models for the interpretation, in which model is the primary unit of analysis.  
+ - [ interactive pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
+ - [renaming and collapsing  report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.html)   
+ 
 #### Teleconference on June 26, 2015
 
 ##### AGENDA
