@@ -8,4 +8,4 @@ Model Space
 
 ## Cognitive Domain Map
   There were over 70 distinctly named cogntive measured used in collective's models. In order to accomodate more general conclusions and to simplify meta-analysis, these cognitive measures are clustered into **Domains** or **Constructs** (we used these interchangably). Please note that clustering is arbitrary and instrumental. 
-  [![Cog Domain Map](./figure_cog_domain_map/domain_map_phys_counts-1.png)]](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/cog_domain_map.R)
+  [![Cog Domain Map](./figure_cog_domain_map/domain_map_phys_counts-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/cog_domain_map.R)

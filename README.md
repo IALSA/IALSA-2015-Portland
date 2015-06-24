@@ -16,7 +16,7 @@
 #### Coordinated analysis with replication (CAR)
  ![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)
 
-*the graphic is composed of the graphs defined in [this report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/overlap_search_graphs/VisualizingOverlap.html)*
+*the graphic is composed of the graphs defined in [this report](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)*
 
 ### Teleconference on June 12
 
