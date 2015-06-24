@@ -14,13 +14,13 @@ shinyUI(fluidPage(
 
     ### Sidebar panel
     sidebarPanel(
-      selectInput("study","Select study:"
+      selectInput("selectStudy","Select study:"
                   , choices=c("octo","habc", "ilse", "nuage", "radc", "satsa")
                   , selected = "satsa"),
-      selectInput("physical_measure", "Physical measure:"
+      selectInput("selectPhysMeasure", "Physical measure:"
                   , choices = c("grip","fev", "fvc",  "pek",  "gait")
                   , selected = "grip"),
-      selectInput("display", "Display mode:",
+      selectInput("selectDisplay", "Display mode:",
                   choices = c("Correlation" = "corr",
                                "Correlation & CI" = "display",
                                "p-value" = "pvalue")
@@ -42,6 +42,8 @@ shinyUI(fluidPage(
   ) ## close sidebarLayout
 )) # close fluidPage, shinyUI
 
+# see for observe object for CheckboxGroupInput
+# http://stackoverflow.com/questions/28829682/r-shiny-checkboxgroupinput-select-all-checkboxes-by-click
 
 # ui = shinyUI(fluidPage(
 #   fluidRow(

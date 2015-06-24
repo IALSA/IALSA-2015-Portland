@@ -207,7 +207,7 @@ ISR_plot <- function(ds = d
                     , x_facet = "model_type" # grouped horizontally
                     , y_facet = "subgroup" # grouped vertically
 ){
-  g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", label=display_value, fill="sign"))
+  g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", label="corr", fill="sign"))
   g <- g + geom_tile()
   g <- g + geom_text(size = baseSize-5)
   # g <- g + facet_grid(subgroup ~ model_type)
@@ -249,7 +249,6 @@ shinyServer(function(input, output) {
     d <- filter_model(ds = ds
                      , study = input$study
                      , physical_measure = input$physical_measure
-                     , display = input$display
                      , covars = input$covars
     )
     ISR_plot(ds = d
