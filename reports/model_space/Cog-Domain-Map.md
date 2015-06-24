@@ -1,4 +1,4 @@
-# Model Counts: IALSA Portland 2015
+# Cog Domain Map - Portland Workshop
 
 
 
@@ -59,12 +59,12 @@ I like how it simplifies the search for overlaps among measures. I developed the
 The domain map above is the actual data provided by the model in the Portland modeling collective right now. The colors  represent various cognitive domains, as identified by the participants in the model names. The colors are meant to be categorical, the change in hue is coincidental with alphabetic name.
 
 
-## Cross count
+## Cross counts with Physical Measures
 
 We can augment this map with the tile graph of the bivariate model counts: 
-![](figure_cog_domain_map/combine_map_and_cross-1.png) 
+![](figure_cog_domain_map/domain_map_phys_counts-1.png) 
 
-## What to do
+## Objectives
 
 Now we have a better system for planning our project. Itemizing, we can distinguish the following objectives: 
 
@@ -75,9 +75,9 @@ Now we have a better system for planning our project. Itemizing, we can distingu
   3. Reduce the number of columns
   4. Increase the value of numbers
 
-## Combine with lattice
+## Combine with other dimensions (Experimental)
 
-![](figure_cog_domain_map/combine_with_lattice-1.png) 
+![](figure_cog_domain_map/combine_with_otherDs-1.png) 
 
 
 ## Session Information
@@ -85,7 +85,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-10, 08:56 -0700
+Report rendered by koval_000 at 2015-06-24, 15:42 -0700
 ```
 
 ```
@@ -101,12 +101,12 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.10.5    lattice_0.20-31 dplyr_0.4.1     ggplot2_1.0.1   shiny_0.12.0   
+[1] lattice_0.20-31 dplyr_0.4.1     ggplot2_1.0.1   shiny_0.12.1    knitr_1.10.5   
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
  [7] R6_2.0.1         stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2    
-[13] DBI_0.3.1        htmltools_0.2.6  yaml_2.1.13      lazyeval_0.1.10  digest_0.6.8     assertthat_0.1  
-[19] formatR_1.2      reshape2_1.4.1   evaluate_0.7     mime_0.3         rmarkdown_0.6.1  stringi_0.4-1   
-[25] scales_0.2.4     httpuv_1.3.2     proto_0.3-10    
+[13] DBI_0.3.1        htmltools_0.2.6  lazyeval_0.1.10  assertthat_0.1   yaml_2.1.13      digest_0.6.8    
+[19] reshape2_1.4.1   formatR_1.2      evaluate_0.7     mime_0.3         rmarkdown_0.7    stringi_0.4-1   
+[25] scales_0.2.5     httpuv_1.3.2     proto_0.3-10    
 ```

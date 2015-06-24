@@ -127,8 +127,7 @@ cog_x_name <- function(ds, x_name){
 }
 
 
-## @knitr combine_map_and_cross
-
+## @knitr domain_map_phys_counts
 a <- domain_map(dsb)
 b <- cog_x_name(dsb,"physical_measure")
 
@@ -138,28 +137,8 @@ print(a, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:7))
 print(b, vp = viewport(layout.pos.row = 1, layout.pos.col = 8:10))
 
 
-#
-# ## @knitr cog_domain_map_v1
-# a <- domain_map(dsb)
-#
-#
-# ## @knitr cog_x_phys
-# b <- cog_x_name(dsb, "physical_measure")
-#
-# ## @knitr cog_x_study
-# c <- cog_x_name(dsb, "study_name")
-#
-#
-# ## @knitr cog_x_covar
-# d <- cog_x_name(dsb, "model_type")
-#
-#
-# ## @knitr cog_x_sex
-# e <- cog_x_name(dsb, "subgroup")
 
-
-
-## @knitr  combine_with_lattice
+## @knitr  combine_with_otherDs
 a <- domain_map(dsb)
 b <- cog_x_name(dsb, "physical_measure")
 b <- b + theme(axis.text.y = element_blank())
@@ -173,7 +152,6 @@ e <- e + theme(axis.text.y = element_blank())
 e
 
 # Define grid layout to locate plots and print each graph
-
 pushViewport(viewport(layout = grid.layout(1,18 )))
 print(a, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:9))
 print(b, vp = viewport(layout.pos.row = 1, layout.pos.col = 10:12))
@@ -183,78 +161,10 @@ print(e, vp = viewport(layout.pos.row = 1, layout.pos.col = 18))
 
 
 
-######### Define multiplot function ##############
-## @knitr define_multi_plot_function
-
-# Multiple plot function
-#
-## http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
-# ALTERNATIVELY: sources this function
-# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-# - cols:   Number of columns in layout
-# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
-#
-# If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
-# then plot 1 will go in the upper left, 2 will go in the upper right, and
-# 3 will go all the way across the bottom.
-#
-multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
-  library(grid)
-
-  # Make a list from the ... arguments and plotlist
-  plots <- c(list(...), plotlist)
-
-  numPlots = length(plots)
-
-  # If layout is NULL, then use 'cols' to determine layout
-  if (is.null(layout)) {
-    # Make the panel
-    # ncol: Number of columns of plots
-    # nrow: Number of rows needed, calculated from # of cols
-    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
-                    ncol = cols, nrow = ceiling(numPlots/cols))
-  }
-
- if (numPlots==1) {
-    print(plots[[1]])
-
-  } else {
-    # Set up the page
-    grid.newpage()
-    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
-
-    # Make each plot, in the correct location
-    for (i in 1:numPlots) {
-      # Get the i,j matrix positions of the regions that contain this subplot
-      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
-
-      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
-                                      layout.pos.col = matchidx$col))
-    }
-  }
-}
 
 
 
-
-######### END Define multiplot function ##############
-
-
-
-
-
-
-
-
-
-  # rmarkdown::render(input = "./reports/overlap_search_graphs/Cog_Domain_Map.Rmd", output_format="html_document", clean=TRUE)
-
-
-
-###################### COPIED FROM overlap_tile_graph.R ######################
-###################### end COPIED FROM overlap_tile_graph.R ######################
-
-
+############ NON-LIVE code beyong this line #################
 
 ################ Graph Evolution #####################
 
@@ -349,7 +259,6 @@ cog_x_name <- function(ds, x_name){
   return(g)
 }
 
-## @knitr combine_map_and_cross
 
 a <- domain_map(dsb)
 b <- cog_x_name(dsb,"physical_measure")

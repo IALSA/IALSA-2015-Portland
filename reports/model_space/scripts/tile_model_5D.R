@@ -1,7 +1,13 @@
-# ## @knitr dummy
-# ############## Developing the tile graph #######################
-#
-# ## @knitr prep_for_tile
+##  Fou4 tile graphs of model counts:
+##    Rows                  Columns
+##  Cognitive measure     Physical Measure
+##  Cognitive measure     Study
+##  Cognitive measure     Subgroup
+##  Cognitive measure     Model type
+
+
+
+## @knitr prep_for_tile
 # library(shiny)
 # library(ggplot2)
 # library(dplyr)
@@ -60,6 +66,8 @@ basic_tile <- function(ds,x_name){
                  legend.position="top")
   return(g)
 }
+
+basic_tile(ds,"physical_measure")
 
 ## @knitr define_names_tile_function
 names_tile <- function(ds,x_name){
