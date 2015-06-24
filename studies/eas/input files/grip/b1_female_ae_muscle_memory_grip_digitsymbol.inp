@@ -1,7 +1,10 @@
 
-TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, female;
+
+
+      TITLE: m5, b1,digitspan, grip strength, LGM,ae Conditional,female
 
       DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
+   
 
       VARIABLE: Names are
         ! demographics
@@ -36,7 +39,8 @@ TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, female;
         FreeRecall_6	FreeRecall_7	FreeRecall_8	FreeRecall_9	FreeRecall_10
 
         !Total recall (1-10)	
-        TotRecall_1	TotRecall_2	TotRecall_3	TotRecall_4	TotRecall_5	TotRecall_6	TotRecall_7	
+        TotRecall_1	TotRecall_2	TotRecall_3	TotRecall_4	TotRecall_5	TotRecall_6	
+        TotRecall_7	
         TotRecall_8	TotRecall_9	TotRecall_10
 
        !Delayed free recall (1-10)
@@ -93,7 +97,7 @@ TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, female;
         CFCopy_1	CFCopy_2	CFCopy_3	CFCopy_4	CFCopy_5	CFCopy_6	CFCopy_7	
         CFCopy_8	CFCopy_9	CFCopy_10	
 
-        CFRecall_1	CFRecall_2	CFRecall_3	CFRecall_4	CFRecall_5	CFRecall_6	CFRecall_7	
+        CFRecall_1	CFRecall_2	CFRecall_3	CFRecall_4	CFRecall_5	CFRecall_6	CFRecall_7
         CFRecall_8	CFRecall_9	CFRecall_10	
 
 
@@ -113,7 +117,7 @@ TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, female;
         TrlBZScore_1	TrlBZScore_2	TrlBZScore_3	TrlBZScore_4	TrlBZScore_5	
         TrlBZScore_6	TrlBZScore_7	TrlBZScore_8	TrlBZScore_9	TrlBZScore_10	
 
-        TMTBRate_1	TMTBRate_2	TMTBRate_3	TMTBRate_4	TMTBRate_5	TMTBRate_6	TMTBRate_7	
+        TMTBRate_1	TMTBRate_2	TMTBRate_3	TMTBRate_4	TMTBRate_5	TMTBRate_6	TMTBRate_7
         TMTBRate_8	TMTBRate_9	TMTBRate_10	
 
         TrB2_1	TrB2_2	TrB2_3	TrB2_4	TrB2_5	TrB2_6
@@ -281,25 +285,72 @@ TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, female;
         chronicpi8	chronicpi9	chronicpi10	
 
         Pdever
-        ci cisum;
+        Cvd cisum;
       MISSING = ALL(-9999); !specification of missing observations coded in data file
 
-             USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 	
-                        ! p1 p2 p3 p4 p5 p6 p7 p8
-                      c1 c2 c3 c4 c5 c6 c7 c8
-                       Bage Height educ;
+             USEVAR are time1 time2 time3 time4 time5 time6 time7 time8 !time9 !time10	
+                        p1 p2 p3 p4 p5 p6 p7 p8 !p9 !p10
+                       c1 c2 c3 c4 c5 c6 c7 c8 !c9 !c10
+                       Bage educ; !height; !Diab SmokHist Cardio; !DepSymp;
              TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8;
+             !time9; !time10;
 
             USEOBSERVATIONS are DemEver EQ 0 and sex EQ 1;
 
-      Define: p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
-      p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
-      p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	p9=PeakFlowBestOf3_9;	
+      Define:  
+      
+p1=MaxEff_1;	p2=MaxEff_2;	p3=MaxEff_3;	p4=MaxEff_4;	p5=MaxEff_5;
+p6=MaxEff_6;	p7=MaxEff_7;	p8=MaxEff_8;	!p9=MaxEff_9;	!p10=MaxEff_10;
+    
 
-              c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
-                         c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	c9=Blockraw_9;	
+!p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
+!p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
+!p7=PeakFlowBestOf3_7; !p8=PeakFlowBestOf3_8;	!p9=PeakFlowBestOf3_9;	
 
-             Bage=AgeAtWaveOne-70;   !Centered at Age 70
+
+!c1=TrB1_1;	c2=TrB1_2;	c3=TrB1_3;	c4=TrB1_4;	c5=TrB1_5;	c6=TrB1_6;	
+!c7=TrB1_7;	c8=TrB1_8;	!c9=TrB1_9;	!c10=TrB1_10;
+
+!c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
+!c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	
+                         !c9=Blockraw_9;	
+
+!c1=Infraw_1;	c2=Infraw_2;	c3=Infraw_3;	c4=Infraw_4;	c5=Infraw_5;	
+!c6=Infraw_6;	c7=Infraw_7;	
+!c8=Infraw_8;	!c9=Infraw_9;	c10=Infraw_10;	
+
+
+!c1=Grade_1;	c2=Grade_2;	c3=Grade_3;	c4=Grade_4;	c5=Grade_5;	c6=Grade_6;	
+!c7=Grade_7;	c8=Grade_8;	!c9=Grade_9;	!c10=Grade_10;
+
+ !c1=LM_1;	c2=LM_2;	c3=LM_3;	c4=LM_4;	c5=LM_5;	c6=LM_6;	
+ !c7=LM_7;	c8=LM_8;	!c9=LM_9;	!c10=LM_10;
+
+ !c1=BostonFree_1;	c2=BostonFree_2;	c3=BostonFree_3;	c4=BostonFree_4;	
+ !c5=BostonFree_5; c6=BostonFree_6;	c7=BostonFree_7;	c8=BostonFree_8;	
+ !c9=BostonFree_9;	!c10=BostonFree_10;
+
+
+!c1=CAT_1;	c2=CAT_2;	c3=CAT_3;	c4=CAT_4; c5=CAT_5;	c6=CAT_6;	c7=CAT_7;	
+!c8=CAT_8;	!c9=CAT_9;	!c10=CAT_10;
+
+!c1=MMS_1;	c2=MMS_2;	c3=MMS_3;	c4=MMS_4;	c5=MMS_5;	c6=MMS_6;	c7=MMS_7;	
+!c8=MMS_8;	!c9=MMS_9;	!c10=MMS_10;	
+ !c1=Vocraw_1;	c2=Vocraw_2;	c3=Vocraw_3;	c4=Vocraw_4;	c5=Vocraw_5;	
+ !c6=Vocraw_6;	
+ !c7=Vocraw_7;	c8=Vocraw_8;	!c9=Vocraw_9;	!c10=Vocraw_10;
+
+      !c1=FAS_1;	c2=FAS_2;	c3=FAS_3;	c4=FAS_4;	c5=FAS_5;	c6=FAS_6;	c7=FAS_7;
+      !c8=FAS_8;	!c9=FAS_9;	!c10=FAS_10;
+     
+ c1=Spnraw_1;	c2=Spnraw_2;	c3=Spnraw_3;	c4=Spnraw_4;	c5=Spnraw_5;	
+ c6=Spnraw_6; c7=Spnraw_7;	c8=Spnraw_8;	!c9=Spnraw_9;	!c10=Spnraw_10;	
+
+
+ !c1=Symraw_1;	c2=Symraw_2;	c3=Symraw_3;	c4=Symraw_4;	c5=Symraw_5; 
+ !c6=Symraw_6;	c7=Symraw_7;	c8=Symraw_8;	!c9=Symraw_9;	c10=Symraw_10;
+
+              Bage=AgeAtWaveOne-70;   !Centered at Age 70
               Bagesq=(AgeatWaveOne-70)**2;
               Dage=deathage;
               !female=sex;         !0=Male
@@ -314,41 +365,58 @@ TITLE: M2 Pulmonary Function, Linear LGM, aeh Conditional, female;
               time7=wave_7;
               time8=wave_8;
               time9=wave_9;
+              time10=wave_10;
               !Marstat;
-              Height=Ht_1-160;
+             Height=Ht_1-160;
               !Weight
               !BMI
-              !SmokHist=SmokNow;
+              SmokHist=SmokEver_1;
               !Alcohol;
               !CompExp;
               !PhysAct;
               !BP;
-              !DepSymp;
-              !Cardio;
-              !Diab;
+              DepSymp = GDSScore_1;
+              Cardio = cvd;
+              Diab=DMever;
               !MorbInd;
 
               AgeAtWave_1Educyrs=Bage*Educ;
 
       ANALYSIS: TYPE = RANDOM;
+       ESTIMATOR=MLF;
+       miterations=1000;
+   h1convergence = 0.00001;
+       COVERAGE = .001;
 
-      MODEL:   ! ip sp | p1-p8 AT time1-time8;
 
-   ! ip sp | p1-p8 AT time1-time8;
-      !ip sp qp| p1-p8 AT time1-time8;
-      !ip sp qp ON Bage ;
+      MODEL:
+     ip sp | p1-p8 AT time1-time8;
+     ic sc  | c1 - c8 AT time1-time8;
+      ip sp  ic sc WITH  ip sp  ic sc;
+     ip sp  ic sc  ON Bage educ; !height smokhist cardio diab; !depsymp;
+      c1-c8 (res_c);
+       p1-p8 (res_p);
+        p1-p8 pwith c1-c8(res_cov); 
+        !Paired covariances constrained to be equal across time
 
-             ic sc | c1-c8 AT time1-time8;
+      !ip sp ic sc ON Bage educ height smokhist cardio diab depsymp;
+      
 
-             ! ip sp ic sc ON Bage educ height;
+      ! ic sc qc| c1-c9 AT time1-time9;
+       !ic sc qc ON Bage educ;
+       !c1-c9 (res_c);
 
-             ic sc ON Bage educ height;
+             ! ip sp ic sc ON Bage;
 
-  !ip sp ON Bage educ height;
-    !p1-p8 (res_p);
-              c1-c8 (res_c);
 
-             ! p1-p8 pwith c1-c8 (res_cov);
-              !Paired covariances constrained to be equal across time
 
-      OUTPUT: sampstat;
+    !ip sp ON Bage;
+
+            !p1-p9 (res_p);
+
+
+      
+
+      OUTPUT: sampstat
+      !sampstat Cinterval;
+

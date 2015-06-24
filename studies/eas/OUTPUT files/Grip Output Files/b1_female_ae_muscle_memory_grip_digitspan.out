@@ -1,13 +1,13 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-03/03/2015   1:10 PM
+03/19/2015   2:48 PM
 
 INPUT INSTRUCTIONS
 
 
 
 
-        TITLE: m1 b1 vocab pek LGM,age educ Conditional, female
+        TITLE: m5, b1,digitspan, grip strength, LGM,ae Conditional,female
 
         DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
 
@@ -297,29 +297,64 @@ INPUT INSTRUCTIONS
                USEVAR are time1 time2 time3 time4 time5 time6 time7 time8 !time9 !time10	
                           p1 p2 p3 p4 p5 p6 p7 p8 !p9 !p10
                          c1 c2 c3 c4 c5 c6 c7 c8 !c9 !c10
-                         Bage educ; !height; !Diab SmokHist Cardio DepSymp;
+                         Bage educ; !height; !Diab SmokHist Cardio; !DepSymp;
                TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8;
                !time9; !time10;
 
               USEOBSERVATIONS are DemEver EQ 0 and sex EQ 1;
 
-        Define:  p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
-       p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
-       p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	!p9=PeakFlowBestOf3_9;	
+        Define:
 
-   c1=Vocraw_1;	c2=Vocraw_2;	c3=Vocraw_3;	c4=Vocraw_4;	c5=Vocraw_5;	
-   c6=Vocraw_6;	
-   c7=Vocraw_7;	c8=Vocraw_8;	!c9=Vocraw_9;	!c10=Vocraw_10;
-
-        c1=FAS_1;	c2=FAS_2;	c3=FAS_3;	c4=FAS_4;	c5=FAS_5;	c6=FAS_6;	c7=FAS_7;
-        c8=FAS_8;	!c9=FAS_9;	!c10=FAS_10;
-
-       !c1=Spnraw_1;	c2=Spnraw_2;	c3=Spnraw_3;	c4=Spnraw_4;	c5=Spnraw_5;	
-       !c6=Spnraw_6; c7=Spnraw_7;	c8=Spnraw_8;	c9=Spnraw_9;	!c10=Spnraw_10;	
+  p1=MaxEff_1;	p2=MaxEff_2;	p3=MaxEff_3;	p4=MaxEff_4;	p5=MaxEff_5;
+  p6=MaxEff_6;	p7=MaxEff_7;	p8=MaxEff_8;	!p9=MaxEff_9;	!p10=MaxEff_10;
 
 
-        !c1=Symraw_1;	c2=Symraw_2;	c3=Symraw_3;	c4=Symraw_4;	c5=Symraw_5;
-        !c6=Symraw_6;	c7=Symraw_7;	c8=Symraw_8;	c9=Symraw_9;	c10=Symraw_10;
+  !p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
+  !p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
+  !p7=PeakFlowBestOf3_7; !p8=PeakFlowBestOf3_8;	!p9=PeakFlowBestOf3_9;	
+
+
+  !c1=TrB1_1;	c2=TrB1_2;	c3=TrB1_3;	c4=TrB1_4;	c5=TrB1_5;	c6=TrB1_6;	
+  !c7=TrB1_7;	c8=TrB1_8;	!c9=TrB1_9;	!c10=TrB1_10;
+
+  !c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
+  !c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	
+                           !c9=Blockraw_9;	
+
+  !c1=Infraw_1;	c2=Infraw_2;	c3=Infraw_3;	c4=Infraw_4;	c5=Infraw_5;	
+  !c6=Infraw_6;	c7=Infraw_7;	
+  !c8=Infraw_8;	!c9=Infraw_9;	c10=Infraw_10;	
+
+
+  !c1=Grade_1;	c2=Grade_2;	c3=Grade_3;	c4=Grade_4;	c5=Grade_5;	c6=Grade_6;	
+  !c7=Grade_7;	c8=Grade_8;	!c9=Grade_9;	!c10=Grade_10;
+
+   !c1=LM_1;	c2=LM_2;	c3=LM_3;	c4=LM_4;	c5=LM_5;	c6=LM_6;	
+   !c7=LM_7;	c8=LM_8;	!c9=LM_9;	!c10=LM_10;
+
+   !c1=BostonFree_1;	c2=BostonFree_2;	c3=BostonFree_3;	c4=BostonFree_4;	
+   !c5=BostonFree_5; c6=BostonFree_6;	c7=BostonFree_7;	c8=BostonFree_8;	
+   !c9=BostonFree_9;	!c10=BostonFree_10;
+
+
+  !c1=CAT_1;	c2=CAT_2;	c3=CAT_3;	c4=CAT_4; c5=CAT_5;	c6=CAT_6;	c7=CAT_7;	
+  !c8=CAT_8;	!c9=CAT_9;	!c10=CAT_10;
+
+  !c1=MMS_1;	c2=MMS_2;	c3=MMS_3;	c4=MMS_4;	c5=MMS_5;	c6=MMS_6;	c7=MMS_7;	
+  !c8=MMS_8;	!c9=MMS_9;	!c10=MMS_10;	
+   !c1=Vocraw_1;	c2=Vocraw_2;	c3=Vocraw_3;	c4=Vocraw_4;	c5=Vocraw_5;	
+   !c6=Vocraw_6;	
+   !c7=Vocraw_7;	c8=Vocraw_8;	!c9=Vocraw_9;	!c10=Vocraw_10;
+
+        !c1=FAS_1;	c2=FAS_2;	c3=FAS_3;	c4=FAS_4;	c5=FAS_5;	c6=FAS_6;	c7=FAS_7;
+        !c8=FAS_8;	!c9=FAS_9;	!c10=FAS_10;
+
+   c1=Spnraw_1;	c2=Spnraw_2;	c3=Spnraw_3;	c4=Spnraw_4;	c5=Spnraw_5;	
+   c6=Spnraw_6; c7=Spnraw_7;	c8=Spnraw_8;	!c9=Spnraw_9;	!c10=Spnraw_10;	
+
+
+   !c1=Symraw_1;	c2=Symraw_2;	c3=Symraw_3;	c4=Symraw_4;	c5=Symraw_5;
+   !c6=Symraw_6;	c7=Symraw_7;	c8=Symraw_8;	!c9=Symraw_9;	c10=Symraw_10;
 
                 Bage=AgeAtWaveOne-70;   !Centered at Age 70
                 Bagesq=(AgeatWaveOne-70)**2;
@@ -364,10 +399,11 @@ INPUT INSTRUCTIONS
        ip sp | p1-p8 AT time1-time8;
        ic sc  | c1 - c8 AT time1-time8;
         ip sp  ic sc WITH  ip sp  ic sc;
-       ip sp  ic sc  ON Bage educ; !height; !smokhist cardio diab depsymp;
+       ip sp  ic sc  ON Bage educ; !height smokhist cardio diab; !depsymp;
         c1-c8 (res_c);
          p1-p8 (res_p);
-          p1-p8 pwith c1-c8(res_cov); !Paired covariances constrained to be equal across tim
+          p1-p8 pwith c1-c8(res_cov);
+          !Paired covariances constrained to be equal across time
 
         !ip sp ic sc ON Bage educ height smokhist cardio diab depsymp;
 
@@ -394,22 +430,19 @@ INPUT INSTRUCTIONS
 
 
 *** WARNING
-  Input line exceeded 90 characters. Some input may be truncated.
-          p1-p8 pwith c1-c8(res_cov); !Paired covariances constrained to be equal across time
-*** WARNING
   Data set contains cases with missing on all variables except
   x-variables.  These cases were not included in the analysis.
-  Number of cases with missing on all variables except x-variables:  29
-   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+  Number of cases with missing on all variables except x-variables:  5
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
 
 
 
-m1 b1 vocab pek LGM,age educ Conditional, female
+m5, b1,digitspan, grip strength, LGM,ae Conditional,female
 
 SUMMARY OF ANALYSIS
 
 Number of groups                                                 1
-Number of observations                                         571
+Number of observations                                         595
 
 Number of dependent variables                                   16
 Number of independent variables                                  2
@@ -457,7 +490,7 @@ Input data format  FREE
 
 SUMMARY OF DATA
 
-     Number of missing data patterns           109
+     Number of missing data patterns            93
 
 
 COVARIANCE COVERAGE OF DATA
@@ -471,63 +504,63 @@ Minimum covariance coverage value   0.001
            Covariance Coverage
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
- P1             0.261
- P2             0.149         0.177
- P3             0.110         0.105         0.154
- P4             0.088         0.089         0.107         0.149
- P5             0.070         0.067         0.089         0.109         0.147
- P6             0.058         0.049         0.077         0.081         0.086
- P7             0.040         0.035         0.049         0.058         0.072
- P8             0.012         0.014         0.030         0.035         0.051
- C1             0.261         0.177         0.152         0.145         0.137
- C2             0.257         0.175         0.154         0.145         0.142
- C3             0.189         0.172         0.147         0.147         0.144
- C4             0.131         0.131         0.151         0.147         0.147
- C5             0.102         0.098         0.124         0.145         0.142
- C6             0.082         0.077         0.105         0.123         0.144
- C7             0.061         0.056         0.084         0.091         0.105
- C8             0.051         0.046         0.068         0.074         0.091
- BAGE           0.261         0.177         0.154         0.149         0.147
- EDUC           0.261         0.177         0.154         0.149         0.147
+ P1             0.240
+ P2             0.139         0.166
+ P3             0.104         0.099         0.146
+ P4             0.081         0.082         0.104         0.151
+ P5             0.066         0.062         0.084         0.111         0.141
+ P6             0.054         0.045         0.072         0.081         0.084
+ P7             0.039         0.034         0.047         0.057         0.069
+ P8             0.012         0.012         0.027         0.037         0.047
+ C1             0.240         0.166         0.146         0.151         0.141
+ C2             0.237         0.165         0.146         0.151         0.141
+ C3             0.178         0.161         0.139         0.150         0.139
+ C4             0.124         0.124         0.143         0.150         0.141
+ C5             0.096         0.092         0.118         0.148         0.136
+ C6             0.079         0.074         0.101         0.126         0.138
+ C7             0.059         0.054         0.081         0.092         0.101
+ C8             0.049         0.044         0.066         0.076         0.087
+ BAGE           0.240         0.166         0.146         0.151         0.141
+ EDUC           0.240         0.166         0.146         0.151         0.141
 
 
            Covariance Coverage
               P6            P7            P8            C1            C2
               ________      ________      ________      ________      ________
- P6             0.102
- P7             0.061         0.075
- P8             0.037         0.037         0.053
- C1             0.098         0.072         0.049         0.954
- C2             0.100         0.074         0.051         0.553         0.599
- C3             0.102         0.075         0.053         0.426         0.433
- C4             0.102         0.075         0.053         0.296         0.301
- C5             0.098         0.075         0.053         0.215         0.217
- C6             0.100         0.075         0.053         0.175         0.182
- C7             0.100         0.074         0.053         0.128         0.131
- C8             0.081         0.075         0.053         0.098         0.102
- BAGE           0.102         0.075         0.053         0.954         0.599
- EDUC           0.102         0.075         0.053         0.954         0.599
+ P6             0.101
+ P7             0.059         0.072
+ P8             0.034         0.034         0.049
+ C1             0.101         0.072         0.049         1.000
+ C2             0.101         0.072         0.049         0.610         0.610
+ C3             0.101         0.072         0.049         0.444         0.444
+ C4             0.101         0.072         0.049         0.306         0.306
+ C5             0.097         0.072         0.049         0.222         0.222
+ C6             0.099         0.072         0.049         0.183         0.183
+ C7             0.099         0.071         0.049         0.129         0.129
+ C8             0.079         0.072         0.049         0.101         0.101
+ BAGE           0.101         0.072         0.049         1.000         0.610
+ EDUC           0.101         0.072         0.049         1.000         0.610
 
 
            Covariance Coverage
               C3            C4            C5            C6            C7
               ________      ________      ________      ________      ________
- C3             0.457
- C4             0.306         0.319
- C5             0.226         0.228         0.231
- C6             0.186         0.189         0.186         0.191
- C7             0.133         0.135         0.130         0.133         0.135
- C8             0.105         0.105         0.103         0.105         0.103
- BAGE           0.457         0.319         0.231         0.191         0.135
- EDUC           0.457         0.319         0.231         0.191         0.135
+ C3             0.444
+ C4             0.299         0.306
+ C5             0.218         0.220         0.222
+ C6             0.182         0.182         0.178         0.183
+ C7             0.129         0.129         0.124         0.128         0.129
+ C8             0.101         0.101         0.099         0.101         0.099
+ BAGE           0.444         0.306         0.222         0.183         0.129
+ EDUC           0.444         0.306         0.222         0.183         0.129
 
 
            Covariance Coverage
               C8            BAGE          EDUC
               ________      ________      ________
- C8             0.105
- BAGE           0.105         1.000
- EDUC           0.105         1.000         1.000
+ C8             0.101
+ BAGE           0.101         1.000
+ EDUC           0.101         1.000         1.000
 
 
 SAMPLE STATISTICS
@@ -543,42 +576,42 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
          Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
         Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
 
-     P1                  261.906       0.146     110.000    1.34%     200.000    250.000    250.000
-             149.000    5879.105      -0.192     500.000    0.67%     280.000    320.000
-     P2                  245.297       1.347     100.000    2.97%     170.000    210.000    240.000
-             101.000    7898.922       5.168     700.000    0.99%     260.000    300.000
-     P3                  239.625       0.288     100.000    1.14%     170.000    210.000    230.000
-              88.000    5793.462      -0.489     440.000    1.14%     250.000    310.000
-     P4                  231.541       1.715     100.000    3.53%     170.000    200.000    240.000
-              85.000    6212.342       7.542     650.000    1.18%     250.000    280.000
-     P5                  224.595       0.599     100.000    3.57%     150.000    200.000    220.000
-              84.000    6225.193       0.408     480.000    1.19%     240.000    300.000
-     P6                  206.552       0.789     100.000    6.90%     140.000    180.000    200.000
-              58.000    5957.075       0.428     450.000    1.72%     210.000    250.000
-     P7                  193.256       0.770     100.000   11.63%     120.000    160.000    180.000
-              43.000    6063.818      -0.100     400.000    2.33%     200.000    250.000
-     P8                  219.467      -0.017     110.000    6.67%     150.000    200.000    230.000
-              30.000    4068.249      -0.697     350.000    3.33%     240.000    280.000
-     C1                   33.440       0.314       0.000    0.18%      22.000     28.000     32.000
-             545.000     168.911      -0.330      75.000    0.18%      36.000     45.000
-     C2                   35.556       0.231       3.000    0.29%      25.000     32.000     35.500
-             342.000     165.791      -0.028      77.000    0.29%      39.000     46.000
-     C3                   36.628       0.365       3.000    0.38%      25.000     33.000     36.000
-             261.000     185.544       0.360      85.000    0.38%      39.000     47.000
-     C4                   36.593       0.342       9.000    1.10%      27.000     32.000     35.000
-             182.000     168.175       0.209      75.000    1.10%      39.000     49.000
-     C5                   40.174       0.455       9.000    0.76%      28.000     35.000     38.000
-             132.000     187.401      -0.289      76.000    0.76%      42.000     51.000
-     C6                   40.688       0.339      10.000    0.92%      28.000     37.000     40.000
-             109.000     173.811      -0.045      75.000    0.92%      43.000     50.000
-     C7                   40.299      -0.047      13.000    2.60%      27.000     37.000     41.000
-              77.000     153.404      -0.385      71.000    1.30%      45.000     51.000
-     C8                   39.900       0.541      13.000    1.67%      30.000     35.000     38.500
-              60.000     180.890       0.218      77.000    1.67%      41.000     48.000
-     BAGE                  8.537       0.397      -6.378    0.18%       3.492      6.613      8.056
-             571.000      27.313      -0.274      25.962    0.18%       9.587     13.176
-     EDUC                  6.222       0.145      -4.000    0.35%       4.000      5.000      5.000
-             571.000      11.742      -0.136      15.000    0.18%       7.000      9.000
+     P1                   15.615      -0.020       4.000    1.40%      10.000     14.000     16.000
+             143.000      31.523      -0.352      32.000    0.70%      18.000     20.000
+     P2                   14.919       0.251       4.000    1.01%      10.000     14.000     14.000
+              99.000      28.862      -0.425      28.000    2.02%      16.000     20.000
+     P3                   14.287       0.778       4.000    1.15%       8.000     12.000     14.000
+              87.000      33.147       0.735      33.000    1.15%      14.000     19.000
+     P4                   13.511       0.780       4.000    3.33%       8.000     10.000     12.000
+              90.000      37.783       0.440      34.000    1.11%      14.000     18.000
+     P5                   13.714       0.599       2.000    1.19%       8.000     10.000     13.500
+              84.000      46.918      -0.166      34.000    1.19%      15.000     20.000
+     P6                   11.983       0.703       4.000   10.00%       6.000      8.000     10.000
+              60.000      37.616      -0.097      30.000    1.67%      14.000     18.000
+     P7                   10.860       1.041       2.000    2.33%       4.000      6.000      8.000
+              43.000      50.446       0.405      32.000    2.33%      12.000     16.000
+     P8                   13.483       0.504       4.000    3.45%       8.000     12.000     12.000
+              29.000      34.112      -0.516      26.000    3.45%      14.000     18.000
+     C1                   13.371       0.495       4.000    0.34%      10.000     12.000     13.000
+             595.000      12.939       0.591      27.000    0.17%      14.000     16.000
+     C2                   13.647       0.601       5.000    0.28%      11.000     13.000     13.000
+             363.000      10.724       0.853      28.000    0.28%      14.000     16.000
+     C3                   14.133       0.558       5.000    0.38%      11.000     13.000     14.000
+             264.000      11.433       1.244      29.000    0.38%      15.000     16.000
+     C4                   14.473       0.932       8.000    0.55%      11.000     13.000     14.000
+             182.000      12.436       1.458      29.000    0.55%      15.000     17.000
+     C5                   14.871       0.627       7.000    0.76%      12.000     14.000     15.000
+             132.000      12.961       0.866      29.000    0.76%      15.000     18.000
+     C6                   15.156       0.852       9.000    3.67%      12.000     14.000     14.000
+             109.000      13.233       1.344      30.000    0.92%      16.000     18.000
+     C7                   15.169       0.863       9.000    5.19%      12.000     14.000     15.000
+              77.000      14.010       1.834      30.000    1.30%      16.000     18.000
+     C8                   15.250       1.293      10.000    1.67%      13.000     14.000     14.500
+              60.000      11.387       2.144      28.000    1.67%      15.000     17.000
+     BAGE                  8.537       0.390      -6.378    0.17%       3.602      6.613      8.026
+             595.000      27.344      -0.287      25.962    0.17%       9.581     13.176
+     EDUC                  6.124       0.160      -4.000    0.34%       4.000      5.000      5.000
+             595.000      11.776      -0.133      15.000    0.17%       6.000      9.000
 
 
 THE MODEL ESTIMATION TERMINATED NORMALLY
@@ -600,13 +633,13 @@ Number of Free Parameters                       25
 
 Loglikelihood
 
-          H0 Value                       -9480.670
+          H0 Value                       -5905.536
 
 Information Criteria
 
-          Akaike (AIC)                   19011.340
-          Bayesian (BIC)                 19120.025
-          Sample-Size Adjusted BIC       19040.661
+          Akaike (AIC)                   11861.071
+          Bayesian (BIC)                 11970.785
+          Sample-Size Adjusted BIC       11891.418
             (n* = (n + 2) / 24)
 
 
@@ -617,56 +650,56 @@ MODEL RESULTS
                     Estimate       S.E.  Est./S.E.    P-Value
 
  IP         ON
-    BAGE              -3.774      1.357     -2.781      0.005
-    EDUC               1.202      2.221      0.541      0.588
+    BAGE              -0.027      0.107     -0.250      0.802
+    EDUC              -0.067      0.138     -0.483      0.629
 
  SP         ON
-    BAGE              -0.260      0.354     -0.734      0.463
-    EDUC              -0.455      0.604     -0.754      0.451
+    BAGE              -0.060      0.026     -2.282      0.022
+    EDUC               0.012      0.045      0.275      0.783
 
  IC         ON
-    BAGE              -0.075      0.103     -0.727      0.467
-    EDUC               1.567      0.154     10.195      0.000
+    BAGE              -0.033      0.030     -1.109      0.268
+    EDUC               0.361      0.044      8.221      0.000
 
  SC         ON
-    BAGE              -0.032      0.019     -1.701      0.089
-    EDUC              -0.016      0.035     -0.472      0.637
+    BAGE              -0.008      0.007     -1.055      0.291
+    EDUC              -0.011      0.011     -0.998      0.318
 
  IP       WITH
-    SP              -566.531    178.975     -3.165      0.002
-    IC               164.041     87.945      1.865      0.062
-    SC                -8.840     12.441     -0.711      0.477
+    SP                -2.267      1.122     -2.021      0.043
+    IC                -1.593      2.098     -0.759      0.448
+    SC                 0.438      0.411      1.066      0.286
 
  SP       WITH
-    IC               -11.336     24.094     -0.470      0.638
-    SC                 1.936      2.381      0.813      0.416
+    IC                -0.745      0.562     -1.325      0.185
+    SC                 0.179      0.090      1.993      0.046
 
  IC       WITH
-    SC                 0.555      1.124      0.494      0.621
+    SC                -0.322      0.142     -2.278      0.023
 
  P1       WITH
-    C1                 0.133     15.194      0.009      0.993
+    C1                 0.133      0.243      0.548      0.583
 
  P2       WITH
-    C2                 0.133     15.194      0.009      0.993
+    C2                 0.133      0.243      0.548      0.583
 
  P3       WITH
-    C3                 0.133     15.194      0.009      0.993
+    C3                 0.133      0.243      0.548      0.583
 
  P4       WITH
-    C4                 0.133     15.194      0.009      0.993
+    C4                 0.133      0.243      0.548      0.583
 
  P5       WITH
-    C5                 0.133     15.194      0.009      0.993
+    C5                 0.133      0.243      0.548      0.583
 
  P6       WITH
-    C6                 0.133     15.194      0.009      0.993
+    C6                 0.133      0.243      0.548      0.583
 
  P7       WITH
-    C7                 0.133     15.194      0.009      0.993
+    C7                 0.133      0.243      0.548      0.583
 
  P8       WITH
-    C8                 0.133     15.194      0.009      0.993
+    C8                 0.133      0.243      0.548      0.583
 
  Intercepts
     P1                 0.000      0.000    999.000    999.000
@@ -685,37 +718,37 @@ MODEL RESULTS
     C6                 0.000      0.000    999.000    999.000
     C7                 0.000      0.000    999.000    999.000
     C8                 0.000      0.000    999.000    999.000
-    IP               306.567     20.832     14.716      0.000
-    SP               -10.665      5.093     -2.094      0.036
-    IC                24.087      1.439     16.737      0.000
-    SC                 0.661      0.304      2.175      0.030
+    IP                19.263      1.320     14.589      0.000
+    SP                -0.954      0.384     -2.486      0.013
+    IC                11.288      0.409     27.570      0.000
+    SC                 0.296      0.105      2.817      0.005
 
  Residual Variances
-    P1              1624.885     50.952     31.890      0.000
-    P2              1624.885     50.952     31.890      0.000
-    P3              1624.885     50.952     31.890      0.000
-    P4              1624.885     50.952     31.890      0.000
-    P5              1624.885     50.952     31.890      0.000
-    P6              1624.885     50.952     31.890      0.000
-    P7              1624.885     50.952     31.890      0.000
-    P8              1624.885     50.952     31.890      0.000
-    C1                28.504      1.251     22.778      0.000
-    C2                28.504      1.251     22.778      0.000
-    C3                28.504      1.251     22.778      0.000
-    C4                28.504      1.251     22.778      0.000
-    C5                28.504      1.251     22.778      0.000
-    C6                28.504      1.251     22.778      0.000
-    C7                28.504      1.251     22.778      0.000
-    C8                28.504      1.251     22.778      0.000
-    IP              5510.519    933.951      5.900      0.000
-    SP               155.645     43.428      3.584      0.000
-    IC               114.125      9.246     12.344      0.000
-    SC                 0.294      0.229      1.284      0.199
+    P1                 6.846      0.389     17.583      0.000
+    P2                 6.846      0.389     17.583      0.000
+    P3                 6.846      0.389     17.583      0.000
+    P4                 6.846      0.389     17.583      0.000
+    P5                 6.846      0.389     17.583      0.000
+    P6                 6.846      0.389     17.583      0.000
+    P7                 6.846      0.389     17.583      0.000
+    P8                 6.846      0.389     17.583      0.000
+    C1                 2.680      0.118     22.708      0.000
+    C2                 2.680      0.118     22.708      0.000
+    C3                 2.680      0.118     22.708      0.000
+    C4                 2.680      0.118     22.708      0.000
+    C5                 2.680      0.118     22.708      0.000
+    C6                 2.680      0.118     22.708      0.000
+    C7                 2.680      0.118     22.708      0.000
+    C8                 2.680      0.118     22.708      0.000
+    IP                33.379      4.841      6.896      0.000
+    SP                 1.126      0.330      3.418      0.001
+    IC                 9.136      0.743     12.290      0.000
+    SC                 0.104      0.029      3.591      0.000
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.251E-06
+     Condition Number for the Information Matrix              0.262E-05
        (ratio of smallest to largest eigenvalue)
 
 
@@ -725,11 +758,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\b1_female_ae_pulmonary_k
+    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\b1_female_ae_muslce_memo
 
-     Beginning Time:  13:10:51
-        Ending Time:  13:10:56
-       Elapsed Time:  00:00:05
+     Beginning Time:  14:48:45
+        Ending Time:  14:48:49
+       Elapsed Time:  00:00:04
 
 
 
