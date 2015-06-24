@@ -1,4 +1,4 @@
-## pivot tables in Shiny
+## ./shiny/pivotTable
 
 # Article on pivot tables in R - http://www.magesblog.com/2015/03/pivot-tables-with-r.html
 
