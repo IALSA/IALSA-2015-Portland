@@ -114,7 +114,7 @@ All your models were named properly
 After removing incorrectly named files, there are
 
 ```
-45
+32
 ```
 models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
 
@@ -127,7 +127,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
            
             b1 u0 u1
-  pulmonary 41 1  1 
+  pulmonary 28 1  1 
   Univar    .  1  1 
 ```
 
@@ -138,8 +138,8 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
         
          b1 u0 u1
-  fev    20 1  1 
-  fvc    21 .  . 
+  fev    14 1  1 
+  fvc    14 .  . 
   univar .  1  1 
 ```
 
@@ -149,12 +149,12 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
            
             b1 u0 u1
-  executive 5  .  . 
-  fluency   6  .  . 
-  memory    12 1  1 
-  mental    6  .  . 
-  reasoning 6  .  . 
-  speed     6  .  . 
+  executive 4  .  . 
+  fluency   4  .  . 
+  memory    8  1  1 
+  mental    4  .  . 
+  reasoning 4  .  . 
+  speed     4  .  . 
   Univar    .  1  1 
 ```
 
@@ -165,14 +165,14 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
                    
                     b1 u0 u1
-  categories        6  .  . 
-  digitsback        5  .  . 
-  figurecopy        6  .  . 
-  mmse              6  .  . 
-  patterncomparison 6  .  . 
+  categories        4  .  . 
+  digitsback        4  .  . 
+  figurecopy        4  .  . 
+  mmse              4  .  . 
+  patterncomparison 4  .  . 
   univar            .  1  1 
-  wordlistdelay     6  1  1 
-  wordlistimmed     6  .  . 
+  wordlistdelay     4  1  1 
+  wordlistimmed     4  .  . 
 ```
 </br></br></br>
 
@@ -187,8 +187,8 @@ Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE m
 ```
      
       pulmonary
-  fev 20       
-  fvc 21       
+  fev 14       
+  fvc 14       
 ```
 
 ## Cognitive 
@@ -197,13 +197,13 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
 ```
                    
                     executive fluency memory mental reasoning speed
-  categories        .         6       .      .      .         .    
-  digitsback        5         .       .      .      .         .    
-  figurecopy        .         .       .      .      6         .    
-  mmse              .         .       .      6      .         .    
-  patterncomparison .         .       .      .      .         6    
-  wordlistdelay     .         .       6      .      .         .    
-  wordlistimmed     .         .       6      .      .         .    
+  categories        .         4       .      .      .         .    
+  digitsback        4         .       .      .      .         .    
+  figurecopy        .         .       .      .      4         .    
+  mmse              .         .       .      4      .         .    
+  patterncomparison .         .       .      .      .         4    
+  wordlistdelay     .         .       4      .      .         .    
+  wordlistimmed     .         .       4      .      .         .    
 ```
 
 
@@ -214,12 +214,12 @@ Number of models with the following **physical constructs** (columns) and  **cog
 ```
            
             pulmonary
-  executive 5        
-  fluency   6        
-  memory    12       
-  mental    6        
-  reasoning 6        
-  speed     6        
+  executive 4        
+  fluency   4        
+  memory    8        
+  mental    4        
+  reasoning 4        
+  speed     4        
 ```
 
 ## Phys.Constructs
@@ -228,13 +228,13 @@ Number of models with the following  **physical constructs** (columns) and  **co
 ```
                    
                     pulmonary
-  categories        6        
-  digitsback        5        
-  figurecopy        6        
-  mmse              6        
-  patterncomparison 6        
-  wordlistdelay     6        
-  wordlistimmed     6        
+  categories        4        
+  digitsback        4        
+  figurecopy        4        
+  mmse              4        
+  patterncomparison 4        
+  wordlistdelay     4        
+  wordlistimmed     4        
 ```
 
 ## Cog.Constructs
@@ -243,12 +243,12 @@ Number of models with the following  **physical measure** (columns) and  **cogni
 ```
            
             fev fvc
-  executive 2   3  
-  fluency   3   3  
-  memory    6   6  
-  mental    3   3  
-  reasoning 3   3  
-  speed     3   3  
+  executive 2   2  
+  fluency   2   2  
+  memory    4   4  
+  mental    2   2  
+  reasoning 2   2  
+  speed     2   2  
 ```
 
 ## Measures
@@ -257,13 +257,13 @@ Number of models with the following  **physical measures** (columns) and  **cogn
 ```
                    
                     fev fvc
-  categories        3   3  
-  digitsback        2   3  
-  figurecopy        3   3  
-  mmse              3   3  
-  patterncomparison 3   3  
-  wordlistdelay     3   3  
-  wordlistimmed     3   3  
+  categories        2   2  
+  digitsback        2   2  
+  figurecopy        2   2  
+  mmse              2   2  
+  patterncomparison 2   2  
+  wordlistdelay     2   2  
+  wordlistimmed     2   2  
 ```
 </br></br></br>
 
@@ -367,7 +367,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-24, 22:20 -0700
+Report rendered by koval_000 at 2015-06-25, 11:02 -0700
 ```
 
 ```
@@ -383,14 +383,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] lattice_0.20-31       shiny_0.12.1          ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5         
-[6] testit_0.4            knitr_1.10.5          dplyr_0.4.1           MplusAutomation_0.6-3
+[1] rpivotTable_0.1.4.1 lattice_0.20-31     shiny_0.12.1        dplyr_0.4.1         testit_0.4         
+[6] ggplot2_1.0.1       RColorBrewer_1.1-2  scales_0.2.5        knitr_1.10.5       
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      formatR_1.2      plyr_1.8.2       highr_0.5        tools_3.2.0      boot_1.3-16     
- [7] digest_0.6.8     evaluate_0.7     gtable_0.1.2     texreg_1.35      DBI_0.3.1        yaml_2.1.13     
-[13] parallel_3.2.0   proto_0.3-10     coda_0.17-1      stringr_1.0.0    R6_2.0.1         tcltk_3.2.0     
-[19] rmarkdown_0.7    gsubfn_0.6-6     reshape2_1.4.1   magrittr_1.5     htmltools_0.2.6  MASS_7.3-40     
-[25] rsconnect_0.3.79 assertthat_0.1   mime_0.3         xtable_1.7-4     colorspace_1.2-6 httpuv_1.3.2    
-[31] labeling_0.3     stringi_0.4-1    lazyeval_0.1.10  munsell_0.4.2   
+ [1] Rcpp_0.11.6       rstudioapi_0.3.1  magrittr_1.5      MASS_7.3-40       munsell_0.4.2     xtable_1.7-4     
+ [7] colorspace_1.2-6  R6_2.0.1          highr_0.5         stringr_1.0.0     plyr_1.8.2        tools_3.2.0      
+[13] parallel_3.2.0    gtable_0.1.2      DBI_0.3.1         htmltools_0.2.6   yaml_2.1.13       lazyeval_0.1.10  
+[19] digest_0.6.8      assertthat_0.1    formatR_1.2       reshape2_1.4.1    htmlwidgets_0.4.2 mime_0.3         
+[25] evaluate_0.7      rmarkdown_0.7     labeling_0.3      stringi_0.4-1     jsonlite_0.9.16   httpuv_1.3.2     
+[31] proto_0.3-10     
 ```

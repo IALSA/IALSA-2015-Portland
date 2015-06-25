@@ -283,43 +283,30 @@ pulmonary                executive                 fev                    digits
 pulmonary                executive                 fev                    digitsback              male       ae                  0.02                                     0.00                                 0.05                                                   0.728                   0.625                 0.124
 pulmonary                executive                 fvc                    digitsback              male       a                   0.05                                     0.00                                 0.05                                                   0.307                   0.637                 0.091
 pulmonary                executive                 fvc                    digitsback              male       ae                  0.04                                     0.00                                 0.05                                                   0.466                   0.626                 0.087
-pulmonary                executive                 fvc                    digitsback              male       aeplus              0.04                                     -0.35                                0.05                                                   0.386                   0.447                 0.086
 pulmonary                fluency                   fev                    categories              male       a                   -0.05                                    0.00                                 0.03                                                   0.323                   0.774                 0.279
 pulmonary                fluency                   fev                    categories              male       ae                  -0.07                                    0.00                                 0.03                                                   0.142                   0.791                 0.264
-pulmonary                fluency                   fev                    categories              male       aeplus              -0.07                                    -0.11                                0.04                                                   0.134                   0.662                 0.245
 pulmonary                fluency                   fvc                    categories              male       a                   0.02                                     0.09                                 0.02                                                   0.692                   0.720                 0.356
 pulmonary                fluency                   fvc                    categories              male       ae                  0.00                                     0.09                                 0.02                                                   0.974                   0.717                 0.356
-pulmonary                fluency                   fvc                    categories              male       aeplus              0.00                                     0.00                                 0.03                                                   0.961                   0.883                 0.324
 pulmonary                memory                    fev                    wordlistdelay           male       a                   0.09                                     0.00                                 0.01                                                   0.070                   0.756                 0.793
 pulmonary                memory                    fev                    wordlistdelay           male       ae                  0.07                                     0.00                                 0.01                                                   0.136                   0.840                 0.763
-pulmonary                memory                    fev                    wordlistdelay           male       aeplus              0.08                                     0.00                                 0.01                                                   0.081                   0.933                 0.776
 pulmonary                memory                    fev                    wordlistimmed           male       a                   0.11                                     0.33                                 -0.06                                                  0.022                   0.047                 0.044
 pulmonary                memory                    fev                    wordlistimmed           male       ae                  0.10                                     0.33                                 -0.06                                                  0.044                   0.064                 0.043
-pulmonary                memory                    fev                    wordlistimmed           male       aeplus              0.11                                     0.33                                 -0.06                                                  0.033                   0.087                 0.045
 pulmonary                memory                    fvc                    wordlistdelay           male       a                   0.10                                     0.19                                 -0.01                                                  0.052                   0.317                 0.859
 pulmonary                memory                    fvc                    wordlistdelay           male       ae                  0.08                                     0.19                                 -0.01                                                  0.095                   0.362                 0.872
-pulmonary                memory                    fvc                    wordlistdelay           male       aeplus              0.09                                     0.19                                 -0.01                                                  0.070                   0.422                 0.824
 pulmonary                memory                    fvc                    wordlistimmed           male       a                   0.14                                     0.43                                 -0.05                                                  0.006                   0.013                 0.116
 pulmonary                memory                    fvc                    wordlistimmed           male       ae                  0.13                                     0.43                                 -0.05                                                  0.012                   0.018                 0.120
-pulmonary                memory                    fvc                    wordlistimmed           male       aeplus              0.14                                     0.43                                 -0.05                                                  0.007                   0.028                 0.114
 pulmonary                mental                    fev                    mmse                    male       a                   0.22                                     -0.41                                -0.02                                                  0.002                   0.413                 0.492
 pulmonary                mental                    fev                    mmse                    male       ae                  0.21                                     -0.58                                -0.02                                                  0.003                   0.233                 0.543
-pulmonary                mental                    fev                    mmse                    male       aeplus              0.17                                     -0.41                                -0.02                                                  0.019                   0.404                 0.511
 pulmonary                mental                    fvc                    mmse                    male       a                   0.28                                     0.00                                 -0.02                                                  0.000                   0.595                 0.440
 pulmonary                mental                    fvc                    mmse                    male       ae                  0.28                                     -0.50                                -0.02                                                  0.000                   0.418                 0.487
-pulmonary                mental                    fvc                    mmse                    male       aeplus              0.23                                     0.00                                 -0.02                                                  0.004                   0.606                 0.460
 pulmonary                reasoning                 fev                    figurecopy              male       a                   0.22                                     0.52                                 -0.09                                                  0.000                   0.157                 0.007
 pulmonary                reasoning                 fev                    figurecopy              male       ae                  0.21                                     0.52                                 -0.09                                                  0.000                   0.178                 0.006
-pulmonary                reasoning                 fev                    figurecopy              male       aeplus              0.18                                     0.55                                 -0.09                                                  0.002                   0.133                 0.006
 pulmonary                reasoning                 fvc                    figurecopy              male       a                   0.22                                     0.55                                 -0.10                                                  0.000                   0.072                 0.001
 pulmonary                reasoning                 fvc                    figurecopy              male       ae                  0.21                                     0.58                                 -0.10                                                  0.000                   0.084                 0.001
-pulmonary                reasoning                 fvc                    figurecopy              male       aeplus              0.17                                     0.58                                 -0.10                                                  0.003                   0.060                 0.001
 pulmonary                speed                     fev                    patterncomparison       male       a                   -0.02                                    -0.29                                0.03                                                   0.692                   0.200                 0.313
 pulmonary                speed                     fev                    patterncomparison       male       ae                  -0.02                                    -0.29                                0.03                                                   0.682                   0.149                 0.325
-pulmonary                speed                     fev                    patterncomparison       male       aeplus              -0.03                                    -0.35                                0.03                                                   0.661                   0.164                 0.338
 pulmonary                speed                     fvc                    patterncomparison       male       a                   -0.05                                    -0.52                                0.04                                                   0.391                   0.151                 0.254
 pulmonary                speed                     fvc                    patterncomparison       male       ae                  -0.05                                    -0.22                                0.03                                                   0.456                   0.194                 0.306
-pulmonary                speed                     fvc                    patterncomparison       male       aeplus              -0.05                                    -0.22                                0.04                                                   0.383                   0.248                 0.293
 
 ## eas
 
@@ -890,7 +877,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-25, 09:39 -0700
+Report rendered by koval_000 at 2015-06-25, 11:01 -0700
 ```
 
 ```
@@ -906,11 +893,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.5       knitr_1.10.5      
+[1] rpivotTable_0.1.4.1 lattice_0.20-31     shiny_0.12.1        dplyr_0.4.1         testit_0.4         
+[6] ggplot2_1.0.1       RColorBrewer_1.1-2  scales_0.2.5        knitr_1.10.5       
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 highr_0.5       
- [7] stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1       
-[13] htmltools_0.2.6  lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1  
-[19] formatR_1.2      evaluate_0.7     rmarkdown_0.7    stringi_0.4-1    proto_0.3-10    
+ [1] Rcpp_0.11.6       rstudioapi_0.3.1  magrittr_1.5      MASS_7.3-40       munsell_0.4.2     xtable_1.7-4     
+ [7] colorspace_1.2-6  R6_2.0.1          highr_0.5         stringr_1.0.0     plyr_1.8.2        tools_3.2.0      
+[13] parallel_3.2.0    gtable_0.1.2      DBI_0.3.1         htmltools_0.2.6   yaml_2.1.13       lazyeval_0.1.10  
+[19] digest_0.6.8      assertthat_0.1    formatR_1.2       reshape2_1.4.1    htmlwidgets_0.4.2 mime_0.3         
+[25] evaluate_0.7      rmarkdown_0.7     labeling_0.3      stringi_0.4-1     jsonlite_0.9.16   httpuv_1.3.2     
+[31] proto_0.3-10     
 ```
