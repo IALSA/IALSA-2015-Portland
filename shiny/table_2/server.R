@@ -21,8 +21,10 @@ library(grid)
 
 if(basename(getwd())=="table_2"){
 ds1a <- readRDS('../../data/shared/ds1a.rds')
+dsb <- ds1a %>% dplyr::filter(model_number %in% c("u1","b1"))
 }else{
 ds1a <- readRDS('./data/shared/ds1a.rds')
+dsb <- ds1a %>% dplyr::filter(model_number %in% c("u1","b1"))
 }
 ##################################################
 
@@ -31,7 +33,7 @@ ds1a <- readRDS('./data/shared/ds1a.rds')
 keepvar <- c("study_name", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "ciu_corr_int", "cil_corr_int", "ciu_corr_slope", "cil_corr_slope", "ciu_corr_residual", "cil_corr_residual", "p_cov_int", "p_cov_slope", "p_cov_res")
 
 # keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
-ds <- ds1a[ , keepvar]
+ds <- dsb[ , keepvar]
 
 ds$display_int <- paste0(
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(ds$corr_int, 2)), " \n (",
