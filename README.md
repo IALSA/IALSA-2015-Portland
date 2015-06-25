@@ -1,7 +1,8 @@
 
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 
-##  Reports to date
+##  Analytic Tools to date
+### Reports 
  - [Rename and collapse](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  gives account of how model filename elements (subgroup, model_type, cognitive_measure, etc.) are corrected, renamed, and reclassified. Incorporates the results of Teleconference 1 on Jun 12.    
  - [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/counts.html)  and  [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/essentials.html)  give basic tabled view of data in model space.   
  - Data quality check for each study:
@@ -13,8 +14,8 @@
  - [model_space](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/README.md) is a series of reports that tries to understand how best to organize our models for the analysis, in which model (not individual) is the primary unit .   
  - [dashboard](./dashboard.R) script that re-generates all these reports.
  
-## Shiny Apps to date
- - [interactive pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
+###  Apps  
+ - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
  -  [table_2](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/table_2) ISR correlations
  
 #### Teleconference on June 26, 2015
