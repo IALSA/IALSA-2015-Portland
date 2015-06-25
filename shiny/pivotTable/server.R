@@ -52,7 +52,10 @@ ds[,"Corr.Residuals"] <- round(ds[ ,"Corr.Intersepts"], 3)
 shinyServer(function(input, output) {
 
  output$pivot <- rpivotTable::renderRpivotTable({
-   rpivotTable(data = ds, rows = c("Cog.Domain","Cog.Measure"), cols= c("Study") )
+   rpivotTable(data = ds,
+               rows = c("Study", "Cog.Measure"),
+               cols= c("Phys.Measure", "Sex", "Covariates")
+               )
  })
 
 })
