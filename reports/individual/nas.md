@@ -108,17 +108,13 @@ The exact spelling of the explicit absence is not very important: *noPhys*, *nop
 The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and measures were used in your models:
 
 ```
-          ds$output_file[!is_valid]
-1  u1_male_age_ pulmonary_nocog.out
-2     u1_male_age_nophys_memory.out
-3   u0_male_empty_nophys_memory.out
-4 u0_male_empty_pulmonary_nocog.out
+All your models were named properly
 ```
 
 After removing incorrectly named files, there are
 
 ```
-41
+45
 ```
 models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
 
@@ -130,8 +126,9 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 ```
            
-            b1
-  pulmonary 41
+            b1 u0 u1
+  pulmonary 41 1  1 
+  Univar    .  1  1 
 ```
 
 
@@ -139,10 +136,11 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-     
-      b1
-  fev 21
-  fvc 20
+        
+         b1 u0 u1
+  fev    20 1  1 
+  fvc    21 .  . 
+  univar .  1  1 
 ```
 
 ## Cognitive constructs
@@ -150,13 +148,14 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 ```
            
-            b1
-  executive 5 
-  fluency   6 
-  memory    12
-  mental    6 
-  reasoning 6 
-  speed     6 
+            b1 u0 u1
+  executive 5  .  . 
+  fluency   6  .  . 
+  memory    12 1  1 
+  mental    6  .  . 
+  reasoning 6  .  . 
+  speed     6  .  . 
+  Univar    .  1  1 
 ```
 
 
@@ -165,14 +164,15 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 ```
                    
-                    b1
-  categories        6 
-  digitsback        5 
-  figurecopy        6 
-  mmse              6 
-  patterncomparison 6 
-  wordlistdelay     6 
-  wordlistimmed     6 
+                    b1 u0 u1
+  categories        6  .  . 
+  digitsback        5  .  . 
+  figurecopy        6  .  . 
+  mmse              6  .  . 
+  patterncomparison 6  .  . 
+  univar            .  1  1 
+  wordlistdelay     6  1  1 
+  wordlistimmed     6  .  . 
 ```
 </br></br></br>
 
@@ -187,8 +187,8 @@ Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE m
 ```
      
       pulmonary
-  fev 21       
-  fvc 20       
+  fev 20       
+  fvc 21       
 ```
 
 ## Cognitive 
@@ -243,7 +243,7 @@ Number of models with the following  **physical measure** (columns) and  **cogni
 ```
            
             fev fvc
-  executive 3   2  
+  executive 2   3  
   fluency   3   3  
   memory    6   6  
   mental    3   3  
@@ -258,7 +258,7 @@ Number of models with the following  **physical measures** (columns) and  **cogn
                    
                     fev fvc
   categories        3   3  
-  digitsback        3   2  
+  digitsback        2   3  
   figurecopy        3   3  
   mmse              3   3  
   patterncomparison 3   3  
@@ -276,14 +276,24 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical constructs (columns) by physical measures (rows) in UNIVARIATE models
 
 ```
-Empty category
+           pulmonary Univar
+                           
+u0 fev             1      .
+   univar          .      1
+u1 fev             1      .
+   univar          .      1
 ```
 
 ## Cognitive
 Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models
 
 ```
-Empty category
+                  memory Univar
+                               
+u0 univar              .      1
+   wordlistdelay       1      .
+u1 univar              .      1
+   wordlistdelay       1      .
 ```
 </br></br></br>
 
@@ -291,65 +301,65 @@ Empty category
 ## b1
 
 
-model<br/>tag   sex    predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                            
---------------  -----  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ---------------------------------------------------------------------
-b1              male   ae                  pulmonary                fluidreasoning            FEV1                   figurecopy              b1_male_ae_ pulmonary_fluidreasoning_FEV1_figurecopy.out             
-b1              male   ae                  pulmonary                fluidreasoning            FEV1                   patterncomparison       b1_male_ae_ pulmonary_fluidreasoning_FEV1_patterncomparison.out      
-b1              male   ae                  pulmonary                fluidreasoning            FVC                    figurecopy              b1_male_ae_ pulmonary_fluidreasoning_FVC_figurecopy.out              
-b1              male   ae                  pulmonary                fluidreasoning            FVC                    patterncomparison       b1_male_ae_ pulmonary_fluidreasoning_FVC_patterncomparison.out       
-b1              male   aeplus              pulmonary                fluidreasoning            FEV1                   figurecopy              b1_male_aeplus_ pulmonary_fluidreasoning_FEV1_figurecopy.out         
-b1              male   aeplus              pulmonary                fluidreasoning            FEV1                   patterncomparison       b1_male_aeplus_ pulmonary_fluidreasoning_FEV1_patterncomparison.out  
-b1              male   aeplus              pulmonary                fluidreasoning            FVC                    figurecopy              b1_male_aeplus_ pulmonary_fluidreasoning_FVC_figurecopy.out          
-b1              male   aeplus              pulmonary                fluidreasoning            FVC                    patterncomparison       b1_male_aeplus_ pulmonary_fluidreasoning_FVC_patterncomparison.out   
-b1              male   age                 pulmonary                fluidreasoning            FEV1                   figurecopy              b1_male_age_ pulmonary_fluidreasoning_FEV1_figurecopy.out            
-b1              male   age                 pulmonary                fluidreasoning            FEV1                   patterncomparison       b1_male_age_ pulmonary_fluidreasoning_FEV1_patterncomparison.out     
-b1              male   age                 pulmonary                fluidreasoning            FVC                    figurecopy              b1_male_age_ pulmonary_fluidreasoning_FVC_figurecopy.out             
-b1              male   age                 pulmonary                fluidreasoning            FVC                    patterncomparison       b1_male_age_ pulmonary_fluidreasoning_FVC_patterncomparison.out      
-b1              male   ae                  pulmonary                global                    FEV1                   mmse                    b1_male_ae_ pulmonary_global_FEV1_mmse.out                           
-b1              male   ae                  pulmonary                global                    FVC                    mmse                    b1_male_ae_ pulmonary_global_FVC_mmse.out                            
-b1              male   aeplus              pulmonary                global                    FEV1                   mmse                    b1_male_aeplus_ pulmonary_global_FEV1_mmse.out                       
-b1              male   aeplus              pulmonary                global                    fvc                    mmse                    b1_male_aeplus_ pulmonary_global_fvc_mmse.out                        
-b1              male   age                 pulmonary                global                    FEV1                   mmse                    b1_male_age_ pulmonary_global_FEV1_mmse.out                          
-b1              male   age                 pulmonary                global                    FVC                    mmse                    b1_male_age_ pulmonary_global_FVC_mmse.out                           
-b1              male   ae                  pulmonary                memoryattention           FEV1                   delayedwordrecall       b1_male_ae_ pulmonary_memoryattention_FEV1_delayedwordrecall.out     
-b1              male   ae                  pulmonary                memoryattention           FEV1                   digitbackward           b1_male_ae_ pulmonary_memoryattention_FEV1_digitbackward.out         
-b1              male   ae                  pulmonary                memoryattention           FEV1                   immediaterecall         b1_male_ae_ pulmonary_memoryattention_FEV1_immediaterecall.out       
-b1              male   ae                  pulmonary                memoryattention           FVC                    delayedwordrecall       b1_male_ae_ pulmonary_memoryattention_FVC_delayedwordrecall.out      
-b1              male   ae                  pulmonary                memoryattention           FVC                    digitbackward           b1_male_ae_ pulmonary_memoryattention_FVC_digitbackward.out          
-b1              male   ae                  pulmonary                memoryattention           FVC                    immediaterecall         b1_male_ae_ pulmonary_memoryattention_FVC_immediaterecall.out        
-b1              male   aeplus              pulmonary                memoryattention           FEV1                   delayedwordrecall       b1_male_aeplus_ pulmonary_memoryattention_FEV1_delayedwordrecall.out 
-b1              male   aeplus              pulmonary                memoryattention           FEV1                   immediaterecall         b1_male_aeplus_ pulmonary_memoryattention_FEV1_immediaterecall.out   
-b1              male   aeplus              pulmonary                memoryattention           FVC                    delayedwordrecall       b1_male_aeplus_ pulmonary_memoryattention_FVC_delayedwordrecall.out  
-b1              male   aeplus              pulmonary                memoryattention           FVC                    digitbackward           b1_male_aeplus_ pulmonary_memoryattention_FVC_digitbackward.out      
-b1              male   aeplus              pulmonary                memoryattention           FVC                    immediaterecall         b1_male_aeplus_ pulmonary_memoryattention_FVC_immediaterecall.out    
-b1              male   age                 pulmonary                memoryattention           FEV1                   delayedwordrecall       b1_male_age_ pulmonary_memoryattention_FEV1_delayedwordrecall.out    
-b1              male   age                 pulmonary                memoryattention           FEV1                   digitbackward           b1_male_age_ pulmonary_memoryattention_FEV1_digitbackward.out        
-b1              male   age                 pulmonary                memoryattention           FEV1                   immediaterecall         b1_male_age_ pulmonary_memoryattention_FEV1_immediaterecall.out      
-b1              male   age                 pulmonary                memoryattention           FEVC                   digitbackward           b1_male_age_ pulmonary_memoryattention_FEVC_digitbackward.out        
-b1              male   age                 pulmonary                memoryattention           FVC                    delayedwordrecall       b1_male_age_ pulmonary_memoryattention_FVC_delayedwordrecall.out     
-b1              male   age                 pulmonary                memoryattention           FVC                    immediaterecall         b1_male_age_ pulmonary_memoryattention_FVC_immediaterecall.out       
-b1              male   ae                  pulmonary                verbalfluency             FEV1                   animals                 b1_male_ae_ pulmonary_verbalfluency_FEV1_animals.out                 
-b1              male   ae                  pulmonary                verbalfluency             FVC                    animals                 b1_male_ae_ pulmonary_verbalfluency_FVC_animals.out                  
-b1              male   aeplus              pulmonary                verbalfluency             FEV1                   animals                 b1_male_aeplus_ pulmonary_verbalfluency_FEV1_animals.out             
-b1              male   aeplus              pulmonary                verbalfluency             FVC                    animals                 b1_male_aeplus_ pulmonary_verbalfluency_FVC_animals.out              
-b1              male   age                 pulmonary                verbalfluency             FEV1                   animals                 b1_male_age_ pulmonary_verbalfluency_FEV1_animals.out                
-b1              male   age                 pulmonary                verbalfluency             FVC                    animals                 b1_male_age_ pulmonary_verbalfluency_FVC_animals.out                 
+model<br/>tag   sex    predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                           
+--------------  -----  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------------------------------------------
+b1              male   ae                  pulmonary                fluidreasoning            FEV1                   figurecopy              b1_male_ae_ pulmonary_fluidreasoning_FEV1_figurecopy.out            
+b1              male   ae                  pulmonary                fluidreasoning            FEV1                   patterncomparison       b1_male_ae_ pulmonary_fluidreasoning_FEV1_patterncomparison.out     
+b1              male   ae                  pulmonary                fluidreasoning            FVC                    figurecopy              b1_male_ae_ pulmonary_fluidreasoning_FVC_figurecopy.out             
+b1              male   ae                  pulmonary                fluidreasoning            FVC                    patterncomparison       b1_male_ae_ pulmonary_fluidreasoning_FVC_patterncomparison.out      
+b1              male   aeplus              pulmonary                fluidreasoning            FEV1                   figurecopy              b1_male_aeplus_ pulmonary_fluidreasoning_FEV1_figurecopy.out        
+b1              male   aeplus              pulmonary                fluidreasoning            FEV1                   patterncomparison       b1_male_aeplus_ pulmonary_fluidreasoning_FEV1_patterncomparison.out 
+b1              male   aeplus              pulmonary                fluidreasoning            FVC                    figurecopy              b1_male_aeplus_ pulmonary_fluidreasoning_FVC_figurecopy.out         
+b1              male   aeplus              pulmonary                fluidreasoning            FVC                    patterncomparison       b1_male_aeplus_ pulmonary_fluidreasoning_FVC_patterncomparison.out  
+b1              male   age                 pulmonary                fluidreasoning            FEV1                   figurecopy              b1_male_age_ pulmonary_fluidreasoning_FEV1_figurecopy.out           
+b1              male   age                 pulmonary                fluidreasoning            FEV1                   patterncomparison       b1_male_age_ pulmonary_fluidreasoning_FEV1_patterncomparison.out    
+b1              male   age                 pulmonary                fluidreasoning            FVC                    figurecopy              b1_male_age_ pulmonary_fluidreasoning_FVC_figurecopy.out            
+b1              male   age                 pulmonary                fluidreasoning            FVC                    patterncomparison       b1_male_age_ pulmonary_fluidreasoning_FVC_patterncomparison.out     
+b1              male   ae                  pulmonary                global                    FEV1                   mmse                    b1_male_ae_ pulmonary_global_FEV1_mmse.out                          
+b1              male   ae                  pulmonary                global                    FVC                    mmse                    b1_male_ae_ pulmonary_global_FVC_mmse.out                           
+b1              male   aeplus              pulmonary                global                    FEV1                   mmse                    b1_male_aeplus_ pulmonary_global_FEV1_mmse.out                      
+b1              male   aeplus              pulmonary                global                    fvc                    mmse                    b1_male_aeplus_ pulmonary_global_fvc_mmse.out                       
+b1              male   age                 pulmonary                global                    FEV1                   mmse                    b1_male_age_ pulmonary_global_FEV1_mmse.out                         
+b1              male   age                 pulmonary                global                    FVC                    mmse                    b1_male_age_ pulmonary_global_FVC_mmse.out                          
+b1              male   ae                  pulmonary                memory                    FEV1                   delayedwordrecall       b1_male_ae_ pulmonary_memory_FEV1_delayedwordrecall.out             
+b1              male   ae                  pulmonary                memory                    FEV1                   digitbackward           b1_male_ae_ pulmonary_memory_FEV1_digitbackward.out                 
+b1              male   ae                  pulmonary                memory                    FEV1                   immediaterecall         b1_male_ae_ pulmonary_memory_FEV1_immediaterecall.out               
+b1              male   ae                  pulmonary                memory                    FVC                    delayedwordrecall       b1_male_ae_ pulmonary_memory_FVC_delayedwordrecall.out              
+b1              male   ae                  pulmonary                memory                    FVC                    digitbackward           b1_male_ae_ pulmonary_memory_FVC_digitbackward.out                  
+b1              male   ae                  pulmonary                memory                    FVC                    immediaterecall         b1_male_ae_ pulmonary_memory_FVC_immediaterecall.out                
+b1              male   aeplus              pulmonary                memory                    FEV1                   delayedwordrecall       b1_male_aeplus_ pulmonary_memory_FEV1_delayedwordrecall.out         
+b1              male   aeplus              pulmonary                memory                    FEV1                   immediaterecall         b1_male_aeplus_ pulmonary_memory_FEV1_immediaterecall.out           
+b1              male   aeplus              pulmonary                memory                    FVC                    delayedwordrecall       b1_male_aeplus_ pulmonary_memory_FVC_delayedwordrecall.out          
+b1              male   aeplus              pulmonary                memory                    FVC                    digitbackward           b1_male_aeplus_ pulmonary_memory_FVC_digitbackward.out              
+b1              male   aeplus              pulmonary                memory                    FVC                    immediaterecall         b1_male_aeplus_ pulmonary_memory_FVC_immediaterecall.out            
+b1              male   age                 pulmonary                memory                    FEV1                   delayedwordrecall       b1_male_age_ pulmonary_memory_FEV1_delayedwordrecall.out            
+b1              male   age                 pulmonary                memory                    FEV1                   digitbackward           b1_male_age_ pulmonary_memory_FEV1_digitbackward.out                
+b1              male   age                 pulmonary                memory                    FEV1                   immediaterecall         b1_male_age_ pulmonary_memory_FEV1_immediaterecall.out              
+b1              male   age                 pulmonary                memory                    FVC                    delayedwordrecall       b1_male_age_ pulmonary_memory_FVC_delayedwordrecall.out             
+b1              male   age                 pulmonary                memory                    FVC                    digitbackward           b1_male_age_ pulmonary_memory_FVC_digitbackward.out                 
+b1              male   age                 pulmonary                memory                    FVC                    immediaterecall         b1_male_age_ pulmonary_memory_FVC_immediaterecall.out               
+b1              male   ae                  pulmonary                verbalfluency             FEV1                   animals                 b1_male_ae_ pulmonary_verbalfluency_FEV1_animals.out                
+b1              male   ae                  pulmonary                verbalfluency             FVC                    animals                 b1_male_ae_ pulmonary_verbalfluency_FVC_animals.out                 
+b1              male   aeplus              pulmonary                verbalfluency             FEV1                   animals                 b1_male_aeplus_ pulmonary_verbalfluency_FEV1_animals.out            
+b1              male   aeplus              pulmonary                verbalfluency             FVC                    animals                 b1_male_aeplus_ pulmonary_verbalfluency_FVC_animals.out             
+b1              male   age                 pulmonary                verbalfluency             FEV1                   animals                 b1_male_age_ pulmonary_verbalfluency_FEV1_animals.out               
+b1              male   age                 pulmonary                verbalfluency             FVC                    animals                 b1_male_age_ pulmonary_verbalfluency_FVC_animals.out                
 
 ## u1
 
 
-model<br/>tag   sex    predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                        
---------------  -----  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ---------------------------------
-u1              male   age                 pulmonary                nocog                     NA                     NA                      u1_male_age_ pulmonary_nocog.out 
-u1              male   age                 nophys                   memory                    NA                     NA                      u1_male_age_nophys_memory.out    
+model<br/>tag   sex    predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                  
+--------------  -----  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  -----------------------------------------------------------
+u1              male   age                 pulmonary                noCog                     FEV1                   noCogSpec               u1_male_age_ pulmonary_noCog_FEV1_noCogSpec.out            
+u1              male   age                 noPhys                   memory                    noPhysSpec             delayedwordrecall       u1_male_age_noPhys_memory_noPhysSpec_delayedwordrecall.out 
 
 ## u0
 
 
-model<br/>tag   sex    predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                         
---------------  -----  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ----------------------------------
-u0              male   empty               nophys                   memory                    NA                     NA                      u0_male_empty_nophys_memory.out   
-u0              male   empty               pulmonary                nocog                     NA                     NA                      u0_male_empty_pulmonary_nocog.out 
+model<br/>tag   sex    predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                    
+--------------  -----  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  -------------------------------------------------------------
+u0              male   empty               nophys                   memory                    noPhysSpec             delayedwordrecall       u0_male_empty_nophys_memory_noPhysSpec_delayedwordrecall.out 
+u0              male   empty               pulmonary                noCog                     FEV1                   noCogSpec               u0_male_empty_pulmonary_noCog_FEV1_noCogSpec.out             
 
 
 # Session Information
@@ -357,7 +367,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-24, 21:42 -0700
+Report rendered by koval_000 at 2015-06-24, 22:20 -0700
 ```
 
 ```
@@ -373,14 +383,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5          testit_0.4            knitr_1.10.5         
-[6] dplyr_0.4.1           MplusAutomation_0.6-3
+[1] lattice_0.20-31       shiny_0.12.1          ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5         
+[6] testit_0.4            knitr_1.10.5          dplyr_0.4.1           MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
- [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
-[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
-[19] yaml_2.1.13      lazyeval_0.1.10  digest_0.6.8     assertthat_0.1   reshape2_1.4.1   formatR_1.2     
-[25] rsconnect_0.3.79 evaluate_0.7     gsubfn_0.6-6     rmarkdown_0.7    stringi_0.4-1    boot_1.3-16     
-[31] proto_0.3-10    
+ [1] Rcpp_0.11.6      formatR_1.2      plyr_1.8.2       highr_0.5        tools_3.2.0      boot_1.3-16     
+ [7] digest_0.6.8     evaluate_0.7     gtable_0.1.2     texreg_1.35      DBI_0.3.1        yaml_2.1.13     
+[13] parallel_3.2.0   proto_0.3-10     coda_0.17-1      stringr_1.0.0    R6_2.0.1         tcltk_3.2.0     
+[19] rmarkdown_0.7    gsubfn_0.6-6     reshape2_1.4.1   magrittr_1.5     htmltools_0.2.6  MASS_7.3-40     
+[25] rsconnect_0.3.79 assertthat_0.1   mime_0.3         xtable_1.7-4     colorspace_1.2-6 httpuv_1.3.2    
+[31] labeling_0.3     stringi_0.4-1    lazyeval_0.1.10  munsell_0.4.2   
 ```

@@ -42,14 +42,14 @@ Your study
 has provided us with the total number of 
 
 ```
-487
+485
 ```
 models, using univariate and bivariate specifications:
 
 ```
 
  b1  u0  u1  u2 
-219   6 131 131 
+219   6 129 131 
 ```
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
@@ -108,9 +108,7 @@ The exact spelling of the explicit absence is not very important: *noPhys*, *nop
 The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and measures were used in your models:
 
 ```
-                 ds$output_file[!is_valid]
-1           u1_female_aeh_nophys_block.out
-2 u1_female_aeh_nophys_block_nocogspec.out
+All your models were named properly
 ```
 
 After removing incorrectly named files, there are
@@ -129,8 +127,8 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
            
             b1  u0 u1  u2 
-  muscle    109 2  10  10 
-  pulmonary 110 2  10  11 
+  muscle    110 2  10  10 
+  pulmonary 109 2  10  11 
   Univar    .   2  109 110
 ```
 
@@ -141,8 +139,8 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
         
          b1  u0 u1  u2 
-  grip   109 2  10  10 
-  pek    110 2  10  11 
+  grip   110 2  10  10 
+  pek    109 2  10  11 
   univar .   2  109 110
 ```
 
@@ -154,12 +152,12 @@ In this section, **model specification (columns)** are cross-tabulated with **co
             b1 u0 u1 u2
   executive 19 .  9  11
   fluency   40 .  20 20
-  knowledge 41 .  20 20
+  knowledge 40 .  20 20
   language  20 .  10 10
-  memory    33 .  20 20
+  memory    39 .  20 20
   mental    20 .  10 10
   reasoning 20 2  10 10
-  speed     26 .  10 10
+  speed     21 .  10 10
   Univar    .  4  20 20
 ```
 
@@ -173,15 +171,15 @@ In this section, **model specification (columns)** are cross-tabulated with **co
   block         20 2  10 10
   bnt           20 .  10 10
   categories    20 .  10 10
-  digitspan     14 .  10 10
+  digitspan     20 .  10 10
   info          20 .  10 10
   logicalmemory 19 .  10 10
   mmse          20 .  10 10
-  symbol        26 .  10 10
+  symbol        21 .  10 10
   trailsb       19 .  9  11
   univar        .  4  20 20
   verbalfluency 20 .  10 10
-  waisvocab     21 .  10 10
+  waisvocab     20 .  10 10
 ```
 </br></br></br>
 
@@ -196,8 +194,8 @@ Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE m
 ```
       
        muscle pulmonary
-  grip 109    .        
-  pek  .      110      
+  grip 110    .        
+  pek  .      109      
 ```
 
 ## Cognitive 
@@ -209,14 +207,14 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
   block         .         .       .         .        .      .      20        .    
   bnt           .         .       .         20       .      .      .         .    
   categories    .         20      .         .        .      .      .         .    
-  digitspan     .         .       .         .        14     .      .         .    
+  digitspan     .         .       .         .        20     .      .         .    
   info          .         .       20        .        .      .      .         .    
   logicalmemory .         .       .         .        19     .      .         .    
   mmse          .         .       .         .        .      20     .         .    
-  symbol        .         .       .         .        .      .      .         26   
+  symbol        .         .       .         .        .      .      .         21   
   trailsb       19        .       .         .        .      .      .         .    
   verbalfluency .         20      .         .        .      .      .         .    
-  waisvocab     .         .       21        .        .      .      .         .    
+  waisvocab     .         .       20        .        .      .      .         .    
 ```
 
 
@@ -229,12 +227,12 @@ Number of models with the following **physical constructs** (columns) and  **cog
             muscle pulmonary
   executive 10     9        
   fluency   20     20       
-  knowledge 20     21       
+  knowledge 20     20       
   language  10     10       
-  memory    15     18       
+  memory    19     20       
   mental    10     10       
   reasoning 10     10       
-  speed     14     12       
+  speed     11     10       
 ```
 
 ## Phys.Constructs
@@ -246,14 +244,14 @@ Number of models with the following  **physical constructs** (columns) and  **co
   block         10     10       
   bnt           10     10       
   categories    10     10       
-  digitspan     6      8        
+  digitspan     10     10       
   info          10     10       
   logicalmemory 9      10       
   mmse          10     10       
-  symbol        14     12       
+  symbol        11     10       
   trailsb       10     9        
   verbalfluency 10     10       
-  waisvocab     10     11       
+  waisvocab     10     10       
 ```
 
 ## Cog.Constructs
@@ -264,12 +262,12 @@ Number of models with the following  **physical measure** (columns) and  **cogni
             grip pek
   executive 10   9  
   fluency   20   20 
-  knowledge 20   21 
+  knowledge 20   20 
   language  10   10 
-  memory    15   18 
+  memory    19   20 
   mental    10   10 
   reasoning 10   10 
-  speed     14   12 
+  speed     11   10 
 ```
 
 ## Measures
@@ -281,14 +279,14 @@ Number of models with the following  **physical measures** (columns) and  **cogn
   block         10   10 
   bnt           10   10 
   categories    10   10 
-  digitspan     6    8  
+  digitspan     10   10 
   info          10   10 
   logicalmemory 9    10 
   mmse          10   10 
-  symbol        14   12 
+  symbol        11   10 
   trailsb       10   9  
   verbalfluency 10   10 
-  waisvocab     10   11 
+  waisvocab     10   10 
 ```
 </br></br></br>
 
@@ -436,14 +434,15 @@ b1              male     aehplus             muscle                   knowledge 
 b1              male     age                 muscle                   knowledge                 grip                   waisvocab               b1_male_age_muscle_knowledge_grip_waisvocab.out               
 b1              male     full                muscle                   knowledge                 grip                   waisvocab               b1_male_full_muscle_knowledge_grip_waisvocab.out              
 b1              female   ae                  muscle                   memory                    grip                   digitsymbol             b1_female_ae_muscle_memory_grip_digitsymbol.out               
+b1              female   ae                  muscle                   memory                    grip                   digitspan               b1_female_ae_muscle_memory_grip_digitspan.out                 
 b1              female   ae                  muscle                   memory                    grip                   logicalmemory           b1_female_ae_muscle_memory_grip_logicalmemory.out             
-b1              female   aeh                 muscle                   memory                    grip                   digitsymbol             b1_female_aeh_muscle_memory_grip_digitsymbol.out              
+b1              female   aeh                 muscle                   memory                    grip                   digitspan               b1_female_aeh_muscle_memory_grip_digitspan.out                
 b1              female   aeh                 muscle                   memory                    grip                   logicalmemory           b1_female_aeh_muscle_memory_grip_logicalmemory.out            
-b1              female   aehplus             muscle                   memory                    grip                   digitsymbol             b1_female_aehplus_muscle_memory_grip_digitsymbol.out          
+b1              female   aehplus             muscle                   memory                    grip                   digitspan               b1_female_aehplus_muscle_memory_grip_digitspan.out            
 b1              female   aehplus             muscle                   memory                    grip                   logicalmemory           b1_female_aehplus_muscle_memory_grip_logicalmemory.out        
 b1              female   age                 muscle                   memory                    grip                   digitspan               b1_female_age_muscle_memory_grip_digitspan.out                
 b1              female   age                 muscle                   memory                    grip                   logicalmemory           b1_female_age_muscle_memory_grip_logicalmemory.out            
-b1              female   full                muscle                   memory                    grip                   digitsymbol             b1_female_full_muscle_memory_grip_digitsymbol.out             
+b1              female   full                muscle                   memory                    grip                   digitspan               b1_female_full_muscle_memory_grip_digitspan.out               
 b1              female   full                muscle                   memory                    grip                   logicalmemory           b1_female_full_muscle_memory_grip_logicalmemory.out           
 b1              male     ae                  muscle                   memory                    grip                   digitspan               b1_male_ae_muscle_memory_grip_digitspan.out                   
 b1              male     ae                  muscle                   memory                    grip                   logicalmemory           b1_male_ae_muscle_memory_grip_logicalmemory.out               
@@ -525,7 +524,6 @@ b1              male     aehplus             pulmonary                global    
 b1              male     age                 pulmonary                global                    pek                    mmse                    b1_male_age_pulmonary_global_pek_mmse.out                     
 b1              male     full                pulmonary                global                    pek                    mmse                    b1_male_full_pulmonary_global_pek_mmse.out                    
 b1              female   ae                  pulmonary                knowledge                 pek                    information             b1_female_ae_pulmonary_knowledge_pek_information.out          
-b1              female   ae                  pulmonary                knowledge                 pek                    waisvocab               b1_female_ae_pulmonary_knowledge_pek_waisvocab.out            
 b1              female   aeh                 pulmonary                knowledge                 pek                    information             b1_female_aeh_pulmonary_knowledge_pek_information.out         
 b1              female   aeh                 pulmonary                knowledge                 pek                    waisvocab               b1_female_aeh_pulmonary_knowledge_pek_waisvocab.out           
 b1              female   aehplus             pulmonary                knowledge                 pek                    information             b1_female_aehplus_pulmonary_knowledge_pek_information.out     
@@ -552,11 +550,11 @@ b1              female   aehplus             pulmonary                memory    
 b1              female   aehplus             pulmonary                memory                    pek                    logicalmemorytotal      b1_female_aehplus_pulmonary_memory_pek_logicalmemorytotal.out 
 b1              female   age                 pulmonary                memory                    pek                    digitspantotal          b1_female_age_pulmonary_memory_pek_digitspantotal.out         
 b1              female   age                 pulmonary                memory                    pek                    logicalmemory           b1_female_age_pulmonary_memory_pek_logicalmemory.out          
-b1              female   full                pulmonary                memory                    pek                    digitsymboltotal        b1_female_full_pulmonary_memory_pek_digitsymboltotal.out      
+b1              female   full                pulmonary                memory                    pek                    digitspan               b1_female_full_pulmonary_memory_pek_digitspan.out             
 b1              female   full                pulmonary                memory                    pek                    logicalmemorytotal      b1_female_full_pulmonary_memory_pek_logicalmemorytotal.out    
 b1              male     ae                  pulmonary                memory                    pek                    digitspantotal          b1_male_ae_pulmonary_memory_pek_digitspantotal.out            
 b1              male     ae                  pulmonary                memory                    pek                    logicalmemorytotal      b1_male_ae_pulmonary_memory_pek_logicalmemorytotal.out        
-b1              male     aeh                 pulmonary                memory                    pek                    digitsymbol             b1_male_aeh_pulmonary_memory_pek_digitsymbol.out              
+b1              male     aeh                 pulmonary                memory                    pek                    digitspan               b1_male_aeh_pulmonary_memory_pek_digitspan.out                
 b1              male     aeh                 pulmonary                memory                    pek                    logicalmemorytotal      b1_male_aeh_pulmonary_memory_pek_logicalmemorytotal.out       
 b1              male     aehplus             pulmonary                memory                    pek                    digitspantotal          b1_male_aehplus_pulmonary_memory_pek_digitspantotal.out       
 b1              male     aehplus             pulmonary                memory                    pek                    logicalmemorytotal      b1_male_aehplus_pulmonary_memory_pek_logicalmemorytotal.out   
@@ -600,8 +598,6 @@ u1              male     aeh                 muscle                   nocog     
 u1              male     aehplus             muscle                   nocog                     grip                   nocogspec               u1_male_aehplus_muscle_nocog_grip_nocogspec.out               
 u1              male     age                 muscle                   nocog                     grip                   nocogspec               u1_male_age_muscle_nocog_grip_nocogspec.out                   
 u1              male     full                muscle                   nocog                     grip                   nocogspec               u1_male_full_muscle_nocog_grip_nocogspec.out                  
-u1              female   aeh                 nophys                   block                     NA                     NA                      u1_female_aeh_nophys_block.out                                
-u1              female   aeh                 nophys                   block                     nocogspec              NA                      u1_female_aeh_nophys_block_nocogspec.out                      
 u1              female   ae                  nophys                   fluency                   nophysspec             bostonnaming            u1_female_ae_nophys_fluency_nophysspec_bostonnaming.out       
 u1              female   ae                  nophys                   fluency                   nophysspec             category                u1_female_ae_nophys_fluency_nophysspec_category.out           
 u1              female   ae                  nophys                   fluency                   nophysspec             fas                     u1_female_ae_nophys_fluency_nophysspec_fas.out                
@@ -877,7 +873,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-24, 21:42 -0700
+Report rendered by koval_000 at 2015-06-24, 22:20 -0700
 ```
 
 ```
@@ -893,14 +889,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5          testit_0.4            knitr_1.10.5         
-[6] dplyr_0.4.1           MplusAutomation_0.6-3
+[1] lattice_0.20-31       shiny_0.12.1          ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5         
+[6] testit_0.4            knitr_1.10.5          dplyr_0.4.1           MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
- [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
-[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
-[19] yaml_2.1.13      lazyeval_0.1.10  digest_0.6.8     assertthat_0.1   reshape2_1.4.1   formatR_1.2     
-[25] rsconnect_0.3.79 evaluate_0.7     gsubfn_0.6-6     rmarkdown_0.7    stringi_0.4-1    boot_1.3-16     
-[31] proto_0.3-10    
+ [1] Rcpp_0.11.6      formatR_1.2      plyr_1.8.2       highr_0.5        tools_3.2.0      boot_1.3-16     
+ [7] digest_0.6.8     evaluate_0.7     gtable_0.1.2     texreg_1.35      DBI_0.3.1        yaml_2.1.13     
+[13] parallel_3.2.0   proto_0.3-10     coda_0.17-1      stringr_1.0.0    R6_2.0.1         tcltk_3.2.0     
+[19] rmarkdown_0.7    gsubfn_0.6-6     reshape2_1.4.1   magrittr_1.5     htmltools_0.2.6  MASS_7.3-40     
+[25] rsconnect_0.3.79 assertthat_0.1   mime_0.3         xtable_1.7-4     colorspace_1.2-6 httpuv_1.3.2    
+[31] labeling_0.3     stringi_0.4-1    lazyeval_0.1.10  munsell_0.4.2   
 ```
