@@ -69,6 +69,9 @@ ds[ds$model_type=="age","model_type"] <- "a" # rename for sorting/consistency pu
 ds[ds$model_type=="empty","model_type"] <- "0"
 # inspect new names
 t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
+# we also remove "aeplus" for now, while Lewina is reruning models with data unadjusted for height
+ds <- ds %>% dplyr::filter(!(model_type %in% c("aeplus")))
+
 
 
 ## @knitr spell_physical_construct
