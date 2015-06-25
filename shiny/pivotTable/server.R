@@ -14,15 +14,16 @@ library(rpivotTable)
 
 
 if(basename(getwd())=="pivotTable"){
-dsb <- readRDS('../../data/shared/ds1a.rds')
+ds1a <- readRDS('../../data/shared/ds1a.rds')
+dsb <- ds1a %>% dplyr::filter(model_number %in% c("u1","b1"))
 }else{
-dsb <- readRDS('./data/shared/ds1a.rds')
+ds1a <- readRDS('./data/shared/ds1a.rds')
+dsb <- ds1a %>% dplyr::filter(model_number %in% c("u1","b1"))
 }
 
 
 
-ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct",
-                "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual")]
+ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
 head(ds)
 
 
