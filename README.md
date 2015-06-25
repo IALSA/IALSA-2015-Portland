@@ -1,10 +1,11 @@
 
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 
-##  Latest tool updates
+##  Latest reports
  - [model_space](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/README.md) is a series of reports that tries to understand how best to organize our models for the interpretation, in which model is the primary unit of analysis.  
  - [ interactive pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
  - [renaming and collapsing  report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.html)   
+ - [dashboard](./dashboard.R) re-generates the reports.
  
 #### Teleconference on June 26, 2015
 
@@ -36,16 +37,17 @@ TO DO LIST:
 
 ### Concomitant change in physical and cognitive functioning
 
--  [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html) reports combinations of physical and cognitive constructs/measures in bivariate models of change available in the workshop collective to date. 
+-  [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/counts.html) reports combinations of physical and cognitive constructs/measures in bivariate models of change available in the workshop collective to date. 
 
 
-- [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html) reports correlations between random terms (intercepts, slopes, residuals) of bivariate models of change. 
+- [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/essentials.html) reports correlations between random terms (intercepts, slopes, residuals) of bivariate models of change. 
 
 ### Individual study reports
 
 | Study | Contact |
 | :---- | :------ |
 | [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html) | [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu) |
+| [ELSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/elsa.html) | [Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |
 | [HABC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/habc.html) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |
 | [ILSE](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/ilse.html) | [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de) |
 | [NAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nas.html) | [Lewina Lee](mailto:lewina@bu.edu) |
@@ -74,9 +76,9 @@ The IALSA Analysis Workshop ([pdf overview](https://www.dropbox.com/s/a8zmh70ybe
 
 ## Analysis Projects: 
 Results will be organized into several "multivariate change" publication sets including
-* Pulmonary Function/Cognition
-* Walking Speed/Cognition
-* Grip Strength/Cognition
-* All Physical
-* All Cognitive
+- Pulmonary Function/Cognition  
+- Walking Speed/Cognition  
+- Grip Strength/Cognition  
+- All Physical  
+- All Cognitive  
 
