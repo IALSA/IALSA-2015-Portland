@@ -18,7 +18,7 @@
  - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
  -  [table_2](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/table_2) ISR correlations
 
- #### Coordinated analysis with replication (CAR)
+### Coordinated analysis with replication (CAR)
  The following is the current model space of the Portland Collective investigating concomitant decline in physical and cognitive functioning during later adulthood. 
  ![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)
 
@@ -28,8 +28,19 @@
 
 ##### AGENDA (dev)
 
+0. Updates
+ - All reports have been updated. Links to reports are in the section "Analytic Tools to date".  
+ - pivotTable app got a new look. Select only your study and make sure only "1" are in the cells.   
+ 
+ 
 1. Remaining issues:  
-  - [ ] ...  
+  - **habc**:  
+   - confusion: b1_male_full_muscle_mental_gait_clock.out and b1_male_full_walking_mental_gait_clock.out    
+ - **eas**:  
+   - confusion: b1_female_ae_muscle_memory_grip_digitsymbol.out and b1_female_ae_muscle_speed_grip_digitsymbol.out  
+ - **nas**:
+   - *aeplus* models were filtered out until. Lewina re-runs *aehplus* with data unadjusted for height.  
+   
 2. Discussing results:  
  - [ ] What is in "plus" models?  
  - [ ] Operationalization and centering of covariates
