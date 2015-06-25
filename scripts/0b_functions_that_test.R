@@ -38,7 +38,8 @@ files <- basename(out_list)
 sfiles <- strsplit(files,split = "_|.out")
 ds <- as.data.frame(plyr::rbind.fill.matrix(lapply(sfiles,t)))
 names(ds) <- c("number","sex", "predictors", "phys.construct","cog.construct","phys.measure","cog.measure")
-ds <- ds[ds$number=="b1",]
+# ds <- ds[ds$number=="b1",]
+ds <- ds[ds$number %in% c("u0","u1","u2","b1") ,]
 return(ds)
 }
 
@@ -56,6 +57,8 @@ a <- dplyr::count(ds, cog.measure); print(a, n=nrow(a))
 
 inspect.study("eas")
 cat("\f")
+inspect.study("elsa")
+cat("\f")
 inspect.study("habc")
 cat("\f")
 inspect.study("ilse")
@@ -64,14 +67,14 @@ inspect.study("nas")
 cat("\f")
 inspect.study("nuage")
 cat("\f")
-inspect.study("obas")
-cat("\f")
+# inspect.study("obas")
+# cat("\f")
 inspect.study("octo")
 cat("\f")
 inspect.study("radc")
 cat("\f")
 inspect.study("satsa")
-
+cat("\f")
 
 
 

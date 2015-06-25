@@ -1,6 +1,27 @@
 
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 
+##  Latest reports
+ - [model_space](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/README.md) is a series of reports that tries to understand how best to organize our models for the interpretation, in which model is the primary unit of analysis.  
+ - [ interactive pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
+ - [renaming and collapsing  report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.html)   
+ - [dashboard](./dashboard.R) re-generates the reports.
+ 
+#### Teleconference on June 26, 2015
+
+##### AGENDA
+
+1. Remaining issues:  
+  - [ ] ...  
+2. Discussing results:  
+ - [ ] What is in "plus" models?  
+ - [ ] Operationalization and centering of covariates
+
+#### Coordinated analysis with replication (CAR)
+ ![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)
+
+*the graphic is composed of the graphs defined in [this report](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)*
+
 ### Teleconference on June 12
 
 Please open these files for the teleconference  
@@ -13,43 +34,36 @@ TO DO LIST:
  - [ ] Identify which cognitive measures your study does not report, but other studies do.  Estimate all 12 versions of each unique pair. 
 
 
-#### Coordinated analysis with replication (CAR)
-[![prototype](./reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/overlap_search_graphs/figure_overlap/combine_panels-01.png)
 
-*the graphic is composed of the graphs defined in [this report](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/overlap_search_graphs/VisualizingOverlap.html)*
+### Concomitant change in physical and cognitive functioning
 
-### Teleconference on June 12
-
-Please open these files for the teleconference  
-- review the [interactive pivot tables](shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable)  
-- view the list of edits in the report on [renaming and collapsing](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  
-
-#### Concomitant change in physical and cognitive functioning
-
--  [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html) reports combinations of physical and cognitive constructs/measures in bivariate models of change available in the workshop collective to date. 
+-  [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/counts.html) reports combinations of physical and cognitive constructs/measures in bivariate models of change available in the workshop collective to date. 
 
 
-- [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/essentials.html) reports correlations between random terms (intercepts, slopes, residuals) of bivariate models of change. 
+- [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/essentials.html) reports correlations between random terms (intercepts, slopes, residuals) of bivariate models of change. 
 
-#### Individual study reports
+### Individual study reports
 
-- [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html) - [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu)
-- [HABC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/habc.html) - [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) 
-- [ILSE](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/ilse.html) - [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de)
-- [NAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nas.html) - [Lewina Lee](mailto:lewina@bu.edu)
-- [NuAge](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nuage.html) - [Valerie Jarry ](mailto:valerie.jarry@umontreal.ca )
-- [OBAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/obas.html) - [Nora Mattek](mailto:mattekn@ohsu.edu) 
-- [OCTO-Twin](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/octo.html) - [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se)
-- [RADC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/radc.html) - [Cassandra Brown](mailto:clb@uvic.ca)
-- [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html) - [Deborah Finkel](mailto:dfinkel@ius.edu)
+| Study | Contact |
+| :---- | :------ |
+| [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html) | [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu) |
+| [ELSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/elsa.html) | [Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |
+| [HABC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/habc.html) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |
+| [ILSE](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/ilse.html) | [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de) |
+| [NAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nas.html) | [Lewina Lee](mailto:lewina@bu.edu) |
+| [NuAge](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nuage.html) | [Valerie Jarry ](mailto:valerie.jarry@umontreal.ca ) |
+| [OBAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/obas.html) | [Nora Mattek](mailto:mattekn@ohsu.edu) |
+| [OCTO-Twin](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/octo.html) | [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se) |
+| [RADC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/radc.html) | [Cassandra Brown](mailto:clb@uvic.ca) |
+| [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html) | [Deborah Finkel](mailto:dfinkel@ius.edu) |
 
 
-#### Catalog of names  
+### Catalog of names  
   Different studies may have the data for the same measures, but modelers may name them differently in their models, which results in our scripts treating them as different measures. To avoid this, please consult our [Catalog of names](https://github.com/IALSA/IALSA-2015-Portland/blob/master/Catalog of names.md) and make sure that your models reflect the convention established there. Any member of the collective can [edit the catalog](https://github.com/IALSA/IALSA-2015-Portland/edit/master/Catalog of names.md) and we encourage you to do so: this will greatly increase the replicability effect of the project. (inspect the latest [html version](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/Catalog_of_names.html)) 
   
 
 
-#### Contact IALSA team
+### Contact IALSA team
 
  - [Andrey Koval](mailto:andkov@uvic.ca)  
  - [Andrea Piccinin](mailto:piccinin@uvic.ca)   
@@ -62,9 +76,9 @@ The IALSA Analysis Workshop ([pdf overview](https://www.dropbox.com/s/a8zmh70ybe
 
 ## Analysis Projects: 
 Results will be organized into several "multivariate change" publication sets including
-* Pulmonary Function/Cognition
-* Walking Speed/Cognition
-* Grip Strength/Cognition
-* All Physical
-* All Cognitive
+- Pulmonary Function/Cognition  
+- Walking Speed/Cognition  
+- Grip Strength/Cognition  
+- All Physical  
+- All Cognitive  
 

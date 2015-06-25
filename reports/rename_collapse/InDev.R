@@ -96,16 +96,67 @@ library(rpivotTable)
 # pt <- rpivotTable(d)
 # print(pt)
 
-
+#########################################
 ## ptable_3
-ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct",
-                "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "ciu_corr_int", "cil_corr_int", "ciu_corr_slope", "cil_corr_slope", "ciu_corr_residual", "cil_corr_residual", "p_cov_int", "p_cov_slope", "p_cov_res")]
+# ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct",
+#                 "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "ciu_corr_int", "cil_corr_int", "ciu_corr_slope", "cil_corr_slope", "ciu_corr_residual", "cil_corr_residual", "p_cov_int", "p_cov_slope", "p_cov_res")]
+#
+# create_display <- function(varname){
+# ds[paste0("display_"),scan(varname)] <- cat(paste0(
+#   gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$corr_int, 2)), "(*",
+#   gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$cil_corr_int,2)), ",",
+#   gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$ciu_corr_int,2)), "*)")
+# ))
+# return(ds)
+#
+# }
+ds <- dsb
+
 ds$display_int <- paste0(
-  round(ds$corr_int, 2), "(*",
-  round(ds$cil_corr_int,2), ",",
-  round(ds$ciu_corr_int,2), "*)")
+  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$corr_int, 2)), "(*",
+  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$cil_corr_int,2)), ",",
+  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$ciu_corr_int,2)), "*)")
+
+
+ds$display_slope <- paste0(
+  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$corr_slope, 2)), "(*",
+  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$cil_corr_slope,2)), ",",
+  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$ciu_corr_slope,2)), "*)")
+
+ds$display_residual <- paste0(
+  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$corr_residual, 2)), "(*",
+  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$cil_corr_residual,2)), ",",
+  gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", round(ds$ciu_corr_residual,2)), "*)")
 
 head(ds)
+
+## rename for pretty display
+ds <- ds[ , c( "study_name", "subgroup","model_type","physical_construct","physical_measure","cognitive_measure","cognitive_construct",  "corr_int", "corr_slope", "corr_residual", "display_int","display_slope", "display_residual", "p_cov_int", "p_cov_slope", "p_cov_res", "output_file","converged") ]
+
+
+library(dplyr)
+ds <- ds %>%
+  dplyr::rename_("Phys.Domain" = "physical_construct") %>%
+  dplyr::rename_("Phys.Measure" = "physical_measure") %>%
+  dplyr::rename_("Cog.Domain" = "cognitive_construct") %>%
+  dplyr::rename_("Cog.Measure" = "cognitive_measure") %>%
+  dplyr::rename_("Study" = "study_name") %>%
+  dplyr::rename_("Covariates" = "model_type") %>%
+  dplyr::rename_("Sex" = "subgroup") %>%
+  dplyr::rename_("Corr.Intersepts" = "corr_int") %>%
+  dplyr::rename_("Corr.Slopes" = "corr_slope") %>%
+  dplyr::rename_("Corr.Residuals" = "corr_residual") %>%
+  dplyr::rename_("p_int" = "p_cov_int") %>%
+  dplyr::rename_("p_slope" = "p_cov_slope") %>%
+  dplyr::rename_("p_residual" = "p_cov_res")
+head(ds)
+
+library(rpivotTable)
+rpivotTable(data = ds, rows = c("Cog.Domain","Cog.Measure"), cols= c("Study") )
+
+
+
+
 
 
   # rmarkdown::render(input = "./reports/rename_collapse/InDev.Rmd", output_format="html_document", clean=TRUE)

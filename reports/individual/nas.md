@@ -139,23 +139,24 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-      
-       b1
-  fev1 20
-  fevc 1 
-  fvc  20
+     
+      b1
+  fev 21
+  fvc 20
 ```
 
 ## Cognitive constructs
 
 
 ```
-                 
-                  b1
-  fluidreasoning  12
-  global          6 
-  memoryattention 17
-  verbalfluency   6 
+           
+            b1
+  executive 5 
+  fluency   6 
+  memory    12
+  mental    6 
+  reasoning 6 
+  speed     6 
 ```
 
 
@@ -165,13 +166,13 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
                    
                     b1
-  animals           6 
-  delayedwordrecall 6 
-  digitbackward     5 
+  categories        6 
+  digitsback        5 
   figurecopy        6 
-  immediaterecall   6 
   mmse              6 
   patterncomparison 6 
+  wordlistdelay     6 
+  wordlistimmed     6 
 ```
 </br></br></br>
 
@@ -184,11 +185,10 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE models
 
 ```
-      
-       pulmonary
-  fev1 20       
-  fevc 1        
-  fvc  20       
+     
+      pulmonary
+  fev 21       
+  fvc 20       
 ```
 
 ## Cognitive 
@@ -196,14 +196,14 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
 
 ```
                    
-                    fluidreasoning global memoryattention verbalfluency
-  animals           .              .      .               6            
-  delayedwordrecall .              .      6               .            
-  digitbackward     .              .      5               .            
-  figurecopy        6              .      .               .            
-  immediaterecall   .              .      6               .            
-  mmse              .              6      .               .            
-  patterncomparison 6              .      .               .            
+                    executive fluency memory mental reasoning speed
+  categories        .         6       .      .      .         .    
+  digitsback        5         .       .      .      .         .    
+  figurecopy        .         .       .      .      6         .    
+  mmse              .         .       .      6      .         .    
+  patterncomparison .         .       .      .      .         6    
+  wordlistdelay     .         .       6      .      .         .    
+  wordlistimmed     .         .       6      .      .         .    
 ```
 
 
@@ -212,12 +212,14 @@ Number of models with the following **physical constructs** (columns) and  **cog
 
 
 ```
-                 
-                  pulmonary
-  fluidreasoning  12       
-  global          6        
-  memoryattention 17       
-  verbalfluency   6        
+           
+            pulmonary
+  executive 5        
+  fluency   6        
+  memory    12       
+  mental    6        
+  reasoning 6        
+  speed     6        
 ```
 
 ## Phys.Constructs
@@ -226,25 +228,27 @@ Number of models with the following  **physical constructs** (columns) and  **co
 ```
                    
                     pulmonary
-  animals           6        
-  delayedwordrecall 6        
-  digitbackward     5        
+  categories        6        
+  digitsback        5        
   figurecopy        6        
-  immediaterecall   6        
   mmse              6        
   patterncomparison 6        
+  wordlistdelay     6        
+  wordlistimmed     6        
 ```
 
 ## Cog.Constructs
 Number of models with the following  **physical measure** (columns) and  **cognitive constructs** (rows)
 
 ```
-                 
-                  fev1 fevc fvc
-  fluidreasoning  6    .    6  
-  global          3    .    3  
-  memoryattention 8    1    8  
-  verbalfluency   3    .    3  
+           
+            fev fvc
+  executive 3   2  
+  fluency   3   3  
+  memory    6   6  
+  mental    3   3  
+  reasoning 3   3  
+  speed     3   3  
 ```
 
 ## Measures
@@ -252,14 +256,14 @@ Number of models with the following  **physical measures** (columns) and  **cogn
 
 ```
                    
-                    fev1 fevc fvc
-  animals           3    .    3  
-  delayedwordrecall 3    .    3  
-  digitbackward     2    1    2  
-  figurecopy        3    .    3  
-  immediaterecall   3    .    3  
-  mmse              3    .    3  
-  patterncomparison 3    .    3  
+                    fev fvc
+  categories        3   3  
+  digitsback        3   2  
+  figurecopy        3   3  
+  mmse              3   3  
+  patterncomparison 3   3  
+  wordlistdelay     3   3  
+  wordlistimmed     3   3  
 ```
 </br></br></br>
 
@@ -353,7 +357,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-01, 11:08 -0700
+Report rendered by koval_000 at 2015-06-24, 21:42 -0700
 ```
 
 ```
@@ -369,13 +373,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
-[6] knitr_1.10.5          MplusAutomation_0.6-3
+[1] ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5          testit_0.4            knitr_1.10.5         
+[6] dplyr_0.4.1           MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
  [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
 [13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
-[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
-[25] evaluate_0.7     rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
+[19] yaml_2.1.13      lazyeval_0.1.10  digest_0.6.8     assertthat_0.1   reshape2_1.4.1   formatR_1.2     
+[25] rsconnect_0.3.79 evaluate_0.7     gsubfn_0.6-6     rmarkdown_0.7    stringi_0.4-1    boot_1.3-16     
+[31] proto_0.3-10    
 ```

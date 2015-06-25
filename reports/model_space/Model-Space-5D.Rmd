@@ -1,0 +1,123 @@
+---
+title: "Model Space in 5D"
+output:
+  html_document:
+    css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar.css
+    keep_md: yes
+    toc: yes
+---
+
+
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
+```{r, echo=F, message=F} 
+# cat("Working directory: ", getwd())
+  library(knitr)
+  opts_knit$set(root.dir='../../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external code file. -->
+```{r set_options, echo=F}
+# cat("Working directory: ", getwd())
+opts_chunk$set(
+  results='show', 
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 6.5, 
+  fig.height = 4, 
+  fig.path = 'figure_modelSpace5D/'
+)
+# dpi = 400,
+# out.width = "650px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+
+echoChunks <- FALSE
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./reports/model_space/model_space_5D.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+```
+
+<!-- Load the sources.  Suppress the output when loading sources. --> 
+```{r load_sources, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load 'sourced' R files.  Suppress the output when loading packages. --> 
+```{r load_packages, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+```{r declare_globals, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+```{r, echo=echoChunks, message=FALSE}
+#Put code in here.  It doesn't call a chunk in the codebehind file.
+```
+
+<!-- Load the datasets.   -->
+```{r load_data, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Tweak the datasets.   -->
+```{r tweak_data, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Frequency counts   -->
+
+
+This report establishes four key graphs that go into compiling the Model Catalog, which will be used to find and view replicated models. The following table gives model counts presently available in the collectivs. Rows list model specifications: *u* or *b* for univariate or bivariate growth model respectively. The numeric suffix (*0*, *1*, *2*) indicate the highest random growth term on the first level (*0* - intercept, *1* - linear, *2* - quadratic).
+
+
+```{r cross_table_data_dplyr, echo=echoChunks, results='show', message=FALSE}
+```
+
+```{r define_themes, echo=echoChunks, results='show', message=FALSE}
+```
+## Fi5ve dimensions of model space
+
+Each bivariate growth model in our collective can be described with respect to the following **fi5e** primary dimensions: study, physical measure, cognitive measure, subgroup,and model type.     
+**Study** - (eas, elsa, ilse, habc,...) - separate data collection efforts. Longitudinal studies vary on sampling procedure, sample composition, temporal design, availablity and type of anthropometric measures. ["Table 1" Report](./reports/table_1/table_1.md) records these descriptives for each study.   
+**Physical measure** - (gait, grip, pek, fvc,...)  - **add more**   
+**Cognitive measure** - (mmse, symbol, block, synonyms, ...  )  -    
+**Subgroup** - Sex. The models were run separately for males and females. Sex was not a part of the model.   
+**Model type** - (0, a, ae, aeh, aehplus, full)   
+
+*Cognitive measure* is the longest and thus chosen to span the **vertical axis** of the 2D surface of the graph. The other fou4 primary dimensions are designed into the **horizontal axis**. Each cell contains a  **number** counting models with those  specifications. Number on the background of the same color add to 100% of the submitted models. Transparancy is mapped onto the magnitude of the number. The hue is categorical. Combining cognitive measure with each of the four demensions results in **four tile plots**
+
+These four graphs  can be united into a display of a quantitative invormation, necessary to identify overlaps in models across studies. The following graph is the current draft of the 5-dimensional model space of the Portland-2105 collective. The graph is produced with  [./reports/model_space/scripts/tile_model_5D.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/reports/model_space/scripts/tile_model_5D.R) script. 
+
+```{r dashboard_tile_graph, echo=echoChunks, results='show', message=FALSE, fig.width=12, fig.height=8, dpi=300}
+```
+
+
+## Individual dimensions
+To inspect the built of each graph
+
+### Study
+
+```{r 1_graph_study_name, echo=echoChunks, results='show', message=FALSE, fig.height=7, dpi=90}
+```
+
+
+### Subgroup / Sex
+
+```{r 3_graph_subgroup, echo=echoChunks, results='show', message=FALSE, fig.height=7, dpi=90}
+```
+
+### Covariate set / Model type
+```{r 2_graph_model_type, echo=echoChunks, results='show', message=FALSE, fig.height=7,dpi=90}
+```
+
+
+### Phys Measures
+
+```{r 0_graph_phys_measure, echo=echoChunks, results='show', message=FALSE,  fig.height=7, dpi=90}
+```
+
+
+
+# Session Information
+For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
+
+```{r session_info, echo=FALSE}
+cat("Report rendered by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
+sessionInfo()
+```

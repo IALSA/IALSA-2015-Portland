@@ -27,7 +27,7 @@ opts_chunk$set(
   tidy = FALSE,
   fig.width = 6.5, 
   fig.height = 4, 
-  fig.path = 'figure_cog_domain_map/'
+  fig.path = 'figure_rename_collapse/'
 )
 # dpi = 400,
 # out.width = "650px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.

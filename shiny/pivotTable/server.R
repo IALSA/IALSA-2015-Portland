@@ -41,6 +41,11 @@ ds <- ds %>%
   dplyr::rename_("Corr.Slopes" = "corr_slope") %>%
   dplyr::rename_("Corr.Residuals" = "corr_residual")
 head(ds)
+
+ds[,"Corr.Intersepts"] <- round(ds[ ,"Corr.Intersepts"], 3)
+ds[,"Corr.Slopes"] <- round(ds[ ,"Corr.Intersepts"], 3)
+ds[,"Corr.Residuals"] <- round(ds[ ,"Corr.Intersepts"], 3)
+
 # Define server logic required to summarize and view the selected
 # study
 shinyServer(function(input, output) {

@@ -142,4 +142,17 @@ FUN <- function(data, x, y, fac1, fac2) {
 FUN(mtcars, 'hp', 'mpg', 'cyl', 'am')
 
 
+## @knitr remove_leading_zeros
+a <- c(100, 100/3, 1/3, -1/3, -100/3, "0.33b")
+gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", a)
+
+
+## @knitr insert_greek_letters_into_md
+# http://www.scriptingmaster.com/html/inserting-greek-letters.asp
+
+
+## @knitr sub_and_super_scripts_markdown
+# <sub>2</sub>
+# <sup>3</sup>
+
 

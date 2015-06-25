@@ -1,0 +1,98 @@
+---
+title: "Model Essentials: correlations b/w random terms"
+output:
+  html_document:
+    css: css/sidebar.css
+    keep_md: yes
+    toc: yes
+---
+
+
+
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
+```{r, echo=F, message=F} 
+# cat("Working directory: ", getwd())
+  library(knitr)
+  opts_knit$set(root.dir='../../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+```
+
+<!-- Set the report-wide options, and point to the external code file. -->
+```{r set_options, echo=F}
+# cat("Working directory: ", getwd())
+opts_chunk$set(
+  results='show', 
+  comment = NA, 
+  tidy = FALSE,
+  fig.width = 6.5, 
+  fig.height = 4, 
+  fig.path = 'figure_study/'
+)
+# dpi = 400,
+# out.width = "650px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
+
+echoChunks <- FALSE
+options(width=120) #So the output is 50% wider than the default.
+read_chunk("./reports/basic/2_basic_study_report.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+```
+
+<!-- Load the sources.  Suppress the output when loading sources. --> 
+```{r load_sources, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load 'sourced' R files.  Suppress the output when loading packages. --> 
+```{r load_packages, echo=echoChunks, message=FALSE}
+```
+
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+```{r declare_globals, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+```{r, echo=echoChunks, message=FALSE}
+#Put code in here.  It doesn't call a chunk in the codebehind file.
+```
+
+<!-- Load the datasets.   -->
+```{r load_data, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Tweak the datasets.   -->
+```{r tweak_data, echo=echoChunks, results='show', message=FALSE}
+```
+
+```{r missing_studies, echo=echoChunks, results='hide', message=FALSE}
+```
+
+
+```{r prepare_pretty, echo=echoChunks, results='hide', message=FALSE}
+```
+
+This report tabulates pivotal results to the workshop's research agenda: correlations between  random intercepts, slopes, and residuals in each bivariate model. For available combinations of constructs and measures in bivariate models [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/counts.html)
+
+
+
+# Predictor legend
+
+Models differ with respect to the covariate variables, entered as fixed effects on the second level. Abbreviations used in the tables are as follows: 
+
+- **empty** -- no covariate included into the model
+- **a** -- age (at baseline)
+- **ae** -- age + education
+- **aeh** -- age + education + height
+- **aehplus** -- age + education + height + diabetes + smoking history + cardiovascular
+- **full** -- all covariate availible in the study (will differ by study)
+
+# Study-Specific Tables
+
+```{r study_tables, echo=echoChunks, message=TRUE, results='asis'}
+```
+
+
+
+# Session Information
+For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
+
+```{r session_info, echo=FALSE}
+cat("Report rendered by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
+sessionInfo()
+```

@@ -84,6 +84,7 @@ names_tile <- function(ds,x_name){
 }
 
 names_tile(ds,"physical_measure")
+basic_tile(ds, "model_type")
 
 ## @knitr define_multi_plot_function
 
