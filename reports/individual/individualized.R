@@ -30,6 +30,11 @@ selected_study <- "eas"
 ds <- ds1[ds1$study_name==selected_study,]
 dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
 
+## @knitr load_elsa
+selected_study <- "elsa"
+ds <- ds1[ds1$study_name==selected_study,]
+dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+
 ## @knitr load_habc
 selected_study <- "habc"
 ds <- ds1[ds1$study_name==selected_study,]

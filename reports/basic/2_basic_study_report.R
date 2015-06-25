@@ -215,7 +215,7 @@ ds <- dsb %>%
   dplyr::arrange(physical_construct, cognitive_construct, physical_measure, cognitive_measure, subgroup, model_type)
 
 
-source("./scripts/2a_make_pretty_small.R")
+source("./reports/basic/2a_make_pretty_small.R")
 
 
 

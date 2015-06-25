@@ -197,7 +197,7 @@ saveRDS(ds,"./data/shared/ds1a.rds") # save corrected dataset
 
 ## @knitr dummy
 #### look for bad names ####
-
+ds %>% dplyr::count(study_name)
 ds %>% dplyr::count(model_number)
 ds %>% dplyr::count(subgroup)
 ds %>% dplyr::count(model_type)

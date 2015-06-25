@@ -128,7 +128,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
          
           b1 u0 u1
   muscle  24 2  6 
-  nophys  .  6  18
+  Univar  .  6  18
   walking 24 2  6 
 ```
 
@@ -137,11 +137,11 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-            
-             b1 u0 u1
-  gait       25 2  6 
-  hand       23 2  6 
-  nophysspec .  6  18
+        
+         b1 u0 u1
+  gait   25 2  6 
+  grip   23 2  6 
+  univar .  6  18
 ```
 
 ## Cognitive constructs
@@ -151,8 +151,8 @@ In this section, **model specification (columns)** are cross-tabulated with **co
         
          b1 u0 u1
   mental 32 4  12
-  nocog  .  4  12
   speed  16 2  6 
+  Univar .  4  12
 ```
 
 
@@ -160,12 +160,12 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-             
-              b1 u0 u1
-  3ms         16 2  6 
-  clock       16 2  6 
-  digitsymbol 16 2  6 
-  nocogspec   .  4  12
+        
+         b1 u0 u1
+  3ms    16 2  6 
+  clock  16 2  6 
+  symbol 16 2  6 
+  univar .  4  12
 ```
 </br></br></br>
 
@@ -181,18 +181,18 @@ Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE m
       
        muscle walking
   gait 1      24     
-  hand 23     .      
+  grip 23     .      
 ```
 
 ## Cognitive 
 Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE models
 
 ```
-             
-              mental speed
-  3ms         16     .    
-  clock       16     .    
-  digitsymbol .      16   
+        
+         mental speed
+  3ms    16     .    
+  clock  16     .    
+  symbol .      16   
 ```
 
 
@@ -211,11 +211,11 @@ Number of models with the following **physical constructs** (columns) and  **cog
 Number of models with the following  **physical constructs** (columns) and  **cognitive measures** (rows)
 
 ```
-             
-              muscle walking
-  3ms         8      8      
-  clock       8      8      
-  digitsymbol 8      8      
+        
+         muscle walking
+  3ms    8      8      
+  clock  8      8      
+  symbol 8      8      
 ```
 
 ## Cog.Constructs
@@ -223,7 +223,7 @@ Number of models with the following  **physical measure** (columns) and  **cogni
 
 ```
         
-         gait hand
+         gait grip
   mental 17   15  
   speed  8    8   
 ```
@@ -232,11 +232,11 @@ Number of models with the following  **physical measure** (columns) and  **cogni
 Number of models with the following  **physical measures** (columns) and  **cognitive measures** (rows)
 
 ```
-             
-              gait hand
-  3ms         8    8   
-  clock       9    7   
-  digitsymbol 8    8   
+        
+         gait grip
+  3ms    8    8   
+  clock  9    7   
+  symbol 8    8   
 ```
 </br></br></br>
 
@@ -249,30 +249,30 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical constructs (columns) by physical measures (rows) in UNIVARIATE models
 
 ```
-               muscle nophys walking
-                                    
-u0 gait            .      .       2 
-   hand            2      .       . 
-   nophysspec      .      6       . 
-u1 gait            .      .       6 
-   hand            6      .       . 
-   nophysspec      .      18      . 
+           muscle Univar walking
+                                
+u0 gait        .      .       2 
+   grip        2      .       . 
+   univar      .      6       . 
+u1 gait        .      .       6 
+   grip        6      .       . 
+   univar      .      18      . 
 ```
 
 ## Cognitive
 Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models
 
 ```
-                mental nocog speed
-                                  
-u0 3ms              2     .     . 
-   clock            2     .     . 
-   digitsymbol      .     .     2 
-   nocogspec        .     4     . 
-u1 3ms              6     .     . 
-   clock            6     .     . 
-   digitsymbol      .     .     6 
-   nocogspec        .     12    . 
+           mental speed Univar
+                              
+u0 3ms         2     .      . 
+   clock       2     .      . 
+   symbol      .     2      . 
+   univar      .     .      4 
+u1 3ms         6     .      . 
+   clock       6     .      . 
+   symbol      .     6      . 
+   univar      .     .      12
 ```
 </br></br></br>
 
@@ -389,7 +389,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-01, 11:08 -0700
+Report rendered by koval_000 at 2015-06-24, 21:42 -0700
 ```
 
 ```
@@ -405,13 +405,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
-[6] knitr_1.10.5          MplusAutomation_0.6-3
+[1] ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5          testit_0.4            knitr_1.10.5         
+[6] dplyr_0.4.1           MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
  [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
 [13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
-[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
-[25] evaluate_0.7     rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
+[19] yaml_2.1.13      lazyeval_0.1.10  digest_0.6.8     assertthat_0.1   reshape2_1.4.1   formatR_1.2     
+[25] rsconnect_0.3.79 evaluate_0.7     gsubfn_0.6-6     rmarkdown_0.7    stringi_0.4-1    boot_1.3-16     
+[31] proto_0.3-10    
 ```

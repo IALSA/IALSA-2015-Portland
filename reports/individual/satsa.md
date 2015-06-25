@@ -148,8 +148,8 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
            
             b1
-  global    16
   knowledge 48
+  mental    16
   speed     28
 ```
 
@@ -158,14 +158,14 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-        
-         b1
-  anal   16
-  figid  12
-  info   16
-  mmse   16
-  symbol 16
-  synon  16
+           
+            b1
+  analogies 16
+  figureid  12
+  info      16
+  mmse      16
+  symbol    16
+  synonyms  16
 ```
 </br></br></br>
 
@@ -188,14 +188,14 @@ Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE m
 Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE models
 
 ```
-        
-         global knowledge speed
-  anal   .      16        .    
-  figid  .      .         12   
-  info   .      16        .    
-  mmse   16     .         .    
-  symbol .      .         16   
-  synon  .      16        .    
+           
+            knowledge mental speed
+  analogies 16        .      .    
+  figureid  .         .      12   
+  info      16        .      .    
+  mmse      .         16     .    
+  symbol    .         .      16   
+  synonyms  16        .      .    
 ```
 
 
@@ -206,8 +206,8 @@ Number of models with the following **physical constructs** (columns) and  **cog
 ```
            
             muscle pulmonary
-  global    8      8        
   knowledge 24     24       
+  mental    8      8        
   speed     14     14       
 ```
 
@@ -215,14 +215,14 @@ Number of models with the following **physical constructs** (columns) and  **cog
 Number of models with the following  **physical constructs** (columns) and  **cognitive measures** (rows)
 
 ```
-        
-         muscle pulmonary
-  anal   8      8        
-  figid  6      6        
-  info   8      8        
-  mmse   8      8        
-  symbol 8      8        
-  synon  8      8        
+           
+            muscle pulmonary
+  analogies 8      8        
+  figureid  6      6        
+  info      8      8        
+  mmse      8      8        
+  symbol    8      8        
+  synonyms  8      8        
 ```
 
 ## Cog.Constructs
@@ -231,8 +231,8 @@ Number of models with the following  **physical measure** (columns) and  **cogni
 ```
            
             fev grip
-  global    8   8   
   knowledge 24  24  
+  mental    8   8   
   speed     14  14  
 ```
 
@@ -240,14 +240,14 @@ Number of models with the following  **physical measure** (columns) and  **cogni
 Number of models with the following  **physical measures** (columns) and  **cognitive measures** (rows)
 
 ```
-        
-         fev grip
-  anal   8   8   
-  figid  6   6   
-  info   8   8   
-  mmse   8   8   
-  symbol 8   8   
-  synon  8   8   
+           
+            fev grip
+  analogies 8   8   
+  figureid  6   6   
+  info      8   8   
+  mmse      8   8   
+  symbol    8   8   
+  synonyms  8   8   
 ```
 </br></br></br>
 
@@ -376,7 +376,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-01, 11:08 -0700
+Report rendered by koval_000 at 2015-06-24, 21:42 -0700
 ```
 
 ```
@@ -392,13 +392,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
-[6] knitr_1.10.5          MplusAutomation_0.6-3
+[1] ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5          testit_0.4            knitr_1.10.5         
+[6] dplyr_0.4.1           MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
  [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
 [13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
-[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
-[25] evaluate_0.7     rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
+[19] yaml_2.1.13      lazyeval_0.1.10  digest_0.6.8     assertthat_0.1   reshape2_1.4.1   formatR_1.2     
+[25] rsconnect_0.3.79 evaluate_0.7     gsubfn_0.6-6     rmarkdown_0.7    stringi_0.4-1    boot_1.3-16     
+[31] proto_0.3-10    
 ```

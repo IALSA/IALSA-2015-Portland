@@ -42,14 +42,14 @@ Your study
 has provided us with the total number of 
 
 ```
-154
+156
 ```
 models, using univariate and bivariate specifications:
 
 ```
 
  b1  u1 
-145   9 
+147   9 
 ```
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
@@ -108,38 +108,28 @@ The exact spelling of the explicit absence is not very important: *noPhys*, *nop
 The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and measures were used in your models:
 
 ```
-                  ds$output_file[!is_valid]
-1        b1_female_age_muscle_executive.out
-2          b1_male_age_muscle_executive.out
-3        b1_female_age_muscle_knowledge.out
-4          b1_male_age_muscle_knowledge.out
-5            u1_female_age_muscle_nocog.out
-6        b1_female_age_muscle_reasoning.out
-7          b1_male_age_muscle_reasoning.out
-8            b1_female_age_muscle_speed.out
-9              b1_male_age_muscle_speed.out
-10    b1_female_age_muscle_visuospatial.out
-11      b1_male_age_muscle_visuospatial.out
-12    b1_female_age_pulmonary_executive.out
-13      b1_male_age_pulmonary_executive.out
-14    b1_female_age_pulmonary_knowledge.out
-15      b1_male_age_pulmonary_knowledge.out
-16        u1_female_age_pulmonary_noCog.out
-17          u1_male_age_pulmonary_noCog.out
-18    b1_female_age_pulmonary_reasoning.out
-19      b1_male_age_pulmonary_reasoning.out
-20        b1_female_age_pulmonary_speed.out
-21          b1_male_age_pulmonary_speed.out
-22 b1_female_age_pulmonary_visuospatial.out
-23   b1_male_age_pulmonary_visuospatial.out
-24          u1_female_age_walking_noCog.out
-25            u1_male_age_walking_noCog.out
+                ds$output_file[!is_valid]
+1        b1_male_age_muscle_executive.out
+2        b1_male_age_muscle_knowledge.out
+3          u1_female_age_muscle_nocog.out
+4        b1_male_age_muscle_reasoning.out
+5            b1_male_age_muscle_speed.out
+6     b1_male_age_muscle_visuospatial.out
+7     b1_male_age_pulmonary_executive.out
+8     b1_male_age_pulmonary_knowledge.out
+9       u1_female_age_pulmonary_noCog.out
+10        u1_male_age_pulmonary_noCog.out
+11    b1_male_age_pulmonary_reasoning.out
+12        b1_male_age_pulmonary_speed.out
+13 b1_male_age_pulmonary_visuospatial.out
+14        u1_female_age_walking_noCog.out
+15          u1_male_age_walking_noCog.out
 ```
 
 After removing incorrectly named files, there are
 
 ```
-129
+141
 ```
 models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
 
@@ -152,8 +142,8 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
            
             b1 u1
-  muscle    71 2 
-  pulmonary 54 2 
+  muscle    77 2 
+  pulmonary 60 2 
 ```
 
 
@@ -163,8 +153,8 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
       
        b1 u1
-  fev  54 2 
-  grip 71 2 
+  fev  60 2 
+  grip 77 2 
 ```
 
 ## Cognitive constructs
@@ -173,16 +163,16 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
               
                b1 u1
-  attention    7  . 
-  executive    16 . 
-  global       7  . 
-  knowledge    7  . 
-  language     13 . 
-  memory       47 . 
-  nocog        .  4 
-  reasoning    7  . 
-  speed        14 . 
-  visuospatial 7  . 
+  executive    14 . 
+  fluency      5  . 
+  knowledge    9  . 
+  language     14 . 
+  memory       54 . 
+  mental       8  . 
+  reasoning    9  . 
+  speed        15 . 
+  Univar       .  4 
+  visuospatial 9  . 
 ```
 
 
@@ -192,23 +182,23 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
                       
                        b1 u1
-  bnt                  6  . 
+  bnt                  7  . 
   bostonstorydelay     7  . 
   bostonstoryimmediate 7  . 
-  categoryfluency      4  . 
+  categories           5  . 
   complexideas         7  . 
   digitordering        6  . 
-  digitsback           6  . 
+  digitsback           8  . 
   digitsforward        7  . 
-  digitsymbol          7  . 
-  lineorientation      7  . 
+  lineorientation      9  . 
   logicalmemorydelay   7  . 
   logicalmemoryimmed   5  . 
-  matrices             7  . 
-  mmse                 7  . 
-  nart                 7  . 
-  nocogspec            .  4 
+  matrices             9  . 
+  mmse                 8  . 
+  nart                 9  . 
   numbercomparison     7  . 
+  symbol               8  . 
+  univar               .  4 
   wordlistdelay        7  . 
   wordlistimmed        7  . 
   wordlistrecog        7  . 
@@ -226,8 +216,8 @@ Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE m
 ```
       
        muscle pulmonary
-  fev  .      54       
-  grip 71     .        
+  fev  .      60       
+  grip 77     .        
 ```
 
 ## Cognitive 
@@ -235,26 +225,26 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
 
 ```
                       
-                       attention executive global knowledge language memory reasoning speed visuospatial
-  bnt                  .         .         .      .         6        .      .         .     .           
-  bostonstorydelay     .         .         .      .         .        7      .         .     .           
-  bostonstoryimmediate .         .         .      .         .        7      .         .     .           
-  categoryfluency      .         4         .      .         .        .      .         .     .           
-  complexideas         .         .         .      .         7        .      .         .     .           
-  digitordering        .         6         .      .         .        .      .         .     .           
-  digitsback           .         6         .      .         .        .      .         .     .           
-  digitsforward        7         .         .      .         .        .      .         .     .           
-  digitsymbol          .         .         .      .         .        .      .         7     .           
-  lineorientation      .         .         .      .         .        .      .         .     7           
-  logicalmemorydelay   .         .         .      .         .        7      .         .     .           
-  logicalmemoryimmed   .         .         .      .         .        5      .         .     .           
-  matrices             .         .         .      .         .        .      7         .     .           
-  mmse                 .         .         7      .         .        .      .         .     .           
-  nart                 .         .         .      7         .        .      .         .     .           
-  numbercomparison     .         .         .      .         .        .      .         7     .           
-  wordlistdelay        .         .         .      .         .        7      .         .     .           
-  wordlistimmed        .         .         .      .         .        7      .         .     .           
-  wordlistrecog        .         .         .      .         .        7      .         .     .           
+                       executive fluency knowledge language memory mental reasoning speed visuospatial
+  bnt                  .         .       .         7        .      .      .         .     .           
+  bostonstorydelay     .         .       .         .        7      .      .         .     .           
+  bostonstoryimmediate .         .       .         .        7      .      .         .     .           
+  categories           .         5       .         .        .      .      .         .     .           
+  complexideas         .         .       .         7        .      .      .         .     .           
+  digitordering        6         .       .         .        .      .      .         .     .           
+  digitsback           8         .       .         .        .      .      .         .     .           
+  digitsforward        .         .       .         .        7      .      .         .     .           
+  lineorientation      .         .       .         .        .      .      .         .     9           
+  logicalmemorydelay   .         .       .         .        7      .      .         .     .           
+  logicalmemoryimmed   .         .       .         .        5      .      .         .     .           
+  matrices             .         .       .         .        .      .      9         .     .           
+  mmse                 .         .       .         .        .      8      .         .     .           
+  nart                 .         .       9         .        .      .      .         .     .           
+  numbercomparison     .         .       .         .        .      .      .         7     .           
+  symbol               .         .       .         .        .      .      .         8     .           
+  wordlistdelay        .         .       .         .        7      .      .         .     .           
+  wordlistimmed        .         .       .         .        7      .      .         .     .           
+  wordlistrecog        .         .       .         .        7      .      .         .     .           
 ```
 
 
@@ -265,15 +255,15 @@ Number of models with the following **physical constructs** (columns) and  **cog
 ```
               
                muscle pulmonary
-  attention    4      3        
-  executive    10     6        
-  global       4      3        
-  knowledge    4      3        
-  language     7      6        
-  memory       26     21       
-  reasoning    4      3        
-  speed        8      6        
-  visuospatial 4      3        
+  executive    7      7        
+  fluency      5      .        
+  knowledge    5      4        
+  language     8      6        
+  memory       30     24       
+  mental       4      4        
+  reasoning    5      4        
+  speed        8      7        
+  visuospatial 5      4        
 ```
 
 ## Phys.Constructs
@@ -282,22 +272,22 @@ Number of models with the following  **physical constructs** (columns) and  **co
 ```
                       
                        muscle pulmonary
-  bnt                  3      3        
+  bnt                  4      3        
   bostonstorydelay     4      3        
   bostonstoryimmediate 4      3        
-  categoryfluency      4      .        
+  categories           5      .        
   complexideas         4      3        
   digitordering        3      3        
-  digitsback           3      3        
+  digitsback           4      4        
   digitsforward        4      3        
-  digitsymbol          4      3        
-  lineorientation      4      3        
+  lineorientation      5      4        
   logicalmemorydelay   4      3        
   logicalmemoryimmed   2      3        
-  matrices             4      3        
-  mmse                 4      3        
-  nart                 4      3        
+  matrices             5      4        
+  mmse                 4      4        
+  nart                 5      4        
   numbercomparison     4      3        
+  symbol               4      4        
   wordlistdelay        4      3        
   wordlistimmed        4      3        
   wordlistrecog        4      3        
@@ -309,15 +299,15 @@ Number of models with the following  **physical measure** (columns) and  **cogni
 ```
               
                fev grip
-  attention    3   4   
-  executive    6   10  
-  global       3   4   
-  knowledge    3   4   
-  language     6   7   
-  memory       21  26  
-  reasoning    3   4   
-  speed        6   8   
-  visuospatial 3   4   
+  executive    7   7   
+  fluency      .   5   
+  knowledge    4   5   
+  language     6   8   
+  memory       24  30  
+  mental       4   4   
+  reasoning    4   5   
+  speed        7   8   
+  visuospatial 4   5   
 ```
 
 ## Measures
@@ -326,22 +316,22 @@ Number of models with the following  **physical measures** (columns) and  **cogn
 ```
                       
                        fev grip
-  bnt                  3   3   
+  bnt                  3   4   
   bostonstorydelay     3   4   
   bostonstoryimmediate 3   4   
-  categoryfluency      .   4   
+  categories           .   5   
   complexideas         3   4   
   digitordering        3   3   
-  digitsback           3   3   
+  digitsback           4   4   
   digitsforward        3   4   
-  digitsymbol          3   4   
-  lineorientation      3   4   
+  lineorientation      4   5   
   logicalmemorydelay   3   4   
   logicalmemoryimmed   3   2   
-  matrices             3   4   
-  mmse                 3   4   
-  nart                 3   4   
+  matrices             4   5   
+  mmse                 4   4   
+  nart                 4   5   
   numbercomparison     3   4   
+  symbol               4   4   
   wordlistdelay        3   4   
   wordlistimmed        3   4   
   wordlistrecog        3   4   
@@ -367,9 +357,9 @@ u1 fev        .         2
 Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models
 
 ```
-              nocog
-                   
-u1 nocogspec      4
+           Univar
+                 
+u1 univar       4
 ```
 </br></br></br>
 
@@ -389,7 +379,8 @@ b1              female   aeh                 muscle                   executive 
 b1              female   aehplus             muscle                   executive                 grip                   categoryfluency         b1_female_aehplus_muscle_executive_grip_categoryfluency.out      
 b1              female   aehplus             muscle                   executive                 grip                   digitordering           b1_female_aehplus_muscle_executive_grip_digitordering.out        
 b1              female   aehplus             muscle                   executive                 grip                   digitsback              b1_female_aehplus_muscle_executive_grip_digitsback.out           
-b1              female   age                 muscle                   executive                 NA                     NA                      b1_female_age_muscle_executive.out                               
+b1              female   age                 muscle                   executive                 grip                   categoryfluency         b1_female_age_muscle_executive_grip_categoryfluency.out          
+b1              female   age                 muscle                   executive                 grip                   digitsback              b1_female_age_muscle_executive_grip_digitsback.out               
 b1              male     aeh                 muscle                   executive                 grip                   categoryfluency         b1_male_aeh_muscle_executive_grip_categoryfluency.out            
 b1              male     aehplus             muscle                   executive                 grip                   categoryfluency         b1_male_aehplus_muscle_executive_grip_categoryfluency.out        
 b1              male     aehplus             muscle                   executive                 grip                   digitordering           b1_male_aehplus_muscle_executive_grip_digitordering.out          
@@ -401,7 +392,7 @@ b1              male     aeh                 muscle                   global    
 b1              male     aehplus             muscle                   global                    grip                   mmse                    b1_male_aehplus_muscle_global_grip_mmse.out                      
 b1              female   aeh                 muscle                   knowledge                 grip                   nart                    b1_female_aeh_muscle_knowledge_grip_nart.out                     
 b1              female   aehplus             muscle                   knowledge                 grip                   nart                    b1_female_aehplus_muscle_knowledge_grip_nart.out                 
-b1              female   age                 muscle                   knowledge                 NA                     NA                      b1_female_age_muscle_knowledge.out                               
+b1              female   age                 muscle                   knowledge                 grip                   nart                    b1_female_age_muscle_knowledge_grip_nart.out                     
 b1              male     aeh                 muscle                   knowledge                 grip                   nart                    b1_male_aeh_muscle_knowledge_grip_nart.out                       
 b1              male     aehplus             muscle                   knowledge                 grip                   nart                    b1_male_aehplus_muscle_knowledge_grip_nart.out                   
 b1              male     age                 muscle                   knowledge                 NA                     NA                      b1_male_age_muscle_knowledge.out                                 
@@ -409,6 +400,7 @@ b1              female   aeh                 muscle                   language  
 b1              female   aeh                 muscle                   language                  grip                   complexideas            b1_female_aeh_muscle_language_grip_complexideas.out              
 b1              female   aehplus             muscle                   language                  grip                   bnt                     b1_female_aehplus_muscle_language_grip_bnt.out                   
 b1              female   aehplus             muscle                   language                  grip                   complexideas            b1_female_aehplus_muscle_language_grip_complexideas.out          
+b1              female   age                 muscle                   language                  grip                   bnt                     b1_female_age_muscle_language_grip_bnt.out                       
 b1              male     aeh                 muscle                   language                  grip                   bnt                     b1_male_aeh_muscle_language_grip_bnt.out                         
 b1              male     aeh                 muscle                   language                  grip                   complexideas            b1_male_aeh_muscle_language_grip_complexideas.out                
 b1              male     aehplus             muscle                   language                  grip                   complexideas            b1_male_aehplus_muscle_language_grip_complexideas.out            
@@ -440,7 +432,7 @@ b1              male     aehplus             muscle                   memory    
 b1              male     aehplus             muscle                   memory                    grip                   wordlistrecog           b1_male_aehplus_muscle_memory_grip_wordlistrecog.out             
 b1              female   aeh                 muscle                   reasoning                 grip                   matrices                b1_female_aeh_muscle_reasoning_grip_matrices.out                 
 b1              female   aehplus             muscle                   reasoning                 grip                   matrices                b1_female_aehplus_muscle_reasoning_grip_matrices.out             
-b1              female   age                 muscle                   reasoning                 NA                     NA                      b1_female_age_muscle_reasoning.out                               
+b1              female   age                 muscle                   reasoning                 grip                   matrices                b1_female_age_muscle_reasoning_grip_matrices.out                 
 b1              male     aeh                 muscle                   reasoning                 grip                   matrices                b1_male_aeh_muscle_reasoning_grip_matrices.out                   
 b1              male     aehplus             muscle                   reasoning                 grip                   matrices                b1_male_aehplus_muscle_reasoning_grip_matrices.out               
 b1              male     age                 muscle                   reasoning                 NA                     NA                      b1_male_age_muscle_reasoning.out                                 
@@ -448,7 +440,6 @@ b1              female   aeh                 muscle                   speed     
 b1              female   aeh                 muscle                   speed                     grip                   numbercomparison        b1_female_aeh_muscle_speed_grip_numbercomparison.out             
 b1              female   aehplus             muscle                   speed                     grip                   digitsymbol             b1_female_aehplus_muscle_speed_grip_digitsymbol.out              
 b1              female   aehplus             muscle                   speed                     grip                   numbercomparison        b1_female_aehplus_muscle_speed_grip_numbercomparison.out         
-b1              female   age                 muscle                   speed                     NA                     NA                      b1_female_age_muscle_speed.out                                   
 b1              male     aeh                 muscle                   speed                     grip                   digitsymbol             b1_male_aeh_muscle_speed_grip_digitsymbol.out                    
 b1              male     aeh                 muscle                   speed                     grip                   numbercomparison        b1_male_aeh_muscle_speed_grip_numbercomparison.out               
 b1              male     aehplus             muscle                   speed                     grip                   digitsymbol             b1_male_aehplus_muscle_speed_grip_digitsymbol.out                
@@ -456,7 +447,7 @@ b1              male     aehplus             muscle                   speed     
 b1              male     age                 muscle                   speed                     NA                     NA                      b1_male_age_muscle_speed.out                                     
 b1              female   aeh                 muscle                   visuospatial              grip                   lineorientation         b1_female_aeh_muscle_visuospatial_grip_lineorientation.out       
 b1              female   aehplus             muscle                   visuospatial              grip                   lineorientation         b1_female_aehplus_muscle_visuospatial_grip_lineorientation.out   
-b1              female   age                 muscle                   visuospatial              NA                     NA                      b1_female_age_muscle_visuospatial.out                            
+b1              female   age                 muscle                   visuospatial              grip                   lineorientation         b1_female_age_muscle_visuospatial_grip_lineorientation.out       
 b1              male     aeh                 muscle                   visuospatial              grip                   lineorientation         b1_male_aeh_muscle_visuospatial_grip_lineorientation.out         
 b1              male     aehplus             muscle                   visuospatial              grip                   lineorientation         b1_male_aehplus_muscle_visuospatial_grip_lineorientation.out     
 b1              male     age                 muscle                   visuospatial              NA                     NA                      b1_male_age_muscle_visuospatial.out                              
@@ -465,17 +456,18 @@ b1              male     aeh                 pulmonary                attention 
 b1              male     aehplus             pulmonary                attention                 fev                    digitsforward           b1_male_aehplus_pulmonary_attention_fev_digitsforward.out        
 b1              female   aehplus             pulmonary                executive                 fev                    digitordering           b1_female_aehplus_pulmonary_executive_fev_digitordering.out      
 b1              female   aehplus             pulmonary                executive                 fev                    digitsback              b1_female_aehplus_pulmonary_executive_fev_digitsback.out         
-b1              female   age                 pulmonary                executive                 NA                     NA                      b1_female_age_pulmonary_executive.out                            
+b1              female   age                 pulmonary                executive                 fev                    digitsback              b1_female_age_pulmonary_executive_fev_digitsback.out             
 b1              male     aeh                 pulmonary                executive                 fev                    digitordering           b1_male_aeh_pulmonary_executive_fev_digitordering.out            
 b1              male     aeh                 pulmonary                executive                 fev                    digitsback              b1_male_aeh_pulmonary_executive_fev_digitsback.out               
 b1              male     aehplus             pulmonary                executive                 fev                    digitordering           b1_male_aehplus_pulmonary_executive_fev_digitordering.out        
 b1              male     aehplus             pulmonary                executive                 fev                    digitsback              b1_male_aehplus_pulmonary_executive_fev_digitsback.out           
 b1              male     age                 pulmonary                executive                 NA                     NA                      b1_male_age_pulmonary_executive.out                              
 b1              female   aehplus             pulmonary                global                    fev                    mmse                    b1_female_aehplus_pulmonary_global_fev_mmse.out                  
+b1              female   age                 pulmonary                global                    fev                    mmse                    b1_female_age_pulmonary_global_fev_mmse.out                      
 b1              male     aeh                 pulmonary                global                    fev                    mmse                    b1_male_aeh_pulmonary_global_fev_mmse.out                        
 b1              male     aehplus             pulmonary                global                    fev                    mmse                    b1_male_aehplus_pulmonary_global_fev_mmse.out                    
 b1              female   aehplus             pulmonary                knowledge                 fev                    nart                    b1_female_aehplus_pulmonary_knowledge_fev_nart.out               
-b1              female   age                 pulmonary                knowledge                 NA                     NA                      b1_female_age_pulmonary_knowledge.out                            
+b1              female   age                 pulmonary                knowledge                 fev                    nart                    b1_female_age_pulmonary_knowledge_fev_nart.out                   
 b1              male     aeh                 pulmonary                knowledge                 fev                    nart                    b1_male_aeh_pulmonary_knowledge_fev_nart.out                     
 b1              male     aehplus             pulmonary                knowledge                 fev                    nart                    b1_male_aehplus_pulmonary_knowledge_fev_nart.out                 
 b1              male     age                 pulmonary                knowledge                 NA                     NA                      b1_male_age_pulmonary_knowledge.out                              
@@ -507,20 +499,20 @@ b1              male     aehplus             pulmonary                memory    
 b1              male     aehplus             pulmonary                memory                    fev                    wordlistimmed           b1_male_aehplus_pulmonary_memory_fev_wordlistimmed.out           
 b1              male     aehplus             pulmonary                memory                    fev                    wordlistrecog           b1_male_aehplus_pulmonary_memory_fev_wordlistrecog.out           
 b1              female   aehplus             pulmonary                reasoning                 fev                    matrices                b1_female_aehplus_pulmonary_reasoning_fev_matrices.out           
-b1              female   age                 pulmonary                reasoning                 NA                     NA                      b1_female_age_pulmonary_reasoning.out                            
+b1              female   age                 pulmonary                reasoning                 fev                    matrices                b1_female_age_pulmonary_reasoning_fev_matrices.out               
 b1              male     aeh                 pulmonary                reasoning                 fev                    matrices                b1_male_aeh_pulmonary_reasoning_fev_matrices.out                 
 b1              male     aehplus             pulmonary                reasoning                 fev                    matrices                b1_male_aehplus_pulmonary_reasoning_fev_matrices.out             
 b1              male     age                 pulmonary                reasoning                 NA                     NA                      b1_male_age_pulmonary_reasoning.out                              
 b1              female   aehplus             pulmonary                speed                     fev                    digitsymbol             b1_female_aehplus_pulmonary_speed_fev_digitsymbol.out            
 b1              female   aehplus             pulmonary                speed                     fev                    numbercomparison        b1_female_aehplus_pulmonary_speed_fev_numbercomparison.out       
-b1              female   age                 pulmonary                speed                     NA                     NA                      b1_female_age_pulmonary_speed.out                                
+b1              female   age                 pulmonary                speed                     fev                    digitsymbol             b1_female_age_pulmonary_speed_fev_digitsymbol.out                
 b1              male     aeh                 pulmonary                speed                     fev                    digitsymbol             b1_male_aeh_pulmonary_speed_fev_digitsymbol.out                  
 b1              male     aeh                 pulmonary                speed                     fev                    numbercomparison        b1_male_aeh_pulmonary_speed_fev_numbercomparison.out             
 b1              male     aehplus             pulmonary                speed                     fev                    digitsymbol             b1_male_aehplus_pulmonary_speed_fev_digitsymbol.out              
 b1              male     aehplus             pulmonary                speed                     fev                    numbercomparison        b1_male_aehplus_pulmonary_speed_fev_numbercomparison.out         
 b1              male     age                 pulmonary                speed                     NA                     NA                      b1_male_age_pulmonary_speed.out                                  
 b1              female   aehplus             pulmonary                visuospatial              fev                    lineorientation         b1_female_aehplus_pulmonary_visuospatial_fev_lineorientation.out 
-b1              female   age                 pulmonary                visuospatial              NA                     NA                      b1_female_age_pulmonary_visuospatial.out                         
+b1              female   age                 pulmonary                visuospatial              fev                    lineorientation         b1_female_age_pulmonary_visuospatial_fev_lineorientation.out     
 b1              male     aeh                 pulmonary                visuospatial              fev                    lineorientation         b1_male_aeh_pulmonary_visuospatial_fev_lineorientation.out       
 b1              male     aehplus             pulmonary                visuospatial              fev                    lineorientation         b1_male_aehplus_pulmonary_visuospatial_fev_lineorientation.out   
 b1              male     age                 pulmonary                visuospatial              NA                     NA                      b1_male_age_pulmonary_visuospatial.out                           
@@ -546,7 +538,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-01, 11:08 -0700
+Report rendered by koval_000 at 2015-06-24, 21:42 -0700
 ```
 
 ```
@@ -562,13 +554,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
-[6] knitr_1.10.5          MplusAutomation_0.6-3
+[1] ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5          testit_0.4            knitr_1.10.5         
+[6] dplyr_0.4.1           MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
  [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
 [13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
-[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
-[25] evaluate_0.7     rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
+[19] yaml_2.1.13      lazyeval_0.1.10  digest_0.6.8     assertthat_0.1   reshape2_1.4.1   formatR_1.2     
+[25] rsconnect_0.3.79 evaluate_0.7     gsubfn_0.6-6     rmarkdown_0.7    stringi_0.4-1    boot_1.3-16     
+[31] proto_0.3-10    
 ```

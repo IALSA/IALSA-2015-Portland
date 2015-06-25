@@ -128,8 +128,8 @@ In this section, **model specification (columns)** are cross-tabulated with **co
         
          b1 u0 u1
   muscle 36 2  7 
-  nophys .  10 24
   tug    36 2  6 
+  Univar .  10 24
 ```
 
 
@@ -137,10 +137,10 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-            
-             b1 u0 u1
-  grip       36 2  6 
-  nophysspec 36 12 31
+        
+         b1 u0 u1
+  grip   36 2  6 
+  univar 36 12 31
 ```
 
 ## Cognitive constructs
@@ -151,9 +151,9 @@ In this section, **model specification (columns)** are cross-tabulated with **co
             b1 u0 u1
   fluency   12 2  6 
   knowledge 12 .  . 
-  nocog     .  4  13
   reasoning 36 6  12
   speed     12 2  6 
+  Univar    .  4  13
 ```
 
 
@@ -161,16 +161,16 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-                             
-                              b1 u0 u1
-  digitsymbolsubstitutiontest 12 2  6 
-  lpsspacialability           12 2  . 
-  nocogspec                   .  4  13
-  picturecompletion           .  2  6 
-  verbalfluencytest           12 2  6 
-  waisblockdesign             12 2  6 
-  waisgeneralknowledge        12 .  . 
-  waispicturecompletion       12 .  . 
+                       
+                        b1 u0 u1
+  block                 12 2  6 
+  lpsspacialability     12 2  . 
+  picturecompletion     .  2  6 
+  symbol                12 2  6 
+  univar                .  4  13
+  verbalfluency         12 2  6 
+  waisgeneralknowledge  12 .  . 
+  waispicturecompletion 12 .  . 
 ```
 </br></br></br>
 
@@ -183,24 +183,24 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE models
 
 ```
-            
-             muscle tug
-  grip       36     .  
-  nophysspec .      36 
+        
+         muscle tug
+  grip   36     .  
+  univar .      36 
 ```
 
 ## Cognitive 
 Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE models
 
 ```
-                             
-                              fluency knowledge reasoning speed
-  digitsymbolsubstitutiontest .       .         .         12   
-  lpsspacialability           .       .         12        .    
-  verbalfluencytest           12      .         .         .    
-  waisblockdesign             .       .         12        .    
-  waisgeneralknowledge        .       12        .         .    
-  waispicturecompletion       .       .         12        .    
+                       
+                        fluency knowledge reasoning speed
+  block                 .       .         12        .    
+  lpsspacialability     .       .         12        .    
+  symbol                .       .         .         12   
+  verbalfluency         12      .         .         .    
+  waisgeneralknowledge  .       12        .         .    
+  waispicturecompletion .       .         12        .    
 ```
 
 
@@ -221,14 +221,14 @@ Number of models with the following **physical constructs** (columns) and  **cog
 Number of models with the following  **physical constructs** (columns) and  **cognitive measures** (rows)
 
 ```
-                             
-                              muscle tug
-  digitsymbolsubstitutiontest 6      6  
-  lpsspacialability           6      6  
-  verbalfluencytest           6      6  
-  waisblockdesign             6      6  
-  waisgeneralknowledge        6      6  
-  waispicturecompletion       6      6  
+                       
+                        muscle tug
+  block                 6      6  
+  lpsspacialability     6      6  
+  symbol                6      6  
+  verbalfluency         6      6  
+  waisgeneralknowledge  6      6  
+  waispicturecompletion 6      6  
 ```
 
 ## Cog.Constructs
@@ -236,25 +236,25 @@ Number of models with the following  **physical measure** (columns) and  **cogni
 
 ```
            
-            grip nophysspec
-  fluency   6    6         
-  knowledge 6    6         
-  reasoning 18   18        
-  speed     6    6         
+            grip univar
+  fluency   6    6     
+  knowledge 6    6     
+  reasoning 18   18    
+  speed     6    6     
 ```
 
 ## Measures
 Number of models with the following  **physical measures** (columns) and  **cognitive measures** (rows)
 
 ```
-                             
-                              grip nophysspec
-  digitsymbolsubstitutiontest 6    6         
-  lpsspacialability           6    6         
-  verbalfluencytest           6    6         
-  waisblockdesign             6    6         
-  waisgeneralknowledge        6    6         
-  waispicturecompletion       6    6         
+                       
+                        grip univar
+  block                 6    6     
+  lpsspacialability     6    6     
+  symbol                6    6     
+  verbalfluency         6    6     
+  waisgeneralknowledge  6    6     
+  waispicturecompletion 6    6     
 ```
 </br></br></br>
 
@@ -267,32 +267,32 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical constructs (columns) by physical measures (rows) in UNIVARIATE models
 
 ```
-               muscle nophys tug
-                                
-u0 grip            2      .   . 
-   nophysspec      .      10  2 
-u1 grip            6      .   . 
-   nophysspec      1      24  6 
+           muscle tug Univar
+                            
+u0 grip        2   .      . 
+   univar      .   2      10
+u1 grip        6   .      . 
+   univar      1   6      24
 ```
 
 ## Cognitive
 Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models
 
 ```
-                                fluency nocog reasoning speed
-                                                             
-u0 digitsymbolsubstitutiontest       .     .         .     2 
-   lpsspacialability                 .     .         2     . 
-   nocogspec                         .     4         .     . 
-   picturecompletion                 .     .         2     . 
-   verbalfluencytest                 2     .         .     . 
-   waisblockdesign                   .     .         2     . 
-u1 digitsymbolsubstitutiontest       .     .         .     6 
-   lpsspacialability                 .     .         .     . 
-   nocogspec                         .     13        .     . 
-   picturecompletion                 .     .         6     . 
-   verbalfluencytest                 6     .         .     . 
-   waisblockdesign                   .     .         6     . 
+                      fluency reasoning speed Univar
+                                                    
+u0 block                   .         2     .      . 
+   lpsspacialability       .         2     .      . 
+   picturecompletion       .         2     .      . 
+   symbol                  .         .     2      . 
+   univar                  .         .     .      4 
+   verbalfluency           2         .     .      . 
+u1 block                   .         6     .      . 
+   lpsspacialability       .         .     .      . 
+   picturecompletion       .         6     .      . 
+   symbol                  .         .     6      . 
+   univar                  .         .     .      13
+   verbalfluency           6         .     .      . 
 ```
 </br></br></br>
 
@@ -444,7 +444,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-01, 11:08 -0700
+Report rendered by koval_000 at 2015-06-24, 21:42 -0700
 ```
 
 ```
@@ -460,13 +460,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.4         
-[6] knitr_1.10.5          MplusAutomation_0.6-3
+[1] ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5          testit_0.4            knitr_1.10.5         
+[6] dplyr_0.4.1           MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
  [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
  [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
 [13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
-[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
-[25] evaluate_0.7     rmarkdown_0.6.1  gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
+[19] yaml_2.1.13      lazyeval_0.1.10  digest_0.6.8     assertthat_0.1   reshape2_1.4.1   formatR_1.2     
+[25] rsconnect_0.3.79 evaluate_0.7     gsubfn_0.6-6     rmarkdown_0.7    stringi_0.4-1    boot_1.3-16     
+[31] proto_0.3-10    
 ```

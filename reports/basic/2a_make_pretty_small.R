@@ -18,16 +18,16 @@ prettify_coefficients <- function( coefficient, digit_rounded_count=2 ) {
 }
 
 ds_pretty$var_int_cog <- prettify_coefficients(ds_pretty$var_int_cog)
-ds_pretty$sd_int <- prettify_coefficients(ds_pretty$sd_int)
-ds_pretty$sd_slope <- prettify_coefficients(ds_pretty$sd_slope)
-ds_pretty$sd_residual <- prettify_coefficients(ds_pretty$sd_residual)
+ds_pretty$corr_int <- prettify_coefficients(ds_pretty$corr_int)
+ds_pretty$corr_slope <- prettify_coefficients(ds_pretty$corr_slope)
+ds_pretty$corr_residual <- prettify_coefficients(ds_pretty$corr_residual)
 
-ds_pretty$cil_sd_int <- prettify_coefficients(ds_pretty$cil_sd_int)
-ds_pretty$ciu_sd_int <- prettify_coefficients(ds_pretty$ciu_sd_int)
-ds_pretty$cil_sd_slope <- prettify_coefficients(ds_pretty$cil_sd_slope)
-ds_pretty$ciu_sd_slope <- prettify_coefficients(ds_pretty$ciu_sd_slope)
-ds_pretty$cil_sd_residual <- prettify_coefficients(ds_pretty$cil_sd_residual)
-ds_pretty$ciu_sd_residual <- prettify_coefficients(ds_pretty$ciu_sd_residual)
+ds_pretty$cil_corr_int <- prettify_coefficients(ds_pretty$cil_corr_int)
+ds_pretty$ciu_corr_int <- prettify_coefficients(ds_pretty$ciu_corr_int)
+ds_pretty$cil_corr_slope <- prettify_coefficients(ds_pretty$cil_corr_slope)
+ds_pretty$ciu_corr_slope <- prettify_coefficients(ds_pretty$ciu_corr_slope)
+ds_pretty$cil_corr_residual <- prettify_coefficients(ds_pretty$cil_corr_residual)
+ds_pretty$ciu_corr_residual <- prettify_coefficients(ds_pretty$ciu_corr_residual)
 
 desired_columns_bivariate<- c(
   "study_name",
@@ -44,21 +44,21 @@ desired_columns_bivariate<- c(
   "model_type",
 
 
-  "sd_int",
-  "sd_slope",
-  "sd_residual",
+  "corr_int",
+  "corr_slope",
+  "corr_residual",
 
   "p_cov_int",
   "p_cov_slope",
   "p_cov_res"
 
 
-#   "cil_sd_int",
-#   "ciu_sd_int",
-#   "cil_sd_slope",
-#   "ciu_sd_slope",
-#   "cil_sd_residual",
-#   "ciu_sd_residual",
+#   "cil_corr_int",
+#   "ciu_corr_int",
+#   "cil_corr_slope",
+#   "ciu_corr_slope",
+#   "cil_corr_residual",
+#   "ciu_corr_residual",
 
 
 )
@@ -76,21 +76,21 @@ ds_bivariate_pretty <- plyr::rename(ds_bivariate_pretty, replace=c(
   "physical_measure" = "physical<br/>measure",
   "cognitive_measure" = "cognitive<br/>measure",
 
-  "sd_int" = "correlation<br/>between<br/>intercepts",
-  "sd_slope" = "correlation<br/>between<br/>slopes",
-  "sd_residual" ="correlation<br/>between<br/>residuals",
+  "corr_int" = "correlation<br/>between<br/>intercepts",
+  "corr_slope" = "correlation<br/>between<br/>slopes",
+  "corr_residual" ="correlation<br/>between<br/>residuals",
 
   "p_cov_int"=  "p<br/>value<br/>int",
   "p_cov_slope"=  "p<br/>value<br/>slope",
   "p_cov_res"= "p<br/>value<br/>res"
 
 
-#   "cil_sd_int" = "CIL<br/>cor<br/>int",
-#   "ciu_sd_int" = "CIU<br/>cor<br/>int",
-#   "cil_sd_slope" = "CIL<br/>cor<br/>slope",
-#   "ciu_sd_slope" = "CIU<br/>cor<br/>slope",
-#   "cil_sd_residual" = "CIL<br/>cor<br/>residual",
-#   "ciu_sd_residual" = "CIU<br/>cor<br/>residual"
+#   "cil_corr_int" = "CIL<br/>cor<br/>int",
+#   "ciu_corr_int" = "CIU<br/>cor<br/>int",
+#   "cil_corr_slope" = "CIL<br/>cor<br/>slope",
+#   "ciu_corr_slope" = "CIU<br/>cor<br/>slope",
+#   "cil_corr_residual" = "CIL<br/>cor<br/>residual",
+#   "ciu_corr_residual" = "CIU<br/>cor<br/>residual"
 ))
 
 # ds <- ds_bivariate_pretty

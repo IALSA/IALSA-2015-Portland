@@ -19,7 +19,7 @@ source("./scripts/0a_functions_that_collect.R")
 
 ## @knitr find.Conflicts
 find.Conflicts("eas")
-# find.Conflicts("elsa")
+find.Conflicts("elsa")
 find.Conflicts("habc")
 # find.Conflicts("hrs")
 find.Conflicts("ilse")
@@ -37,7 +37,7 @@ find.Conflicts("satsa")
 
 ## @knitr find.CI
 find.CI(study = "eas")
-# find.Conflicts("elsa")
+find.Conflicts("elsa")
 find.CI(study = "habc")
 # find.CI("hrs")
 find.CI("ilse")
@@ -56,7 +56,7 @@ find.CI("satsa")
 
 ## @knitr get.Models
 get.Models("eas")
-# find.Conflicts("elsa")
+get.Models("elsa")
 get.Models("habc")
 # get.Models("hrs")
 get.Models("ilse")
