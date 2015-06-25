@@ -82,7 +82,7 @@ Each bivariate growth model in our collective can be described with respect to t
 
 *Cognitive measure* is the longest and thus chosen to span the **vertical axis** of the 2D surface of the graph. The other fou4 primary dimensions are designed into the **horizontal axis**. Each cell contains a  **number** counting models with those  specifications. Number on the background of the same color add to 100% of the submitted models. Transparancy is mapped onto the magnitude of the number. The hue is categorical. Combining cognitive measure with each of the four demensions results in **four tile plots**
 
-These four graphs  can be united into a display of a quantitative invormation, necessary to identify overlaps in models across studies. The following graph is the current draft of the 5-dimensional model space of the Portland-2105 collective. The graph is produced with  [./reports/model_space/scripts/tile_model_5D.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/reports/model_space/scripts/tile_model_5D.R) script. 
+These four graphs  can be united into a display of a quantitative invormation, necessary to identify overlaps in models across studies. The following graph is the current draft of the 5-dimensional model space of the Portland-2105 collective. The graph is produced with  [./reports/model_space/scripts/tile_model_5D.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/model_space_5D.R) script. 
 
 ```{r dashboard_tile_graph, echo=echoChunks, results='show', message=FALSE, fig.width=12, fig.height=8, dpi=300}
 ```
