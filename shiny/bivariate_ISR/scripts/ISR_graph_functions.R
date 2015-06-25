@@ -89,31 +89,7 @@ basic_tile <- function(ds,x_name){
 
 basic_tile(ds,"physical_measure")
 
-######################  NAMES TILE ############
-## @knitr define_names_tile_function
-names_tile <- function(ds,x_name){
-  #  # define the data
-  d <- ds %>% dplyr::count_(c("cognitive_measure", x_name))
-  d <-d %>% dplyr::mutate(cog_meas = "cogmeas")
-  head(d)
-  #
-  g <- ggplot2::ggplot(d, aes_string(x="cog_meas", y="cognitive_measure", label="cognitive_measure", fill=0))
-  g <- g + geom_tile()
-  g <- g + geom_hline(yintercept=seq(0,60,1), alpha=.05)
-  g <- g + geom_text(size = baseSize-7)
-  g <- g + scale_y_discrete(limits=rev(unique(d$cognitive_measure)))
-  g <- g + scale_fill_gradient(low="white", high="white", na.value = "white")
-  g <- g + labs(title=" ", x=NULL, y="Cognitive Measures")
-  g <- g + theme1
-  g <- g + theme(axis.text.y = element_blank(),
-                 axis.text.x = element_text(hjust=1, angle=0, size=9),
-                 axis.title = element_blank(),
 
-                 legend.position="top")
-  return(g)
-}
-
-# names_tile(ds,"physical_measure")
 
 ######################  ISR  plot ############
 ISR_plot <- function(ds
