@@ -81,7 +81,16 @@ Counting valid models in each study:
 ```{r freq_studies, echo=echoChunks, results='show', message=FALSE}
 ```
 
-# Physcial Domain
+However, for the present time, we will focus only on 
+```{r number_studies_filtered, echo=echoChunks, results='asis', message=FALSE}
+```
+linear models.
+```{r freq_studies_filter, echo=echoChunks, results='show', message=FALSE}
+```
+
+**LINEAR  MODELS (u1, b1) ONLY BEYOND THIS POINT**
+
+# Physical Domain
 
 ## Constructs 
 

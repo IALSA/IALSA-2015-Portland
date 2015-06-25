@@ -18,34 +18,72 @@ library(testit, quietly=TRUE) #For asserts
 library(dplyr)
 
 ## @knitr load_data
-dsb <- readRDS('./data/shared/ds1a.rds')
+ds1a <- readRDS('./data/shared/ds1a.rds')
 keepvar <- c("model_number","study_name", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
+dsTemp <- ds1a[ , keepvar]
 
-ds <- dsb[ , keepvar]
+
+## at this point we'd like to keep the span of models to linear forms (u1, b1)
+dsb <- ds1a %>% dplyr::filter(model_number %in% c("u1","b1")) %>%
+  dplyr::select_("study_name","model_number","subgroup","model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
+
 
 ## @knitr dummy
 
-unique(dsb$study_name)
+unique(ds$study_name)
 
-names(dsb)
+names(ds)
 
 ## @knitr number_studies
+cat(paste0("**",length(ds1a$study_name),"**"))
+
+## @knitr number_studies_filtered
 cat(paste0("**",length(dsb$study_name),"**"))
+
 
 # @knitr missing_studies
 pathDir <- getwd() # establish home directory
 pathStudies <- file.path(pathDir,"studies")
 misslong <- list.dirs(pathStudies, recursive = F)
 missing <- basename(misslong)
-present <- unique(dsb$study_name)
+present <- unique(ds1a$study_name)
 miss <- missing[!(missing %in% present)]
 cat(miss)
 
 
+# make_table <- function(ds, rows, cols){
+# t <- table(ds[rows], ds[cols])
+# t[t==0] <- "."
+# return(t)
+# }
+#
+# make_table(dsb,"study_name", "model_number")
+#d
+
+
+
 ## @knitr freq_studies
-t1<-table(dsb$study_name)
+t1<-table(ds1a$study_name)
 t1[t1==0] <- "."
 t1
+
+
+t1a<-table(ds1a$model_number, ds1a$study_name)
+t1a[t1a==0] <- "."
+t1a
+
+############# ONLY LINEAE (dsb) MODLES BEYOND THIS POINT ##########
+
+## @knitr freq_studies_filter
+t1b<-table(dsb$study_name)
+t1b[t1b==0] <- "."
+t1b
+
+t1b<-table(dsb$model_number, dsb$study_name)
+t1b[t1b==0] <- "."
+t1b
+
+
 
 
 ## @knitr dummy
@@ -211,8 +249,9 @@ dplyr::arrange(physSpec, name)
 ## @knitr prepare_pretty
 # names(dsb)
 
-ds <- dsb %>%
+ds <- ds1a %>%
   dplyr::arrange(physical_construct, cognitive_construct, physical_measure, cognitive_measure, subgroup, model_type)
+
 
 
 source("./reports/basic/2a_make_pretty_small.R")
