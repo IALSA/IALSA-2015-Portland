@@ -35,8 +35,8 @@ in which
  - *&tau;* - variances and covariances bewteen random terms of the bivariate models 
  - *&gamma;<sub>00</sub>* -  common intercept     
  - *&gamma;<sub>10</sub>* -  common slope      
- - *&gamma;<sub>01...k</sub>* - effects of the covariates the common intercept      
- - *&gamma;<sub>11...k</sub>* - effects of the covariates the common slope      
+ - *&gamma;<sub>01...k</sub>* - effects of the *k*th set of covariate on the common intercept      
+ - *&gamma;<sub>11...k</sub>* - effects of the *k*th set of covariates on the common slope      
 
 In order to ease the comparison acress studies, we will convert these covariances into correlation   
 
