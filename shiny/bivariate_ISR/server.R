@@ -45,6 +45,8 @@ dsb <- ds1a[ , keepvar]
 # reduce number of rows
 dsb <- dsb %>% dplyr::filter(model_number %in% c("u1","b1"))
 
+table( dsb$cognitive_measure,dsb$cognitive_construct)
+
 ## @knitr extend_data
 dsb$display_int <- paste0(
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$corr_int, 2)), " \n (",
@@ -94,30 +96,33 @@ dsb$display_residual <- paste0(
 ###################################################
 # Define server logic required to summarize and view the selected
 # study
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session){
+# browser()
+  selectedData <- reactive({
+  filter_model(ds = dsb,study = input$radioStudy ,
+    pm = input$radioPhysMeasure, covars = input$radioModelType)
+  })
 
-  dsTile <- filter_model(ds = dsb, study = "octo" , pm = "grip", covars = "aeh")
   # shapes data for ISR tile plot
-  dsISR <- as.data.frame(ISR_tile_data(ds=dsTile))
 
 
 # browser()
   output$bivariate_ISR <- renderPlot({
+    TilePlot <- basic_tile(ds = selectedData(), x_name = "physical_measure")
+    dsISR <- as.data.frame(ISR_tile_data(ds=selectedData()))
+    ISRPlot <- ISR_plot(ds = dsISR,  display_value="display")
+
+    allPlots <- 10
+    firstPlot <- 2
+    secondPlot <- 8
+
+    pushViewport(viewport(layout = grid.layout(1, allPlots )))
+    print(TilePlot, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:firstPlot))
+    print(ISRPlot, vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
+  }) #close renderPlot
 
 
-TilePlot <- basic_tile(ds = dsTile, x_name = "physical_measure")
-ISRPlot <- ISR_plot(ds = dsISR,  display_value="display")
-
-allPlots <- 10
-firstPlot <- 2
-secondPlot <- 8
-
-pushViewport(viewport(layout = grid.layout(1, allPlots )))
-print(TilePlot, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:firstPlot))
-print(ISRPlot, vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
-
-  })
-})
+}) # close shinyServer
 
 
 

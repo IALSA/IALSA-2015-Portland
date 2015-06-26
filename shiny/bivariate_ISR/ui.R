@@ -16,14 +16,14 @@ shinyUI(fluidPage(
 
     ### Sidebar panel
     sidebarPanel(
-      radioButtons("radioStudy", label = h3("Select study"),
-      choices = list("octo" = 1,"habc" = 2, "ilse" = 3, "nuage" = 4, "radc" = 5, "satsa" = 6, elsa = 7, nas = 8), selected = 1),
+      radioButtons("radioStudy", label = h3("Study"),
+      choices = list("octo" = "octo","habc" = "habc", "ilse" = "ilse", "nuage" = "nuage", "radc" = "radc", "satsa" = "satsa", "elsa" = "elsa", "nas" = "nas"), selected = "satsa"),
 
-      radioButtons("radioPhysMeasure", label = h3("Select Phys Measure"),
-      choices = list("grip" = 1,"fev" = 2, "fvc" = 3, "pek" = 4, "gait" = 5), selected = 1),
+      radioButtons("radioPhysMeasure", label = h3(" Phys Measure"),
+      choices = list("grip" = "grip","fev" = "fev", "fvc" = "fvc", "pek" = "pek" , "gait" = "gait"), selected = "grip"),
 
-      radioButtons("radioModelType", label = h3("Select Covariate Set"),
-      choices = list("0" = 1,"a" = 2, "ae" = 3, "aeh" = 4, "aehplus" = 5, "full" = 6), selected = 4)
+      radioButtons("radioModelType", label = h3("Model type"),
+      choices = list("0" = "0","a" = "a", "ae" = "ae", "aeh" = "aeh", "aehplus" = "aehplus", "full" = "full"), selected = "aeh")
     ),
 
     ### Main panel
