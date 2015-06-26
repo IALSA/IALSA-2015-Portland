@@ -15,11 +15,11 @@ Project "Table 2"
 where    
  *<sub>o</sub> y<sub>t</sub><sub>i</sub>* - is score on the outcome *o* for the individual *i* at time *t*    
  
-  &beta;<sub>0</sub>  - is  
-  &beta;<sub>1</sub>  - is  
+  &beta;<sub>0</sub>  - is intercept of the outcome *o* 
+  &beta;<sub>1</sub>  - is rate of change of the outcome *o* 
   
-  &gamma;<sub>00</sub> - is  
-  &gamma;<sub>10</sub> - is  
+  &gamma;<sub>00</sub> - is the incercept (grand mean when all predictors are 0)
+  &gamma;<sub>10</sub> - is  the slope (when all predictors are 0)
 
   &#915;<sub>0*k*</sub> - is   
   &#915;<sub>1*k*</sub> - is 
