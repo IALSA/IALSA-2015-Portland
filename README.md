@@ -42,12 +42,15 @@ See details in [model specification](./reports/model_specification/README.md)
  
  
 1. Remaining issues:  
-  - **habc**:  
-   - confusion: b1_male_full_muscle_mental_gait_clock.out and b1_male_full_walking_mental_gait_clock.out    
- - **eas**:  
-   - confusion: b1_female_ae_muscle_memory_grip_digitsymbol.out and b1_female_ae_muscle_speed_grip_digitsymbol.out  
- - **nas**:
-   - *aeplus* models were filtered out until. Lewina re-runs *aehplus* with data unadjusted for height.  
+- **eas**: ok  
+- **elsa**: ok  
+- **habc**:  
+  - confusion: b1_male_full_muscle_mental_gait_clock.out and b1_male_full_walking_mental_gait_clock.out    
+- **eas**:  
+  - confusion: b1_female_ae_muscle_memory_grip_digitsymbol.out and b1_female_ae_muscle_speed_grip_digitsymbol.out  
+- **ilse**: ok  
+- **nas**:
+  - *aeplus* models were filtered out until. Lewina re-runs *aehplus* with data unadjusted for height.  
    
 2. Discussing results:  
  - [ ] What is in "plus" models?  

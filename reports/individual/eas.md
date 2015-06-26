@@ -42,14 +42,14 @@ Your study
 has provided us with the total number of 
 
 ```
-485
+484
 ```
 models, using univariate and bivariate specifications:
 
 ```
 
  b1  u0  u1  u2 
-219   6 129 131 
+218   6 129 131 
 ```
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
@@ -114,7 +114,7 @@ All your models were named properly
 After removing incorrectly named files, there are
 
 ```
-485
+484
 ```
 models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
 
@@ -127,7 +127,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
            
             b1  u0 u1  u2 
-  muscle    110 2  10  10 
+  muscle    109 2  10  10 
   pulmonary 109 2  10  11 
   Univar    .   2  109 110
 ```
@@ -139,7 +139,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
         
          b1  u0 u1  u2 
-  grip   110 2  10  10 
+  grip   109 2  10  10 
   pek    109 2  10  11 
   univar .   2  109 110
 ```
@@ -157,7 +157,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
   memory    39 .  20 20
   mental    20 .  10 10
   reasoning 20 2  10 10
-  speed     21 .  10 10
+  speed     20 .  10 10
   Univar    .  4  20 20
 ```
 
@@ -175,7 +175,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
   info          20 .  10 10
   logicalmemory 19 .  10 10
   mmse          20 .  10 10
-  symbol        21 .  10 10
+  symbol        20 .  10 10
   trailsb       19 .  9  11
   univar        .  4  20 20
   verbalfluency 20 .  10 10
@@ -194,7 +194,7 @@ Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE m
 ```
       
        muscle pulmonary
-  grip 110    .        
+  grip 109    .        
   pek  .      109      
 ```
 
@@ -211,7 +211,7 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
   info          .         .       20        .        .      .      .         .    
   logicalmemory .         .       .         .        19     .      .         .    
   mmse          .         .       .         .        .      20     .         .    
-  symbol        .         .       .         .        .      .      .         21   
+  symbol        .         .       .         .        .      .      .         20   
   trailsb       19        .       .         .        .      .      .         .    
   verbalfluency .         20      .         .        .      .      .         .    
   waisvocab     .         .       20        .        .      .      .         .    
@@ -232,7 +232,7 @@ Number of models with the following **physical constructs** (columns) and  **cog
   memory    19     20       
   mental    10     10       
   reasoning 10     10       
-  speed     11     10       
+  speed     10     10       
 ```
 
 ## Phys.Constructs
@@ -248,7 +248,7 @@ Number of models with the following  **physical constructs** (columns) and  **co
   info          10     10       
   logicalmemory 9      10       
   mmse          10     10       
-  symbol        11     10       
+  symbol        10     10       
   trailsb       10     9        
   verbalfluency 10     10       
   waisvocab     10     10       
@@ -267,7 +267,7 @@ Number of models with the following  **physical measure** (columns) and  **cogni
   memory    19   20 
   mental    10   10 
   reasoning 10   10 
-  speed     11   10 
+  speed     10   10 
 ```
 
 ## Measures
@@ -283,7 +283,7 @@ Number of models with the following  **physical measures** (columns) and  **cogn
   info          10   10 
   logicalmemory 9    10 
   mmse          10   10 
-  symbol        11   10 
+  symbol        10   10 
   trailsb       10   9  
   verbalfluency 10   10 
   waisvocab     10   10 
@@ -433,7 +433,6 @@ b1              male     aeh                 muscle                   knowledge 
 b1              male     aehplus             muscle                   knowledge                 grip                   waisvocab               b1_male_aehplus_muscle_knowledge_grip_waisvocab.out           
 b1              male     age                 muscle                   knowledge                 grip                   waisvocab               b1_male_age_muscle_knowledge_grip_waisvocab.out               
 b1              male     full                muscle                   knowledge                 grip                   waisvocab               b1_male_full_muscle_knowledge_grip_waisvocab.out              
-b1              female   ae                  muscle                   memory                    grip                   digitsymbol             b1_female_ae_muscle_memory_grip_digitsymbol.out               
 b1              female   ae                  muscle                   memory                    grip                   digitspan               b1_female_ae_muscle_memory_grip_digitspan.out                 
 b1              female   ae                  muscle                   memory                    grip                   logicalmemory           b1_female_ae_muscle_memory_grip_logicalmemory.out             
 b1              female   aeh                 muscle                   memory                    grip                   digitspan               b1_female_aeh_muscle_memory_grip_digitspan.out                
@@ -873,7 +872,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-25, 11:02 -0700
+Report rendered by koval_000 at 2015-06-26, 08:54 -0700
 ```
 
 ```
@@ -889,14 +888,15 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] rpivotTable_0.1.4.1 lattice_0.20-31     shiny_0.12.1        dplyr_0.4.1         testit_0.4         
-[6] ggplot2_1.0.1       RColorBrewer_1.1-2  scales_0.2.5        knitr_1.10.5       
+ [1] MplusAutomation_0.6-3 RColorBrewer_1.1-2    scales_0.2.5          testit_0.4            knitr_1.10.5         
+ [6] rpivotTable_0.1.4.1   lattice_0.20-31       ggplot2_1.0.1         dplyr_0.4.1           shiny_0.12.1         
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6       rstudioapi_0.3.1  magrittr_1.5      MASS_7.3-40       munsell_0.4.2     xtable_1.7-4     
- [7] colorspace_1.2-6  R6_2.0.1          highr_0.5         stringr_1.0.0     plyr_1.8.2        tools_3.2.0      
-[13] parallel_3.2.0    gtable_0.1.2      DBI_0.3.1         htmltools_0.2.6   yaml_2.1.13       lazyeval_0.1.10  
-[19] digest_0.6.8      assertthat_0.1    formatR_1.2       reshape2_1.4.1    htmlwidgets_0.4.2 mime_0.3         
-[25] evaluate_0.7      rmarkdown_0.7     labeling_0.3      stringi_0.4-1     jsonlite_0.9.16   httpuv_1.3.2     
-[31] proto_0.3-10     
+ [1] Rcpp_0.11.6       highr_0.5         formatR_1.2       plyr_1.8.2        tools_3.2.0       boot_1.3-16      
+ [7] digest_0.6.8      jsonlite_0.9.16   evaluate_0.7      gtable_0.1.2      texreg_1.35       DBI_0.3.1        
+[13] rstudioapi_0.3.1  yaml_2.1.13       parallel_3.2.0    proto_0.3-10      coda_0.17-1       stringr_1.0.0    
+[19] htmlwidgets_0.4.2 R6_2.0.1          tcltk_3.2.0       gsubfn_0.6-6      rmarkdown_0.7     tidyr_0.2.0      
+[25] reshape2_1.4.1    magrittr_1.5      htmltools_0.2.6   MASS_7.3-40       rsconnect_0.3.79  assertthat_0.1   
+[31] mime_0.3          xtable_1.7-4      colorspace_1.2-6  httpuv_1.3.2      labeling_0.3      stringi_0.4-1    
+[37] lazyeval_0.1.10   munsell_0.4.2    
 ```
