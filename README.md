@@ -24,9 +24,9 @@
  The following is the map of the observed model space adopted as the coordination fulcrum.
  [![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)
  The coordination fulcrum is a bivariate linear growth model that has the following specification   
-![general_model_specification](./libs/images/general_model_specification.png)   
+[![general_model_specification](./libs/images/general_model_specification.png)](./reports/model_specification/README.md)   
 with respective covariance structure.
-![general_model_specification](./libs/images/specification_covariance_structure.png)  
+[![general_model_specification](./libs/images/specification_covariance_structure.png)](./reports/model_specification/README.md)  
 See details in [model specification](./reports/model_specification/README.md)
 
 

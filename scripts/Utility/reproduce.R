@@ -22,6 +22,7 @@ testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesT
 for( pathFile in pathFilesToBuild ) {
     rmarkdown::render(input = pathFile, output_format=c("html_document"), clean=TRUE)
 }
+# takes in ds1, produces ds1a (adjusted)
 # renames model elements and collapses categories
 
 
@@ -29,12 +30,12 @@ for( pathFile in pathFilesToBuild ) {
 # Counts - basic model counts
 # Essentials - basic model parameters
 pathReports <- "./reports/basic"
-(pathFilesToBuild <- list.files(pathReports, full.names=T, recursive=T, pattern="Rmd$")()
+(pathFilesToBuild <- list.files(pathReports, full.names=T, recursive=T, pattern="Rmd$"))
 for( pathFile in pathFilesToBuild ) {
     rmarkdown::render(input = pathFile, output_format=c("html_document"), clean=TRUE)
 }
 
-## Individual
+## Individual quality check
 # Each study gets an individualized report narrating its progress
 pathReports <- "./reports/individual"
 (pathFilesToBuild <- list.files(pathReports, full.names=T, recursive=T, pattern="Rmd$"))
