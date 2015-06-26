@@ -93,11 +93,18 @@ t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 ## @knitr correct_physical_measure
 # rename obvious type
 ds[ds$physical_measure == "fevc","physical_measure"] <- "fev"
+## iN ILSE, look up philipp about tug
+ds[(ds$physical_measure == "nophysspec" | ds$physical_measure == "nophyscog")  & ds$physical_construct == "tug","physical_measure"] <- "tug"
+
+
+
 # rename the absense of physical measure
 ds[ds$physical_measure %in% c("nophysspec","nophsyspec","nophyscog", "nophyspec", "nophyssec" ), "physical_measure"] <- "univar"
 # collapse a category
 ds[ds$physical_measure == "hand","physical_measure"] <- "grip"
 ds[ds$physical_measure %in% c("fev1"), "physical_measure"] <- "fev"
+
+
 
 
 # inspect new names
