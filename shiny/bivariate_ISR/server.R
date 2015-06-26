@@ -21,8 +21,14 @@ library(grid)
 
 if(basename(getwd())=="bivariate_ISR"){
 ds1a <- readRDS('../../data/shared/ds1a.rds')
+source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+
 }else{
 ds1a <- readRDS('./data/shared/ds1a.rds')
+source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+
 }
 ##################################################
 
@@ -58,52 +64,58 @@ dsb$display_residual <- paste0(
 
 
 ## Data functions
-source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+# source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
 # filter_model()   # subsets data
 # IRS_tile_data()  # shapes data for ISR tile plot
 
-# subsets data
-ds <- filter_model(ds = dsb, study = "satsa" , pm = "grip", covars = "aeh")
-# shapes data for ISR tile plot
-d <- as.data.frame(IRS_tile_data(ds=ds))
-
 ## Graph functions
-source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+# source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
 # basic_tile() - simple tile with cog measures on y-axis
 # names_tile()
 # ISR_plot
 # multiplot()
 
-a <- basic_tile(ds = d, x_name = "physical_measure")
-b <- names_tile(d,"physical_measure")
-c <- ISR_plot(ds = d, "satsa", "grip", display_value="corr")
-## @knitr
-# load multi_plot function
 
-g <- multiplot(a,c,  cols=2)
-
-
-
+#
+# dsTile <- filter_model(ds = dsb, study = "octo" , pm = "grip", covars = "aeh")
+# dsISR <- as.data.frame(ISR_tile_data(ds=dsTile))
+#
+# TilePlot <- basic_tile(ds = dsTile, x_name = "physical_measure")
+# ISRPlot <- ISR_plot(ds = dsISR,  display_value="display")
+#
+# allPlots <- 10
+# firstPlot <- 2
+# secondPlot <- 8
+#
+# pushViewport(viewport(layout = grid.layout(1, allPlots )))
+# print(TilePlot, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:firstPlot))
+# print(ISRPlot, vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
 
 ###################################################
 # Define server logic required to summarize and view the selected
 # study
 shinyServer(function(input, output) {
 
+  dsTile <- filter_model(ds = dsb, study = "octo" , pm = "grip", covars = "aeh")
+  # shapes data for ISR tile plot
+  dsISR <- as.data.frame(ISR_tile_data(ds=dsTile))
+
+
 # browser()
-  output$table2 <- renderPlot({
-     # browser()
-    d <- filter_model(ds = ds
-                     , study = input$study
-                     , physical_measure = input$physical_measure
-                     , covars = input$covars
-    )
-    ISR_plot(ds = d
-            , study = input$study
-            , physical_measure = input$physical_measure
-            , display = input$display
-            , covars = input$covars
-    )
+  output$bivariate_ISR <- renderPlot({
+
+
+TilePlot <- basic_tile(ds = dsTile, x_name = "physical_measure")
+ISRPlot <- ISR_plot(ds = dsISR,  display_value="display")
+
+allPlots <- 10
+firstPlot <- 2
+secondPlot <- 8
+
+pushViewport(viewport(layout = grid.layout(1, allPlots )))
+print(TilePlot, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:firstPlot))
+print(ISRPlot, vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
+
   })
 })
 

@@ -25,7 +25,7 @@ filter_model <- function(ds
 
 ################# data transform for the IRS tile #############
 
-IRS_tile_data <- function(ds){
+ISR_tile_data <- function(ds){
  ## three long gather
 d <- ds %>% tidyr::gather_("parameter","value", c("corr_int", "corr_slope", "corr_residual" , "display_int", "display_slope", "display_residual", "p_cov_int", "p_cov_slope", 'p_cov_res'))
   d$parameter <- stringr::str_replace(d$parameter, "cov_res", "cov_residual")

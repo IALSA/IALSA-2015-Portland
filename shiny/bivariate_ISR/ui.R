@@ -7,7 +7,7 @@ library(rpivotTable)
 shinyUI(fluidPage(
 
   ## Application title
-  titlePanel("Table 2: Correlations among ISR"),
+  titlePanel("Correlations of Bivariate ISR"),
 
 
 
@@ -16,30 +16,20 @@ shinyUI(fluidPage(
 
     ### Sidebar panel
     sidebarPanel(
-      selectInput("selectStudy","Select study:"
-                  , choices=c("octo","habc", "ilse", "nuage", "radc", "satsa")
-                  , selected = "satsa"),
-      selectInput("selectPhysMeasure", "Physical measure:"
-                  , choices = c("grip","fev", "fvc",  "pek",  "gait")
-                  , selected = "grip"),
-      selectInput("selectDisplay", "Display mode:",
-                  choices = c("Correlation" = "corr",
-                               "Correlation & CI" = "display",
-                               "p-value" = "pvalue")
-                  , selected = "display"),
-      checkboxGroupInput("covars", "Covariate set:",
-                   c("Empty" = "0",
-                     "a" = "a",
-                     "ae" = "ae",
-                     "aeh" = "aeh",
-                     "aeh+" = "aehplus",
-                     "full" = "full"
-                     ), selected = c("a","ah"))),
+      radioButtons("radioStudy", label = h3("Select study"),
+      choices = list("octo" = 1,"habc" = 2, "ilse" = 3, "nuage" = 4, "radc" = 5, "satsa" = 6, elsa = 7, nas = 8), selected = 1),
+
+      radioButtons("radioPhysMeasure", label = h3("Select Phys Measure"),
+      choices = list("grip" = 1,"fev" = 2, "fvc" = 3, "pek" = 4, "gait" = 5), selected = 1),
+
+      radioButtons("radioModelType", label = h3("Select Covariate Set"),
+      choices = list("0" = 1,"a" = 2, "ae" = 3, "aeh" = 4, "aehplus" = 5, "full" = 6), selected = 4)
+    ),
 
     ### Main panel
     mainPanel(
     fluidRow(
-      shiny::plotOutput(outputId = "table2", width='95%', height='900px')))
+      shiny::plotOutput(outputId = "bivariate_ISR", width='95%', height='900px')))
 
   ) ## close sidebarLayout
 )) # close fluidPage, shinyUI

@@ -61,20 +61,21 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
                     "<=.01" = "#f768a1",
                     "<=.001" = "#c51b8a")
 
+
+
 ######################  BASIC TILE ############
 ## @knitr define_basic_tile_function
 basic_tile <- function(ds,x_name){
   # define the data
   d <- ds %>% dplyr::count_(c("cognitive_construct", "cognitive_measure", x_name))
   d$cognitive_construct <- toupper(d$cognitive_construct)
-  d$pretty_number <- paste0(d$n," - ",d$cognitive_construct)
   #
-  g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", fill="n", label="pretty_number"))
+  g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", fill="cognitive_construct", label="cognitive_construct"))
   g <- g + geom_tile()
   g <- g + geom_text(size = baseSize-6)
-  g <- g + scale_y_discrete(limits=rev(unique(d$cognitive_measure)))
   g <- g + facet_grid(. ~  physical_measure)
-  g <- g + scale_fill_gradient(low="white", high=x_name_colors[x_name], na.value = "white")
+  g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
+  g <- g + scale_fill_discrete(name = "Cog Domains")
   g <- g + labs(title=x_name_labels[x_name], x=NULL, y=NULL)
   g <- g + theme1
   g <- g + theme(axis.text.y = ggplot2::element_blank(),
@@ -83,21 +84,21 @@ basic_tile <- function(ds,x_name){
                  # legend.text =  ggplot2::element_text(),
                  # axis.text.position = "right",
                  legend.position="left")
-    g <- g + theme(strip.text.x = ggplot2::element_text(angle = 0, size=baseSize-3, color="black"))
+    g <- g + theme(strip.text.x = ggplot2::element_text(angle = 0, size=baseSize, color="black"))
   return(g)
 }
 
-basic_tile(ds,"physical_measure")
+# basic_tile(dsTile,"physical_measure")
 
 
 
 ######################  ISR  plot ############
-ISR_plot <- function(ds
+ISR_plot <- function(ds = dsISR
                     # select
-                    , study = "satsa"
-                    , physical_measure = "grip"
-                    , covars = unique(ds$model_type) # model_type
-                    , cognitive_construct = unique(ds$cognitive_construct)
+                    # , study = "satsa"
+                    # , physical_measure = "grip"
+                    # , covars = unique(ds$model_type) # model_type
+                    # , cognitive_construct = unique(ds$cognitive_construct)
                     # map
                     , x_name = "parameter" # x-axis
                     , display_value = "pvalue" # number that prints
@@ -105,18 +106,20 @@ ISR_plot <- function(ds
                     , x_facet = "subgroup" # grouped horizontally
                     , y_facet = "." # grouped vertically
 ){
-  g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", label=display_value, fill="sign"))
+  ds$cognitive_construct <- toupper(ds$cognitive_construct)
+  ds$pretty_number <- paste0(ds$cognitive_construct," - ",ds$cognitive_measure)
+  g <- ggplot2::ggplot(ds, aes_string(x=x_name, y="cognitive_measure", label=display_value, fill="sign"))
   g <- g + geom_tile()
   g <- g + geom_text(size = baseSize-6)
   # g <- g + facet_grid(subgroup ~ model_type)
   g <- g + facet_grid(as.formula(paste0(y_facet," ~ ", x_facet)))
   # g <- g + scale_x_discrete(labels = c("int"="INT", "slope"="SLP" , "res"="RES"))
-  g <- g + scale_y_discrete(limits=rev(unique(d$cognitive_measure)))
+  g <- g + scale_y_discrete(limits=rev(unique(ds$cognitive_measure)))
   g <- g + scale_fill_manual(name = "p-value", values = pvalueColors)
   # g <- g + scale_fill_gradient(low="white", high=x_name_colors["subgroup"], na.value = "grey")
-  g <- g + labs(title=paste0("STUDY: ",study,"     PHYSICAL MEASURE: ", physical_measure, "     DISPLAY: ", display_value), x = NULL, y = NULL)
+  g <- g + labs(title=paste0("STUDY: ", unique(ds$study_name),"     PHYSICAL MEASURE: ", unique(ds$physical_measure), "     DISPLAY: ", display_value), x = NULL, y = NULL)
   g <- g + theme1
-  g <- g + theme(axis.text.y =  ggplot2::element_text(size=baseSize-1),
+  g <- g + theme(axis.text.y =  ggplot2::element_text(size=baseSize, hjust=0),
                  # axis.text.x =  element_blank(),
                  # axis.title.x = element_blank(),
                  # axis.title.y = element_blank(),
@@ -129,73 +132,9 @@ ISR_plot <- function(ds
 
   return(g)
 }
-# ISR_plot(ds = d, "satsa", "grip", display_value="corr")
+# ISR_plot(ds = dsISR, display_value="corr")
 
 
 
 
 
-## @knitr define_multi_plot_function
-
-# Multiple plot function
-#
-## http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
-# ALTERNATIVELY: sources this function
-# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-# - cols:   Number of columns in layout
-# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
-#
-# If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
-# then plot 1 will go in the upper left, 2 will go in the upper right, and
-# 3 will go all the way across the bottom.
-#
-multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
-  library(grid)
-
-  # Make a list from the ... arguments and plotlist
-  plots <- c(list(...), plotlist)
-
-  numPlots = length(plots)
-
-  # If layout is NULL, then use 'cols' to determine layout
-  if (is.null(layout)) {
-    # Make the panel
-    # ncol: Number of columns of plots
-    # nrow: Number of rows needed, calculated from # of cols
-    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
-                    ncol = cols, nrow = ceiling(numPlots/cols))
-  }
-
- if (numPlots==1) {
-    print(plots[[1]])
-
-  } else {
-    # Set up the page
-    grid.newpage()
-    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
-
-    # Make each plot, in the correct location
-    for (i in 1:numPlots) {
-      # Get the i,j matrix positions of the regions that contain this subplot
-      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
-
-      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
-                                      layout.pos.col = matchidx$col))
-    }
-  }
-}
-
-#
-#
-#
-#
-#     a <- basic_tile(ds,"study_name")
-#     b <- basic_tile(ds,"physical_measure")
-#     c <- basic_tile(ds,"model_type")
-#     d <- basic_tile(ds,"subgroup")
-#     d <- d + theme(axis.text.y = element_text(vjust=1, angle=0, hjust=0))
-#     # names <- names_tile(ds,"physical_measure")
-#     g <- multiplot(a, b, d, c, cols=4)
-#
-#
-#
