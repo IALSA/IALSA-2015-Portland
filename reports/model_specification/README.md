@@ -38,7 +38,7 @@ in which
  - *&gamma;<sub>01...k</sub>* - effects of the *k*th set of covariate on the common intercept      
  - *&gamma;<sub>11...k</sub>* - effects of the *k*th set of covariates on the common slope      
 
-In order to ease the comparison acress studies, we will convert these covariances into correlation   
+In order to ease the comparison across studies, we will convert these covariances into correlation   
 
 ![correlation structure](../../libs/images/specification_correlation_structure.png)
 
