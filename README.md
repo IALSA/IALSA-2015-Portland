@@ -26,7 +26,7 @@
 ![general_model_specification](./libs/images/general_model_specification.png)   
 with respective covariance structure.
 ![general_model_specification](./libs/images/specification_covariance_structure.png)  
-See details in [model specification](./model_specification.md)
+See details in [model specification](./reports/model_specification/README.md)
 
 
 
