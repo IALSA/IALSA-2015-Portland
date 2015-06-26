@@ -18,12 +18,18 @@
  - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
  -  [table_2](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/table_2) ISR correlations
 
-### Coordinated analysis with replication (CAR)
- The following is the current model space of the Portland Collective investigating concomitant decline in physical and cognitive functioning during later adulthood. 
- ![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)
+## Coordinated analysis with replication (CAR)
+ IALSA-2015-Portland workshop coordinates modeling concomitant decline in physical and cognitive functioning during later adulthood.
+ The following is the map of the observed model space,  adopted as the coordination fulcrum.
+ [![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)
+ The coordination fulcrum is a bivariate linear growth model that has the following specification   
+![general_model_specification](./libs/images/general_model_specification.png) 
+with respective covariance structure.
+![general_model_specification](./libs/images/specification_covariance_structure.png)  
+See details in [model specification](./model_specification.md)
 
-*the graphic is composed of the graphs defined in [this report](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)*
- 
+
+
 ## Teleconference on June 26, 2015
 
 ##### AGENDA (dev)
@@ -73,7 +79,7 @@ TO DO LIST:
 
 ## Overview
 
-The IALSA Analysis Workshop ([pdf overview](https://www.dropbox.com/s/a8zmh70ybedyec6/IALSA%20Feb%202015%20Workshop%20Overview.pdf?dl=0)) was  held in Portland, Oregon from Monday February 23rd (8:30am) to Wednesday February 25th (12:30pm), 2015. The primary aim was to examine associations between changes in physical functioning (i.e., grip strength, pulmonary function, chair stands, walking speed) and cognitive functioning (i.e., measures of speed, memory, reasoning, executive functioning) in multiple-study comparative framework. Multivariate analyses will be used to evaluate dynamic associations in change and variation within and across these domains and in relation to sample and individual differences in age, lifestyle, and health outcomes. The results from these analyses will extend recent systematic reviews and meta-analyses (e.g., [Clouston et al., 2012, Epidemiological Reviews](https://www.dropbox.com/s/vfe7u2ez5oxp3ev/Clouston_2013_Epidemiol%20Rev.pdf?dl=0) and will be submitted for publication as a set of independent brief reports, capped by a literature review/overview of analysis and completed with a research synthesis summary.
+The IALSA Analysis Workshop ([pdf overview](https://www.dropbox.com/s/a8zmh70ybedyec6/IALSA%20Feb%202015%20Workshop%20Overview.pdf?dl=0)) was  held in Portland, Oregon from Monday February 23rd (8:30am) to Wednesday February 25th (12:30pm), 2015. The primary aim was to examine associations between changes in physical functioning (i.e., grip strength, pulmonary function, chair stands, walking speed) and cognitive functioning (i.e., measures of speed, memory, reasoning, executive functioning) in multiple-study comparative framework. Multivariate analyses are used to evaluate dynamic associations in change and variation within and across these domains and in relation to sample and individual differences in age, lifestyle, and health outcomes. The results from these analyses will extend recent systematic reviews and meta-analyses (e.g., [Clouston et al., 2012, Epidemiological Reviews](https://www.dropbox.com/s/vfe7u2ez5oxp3ev/Clouston_2013_Epidemiol%20Rev.pdf?dl=0) and will be submitted for publication as a set of independent brief reports, capped by a literature review/overview of analysis and completed with a research synthesis summary.
 
 
 ### Contact IALSA team
