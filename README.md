@@ -16,14 +16,14 @@
  
 ###  Apps  
  - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
- -  [Bivariate ISR](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/table_2) reviews correlations between intercepts (I), slopes (S), and residuals(R) for all models in one study using the same physical measure. 
+ -  [Bivariate ISR](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/bivariate_ISR) reviews correlations between intercepts (I), slopes (S), and residuals(R) for all models in one study using the same physical measure. 
 
 ## Coordinated analysis with replication (CAR)
  IALSA-2015-Portland workshop coordinates modeling concomitant decline in physical and cognitive functioning during later adulthood.
  The following is the map of the observed model space,  adopted as the coordination fulcrum.
  [![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)
  The coordination fulcrum is a bivariate linear growth model that has the following specification   
-![general_model_specification](./libs/images/general_model_specification.png) 
+![general_model_specification](./libs/images/general_model_specification.png)   
 with respective covariance structure.
 ![general_model_specification](./libs/images/specification_covariance_structure.png)  
 See details in [model specification](./model_specification.md)
