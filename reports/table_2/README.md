@@ -19,10 +19,10 @@ where
   &beta;<sub>1</sub>  - is rate of change of the outcome *o* 
   
   &gamma;<sub>00</sub> - is the intercept (grand mean when all predictors are 0)  
-  &gamma;<sub>10</sub> - is the slope (change over time when all predictors are 0)
+  &gamma;<sub>10</sub> - is the slope (rate of change over time when all predictors are 0)
 
-  &#915;<sub>0*k*</sub> - is   
-  &#915;<sub>1*k*</sub> - is 
+  &#915;<sub>0*k*</sub> - is the vector of weights for the trajectory intercept regressions on the covariates  
+  &#915;<sub>1*k*</sub> - is  the vector of weights for the trajectory slope regressions on the covariates 
   
    *u*<sub>0</sub> - is variance of random intercept of the outcome *o*  
    *u*<sub>1</sub> - is variance of random slope of the outcome *o*   
