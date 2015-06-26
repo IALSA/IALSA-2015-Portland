@@ -20,7 +20,7 @@
 
 ## Coordinated analysis with replication (CAR)
  IALSA-2015-Portland workshop coordinates modeling concomitant decline in physical and cognitive functioning during later adulthood.
- The following is the map of the observed model space,  adopted as the coordination fulcrum.
+ The following is the map of the observed model space adopted as the coordination fulcrum.
  [![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)
  The coordination fulcrum is a bivariate linear growth model that has the following specification   
 ![general_model_specification](./libs/images/general_model_specification.png)   
@@ -103,4 +103,4 @@ Results will be organized into several "multivariate change" publication sets in
   Different studies may have the data for the same measures, but modelers may name them differently in their models, which results in our scripts treating them as different measures. To avoid this, please consult our [Catalog of names](https://github.com/IALSA/IALSA-2015-Portland/blob/master/Catalog of names.md) and make sure that your models reflect the convention established there. Any member of the collective can [edit the catalog](https://github.com/IALSA/IALSA-2015-Portland/edit/master/Catalog of names.md) and we encourage you to do so: this will greatly increase the replicability effect of the project. (inspect the latest [html version](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/Catalog_of_names.html))   
 NOTE: the purpose of this undertaking seems to be achieved through other means. Deprecate soon (2015-06-25) if unused. 
   
-
+[edit me](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
