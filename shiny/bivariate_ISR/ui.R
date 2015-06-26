@@ -8,7 +8,7 @@ shinyUI(fluidPage(
   # theme = "custom.css",
 
   ## Application title
-  titlePanel("Bivariate ISR (v.1.0"),
+  titlePanel("Bivariate ISR (v.1.0)"),
 
 
 
