@@ -1,7 +1,14 @@
 library(shiny)
 
+if(basename(getwd())=="basic"){
 dsb <- readRDS('../../data/shared/ds1a.rds')
-ds <- dsb[ , c("study_name", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure","sd_int","p_cov_int","sd_slope","p_cov_slope")]
+
+}else{
+dsb <- readRDS('./data/shared/ds1a.rds')
+}
+dsb <- dsb %>% dplyr::filter(model_number %in% c("u1","b1"))
+
+ds <- dsb[ , c("study_name", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure","corr_int","p_cov_int","corr_slope","p_cov_slope")]
 head(ds)
 
 
