@@ -1,17 +1,7 @@
-Project "Table 2"
+Model Specification
 ---
-
-## Overview
-"Table 2" refers to the collection of statistical devices designed to explore the correlations between random intercepts (I), slopes (S), and residuals (R) from bivariate models of concomitant decline in physical and cognitive performance.
-
-### Current objectives  
- - [ ] ktable of ISR and their confidence intervals. 
-     - X: 
- 
-
-## General Model Specification
-  Summarizes correlation estimates between intercepts, slopes, and residuals of cognitive and physical measures in bivariate growth models, specified as  
-![bivariate model specification](../../libs/images/general_model_specification.png)  
+Bivariate linear growth curve model used by the Portland Collective as the fulcrum of coordination has the following specification
+![bivariate model specification](../../libs/images/general_model_specification.png)    
 where    
  *y<sub>t</sub><sub>i</sub>* - is score on the outcome *o* for the individual *i* at time *t*    
  
