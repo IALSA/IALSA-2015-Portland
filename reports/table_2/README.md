@@ -25,7 +25,7 @@ where
   &#915;<sub>1*k*</sub> - is 
   
   <sub>o</sub> *u*<sub>0</sub> - is variance of random intercept of the outcome *o*  
-  <sub>o</sub> *u*<sub>1</sub> - is    
+  <sub>o</sub> *u*<sub>1</sub> - is variance of random slope of the outcome *o*   
   
   
   *i* - individual    
