@@ -71,26 +71,29 @@ See details in [model specification](./reports/model_specification/README.md)
 PivotTable can enhance our use of ISR grap. Use it to view what physical measures and model types should be selected in the exploration of each study. To do that: open the pivot table in the default view, click on "Unselect All" in the drop down menu of the "study" pivot, and select only one study - yours. If now you select only "b1" under pivot "model_number" you should only see "1" in every cell of your pivotTable.  If the cell is blank, you need run that model, if the cell is greater than 1 then something went wrong: there should be only one model in this study with these specifications.
 
  
-#### 5. Discussing results:  
+### 5. Discussing results:  
  - [ ] What is in "plus" models?  
  - [ ] Operationalization and centering of covariates
 
-#### 6. Interpretation of ISR correlations
+### 6. Interpretation of ISR correlations
  - UPPERCASE: significant correlation  
  - lowercase: insignificant correlation  
  
- Bivariate models can exhibit the following patterns (among others):
-   1. ISR   
+ Bivariate models can exhibit the following patterns (among others):   
+   1. ISR     
    2. ISr   
    3. Isr   
    4. isr   
    5. iSr   
    6. isR   
-   
+
+ 
 What should the interpretation be for each combination?   
   
    
-#### 7. Next steps
+### 7. Next steps
+
+What should be accomplished in the next 2 weeks?
 
 
    
