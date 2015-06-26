@@ -16,7 +16,7 @@
  
 ###  Apps  
  - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
- -  [table_2](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/table_2) ISR correlations
+ -  [Bivariate ISR](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/table_2) reviews correlations between intercepts (I), slopes (S), and residuals(R) for all models in one study using the same physical measure. 
 
 ## Coordinated analysis with replication (CAR)
  IALSA-2015-Portland workshop coordinates modeling concomitant decline in physical and cognitive functioning during later adulthood.
@@ -36,7 +36,8 @@ See details in [model specification](./model_specification.md)
 
 0. Updates
  - All reports have been updated. Links to reports are in the section "Analytic Tools to date".  
- - pivotTable app got a new look. Select only your study and make sure only "1" are in the cells.   
+ - pivotTable app got a new look. Select only your study and make sure only "1" are in the cells.  
+ - model specification added. help us proofread it and complete it  
  
  
 1. Remaining issues:  
