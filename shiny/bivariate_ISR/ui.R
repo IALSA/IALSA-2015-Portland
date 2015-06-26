@@ -5,9 +5,10 @@ library(rpivotTable)
 
 # Define UI for study viewer application
 shinyUI(fluidPage(
+  # theme = "custom.css",
 
   ## Application title
-  titlePanel("Correlations of Bivariate ISR"),
+  titlePanel("Bivariate ISR"),
 
 
 
@@ -17,13 +18,15 @@ shinyUI(fluidPage(
     ### Sidebar panel
     sidebarPanel(
       radioButtons("radioStudy", label = h3("Study"),
-      choices = list("octo" = "octo","habc" = "habc", "ilse" = "ilse", "nuage" = "nuage", "radc" = "radc", "satsa" = "satsa", "elsa" = "elsa", "nas" = "nas"), selected = "satsa"),
+      choices = list("eas" = 'eas', "elsa" = "elsa", "habc" = "habc", "ilse" = "ilse", "nas" = "nas", "nuage" = "nuage", "octo" = "octo", "radc" = "radc", "satsa" = "satsa"), selected = "satsa"),
 
       radioButtons("radioPhysMeasure", label = h3(" Phys Measure"),
-      choices = list("grip" = "grip","fev" = "fev", "fvc" = "fvc", "pek" = "pek" , "gait" = "gait"), selected = "grip"),
+      choices = list("fev" = "fev", "fvc" = "fvc", "gait" = "gait", "grip" = "grip", "pek" = "pek" ), selected = "grip"),
 
       radioButtons("radioModelType", label = h3("Model type"),
-      choices = list("0" = "0","a" = "a", "ae" = "ae", "aeh" = "aeh", "aehplus" = "aehplus", "full" = "full"), selected = "aeh")
+      choices = list("0" = "0","a" = "a", "ae" = "ae", "aeh" = "aeh", "aehplus" = "aehplus", "full" = "full"), selected = "aeh"),
+      radioButtons("radioDisplayMode", label = h3("Display Values"),
+      choices = list("Correlations" = "corr","Correlations & CI" = "display", "p-value" = "pvalue"), selected = "display")
     ),
 
     ### Main panel

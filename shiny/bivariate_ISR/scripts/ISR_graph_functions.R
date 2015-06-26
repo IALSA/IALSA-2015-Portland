@@ -61,6 +61,10 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
                     "<=.01" = "#f768a1",
                     "<=.001" = "#c51b8a")
 
+  facetFontSize <- baseSize+7
+  legendTitleSize <- baseSize + 7
+  legendTextSize <- baseSize + 5
+
 
 
 ######################  BASIC TILE ############
@@ -70,21 +74,22 @@ basic_tile <- function(ds,x_name){
   d <- ds %>% dplyr::count_(c("cognitive_construct", "cognitive_measure", x_name))
   d$cognitive_construct <- toupper(d$cognitive_construct)
   #
-  g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", fill="cognitive_construct", label="cognitive_construct"))
+  g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", fill="cognitive_construct", label="cognitive_measure"))
   g <- g + geom_tile()
-  g <- g + geom_text(size = baseSize-6)
+  g <- g + geom_text(size = baseSize-3)
   g <- g + facet_grid(. ~  physical_measure)
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
   g <- g + scale_fill_discrete(name = "Cog Domains")
   g <- g + labs(title=x_name_labels[x_name], x=NULL, y=NULL)
   g <- g + theme1
   g <- g + theme(axis.text.y = ggplot2::element_blank(),
-                 axis.text.x = element_text(hjust=1, angle=0, size=9),
+                 axis.text.x = element_text(hjust=.5, angle=0, size=baseSize+10),
                  axis.title = element_blank(),
-                 # legend.text =  ggplot2::element_text(),
+                 legend.title = ggplot2::element_text(size=legendTitleSize, vjust =.2),
+                 legend.text =  ggplot2::element_text(size=legendTextSize),
                  # axis.text.position = "right",
                  legend.position="left")
-    g <- g + theme(strip.text.x = ggplot2::element_text(angle = 0, size=baseSize, color="black"))
+    g <- g + theme(strip.text.x = ggplot2::element_text(angle = 0, size=facetFontSize, color="black"))
   return(g)
 }
 
@@ -107,10 +112,10 @@ ISR_plot <- function(ds = dsISR
                     , y_facet = "." # grouped vertically
 ){
   ds$cognitive_construct <- toupper(ds$cognitive_construct)
-  ds$pretty_number <- paste0(ds$cognitive_construct," - ",ds$cognitive_measure)
+  # ds$pretty_number <- paste0(ds$cognitive_construct," - ",ds$cognitive_measure)
   g <- ggplot2::ggplot(ds, aes_string(x=x_name, y="cognitive_measure", label=display_value, fill="sign"))
   g <- g + geom_tile()
-  g <- g + geom_text(size = baseSize-6)
+  g <- g + geom_text(size = baseSize-3)
   # g <- g + facet_grid(subgroup ~ model_type)
   g <- g + facet_grid(as.formula(paste0(y_facet," ~ ", x_facet)))
   # g <- g + scale_x_discrete(labels = c("int"="INT", "slope"="SLP" , "res"="RES"))
@@ -119,15 +124,16 @@ ISR_plot <- function(ds = dsISR
   # g <- g + scale_fill_gradient(low="white", high=x_name_colors["subgroup"], na.value = "grey")
   g <- g + labs(title=paste0("STUDY: ", unique(ds$study_name),"     PHYSICAL MEASURE: ", unique(ds$physical_measure), "     DISPLAY: ", display_value), x = NULL, y = NULL)
   g <- g + theme1
-  g <- g + theme(axis.text.y =  ggplot2::element_text(size=baseSize, hjust=0),
-                 # axis.text.x =  element_blank(),
+  g <- g + theme(axis.text.y =  element_blank(), #ggplot2::element_text(size=baseSize, hjust=0),
+                 axis.text.x =  ggplot2::element_text(hjust=.5, size=baseSize+10),
                  # axis.title.x = element_blank(),
                  # axis.title.y = element_blank(),
-                 legend.title = ggplot2::element_text(),
+                 legend.title = ggplot2::element_text(size=legendTitleSize, vjust =-2),
+                 legend.text =  ggplot2::element_text(size=legendTextSize),
                  panel.grid.major.x = element_blank(),
-                 legend.text =  ggplot2::element_text(),
+
                  legend.position="right")
-  g <- g + theme(strip.text.x = ggplot2::element_text(angle = 0, size=baseSize-3, color="black"))
+  g <- g + theme(strip.text.x = ggplot2::element_text(angle = 0, size=facetFontSize, color="black"))
   # g
 
   return(g)
