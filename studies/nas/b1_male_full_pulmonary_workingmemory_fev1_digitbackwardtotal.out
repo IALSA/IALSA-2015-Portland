@@ -1,0 +1,1088 @@
+Mplus VERSION 7.31
+MUTHEN & MUTHEN
+06/26/2015  11:24 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  IALSA: VA Normative Aging Study ;
+          6/26/15, Lewina Lee ;
+
+  DATA:
+  FILE is C:\Users\Lewina\SkyDrive\IALSA\M+\NAS_wide_20150626.dat;
+
+  !ORIGINAL SAS names
+  		
+  !/*FROM FILE: ADMIN*/
+  !/*bdate*/	age0 	/*date_cog1*/	/*yr_cog1	date_death*/	age_dead	dead
+  !NEDUC 	CHD 	DM 	CHF		CVA		COPD	ARTH		CANC
+  !		/*NEW 6/26/15 - add disease status at first occasion for each person*/
+  !		chd_base	chf_base	heart_base	cva_base	dm_base
+  !		copd_base 	arth_base 	canc_base 	dis_base
+  !DISTOT1993		DISTOT1994  DISTOT1995  DISTOT1996  DISTOT1997
+  !DISTOT1998  	DISTOT1999  DISTOT2000  DISTOT2001  DISTOT2002
+  !DISTOT2003  	DISTOT2004  DISTOT2005  DISTOT2006  DISTOT2007
+  !DISTOT2008  	DISTOT2009  DISTOT2010  DISTOT2011
+
+  !/*FROM FILE: TV_WIDE2*/
+  !cint12 		cint23 		cint34 		cint45	 	cint56 		cint67
+  !wave_1		wave_2		wave_3		wave_4		wave_5		wave_6		wave_7
+  !/*date_cog_1	date_cog_2	date_cog_3	date_cog_4	date_cog_5	date_cog_6	date_cog_7
+  !date_exam_1	date_exam_2	date_exam_3	date_exam_4	date_exam_5	date_exam_6	date_exam_7*/
+
+  !		/*NEW 6/26/15:*/
+  !		yr_cog_1	yr_cog_2	yr_cog_3	yr_cog_4	yr_cog_5	yr_cog_6	yr_cog_7
+  !		yr_exam_1	yr_exam_2	yr_exam_3	yr_exam_4	yr_exam_5	yr_exam_6	yr_exam_7
+  !		age_cog_1	age_cog_2	age_cog_3	age_cog_4	age_cog_5	age_cog_6	age_cog_7
+  !		age_exam_1	age_exam_2	age_exam_3	age_exam_4	age_exam_5	age_exam_6	age_exam_7
+  !		/*age_1		age_2		age_3		age_4		age_5		age_6		age_7*/
+
+  !offset_1	offset_2	offset_3	offset_4	offset_5	offset_6	offset_7
+
+  !		/*NEW 6/26/15*/
+  !		/*yr_1		yr_2	yr_3		yr_4		yr_5		yr_6		yr_7*/
+
+  !Y2die_C_1	Y2die_C_2	Y2die_C_3	Y2die_C_4	Y2die_C_5	Y2die_C_6	Y2die_C_7
+  !Y2die_E_1	Y2die_E_2	Y2die_E_3	Y2die_E_4	Y2die_E_5	Y2die_E_6	Y2die_E_7
+  !mmse_total_1	mmse_total_2	mmse_total_3	mmse_total_4	mmse_total_5	mmse_total_6	mmse_total_
+  !vf_1		vf_2		vf_3		vf_4		vf_5		vf_6		vf_7
+  !wltot_1		wltot_2		wltot_3		wltot_4		wltot_5		wltot_6		wltot_7
+  !wldr_1		wldr_2		wldr_3		wldr_4		wldr_5		wldr_6		wldr_7
+  !vwsum_1		vwsum_2		vwsum_3		vwsum_4		vwsum_5		vwsum_6		vwsum_7
+  !dsbs_1		dsbs_2		dsbs_3		dsbs_4		dsbs_5		dsbs_6		dsbs_7
+  !dsbt_1		dsbt_2		dsbt_3		dsbt_4		dsbt_5		dsbt_6		dsbt_7
+  !PR_MEAN_1	PR_MEAN_2	PR_MEAN_3	PR_MEAN_4	PR_MEAN_5	PR_MEAN_6	PR_MEAN_7
+
+  !		/*NEW 6/26/15 - unadjusted pulm variables*/
+  !		fev1_1		fev1_2		fev1_3		fev1_4		fev1_5		fev1_6		fev1_7
+  !		fvc_1		fvc_2		fvc_3		fvc_4		fvc_5		fvc_6		fvc_7
+
+  !fev1_h_1	fev1_h_2	fev1_h_3	fev1_h_4	fev1_h_5	fev1_h_6	fev1_h_7
+  !fvc_h_1		fvc_h_2		fvc_h_3		fvc_h_4		fvc_h_5		fvc_h_6		fvc_h_7
+  !ffr_1		ffr_2		ffr_3		ffr_4		ffr_5		ffr_6		ffr_7
+  !income_1	income_2	income_3	income_4	income_5	income_6	income_7
+  !married_1	married_2	married_3	married_4	married_5	married_6	married_7
+  !wt_kg_1		wt_kg_2		wt_kg_3		wt_kg_4		wt_kg_5		wt_kg_6		wt_kg_7
+  !ht_cm_1		ht_cm_2		ht_cm_3		ht_cm_4		ht_cm_5		ht_cm_6		ht_cm_7
+  !BMI_1		BMI_2		BMI_3		BMI_4		BMI_5		BMI_6		BMI_7
+  !smk_now_1	smk_now_2	smk_now_3	smk_now_4	smk_now_5	smk_now_6	smk_now_7
+  !smk_nvr_1	smk_nvr_2	smk_nvr_3	smk_nvr_4	smk_nvr_5	smk_nvr_6	smk_nvr_7
+  !smk_fmr_1	smk_fmr_2	smk_fmr_3	smk_fmr_4	smk_fmr_5	smk_fmr_6	smk_fmr_7
+  !drink2_1	drink2_2	drink2_3	drink2_4	drink2_5	drink2_6	drink2_7
+  !drkden_1	drkden_2	drkden_3	drkden_4	drkden_5	drkden_6	drkden_7
+  !drkden_sqrt_1	drkden_sqrt_2	drkden_sqrt_3	drkden_sqrt_4	drkden_sqrt_5	drkden_sqrt_6	drkde
+  !compexp_1	compexp_2	compexp_3	compexp_4	compexp_5	compexp_6	compexp_7
+  !STAIRS_1	STAIRS_2	STAIRS_3	STAIRS_4	STAIRS_5	STAIRS_6	STAIRS_7
+  !BLOCKS_1	BLOCKS_2	BLOCKS_3	BLOCKS_4	BLOCKS_5	BLOCKS_6	BLOCKS_7
+  	
+  !		/*NEW 6/26/15 - add STAIRS & BLOCKS using 1st occasion of available data*/
+  !		STAIRS_F	STAIRS_OCC
+  !		BLOCKS_F	BLOCKS_F
+
+  !sbp_sit_1	sbp_sit_2	sbp_sit_3	sbp_sit_4	sbp_sit_5	sbp_sit_6	sbp_sit_7
+  !dbp_sit_1	dbp_sit_2	dbp_sit_3	dbp_sit_4	dbp_sit_5	dbp_sit_6	dbp_sit_7
+  !depress_1	depress_2	depress_3	depress_4	depress_5	depress_6	depress_7
+  !GLUCFAST_1	GLUCFAST_2	GLUCFAST_3	GLUCFAST_4	GLUCFAST_5	GLUCFAST_6	GLUCFAST_7
+  !HBA1C_1		HBA1C_2		HBA1C_3		HBA1C_4		HBA1C_5		HBA1C_6		HBA1C_7
+  !wbc_1		wbc_2		wbc_3		wbc_4		wbc_5		wbc_6		wbc_7
+
+  VARIABLE:
+  NAMES ARE
+  id		
+  age0 	age_dead	dead
+  NEDUC 	CHD 	DM 	CHF		CVA			COPD	ARTH	CANC !onsets
+
+  ! New - 6/26/15 - Disease (y/n) during/before first exam year;
+  chd_base    chf_base	heart_base	cva_base	dm_base
+  copd_base 	arth_base 	canc_base 	dis_base
+
+  DIS1993		DIS1994  DIS1995  DIS1996  DIS1997
+  DIS1998  	DIS1999  DIS2000  DIS2001  DIS2002
+  DIS2003  	DIS2004  DIS2005  DIS2006  DIS2007
+  DIS2008  	DIS2009  DIS2010  DIS2011
+  cint12 		cint23 		cint34 		cint45	 	cint56 		cint67
+  wave1		wave2		wave3		wave4		wave5		wave6		wave7
+
+  !NEW 6/26/15;
+  yr_C1       yr_C2       yr_C3       yr_C4       yr_C5       yr_C6       yr_C7
+  yr_E1       yr_E2       yr_E3       yr_E4       yr_E5       yr_E6       yr_E7
+  age_C1       age_C2       age_C3       age_C4       age_C5       age_C6       age_C7
+  age_E1       age_E2       age_E3       age_E4       age_E5       age_E6       age_E7
+  	
+  offset1 	offset2	    offset3	    offset4	    offset5	    offset6	    offset7
+  Y2dieC1	    Y2dieC2	    Y2dieC3	    Y2dieC4	    Y2dieC5	    Y2dieC6	Y2dieC7
+  Y2dieE1	    Y2dieE2	    Y2dieE3	    Y2dieE4	    Y2dieE5	    Y2dieE6	Y2dieE7
+  mmse1   	mmse2	    mmse3	    mmse4	    mmse5	    mmse6	    mmse7
+  vf1		    vf2		    vf3		    vf4		    vf5		    vf6		    vf7
+  wltot1		wltot2		wltot3		wltot4		wltot5		wltot6		wltot7
+  wldr1		wldr2		wldr3		wldr4		wldr5		wldr6		wldr7
+  vwsum1		vwsum2		vwsum3		vwsum4		vwsum5		vwsum6		vwsum7
+  dsbs1		dsbs2		dsbs3		dsbs4		dsbs5		dsbs6		dsbs7
+  dsbt1		dsbt2		dsbt3		dsbt4		dsbt5		dsbt6		dsbt7
+  PR1	        PR2	        PR3	        PR4	        PR5	        PR6	        PR7
+
+  fev11	    fev12	    fev13	    fev14	    fev15	    fev16	    fev17
+  fvc1		fvc2		fvc3		fvc4		fvc5		fvc6		fvc7
+  FEV1_H1	    FEV1_H2	    FEV1_H3	    FEV1_H4	    FEV1_H5	    FEV1_H6	    FEV1_H7 !height-ad
+  fvc_H1		fvc_H2		fvc_H3		fvc_H4		fvc_H5		fvc_H6		fvc_H7
+
+  ffr1		ffr2		ffr3		ffr4		ffr5		ffr6		ffr7
+  income1	    income2	    income3	    income4	    income5	    income6 	income7
+  married1	married2	married3	married4	married5	married6	married7
+  wtkg1		wtkg2		wtkg3		wtkg4		wtkg5		wtkg6		wtkg7
+  htcm1		htcm2		htcm3		htcm4		htcm5		htcm6		htcm7
+  BMI1		BMI2		BMI3		BMI4		BMI5		BMI6		BMI7
+  smk_now1	smk_now2	smk_now3	smk_now4	smk_now5	smk_now6	smk_now7
+  smk_nvr1	smk_nvr2	smk_nvr3	smk_nvr4	smk_nvr5	smk_nvr6	smk_nvr7
+  smk_fmr1	smk_fmr2	smk_fmr3	smk_fmr4	smk_fmr5	smk_fmr6	smk_fmr7
+  drink21		drink22		drink23		drink24		drink25		drink26		drink27
+  dden1		dden2		dden3		dden4		dden5		dden6		dden7
+  dden_sr1	dden_sr2	dden_sr3	dden_sr4	dden_sr5	dden_sr6	dden_sr7
+  compexp1	compexp2	compexp3	compexp4	compexp5	compexp6	compexp7
+  STAIRS1		STAIRS2		STAIRS3		STAIRS4		STAIRS5		STAIRS6		STAIRS7
+  BLOCKS1		BLOCKS2		BLOCKS3		BLOCKS4		BLOCKS5		BLOCKS6		BLOCKS7
+
+  !New 6/26/15 - use first available occasion of data;
+  STAIRS_F	STAIRS_OCC
+  BLOCKS_F	BLOCKS_OCC
+
+  sbp1		sbp2		sbp3		sbp4		sbp5		sbp6		sbp7
+  dbp1		dbp2		dbp3		dbp4		dbp5		dbp6		dbp7
+  deprx1	    deprx2	    deprx3	    deprx4	    deprx5  	deprx6	    deprx7
+  fbg1		fbg2		fbg3		fbg4		fbg5		fbg6		fbg7
+  HBA1C1		HBA1C2		HBA1C3		HBA1C4		HBA1C5		HBA1C6		HBA1C7
+  wbc1		wbc2		wbc3		wbc4		wbc5		wbc6		wbc7
+  ;
+
+  USEVARIABLES ARE
+  !Neduc htcm1 wtkg1 bmi1 smk_now1 smk_nvr1
+  !drink21  deprx1 dis1993
+  married1  income1
+  htcm1
+  dden_sr1
+  smk_now1    smk_fmr1
+  compexp1
+  dis_base !heart_base  DM_base
+   blocks_F stairs_F
+  deprx1
+  sbp1 dbp1
+  time1 time2 time3 time4 time5 time6
+  c1 c2 c3 c4 c5 c6
+  p1 p2 p3 p4 p5 p6
+  Bage    Educ
+
+  ;
+
+  TSCORES = time1 time2 time3 time4 time5 time6;
+
+  MISSING = .;
+
+  DEFINE: !sbp1 = sbp1/10;
+          !dbp1 = dbp1/10;
+          time1=yr_C1-1993; time2=yr_C2-1993; time3=yr_C3-1993;
+          time4=yr_C4-1993; time5=yr_C5-1993; time6=yr_C6-1993;		
+          c1=DSBT1;	c2=DSBT2; c3=DSBT3; c4=DSBT4; c5=DSBT5; c6=DSBT6;
+          p1=fev11*10;    p2=fev12*10; p3=fev13*10;
+          p4=fev14*10;    p5=fev15*10; p6=fev16*10;
+          Bage=age_C1-70;
+          Educ=NEDUC-7;
+
+
+  !GROUPING IS;
+
+  !CATEGORICAL ARE
+  !dis_base;
+
+  ANALYSIS:   TYPE=random;
+              COVERAGE=.0002;
+              PROCESSORS = 4;
+              !H1iterations=2000;
+
+  MODEL:  ip sp| p1-p6 AT time1-time6;
+          ic sc| c1-c6 AT time1-time6;
+
+  ip sp ic sc ON Bage Educ htcm1 smk_now1 smk_fmr1    ; !
+  ip sp ic sc ON married1 income1 dden_sr1 blocks_F stairs_F sbp1 dbp1 ; !
+  ip sp ic sc ON compexp1 deprx1 dis_base ; !
+
+  p1-p6 (res_p);
+  c1-c6 (res_c);
+
+  p1-p6 pwith c1-c6(res_cov);
+
+  !Specify variances of exogeneous variables to fill in missingness;
+  !leave out smoking variables (n=1131 so won't affect analysis N) to help convergence;
+  Bage Educ htcm1 married1 income1 dden_sr1; !   smk_now1 smk_fmr1
+  stairs_F blocks_F sbp1 dbp1 compexp1 deprx1 dis_base ; !
+
+
+  OUTPUT: SAMPSTAT ; ! CINTERVAL;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  !mmse_total_1	mmse_total_2	mmse_total_3	mmse_total_4	mmse_total_5	mmse_total_6	mmse_total_7
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  !drkden_sqrt_1	drkden_sqrt_2	drkden_sqrt_3	drkden_sqrt_4	drkden_sqrt_5	drkden_sqrt_6	drkden
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  FEV1_H1	    FEV1_H2	    FEV1_H3	    FEV1_H4	    FEV1_H5	    FEV1_H6	    FEV1_H7 !height-adj
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  1
+   4 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+IALSA: VA Normative Aging Study ;
+6/26/15, Lewina Lee ;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1131
+
+Number of dependent variables                                   12
+Number of independent variables                                 15
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   C1          C2          C3          C4          C5          C6
+   P1          P2          P3          P4          P5          P6
+
+Observed independent variables
+   MARRIED1    INCOME1     HTCM1       DDEN_SR1    SMK_NOW1    SMK_FMR1
+   COMPEXP1    DIS_BASE    BLOCKS_F    STAIRS_F    DEPRX1      SBP1
+   DBP1        BAGE        EDUC
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Lewina\SkyDrive\IALSA\M+\NAS_wide_20150626.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns           278
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.000
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             0.752
+ C2             0.538         0.704
+ C3             0.385         0.482         0.495
+ C4             0.250         0.316         0.313         0.322
+ C5             0.147         0.184         0.182         0.176         0.185
+ C6             0.042         0.054         0.054         0.052         0.054
+ P1             0.742         0.696         0.492         0.320         0.183
+ P2             0.546         0.683         0.483         0.319         0.183
+ P3             0.353         0.441         0.439         0.273         0.157
+ P4             0.210         0.267         0.263         0.247         0.119
+ P5             0.152         0.189         0.187         0.182         0.178
+ P6             0.051         0.064         0.064         0.061         0.063
+ MARRIED1       0.748         0.701         0.493         0.321         0.185
+ INCOME1        0.578         0.550         0.395         0.264         0.151
+ HTCM1          0.735         0.691         0.487         0.318         0.185
+ DDEN_SR1       0.478         0.452         0.319         0.216         0.120
+ COMPEXP1       0.741         0.675         0.476         0.310         0.177
+ DIS_BASE       0.752         0.704         0.495         0.322         0.185
+ BLOCKS_F       0.660         0.665         0.483         0.318         0.184
+ STAIRS_F       0.683         0.679         0.486         0.319         0.184
+ DEPRX1         0.634         0.597         0.422         0.279         0.160
+ SBP1           0.752         0.704         0.495         0.322         0.185
+ DBP1           0.752         0.704         0.495         0.322         0.185
+ BAGE           0.752         0.704         0.495         0.322         0.185
+ EDUC           0.751         0.700         0.493         0.321         0.185
+ SMK_NOW1       0.752         0.704         0.495         0.322         0.185
+ SMK_FMR1       0.752         0.704         0.495         0.322         0.185
+
+
+           Covariance Coverage
+              C6            P1            P2            P3            P4
+              ________      ________      ________      ________      ________
+ C6             0.054
+ P1             0.053         0.987
+ P2             0.054         0.700         0.708
+ P3             0.054         0.453         0.444         0.455
+ P4             0.017         0.272         0.271         0.225         0.272
+ P5             0.053         0.189         0.188         0.163         0.126
+ P6             0.051         0.063         0.064         0.064         0.024
+ MARRIED1       0.054         0.981         0.705         0.453         0.271
+ INCOME1        0.042         0.751         0.557         0.367         0.222
+ HTCM1          0.054         0.966         0.696         0.447         0.269
+ DDEN_SR1       0.034         0.659         0.455         0.296         0.181
+ COMPEXP1       0.050         0.943         0.682         0.439         0.263
+ DIS_BASE       0.054         0.987         0.708         0.455         0.272
+ BLOCKS_F       0.054         0.867         0.670         0.442         0.267
+ STAIRS_F       0.054         0.902         0.683         0.445         0.269
+ DEPRX1         0.043         0.831         0.600         0.387         0.236
+ SBP1           0.054         0.987         0.708         0.455         0.272
+ DBP1           0.054         0.987         0.708         0.455         0.272
+ BAGE           0.054         0.987         0.708         0.455         0.272
+ EDUC           0.054         0.983         0.706         0.454         0.271
+ SMK_NOW1       0.054         0.987         0.708         0.455         0.272
+ SMK_FMR1       0.054         0.987         0.708         0.455         0.272
+
+
+           Covariance Coverage
+              P5            P6            MARRIED1      INCOME1       HTCM1
+              ________      ________      ________      ________      ________
+ P5             0.190
+ P6             0.061         0.064
+ MARRIED1       0.190         0.064         0.995
+ INCOME1        0.155         0.050         0.757         0.759
+ HTCM1          0.190         0.064         0.980         0.748         0.980
+ DDEN_SR1       0.122         0.039         0.661         0.574         0.653
+ COMPEXP1       0.182         0.059         0.950         0.730         0.935
+ DIS_BASE       0.190         0.064         0.995         0.759         0.980
+ BLOCKS_F       0.189         0.064         0.872         0.709         0.862
+ STAIRS_F       0.189         0.064         0.907         0.734         0.897
+ DEPRX1         0.166         0.053         0.836         0.744         0.826
+ SBP1           0.190         0.064         0.995         0.759         0.980
+ DBP1           0.190         0.064         0.995         0.759         0.980
+ BAGE           0.190         0.064         0.995         0.759         0.980
+ EDUC           0.190         0.064         0.990         0.756         0.975
+ SMK_NOW1       0.190         0.064         0.995         0.759         0.980
+ SMK_FMR1       0.190         0.064         0.995         0.759         0.980
+
+
+           Covariance Coverage
+              DDEN_SR1      COMPEXP1      DIS_BASE      BLOCKS_F      STAIRS_F
+              ________      ________      ________      ________      ________
+ DDEN_SR1       0.663
+ COMPEXP1       0.633         0.955
+ DIS_BASE       0.663         0.955         1.000
+ BLOCKS_F       0.624         0.837         0.875         0.875
+ STAIRS_F       0.652         0.871         0.911         0.867         0.911
+ DEPRX1         0.645         0.803         0.838         0.783         0.815
+ SBP1           0.663         0.955         1.000         0.875         0.911
+ DBP1           0.663         0.955         1.000         0.875         0.911
+ BAGE           0.663         0.955         1.000         0.875         0.911
+ EDUC           0.660         0.954         0.996         0.871         0.906
+ SMK_NOW1       0.663         0.955         1.000         0.875         0.911
+ SMK_FMR1       0.663         0.955         1.000         0.875         0.911
+
+
+           Covariance Coverage
+              DEPRX1        SBP1          DBP1          BAGE          EDUC
+              ________      ________      ________      ________      ________
+ DEPRX1         0.838
+ SBP1           0.838         1.000
+ DBP1           0.838         1.000         1.000
+ BAGE           0.838         1.000         1.000         1.000
+ EDUC           0.836         0.996         0.996         0.996         0.996
+ SMK_NOW1       0.838         1.000         1.000         1.000         0.996
+ SMK_FMR1       0.838         1.000         1.000         1.000         0.996
+
+
+           Covariance Coverage
+              SMK_NOW1      SMK_FMR1
+              ________      ________
+ SMK_NOW1       1.000
+ SMK_FMR1       1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1              4.933         4.745         4.410         4.424         4.061
+
+
+           Means
+              C6            P1            P2            P3            P4
+              ________      ________      ________      ________      ________
+ 1              4.190        25.895        24.646        23.942        23.521
+
+
+           Means
+              P5            P6            MARRIED1      INCOME1       HTCM1
+              ________      ________      ________      ________      ________
+ 1             22.859        21.834         0.760         6.566       173.789
+
+
+           Means
+              DDEN_SR1      COMPEXP1      DIS_BASE      BLOCKS_F      STAIRS_F
+              ________      ________      ________      ________      ________
+ 1              2.090         0.397         1.428         8.259         5.044
+
+
+           Means
+              DEPRX1        SBP1          DBP1          BAGE          EDUC
+              ________      ________      ________      ________      ________
+ 1              0.216       138.029        82.000        -1.727         7.258
+
+
+           Means
+              SMK_NOW1      SMK_FMR1
+              ________      ________
+ 1              0.121         0.645
+
+
+           Covariances
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             5.376
+ C2             2.795         5.368
+ C3             2.639         2.593         4.487
+ C4             2.500         2.447         2.465         4.442
+ C5             2.709         2.494         2.592         2.556         4.419
+ C6             3.453         2.794         3.120         3.262         2.999
+ P1             1.239         1.867         1.219         2.571         2.404
+ P2             1.326         2.102         1.581         2.452         2.089
+ P3             1.738         1.742         1.728         3.041         2.105
+ P4             1.617         2.205         1.924         3.050         2.282
+ P5             2.053         2.266         2.175         3.508         3.011
+ P6             1.797         1.792         2.637         3.612         2.551
+ MARRIED1       0.053         0.014         0.006         0.127         0.033
+ INCOME1        2.345         1.487         1.187         2.020         0.692
+ HTCM1          1.283         1.929         2.002         2.751         1.314
+ DDEN_SR1       0.594         0.201         0.263         0.381         0.575
+ COMPEXP1       0.174         0.187         0.183         0.210         0.157
+ DIS_BASE      -0.159        -0.208        -0.166        -0.303        -0.433
+ BLOCKS_F       0.161         0.030         1.108         0.997         0.450
+ STAIRS_F       0.870         0.523         1.116         0.759         0.365
+ DEPRX1        -0.053        -0.027        -0.080        -0.080        -0.094
+ SBP1          -3.582        -2.871        -2.107        -3.422        -6.359
+ DBP1          -0.548         1.016         0.499         0.313         0.638
+ BAGE          -2.378        -3.442        -3.066        -4.007        -3.477
+ EDUC           1.259         0.881         0.911         1.023         0.675
+ SMK_NOW1       0.010         0.013         0.023        -0.024        -0.030
+ SMK_FMR1       0.029         0.005         0.002         0.067         0.029
+
+
+           Covariances
+              C6            P1            P2            P3            P4
+              ________      ________      ________      ________      ________
+ C6             7.018
+ P1            -0.075        35.948
+ P2             0.784        34.589        37.475
+ P3             3.329        34.589        35.688        40.089
+ P4             2.198        33.717        35.835        37.949        40.603
+ P5             4.292        34.411        36.581        38.315        39.687
+ P6             3.119        33.899        35.998        37.375        38.766
+ MARRIED1       0.048         0.213         0.233         0.254         0.228
+ INCOME1        1.316         6.213         6.499         7.378         7.884
+ HTCM1          0.677        15.664        15.312        15.916        14.622
+ DDEN_SR1      -0.055         0.323         0.315         0.284         0.422
+ COMPEXP1       0.101         0.471         0.494         0.555         0.641
+ DIS_BASE      -0.440        -2.156        -2.225        -2.290        -2.403
+ BLOCKS_F      -0.111         3.745         5.105         4.977         4.858
+ STAIRS_F       1.018         2.164         3.126         2.673         2.811
+ DEPRX1        -0.231        -0.173        -0.140        -0.262        -0.223
+ SBP1          -3.698       -17.854       -16.208       -16.743       -12.514
+ DBP1           0.171         3.539         3.670         2.339         4.551
+ BAGE          -3.152       -17.562       -17.127       -18.958       -18.917
+ EDUC           1.422         1.809         1.811         2.101         2.241
+ SMK_NOW1      -0.009        -0.248        -0.299        -0.289        -0.291
+ SMK_FMR1      -0.153        -0.008         0.018         0.038        -0.015
+
+
+           Covariances
+              P5            P6            MARRIED1      INCOME1       HTCM1
+              ________      ________      ________      ________      ________
+ P5            44.760
+ P6            41.154        42.664
+ MARRIED1       0.128         0.088         0.182
+ INCOME1        6.469         6.542         0.220        16.870
+ HTCM1         15.030        13.793         0.196         4.333        43.858
+ DDEN_SR1      -0.501         0.797        -0.031         0.793         0.697
+ COMPEXP1       0.466         0.332         0.006         0.615         0.372
+ DIS_BASE      -2.567        -1.976        -0.017        -0.886        -0.270
+ BLOCKS_F       3.796         4.804        -0.065         0.479         2.388
+ STAIRS_F       2.674         2.506         0.222         1.816         0.595
+ DEPRX1        -0.368        -0.458        -0.016        -0.160        -0.071
+ SBP1         -14.627       -14.689         0.014        -5.631        -8.351
+ DBP1           3.827         4.481        -0.132         2.929         3.231
+ BAGE         -17.856       -18.784        -0.226       -10.797       -12.339
+ EDUC           1.688         2.631         0.015         3.829         1.691
+ SMK_NOW1      -0.376        -0.366        -0.008        -0.110        -0.022
+ SMK_FMR1       0.016         0.114         0.015         0.112         0.303
+
+
+           Covariances
+              DDEN_SR1      COMPEXP1      DIS_BASE      BLOCKS_F      STAIRS_F
+              ________      ________      ________      ________      ________
+ DDEN_SR1       2.695
+ COMPEXP1       0.086         0.240
+ DIS_BASE      -0.083        -0.078         1.032
+ BLOCKS_F       0.290        -0.092        -0.899        68.678
+ STAIRS_F       0.804         0.130        -0.211         5.208        19.603
+ DEPRX1        -0.015        -0.014         0.045        -0.106        -0.024
+ SBP1           0.975        -0.145         2.144        -1.642         2.577
+ DBP1           0.562         0.281        -1.056        -0.566         2.243
+ BAGE          -1.855        -1.193         2.608        -1.834        -1.901
+ EDUC           0.196         0.382        -0.140         0.668         1.323
+ SMK_NOW1       0.037         0.002         0.011        -0.106        -0.048
+ SMK_FMR1       0.025         0.018         0.017         0.249         0.028
+
+
+           Covariances
+              DEPRX1        SBP1          DBP1          BAGE          EDUC
+              ________      ________      ________      ________      ________
+ DEPRX1         0.169
+ SBP1          -0.109       310.895
+ DBP1          -0.136        82.062        87.293
+ BAGE           0.030        23.013       -12.706        53.841
+ EDUC           0.003        -2.504         0.560        -0.771         7.194
+ SMK_NOW1       0.005        -0.079        -0.093        -0.275        -0.043
+ SMK_FMR1      -0.004         0.178        -0.149        -0.032         0.011
+
+
+           Covariances
+              SMK_NOW1      SMK_FMR1
+              ________      ________
+ SMK_NOW1       0.106
+ SMK_FMR1      -0.078         0.229
+
+
+           Correlations
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.520         1.000
+ C3             0.537         0.528         1.000
+ C4             0.511         0.501         0.552         1.000
+ C5             0.556         0.512         0.582         0.577         1.000
+ C6             0.562         0.455         0.556         0.584         0.539
+ P1             0.089         0.134         0.096         0.203         0.191
+ P2             0.093         0.148         0.122         0.190         0.162
+ P3             0.118         0.119         0.129         0.228         0.158
+ P4             0.109         0.149         0.143         0.227         0.170
+ P5             0.132         0.146         0.153         0.249         0.214
+ P6             0.119         0.118         0.191         0.262         0.186
+ MARRIED1       0.054         0.014         0.007         0.142         0.037
+ INCOME1        0.246         0.156         0.136         0.233         0.080
+ HTCM1          0.084         0.126         0.143         0.197         0.094
+ DDEN_SR1       0.156         0.053         0.076         0.110         0.167
+ COMPEXP1       0.153         0.164         0.176         0.203         0.152
+ DIS_BASE      -0.068        -0.088        -0.077        -0.141        -0.203
+ BLOCKS_F       0.008         0.002         0.063         0.057         0.026
+ STAIRS_F       0.085         0.051         0.119         0.081         0.039
+ DEPRX1        -0.055        -0.029        -0.092        -0.092        -0.108
+ SBP1          -0.088        -0.070        -0.056        -0.092        -0.172
+ DBP1          -0.025         0.047         0.025         0.016         0.033
+ BAGE          -0.140        -0.202        -0.197        -0.259        -0.225
+ EDUC           0.202         0.142         0.160         0.181         0.120
+ SMK_NOW1       0.013         0.018         0.033        -0.036        -0.043
+ SMK_FMR1       0.026         0.005         0.002         0.067         0.029
+
+
+           Correlations
+              C6            P1            P2            P3            P4
+              ________      ________      ________      ________      ________
+ C6             1.000
+ P1            -0.005         1.000
+ P2             0.048         0.942         1.000
+ P3             0.198         0.911         0.921         1.000
+ P4             0.130         0.883         0.919         0.941         1.000
+ P5             0.242         0.858         0.893         0.905         0.931
+ P6             0.180         0.866         0.900         0.904         0.931
+ MARRIED1       0.043         0.083         0.089         0.094         0.084
+ INCOME1        0.121         0.252         0.258         0.284         0.301
+ HTCM1          0.039         0.394         0.378         0.380         0.346
+ DDEN_SR1      -0.013         0.033         0.031         0.027         0.040
+ COMPEXP1       0.078         0.160         0.165         0.179         0.205
+ DIS_BASE      -0.163        -0.354        -0.358        -0.356        -0.371
+ BLOCKS_F      -0.005         0.075         0.101         0.095         0.092
+ STAIRS_F       0.087         0.082         0.115         0.095         0.100
+ DEPRX1        -0.212        -0.070        -0.055        -0.101        -0.085
+ SBP1          -0.079        -0.169        -0.150        -0.150        -0.111
+ DBP1           0.007         0.063         0.064         0.040         0.076
+ BAGE          -0.162        -0.399        -0.381        -0.408        -0.405
+ EDUC           0.200         0.113         0.110         0.124         0.131
+ SMK_NOW1      -0.010        -0.127        -0.150        -0.140        -0.140
+ SMK_FMR1      -0.121        -0.003         0.006         0.013        -0.005
+
+
+           Correlations
+              P5            P6            MARRIED1      INCOME1       HTCM1
+              ________      ________      ________      ________      ________
+ P5             1.000
+ P6             0.942         1.000
+ MARRIED1       0.045         0.031         1.000
+ INCOME1        0.235         0.244         0.125         1.000
+ HTCM1          0.339         0.319         0.069         0.159         1.000
+ DDEN_SR1      -0.046         0.074        -0.044         0.118         0.064
+ COMPEXP1       0.142         0.104         0.030         0.306         0.115
+ DIS_BASE      -0.378        -0.298        -0.038        -0.212        -0.040
+ BLOCKS_F       0.068         0.089        -0.018         0.014         0.044
+ STAIRS_F       0.090         0.087         0.117         0.100         0.020
+ DEPRX1        -0.134        -0.170        -0.092        -0.094        -0.026
+ SBP1          -0.124        -0.128         0.002        -0.078        -0.072
+ DBP1           0.061         0.073        -0.033         0.076         0.052
+ BAGE          -0.364        -0.392        -0.072        -0.358        -0.254
+ EDUC           0.094         0.150         0.013         0.348         0.095
+ SMK_NOW1      -0.172        -0.172        -0.054        -0.082        -0.010
+ SMK_FMR1       0.005         0.036         0.075         0.057         0.096
+
+
+           Correlations
+              DDEN_SR1      COMPEXP1      DIS_BASE      BLOCKS_F      STAIRS_F
+              ________      ________      ________      ________      ________
+ DDEN_SR1       1.000
+ COMPEXP1       0.108         1.000
+ DIS_BASE      -0.050        -0.157         1.000
+ BLOCKS_F       0.021        -0.023        -0.107         1.000
+ STAIRS_F       0.111         0.060        -0.047         0.142         1.000
+ DEPRX1        -0.022        -0.068         0.108        -0.031        -0.013
+ SBP1           0.034        -0.017         0.120        -0.011         0.033
+ DBP1           0.037         0.061        -0.111        -0.007         0.054
+ BAGE          -0.154        -0.332         0.350        -0.030        -0.059
+ EDUC           0.045         0.291        -0.051         0.030         0.111
+ SMK_NOW1       0.068         0.010         0.033        -0.039        -0.033
+ SMK_FMR1       0.031         0.079         0.036         0.063         0.013
+
+
+           Correlations
+              DEPRX1        SBP1          DBP1          BAGE          EDUC
+              ________      ________      ________      ________      ________
+ DEPRX1         1.000
+ SBP1          -0.015         1.000
+ DBP1          -0.035         0.498         1.000
+ BAGE           0.010         0.178        -0.185         1.000
+ EDUC           0.003        -0.053         0.022        -0.039         1.000
+ SMK_NOW1       0.041        -0.014        -0.030        -0.115        -0.049
+ SMK_FMR1      -0.020         0.021        -0.033        -0.009         0.008
+
+
+           Correlations
+              SMK_NOW1      SMK_FMR1
+              ________      ________
+ SMK_NOW1       1.000
+ SMK_FMR1      -0.501         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -46531.696
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     C1                    4.979       0.355       0.000    0.71%       3.000      4.000      5.000
+             850.000       5.320      -0.512      12.000    0.35%       6.000      7.000
+     C2                    4.868       0.477       0.000    0.50%       3.000      4.000      5.000
+             796.000       5.371      -0.277      12.000    0.25%       5.000      7.000
+     C3                    4.593       0.507       0.000    0.36%       3.000      4.000      4.000
+             560.000       4.481      -0.330      12.000    0.18%       5.000      7.000
+     C4                    4.766       0.366       1.000    2.20%       3.000      4.000      5.000
+             364.000       4.267      -0.530      11.000    0.27%       5.000      7.000
+     C5                    4.560       0.453       1.000    3.35%       3.000      4.000      4.000
+             209.000       4.208      -0.219      11.000    0.48%       5.000      6.000
+     C6                    4.754       0.307       1.000    1.64%       3.000      4.000      5.000
+              61.000       3.825      -0.429      10.000    1.64%       5.000      7.000
+     P1                   25.894      -0.070       8.899    0.09%      20.898     24.600     25.996
+            1116.000      35.788      -0.040      43.896    0.09%      27.300     30.796
+     P2                   25.364      -0.087       7.899    0.12%      20.298     23.999     25.498
+             801.000      34.841       0.057      43.193    0.12%      26.899     30.195
+     P3                   25.292      -0.015       8.300    0.19%      20.298     23.896     25.396
+             515.000      35.778       0.223      45.596    0.19%      26.997     30.000
+     P4                   25.312       0.086      10.698    0.32%      20.898     23.799     25.247
+             308.000      36.326       0.273      45.791    0.32%      26.597     29.897
+     P5                   25.037      -0.138       7.000    0.47%      20.195     23.599     25.098
+             215.000      36.414       0.293      43.193    0.47%      26.797     30.098
+     P6                   25.941      -0.229      12.300    1.39%      22.100     24.697     25.947
+              72.000      24.448       0.165      38.398    1.39%      27.197     30.796
+     MARRIED1              0.760      -1.218       0.000   24.00%       0.000      1.000      1.000
+            1125.000       0.182      -0.518       1.000   76.00%       1.000      1.000
+     INCOME1               6.613       0.254       0.000    3.15%       3.000      5.000      6.000
+             858.000      16.622      -1.159      13.000   16.78%       7.000     11.000
+     HTCM1               173.806      -0.055     150.281    0.09%     168.312    172.375    173.906
+            1108.000      43.838       0.126     195.750    0.09%     175.688    179.250
+     DDEN_SR1              2.108       0.480       0.000   19.87%       0.582      1.323      2.035
+             750.000       2.676      -0.301       7.000    0.67%       2.646      3.240
+     COMPEXP1              0.396       0.424       0.000   60.37%       0.000      0.000      0.000
+            1080.000       0.239      -1.820       1.000   39.63%       0.000      1.000
+     DIS_BASE              1.428       0.482       0.000   17.95%       1.000      1.000      1.000
+            1131.000       1.032      -0.189       5.000    0.27%       2.000      2.000
+     BLOCKS_F              8.261       1.266       0.000   10.10%       2.000      4.000      5.000
+             990.000      68.649       0.673      30.000    5.45%       8.000     13.000
+     STAIRS_F              5.073       0.842       0.000   11.94%       1.000      3.000      4.000
+            1030.000      19.586      -0.266      15.000    7.86%       5.000     10.000
+     DEPRX1                0.215       2.823       0.000   61.92%       0.000      0.000      0.000
+             948.000       0.169       9.406       3.000    0.11%       0.000      0.333
+     SBP1                138.029       0.485      88.000    0.09%     123.000    132.000    136.000
+            1131.000     310.895       0.326     209.000    0.09%     140.000    154.000
+     DBP1                 82.000       0.183      50.000    0.09%      74.000     80.000     81.000
+            1131.000      87.293       0.347     119.000    0.09%      84.000     90.000
+     BAGE                 -1.727       0.239     -21.000    0.09%      -8.000     -4.000     -2.000
+            1131.000      53.841      -0.091      27.000    0.09%       0.000      4.000
+     EDUC                  7.260       0.243      -2.000    0.09%       5.000      6.000      7.000
+            1126.000       7.193       0.066      17.000    0.18%       8.000      9.000
+     SMK_NOW1              0.121       2.322       0.000   87.89%       0.000      0.000      0.000
+            1131.000       0.106       3.393       1.000   12.11%       0.000      0.000
+     SMK_FMR1              0.645      -0.608       0.000   35.46%       0.000      1.000      1.000
+            1131.000       0.229      -1.630       1.000   64.54%       1.000      1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      181
+
+Loglikelihood
+
+          H0 Value                      -45775.960
+          H0 Scaling Correction Factor      1.0519
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   91913.920
+          Bayesian (BIC)                 92824.506
+          Sample-Size Adjusted BIC       92249.598
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.162      0.026     -6.247      0.000
+    EDUC               0.033      0.066      0.504      0.614
+    HTCM1              0.298      0.023     12.917      0.000
+    SMK_NOW1          -3.559      0.563     -6.320      0.000
+    SMK_FMR1          -1.594      0.321     -4.974      0.000
+    MARRIED1           0.351      0.364      0.964      0.335
+    INCOME1            0.083      0.050      1.656      0.098
+    DDEN_SR1          -0.070      0.121     -0.581      0.561
+    BLOCKS_F           0.018      0.019      0.956      0.339
+    STAIRS_F           0.048      0.036      1.325      0.185
+    SBP1              -0.032      0.011     -2.972      0.003
+    DBP1               0.011      0.020      0.560      0.576
+    COMPEXP1           0.028      0.336      0.082      0.934
+    DEPRX1            -0.050      0.449     -0.112      0.911
+    DIS_BASE          -1.244      0.162     -7.697      0.000
+
+ SP         ON
+    BAGE              -0.003      0.002     -1.664      0.096
+    EDUC               0.005      0.004      1.068      0.286
+    HTCM1             -0.002      0.002     -1.163      0.245
+    SMK_NOW1          -0.067      0.044     -1.525      0.127
+    SMK_FMR1          -0.006      0.022     -0.250      0.803
+    MARRIED1          -0.028      0.023     -1.204      0.229
+    INCOME1            0.003      0.003      0.889      0.374
+    DDEN_SR1          -0.006      0.009     -0.701      0.483
+    BLOCKS_F           0.000      0.001      0.054      0.957
+    STAIRS_F           0.003      0.002      1.095      0.274
+    SBP1               0.002      0.001      2.788      0.005
+    DBP1              -0.004      0.001     -2.703      0.007
+    COMPEXP1           0.014      0.022      0.652      0.514
+    DEPRX1            -0.066      0.041     -1.600      0.109
+    DIS_BASE          -0.017      0.012     -1.489      0.137
+
+ IC         ON
+    BAGE              -0.007      0.014     -0.500      0.617
+    EDUC               0.100      0.033      3.042      0.002
+    HTCM1              0.017      0.012      1.458      0.145
+    SMK_NOW1           0.243      0.285      0.853      0.393
+    SMK_FMR1           0.139      0.184      0.754      0.451
+    MARRIED1          -0.049      0.181     -0.270      0.787
+    INCOME1            0.099      0.026      3.825      0.000
+    DDEN_SR1           0.100      0.061      1.645      0.100
+    BLOCKS_F          -0.006      0.010     -0.661      0.508
+    STAIRS_F           0.016      0.018      0.851      0.395
+    SBP1              -0.008      0.005     -1.548      0.122
+    DBP1              -0.003      0.010     -0.294      0.768
+    COMPEXP1           0.261      0.182      1.429      0.153
+    DEPRX1            -0.108      0.197     -0.546      0.585
+    DIS_BASE           0.083      0.081      1.024      0.306
+
+ SC         ON
+    BAGE              -0.002      0.001     -1.841      0.066
+    EDUC              -0.001      0.003     -0.400      0.689
+    HTCM1              0.000      0.001      0.381      0.703
+    SMK_NOW1          -0.021      0.024     -0.886      0.376
+    SMK_FMR1          -0.012      0.016     -0.751      0.453
+    MARRIED1           0.012      0.016      0.722      0.470
+    INCOME1           -0.007      0.002     -3.270      0.001
+    DDEN_SR1          -0.003      0.005     -0.601      0.548
+    BLOCKS_F           0.001      0.001      1.117      0.264
+    STAIRS_F           0.001      0.001      0.475      0.634
+    SBP1               0.000      0.000      0.425      0.671
+    DBP1               0.000      0.001      0.180      0.857
+    COMPEXP1           0.005      0.015      0.320      0.749
+    DEPRX1            -0.018      0.015     -1.208      0.227
+    DIS_BASE          -0.014      0.007     -1.946      0.052
+
+ SP       WITH
+    IP                -0.029      0.058     -0.500      0.617
+
+ IC       WITH
+    IP                 0.108      0.390      0.276      0.782
+    SP                 0.022      0.026      0.868      0.385
+
+ SC       WITH
+    IP                -0.016      0.036     -0.430      0.667
+    SP                 0.001      0.002      0.375      0.707
+    IC                -0.038      0.021     -1.796      0.072
+
+ P1       WITH
+    C1                 0.083      0.066      1.249      0.212
+
+ P2       WITH
+    C2                 0.083      0.066      1.249      0.212
+
+ P3       WITH
+    C3                 0.083      0.066      1.249      0.212
+
+ P4       WITH
+    C4                 0.083      0.066      1.249      0.212
+
+ P5       WITH
+    C5                 0.083      0.066      1.249      0.212
+
+ P6       WITH
+    C6                 0.083      0.066      1.249      0.212
+
+ INCOME1  WITH
+    MARRIED1           0.222      0.063      3.524      0.000
+
+ HTCM1    WITH
+    MARRIED1           0.196      0.087      2.264      0.024
+    INCOME1            4.335      0.930      4.663      0.000
+
+ DDEN_SR1 WITH
+    MARRIED1          -0.032      0.028     -1.148      0.251
+    INCOME1            0.778      0.245      3.171      0.002
+    HTCM1              0.682      0.414      1.645      0.100
+
+ COMPEXP1 WITH
+    MARRIED1           0.007      0.006      1.044      0.297
+    INCOME1            0.622      0.065      9.515      0.000
+    HTCM1              0.366      0.097      3.786      0.000
+    DDEN_SR1           0.084      0.029      2.838      0.005
+
+ DIS_BASE WITH
+    MARRIED1          -0.017      0.013     -1.313      0.189
+    INCOME1           -0.881      0.143     -6.165      0.000
+    HTCM1             -0.270      0.195     -1.384      0.166
+    DDEN_SR1          -0.071      0.061     -1.168      0.243
+    COMPEXP1          -0.078      0.015     -5.315      0.000
+
+ BLOCKS_F WITH
+    MARRIED1          -0.060      0.116     -0.519      0.604
+    INCOME1            0.450      1.230      0.366      0.714
+    HTCM1              2.372      1.806      1.313      0.189
+    DDEN_SR1           0.297      0.526      0.565      0.572
+    COMPEXP1          -0.091      0.128     -0.709      0.478
+    DIS_BASE          -0.914      0.264     -3.466      0.001
+
+ STAIRS_F WITH
+    MARRIED1           0.224      0.058      3.844      0.000
+    INCOME1            1.811      0.610      2.969      0.003
+    HTCM1              0.621      0.920      0.675      0.500
+    DDEN_SR1           0.789      0.263      2.998      0.003
+    COMPEXP1           0.129      0.068      1.886      0.059
+    DIS_BASE          -0.213      0.138     -1.545      0.122
+    BLOCKS_F           5.205      1.209      4.305      0.000
+
+ DEPRX1   WITH
+    MARRIED1          -0.016      0.006     -2.414      0.016
+    INCOME1           -0.161      0.063     -2.541      0.011
+    HTCM1             -0.069      0.076     -0.902      0.367
+    DDEN_SR1          -0.011      0.033     -0.352      0.725
+    COMPEXP1          -0.014      0.006     -2.252      0.024
+    DIS_BASE           0.045      0.014      3.186      0.001
+    BLOCKS_F          -0.094      0.105     -0.901      0.367
+    STAIRS_F          -0.025      0.057     -0.437      0.662
+
+ SBP1     WITH
+    MARRIED1           0.017      0.212      0.080      0.936
+    INCOME1           -5.950      2.412     -2.467      0.014
+    HTCM1             -8.371      3.503     -2.389      0.017
+    DDEN_SR1           0.947      1.023      0.926      0.354
+    COMPEXP1          -0.140      0.258     -0.543      0.587
+    DIS_BASE           2.144      0.545      3.932      0.000
+    BLOCKS_F          -1.678      4.473     -0.375      0.708
+    STAIRS_F           2.549      2.390      1.066      0.286
+    DEPRX1            -0.094      0.224     -0.420      0.675
+
+ DBP1     WITH
+    MARRIED1          -0.131      0.123     -1.062      0.288
+    INCOME1            2.868      1.288      2.227      0.026
+    HTCM1              3.241      1.790      1.811      0.070
+    DDEN_SR1           0.587      0.572      1.027      0.304
+    COMPEXP1           0.287      0.138      2.077      0.038
+    DIS_BASE          -1.056      0.275     -3.834      0.000
+    BLOCKS_F          -0.540      2.373     -0.228      0.820
+    STAIRS_F           2.212      1.439      1.537      0.124
+    DEPRX1            -0.117      0.129     -0.913      0.361
+    SBP1              82.062      6.265     13.098      0.000
+
+ BAGE     WITH
+    MARRIED1          -0.225      0.105     -2.148      0.032
+    INCOME1          -10.827      1.028    -10.534      0.000
+    HTCM1            -12.361      1.559     -7.928      0.000
+    DDEN_SR1          -1.802      0.443     -4.071      0.000
+    COMPEXP1          -1.187      0.101    -11.707      0.000
+    DIS_BASE           2.608      0.225     11.592      0.000
+    BLOCKS_F          -1.965      1.924     -1.021      0.307
+    STAIRS_F          -1.903      0.996     -1.910      0.056
+    DEPRX1             0.033      0.109      0.301      0.763
+    SBP1              23.013      3.978      5.785      0.000
+    DBP1             -12.706      2.117     -6.002      0.000
+
+ EDUC     WITH
+    MARRIED1           0.015      0.035      0.421      0.674
+    INCOME1            3.830      0.368     10.402      0.000
+    HTCM1              1.690      0.564      2.993      0.003
+    DDEN_SR1           0.187      0.159      1.176      0.239
+    COMPEXP1           0.380      0.039      9.845      0.000
+    DIS_BASE          -0.140      0.081     -1.733      0.083
+    BLOCKS_F           0.640      0.745      0.859      0.391
+    STAIRS_F           1.326      0.383      3.459      0.001
+    DEPRX1             0.003      0.035      0.075      0.940
+    SBP1              -2.499      1.397     -1.789      0.074
+    DBP1               0.558      0.731      0.763      0.445
+    BAGE              -0.768      0.573     -1.342      0.180
+
+ Means
+    MARRIED1           0.760      0.013     59.639      0.000
+    INCOME1            6.570      0.136     48.406      0.000
+    HTCM1            173.791      0.199    874.370      0.000
+    DDEN_SR1           2.092      0.061     34.357      0.000
+    COMPEXP1           0.397      0.015     26.739      0.000
+    DIS_BASE           1.428      0.030     47.278      0.000
+    BLOCKS_F           8.251      0.263     31.357      0.000
+    STAIRS_F           5.048      0.138     36.680      0.000
+    DEPRX1             0.216      0.013     16.083      0.000
+    SBP1             138.029      0.524    263.266      0.000
+    DBP1              82.000      0.278    295.159      0.000
+    BAGE              -1.727      0.218     -7.914      0.000
+    EDUC               7.259      0.080     90.824      0.000
+
+ Intercepts
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    C6                 0.000      0.000    999.000    999.000
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    IP               -20.439      4.237     -4.823      0.000
+    SP                 0.126      0.283      0.443      0.658
+    IC                 1.580      2.154      0.733      0.463
+    SC                -0.099      0.188     -0.526      0.599
+
+ Variances
+    MARRIED1           0.182      0.007     27.549      0.000
+    INCOME1           16.900      0.540     31.312      0.000
+    HTCM1             43.873      1.924     22.802      0.000
+    DDEN_SR1           2.682      0.128     20.934      0.000
+    COMPEXP1           0.239      0.003     76.906      0.000
+    DIS_BASE           1.032      0.041     24.991      0.000
+    BLOCKS_F          68.673      3.570     19.234      0.000
+    STAIRS_F          19.605      0.804     24.387      0.000
+    DEPRX1             0.169      0.019      9.110      0.000
+    SBP1             310.895     14.099     22.050      0.000
+    DBP1              87.293      3.976     21.954      0.000
+    BAGE              53.841      2.212     24.339      0.000
+    EDUC               7.194      0.308     23.337      0.000
+
+ Residual Variances
+    C1                 2.248      0.097     23.125      0.000
+    C2                 2.248      0.097     23.125      0.000
+    C3                 2.248      0.097     23.125      0.000
+    C4                 2.248      0.097     23.125      0.000
+    C5                 2.248      0.097     23.125      0.000
+    C6                 2.248      0.097     23.125      0.000
+    P1                 2.273      0.138     16.481      0.000
+    P2                 2.273      0.138     16.481      0.000
+    P3                 2.273      0.138     16.481      0.000
+    P4                 2.273      0.138     16.481      0.000
+    P5                 2.273      0.138     16.481      0.000
+    P6                 2.273      0.138     16.481      0.000
+    IP                21.112      1.142     18.485      0.000
+    SP                 0.032      0.005      6.207      0.000
+    IC                 2.728      0.271     10.052      0.000
+    SC                 0.001      0.002      0.671      0.502
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.240E-08
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\lewina\skydrive\ialsa\m+\b1_male_full_pulmonary_workingmemory_fev1_digitbackwardtotal.d
+
+     Beginning Time:  23:24:56
+        Ending Time:  23:27:01
+       Elapsed Time:  00:02:05
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen
