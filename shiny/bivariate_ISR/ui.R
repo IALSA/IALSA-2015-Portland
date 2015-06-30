@@ -5,9 +5,10 @@ library(rpivotTable)
 
 # Define UI for study viewer application
 shinyUI(fluidPage(
+  # theme = "custom.css",
 
   ## Application title
-  titlePanel("Table 2: Correlations among ISR"),
+  titlePanel("Bivariate ISR (v.1.0)"),
 
 
 
@@ -16,30 +17,22 @@ shinyUI(fluidPage(
 
     ### Sidebar panel
     sidebarPanel(
-      selectInput("selectStudy","Select study:"
-                  , choices=c("octo","habc", "ilse", "nuage", "radc", "satsa")
-                  , selected = "satsa"),
-      selectInput("selectPhysMeasure", "Physical measure:"
-                  , choices = c("grip","fev", "fvc",  "pek",  "gait")
-                  , selected = "grip"),
-      selectInput("selectDisplay", "Display mode:",
-                  choices = c("Correlation" = "corr",
-                               "Correlation & CI" = "display",
-                               "p-value" = "pvalue")
-                  , selected = "display"),
-      checkboxGroupInput("covars", "Covariate set:",
-                   c("Empty" = "0",
-                     "a" = "a",
-                     "ae" = "ae",
-                     "aeh" = "aeh",
-                     "aeh+" = "aehplus",
-                     "full" = "full"
-                     ), selected = c("a","ah"))),
+      radioButtons("radioStudy", label = h3("Study"),
+      choices = list("eas" = 'eas', "elsa" = "elsa", "habc" = "habc", "ilse" = "ilse", "nas" = "nas", "nuage" = "nuage", "octo" = "octo", "radc" = "radc", "satsa" = "satsa"), selected = "satsa"),
+
+      radioButtons("radioPhysMeasure", label = h3(" Phys Measure"),
+      choices = list("fev" = "fev", "fvc" = "fvc", "gait" = "gait", "grip" = "grip", "pek" = "pek" ), selected = "grip"),
+
+      radioButtons("radioModelType", label = h3("Model type"),
+      choices = list("0" = "0","a" = "a", "ae" = "ae", "aeh" = "aeh", "aehplus" = "aehplus", "full" = "full"), selected = "aeh"),
+      radioButtons("radioDisplayMode", label = h3("Display Values"),
+      choices = list("Correlations" = "corr","Correlations & CI" = "display", "p-value" = "pvalue"), selected = "display")
+    ),
 
     ### Main panel
     mainPanel(
     fluidRow(
-      shiny::plotOutput(outputId = "table2", width='95%', height='900px')))
+      shiny::plotOutput(outputId = "bivariate_ISR", width='95%', height='900px')))
 
   ) ## close sidebarLayout
 )) # close fluidPage, shinyUI

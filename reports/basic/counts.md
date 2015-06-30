@@ -37,7 +37,7 @@ hrs lasa nshd obas
 
 
 Presently, the **total number of legally named models** supplied by the participating studies is
-**1322**
+**1275**
 : they include both *bivariate* and *univariate* models. Strings *"nophys"* and *"nocog"*, imply that the model is univariate (e.i. nocog == The particular cog predictor is "none")
 
 <!-- Frequency counts   -->
@@ -46,33 +46,33 @@ Counting valid models in each study:
 ```
 
   eas  elsa  habc  ilse   nas nuage  octo  radc satsa 
-  485   207    88   137    32    52    88   141    92 
+  484   207    88    91    32    52    88   141    92 
 ```
 
 ```
     
      eas elsa habc ilse nas nuage octo radc satsa
-  b1 219 60   48   72   28  6     88   137  92   
-  u0 6   60   10   16   2   10    .    .    .    
-  u1 129 57   30   49   2   36    .    4    .    
+  b1 218 60   48   35   28  6     88   137  92   
+  u0 6   60   10   14   2   10    .    .    .    
+  u1 129 57   30   42   2   36    .    4    .    
   u2 131 30   .    .    .   .     .    .    .    
 ```
 
 However, for the present time, we will focus only on 
-**1057**
+**1012**
 linear models.
 
 ```
 
   eas  elsa  habc  ilse   nas nuage  octo  radc satsa 
-  348   117    78   121    30    42    88   141    92 
+  347   117    78    77    30    42    88   141    92 
 ```
 
 ```
     
      eas elsa habc ilse nas nuage octo radc satsa
-  b1 219 60   48   72   28  6     88   137  92   
-  u1 129 57   30   49   2   36    .    4    .    
+  b1 218 60   48   35   28  6     88   137  92   
+  u1 129 57   30   42   2   36    .    4    .    
 ```
 
 **LINEAR  MODELS (u1, b1) ONLY BEYOND THIS POINT**
@@ -88,9 +88,9 @@ Number of models that use the following **Physical contructs**
             eas elsa habc ilse nas nuage octo radc satsa
   chair     .   .    .    .    .   6     .    .    .    
   flamingo  .   .    .    .    .   6     .    .    .    
-  muscle    120 27   30   43   .   12    44   79   46   
+  muscle    119 27   30   41   .   12    44   79   46   
   pulmonary 119 60   .    .    29  .     44   62   46   
-  tug       .   .    .    42   .   6     .    .    .    
+  tug       .   .    .    .    .   6     .    .    .    
   Univar    109 30   18   36   1   6     .    .    .    
   walking   .   .    30   .    .   6     .    .    .    
 ```
@@ -104,10 +104,11 @@ Number of models that use the following **Physical measures**
          eas elsa habc ilse nas nuage octo radc satsa
   fev    .   30   .    .    15  .     .    62   46   
   fvc    .   30   .    .    14  .     .    .    .    
-  gait   .   .    31   .    .   .     .    .    .    
-  grip   120 27   29   42   .   12    44   79   46   
+  gait   .   .    30   .    .   .     .    .    .    
+  grip   119 27   30   41   .   12    44   79   46   
   pek    119 .    .    .    .   .     44   .    .    
-  univar 109 30   18   79   1   30    .    .    .    
+  tug    .   .    .    .    .   6     .    .    .    
+  univar 109 30   18   36   1   24    .    .    .    
 ```
 
 ## Measures by Constructs
@@ -119,10 +120,11 @@ Number of models using this **measure** of the  physical **construct**
          chair flamingo muscle pulmonary tug Univar walking
   fev    .     .        .      153       .   .      .      
   fvc    .     .        .      44        .   .      .      
-  gait   .     .        1      .         .   .      30     
-  grip   .     .        399    .         .   .      .      
+  gait   .     .        .      .         .   .      30     
+  grip   .     .        398    .         .   .      .      
   pek    .     .        .      163       .   .      .      
-  univar 6     6        1      .         48  200    6      
+  tug    .     .        .      .         6   .      .      
+  univar 6     6        .      .         .   200    6      
 ```
 
 ## Measures by Constructs and Studies
@@ -135,56 +137,65 @@ Number of models using this **measure** of the  physical **construct**, by study
 eas   fev       .        .      .         .   .      .       .  
       fvc       .        .      .         .   .      .       .  
       gait      .        .      .         .   .      .       .  
-      grip      .        .      120       .   .      .       .  
+      grip      .        .      119       .   .      .       .  
       pek       .        .      .         119 .      .       .  
+      tug       .        .      .         .   .      .       .  
       univar    .        .      .         .   .      109     .  
 elsa  fev       .        .      .         30  .      .       .  
       fvc       .        .      .         30  .      .       .  
       gait      .        .      .         .   .      .       .  
       grip      .        .      27        .   .      .       .  
       pek       .        .      .         .   .      .       .  
+      tug       .        .      .         .   .      .       .  
       univar    .        .      .         .   .      30      .  
 habc  fev       .        .      .         .   .      .       .  
       fvc       .        .      .         .   .      .       .  
-      gait      .        .      1         .   .      .       30 
-      grip      .        .      29        .   .      .       .  
+      gait      .        .      .         .   .      .       30 
+      grip      .        .      30        .   .      .       .  
       pek       .        .      .         .   .      .       .  
+      tug       .        .      .         .   .      .       .  
       univar    .        .      .         .   .      18      .  
 ilse  fev       .        .      .         .   .      .       .  
       fvc       .        .      .         .   .      .       .  
       gait      .        .      .         .   .      .       .  
-      grip      .        .      42        .   .      .       .  
+      grip      .        .      41        .   .      .       .  
       pek       .        .      .         .   .      .       .  
-      univar    .        .      1         .   42     36      .  
+      tug       .        .      .         .   .      .       .  
+      univar    .        .      .         .   .      36      .  
 nas   fev       .        .      .         15  .      .       .  
       fvc       .        .      .         14  .      .       .  
       gait      .        .      .         .   .      .       .  
       grip      .        .      .         .   .      .       .  
       pek       .        .      .         .   .      .       .  
+      tug       .        .      .         .   .      .       .  
       univar    .        .      .         .   .      1       .  
 nuage fev       .        .      .         .   .      .       .  
       fvc       .        .      .         .   .      .       .  
       gait      .        .      .         .   .      .       .  
       grip      .        .      12        .   .      .       .  
       pek       .        .      .         .   .      .       .  
-      univar    6        6      .         .   6      6       6  
+      tug       .        .      .         .   6      .       .  
+      univar    6        6      .         .   .      6       6  
 octo  fev       .        .      .         .   .      .       .  
       fvc       .        .      .         .   .      .       .  
       gait      .        .      .         .   .      .       .  
       grip      .        .      44        .   .      .       .  
       pek       .        .      .         44  .      .       .  
+      tug       .        .      .         .   .      .       .  
       univar    .        .      .         .   .      .       .  
 radc  fev       .        .      .         62  .      .       .  
       fvc       .        .      .         .   .      .       .  
       gait      .        .      .         .   .      .       .  
       grip      .        .      79        .   .      .       .  
       pek       .        .      .         .   .      .       .  
+      tug       .        .      .         .   .      .       .  
       univar    .        .      .         .   .      .       .  
 satsa fev       .        .      .         46  .      .       .  
       fvc       .        .      .         .   .      .       .  
       gait      .        .      .         .   .      .       .  
       grip      .        .      46        .   .      .       .  
       pek       .        .      .         .   .      .       .  
+      tug       .        .      .         .   .      .       .  
       univar    .        .      .         .   .      .       .  
 ```
 
@@ -199,14 +210,14 @@ Number of models that use the following **Cognitive contructs**
               
                eas elsa habc ilse nas nuage octo radc satsa
   executive    28  .    .    .    4   .     8    14   .    
-  fluency      60  10   .    30   4   .     .    5    .    
-  knowledge    60  .    .    12   .   .     16   9    48   
+  fluency      60  10   .    24   4   .     .    5    .    
+  knowledge    60  .    .    6    .   .     16   9    48   
   language     30  .    .    .    .   .     .    14   .    
   memory       59  80   .    .    9   .     24   54   .    
   mental       30  .    44   .    4   12    8    8    16   
-  reasoning    30  .    .    48   4   .     16   9    .    
-  speed        31  .    22   18   4   .     16   15   28   
-  Univar       20  27   12   13   1   30    .    4    .    
+  reasoning    30  .    .    29   4   .     16   9    .    
+  speed        30  .    22   12   4   .     16   15   28   
+  Univar       20  27   12   6    1   30    .    4    .    
   visuospatial .   .    .    .    .   .     .    9    .    
 ```
 
@@ -219,7 +230,7 @@ Number of models that use the following **Cognitive measures**
                         eas elsa habc ilse nas nuage octo radc satsa
   3ms                   .   .    22   .    .   12    .    .    .    
   analogies             .   .    .    .    .   .     .    .    16   
-  block                 30  .    .    18   .   .     8    .    .    
+  block                 30  .    .    12   .   .     8    .    .    
   bnt                   30  .    .    .    .   .     .    7    .    
   bostonstorydelay      .   .    .    .    .   .     .    7    .    
   bostonstoryimmediate  .   .    .    .    .   .     .    7    .    
@@ -239,7 +250,7 @@ Number of models that use the following **Cognitive measures**
   logicalmemory         29  .    .    .    .   .     .    .    .    
   logicalmemorydelay    .   .    .    .    .   .     .    7    .    
   logicalmemoryimmed    .   .    .    .    .   .     .    5    .    
-  lpsspacialability     .   .    .    12   .   .     .    .    .    
+  lpsspacialability     .   .    .    5    .   .     .    .    .    
   lpsspatialability     .   .    .    6    .   .     .    .    .    
   matrices              .   .    .    .    .   .     .    9    .    
   mirrecall             .   .    .    .    .   .     8    .    .    
@@ -249,14 +260,14 @@ Number of models that use the following **Cognitive measures**
   patterncomparison     .   .    .    .    4   .     .    .    .    
   proserecall           .   .    .    .    .   .     8    .    .    
   psif                  .   .    .    .    .   .     8    .    .    
-  symbol                31  .    22   18   .   .     8    8    16   
+  symbol                30  .    22   12   .   .     8    8    16   
   synonyms              .   .    .    .    .   .     8    .    16   
   trailsb               28  .    .    .    .   .     .    .    .    
-  univar                20  27   12   13   1   30    .    4    .    
-  verbalfluency         30  .    .    18   .   .     .    .    .    
-  waisgeneralknowledge  .   .    .    17   .   .     .    .    .    
+  univar                20  27   12   6    1   30    .    4    .    
+  verbalfluency         30  .    .    12   .   .     .    .    .    
+  waisgeneralknowledge  .   .    .    11   .   .     .    .    .    
   waisgenerealknowledge .   .    .    1    .   .     .    .    .    
-  waispicturecompletion .   .    .    18   .   .     .    .    .    
+  waispicturecompletion .   .    .    12   .   .     .    .    .    
   waisvocab             30  .    .    .    .   .     .    .    .    
   wordlistdelay         .   .    .    .    5   .     .    7    .    
   wordlistimmed         .   40   .    .    4   .     .    7    .    
@@ -272,7 +283,7 @@ Number of models using this **measure** of the  cognitive **construct**
                         executive fluency knowledge language memory mental reasoning speed Univar visuospatial
   3ms                   .         .       .         .        .      34     .         .     .      .           
   analogies             .         .       16        .        .      .      .         .     .      .           
-  block                 .         .       .         .        .      .      56        .     .      .           
+  block                 .         .       .         .        .      .      50        .     .      .           
   bnt                   .         .       .         37       .      .      .         .     .      .           
   bostonstorydelay      .         .       .         .        7      .      .         .     .      .           
   bostonstoryimmediate  .         .       .         .        7      .      .         .     .      .           
@@ -292,7 +303,7 @@ Number of models using this **measure** of the  cognitive **construct**
   logicalmemory         .         .       .         .        29     .      .         .     .      .           
   logicalmemorydelay    .         .       .         .        7      .      .         .     .      .           
   logicalmemoryimmed    .         .       .         .        5      .      .         .     .      .           
-  lpsspacialability     .         .       .         .        .      .      12        .     .      .           
+  lpsspacialability     .         .       .         .        .      .      5         .     .      .           
   lpsspatialability     .         6       .         .        .      .      .         .     .      .           
   matrices              .         .       .         .        .      .      9         .     .      .           
   mirrecall             .         .       .         .        8      .      .         .     .      .           
@@ -302,14 +313,14 @@ Number of models using this **measure** of the  cognitive **construct**
   patterncomparison     .         .       .         .        .      .      .         4     .      .           
   proserecall           .         .       .         .        8      .      .         .     .      .           
   psif                  .         .       .         .        .      .      .         8     .      .           
-  symbol                .         .       .         .        .      .      .         103   .      .           
+  symbol                .         .       .         .        .      .      .         96    .      .           
   synonyms              .         .       24        .        .      .      .         .     .      .           
   trailsb               28        .       .         .        .      .      .         .     .      .           
-  univar                .         .       .         .        .      .      .         .     107    .           
-  verbalfluency         .         48      .         .        .      .      .         .     .      .           
-  waisgeneralknowledge  .         5       12        .        .      .      .         .     .      .           
+  univar                .         .       .         .        .      .      .         .     100    .           
+  verbalfluency         .         42      .         .        .      .      .         .     .      .           
+  waisgeneralknowledge  .         5       6         .        .      .      .         .     .      .           
   waisgenerealknowledge .         1       .         .        .      .      .         .     .      .           
-  waispicturecompletion .         .       .         .        .      .      18        .     .      .           
+  waispicturecompletion .         .       .         .        .      .      12        .     .      .           
   waisvocab             .         .       30        .        .      .      .         .     .      .           
   wordlistdelay         .         .       .         .        12     .      .         .     .      .           
   wordlistimmed         .         .       .         .        51     .      .         .     .      .           
@@ -355,7 +366,7 @@ eas   3ms                           .       .         .        .      .      .  
       patterncomparison             .       .         .        .      .      .         .     .      .            . 
       proserecall                   .       .         .        .      .      .         .     .      .            . 
       psif                          .       .         .        .      .      .         .     .      .            . 
-      symbol                        .       .         .        .      .      .         .     31     .            . 
+      symbol                        .       .         .        .      .      .         .     30     .            . 
       synonyms                      .       .         .        .      .      .         .     .      .            . 
       trailsb                       28      .         .        .      .      .         .     .      .            . 
       univar                        .       .         .        .      .      .         .     .      20           . 
@@ -457,7 +468,7 @@ habc  3ms                           .       .         .        .      .      22 
       wordlistrecog                 .       .         .        .      .      .         .     .      .            . 
 ilse  3ms                           .       .         .        .      .      .         .     .      .            . 
       analogies                     .       .         .        .      .      .         .     .      .            . 
-      block                         .       .         .        .      .      .         18    .      .            . 
+      block                         .       .         .        .      .      .         12    .      .            . 
       bnt                           .       .         .        .      .      .         .     .      .            . 
       bostonstorydelay              .       .         .        .      .      .         .     .      .            . 
       bostonstoryimmediate          .       .         .        .      .      .         .     .      .            . 
@@ -477,7 +488,7 @@ ilse  3ms                           .       .         .        .      .      .  
       logicalmemory                 .       .         .        .      .      .         .     .      .            . 
       logicalmemorydelay            .       .         .        .      .      .         .     .      .            . 
       logicalmemoryimmed            .       .         .        .      .      .         .     .      .            . 
-      lpsspacialability             .       .         .        .      .      .         12    .      .            . 
+      lpsspacialability             .       .         .        .      .      .         5     .      .            . 
       lpsspatialability             .       6         .        .      .      .         .     .      .            . 
       matrices                      .       .         .        .      .      .         .     .      .            . 
       mirrecall                     .       .         .        .      .      .         .     .      .            . 
@@ -487,14 +498,14 @@ ilse  3ms                           .       .         .        .      .      .  
       patterncomparison             .       .         .        .      .      .         .     .      .            . 
       proserecall                   .       .         .        .      .      .         .     .      .            . 
       psif                          .       .         .        .      .      .         .     .      .            . 
-      symbol                        .       .         .        .      .      .         .     18     .            . 
+      symbol                        .       .         .        .      .      .         .     12     .            . 
       synonyms                      .       .         .        .      .      .         .     .      .            . 
       trailsb                       .       .         .        .      .      .         .     .      .            . 
-      univar                        .       .         .        .      .      .         .     .      13           . 
-      verbalfluency                 .       18        .        .      .      .         .     .      .            . 
-      waisgeneralknowledge          .       5         12       .      .      .         .     .      .            . 
+      univar                        .       .         .        .      .      .         .     .      6            . 
+      verbalfluency                 .       12        .        .      .      .         .     .      .            . 
+      waisgeneralknowledge          .       5         6        .      .      .         .     .      .            . 
       waisgenerealknowledge         .       1         .        .      .      .         .     .      .            . 
-      waispicturecompletion         .       .         .        .      .      .         18    .      .            . 
+      waispicturecompletion         .       .         .        .      .      .         12    .      .            . 
       waisvocab                     .       .         .        .      .      .         .     .      .            . 
       wordlistdelay                 .       .         .        .      .      .         .     .      .            . 
       wordlistimmed                 .       .         .        .      .      .         .     .      .            . 
@@ -737,14 +748,14 @@ Number of models that uses this **physical construct** (column) and  **cognitive
               
                chair flamingo muscle pulmonary tug Univar walking
   executive    .     .        21     24        .   9      .      
-  fluency      .     .        31     24        6   48     .      
-  knowledge    .     .        63     56        6   20     .      
+  fluency      .     .        31     24        .   48     .      
+  knowledge    .     .        63     56        .   20     .      
   language     .     .        18     16        .   10     .      
   memory       .     .        81     104       .   41     .      
   mental       .     .        48     30        .   28     16     
-  reasoning    .     .        41     26        18  22     .      
-  speed        .     .        55     43        6   22     8      
-  Univar       6     6        38     33        12  .      12     
+  reasoning    .     .        40     26        .   22     .      
+  speed        .     .        54     43        .   22     8      
+  Univar       6     6        37     33        6   .      12     
   visuospatial .     .        5      4         .   .      .      
 ```
 It is important to remember that these numbers reflect only the combinations of **constructs**, the  **operationalizations** of these construct (specifc outcomes) that may differ from model to model. 
@@ -755,455 +766,455 @@ Number of models that uses this **physical measure** (column) and  **cognitive m
 
 ```
                        
-                        fev fvc gait grip pek univar
-  3ms                   .   .   8    14   .   12    
-  analogies             8   .   .    8    .   .     
-  block                 .   .   .    20   14  22    
-  bnt                   3   .   .    14   10  10    
-  bostonstorydelay      3   .   .    4    .   .     
-  bostonstoryimmediate  3   .   .    4    .   .     
-  categories            2   2   .    15   10  20    
-  clock                 .   .   9    7    .   6     
-  complexideas          3   .   .    4    .   .     
-  delayedrecall         10  10  .    10   .   10    
-  digitordering         3   .   .    3    .   .     
-  digitsback            6   2   .    8    4   .     
-  digitsforward         3   .   .    8    4   .     
-  digitspan             .   .   .    10   10  10    
-  figurecopy            2   2   .    .    .   .     
-  figureid              6   .   .    6    .   .     
-  figurelogic           .   .   .    4    4   .     
-  info                  8   .   .    22   14  10    
-  lineorientation       4   .   .    5    .   .     
-  logicalmemory         .   .   .    9    10  10    
-  logicalmemorydelay    3   .   .    4    .   .     
-  logicalmemoryimmed    3   .   .    2    .   .     
-  lpsspacialability     .   .   .    6    .   6     
-  lpsspatialability     .   .   .    .    .   6     
-  matrices              4   .   .    5    .   .     
-  mirrecall             .   .   .    4    4   .     
-  mmse                  14  2   .    26   14  10    
-  nart                  4   .   .    5    .   .     
-  numbercomparison      3   .   .    4    .   .     
-  patterncomparison     2   2   .    .    .   .     
-  proserecall           .   .   .    4    4   .     
-  psif                  .   .   .    4    4   .     
-  symbol                12  .   8    41   14  28    
-  synonyms              8   .   .    12   4   .     
-  trailsb               .   .   .    10   9   9     
-  univar                13  10  6    37   10  31    
-  verbalfluency         .   .   .    16   10  22    
-  waisgeneralknowledge  .   .   .    6    .   11    
-  waisgenerealknowledge .   .   .    .    .   1     
-  waispicturecompletion .   .   .    6    .   12    
-  waisvocab             .   .   .    10   10  10    
-  wordlistdelay         5   2   .    4    .   1     
-  wordlistimmed         15  12  .    14   .   10    
-  wordlistrecog         3   .   .    4    .   .     
+                        fev fvc gait grip pek tug univar
+  3ms                   .   .   8    14   .   .   12    
+  analogies             8   .   .    8    .   .   .     
+  block                 .   .   .    20   14  .   16    
+  bnt                   3   .   .    14   10  .   10    
+  bostonstorydelay      3   .   .    4    .   .   .     
+  bostonstoryimmediate  3   .   .    4    .   .   .     
+  categories            2   2   .    15   10  .   20    
+  clock                 .   .   8    8    .   .   6     
+  complexideas          3   .   .    4    .   .   .     
+  delayedrecall         10  10  .    10   .   .   10    
+  digitordering         3   .   .    3    .   .   .     
+  digitsback            6   2   .    8    4   .   .     
+  digitsforward         3   .   .    8    4   .   .     
+  digitspan             .   .   .    10   10  .   10    
+  figurecopy            2   2   .    .    .   .   .     
+  figureid              6   .   .    6    .   .   .     
+  figurelogic           .   .   .    4    4   .   .     
+  info                  8   .   .    22   14  .   10    
+  lineorientation       4   .   .    5    .   .   .     
+  logicalmemory         .   .   .    9    10  .   10    
+  logicalmemorydelay    3   .   .    4    .   .   .     
+  logicalmemoryimmed    3   .   .    2    .   .   .     
+  lpsspacialability     .   .   .    5    .   .   .     
+  lpsspatialability     .   .   .    .    .   .   6     
+  matrices              4   .   .    5    .   .   .     
+  mirrecall             .   .   .    4    4   .   .     
+  mmse                  14  2   .    26   14  .   10    
+  nart                  4   .   .    5    .   .   .     
+  numbercomparison      3   .   .    4    .   .   .     
+  patterncomparison     2   2   .    .    .   .   .     
+  proserecall           .   .   .    4    4   .   .     
+  psif                  .   .   .    4    4   .   .     
+  symbol                12  .   8    40   14  .   22    
+  synonyms              8   .   .    12   4   .   .     
+  trailsb               .   .   .    10   9   .   9     
+  univar                13  10  6    37   10  6   18    
+  verbalfluency         .   .   .    16   10  .   16    
+  waisgeneralknowledge  .   .   .    6    .   .   5     
+  waisgenerealknowledge .   .   .    .    .   .   1     
+  waispicturecompletion .   .   .    6    .   .   6     
+  waisvocab             .   .   .    10   10  .   10    
+  wordlistdelay         5   2   .    4    .   .   1     
+  wordlistimmed         15  12  .    14   .   .   10    
+  wordlistrecog         3   .   .    4    .   .   .     
 ```
 
 ## Cross Measures (fill)
 
 
 ```
-                             fev fvc gait grip pek univar
-                                                         
-eas   3ms                     .   .    .    .   .      . 
-      analogies               .   .    .    .   .      . 
-      block                   .   .    .    10  10     10
-      bnt                     .   .    .    10  10     10
-      bostonstorydelay        .   .    .    .   .      . 
-      bostonstoryimmediate    .   .    .    .   .      . 
-      categories              .   .    .    10  10     10
-      clock                   .   .    .    .   .      . 
-      complexideas            .   .    .    .   .      . 
-      delayedrecall           .   .    .    .   .      . 
-      digitordering           .   .    .    .   .      . 
-      digitsback              .   .    .    .   .      . 
-      digitsforward           .   .    .    .   .      . 
-      digitspan               .   .    .    10  10     10
-      figurecopy              .   .    .    .   .      . 
-      figureid                .   .    .    .   .      . 
-      figurelogic             .   .    .    .   .      . 
-      info                    .   .    .    10  10     10
-      lineorientation         .   .    .    .   .      . 
-      logicalmemory           .   .    .    9   10     10
-      logicalmemorydelay      .   .    .    .   .      . 
-      logicalmemoryimmed      .   .    .    .   .      . 
-      lpsspacialability       .   .    .    .   .      . 
-      lpsspatialability       .   .    .    .   .      . 
-      matrices                .   .    .    .   .      . 
-      mirrecall               .   .    .    .   .      . 
-      mmse                    .   .    .    10  10     10
-      nart                    .   .    .    .   .      . 
-      numbercomparison        .   .    .    .   .      . 
-      patterncomparison       .   .    .    .   .      . 
-      proserecall             .   .    .    .   .      . 
-      psif                    .   .    .    .   .      . 
-      symbol                  .   .    .    11  10     10
-      synonyms                .   .    .    .   .      . 
-      trailsb                 .   .    .    10  9      9 
-      univar                  .   .    .    10  10     . 
-      verbalfluency           .   .    .    10  10     10
-      waisgeneralknowledge    .   .    .    .   .      . 
-      waisgenerealknowledge   .   .    .    .   .      . 
-      waispicturecompletion   .   .    .    .   .      . 
-      waisvocab               .   .    .    10  10     10
-      wordlistdelay           .   .    .    .   .      . 
-      wordlistimmed           .   .    .    .   .      . 
-      wordlistrecog           .   .    .    .   .      . 
-elsa  3ms                     .   .    .    .   .      . 
-      analogies               .   .    .    .   .      . 
-      block                   .   .    .    .   .      . 
-      bnt                     .   .    .    .   .      . 
-      bostonstorydelay        .   .    .    .   .      . 
-      bostonstoryimmediate    .   .    .    .   .      . 
-      categories              .   .    .    .   .      10
-      clock                   .   .    .    .   .      . 
-      complexideas            .   .    .    .   .      . 
-      delayedrecall           10  10   .    10  .      10
-      digitordering           .   .    .    .   .      . 
-      digitsback              .   .    .    .   .      . 
-      digitsforward           .   .    .    .   .      . 
-      digitspan               .   .    .    .   .      . 
-      figurecopy              .   .    .    .   .      . 
-      figureid                .   .    .    .   .      . 
-      figurelogic             .   .    .    .   .      . 
-      info                    .   .    .    .   .      . 
-      lineorientation         .   .    .    .   .      . 
-      logicalmemory           .   .    .    .   .      . 
-      logicalmemorydelay      .   .    .    .   .      . 
-      logicalmemoryimmed      .   .    .    .   .      . 
-      lpsspacialability       .   .    .    .   .      . 
-      lpsspatialability       .   .    .    .   .      . 
-      matrices                .   .    .    .   .      . 
-      mirrecall               .   .    .    .   .      . 
-      mmse                    .   .    .    .   .      . 
-      nart                    .   .    .    .   .      . 
-      numbercomparison        .   .    .    .   .      . 
-      patterncomparison       .   .    .    .   .      . 
-      proserecall             .   .    .    .   .      . 
-      psif                    .   .    .    .   .      . 
-      symbol                  .   .    .    .   .      . 
-      synonyms                .   .    .    .   .      . 
-      trailsb                 .   .    .    .   .      . 
-      univar                  10  10   .    7   .      . 
-      verbalfluency           .   .    .    .   .      . 
-      waisgeneralknowledge    .   .    .    .   .      . 
-      waisgenerealknowledge   .   .    .    .   .      . 
-      waispicturecompletion   .   .    .    .   .      . 
-      waisvocab               .   .    .    .   .      . 
-      wordlistdelay           .   .    .    .   .      . 
-      wordlistimmed           10  10   .    10  .      10
-      wordlistrecog           .   .    .    .   .      . 
-habc  3ms                     .   .    8    8   .      6 
-      analogies               .   .    .    .   .      . 
-      block                   .   .    .    .   .      . 
-      bnt                     .   .    .    .   .      . 
-      bostonstorydelay        .   .    .    .   .      . 
-      bostonstoryimmediate    .   .    .    .   .      . 
-      categories              .   .    .    .   .      . 
-      clock                   .   .    9    7   .      6 
-      complexideas            .   .    .    .   .      . 
-      delayedrecall           .   .    .    .   .      . 
-      digitordering           .   .    .    .   .      . 
-      digitsback              .   .    .    .   .      . 
-      digitsforward           .   .    .    .   .      . 
-      digitspan               .   .    .    .   .      . 
-      figurecopy              .   .    .    .   .      . 
-      figureid                .   .    .    .   .      . 
-      figurelogic             .   .    .    .   .      . 
-      info                    .   .    .    .   .      . 
-      lineorientation         .   .    .    .   .      . 
-      logicalmemory           .   .    .    .   .      . 
-      logicalmemorydelay      .   .    .    .   .      . 
-      logicalmemoryimmed      .   .    .    .   .      . 
-      lpsspacialability       .   .    .    .   .      . 
-      lpsspatialability       .   .    .    .   .      . 
-      matrices                .   .    .    .   .      . 
-      mirrecall               .   .    .    .   .      . 
-      mmse                    .   .    .    .   .      . 
-      nart                    .   .    .    .   .      . 
-      numbercomparison        .   .    .    .   .      . 
-      patterncomparison       .   .    .    .   .      . 
-      proserecall             .   .    .    .   .      . 
-      psif                    .   .    .    .   .      . 
-      symbol                  .   .    8    8   .      6 
-      synonyms                .   .    .    .   .      . 
-      trailsb                 .   .    .    .   .      . 
-      univar                  .   .    6    6   .      . 
-      verbalfluency           .   .    .    .   .      . 
-      waisgeneralknowledge    .   .    .    .   .      . 
-      waisgenerealknowledge   .   .    .    .   .      . 
-      waispicturecompletion   .   .    .    .   .      . 
-      waisvocab               .   .    .    .   .      . 
-      wordlistdelay           .   .    .    .   .      . 
-      wordlistimmed           .   .    .    .   .      . 
-      wordlistrecog           .   .    .    .   .      . 
-ilse  3ms                     .   .    .    .   .      . 
-      analogies               .   .    .    .   .      . 
-      block                   .   .    .    6   .      12
-      bnt                     .   .    .    .   .      . 
-      bostonstorydelay        .   .    .    .   .      . 
-      bostonstoryimmediate    .   .    .    .   .      . 
-      categories              .   .    .    .   .      . 
-      clock                   .   .    .    .   .      . 
-      complexideas            .   .    .    .   .      . 
-      delayedrecall           .   .    .    .   .      . 
-      digitordering           .   .    .    .   .      . 
-      digitsback              .   .    .    .   .      . 
-      digitsforward           .   .    .    .   .      . 
-      digitspan               .   .    .    .   .      . 
-      figurecopy              .   .    .    .   .      . 
-      figureid                .   .    .    .   .      . 
-      figurelogic             .   .    .    .   .      . 
-      info                    .   .    .    .   .      . 
-      lineorientation         .   .    .    .   .      . 
-      logicalmemory           .   .    .    .   .      . 
-      logicalmemorydelay      .   .    .    .   .      . 
-      logicalmemoryimmed      .   .    .    .   .      . 
-      lpsspacialability       .   .    .    6   .      6 
-      lpsspatialability       .   .    .    .   .      6 
-      matrices                .   .    .    .   .      . 
-      mirrecall               .   .    .    .   .      . 
-      mmse                    .   .    .    .   .      . 
-      nart                    .   .    .    .   .      . 
-      numbercomparison        .   .    .    .   .      . 
-      patterncomparison       .   .    .    .   .      . 
-      proserecall             .   .    .    .   .      . 
-      psif                    .   .    .    .   .      . 
-      symbol                  .   .    .    6   .      12
-      synonyms                .   .    .    .   .      . 
-      trailsb                 .   .    .    .   .      . 
-      univar                  .   .    .    6   .      7 
-      verbalfluency           .   .    .    6   .      12
-      waisgeneralknowledge    .   .    .    6   .      11
-      waisgenerealknowledge   .   .    .    .   .      1 
-      waispicturecompletion   .   .    .    6   .      12
-      waisvocab               .   .    .    .   .      . 
-      wordlistdelay           .   .    .    .   .      . 
-      wordlistimmed           .   .    .    .   .      . 
-      wordlistrecog           .   .    .    .   .      . 
-nas   3ms                     .   .    .    .   .      . 
-      analogies               .   .    .    .   .      . 
-      block                   .   .    .    .   .      . 
-      bnt                     .   .    .    .   .      . 
-      bostonstorydelay        .   .    .    .   .      . 
-      bostonstoryimmediate    .   .    .    .   .      . 
-      categories              2   2    .    .   .      . 
-      clock                   .   .    .    .   .      . 
-      complexideas            .   .    .    .   .      . 
-      delayedrecall           .   .    .    .   .      . 
-      digitordering           .   .    .    .   .      . 
-      digitsback              2   2    .    .   .      . 
-      digitsforward           .   .    .    .   .      . 
-      digitspan               .   .    .    .   .      . 
-      figurecopy              2   2    .    .   .      . 
-      figureid                .   .    .    .   .      . 
-      figurelogic             .   .    .    .   .      . 
-      info                    .   .    .    .   .      . 
-      lineorientation         .   .    .    .   .      . 
-      logicalmemory           .   .    .    .   .      . 
-      logicalmemorydelay      .   .    .    .   .      . 
-      logicalmemoryimmed      .   .    .    .   .      . 
-      lpsspacialability       .   .    .    .   .      . 
-      lpsspatialability       .   .    .    .   .      . 
-      matrices                .   .    .    .   .      . 
-      mirrecall               .   .    .    .   .      . 
-      mmse                    2   2    .    .   .      . 
-      nart                    .   .    .    .   .      . 
-      numbercomparison        .   .    .    .   .      . 
-      patterncomparison       2   2    .    .   .      . 
-      proserecall             .   .    .    .   .      . 
-      psif                    .   .    .    .   .      . 
-      symbol                  .   .    .    .   .      . 
-      synonyms                .   .    .    .   .      . 
-      trailsb                 .   .    .    .   .      . 
-      univar                  1   .    .    .   .      . 
-      verbalfluency           .   .    .    .   .      . 
-      waisgeneralknowledge    .   .    .    .   .      . 
-      waisgenerealknowledge   .   .    .    .   .      . 
-      waispicturecompletion   .   .    .    .   .      . 
-      waisvocab               .   .    .    .   .      . 
-      wordlistdelay           2   2    .    .   .      1 
-      wordlistimmed           2   2    .    .   .      . 
-      wordlistrecog           .   .    .    .   .      . 
-nuage 3ms                     .   .    .    6   .      6 
-      analogies               .   .    .    .   .      . 
-      block                   .   .    .    .   .      . 
-      bnt                     .   .    .    .   .      . 
-      bostonstorydelay        .   .    .    .   .      . 
-      bostonstoryimmediate    .   .    .    .   .      . 
-      categories              .   .    .    .   .      . 
-      clock                   .   .    .    .   .      . 
-      complexideas            .   .    .    .   .      . 
-      delayedrecall           .   .    .    .   .      . 
-      digitordering           .   .    .    .   .      . 
-      digitsback              .   .    .    .   .      . 
-      digitsforward           .   .    .    .   .      . 
-      digitspan               .   .    .    .   .      . 
-      figurecopy              .   .    .    .   .      . 
-      figureid                .   .    .    .   .      . 
-      figurelogic             .   .    .    .   .      . 
-      info                    .   .    .    .   .      . 
-      lineorientation         .   .    .    .   .      . 
-      logicalmemory           .   .    .    .   .      . 
-      logicalmemorydelay      .   .    .    .   .      . 
-      logicalmemoryimmed      .   .    .    .   .      . 
-      lpsspacialability       .   .    .    .   .      . 
-      lpsspatialability       .   .    .    .   .      . 
-      matrices                .   .    .    .   .      . 
-      mirrecall               .   .    .    .   .      . 
-      mmse                    .   .    .    .   .      . 
-      nart                    .   .    .    .   .      . 
-      numbercomparison        .   .    .    .   .      . 
-      patterncomparison       .   .    .    .   .      . 
-      proserecall             .   .    .    .   .      . 
-      psif                    .   .    .    .   .      . 
-      symbol                  .   .    .    .   .      . 
-      synonyms                .   .    .    .   .      . 
-      trailsb                 .   .    .    .   .      . 
-      univar                  .   .    .    6   .      24
-      verbalfluency           .   .    .    .   .      . 
-      waisgeneralknowledge    .   .    .    .   .      . 
-      waisgenerealknowledge   .   .    .    .   .      . 
-      waispicturecompletion   .   .    .    .   .      . 
-      waisvocab               .   .    .    .   .      . 
-      wordlistdelay           .   .    .    .   .      . 
-      wordlistimmed           .   .    .    .   .      . 
-      wordlistrecog           .   .    .    .   .      . 
-octo  3ms                     .   .    .    .   .      . 
-      analogies               .   .    .    .   .      . 
-      block                   .   .    .    4   4      . 
-      bnt                     .   .    .    .   .      . 
-      bostonstorydelay        .   .    .    .   .      . 
-      bostonstoryimmediate    .   .    .    .   .      . 
-      categories              .   .    .    .   .      . 
-      clock                   .   .    .    .   .      . 
-      complexideas            .   .    .    .   .      . 
-      delayedrecall           .   .    .    .   .      . 
-      digitordering           .   .    .    .   .      . 
-      digitsback              .   .    .    4   4      . 
-      digitsforward           .   .    .    4   4      . 
-      digitspan               .   .    .    .   .      . 
-      figurecopy              .   .    .    .   .      . 
-      figureid                .   .    .    .   .      . 
-      figurelogic             .   .    .    4   4      . 
-      info                    .   .    .    4   4      . 
-      lineorientation         .   .    .    .   .      . 
-      logicalmemory           .   .    .    .   .      . 
-      logicalmemorydelay      .   .    .    .   .      . 
-      logicalmemoryimmed      .   .    .    .   .      . 
-      lpsspacialability       .   .    .    .   .      . 
-      lpsspatialability       .   .    .    .   .      . 
-      matrices                .   .    .    .   .      . 
-      mirrecall               .   .    .    4   4      . 
-      mmse                    .   .    .    4   4      . 
-      nart                    .   .    .    .   .      . 
-      numbercomparison        .   .    .    .   .      . 
-      patterncomparison       .   .    .    .   .      . 
-      proserecall             .   .    .    4   4      . 
-      psif                    .   .    .    4   4      . 
-      symbol                  .   .    .    4   4      . 
-      synonyms                .   .    .    4   4      . 
-      trailsb                 .   .    .    .   .      . 
-      univar                  .   .    .    .   .      . 
-      verbalfluency           .   .    .    .   .      . 
-      waisgeneralknowledge    .   .    .    .   .      . 
-      waisgenerealknowledge   .   .    .    .   .      . 
-      waispicturecompletion   .   .    .    .   .      . 
-      waisvocab               .   .    .    .   .      . 
-      wordlistdelay           .   .    .    .   .      . 
-      wordlistimmed           .   .    .    .   .      . 
-      wordlistrecog           .   .    .    .   .      . 
-radc  3ms                     .   .    .    .   .      . 
-      analogies               .   .    .    .   .      . 
-      block                   .   .    .    .   .      . 
-      bnt                     3   .    .    4   .      . 
-      bostonstorydelay        3   .    .    4   .      . 
-      bostonstoryimmediate    3   .    .    4   .      . 
-      categories              .   .    .    5   .      . 
-      clock                   .   .    .    .   .      . 
-      complexideas            3   .    .    4   .      . 
-      delayedrecall           .   .    .    .   .      . 
-      digitordering           3   .    .    3   .      . 
-      digitsback              4   .    .    4   .      . 
-      digitsforward           3   .    .    4   .      . 
-      digitspan               .   .    .    .   .      . 
-      figurecopy              .   .    .    .   .      . 
-      figureid                .   .    .    .   .      . 
-      figurelogic             .   .    .    .   .      . 
-      info                    .   .    .    .   .      . 
-      lineorientation         4   .    .    5   .      . 
-      logicalmemory           .   .    .    .   .      . 
-      logicalmemorydelay      3   .    .    4   .      . 
-      logicalmemoryimmed      3   .    .    2   .      . 
-      lpsspacialability       .   .    .    .   .      . 
-      lpsspatialability       .   .    .    .   .      . 
-      matrices                4   .    .    5   .      . 
-      mirrecall               .   .    .    .   .      . 
-      mmse                    4   .    .    4   .      . 
-      nart                    4   .    .    5   .      . 
-      numbercomparison        3   .    .    4   .      . 
-      patterncomparison       .   .    .    .   .      . 
-      proserecall             .   .    .    .   .      . 
-      psif                    .   .    .    .   .      . 
-      symbol                  4   .    .    4   .      . 
-      synonyms                .   .    .    .   .      . 
-      trailsb                 .   .    .    .   .      . 
-      univar                  2   .    .    2   .      . 
-      verbalfluency           .   .    .    .   .      . 
-      waisgeneralknowledge    .   .    .    .   .      . 
-      waisgenerealknowledge   .   .    .    .   .      . 
-      waispicturecompletion   .   .    .    .   .      . 
-      waisvocab               .   .    .    .   .      . 
-      wordlistdelay           3   .    .    4   .      . 
-      wordlistimmed           3   .    .    4   .      . 
-      wordlistrecog           3   .    .    4   .      . 
-satsa 3ms                     .   .    .    .   .      . 
-      analogies               8   .    .    8   .      . 
-      block                   .   .    .    .   .      . 
-      bnt                     .   .    .    .   .      . 
-      bostonstorydelay        .   .    .    .   .      . 
-      bostonstoryimmediate    .   .    .    .   .      . 
-      categories              .   .    .    .   .      . 
-      clock                   .   .    .    .   .      . 
-      complexideas            .   .    .    .   .      . 
-      delayedrecall           .   .    .    .   .      . 
-      digitordering           .   .    .    .   .      . 
-      digitsback              .   .    .    .   .      . 
-      digitsforward           .   .    .    .   .      . 
-      digitspan               .   .    .    .   .      . 
-      figurecopy              .   .    .    .   .      . 
-      figureid                6   .    .    6   .      . 
-      figurelogic             .   .    .    .   .      . 
-      info                    8   .    .    8   .      . 
-      lineorientation         .   .    .    .   .      . 
-      logicalmemory           .   .    .    .   .      . 
-      logicalmemorydelay      .   .    .    .   .      . 
-      logicalmemoryimmed      .   .    .    .   .      . 
-      lpsspacialability       .   .    .    .   .      . 
-      lpsspatialability       .   .    .    .   .      . 
-      matrices                .   .    .    .   .      . 
-      mirrecall               .   .    .    .   .      . 
-      mmse                    8   .    .    8   .      . 
-      nart                    .   .    .    .   .      . 
-      numbercomparison        .   .    .    .   .      . 
-      patterncomparison       .   .    .    .   .      . 
-      proserecall             .   .    .    .   .      . 
-      psif                    .   .    .    .   .      . 
-      symbol                  8   .    .    8   .      . 
-      synonyms                8   .    .    8   .      . 
-      trailsb                 .   .    .    .   .      . 
-      univar                  .   .    .    .   .      . 
-      verbalfluency           .   .    .    .   .      . 
-      waisgeneralknowledge    .   .    .    .   .      . 
-      waisgenerealknowledge   .   .    .    .   .      . 
-      waispicturecompletion   .   .    .    .   .      . 
-      waisvocab               .   .    .    .   .      . 
-      wordlistdelay           .   .    .    .   .      . 
-      wordlistimmed           .   .    .    .   .      . 
-      wordlistrecog           .   .    .    .   .      . 
+                             fev fvc gait grip pek tug univar
+                                                             
+eas   3ms                     .   .    .    .   .   .      . 
+      analogies               .   .    .    .   .   .      . 
+      block                   .   .    .    10  10  .      10
+      bnt                     .   .    .    10  10  .      10
+      bostonstorydelay        .   .    .    .   .   .      . 
+      bostonstoryimmediate    .   .    .    .   .   .      . 
+      categories              .   .    .    10  10  .      10
+      clock                   .   .    .    .   .   .      . 
+      complexideas            .   .    .    .   .   .      . 
+      delayedrecall           .   .    .    .   .   .      . 
+      digitordering           .   .    .    .   .   .      . 
+      digitsback              .   .    .    .   .   .      . 
+      digitsforward           .   .    .    .   .   .      . 
+      digitspan               .   .    .    10  10  .      10
+      figurecopy              .   .    .    .   .   .      . 
+      figureid                .   .    .    .   .   .      . 
+      figurelogic             .   .    .    .   .   .      . 
+      info                    .   .    .    10  10  .      10
+      lineorientation         .   .    .    .   .   .      . 
+      logicalmemory           .   .    .    9   10  .      10
+      logicalmemorydelay      .   .    .    .   .   .      . 
+      logicalmemoryimmed      .   .    .    .   .   .      . 
+      lpsspacialability       .   .    .    .   .   .      . 
+      lpsspatialability       .   .    .    .   .   .      . 
+      matrices                .   .    .    .   .   .      . 
+      mirrecall               .   .    .    .   .   .      . 
+      mmse                    .   .    .    10  10  .      10
+      nart                    .   .    .    .   .   .      . 
+      numbercomparison        .   .    .    .   .   .      . 
+      patterncomparison       .   .    .    .   .   .      . 
+      proserecall             .   .    .    .   .   .      . 
+      psif                    .   .    .    .   .   .      . 
+      symbol                  .   .    .    10  10  .      10
+      synonyms                .   .    .    .   .   .      . 
+      trailsb                 .   .    .    10  9   .      9 
+      univar                  .   .    .    10  10  .      . 
+      verbalfluency           .   .    .    10  10  .      10
+      waisgeneralknowledge    .   .    .    .   .   .      . 
+      waisgenerealknowledge   .   .    .    .   .   .      . 
+      waispicturecompletion   .   .    .    .   .   .      . 
+      waisvocab               .   .    .    10  10  .      10
+      wordlistdelay           .   .    .    .   .   .      . 
+      wordlistimmed           .   .    .    .   .   .      . 
+      wordlistrecog           .   .    .    .   .   .      . 
+elsa  3ms                     .   .    .    .   .   .      . 
+      analogies               .   .    .    .   .   .      . 
+      block                   .   .    .    .   .   .      . 
+      bnt                     .   .    .    .   .   .      . 
+      bostonstorydelay        .   .    .    .   .   .      . 
+      bostonstoryimmediate    .   .    .    .   .   .      . 
+      categories              .   .    .    .   .   .      10
+      clock                   .   .    .    .   .   .      . 
+      complexideas            .   .    .    .   .   .      . 
+      delayedrecall           10  10   .    10  .   .      10
+      digitordering           .   .    .    .   .   .      . 
+      digitsback              .   .    .    .   .   .      . 
+      digitsforward           .   .    .    .   .   .      . 
+      digitspan               .   .    .    .   .   .      . 
+      figurecopy              .   .    .    .   .   .      . 
+      figureid                .   .    .    .   .   .      . 
+      figurelogic             .   .    .    .   .   .      . 
+      info                    .   .    .    .   .   .      . 
+      lineorientation         .   .    .    .   .   .      . 
+      logicalmemory           .   .    .    .   .   .      . 
+      logicalmemorydelay      .   .    .    .   .   .      . 
+      logicalmemoryimmed      .   .    .    .   .   .      . 
+      lpsspacialability       .   .    .    .   .   .      . 
+      lpsspatialability       .   .    .    .   .   .      . 
+      matrices                .   .    .    .   .   .      . 
+      mirrecall               .   .    .    .   .   .      . 
+      mmse                    .   .    .    .   .   .      . 
+      nart                    .   .    .    .   .   .      . 
+      numbercomparison        .   .    .    .   .   .      . 
+      patterncomparison       .   .    .    .   .   .      . 
+      proserecall             .   .    .    .   .   .      . 
+      psif                    .   .    .    .   .   .      . 
+      symbol                  .   .    .    .   .   .      . 
+      synonyms                .   .    .    .   .   .      . 
+      trailsb                 .   .    .    .   .   .      . 
+      univar                  10  10   .    7   .   .      . 
+      verbalfluency           .   .    .    .   .   .      . 
+      waisgeneralknowledge    .   .    .    .   .   .      . 
+      waisgenerealknowledge   .   .    .    .   .   .      . 
+      waispicturecompletion   .   .    .    .   .   .      . 
+      waisvocab               .   .    .    .   .   .      . 
+      wordlistdelay           .   .    .    .   .   .      . 
+      wordlistimmed           10  10   .    10  .   .      10
+      wordlistrecog           .   .    .    .   .   .      . 
+habc  3ms                     .   .    8    8   .   .      6 
+      analogies               .   .    .    .   .   .      . 
+      block                   .   .    .    .   .   .      . 
+      bnt                     .   .    .    .   .   .      . 
+      bostonstorydelay        .   .    .    .   .   .      . 
+      bostonstoryimmediate    .   .    .    .   .   .      . 
+      categories              .   .    .    .   .   .      . 
+      clock                   .   .    8    8   .   .      6 
+      complexideas            .   .    .    .   .   .      . 
+      delayedrecall           .   .    .    .   .   .      . 
+      digitordering           .   .    .    .   .   .      . 
+      digitsback              .   .    .    .   .   .      . 
+      digitsforward           .   .    .    .   .   .      . 
+      digitspan               .   .    .    .   .   .      . 
+      figurecopy              .   .    .    .   .   .      . 
+      figureid                .   .    .    .   .   .      . 
+      figurelogic             .   .    .    .   .   .      . 
+      info                    .   .    .    .   .   .      . 
+      lineorientation         .   .    .    .   .   .      . 
+      logicalmemory           .   .    .    .   .   .      . 
+      logicalmemorydelay      .   .    .    .   .   .      . 
+      logicalmemoryimmed      .   .    .    .   .   .      . 
+      lpsspacialability       .   .    .    .   .   .      . 
+      lpsspatialability       .   .    .    .   .   .      . 
+      matrices                .   .    .    .   .   .      . 
+      mirrecall               .   .    .    .   .   .      . 
+      mmse                    .   .    .    .   .   .      . 
+      nart                    .   .    .    .   .   .      . 
+      numbercomparison        .   .    .    .   .   .      . 
+      patterncomparison       .   .    .    .   .   .      . 
+      proserecall             .   .    .    .   .   .      . 
+      psif                    .   .    .    .   .   .      . 
+      symbol                  .   .    8    8   .   .      6 
+      synonyms                .   .    .    .   .   .      . 
+      trailsb                 .   .    .    .   .   .      . 
+      univar                  .   .    6    6   .   .      . 
+      verbalfluency           .   .    .    .   .   .      . 
+      waisgeneralknowledge    .   .    .    .   .   .      . 
+      waisgenerealknowledge   .   .    .    .   .   .      . 
+      waispicturecompletion   .   .    .    .   .   .      . 
+      waisvocab               .   .    .    .   .   .      . 
+      wordlistdelay           .   .    .    .   .   .      . 
+      wordlistimmed           .   .    .    .   .   .      . 
+      wordlistrecog           .   .    .    .   .   .      . 
+ilse  3ms                     .   .    .    .   .   .      . 
+      analogies               .   .    .    .   .   .      . 
+      block                   .   .    .    6   .   .      6 
+      bnt                     .   .    .    .   .   .      . 
+      bostonstorydelay        .   .    .    .   .   .      . 
+      bostonstoryimmediate    .   .    .    .   .   .      . 
+      categories              .   .    .    .   .   .      . 
+      clock                   .   .    .    .   .   .      . 
+      complexideas            .   .    .    .   .   .      . 
+      delayedrecall           .   .    .    .   .   .      . 
+      digitordering           .   .    .    .   .   .      . 
+      digitsback              .   .    .    .   .   .      . 
+      digitsforward           .   .    .    .   .   .      . 
+      digitspan               .   .    .    .   .   .      . 
+      figurecopy              .   .    .    .   .   .      . 
+      figureid                .   .    .    .   .   .      . 
+      figurelogic             .   .    .    .   .   .      . 
+      info                    .   .    .    .   .   .      . 
+      lineorientation         .   .    .    .   .   .      . 
+      logicalmemory           .   .    .    .   .   .      . 
+      logicalmemorydelay      .   .    .    .   .   .      . 
+      logicalmemoryimmed      .   .    .    .   .   .      . 
+      lpsspacialability       .   .    .    5   .   .      . 
+      lpsspatialability       .   .    .    .   .   .      6 
+      matrices                .   .    .    .   .   .      . 
+      mirrecall               .   .    .    .   .   .      . 
+      mmse                    .   .    .    .   .   .      . 
+      nart                    .   .    .    .   .   .      . 
+      numbercomparison        .   .    .    .   .   .      . 
+      patterncomparison       .   .    .    .   .   .      . 
+      proserecall             .   .    .    .   .   .      . 
+      psif                    .   .    .    .   .   .      . 
+      symbol                  .   .    .    6   .   .      6 
+      synonyms                .   .    .    .   .   .      . 
+      trailsb                 .   .    .    .   .   .      . 
+      univar                  .   .    .    6   .   .      . 
+      verbalfluency           .   .    .    6   .   .      6 
+      waisgeneralknowledge    .   .    .    6   .   .      5 
+      waisgenerealknowledge   .   .    .    .   .   .      1 
+      waispicturecompletion   .   .    .    6   .   .      6 
+      waisvocab               .   .    .    .   .   .      . 
+      wordlistdelay           .   .    .    .   .   .      . 
+      wordlistimmed           .   .    .    .   .   .      . 
+      wordlistrecog           .   .    .    .   .   .      . 
+nas   3ms                     .   .    .    .   .   .      . 
+      analogies               .   .    .    .   .   .      . 
+      block                   .   .    .    .   .   .      . 
+      bnt                     .   .    .    .   .   .      . 
+      bostonstorydelay        .   .    .    .   .   .      . 
+      bostonstoryimmediate    .   .    .    .   .   .      . 
+      categories              2   2    .    .   .   .      . 
+      clock                   .   .    .    .   .   .      . 
+      complexideas            .   .    .    .   .   .      . 
+      delayedrecall           .   .    .    .   .   .      . 
+      digitordering           .   .    .    .   .   .      . 
+      digitsback              2   2    .    .   .   .      . 
+      digitsforward           .   .    .    .   .   .      . 
+      digitspan               .   .    .    .   .   .      . 
+      figurecopy              2   2    .    .   .   .      . 
+      figureid                .   .    .    .   .   .      . 
+      figurelogic             .   .    .    .   .   .      . 
+      info                    .   .    .    .   .   .      . 
+      lineorientation         .   .    .    .   .   .      . 
+      logicalmemory           .   .    .    .   .   .      . 
+      logicalmemorydelay      .   .    .    .   .   .      . 
+      logicalmemoryimmed      .   .    .    .   .   .      . 
+      lpsspacialability       .   .    .    .   .   .      . 
+      lpsspatialability       .   .    .    .   .   .      . 
+      matrices                .   .    .    .   .   .      . 
+      mirrecall               .   .    .    .   .   .      . 
+      mmse                    2   2    .    .   .   .      . 
+      nart                    .   .    .    .   .   .      . 
+      numbercomparison        .   .    .    .   .   .      . 
+      patterncomparison       2   2    .    .   .   .      . 
+      proserecall             .   .    .    .   .   .      . 
+      psif                    .   .    .    .   .   .      . 
+      symbol                  .   .    .    .   .   .      . 
+      synonyms                .   .    .    .   .   .      . 
+      trailsb                 .   .    .    .   .   .      . 
+      univar                  1   .    .    .   .   .      . 
+      verbalfluency           .   .    .    .   .   .      . 
+      waisgeneralknowledge    .   .    .    .   .   .      . 
+      waisgenerealknowledge   .   .    .    .   .   .      . 
+      waispicturecompletion   .   .    .    .   .   .      . 
+      waisvocab               .   .    .    .   .   .      . 
+      wordlistdelay           2   2    .    .   .   .      1 
+      wordlistimmed           2   2    .    .   .   .      . 
+      wordlistrecog           .   .    .    .   .   .      . 
+nuage 3ms                     .   .    .    6   .   .      6 
+      analogies               .   .    .    .   .   .      . 
+      block                   .   .    .    .   .   .      . 
+      bnt                     .   .    .    .   .   .      . 
+      bostonstorydelay        .   .    .    .   .   .      . 
+      bostonstoryimmediate    .   .    .    .   .   .      . 
+      categories              .   .    .    .   .   .      . 
+      clock                   .   .    .    .   .   .      . 
+      complexideas            .   .    .    .   .   .      . 
+      delayedrecall           .   .    .    .   .   .      . 
+      digitordering           .   .    .    .   .   .      . 
+      digitsback              .   .    .    .   .   .      . 
+      digitsforward           .   .    .    .   .   .      . 
+      digitspan               .   .    .    .   .   .      . 
+      figurecopy              .   .    .    .   .   .      . 
+      figureid                .   .    .    .   .   .      . 
+      figurelogic             .   .    .    .   .   .      . 
+      info                    .   .    .    .   .   .      . 
+      lineorientation         .   .    .    .   .   .      . 
+      logicalmemory           .   .    .    .   .   .      . 
+      logicalmemorydelay      .   .    .    .   .   .      . 
+      logicalmemoryimmed      .   .    .    .   .   .      . 
+      lpsspacialability       .   .    .    .   .   .      . 
+      lpsspatialability       .   .    .    .   .   .      . 
+      matrices                .   .    .    .   .   .      . 
+      mirrecall               .   .    .    .   .   .      . 
+      mmse                    .   .    .    .   .   .      . 
+      nart                    .   .    .    .   .   .      . 
+      numbercomparison        .   .    .    .   .   .      . 
+      patterncomparison       .   .    .    .   .   .      . 
+      proserecall             .   .    .    .   .   .      . 
+      psif                    .   .    .    .   .   .      . 
+      symbol                  .   .    .    .   .   .      . 
+      synonyms                .   .    .    .   .   .      . 
+      trailsb                 .   .    .    .   .   .      . 
+      univar                  .   .    .    6   .   6      18
+      verbalfluency           .   .    .    .   .   .      . 
+      waisgeneralknowledge    .   .    .    .   .   .      . 
+      waisgenerealknowledge   .   .    .    .   .   .      . 
+      waispicturecompletion   .   .    .    .   .   .      . 
+      waisvocab               .   .    .    .   .   .      . 
+      wordlistdelay           .   .    .    .   .   .      . 
+      wordlistimmed           .   .    .    .   .   .      . 
+      wordlistrecog           .   .    .    .   .   .      . 
+octo  3ms                     .   .    .    .   .   .      . 
+      analogies               .   .    .    .   .   .      . 
+      block                   .   .    .    4   4   .      . 
+      bnt                     .   .    .    .   .   .      . 
+      bostonstorydelay        .   .    .    .   .   .      . 
+      bostonstoryimmediate    .   .    .    .   .   .      . 
+      categories              .   .    .    .   .   .      . 
+      clock                   .   .    .    .   .   .      . 
+      complexideas            .   .    .    .   .   .      . 
+      delayedrecall           .   .    .    .   .   .      . 
+      digitordering           .   .    .    .   .   .      . 
+      digitsback              .   .    .    4   4   .      . 
+      digitsforward           .   .    .    4   4   .      . 
+      digitspan               .   .    .    .   .   .      . 
+      figurecopy              .   .    .    .   .   .      . 
+      figureid                .   .    .    .   .   .      . 
+      figurelogic             .   .    .    4   4   .      . 
+      info                    .   .    .    4   4   .      . 
+      lineorientation         .   .    .    .   .   .      . 
+      logicalmemory           .   .    .    .   .   .      . 
+      logicalmemorydelay      .   .    .    .   .   .      . 
+      logicalmemoryimmed      .   .    .    .   .   .      . 
+      lpsspacialability       .   .    .    .   .   .      . 
+      lpsspatialability       .   .    .    .   .   .      . 
+      matrices                .   .    .    .   .   .      . 
+      mirrecall               .   .    .    4   4   .      . 
+      mmse                    .   .    .    4   4   .      . 
+      nart                    .   .    .    .   .   .      . 
+      numbercomparison        .   .    .    .   .   .      . 
+      patterncomparison       .   .    .    .   .   .      . 
+      proserecall             .   .    .    4   4   .      . 
+      psif                    .   .    .    4   4   .      . 
+      symbol                  .   .    .    4   4   .      . 
+      synonyms                .   .    .    4   4   .      . 
+      trailsb                 .   .    .    .   .   .      . 
+      univar                  .   .    .    .   .   .      . 
+      verbalfluency           .   .    .    .   .   .      . 
+      waisgeneralknowledge    .   .    .    .   .   .      . 
+      waisgenerealknowledge   .   .    .    .   .   .      . 
+      waispicturecompletion   .   .    .    .   .   .      . 
+      waisvocab               .   .    .    .   .   .      . 
+      wordlistdelay           .   .    .    .   .   .      . 
+      wordlistimmed           .   .    .    .   .   .      . 
+      wordlistrecog           .   .    .    .   .   .      . 
+radc  3ms                     .   .    .    .   .   .      . 
+      analogies               .   .    .    .   .   .      . 
+      block                   .   .    .    .   .   .      . 
+      bnt                     3   .    .    4   .   .      . 
+      bostonstorydelay        3   .    .    4   .   .      . 
+      bostonstoryimmediate    3   .    .    4   .   .      . 
+      categories              .   .    .    5   .   .      . 
+      clock                   .   .    .    .   .   .      . 
+      complexideas            3   .    .    4   .   .      . 
+      delayedrecall           .   .    .    .   .   .      . 
+      digitordering           3   .    .    3   .   .      . 
+      digitsback              4   .    .    4   .   .      . 
+      digitsforward           3   .    .    4   .   .      . 
+      digitspan               .   .    .    .   .   .      . 
+      figurecopy              .   .    .    .   .   .      . 
+      figureid                .   .    .    .   .   .      . 
+      figurelogic             .   .    .    .   .   .      . 
+      info                    .   .    .    .   .   .      . 
+      lineorientation         4   .    .    5   .   .      . 
+      logicalmemory           .   .    .    .   .   .      . 
+      logicalmemorydelay      3   .    .    4   .   .      . 
+      logicalmemoryimmed      3   .    .    2   .   .      . 
+      lpsspacialability       .   .    .    .   .   .      . 
+      lpsspatialability       .   .    .    .   .   .      . 
+      matrices                4   .    .    5   .   .      . 
+      mirrecall               .   .    .    .   .   .      . 
+      mmse                    4   .    .    4   .   .      . 
+      nart                    4   .    .    5   .   .      . 
+      numbercomparison        3   .    .    4   .   .      . 
+      patterncomparison       .   .    .    .   .   .      . 
+      proserecall             .   .    .    .   .   .      . 
+      psif                    .   .    .    .   .   .      . 
+      symbol                  4   .    .    4   .   .      . 
+      synonyms                .   .    .    .   .   .      . 
+      trailsb                 .   .    .    .   .   .      . 
+      univar                  2   .    .    2   .   .      . 
+      verbalfluency           .   .    .    .   .   .      . 
+      waisgeneralknowledge    .   .    .    .   .   .      . 
+      waisgenerealknowledge   .   .    .    .   .   .      . 
+      waispicturecompletion   .   .    .    .   .   .      . 
+      waisvocab               .   .    .    .   .   .      . 
+      wordlistdelay           3   .    .    4   .   .      . 
+      wordlistimmed           3   .    .    4   .   .      . 
+      wordlistrecog           3   .    .    4   .   .      . 
+satsa 3ms                     .   .    .    .   .   .      . 
+      analogies               8   .    .    8   .   .      . 
+      block                   .   .    .    .   .   .      . 
+      bnt                     .   .    .    .   .   .      . 
+      bostonstorydelay        .   .    .    .   .   .      . 
+      bostonstoryimmediate    .   .    .    .   .   .      . 
+      categories              .   .    .    .   .   .      . 
+      clock                   .   .    .    .   .   .      . 
+      complexideas            .   .    .    .   .   .      . 
+      delayedrecall           .   .    .    .   .   .      . 
+      digitordering           .   .    .    .   .   .      . 
+      digitsback              .   .    .    .   .   .      . 
+      digitsforward           .   .    .    .   .   .      . 
+      digitspan               .   .    .    .   .   .      . 
+      figurecopy              .   .    .    .   .   .      . 
+      figureid                6   .    .    6   .   .      . 
+      figurelogic             .   .    .    .   .   .      . 
+      info                    8   .    .    8   .   .      . 
+      lineorientation         .   .    .    .   .   .      . 
+      logicalmemory           .   .    .    .   .   .      . 
+      logicalmemorydelay      .   .    .    .   .   .      . 
+      logicalmemoryimmed      .   .    .    .   .   .      . 
+      lpsspacialability       .   .    .    .   .   .      . 
+      lpsspatialability       .   .    .    .   .   .      . 
+      matrices                .   .    .    .   .   .      . 
+      mirrecall               .   .    .    .   .   .      . 
+      mmse                    8   .    .    8   .   .      . 
+      nart                    .   .    .    .   .   .      . 
+      numbercomparison        .   .    .    .   .   .      . 
+      patterncomparison       .   .    .    .   .   .      . 
+      proserecall             .   .    .    .   .   .      . 
+      psif                    .   .    .    .   .   .      . 
+      symbol                  8   .    .    8   .   .      . 
+      synonyms                8   .    .    8   .   .      . 
+      trailsb                 .   .    .    .   .   .      . 
+      univar                  .   .    .    .   .   .      . 
+      verbalfluency           .   .    .    .   .   .      . 
+      waisgeneralknowledge    .   .    .    .   .   .      . 
+      waisgenerealknowledge   .   .    .    .   .   .      . 
+      waispicturecompletion   .   .    .    .   .   .      . 
+      waisvocab               .   .    .    .   .   .      . 
+      wordlistdelay           .   .    .    .   .   .      . 
+      wordlistimmed           .   .    .    .   .   .      . 
+      wordlistrecog           .   .    .    .   .   .      . 
 ```
 
 
@@ -1215,7 +1226,7 @@ Number of models in the **habc** study with the following combination of physica
         
          gait grip univar
   3ms    8    8    6     
-  clock  9    7    6     
+  clock  8    8    6     
   symbol 8    8    6     
   univar 6    6    .     
 ```
@@ -1271,7 +1282,7 @@ Number of models in the **eas** study with the following combination of physical
   info          10   10  10    
   logicalmemory 9    10  10    
   mmse          10   10  10    
-  symbol        11   10  10    
+  symbol        10   10  10    
   trailsb       10   9   9     
   univar        10   10  .     
   verbalfluency 10   10  10    
@@ -1328,24 +1339,24 @@ Number of models in the **ilse** study with the following combination of physica
 ```
                        
                         grip univar
-  block                 6    12    
-  lpsspacialability     6    6     
+  block                 6    6     
+  lpsspacialability     5    .     
   lpsspatialability     .    6     
-  symbol                6    12    
-  univar                6    7     
-  verbalfluency         6    12    
-  waisgeneralknowledge  6    11    
+  symbol                6    6     
+  univar                6    .     
+  verbalfluency         6    6     
+  waisgeneralknowledge  6    5     
   waisgenerealknowledge .    1     
-  waispicturecompletion 6    12    
+  waispicturecompletion 6    6     
 ```
 
 ### nuage
 Number of models in the **nuage** study with the following combination of physical measures (columns) and cognitive measure (rows) 
 ```
         
-         grip univar
-  3ms    6    6     
-  univar 6    24    
+         grip tug univar
+  3ms    6    .   6     
+  univar 6    6   18    
 ```
 
 
@@ -1358,7 +1369,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-06-25, 11:01 -0700
+Report rendered by koval_000 at 2015-06-26, 08:54 -0700
 ```
 
 ```
@@ -1374,13 +1385,15 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] rpivotTable_0.1.4.1 lattice_0.20-31     shiny_0.12.1        dplyr_0.4.1         testit_0.4         
-[6] ggplot2_1.0.1       RColorBrewer_1.1-2  scales_0.2.5        knitr_1.10.5       
+ [1] MplusAutomation_0.6-3 RColorBrewer_1.1-2    scales_0.2.5          testit_0.4            knitr_1.10.5         
+ [6] rpivotTable_0.1.4.1   lattice_0.20-31       ggplot2_1.0.1         dplyr_0.4.1           shiny_0.12.1         
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6       rstudioapi_0.3.1  magrittr_1.5      MASS_7.3-40       munsell_0.4.2     xtable_1.7-4     
- [7] colorspace_1.2-6  R6_2.0.1          stringr_1.0.0     plyr_1.8.2        tools_3.2.0       parallel_3.2.0   
-[13] gtable_0.1.2      DBI_0.3.1         htmltools_0.2.6   yaml_2.1.13       lazyeval_0.1.10   digest_0.6.8     
-[19] assertthat_0.1    formatR_1.2       reshape2_1.4.1    htmlwidgets_0.4.2 mime_0.3          evaluate_0.7     
-[25] rmarkdown_0.7     labeling_0.3      stringi_0.4-1     jsonlite_0.9.16   httpuv_1.3.2      proto_0.3-10     
+ [1] Rcpp_0.11.6       highr_0.5         formatR_1.2       plyr_1.8.2        tools_3.2.0       boot_1.3-16      
+ [7] digest_0.6.8      jsonlite_0.9.16   evaluate_0.7      gtable_0.1.2      texreg_1.35       DBI_0.3.1        
+[13] rstudioapi_0.3.1  yaml_2.1.13       parallel_3.2.0    proto_0.3-10      coda_0.17-1       stringr_1.0.0    
+[19] htmlwidgets_0.4.2 R6_2.0.1          tcltk_3.2.0       gsubfn_0.6-6      rmarkdown_0.7     tidyr_0.2.0      
+[25] reshape2_1.4.1    magrittr_1.5      htmltools_0.2.6   MASS_7.3-40       rsconnect_0.3.79  assertthat_0.1   
+[31] mime_0.3          xtable_1.7-4      colorspace_1.2-6  httpuv_1.3.2      labeling_0.3      stringi_0.4-1    
+[37] lazyeval_0.1.10   munsell_0.4.2    
 ```

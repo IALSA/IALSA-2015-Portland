@@ -1,0 +1,510 @@
+Mplus VERSION 7.31
+MUTHEN & MUTHEN
+06/27/2015   8:04 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  IALSA: VA Normative Aging Study ;
+          6/27/15, Lewina Lee ;
+
+  DATA:
+  FILE is C:\Users\Lewina\SkyDrive\IALSA\M+\NAS_wide_20150626.dat;
+
+  !ORIGINAL SAS names
+  		
+  !/*FROM FILE: ADMIN*/
+  !/*bdate*/	age0 	/*date_cog1*/	/*yr_cog1	date_death*/	age_dead	dead
+  !NEDUC 	CHD 	DM 	CHF		CVA		COPD	ARTH		CANC
+  !		/*NEW 6/26/15 - add disease status at first occasion for each person*/
+  !		chd_base	chf_base	heart_base	cva_base	dm_base
+  !		copd_base 	arth_base 	canc_base 	dis_base
+  !DISTOT1993		DISTOT1994  DISTOT1995  DISTOT1996  DISTOT1997
+  !DISTOT1998  	DISTOT1999  DISTOT2000  DISTOT2001  DISTOT2002
+  !DISTOT2003  	DISTOT2004  DISTOT2005  DISTOT2006  DISTOT2007
+  !DISTOT2008  	DISTOT2009  DISTOT2010  DISTOT2011
+
+  !/*FROM FILE: TV_WIDE2*/
+  !cint12 		cint23 		cint34 		cint45	 	cint56 		cint67
+  !wave_1		wave_2		wave_3		wave_4		wave_5		wave_6		wave_7
+  !/*date_cog_1	date_cog_2	date_cog_3	date_cog_4	date_cog_5	date_cog_6	date_cog_7
+  !date_exam_1	date_exam_2	date_exam_3	date_exam_4	date_exam_5	date_exam_6	date_exam_7*/
+
+  !		/*NEW 6/26/15:*/
+  !		yr_cog_1	yr_cog_2	yr_cog_3	yr_cog_4	yr_cog_5	yr_cog_6	yr_cog_7
+  !		yr_exam_1	yr_exam_2	yr_exam_3	yr_exam_4	yr_exam_5	yr_exam_6	yr_exam_7
+  !		age_cog_1	age_cog_2	age_cog_3	age_cog_4	age_cog_5	age_cog_6	age_cog_7
+  !		age_exam_1	age_exam_2	age_exam_3	age_exam_4	age_exam_5	age_exam_6	age_exam_7
+  !		/*age_1		age_2		age_3		age_4		age_5		age_6		age_7*/
+
+  !offset_1	offset_2	offset_3	offset_4	offset_5	offset_6	offset_7
+
+  !		/*NEW 6/26/15*/
+  !		/*yr_1		yr_2	yr_3		yr_4		yr_5		yr_6		yr_7*/
+
+  !Y2die_C_1	Y2die_C_2	Y2die_C_3	Y2die_C_4	Y2die_C_5	Y2die_C_6	Y2die_C_7
+  !Y2die_E_1	Y2die_E_2	Y2die_E_3	Y2die_E_4	Y2die_E_5	Y2die_E_6	Y2die_E_7
+  !mmse_total_1	mmse_total_2	mmse_total_3	mmse_total_4	mmse_total_5	mmse_total_6	mmse_total_
+  !vf_1		vf_2		vf_3		vf_4		vf_5		vf_6		vf_7
+  !wltot_1		wltot_2		wltot_3		wltot_4		wltot_5		wltot_6		wltot_7
+  !wldr_1		wldr_2		wldr_3		wldr_4		wldr_5		wldr_6		wldr_7
+  !vwsum_1		vwsum_2		vwsum_3		vwsum_4		vwsum_5		vwsum_6		vwsum_7
+  !dsbs_1		dsbs_2		dsbs_3		dsbs_4		dsbs_5		dsbs_6		dsbs_7
+  !dsbt_1		dsbt_2		dsbt_3		dsbt_4		dsbt_5		dsbt_6		dsbt_7
+  !PR_MEAN_1	PR_MEAN_2	PR_MEAN_3	PR_MEAN_4	PR_MEAN_5	PR_MEAN_6	PR_MEAN_7
+
+  !		/*NEW 6/26/15 - unadjusted pulm variables*/
+  !		fev1_1		fev1_2		fev1_3		fev1_4		fev1_5		fev1_6		fev1_7
+  !		fvc_1		fvc_2		fvc_3		fvc_4		fvc_5		fvc_6		fvc_7
+
+  !fev1_h_1	fev1_h_2	fev1_h_3	fev1_h_4	fev1_h_5	fev1_h_6	fev1_h_7
+  !fvc_h_1		fvc_h_2		fvc_h_3		fvc_h_4		fvc_h_5		fvc_h_6		fvc_h_7
+  !ffr_1		ffr_2		ffr_3		ffr_4		ffr_5		ffr_6		ffr_7
+  !income_1	income_2	income_3	income_4	income_5	income_6	income_7
+  !married_1	married_2	married_3	married_4	married_5	married_6	married_7
+  !wt_kg_1		wt_kg_2		wt_kg_3		wt_kg_4		wt_kg_5		wt_kg_6		wt_kg_7
+  !ht_cm_1		ht_cm_2		ht_cm_3		ht_cm_4		ht_cm_5		ht_cm_6		ht_cm_7
+  !BMI_1		BMI_2		BMI_3		BMI_4		BMI_5		BMI_6		BMI_7
+  !smk_now_1	smk_now_2	smk_now_3	smk_now_4	smk_now_5	smk_now_6	smk_now_7
+  !smk_nvr_1	smk_nvr_2	smk_nvr_3	smk_nvr_4	smk_nvr_5	smk_nvr_6	smk_nvr_7
+  !smk_fmr_1	smk_fmr_2	smk_fmr_3	smk_fmr_4	smk_fmr_5	smk_fmr_6	smk_fmr_7
+  !drink2_1	drink2_2	drink2_3	drink2_4	drink2_5	drink2_6	drink2_7
+  !drkden_1	drkden_2	drkden_3	drkden_4	drkden_5	drkden_6	drkden_7
+  !drkden_sqrt_1	drkden_sqrt_2	drkden_sqrt_3	drkden_sqrt_4	drkden_sqrt_5	drkden_sqrt_6	drkde
+  !compexp_1	compexp_2	compexp_3	compexp_4	compexp_5	compexp_6	compexp_7
+  !STAIRS_1	STAIRS_2	STAIRS_3	STAIRS_4	STAIRS_5	STAIRS_6	STAIRS_7
+  !BLOCKS_1	BLOCKS_2	BLOCKS_3	BLOCKS_4	BLOCKS_5	BLOCKS_6	BLOCKS_7
+  	
+  !		/*NEW 6/26/15 - add STAIRS & BLOCKS using 1st occasion of available data*/
+  !		STAIRS_F	STAIRS_OCC
+  !		BLOCKS_F	BLOCKS_F
+
+  !sbp_sit_1	sbp_sit_2	sbp_sit_3	sbp_sit_4	sbp_sit_5	sbp_sit_6	sbp_sit_7
+  !dbp_sit_1	dbp_sit_2	dbp_sit_3	dbp_sit_4	dbp_sit_5	dbp_sit_6	dbp_sit_7
+  !depress_1	depress_2	depress_3	depress_4	depress_5	depress_6	depress_7
+  !GLUCFAST_1	GLUCFAST_2	GLUCFAST_3	GLUCFAST_4	GLUCFAST_5	GLUCFAST_6	GLUCFAST_7
+  !HBA1C_1		HBA1C_2		HBA1C_3		HBA1C_4		HBA1C_5		HBA1C_6		HBA1C_7
+  !wbc_1		wbc_2		wbc_3		wbc_4		wbc_5		wbc_6		wbc_7
+
+  VARIABLE:
+  NAMES ARE
+  id		
+  age0 	age_dead	dead
+  NEDUC 	CHD 	DM 	CHF		CVA			COPD	ARTH	CANC !onsets
+
+  ! New - 6/26/15 - Disease (y/n) during/before first exam year;
+  chd_base    chf_base	heart_base	cva_base	dm_base
+  copd_base 	arth_base 	canc_base 	dis_base
+
+  DIS1993		DIS1994  DIS1995  DIS1996  DIS1997
+  DIS1998  	DIS1999  DIS2000  DIS2001  DIS2002
+  DIS2003  	DIS2004  DIS2005  DIS2006  DIS2007
+  DIS2008  	DIS2009  DIS2010  DIS2011
+  cint12 		cint23 		cint34 		cint45	 	cint56 		cint67
+  wave1		wave2		wave3		wave4		wave5		wave6		wave7
+
+  !NEW 6/26/15;
+  yr_C1       yr_C2       yr_C3       yr_C4       yr_C5       yr_C6       yr_C7
+  yr_E1       yr_E2       yr_E3       yr_E4       yr_E5       yr_E6       yr_E7
+  age_C1       age_C2       age_C3       age_C4       age_C5       age_C6       age_C7
+  age_E1       age_E2       age_E3       age_E4       age_E5       age_E6       age_E7
+  	
+  offset1 	offset2	    offset3	    offset4	    offset5	    offset6	    offset7
+  Y2dieC1	    Y2dieC2	    Y2dieC3	    Y2dieC4	    Y2dieC5	    Y2dieC6	Y2dieC7
+  Y2dieE1	    Y2dieE2	    Y2dieE3	    Y2dieE4	    Y2dieE5	    Y2dieE6	Y2dieE7
+  mmse1   	mmse2	    mmse3	    mmse4	    mmse5	    mmse6	    mmse7
+  vf1		    vf2		    vf3		    vf4		    vf5		    vf6		    vf7
+  wltot1		wltot2		wltot3		wltot4		wltot5		wltot6		wltot7
+  wldr1		wldr2		wldr3		wldr4		wldr5		wldr6		wldr7
+  vwsum1		vwsum2		vwsum3		vwsum4		vwsum5		vwsum6		vwsum7
+  dsbs1		dsbs2		dsbs3		dsbs4		dsbs5		dsbs6		dsbs7
+  dsbt1		dsbt2		dsbt3		dsbt4		dsbt5		dsbt6		dsbt7
+  PR1	        PR2	        PR3	        PR4	        PR5	        PR6	        PR7
+
+  fev11	    fev12	    fev13	    fev14	    fev15	    fev16	    fev17
+  fvc1		fvc2		fvc3		fvc4		fvc5		fvc6		fvc7
+  FEV1_H1	    FEV1_H2	    FEV1_H3	    FEV1_H4	    FEV1_H5	    FEV1_H6	    FEV1_H7 !height-ad
+  fvc_H1		fvc_H2		fvc_H3		fvc_H4		fvc_H5		fvc_H6		fvc_H7
+
+  ffr1		ffr2		ffr3		ffr4		ffr5		ffr6		ffr7
+  income1	    income2	    income3	    income4	    income5	    income6 	income7
+  married1	married2	married3	married4	married5	married6	married7
+  wtkg1		wtkg2		wtkg3		wtkg4		wtkg5		wtkg6		wtkg7
+  htcm1		htcm2		htcm3		htcm4		htcm5		htcm6		htcm7
+  BMI1		BMI2		BMI3		BMI4		BMI5		BMI6		BMI7
+  smk_now1	smk_now2	smk_now3	smk_now4	smk_now5	smk_now6	smk_now7
+  smk_nvr1	smk_nvr2	smk_nvr3	smk_nvr4	smk_nvr5	smk_nvr6	smk_nvr7
+  smk_fmr1	smk_fmr2	smk_fmr3	smk_fmr4	smk_fmr5	smk_fmr6	smk_fmr7
+  drink21		drink22		drink23		drink24		drink25		drink26		drink27
+  dden1		dden2		dden3		dden4		dden5		dden6		dden7
+  dden_sr1	dden_sr2	dden_sr3	dden_sr4	dden_sr5	dden_sr6	dden_sr7
+  compexp1	compexp2	compexp3	compexp4	compexp5	compexp6	compexp7
+  STAIRS1		STAIRS2		STAIRS3		STAIRS4		STAIRS5		STAIRS6		STAIRS7
+  BLOCKS1		BLOCKS2		BLOCKS3		BLOCKS4		BLOCKS5		BLOCKS6		BLOCKS7
+
+  !New 6/26/15 - use first available occasion of data;
+  STAIRS_F	STAIRS_OCC
+  BLOCKS_F	BLOCKS_OCC
+
+  sbp1		sbp2		sbp3		sbp4		sbp5		sbp6		sbp7
+  dbp1		dbp2		dbp3		dbp4		dbp5		dbp6		dbp7
+  deprx1	    deprx2	    deprx3	    deprx4	    deprx5  	deprx6	    deprx7
+  fbg1		fbg2		fbg3		fbg4		fbg5		fbg6		fbg7
+  HBA1C1		HBA1C2		HBA1C3		HBA1C4		HBA1C5		HBA1C6		HBA1C7
+  wbc1		wbc2		wbc3		wbc4		wbc5		wbc6		wbc7
+  ;
+
+  USEVARIABLES ARE
+  !Neduc htcm1 wtkg1 bmi1 smk_now1 smk_nvr1
+  !drink21  deprx1 dis1993
+  !married1  income1
+  !htcm1
+  !dden_sr1
+  !smk_now1    smk_fmr1
+  !compexp1
+  !heart_base  DM_base !dis_base
+  !blocks_F stairs_F
+  !deprx1
+  !sbp1 dbp1
+  time1 time2 time3 time4 time5 time6
+  !c1 c2 c3 c4 c5 c6
+  p1 p2 p3 p4 p5 p6
+  Bage    Educ
+
+  ;
+
+  TSCORES = time1 time2 time3 time4 time5 time6;
+
+  MISSING = .;
+
+  DEFINE: !sbp1 = sbp1/10;
+          !dbp1 = dbp1/10;
+          time1=yr_E1-1993; time2=yr_E2-1993; time3=yr_E3-1993;
+          time4=yr_E4-1993; time5=yr_E5-1993; time6=yr_E6-1993;		
+          p1=FEV1_H1*10;    p2=FEV1_H2*10; p3=FEV1_H3*10;
+          p4=FEV1_H4*10;    p5=FEV1_H5*10; p6=FEV1_H6*10;
+          Bage=age_C1-70;
+          Educ=NEDUC-7;
+          !htcm1=htcm1/10;
+
+  !GROUPING IS;
+
+  !CATEGORICAL ARE
+  !dis_base;
+
+  ANALYSIS:   TYPE=random;
+              COVERAGE=.0002;
+              PROCESSORS = 4;
+              !H1iterations=2000;
+
+  MODEL:  ip sp qp| p1-p6 AT time1-time6;
+
+  ip sp qp ON Bage Educ  ;
+
+  qp@0; qp with ip @0; qp with sp @0;
+
+  p1-p6 (res_p);
+
+  !Specify variances of exogeneous variables to fill in missingness;
+  !leave out smoking variables (n=1131 so won't affect analysis N) to help convergence;
+  Bage Educ     ; !  htcm1  smk_now1 smk_fmr1 heart_base DM_base
+
+  OUTPUT: SAMPSTAT ; ! CINTERVAL;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  !mmse_total_1	mmse_total_2	mmse_total_3	mmse_total_4	mmse_total_5	mmse_total_6	mmse_total_7
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  !drkden_sqrt_1	drkden_sqrt_2	drkden_sqrt_3	drkden_sqrt_4	drkden_sqrt_5	drkden_sqrt_6	drkden
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  FEV1_H1	    FEV1_H2	    FEV1_H3	    FEV1_H4	    FEV1_H5	    FEV1_H6	    FEV1_H7 !height-adj
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+IALSA: VA Normative Aging Study ;
+6/27/15, Lewina Lee ;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1132
+
+Number of dependent variables                                    6
+Number of independent variables                                  2
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5          P6
+
+Observed independent variables
+   BAGE        EDUC
+
+Continuous latent variables
+   IP          SP          QP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Lewina\SkyDrive\IALSA\M+\NAS_wide_20150626.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            35
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.000
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.966
+ P2             0.645         0.664
+ P3             0.416         0.398         0.427
+ P4             0.248         0.239         0.192         0.252
+ P5             0.184         0.174         0.146         0.111         0.185
+ P6             0.059         0.057         0.058         0.016         0.057
+ BAGE           0.966         0.664         0.427         0.252         0.185
+ EDUC           0.962         0.662         0.425         0.251         0.185
+
+
+           Covariance Coverage
+              P6            BAGE          EDUC
+              ________      ________      ________
+ P6             0.060
+ BAGE           0.060         1.000
+ EDUC           0.060         0.996         0.996
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1              8.561         8.200         7.998         7.945         7.686
+
+
+           Means
+              P6            BAGE          EDUC
+              ________      ________      ________
+ 1              7.346        -1.701         7.261
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             3.301
+ P2             3.161         3.475
+ P3             3.129         3.247         3.678
+ P4             3.054         3.266         3.428         3.723
+ P5             3.206         3.434         3.579         3.754         4.325
+ P6             3.232         3.411         3.436         3.484         3.874
+ BAGE          -4.635        -4.393        -4.910        -4.495        -4.723
+ EDUC           0.415         0.436         0.461         0.552         0.561
+
+
+           Covariances
+              P6            BAGE          EDUC
+              ________      ________      ________
+ P6             3.917
+ BAGE          -5.015        54.522
+ EDUC           0.806        -0.722         7.189
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.933         1.000
+ P3             0.898         0.908         1.000
+ P4             0.871         0.908         0.926         1.000
+ P5             0.848         0.886         0.897         0.936         1.000
+ P6             0.899         0.924         0.905         0.912         0.941
+ BAGE          -0.345        -0.319        -0.347        -0.316        -0.308
+ EDUC           0.085         0.087         0.090         0.107         0.101
+
+
+           Correlations
+              P6            BAGE          EDUC
+              ________      ________      ________
+ P6             1.000
+ BAGE          -0.343         1.000
+ EDUC           0.152        -0.036         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -10640.906
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P1                    8.564      -0.237       2.785    0.09%       7.136      8.167      8.648
+            1093.000       3.298       0.179      13.537    0.09%       9.064     10.035
+     P2                    8.449      -0.256       2.618    0.13%       7.048      8.144      8.508
+             752.000       3.087       0.403      14.200    0.13%       8.952      9.871
+     P3                    8.432      -0.159       2.729    0.21%       7.007      8.139      8.517
+             483.000       3.152       0.540      14.857    0.21%       8.879      9.799
+     P4                    8.427      -0.067       3.732    0.35%       7.052      8.019      8.384
+             285.000       3.241       0.257      14.920    0.35%       8.921      9.900
+     P5                    8.254      -0.359       2.405    0.48%       6.884      7.775      8.402
+             209.000       3.401       0.212      13.166    0.48%       8.794      9.816
+     P6                    8.554      -0.490       3.883    1.47%       7.407      8.178      8.837
+              68.000       2.427       0.437      12.158    1.47%       9.122      9.993
+     BAGE                 -1.701       0.276     -21.000    0.09%      -8.000     -4.000     -2.000
+            1132.000      54.522       0.033      27.000    0.18%       0.000      4.000
+     EDUC                  7.262       0.241      -2.000    0.09%       5.000      6.000      7.000
+            1127.000       7.189       0.066      17.000    0.18%       8.000      9.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       18
+
+Loglikelihood
+
+          H0 Value                      -10871.072
+          H0 Scaling Correction Factor      1.1164
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   21778.144
+          Bayesian (BIC)                 21868.715
+          Sample-Size Adjusted BIC       21811.542
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.083      0.007    -11.631      0.000
+    EDUC               0.047      0.021      2.259      0.024
+
+ SP         ON
+    BAGE               0.000      0.001      0.198      0.843
+    EDUC              -0.002      0.003     -0.648      0.517
+
+ QP         ON
+    BAGE               0.000      0.000     -0.085      0.932
+    EDUC               0.000      0.000      1.563      0.118
+
+ QP       WITH
+    IP                 0.000      0.000    999.000    999.000
+    SP                 0.000      0.000    999.000    999.000
+
+ SP       WITH
+    IP                 0.001      0.016      0.060      0.952
+
+ EDUC     WITH
+    BAGE              -0.721      0.574     -1.255      0.209
+
+ Means
+    BAGE              -1.701      0.219     -7.753      0.000
+    EDUC               7.262      0.080     90.915      0.000
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    IP                 8.248      0.165     50.126      0.000
+    SP                -0.085      0.029     -2.961      0.003
+    QP                 0.000      0.002      0.069      0.945
+
+ Variances
+    BAGE              54.522      2.311     23.597      0.000
+    EDUC               7.189      0.308     23.357      0.000
+
+ Residual Variances
+    P1                 0.223      0.017     13.257      0.000
+    P2                 0.223      0.017     13.257      0.000
+    P3                 0.223      0.017     13.257      0.000
+    P4                 0.223      0.017     13.257      0.000
+    P5                 0.223      0.017     13.257      0.000
+    P6                 0.223      0.017     13.257      0.000
+    IP                 2.663      0.155     17.130      0.000
+    SP                 0.000      0.003      0.040      0.968
+    QP                 0.000      0.000    999.000    999.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.224E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\lewina\skydrive\ialsa\m+\aatemp\u2_male_ae_pulmonary_nocog_fev1h_nocogm.dgm
+
+     Beginning Time:  20:04:58
+        Ending Time:  20:05:31
+       Elapsed Time:  00:00:33
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen

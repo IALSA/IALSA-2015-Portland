@@ -51,7 +51,7 @@ t1[t1==0] <- "."
 t1
 
 ## @knitr cross_table_data_dplyr
-ds <- dsDemo
+ds <- dsb
 # dplyr::tbl_df(ds)
 # dplyr::glimpse(ds)
 # utils::View(ds)
