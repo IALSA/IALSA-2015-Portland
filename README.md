@@ -13,7 +13,8 @@
  [RADC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/radc.html),
  [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html)  
  - [model_space](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/README.md) is a series of reports that tries to understand how best to organize our models for the analysis, in which model (not individual) is the primary unit .   
- - [dashboard](./dashboard.R) script that re-generates all these reports.
+ - [dashboard](./dashboard.R) script that re-generates all these reports.   
+ - [scripts README](./scripts/README.md) overview scripts that replicates data preparation  
  
 ###  Apps  
  - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models

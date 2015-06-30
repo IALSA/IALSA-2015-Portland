@@ -29,6 +29,8 @@ Uses some basic ```dplyr::count()``` to inspect the names of the element used in
 
 This script saves the object ```./data/shared/ds1.rds```, the raw, unprocessed extract from all the models in the collective. 
 
+### [```./reports/rename_collapse/Track_renaming.R```]()  
+Records the list of corrections made to the output filenames of the submitted models after they have been read in. The resulting object is ```./data/shared/ds1a.rds``` which is the starting point for all analyses.    
 
 ## General
 
