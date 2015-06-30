@@ -19,6 +19,14 @@
  - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
  -  [Bivariate ISR](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/bivariate_ISR) reviews correlations between intercepts (I), slopes (S), and residuals(R) for all models in one study using the same physical measure. 
 
+
+## Log 
+
+ - [Teleconference #2, 26-July-2015](./log.md)
+
+ - [Teleconference #1, 12-June-2015](./log.md#New) 
+ 
+ 
 ## Coordinated analysis with replication (CAR)
  IALSA-2015-Portland workshop coordinates modeling concomitant decline in physical and cognitive functioning during later adulthood.
  The following is the map of the observed model space adopted as the coordination fulcrum.
@@ -30,11 +38,7 @@ with respective covariance structure.
 See details in [model specification](./reports/model_specification/README.md)
 
 
-## Log 
 
- - [Teleconference #2, 26-July-2015](./log.md)
-
- - [Teleconference #1, 12-June-2015](./log.md#New) 
 
 
 ## Participating Studies & Contacts
