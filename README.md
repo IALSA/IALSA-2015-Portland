@@ -2,7 +2,7 @@
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)  
 
-# Table of Contents
+# Concomitant decline of body and mind
  - [goals](#goals)  
  - [means](#means)
  - [log](#log)  
