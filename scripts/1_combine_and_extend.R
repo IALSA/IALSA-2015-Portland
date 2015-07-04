@@ -65,6 +65,7 @@ ds <- plyr::ldply(dtos, data.frame)
 
 # sort for proper tabeling
 ds <- ds[order(ds$study_name, ds$physical_construct, ds$cognitive_construct, ds$subgroup, ds$model_type), ]
+
 # #Exclude the univariate models, by remove the variables like `nocog` and `nophys`
 # ds <- ds[!(ds$cognitive_construct %in% no_variable_labels), ]
 # ds <- ds[!(ds$physical_construct %in% no_variable_labels), ]
@@ -80,7 +81,6 @@ ds <- ds[!(ds$model_number) %in% c("test"),]
 
 
 ## @knitr standardize_coefficients
-
 ds$corr_int <- ds$cov_int/ (sqrt(ds$var_int_physical)*sqrt(ds$var_int_cog))
 ds$corr_slope <- ds$cov_slope/ (sqrt(ds$var_slope_physical)*sqrt(ds$var_slope_cog))
 ds$corr_residual <- ds$cov_residual/ (sqrt(ds$var_residual_physical)*sqrt(ds$var_residual_cog))
