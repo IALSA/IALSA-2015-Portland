@@ -1,6 +1,8 @@
-How to work with this GitHub folder
+Progress report on radc study
 ---
+See my [log](./descriptives/README.md) for the lists of decisions made in preparing brief descriptive report of radc study.  
 
+##note
 Use **unshared** folder to place your data and run your analyses. The content of the **unshared** folder will not be uploaded.
 
 Name your models to fit the common naming convention. This is a key step in organizing aggregation of model results across studies. 
