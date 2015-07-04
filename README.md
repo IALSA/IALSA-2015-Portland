@@ -23,6 +23,7 @@ The following sets of papers are pursued with the current analyses:
 
 
 ##Means  
+Analytic tools available to the workshop participants include dynamic **reports** and interactive **apps**. Both reports and apps are regenerated with each new influx of model submissions.  
 
 ### Reports 
  - [Rename and collapse](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  gives account of how model filename elements (subgroup, model_type, cognitive_measure, etc.) are corrected, renamed, and reclassified. Incorporates the results of Teleconference 1 on Jun 12.    
@@ -46,6 +47,8 @@ The following sets of papers are pursued with the current analyses:
 
 
 ## Log 
+
+The agenda and outcomes of each teleconference following the Portland workshop  
 
  - [Teleconference #3, 10-July-2015](./log.md)
 
