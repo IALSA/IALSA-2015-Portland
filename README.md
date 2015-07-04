@@ -80,7 +80,7 @@ The following sets of papers are pursued with the current analyses:
 
  
 ## About 
- IALSA-2015-Portland workshop performs a **Coordinated analysis with replication (CAR)** of concomitant decline of physical and cognitive functioning during later adulthood.  
+ IALSA-2015-Portland workshop performs a **coordinated analysis with replication (CAR)** of concomitant decline of physical and cognitive functioning during later adulthood.  
  
 Submitted models vary in respect to their:  
  - ```model_number```: (u0, u1, u2, b0, b1, b2) alphanumeric of model form (u,b) and shape (int0rcept, s1ope, qua2radic )   
