@@ -19,22 +19,13 @@ str(a)
 
 names(ds0) <- as.vector(radcNames[,1]) # adding variable names
 
-#Creating a variable to identify female participants without dementia.
-ds0$includeF <- ifelse(('msex' == 0 & 'dementia.00' != 1 & 'dementia.01' !=1 &
-'dementia.02' !=1 & 'dementia.03' !=1 & 'dementia.04' !=1 & 'dementia.05' !=1 & 'dementia.06' !=1 &
-'dementia.07' !=1 & 'dementia.08' !=1 & 'dementia.09' !=1 &'dementia.10' !=1 &
-'dementia.11' !=1 & 'dementia.12' !=1 & 'dementia.13' !=1 & 'dementia.14' !=1 &
-'dementia.15' !=1 & 'dementia.16' !=1 & 'dementia.17' !=1 & 'dementia.18' !=1 &
-'dementia.19' !=1 & 'dementia.20' !=1) , 1,0)
+#Filtering out individuals with dementia diagnosis at any time point.
+filter(ds0, dementia.00==0|-9999, dementia.01==0|-9999, dementia.02==0|-9999,
+dementia.03==0|-9999, dementia.04==0|-9999, dementia.05==0|-9999, dementia.06==0|-9999,
+dementia.07==0|-9999, dementia.08==0|-9999, dementia.09==0|-9999, dementia.10==0|-9999,
+dementia.11==0|-9999, dementia.12==0|-9999, dementia.13==0|-9999, dementia.14==0|-9999,
+dementia.15==0|-9999, dementia.16==0|-9999, dementia.17==0|-9999, dementia.18==0|-9999,
+dementia.19==0|-9999, dementia.20==0|-9999)
 
-#Creating a variable to identify male cases without dementia.
-ds0$includeM <- ifelse(('msex' == 1 &'dementia.00' != 1 & 'dementia.01' !=1 & 'dementia.02' !=1 &
-'dementia.03' !=1 & 'dementia.04' !=1 & 'dementia.05' !=1 & 'dementia.06' !=1 &
-'dementia.07' !=1 & 'dementia.08' !=1 & 'dementia.09' !=1 &'dementia.10' !=1 &
-'dementia.11' !=1 & 'dementia.12' !=1 & 'dementia.13' !=1 & 'dementia.14' !=1 &
-'dementia.15' !=1 & 'dementia.16' !=1 & 'dementia.17' !=1 & 'dementia.18' !=1 &
-'dementia.19' !=1 & 'dementia.20' !=1) , 1,0)
 
-#Creating data subset for included female participants.
-radcMapF <- subset(ds0, includeF==1,)
 
