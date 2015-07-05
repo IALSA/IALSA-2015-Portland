@@ -21,4 +21,4 @@ shinyUI(fluidPage(
 
   ) # close sidebarLayout
 )) # close fluidPage, shinyUI
->>>>>>> parent of 368b48e... removed old files DASHBOARD
+
