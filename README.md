@@ -13,11 +13,11 @@
 
 ##Goals
 
-The following sets of papers are pursued with the current analyses:  
+The project pursues publication of papers in the following fi5e themes:  
 
 - Association between changes in [**pulmonary**](./projects/pulmonary/README.md) function and changes in cognitive function
 - Association between changes in [**grip**](./projects/grip/README.md) strength and changes in cognitive function    
-- Association between changes in [**gait/walking speed**](./projects/gait/README.md) and changes in cognitive function  
+- Association between changes in [**gait**](./projects/gait/README.md) and changes in cognitive function  
 - Associations between [**cognitive**](./projects/cognitive/README.md) variables, within and across domains  
 - Associations among rates of change in [**physical**](./projects/physical/README.md) capability variables 
 
