@@ -1,13 +1,17 @@
 Updates and News
 ---
 
-#New
-aa
+ - [Teleconference #3, 10-July-2015](./log.md)
+ - [Teleconference #2, 26-June-2015](./log.md)
+ - [Teleconference #1, 12-June-2015](./log.md#New) 
+ 
+ 
 
-## Teleconference #2, 26 July 2015
+##Teleconference #2
+**26 July 2015**
 
 
-### AGENDA (dev)
+### AGENDA 
 
 ### 0. Updates
  - Reports and Apps will be on the top from now on.    
