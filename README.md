@@ -7,7 +7,7 @@
  - [goals](#goals)  
  - [means](#means)
  - [log](#log)  
- - [participant](#participants)
+ - [participants](#participants)
  - [about](#about)
  
 
