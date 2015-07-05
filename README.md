@@ -2,11 +2,13 @@
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)  
 
-# Concurrent decline of body and mind
+# Concurrent decline of body and mind  
+IALSA-2015-Portland workshop performs a coordinated analysis with replication (CAR) of concomitant decline of physical and cognitive functioning during later adulthood.  
+
  - [goals](#goals)  
  - [means](#means)
  - [log](#log)  
- - [participants](#participants)
+ - [participant](#participants)
  - [about](#about)
  
 
