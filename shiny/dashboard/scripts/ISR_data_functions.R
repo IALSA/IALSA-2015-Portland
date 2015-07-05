@@ -57,4 +57,4 @@ for( i in seq_along(d$parameter)){
   return(d)
 }
 
-# d <- IRS_tile_data(ds)
+# d <- ISR_tile_data(ds)
