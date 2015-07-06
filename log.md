@@ -46,7 +46,7 @@ Updates and News
 
 ### 4. ISR with pivotTable  
 
-PivotTable can enhance our use of ISR grap. Use it to view what physical measures and model types should be selected in the exploration of each study. To do that: open the pivot table in the default view, click on "Unselect All" in the drop down menu of the "study" pivot, and select only one study - yours. If now you select only "b1" under pivot "model_number" you should only see "1" in every cell of your pivotTable.  If the cell is blank, you need run that model, if the cell is greater than 1 then something went wrong: there should be only one model in this study with these specifications.
+PivotTable can enhance our use of ISR graph. Use it to view what physical measures and model types should be selected in the exploration of each study. To do that: open the pivot table in the default view, click on "Unselect All" in the drop down menu of the "study" pivot, and select only one study - yours. If now you select only "b1" under pivot "model_number" you should only see "1" in every cell of your pivotTable.  If the cell is blank, you need run that model, if the cell is greater than 1 then something went wrong: there should be only one model in this study with these specifications.
 
  
 ### 5. Discussing results:  
