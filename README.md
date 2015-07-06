@@ -9,7 +9,7 @@
  - [log](#log)  
  - [participants](#participants)
  - [about](#about)
- 
+ [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
 
 
 ##Goals
@@ -87,15 +87,15 @@ The agenda and outcomes of each teleconference following the Portland workshop
  IALSA-2015-Portland workshop performs a **coordinated analysis with replication (CAR)** of concomitant decline of physical and cognitive functioning during later adulthood.  
  
 Submitted models vary in respect to their:  
+ - ```study_name``` - (*e.g.* eas, satsa)  in which it was estimated  
  - ```model_number```: (u0, u1, u2, b0, b1, b2) alphanumeric of model form (u,b) and shape (int0rcept, s1ope, qua2radic )   
- - ```study``` - (*e.g.* eas, satsa)  in which it was estimated  
- - ```physical_measure``` - (*e.g.*  grip, gait, pek)    
- - ```cognitive_measure``` - (*e.g.*  block, digits, animals)   
  - ```subgroup```: (female, male) subsets on which models are estimated    
  - ```model_type```: (0, a, ae, aeh, aehplus, full), a.k.a. *CovSet*, *Predictor Set* 
- 
- 
-*Currently, the model space includes linear models only (u1, b1), but other specification will be added as flexibility of reporting system increases*  The following fou4 graphs cross-tab the **counts** of submitted models with *Cognitive Measures*:   
+ - ```physical_measure``` - (*e.g.*  grip, gait, pek)    
+ - ```cognitive_measure``` - (*e.g.*  block, digits, animals)   
+
+*Currently, the model space includes linear models only (u1, b1), but other specification will be added as flexibility of reporting system increases*   
+The following fou4 graphs cross-tab the **counts** of submitted models with *Cognitive Measures*:   
 
  [![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)  
 The numbers in the cells count models of that specification. Each color adds up to 100%. "univar" indicates univariate growth models fitting either cognitive or physical process. 
