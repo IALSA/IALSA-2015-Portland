@@ -14,7 +14,7 @@
 
 ##Goals
 
-The project pursues publication of papers in the following fi5e themes:  
+Our current goals include publication of papers investigating the following fi5e associations:  
 
 - Association between changes in [**pulmonary**](./projects/pulmonary/README.md) function and changes in cognitive function
 - Association between changes in [**grip**](./projects/grip/README.md) strength and changes in cognitive function    
@@ -22,6 +22,7 @@ The project pursues publication of papers in the following fi5e themes:
 - Associations between [**cognitive**](./projects/cognitive/README.md) variables, within and across domains  
 - Associations among rates of change in [**physical**](./projects/physical/README.md) capability variables 
 
+See [projects](./projects/README.md) page for a detailed overview of these five projects.
 
 ##Means  
 Analytic tools available to the workshop participants include dynamic **reports** and interactive **apps**. Both reports and apps are regenerated with each new influx of model submissions.  
