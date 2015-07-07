@@ -2,7 +2,7 @@
 source("./scripts/0_collect_studies.R")
 # results in individual .csv for each study with raw model results
 
-source("./scripts/1_combine_model_outputs.R")
+source("./scripts/0c_combine_model_outputs.R")
 # combines individual .csvs into one dataset containing results of all models
 
 source("./reports/extend/standardize_ISR.R")
