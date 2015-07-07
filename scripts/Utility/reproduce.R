@@ -2,8 +2,10 @@
 source("./scripts/0_collect_studies.R")
 # results in individual .csv for each study with raw model results
 
-source("./scripts/1_combine_and_extend.R")
+source("./scripts/1_combine_model_outputs.R")
 # combines individual .csvs into one dataset containing results of all models
+
+source("./reports/extend/standardize_ISR.R")
 # converts covariances into correlations and computes confidence intervals
 
 source("./reports/rename_collapse/Track_renaming.R ")
