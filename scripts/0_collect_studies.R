@@ -37,7 +37,7 @@ find.Conflicts("satsa")
 
 ## @knitr find.CI
 find.CI(study = "eas")
-find.Conflicts("elsa")
+find.CI("elsa")
 find.CI(study = "habc")
 # find.CI("hrs")
 find.CI("ilse")
