@@ -15,7 +15,7 @@ library(testit, quietly=TRUE) #For asserts
 library(dplyr)
 
 ## @knitr load_data
-ds1 <- readRDS('./data/shared/ds1.rds')
+ds1 <- readRDS('./data/shared/ds0.rds')
 # ds <- ds1 %>% dplyr::filter(study_name=="satsa")
 ds <- ds1 %>% dplyr::arrange_("cognitive_measure")
 # ds <- ds1[ds1$study_name=="eas",]
