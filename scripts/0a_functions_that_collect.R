@@ -143,7 +143,8 @@ get.Models <- function(study){
   # models_in_a_study <- 1
   for(i in models_in_a_study){
     # models_in_a_study <- 243
-    message("Getting ", study, ", model ", i, ".")
+    out_file <-  tail(strsplit(target,"/")[[1]], n=1)
+    message("Getting ", study, ", model ", i, ",",out_file)
     mplus_output <- scan(out_list[i], what='character', sep='\n')
     # browser()
     ## Populate with header info
