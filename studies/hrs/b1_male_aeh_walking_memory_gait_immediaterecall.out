@@ -4,7 +4,7 @@ MUTHEN & MUTHEN
 
 INPUT INSTRUCTIONS
 
-  TITLE: B1 walking, Immediate Recall, Age Only, Male
+  TITLE: B1 walking, Immediate Recall, AEH, Male
 
   DATA:  File = "C:\Users\wuche\desktop\Mplus\hrs_IALSA_useable_walk.dat";
 

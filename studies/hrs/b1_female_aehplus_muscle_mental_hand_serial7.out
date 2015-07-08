@@ -1,0 +1,509 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+07/08/2015  11:01 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: B1 Hand strength, Serial 7's, Female, AEHPLUS
+
+  DATA:  File = "C:\Users\wuche\desktop\Mplus\hrs_IALSA_useable_grip.dat";
+
+  VARIABLE:
+    Names are
+       hhid pn JAGE WHITE MALE educ04 smoke04 bmi04 height04 diabetes04 cvd04
+       walk04 walk06 walk08 walk10 walk12 peak04 peak06 peak08 peak10 peak12
+       grip04 grip06 grip08 grip10 grip12 recall04i recall06i recall08i recall10i
+       recall12i recall04d recall06d recall08d recall10d recall12d serial06
+       serial04 serial08 serial10 serial12 vocabulary04 vocabulary06 vocabulary08
+       vocabulary10 vocabulary12 tisc04 tisc06 tisc08 tisc10 tisc12 cesd04
+       cesd06 cesd08 cesd10 cesd12 t1 t2 t3 t4 t5;
+
+    MISSING are all(-9999);
+    USEVAR  are diabetes04 cvd04 smoke04 time1 time2 time3 time4 time5
+                Bage Educ Height
+                p1 p2 p3 p4 p5 c1 c2 c3 c4 c5;
+    TSCORES =   time1 time2 time3 time4 time5;
+    CLUSTER =   hhid;
+    SUBPOPULATION are MALE EQ 0;
+
+  DEFINE: p1=grip04; p2 = grip06; p3 = grip08; p4 = grip10; p5 = grip12;
+          c1=serial04; c2=serial06; c3=serial08; c4=serial10; c5=serial12;
+          time1  = t1; time2 = t2; time3 = t3; time4 = t4; time5 = t5;
+          Bage   = JAGE-70;
+          Educ   = educ04-7;
+          Height = height04-1.60;
+
+  ANALYSIS: TYPE = RANDOM COMPLEX;
+
+  MODEL: ip sp | p1-p5 AT time1 time2 time3 time4 time5;
+         ic sc | c1-c5 AT time1 time2 time3 time4 time5;
+
+         ip sp ic sc ON Bage Educ Height diabetes04 cvd04 smoke04;
+
+         p1-p5 (res_p);
+         c1-c5 (res_p);
+         p1-p5 pwith c1-c5(res_cov);
+
+  OUTPUT: sampstat Cinterval;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  570
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+B1 Hand strength, Serial 7's, Female, AEHPLUS
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1399
+
+Number of dependent variables                                   10
+Number of independent variables                                  6
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5          C1
+   C2          C3          C4          C5
+
+Observed independent variables
+   DIABETES    CVD04       SMOKE04     BAGE        EDUC        HEIGHT
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Cluster variable      HHID
+  Weight variable       _WEIGHT
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\wuche\desktop\Mplus\hrs_IALSA_useable_grip.dat
+Input data format  FREE
+
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1             24.165        23.096        21.768        21.105        19.746
+
+
+           Means
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1              3.450         3.340         3.079         2.636         2.372
+
+
+           Means
+              DIABETES      CVD04         SMOKE04       BAGE          EDUC
+              ________      ________      ________      ________      ________
+ 1              0.154         0.221         0.138        -1.392         5.457
+
+
+           Means
+              HEIGHT
+              ________
+ 1             -1.563
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1           185.543
+ P2            25.156        36.988
+ P3            44.385        12.662        49.761
+ P4            23.685        31.129        13.696        43.897
+ P5            44.319        15.899        39.063        17.029        51.342
+ C1             1.545         1.185         1.056         1.511         0.954
+ C2             1.807         1.666         1.822         2.167         1.558
+ C3             3.046         2.350         3.152         3.186         3.182
+ C4             4.057         3.994         3.808         4.514         4.820
+ C5             5.318         4.178         4.702         4.860         6.052
+ DIABETES      -0.236        -0.274        -0.164        -0.292        -0.251
+ CVD04         -0.637        -0.546        -0.381        -0.624        -0.595
+ SMOKE04        0.276         0.253         0.356         0.267         0.379
+ BAGE         -41.839       -38.176       -42.428       -42.041       -49.722
+ EDUC           4.141         2.140         2.661         2.796         3.445
+ HEIGHT        -0.031        -0.032        -0.028        -0.032        -0.034
+
+
+           Covariances
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             2.914
+ C2             1.901         3.202
+ C3             1.883         2.097         3.641
+ C4             1.695         1.983         2.382         4.111
+ C5             1.537         1.709         2.230         3.013         4.291
+ DIABETES      -0.036        -0.040        -0.076        -0.060        -0.083
+ CVD04         -0.069        -0.069        -0.110        -0.150        -0.165
+ SMOKE04        0.015         0.009         0.013         0.019         0.014
+ BAGE          -1.928        -2.762        -4.686        -8.310        -9.726
+ EDUC           1.878         1.890         2.031         1.968         1.798
+ HEIGHT         0.000        -0.002        -0.004        -0.005        -0.006
+
+
+           Covariances
+              DIABETES      CVD04         SMOKE04       BAGE          EDUC
+              ________      ________      ________      ________      ________
+ DIABETES       0.131
+ CVD04          0.019         0.172
+ SMOKE04       -0.002        -0.003         0.119
+ BAGE           0.288         1.019        -1.153       127.968
+ EDUC          -0.136        -0.085        -0.027        -4.491         9.017
+ HEIGHT        -0.001         0.000         0.000         0.055         0.002
+
+
+           Covariances
+              HEIGHT
+              ________
+ HEIGHT         0.000
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.304         1.000
+ P3             0.462         0.295         1.000
+ P4             0.262         0.773         0.293         1.000
+ P5             0.454         0.365         0.773         0.359         1.000
+ C1             0.066         0.114         0.088         0.134         0.078
+ C2             0.074         0.153         0.144         0.183         0.121
+ C3             0.117         0.203         0.234         0.252         0.233
+ C4             0.147         0.324         0.266         0.336         0.332
+ C5             0.188         0.332         0.322         0.354         0.408
+ DIABETES      -0.048        -0.125        -0.064        -0.122        -0.097
+ CVD04         -0.113        -0.216        -0.130        -0.227        -0.200
+ SMOKE04        0.059         0.121         0.147         0.117         0.154
+ BAGE          -0.272        -0.555        -0.532        -0.561        -0.613
+ EDUC           0.101         0.117         0.126         0.141         0.160
+ HEIGHT        -0.149        -0.339        -0.255        -0.313        -0.306
+
+
+           Correlations
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.622         1.000
+ C3             0.578         0.614         1.000
+ C4             0.490         0.547         0.616         1.000
+ C5             0.435         0.461         0.564         0.717         1.000
+ DIABETES      -0.058        -0.061        -0.110        -0.081        -0.111
+ CVD04         -0.098        -0.092        -0.138        -0.178        -0.192
+ SMOKE04        0.026         0.014         0.020         0.027         0.019
+ BAGE          -0.100        -0.136        -0.217        -0.362        -0.415
+ EDUC           0.366         0.352         0.354         0.323         0.289
+ HEIGHT         0.009        -0.076        -0.127        -0.167        -0.182
+
+
+           Correlations
+              DIABETES      CVD04         SMOKE04       BAGE          EDUC
+              ________      ________      ________      ________      ________
+ DIABETES       1.000
+ CVD04          0.125         1.000
+ SMOKE04       -0.016        -0.018         1.000
+ BAGE           0.071         0.217        -0.296         1.000
+ EDUC          -0.126        -0.068        -0.026        -0.132         1.000
+ HEIGHT        -0.126         0.059        -0.014         0.311         0.034
+
+
+           Correlations
+              HEIGHT
+              ________
+ HEIGHT         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -53890.653
+
+     WARNING: THE MODEL ESTIMATION HAS REACHED A SADDLE POINT OR A POINT WHERE THE
+     OBSERVED AND THE EXPECTED INFORMATION MATRICES DO NOT MATCH.
+     AN ADJUSTMENT TO THE ESTIMATION OF THE INFORMATION MATRIX HAS BEEN MADE.
+     THE CONDITION NUMBER IS      -0.942D-05.
+     THE PROBLEM MAY ALSO BE RESOLVED BY DECREASING THE VALUE OF THE
+     MCONVERGENCE OR LOGCRITERION OPTIONS OR BY CHANGING THE STARTING VALUES
+     OR BY USING THE MLF ESTIMATOR.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       40
+
+Loglikelihood
+
+          H0 Value                      -29745.204
+          H0 Scaling Correction Factor     13.9038
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   59570.407
+          Bayesian (BIC)                 59780.148
+          Sample-Size Adjusted BIC       59653.083
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.268      0.039     -6.958      0.000
+    EDUC               0.247      0.094      2.628      0.009
+    HEIGHT           -70.678     13.093     -5.398      0.000
+    DIABETES04        -1.070      0.473     -2.263      0.024
+    CVD04             -1.467      0.463     -3.172      0.002
+    SMOKE04           -0.184      0.649     -0.284      0.777
+
+ SP         ON
+    BAGE              -0.004      0.008     -0.552      0.581
+    EDUC              -0.015      0.018     -0.832      0.405
+    HEIGHT             0.162      2.418      0.067      0.947
+    DIABETES04        -0.035      0.084     -0.416      0.677
+    CVD04              0.117      0.087      1.350      0.177
+    SMOKE04            0.014      0.113      0.121      0.904
+
+ IC         ON
+    BAGE               0.002      0.004      0.559      0.576
+    EDUC               0.213      0.014     15.383      0.000
+    HEIGHT            -2.796      2.746     -1.018      0.309
+    DIABETES04        -0.036      0.118     -0.310      0.757
+    CVD04             -0.232      0.107     -2.176      0.030
+    SMOKE04            0.168      0.121      1.385      0.166
+
+ SC         ON
+    BAGE              -0.008      0.001    -13.164      0.000
+    EDUC              -0.005      0.002     -2.668      0.008
+    HEIGHT            -1.346      0.438     -3.073      0.002
+    DIABETES04        -0.036      0.020     -1.805      0.071
+    CVD04             -0.027      0.017     -1.629      0.103
+    SMOKE04           -0.081      0.020     -3.962      0.000
+
+ SP       WITH
+    IP               -16.353      6.704     -2.439      0.015
+
+ IC       WITH
+    IP                 0.158      0.785      0.201      0.840
+    SP                 0.041      0.150      0.274      0.784
+
+ SC       WITH
+    IP                 0.094      0.199      0.474      0.636
+    SP                -0.007      0.040     -0.175      0.861
+    IC                 0.000      0.318      0.001      0.999
+
+ P1       WITH
+    C1                 0.023      0.051      0.455      0.649
+
+ P2       WITH
+    C2                 0.023      0.051      0.455      0.649
+
+ P3       WITH
+    C3                 0.023      0.051      0.455      0.649
+
+ P4       WITH
+    C4                 0.023      0.051      0.455      0.649
+
+ P5       WITH
+    C5                 0.023      0.051      0.455      0.649
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    IP               -87.635     20.449     -4.285      0.000
+    SP                -0.202      3.775     -0.054      0.957
+    IC                -1.951      4.296     -0.454      0.650
+    SC                -2.207      0.685     -3.221      0.001
+
+ Residual Variances
+    P1                 9.863      3.251      3.034      0.002
+    P2                 9.863      3.251      3.034      0.002
+    P3                 9.863      3.251      3.034      0.002
+    P4                 9.863      3.251      3.034      0.002
+    P5                 9.863      3.251      3.034      0.002
+    C1                 9.863      3.251      3.034      0.002
+    C2                 9.863      3.251      3.034      0.002
+    C3                 9.863      3.251      3.034      0.002
+    C4                 9.863      3.251      3.034      0.002
+    C5                 9.863      3.251      3.034      0.002
+    IP                99.711     34.502      2.890      0.004
+    SP                 3.340      1.268      2.634      0.008
+    IC                 0.019      2.064      0.009      0.993
+    SC                 0.000      0.078      0.005      0.996
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix             -0.942E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IP       ON
+    BAGE            -0.367      -0.343      -0.331      -0.268      -0.205      -0.192      -0.169
+    EDUC             0.005       0.063       0.092       0.247       0.402       0.431       0.489
+    HEIGHT        -104.403     -96.340     -92.216     -70.678     -49.141     -45.016     -36.954
+    DIABETES04      -2.288      -1.997      -1.848      -1.070      -0.292      -0.143       0.148
+    CVD04           -2.658      -2.374      -2.228      -1.467      -0.706      -0.561      -0.276
+    SMOKE04         -1.856      -1.457      -1.252      -0.184       0.884       1.088       1.488
+
+ SP       ON
+    BAGE            -0.025      -0.020      -0.017      -0.004       0.009       0.011       0.016
+    EDUC            -0.063      -0.051      -0.046      -0.015       0.015       0.021       0.032
+    HEIGHT          -6.066      -4.577      -3.815       0.162       4.138       4.900       6.389
+    DIABETES04      -0.252      -0.200      -0.174      -0.035       0.104       0.130       0.182
+    CVD04           -0.106      -0.053      -0.026       0.117       0.260       0.288       0.341
+    SMOKE04         -0.278      -0.208      -0.173       0.014       0.200       0.236       0.306
+
+ IC       ON
+    BAGE            -0.008      -0.006      -0.004       0.002       0.009       0.010       0.013
+    EDUC             0.178       0.186       0.190       0.213       0.236       0.240       0.249
+    HEIGHT          -9.870      -8.179      -7.314      -2.796       1.721       2.586       4.277
+    DIABETES04      -0.340      -0.267      -0.230      -0.036       0.157       0.194       0.267
+    CVD04           -0.507      -0.442      -0.408      -0.232      -0.057      -0.023       0.043
+    SMOKE04         -0.145      -0.070      -0.032       0.168       0.368       0.406       0.481
+
+ SC       ON
+    BAGE            -0.010      -0.010      -0.009      -0.008      -0.007      -0.007      -0.007
+    EDUC            -0.011      -0.009      -0.009      -0.005      -0.002      -0.001       0.000
+    HEIGHT          -2.474      -2.204      -2.066      -1.346      -0.625      -0.487      -0.218
+    DIABETES04      -0.087      -0.075      -0.068      -0.036      -0.003       0.003       0.015
+    CVD04           -0.070      -0.059      -0.054      -0.027       0.000       0.005       0.016
+    SMOKE04         -0.133      -0.121      -0.114      -0.081      -0.047      -0.041      -0.028
+
+ SP       WITH
+    IP             -33.620     -29.492     -27.380     -16.353      -5.325      -3.214       0.914
+
+ IC       WITH
+    IP              -1.863      -1.380      -1.133       0.158       1.449       1.696       2.179
+    SP              -0.344      -0.252      -0.205       0.041       0.287       0.334       0.426
+
+ SC       WITH
+    IP              -0.418      -0.295      -0.233       0.094       0.421       0.484       0.606
+    SP              -0.111      -0.086      -0.073      -0.007       0.059       0.072       0.097
+    IC              -0.820      -0.624      -0.523       0.000       0.524       0.624       0.820
+
+ P1       WITH
+    C1              -0.108      -0.077      -0.061       0.023       0.107       0.123       0.154
+
+ P2       WITH
+    C2              -0.108      -0.077      -0.061       0.023       0.107       0.123       0.154
+
+ P3       WITH
+    C3              -0.108      -0.077      -0.061       0.023       0.107       0.123       0.154
+
+ P4       WITH
+    C4              -0.108      -0.077      -0.061       0.023       0.107       0.123       0.154
+
+ P5       WITH
+    C5              -0.108      -0.077      -0.061       0.023       0.107       0.123       0.154
+
+ Intercepts
+    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IP            -140.308    -127.716    -121.274     -87.635     -53.995     -47.554     -34.961
+    SP              -9.926      -7.601      -6.412      -0.202       6.008       7.197       9.522
+    IC             -13.016     -10.371      -9.018      -1.951       5.115       6.468       9.113
+    SC              -3.971      -3.549      -3.333      -2.207      -1.080      -0.864      -0.442
+
+ Residual Variances
+    P1               1.488       3.490       4.515       9.863      15.211      16.235      18.237
+    P2               1.488       3.490       4.515       9.863      15.211      16.235      18.237
+    P3               1.488       3.490       4.515       9.863      15.211      16.235      18.237
+    P4               1.488       3.490       4.515       9.863      15.211      16.235      18.237
+    P5               1.488       3.490       4.515       9.863      15.211      16.235      18.237
+    C1               1.488       3.490       4.515       9.863      15.211      16.235      18.237
+    C2               1.488       3.490       4.515       9.863      15.211      16.235      18.237
+    C3               1.488       3.490       4.515       9.863      15.211      16.235      18.237
+    C4               1.488       3.490       4.515       9.863      15.211      16.235      18.237
+    C5               1.488       3.490       4.515       9.863      15.211      16.235      18.237
+    IP              10.840      32.087      42.955      99.711     156.467     167.335     188.582
+    SP               0.073       0.855       1.254       3.340       5.427       5.826       6.607
+    IC              -5.297      -4.026      -3.376       0.019       3.413       4.063       5.334
+    SC              -0.199      -0.152      -0.127       0.000       0.128       0.153       0.200
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\wuche\desktop\mplus\aehplus\b1_female_aehplus_muscle_mental_hand_serial7.dgm
+
+     Beginning Time:  11:01:55
+        Ending Time:  11:02:36
+       Elapsed Time:  00:00:41
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
