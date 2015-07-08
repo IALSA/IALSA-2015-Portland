@@ -4,7 +4,7 @@ MUTHEN & MUTHEN
 
 INPUT INSTRUCTIONS
 
-  TITLE: B1 Peak Flow, Immediate Recall, Age Only, male
+  TITLE: B1 Peak Flow, Immediate Recall, AEH, male
 
   DATA:  File = "C:\Users\wuche\desktop\Mplus\hrs_IALSA_useable_peak.dat";
 

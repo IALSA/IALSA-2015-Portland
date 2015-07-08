@@ -1,10 +1,10 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-07/08/2015   9:20 AM
+07/08/2015   9:48 AM
 
 INPUT INSTRUCTIONS
 
-  TITLE: B1 Hand strength, Delayed Recall, Age Only, Female
+  TITLE: B1 Hand strength, Delayed Recall, AEH, Female
 
   DATA:  File = "C:\Users\wuche\desktop\Mplus\hrs_IALSA_useable_grip.dat";
 
@@ -427,9 +427,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\wuche\desktop\mplus\aeh\b1_female_aeh_muscle_memory_hand_delayedrecall.dgm
 
-     Beginning Time:  09:20:58
-        Ending Time:  09:21:34
-       Elapsed Time:  00:00:36
+     Beginning Time:  09:48:55
+        Ending Time:  09:49:32
+       Elapsed Time:  00:00:37
 
 
 
