@@ -74,7 +74,8 @@ find.CI <- function(study){
 ############### Extract Model Summaries ################################
 get.Models <- function(study){
   # study <- "eas" # for manual
-  pathStudy <- paste0(pathStudies,"/",study)
+  # study <- "nas" # for manual
+  pathStudy <- file.path(pathStudies, study)
   # point to the folder of the particular study
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
 
@@ -88,7 +89,7 @@ get.Models <- function(study){
   ## init mpar object
   mpar <- list()
 
-  for(i in 1:length(out_list)){
+  for(i in seq_along(out_list)){
     indmsum <- MplusAutomation::extractModelSummaries(target=out_list[i], recursive=T)
     ## obtain variable names and write only those of interest and those from mplus out file into msum
     msum[i,names(indmsum)[names(indmsum) %in% msum_names]] <-indmsum[names(indmsum) %in% msum_names]
@@ -109,7 +110,7 @@ get.Models <- function(study){
   nmodels==length(out_list)
 
   # Declare what will be collected in DTO (data transfer object)
-   dto.vars <- c(
+  dto.vars <- c(
     "model_number", "version", "active","valid", "best_in_gender",
     "study_name", "date", "time", "converged", "subgroup", "model_type",
     "physical_construct",
@@ -141,6 +142,8 @@ get.Models <- function(study){
   models_in_a_study <- seq_along(mpar)
   # models_in_a_study <- 1
   for(i in models_in_a_study){
+    # models_in_a_study <- 243
+    message("Getting ", study, ", model ", i, ".")
     mplus_output <- scan(out_list[i], what='character', sep='\n')
     # browser()
     ## Populate with header info
@@ -171,7 +174,7 @@ get.Models <- function(study){
 
     ## Check for model convergence
     conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
-    has_converged <- conv==1
+    has_converged <- (conv==1L)
     results[i, 'converged'] <- has_converged
     ## has_converged LOOP BEGINS
     if(has_converged) {
