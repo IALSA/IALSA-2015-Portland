@@ -131,9 +131,15 @@ nmodels==length(out_list)
 results=data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
 names(results) <-  dto.vars
 
+
+
 ## Results LOOP BEGINS
-for(i in seq_along(mpar)){
+# study <- "nas"
+models_in_a_study <- seq_along(mpar)
+# models_in_a_study <- 1
+for(i in models_in_a_study){
     mplus_output <- scan(out_list[i], what='character', sep='\n')
+    # browser()
     ## Populate with header info
     results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
     results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
@@ -250,6 +256,8 @@ for(i in seq_along(mpar)){
 } # Results LOOP ENDS
 destination <- file.path(pathStudy, "study_automation_result.csv")
 write.csv(results[results$study_name==study,], destination, row.names=F)
+
+
 } # function ENDS
 
 
