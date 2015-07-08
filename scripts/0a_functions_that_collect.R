@@ -1,9 +1,25 @@
 # These functions work with processing
 # models .out files
+options(width=160)
+rm(list=ls())
+cat("\f")
+
+library(MplusAutomation)
+
+## @knitr setPaths
+pathDir <- getwd() # establish home directory
+pathStudies <- file.path(pathDir,"studies")
+list.files(pathStudies) # inspect participating studies
+
+## @knitr setGlobals
+studies <- c("eas", "elsa")
+out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
+
 
 # for debugging functions
 study <- "radc"
 i <- 1
+###########################################################################
 
 ################# GitHub sync issues ################################
 find.Conflicts <- function(study){
@@ -76,19 +92,69 @@ find.CI <- function(study){
 
 
 ############### Extract Model Summaries ################################
-get.Models <- function(study){
-  # study <- "eas" # for manual
-  # study <- "nas" # for manual
-  pathStudy <- file.path(pathStudies, study)
-  # point to the folder of the particular study
+
+## Declare pre-set values for functions:
+
+
+
+
+
+
+
+# dataset with model summaries
+get_msum <- function(study){
+  pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+  ## Model descriptors we would like to have:
+  msum_names <- c("Mplus.version",
+                  "Title",
+                  "AnalysisType",
+                  "Estimator",
+                  "Observations",
+                  "Parameters",
+                  "LL","AIC","BIC","aBIC","AICC",
+                  "Filename")
 
-  ## Define variable names needed for our tables
-  msum_names <- c("Mplus.version","Title","AnalysisType","Estimator","Observations","Parameters","LL","AIC","BIC","aBIC","AICC","Filename")
-
-  ## init msum object
+  ## Create data frame to populated from model output files
   msum <- data.frame(matrix(ncol=length(msum_names)))
+  names(msum) <- msum_names # columns is what we want
   msum
+  # cycle through all model output files in this study
+  for(i in seq_along(out_list)){
+    # get a single model summary
+    ith_msum <- MplusAutomation::extractModelSummaries(target=out_list[i], recursive=T)
+    # LOGICAL: is this descriptor present in the current model?
+    (descriptor_exists <- names(ith_msum) %in% msum_names)
+    # names of descriptors that exist in ith model
+    (existing_descriptors <- names(ith_msum)[descriptor_exists])
+    # populate existing fields
+    msum[i, existing_descriptors] <- ith_msum[names(ith_msum) %in% msum_names]
+  }
+  return(msum)
+}
+# msum <- get_msum("radc")
+
+
+# list with datasets that contain estimated coefficients
+get_mpar <- function(study){
+  pathStudy <- file.path(pathStudies, study) # folder with output files
+  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+  ## Create list object to populated from model output files
+  mpar <- list()
+  for(i in seq_along(out_list)){
+    mpar[i] <- MplusAutomation::extractModelParameters(target=out_list[i], recursive=T, dropDimensions=T)
+  }
+  return(mpar)
+}
+# mpar <- get_mpar("radc")
+
+
+
+
+get.Models <- function(study){
+  msum <- get_msum("radc")
+  mpar <- get_mpar("radc")
+
   names(msum) <- msum_names
   ## init mpar object
   mpar <- list()
@@ -114,7 +180,7 @@ get.Models <- function(study){
   nmodels==length(out_list)
 
   # Declare what will be collected in DTO (data transfer object)
-  dto.vars <- c(
+  selected_results <- c(
     "model_number", "version", "active","valid", "best_in_gender",
     "study_name", "date", "time", "converged", "subgroup", "model_type",
     "physical_construct",
@@ -136,8 +202,8 @@ get.Models <- function(study){
     "parameter_count",
     "deviance", "software", "output_file", "model_description", "results_descriptions", "notes" )
   # Generate empty data frame to be populated by Mplus values
-  results=data.frame(matrix(NA, ncol=length(dto.vars), nrow=nmodels))
-  names(results) <-  dto.vars
+  results=data.frame(matrix(NA, ncol=length(selected_results), nrow=nmodels))
+  names(results) <-  selected_results
 
 
 
