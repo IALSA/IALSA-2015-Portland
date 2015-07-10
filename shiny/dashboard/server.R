@@ -61,15 +61,15 @@ function(input, output, session) {
 
 # browser()
   selectedData <- reactive({
-  filter_model(ds = dsb,study = "satsa" ,
-    pm = "grip", covars = "aeh")
+    filter_model(ds = dsb, study = input$radioStudy ,
+    pm = input$radioPhysMeasure, covars = input$radioModelType)
   })
 
 # browser()
   output$bivariate_ISR <- renderPlot({
     TilePlot <- basic_tile(ds = selectedData(), x_name = "physical_measure")
     dsISR <- as.data.frame(ISR_tile_data(ds=selectedData()))
-    ISRPlot <- ISR_plot(ds = dsISR,  display_value="display")
+    ISRPlot <- ISR_plot(ds = dsISR,  display_value=input$radioDisplayMode)
 
     allPlots <- 11
     firstPlot <- 3
