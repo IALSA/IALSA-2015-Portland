@@ -255,17 +255,11 @@ get_results_basic <- function(study){
     model <- mpar[[i]]
 
   if(has_converged) {
-      ## obtain model solution for current loop
-
-      ## model
-
-
       ################# Covariances #################
       ## Look for at least 4 WITH statements
       ## otherwise fall back to 'Means' and 'Variances' (Baseline Models)
       modtype <- (length(grep("WITH", model$paramHeader))>=4)
       modtype
-      ## modtype LOOP BEGINS
       if(modtype) { # if modtype==1 we have WITH statements
         x <- model[grep("WITH", model$paramHeader),]
         ## find factor coavariances IP wiht IC and SP with SC
@@ -302,7 +296,8 @@ get_results_basic <- function(study){
           results[i, 'notes'] <- paste(results[i, 'notes'], "Heterogeneous Res Covs", sep='_')
         }
       }
-      ## modtype LOOP ENDS
+
+  } # closes has_convered
 
       ################# Variances #################
       ## Subset model
