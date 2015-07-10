@@ -12,7 +12,7 @@ Updates and News
 
 #### 0.Update
  - new app: dashboard  
- - project pages
+ - [project pages](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md)  
 
 #### 1.Publication model
  - Review, Meta, and Individual papers
