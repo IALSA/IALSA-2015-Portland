@@ -13,12 +13,12 @@ library(grid)
 
 
 if(basename(getwd())=="dashboard"){
-ds1a <- readRDS('../../data/shared/ds1a.rds')
+ds2 <- readRDS('../../data/shared/ds2.rds')
 source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
 source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
 
 }else{
-ds1a <- readRDS('./data/shared/ds1a.rds')
+ds2 <- readRDS('./data/shared/ds2.rds')
 source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
 source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
 
@@ -29,7 +29,7 @@ keepvar <- c("study_name","model_number", "subgroup", "model_type","physical_con
 # keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
 
 # reduce number of columns
-dsb <- ds1a[ , keepvar]
+dsb <- ds2[ , keepvar]
 # reduce number of rows
 dsb <- dsb %>% dplyr::filter(model_number %in% c("u1","b1"))
 
