@@ -5,6 +5,9 @@ Updates and News
  - [Teleconference #2, 26-June-2015](./log.md)
  - [Teleconference #1, 12-June-2015](./log.md#New) 
  
+##Teleconference #3, July 10, 2015
+
+
  
 
 ##Teleconference #2
@@ -71,7 +74,7 @@ What should the interpretation be for each combination?
    
 ### 7. Next steps
 
-What should be accomplished in the next 2 weeks?
+- write a brief report summary interpreting Bivariate ISR graph (table 2)   
 
 
 ## Teleconference #1, 12-June-2015
