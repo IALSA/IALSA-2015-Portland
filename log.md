@@ -5,17 +5,35 @@ Updates and News
  - [Teleconference #2, 26-June-2015](./log.md)
  - [Teleconference #1, 12-June-2015](./log.md#New) 
  
-##Teleconference #3, July 10, 2015
+##Teleconference #3 
+**July 10, 2015**
+</br>
+*AGENDA*
 
+#### 0.Update
+ - new app: dashboard  
+ - project pages
 
- 
+#### 1.Publication model
+ - Review, Meta, and Individual papers
+
+#### 2.ISR Summaries 
+
+#### 3. Brief Report anatomy
+
+#### 4. Plans
+
+**Next week**:  
+-  Fill the gaps, use pivotTable  
+-  Pulmonary Brief Report: table 1 + table 2
+
+**Next Month**:  
+- Can we use "aehplus" as the common model? Exploring table 3: mixed effects.
 
 ##Teleconference #2
 **26 July 2015**
-
-
-### AGENDA 
-
+</br>
+*AGENDA*
 ### 0. Updates
  - Reports and Apps will be on the top from now on.    
  - All reports have been regenerated. Links to reports are in the section "Analytic Tools to date".They will be regenerated every time substantial changes are made to the model collective (in the future these updates will be automatic)    
