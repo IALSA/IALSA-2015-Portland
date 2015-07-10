@@ -17,8 +17,10 @@ out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$
 
 
 # for debugging functions
-study <- "radc"
+# study <- "radc"
+study <- "ilse"
 i <- 1
+# comment out the code above when referenciing from 0_collect_studies.R
 ###########################################################################
 
 ################# GitHub sync issues ################################
@@ -129,11 +131,11 @@ get_msum <- function(study){
   }
   return(msum)
 }
-msum <- get_msum("radc")
+msum <- get_msum(study)
 # msum[190,"Filename"]
 
 
-# a list of datasets with estimated coefficients
+# a list of datasets containing estimated coefficients
 get_mpar <- function(study){
   pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
@@ -146,7 +148,7 @@ get_mpar <- function(study){
   }
   return(mpar)
 }
-mpar <- get_mpar("radc")
+mpar <- get_mpar(study)
 # mpar[[190]]
 ##### get_msum & get_mpar ####
 
@@ -176,7 +178,7 @@ results_to_populate <- function(study){
      "var_slope_cog",    "se_slope_cog",
   "var_residual_cog", "se_residual_cog",
 
-    "cov_int",   "cov_slope", "cov_residual",
+    "cov_int",   "cov_slope", "cov_residual", "se_cov_residual",
   "p_cov_int", "p_cov_slope","p_cov_res"
 
  )
@@ -186,7 +188,7 @@ results_to_populate <- function(study){
   selected_results
   return(results)
 }
-results <- results_to_populate("radc")
+results <- results_to_populate(study)
 
 
 # organize basic model descriptors
@@ -238,10 +240,10 @@ get_results_basic <- function(study){
   }
   return(results)
 } # close get_results_basic
-results <- get_results_basic("radc")
+results <- get_results_basic(study)
 
 
-get_results_basic <- function(study){
+get_results_covariance <- function(study){
   # populate a dataset with data from msum and mpar
   pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
@@ -253,11 +255,12 @@ get_results_basic <- function(study){
     message("Getting ", study, ", model ", i, ", ",out_file)
     mplus_output <- scan(out_list[i], what='character', sep='\n')
     model <- mpar[[i]]
-
-  if(has_converged) {
+    has_converged <- results[i,"converged"]
+    if(has_converged) {
       ################# Covariances #################
       ## Look for at least 4 WITH statements
       ## otherwise fall back to 'Means' and 'Variances' (Baseline Models)
+      ## this test seems wrong. The will be as many "WITH" as there are timepoints.
       modtype <- (length(grep("WITH", model$paramHeader))>=4)
       modtype
       if(modtype) { # if modtype==1 we have WITH statements
@@ -272,32 +275,47 @@ get_results_basic <- function(study){
         fc
 
         ############# Covariance among intercepts  #################
-        ## reduce to I in paramHeader. Note. Use "^" to avoid the I in  WITHIN
+        ## reduce to starting "I" in paramHeader. Note. Use "^" to avoid the I in  WITHIN
         IpH <- fc[grep("^I", fc$paramHeader),]
         ## get I in param
-        results[i, c("cov_int", "p_cov_int")] <-  IpH[grep("^I", IpH$param),c('est', 'pval')]
+        ## cov_int - covariante btw phys and cog intercepts - pc_TAU_00
+        results[i, c("cov_int")] <-  IpH[grep("^I", IpH$param),c('est')]
+        ## se_cov_int - standard error of cov_int
         results[i, c("se_cov_int")] <-  IpH[grep("^I", IpH$param),c('se')]
+        ## p_cov_int - p-value associated with cov_int
+        results[i, c("p_cov_int")] <-  IpH[grep("^I", IpH$param),c('pval')]
 
         ############ Covariance among slopes  ####################
-        ## reduce to S in paramHeader. Play it save, use ^
+        ## reduce to starting "I" in paramHeader. Play it save, use ^
         SpH <- fc[grep("^S", fc$paramHeader),]
         ## get S in param
-        results[i, c("cov_slope", "p_cov_slope")] <- SpH[grep("S", SpH$param),c('est', 'pval')]
+        ## cov_slope - covariance btw phys and cog slopes - pc_TAU_11
+        results[i, c("cov_slope")] <- SpH[grep("S", SpH$param),c('est')]
+        ## se_cov_slope - standard error of cov_slope
         results[i, c("se_cov_slope")] <- SpH[grep("S", SpH$param),c('se')]
+         ## p_cov_slope - p-value associated with cov_slope
+        results[i, c("p_cov_slope")] <- SpH[grep("S", SpH$param),c('pval')]
 
         ############# Covariance among residuals  ##################
         ## Obtain resid cov
         rc <- x[-grep("I|S", x$param),]
         ## Check whether only one cov has been estimated
-        if(length(unique(rc$est))==1) {
-          results[i, c("cov_residual", "p_cov_res")] <- rc[1,c('est', 'pval')]
-          results[i, c("se_cov_residual")] <- rc[1,c('se')]
+        if(length(unique(rc$est))==1){
+          results[i, c("cov_residual","se_cov_residual", "p_cov_res")] <- rc[1,c('est','se', 'pval')]
+          # results[i, c("se_cov_residual")] <- rc[1,c('se')]
         } else {
           results[i, 'notes'] <- paste(results[i, 'notes'], "Heterogeneous Res Covs", sep='_')
         }
       }
 
   } # closes has_convered
+  } # close study loop
+  return(results)
+} # close get_results_covariance
+results <- get_results_covariance(study)
+
+## not working past this line
+#################################################################
 
       ################# Variances #################
       ## Subset model
