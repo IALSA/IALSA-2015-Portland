@@ -18,8 +18,10 @@ Updates and News
  - Review, Meta, and Individual papers
 
 #### 2.ISR Summaries 
+- [review online](https://github.com/IALSA/IALSA-2015-Portland/tree/master/studies/table_2_ISR)
 
 #### 3. Brief Report anatomy
+ -  ```./projects```
 
 #### 4. Plans
 
