@@ -41,6 +41,7 @@ Analytic tools available to the workshop participants include dynamic **reports*
  - [scripts README](./scripts/README.md) overview scripts that replicates data preparation  
  
 ###  Apps  
+ - [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)  
  - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
  -  [Bivariate ISR](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/bivariate_ISR) reviews correlations between intercepts (I), slopes (S), and residuals(R) for all models in one study using the same physical measure. 
 

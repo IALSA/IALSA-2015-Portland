@@ -5,14 +5,37 @@ Updates and News
  - [Teleconference #2, 26-June-2015](./log.md)
  - [Teleconference #1, 12-June-2015](./log.md#New) 
  
- 
+##Teleconference #3 
+**July 10, 2015**
+</br>
+*AGENDA*
+
+#### 0.Update
+ - new app: dashboard  
+ - [project pages](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md)  
+
+#### 1.Publication model
+ - Review, Meta, and Individual papers
+
+#### 2.ISR Summaries 
+- [review online](https://github.com/IALSA/IALSA-2015-Portland/tree/master/studies/table_2_ISR)
+
+#### 3. Brief Report anatomy
+ -  ```./projects```
+
+#### 4. Plans
+
+**Next week**:  
+-  Fill the gaps, use pivotTable  
+-  Pulmonary Brief Report: table 1 + table 2
+
+**Next Month**:  
+- Can we use "aehplus" as the common model? Exploring table 3: mixed effects.
 
 ##Teleconference #2
 **26 July 2015**
-
-
-### AGENDA 
-
+</br>
+*AGENDA*
 ### 0. Updates
  - Reports and Apps will be on the top from now on.    
  - All reports have been regenerated. Links to reports are in the section "Analytic Tools to date".They will be regenerated every time substantial changes are made to the model collective (in the future these updates will be automatic)    
@@ -71,7 +94,7 @@ What should the interpretation be for each combination?
    
 ### 7. Next steps
 
-What should be accomplished in the next 2 weeks?
+- write a brief report summary interpreting Bivariate ISR graph (table 2)   
 
 
 ## Teleconference #1, 12-June-2015
