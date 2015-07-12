@@ -1,44 +1,42 @@
 Model Specification
 ---
-Bivariate linear growth curve model used by the Portland Collective as the fulcrum of coordination has the following specification
-![bivariate model specification](../../libs/images/general_model_specification.png)    
-![covariance structure](../../libs/images/specification_covariance_structure.png)   
-where    
+Bivariate linear growth curve model used by the Portland Collective as the fulcrum of coordination has the following specification  
+![bivariate model specification](../../libs/images/general_model_specification.png)      
+![covariance structure](../../libs/images/specification_covariance_structure.png)     
+where      
 - *i* - individual     
 - *t* - timepoint   
-- *o* - outcome  (phys/cog)
+- *o* - outcome  (phys/cog)  
 - *p* - physical measure used in estimation  
 - *c* - cognitive measure used in estimation  
-</br>  
-- *y<sub>t</sub><sub>i</sub>* - score for the individual *i* at time *t* on an outcome
+  
+- *y<sub>t</sub><sub>i</sub>* - score for the individual *i* at time *t* on an outcome  
 - &beta;<sub>0i</sub>  - bivariate initial status / random intercept   
 - &beta;<sub>1i</sub>  - bivariate rate of change / random slope   
 -  *u*<sub>0i</sub> - is residual of the random intercept of an outcome  
 -  *u*<sub>1i</sub> - is residual of the random slope of an outcome  
-
-</br>
+  
 - *&gamma;<sub>00</sub>* - p_GAMMA_00, c_GAMMA_00 -  average initial status / common intercept of an outcome       
 - *&gamma;<sub>10</sub>* - p_GAMMA_10, c_GAMMA_10 -  average rate of change / common slope of an outcome      
-- *&gamma;<sub>0k</sub>* - p_GAMMA_0k, c_GAMMA_0k -  effect of the *k*th predictor on the random intercept of an outcome
-- *&gamma;<sub>1k</sub>* - p_GAMMA_1k, c_GAMMA_1k - effect of the *k*th predictor on the random slope of an outcome
-</br>   
-- *<sub>pp</sub>&tau;<sub>00</sub>* / pp_TAU_00 - variance of physical intercept  
-- *<sub>pp</sub>&tau;<sub>11</sub>* / pp_TAU_11 - variance of physical slope  
-- *<sub>cc</sub>&tau;<sub>11</sub>* / cc_TAU_11 - variance of cognitive slope  
-- *<sub>cc</sub>&tau;<sub>00</sub>* / cc_TAU_00 - variance of cogntive intercept   
- 
-- *<sub>pp</sub>&tau;<sub>01</sub>* / pp_TAU_01 - covariance btw physical intercept and physical slope  
-- *<sub>pc</sub>&tau;<sub>01</sub>* / pc_TAU_01 - covariance btw physical intercept and cognitive slope  
-- *<sub>pc</sub>&tau;<sub>00</sub>* / pc_TAU_00 - covariance btw physical intercept and cognitive intercept - **I**  
-- *<sub>pc</sub>&tau;<sub>11</sub>* / pc_TAU_11 - covariance btw physical slope and cognitive slope  - **S**  
-- *<sub>pc</sub>&tau;<sub>10</sub>* / pc_TAU_10 - covariance btw physical slope and cognitive intercept   
-- *<sub>cc</sub>&tau;<sub>10</sub>* / cc_TAU_10 - covariance btw cognitive slope and cognitive intercept      
-
-- *<sub>p</sub>&#963;</sub>* / p_SIGMA - variance of the physical residual  
-- *<sub>c</sub>&#963;</sub>* / c_SIGMA - variance of the cogntive residual   
-- *<sub>pp</sub>&#963;</sub>* / pc_SIGMA - covariance btw physcial residual and cogntive residual - **R**  
-
-
+- *&gamma;<sub>0k</sub>* - p_GAMMA_0k, c_GAMMA_0k -  effect of the *k*th predictor on the random intercept of an outcome  
+- *&gamma;<sub>1k</sub>* - p_GAMMA_1k, c_GAMMA_1k - effect of the *k*th predictor on the random slope of an outcome  
+  
+- *<sub>pp</sub>&tau;<sub>00</sub>* - pp_TAU_00 - variance of physical intercept  
+- *<sub>pp</sub>&tau;<sub>11</sub>* - pp_TAU_11 - variance of physical slope  
+- *<sub>cc</sub>&tau;<sub>11</sub>* - cc_TAU_11 - variance of cognitive slope  
+- *<sub>cc</sub>&tau;<sub>00</sub>* - cc_TAU_00 - variance of cogntive intercept   
+  
+- *<sub>pp</sub>&tau;<sub>01</sub>* - pp_TAU_01 - covariance btw physical intercept and physical slope  
+- *<sub>pc</sub>&tau;<sub>01</sub>* - pc_TAU_01 - covariance btw physical intercept and cognitive slope   
+- *<sub>pc</sub>&tau;<sub>00</sub>* - pc_TAU_00 - covariance btw physical intercept and cognitive intercept - **I**  
+- *<sub>pc</sub>&tau;<sub>11</sub>* - pc_TAU_11 - covariance btw physical slope and cognitive slope  - **S**  
+- *<sub>pc</sub>&tau;<sub>10</sub>* - pc_TAU_10 - covariance btw physical slope and cognitive intercept   
+- *<sub>cc</sub>&tau;<sub>10</sub>* - cc_TAU_10 - covariance btw cognitive slope and cognitive intercept      
+  
+- *<sub>p</sub>&#963;</sub>* - p_SIGMA - variance of the physical residual   
+- *<sub>c</sub>&#963;</sub>* - c_SIGMA - variance of the cogntive residual    
+- *<sub>pp</sub>&#963;</sub>* - pc_SIGMA - covariance btw physcial residual and cogntive residual - **R**    
+  
 THe model of this type could be fitted with the following Mplus syntax. To exemplify, we'll look at the model [b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.out](https://github.com/IALSA/IALSA-2015-Portland/blob/master/studies/ilse/TUG/b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.out) from ILSE study.  This ILSE was specified in Mplus as follows
 ```
   MODEL:  ip sp | p1-p3 AT time1-time3;
