@@ -2,36 +2,28 @@ Model Specification
 ---
 Bivariate linear growth curve model used by the Portland Collective as the fulcrum of coordination has the following specification
 ![bivariate model specification](../../libs/images/general_model_specification.png)    
+![covariance structure](../../libs/images/specification_covariance_structure.png)   
 where    
- *y<sub>t</sub><sub>i</sub>* - is score on the outcome *o* for the individual *i* at time *t*    
+- *i* - individual     
+- *t* - timepoint   
+- *o* - outcome  (phys/cog)
+- *p* - physical measure used in estimation  
+- *c* - cognitive measure used in estimation  
+  
+-*y<sub>t</sub><sub>i</sub>* - score for the individual *i* at time *t* on an outcome
  
-  &beta;<sub>0i</sub>  - bivariate initial status 
-  &beta;<sub>1i</sub>  - bivariate rate of change
+- &beta;<sub>0i</sub>  - bivariate initial status   
+- &beta;<sub>1i</sub>  - bivariate rate of change  
   
-  &gamma;<sub>00</sub> - initial status 
-  &gamma;<sub>10</sub> - rate of change 
+- &gamma;<sub>00</sub> - initial status of an outcome  
+- &gamma;<sub>10</sub> - rate of change of an outcome  
 
-  &#915;<sub>0*k*</sub> - effects of predictors 1 through *k* on the initial status of an outcome
-  &#915;<sub>1*k*</sub> - effect of predictors 1 throuh *k* on the rate of change of an outcome 
-  
-   *u*<sub>0</sub> - is residual of the random intercept of an outcome
-   *u*<sub>1</sub> - is residual of the random slope of an outcome
-  
-  
-  *i* - individual    
-  *t* - timepoint   
-  *o* - outcome  (phys/cog)
-  *p* - physical measure used in estimation  
-  *c* - cognitive measure used in estimation  
-  
-## Reporting Mixed Effects
-
-Random and Fixed effects of each model can be organized into the following table  
-
-![covariance structure](../../libs/images/specification_covariance_structure.png)
-
-in which    
-
+- &#915;<sub>0*k*</sub> - effects of predictors 1 through *k* on the initial status of an outcome  
+- &#915;<sub>1*k*</sub> - effect of predictors 1 throuh *k* on the rate of change of an outcome   
+ 
+-  *u*<sub>0</sub> - is residual of the random intercept of an outcome  
+-  *u*<sub>1</sub> - is residual of the random slope of an outcome  
+ 
  - *&tau;* - variances and covariances bewteen random terms of the bivariate models 
  - *&gamma;<sub>00</sub>* -  average initial status / common intercept      
  - *&gamma;<sub>10</sub>* -  average rate of change / common slope      
