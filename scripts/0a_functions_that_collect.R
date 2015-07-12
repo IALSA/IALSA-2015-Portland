@@ -153,8 +153,7 @@ mpar <- get_mpar(study)
 ##### get_msum & get_mpar ####
 
 
-
-
+# create empty dataset "results"
 results_to_populate <- function(study){
   # populate a dataset with data from msum and mpar
   pathStudy <- file.path(pathStudies, study) # folder with output files
@@ -196,7 +195,6 @@ get_results_basic <- function(study){
   # populate a dataset with data from msum and mpar
   pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
-
 
   models_in_a_study <- seq_along(mpar)
   # models_in_a_study <- 1
@@ -317,6 +315,23 @@ results <- get_results_covariance(study)
 ## not working past this line
 #################################################################
 
+
+get_results_variance <- function(study){
+  # populate a dataset with data from msum and mpar
+  pathStudy <- file.path(pathStudies, study) # folder with output files
+  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+
+  models_in_a_study <- seq_along(mpar)
+  # models_in_a_study <- 1
+  for(i in models_in_a_study){
+    out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
+    message("Getting ", study, ", model ", i, ", ",out_file)
+    mplus_output <- scan(out_list[i], what='character', sep='\n')
+    model <- mpar[[i]]
+    has_converged <- results[i,"converged"]
+    if(has_converged) {
+
+
       ################# Variances #################
       ## Subset model
       vrs <- model[grep("Variances", model$paramHeader),]
@@ -354,9 +369,25 @@ results <- get_results_covariance(study)
       ## Test of unconstrained variances: needs development
       #else {
        #    results[i,'notes'] <- paste(results[i,'notes'], 'Cog ResCov unconstrained', sep='_')}
-    }# has_converged LOOP ENDS
+    }# close has_converged
+  } # close study loop
+}# close get_results_variance
+get_results_variance(study)
 
-}
+# get_models <- function(study){
+#   msum <- get_msum(study)
+#   mpar <- get_mpar(study)
+#   results <- results_to_populate(study)
+#   results <- get_results_basic(study)
+#   results <- get_results_covariance(study)
+#   results <- get_results_variance(study)
+#   return(results)
+# }
+# get_models("ilse")
+
+
+
+
 
 ######################### old code below
 get.Models <- function(study){
