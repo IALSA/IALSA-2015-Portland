@@ -5,22 +5,22 @@ Bivariate linear growth curve model used by the Portland Collective as the fulcr
 where    
  *y<sub>t</sub><sub>i</sub>* - is score on the outcome *o* for the individual *i* at time *t*    
  
-  &beta;<sub>0</sub>  - is intercept of the outcome *o*  
-  &beta;<sub>1</sub>  - is rate of change of the outcome *o* 
+  &beta;<sub>0i</sub>  - bivariate initial status 
+  &beta;<sub>1i</sub>  - bivariate rate of change
   
-  &gamma;<sub>00</sub> - is the intercept (grand mean when all predictors are 0)  
-  &gamma;<sub>10</sub> - is the slope (rate of change over time when all predictors are 0)
+  &gamma;<sub>00</sub> - initial status 
+  &gamma;<sub>10</sub> - rate of change 
 
-  &#915;<sub>0*k*</sub> - is the vector of weights for the trajectory intercept regressions on the *k*th set of covariates  
-  &#915;<sub>1*k*</sub> - is  the vector of weights for the trajectory slope regressions on the *k*th set of covariates 
+  &#915;<sub>0*k*</sub> - effects of predictors 1 through *k* on the initial status of an outcome
+  &#915;<sub>1*k*</sub> - effect of predictors 1 throuh *k* on the rate of change of an outcome 
   
-   *u*<sub>0</sub> - is variance of random intercept of the outcome *o*  
-   *u*<sub>1</sub> - is variance of random slope of the outcome *o*   
+   *u*<sub>0</sub> - is residual of the random intercept of an outcome
+   *u*<sub>1</sub> - is residual of the random slope of an outcome
   
   
   *i* - individual    
   *t* - timepoint   
-  *o* - outcome   
+  *o* - outcome  (phys/cog)
   *p* - physical measure used in estimation  
   *c* - cognitive measure used in estimation  
   
@@ -33,9 +33,9 @@ Random and Fixed effects of each model can be organized into the following table
 in which    
 
  - *&tau;* - variances and covariances bewteen random terms of the bivariate models 
- - *&gamma;<sub>00</sub>* -  common intercept     
- - *&gamma;<sub>10</sub>* -  common slope      
- - *&gamma;<sub>01...k</sub>* - effects of the *k*th set of covariate on the common intercept      
+ - *&gamma;<sub>00</sub>* -  average initial status / common intercept      
+ - *&gamma;<sub>10</sub>* -  average rate of change / common slope      
+ - *&gamma;<sub>01...k</sub>* -  effect of the 1-*k*th effect on covariates on the common intercept      
  - *&gamma;<sub>11...k</sub>* - effects of the *k*th set of covariates on the common slope      
 
 <!--
