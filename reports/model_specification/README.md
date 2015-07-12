@@ -9,34 +9,37 @@ where
 - *o* - outcome  (phys/cog)
 - *p* - physical measure used in estimation  
 - *c* - cognitive measure used in estimation  
-  
--*y<sub>t</sub><sub>i</sub>* - score for the individual *i* at time *t* on an outcome
- 
-- &beta;<sub>0i</sub>  - bivariate initial status   
-- &beta;<sub>1i</sub>  - bivariate rate of change  
-  
-- &gamma;<sub>00</sub> - initial status of an outcome  
-- &gamma;<sub>10</sub> - rate of change of an outcome  
+</br>  
+- *y<sub>t</sub><sub>i</sub>* - score for the individual *i* at time *t* on an outcome
+- &beta;<sub>0i</sub>  - bivariate initial status / random intercept   
+- &beta;<sub>1i</sub>  - bivariate rate of change / random slope   
+-  *u*<sub>0i</sub> - is residual of the random intercept of an outcome  
+-  *u*<sub>1i</sub> - is residual of the random slope of an outcome  
 
-- &#915;<sub>0*k*</sub> - effects of predictors 1 through *k* on the initial status of an outcome  
-- &#915;<sub>1*k*</sub> - effect of predictors 1 throuh *k* on the rate of change of an outcome   
- 
--  *u*<sub>0</sub> - is residual of the random intercept of an outcome  
--  *u*<sub>1</sub> - is residual of the random slope of an outcome  
- 
- - *&tau;* - variances and covariances bewteen random terms of the bivariate models 
- - *&gamma;<sub>00</sub>* -  average initial status / common intercept      
- - *&gamma;<sub>10</sub>* -  average rate of change / common slope      
- - *&gamma;<sub>01...k</sub>* -  effect of the 1-*k*th effect on covariates on the common intercept      
- - *&gamma;<sub>11...k</sub>* - effects of the *k*th set of covariates on the common slope      
+</br>
+- *&gamma;<sub>00</sub>* / p_GAMMA_00, c_GAMMA_00 -  average initial status / common intercept of an outcome       
+- *&gamma;<sub>10</sub>* / p_GAMMA_10, c_GAMMA_10 -  average rate of change / common slope of an outcome      
+- *&gamma;<sub>01...k</sub>* / p_GAMMA_0*, c_GAMMA_0* -  effect of the 1st through *k*th predictor on the random intercept of an outcome
+- *&gamma;<sub>11...k</sub>* / p_GAMMA_1*, c_GAMMA_1* - effect of the 1st through *k*th predictor on the random slope of an outcome
+</br>   
+- *<sub>pp</sub>&tau;<sub>00</sub>* / pp_TAU_00 - variance of physical intercept  
+- *<sub>pp</sub>&tau;<sub>11</sub>* / pp_TAU_11 - variance of physical slope  
+- *<sub>cc</sub>&tau;<sub>11</sub>* / cc_TAU_11 - variance of cognitive slope  
+- *<sub>cc</sub>&tau;<sub>00</sub>* / cc_TAU_00 - variance of cogntive intercept
+- 
+- *<sub>pp</sub>&tau;<sub>01</sub>* / pp_TAU_01 - covariance btw physical intercept and physical slope  
+- *<sub>pc</sub>&tau;<sub>01</sub>* / pc_TAU_01 - covariance btw physical intercept and cognitive slope  
+- *<sub>pc</sub>&tau;<sub>00</sub>* / pc_TAU_00 - covariance btw physical intercept and cognitive intercept - **I**  
+- *<sub>pc</sub>&tau;<sub>11</sub>* / pc_TAU_11 - covariance btw physical slope and cognitive slope  - **S**  
+- *<sub>pc</sub>&tau;<sub>10</sub>* / pc_TAU_10 - covariance btw physical slope and cognitive intercept   
+- *<sub>cc</sub>&tau;<sub>10</sub>* / cc_TAU_10 - covariance btw cognitive slope and cognitive intercept     
+-
+- *<sub>p</sub>&963;<sup>2</sub>* / p_SIGMA - variance of the physical residual  
+- *<sub>c</sub>&963;<sup>2</sub>* / c_SIGMA - variance of the cogntive residual   
+- *<sub>pp</sub>&963;<sup>2</sub>* / pc_SIGMA - covariance btw physcial residual and cogntive residual - **R**  
+- 
 
-<!--
-In order to ease the comparison across studies, we will convert these covariances into correlation   
-
-![correlation structure](../../libs/images/specification_correlation_structure.png)
--->
-
-The following model from ILSE was specified in Mplus as
+THe model of this type could be fitted with the following Mplus syntax. To exemplify, we'll look at the model [b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.out](https://github.com/IALSA/IALSA-2015-Portland/blob/master/studies/ilse/TUG/b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.out) from ILSE study.  This ILSE was specified in Mplus as follows
 ```
   MODEL:  ip sp | p1-p3 AT time1-time3;
           ic sc | c1-c3 AT time1-time3;
@@ -49,8 +52,7 @@ The following model from ILSE was specified in Mplus as
           c1-c3 (res_c);
           p1-p3 pwith c1-c3(res_cov);
 ```
-
-This is how model output for a bivariate model maps onto the algebraic model specification.
+The output of this model is processed with MplusAutomation package and the following data object produced, containing the numeric results of the estimated model solution.  The right-hand column contains alphanumeric names that map onto the algebraic specification of our bivariate growth model. 
 
 ```
 > message("Getting ", study, ", model ", i, ", ",out_file)
@@ -83,9 +85,9 @@ Getting ilse, model 97, b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.
 24            SP.WITH     IC  0.178  0.220   0.810   0.418 - pc_TAU_10  
 25            SP.WITH     SC  0.001  0.017   0.078   0.938 - pc_TAU_11  
 26            IC.WITH     SC -0.514  0.621  -0.827   0.408 - cc_TAU_10
-27            P1.WITH     C1  0.172  0.516   0.334   0.738 - SIGMA_pc
-28            P2.WITH     C2  0.172  0.516   0.334   0.738 - SIGMA_pc
-29            P3.WITH     C3  0.172  0.516   0.334   0.738 - SIGMA_pc
+27            P1.WITH     C1  0.172  0.516   0.334   0.738 - pc_SIGMA
+28            P2.WITH     C2  0.172  0.516   0.334   0.738 - pc_SIGMA
+29            P3.WITH     C3  0.172  0.516   0.334   0.738 - pc_SIGMA
 30         Intercepts     P1  0.000  0.000 999.000 999.000
 31         Intercepts     P2  0.000  0.000 999.000 999.000
 32         Intercepts     P3  0.000  0.000 999.000 999.000
@@ -96,12 +98,12 @@ Getting ilse, model 97, b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.
 37         Intercepts     SP  0.151  0.216   0.700   0.484 - p_GAMMA_10  
 38         Intercepts     IC 36.655  6.672   5.494   0.000 - c_GAMMA_00  
 39         Intercepts     SC  0.062  0.451   0.137   0.891 - c_GAMMA_10
-40 Residual.Variances     P1  1.649  0.277   5.943   0.000 - SIGMA_p  
-41 Residual.Variances     P2  1.649  0.277   5.943   0.000 - SIGMA_p
-42 Residual.Variances     P3  1.649  0.277   5.943   0.000 - SIGMA_p
-43 Residual.Variances     C1 14.190  1.094  12.973   0.000 - SIGMA_c
-44 Residual.Variances     C2 14.190  1.094  12.973   0.000 - SIGMA_c
-45 Residual.Variances     C3 14.190  1.094  12.973   0.000 - SIGMA_c
+40 Residual.Variances     P1  1.649  0.277   5.943   0.000 - p_SIGMA    
+41 Residual.Variances     P2  1.649  0.277   5.943   0.000 - p_SIGMA  
+42 Residual.Variances     P3  1.649  0.277   5.943   0.000 - p_SIGMA  
+43 Residual.Variances     C1 14.190  1.094  12.973   0.000 - c_SIGMA  
+44 Residual.Variances     C2 14.190  1.094  12.973   0.000 - c_SIGMA  
+45 Residual.Variances     C3 14.190  1.094  12.973   0.000 - c_SIGMA  
 46 Residual.Variances     IP  1.557  0.691   2.255   0.024 - pp_TAU_00
 47 Residual.Variances     SP  0.003  0.010   0.267   0.789 - pp_TAU_11
 48 Residual.Variances     IC 96.073 12.242   7.848   0.000 - cc_TAU_00
