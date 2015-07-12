@@ -14,10 +14,10 @@ where
 - &beta;<sub>1i</sub>  - bivariate rate of change / random slope   
 - *u*<sub>0i</sub> - is residual of the random intercept of an outcome  
 - *u*<sub>1i</sub> - is residual of the random slope of an outcome  
-- *&gamma;<sub>00</sub>* - p_GAMMA_00, c_GAMMA_00 -  average initial status / common intercept of an outcome       
-- *&gamma;<sub>10</sub>* - p_GAMMA_10, c_GAMMA_10 -  average rate of change / common slope of an outcome      
-- *&gamma;<sub>0k</sub>* - p_GAMMA_0k, c_GAMMA_0k -  effect of the *k*th predictor on the random intercept of an outcome  
-- *&gamma;<sub>1k</sub>* - p_GAMMA_1k, c_GAMMA_1k - effect of the *k*th predictor on the random slope of an outcome
+- *&gamma;<sub>00</sub>* - o_GAMMA_00 -  average **initial status** / common intercept of an outcome       
+- *&gamma;<sub>10</sub>* - o_GAMMA_10 -  average **rate of change** / common slope of an outcome      
+- *&gamma;<sub>0k</sub>* - o_GAMMA_0k -  effect of the *k*th predictor on the random intercept of an outcome  
+- *&gamma;<sub>1k</sub>* - o_GAMMA_1k - effect of the *k*th predictor on the random slope of an outcome
 - *<sub>pp</sub>&tau;<sub>00</sub>* - pp_TAU_00 - variance of physical intercept  
 - *<sub>pp</sub>&tau;<sub>11</sub>* - pp_TAU_11 - variance of physical slope  
 - *<sub>cc</sub>&tau;<sub>11</sub>* - cc_TAU_11 - variance of cognitive slope  
