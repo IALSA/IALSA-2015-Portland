@@ -106,7 +106,7 @@ Getting ilse, model 97, b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.
 ![effects and residuals](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/libs/images/specification_covariance_structure.png)  
 
 ## NOTE
-When variances and covariances are requested explicitly, the output will include additional elements of which we need to be aware during extraction
+When variances and covariances are requested explicitly, the output will include additional elements of which we need to be aware during extraction. See [b1_female_aeh_pulmonary_speed_fev_digitsymbol.out](https://github.com/IALSA/IALSA-2015-Portland/blob/master/studies/radc/outputs/b1_female_aeh_pulmonary_speed_fev_digitsymbol.out) for example of the output with this option. 
 ```
 > message("Getting ", study, ", model ", i, ", ",out_file)
 Getting radc, model 55, b1_female_aeh_pulmonary_speed_fev_digitsymbol.out
