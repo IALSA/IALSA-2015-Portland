@@ -1,25 +1,25 @@
-# These functions work with processing
-# models .out files
-options(width=160)
-rm(list=ls())
-cat("\f")
-
-library(MplusAutomation)
-
-## @knitr setPaths
-pathDir <- getwd() # establish home directory
-pathStudies <- file.path(pathDir,"studies")
-list.files(pathStudies) # inspect participating studies
-
-## @knitr setGlobals
-studies <- c("eas", "elsa")
-out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
-
-
-# for debugging functions
-# study <- "radc"
-study <- "ilse"
-i <- 97
+# # These functions work with processing
+# # models .out files
+# options(width=160)
+# rm(list=ls())
+# cat("\f")
+#
+# library(MplusAutomation)
+#
+# ## @knitr setPaths
+# pathDir <- getwd() # establish home directory
+# pathStudies <- file.path(pathDir,"studies")
+# list.files(pathStudies) # inspect participating studies
+#
+# ## @knitr setGlobals
+# studies <- c("eas", "elsa")
+# out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
+#
+#
+# # for debugging functions
+# # study <- "radc"
+# study <- "ilse"
+# i <- 97
 # comment out the code above when referenciing from 0_collect_studies.R
 
 find.Conflicts <- function(study){
@@ -122,7 +122,7 @@ get_msum <- function(study){
   }
   return(msum)
 }
-# msum <- get_msum(study)
+msum <- get_msum(study)
 # msum[190,"Filename"]
 
 # a list of datasets containing estimated coefficients
@@ -134,19 +134,19 @@ get_mpar <- function(study){
 
   # cycle through all model output files in this study
   for(i in seq_along(out_list)){
-    mpar[[i]] <- MplusAutomation::extractModelParameters(target=out_list[i], recursive=T, dropDimensions=T)
+    mpar[i] <- MplusAutomation::extractModelParameters(target=out_list[i], recursive=T, dropDimensions=T)
   }
   return(mpar)
 }
-# mpar <- get_mpar(study)
+mpar <- get_mpar(study)
 # mpar[[190]]
 
 # create empty dataset "results"
-results_to_populate <- function(study, msum, mpar){
+results_to_populate <- function(study){
   # populate a dataset with data from msum and mpar
   pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
-  mpar <- get_mpar(study)
+  # mpar <- get_mpar(study)
 
   # What model estimation results we should keep?
   selected_results <- c("software",  "version", "date", "time",
@@ -198,10 +198,10 @@ results_to_populate <- function(study, msum, mpar){
   # Create data frame to populated from model output files
   results=data.frame(matrix(NA, ncol=length(selected_results), nrow=length(mpar)))
   names(results) <-  selected_results
-  # selected_results
+  selected_results
   return(results)
 }
-# results <- results_to_populate(study, msum, mpar)
+results <- results_to_populate(study)
 
 # in dev
 load_study<- function(){
@@ -218,13 +218,13 @@ load_study<- function(){
   }
 } # close load_study
 
-get_results_basic <- function(study, msum, mpar){
+get_results_basic <- function(study){
   # populate a dataset with data from msum and mpar
   pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
-  msum <- get_msum(study)
-  mpar <- get_mpar(study)
-  results <- results_to_populate(study, msum, mpar)
+  # msum <- get_msum(study)
+  # mpar <- get_mpar(study)
+  # results <- results_to_populate(study)
 
   models_in_a_study <- seq_along(mpar)
   # models_in_a_study <- 1
@@ -251,8 +251,7 @@ get_results_basic <- function(study, msum, mpar){
     ## #################### Basic info ######################
     results[i, 'subject_count'] <- msum[i, 'Observations']
     results[i, 'parameter_count'] <- msum[i, 'Parameters']
-    wc <- model$unstandardized[model$unstandardized$paramHeader=='Intercepts', 'param']
-    wc <- model[grep("^I", model$paramHeader), ]
+    wc <- model[model$paramHeader=='Intercepts', 'param']
     results[i, 'wave_count'] <- max(as.numeric(gsub("[^0-9]", '', wc)), na.rm=T)
     results[i, 'output_file'] <- msum[i, 'Filename']
 
@@ -269,9 +268,9 @@ get_results_basic <- function(study, msum, mpar){
   }
   return(results)
 } # close get_results_basic
-# results <- get_results_basic(study, msum, mpar)
+results <- get_results_basic(study)
 
-get_results_offdiag <- function(study, msum, mpar, results){
+get_results_offdiag <- function(study){
   # populate a dataset with data from msum and mpar
   pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
@@ -320,9 +319,9 @@ get_results_offdiag <- function(study, msum, mpar, results){
   } # close study loop
   return(results)
 } # close get_results_covariance
-# results <- get_results_offdiag(study)
+results <- get_results_offdiag(study)
 
-get_results_diag <- function(study, msum, mpar, results){
+get_results_diag <- function(study){
   # populate a dataset with data from msum and mpar
   pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
@@ -380,9 +379,9 @@ get_results_diag <- function(study, msum, mpar, results){
   } # close study loop
     return(results)
 }# close get_results_diag
-# results <- get_results_diag(study)
+results <- get_results_diag(study)
 
-get_results_intercepts <- function(study, msum, mpar, results){
+get_results_intercepts <- function(study){
   # populate a dataset with data from msum and mpar
   pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
@@ -420,36 +419,35 @@ get_results_intercepts <- function(study, msum, mpar, results){
   }
   return(results)
 }# close get_results_intercepts
-# results <- get_results_intercepts(study)
+results <- get_results_intercepts(study)
 
 # meta function
 # get_models <- function(study){
- # pathStudy <- paste0(pathStudies,"/",study)
+  pathStudy <- paste0(pathStudies,"/",study)
 
 #   results <- results_to_populate(study)
 #
-#   destination <- file.path(pathStudy, "study_automation_result.csv")
-#   write.csv(results[results$study_name==study,], destination, row.names=F)
+  destination <- file.path(pathStudy, "study_automation_result.csv")
+  write.csv(results[results$study_name==study,], destination, row.names=F)
 # }
 # get_models("ilse")
 
 
 # # meta function
-get_models <- function(study){
-  pathStudy <- paste0(pathStudies,"/",study)
-  msum <- get_msum(study)
-  mpar <- get_mpar(study)
-  results <- results_to_populate(study, msum, mpar)
-  results <- get_results_basic(study, msum, mpar, results)
-  results <- get_results_offdiag(study, results)
-  results <- get_results_diag(study, results)
-  results <- get_results_intercepts(study, results)
-
-
-  destination <- file.path(pathStudy, "study_automation_result.csv")
-  write.csv(results[results$study_name==study,], destination, row.names=F)
-  return(results)
-}
-get_models("ilse")
+# get_models <- function(study){
+#   msum <- get_msum(study)
+#   mpar <- get_mpar(study)
+#   results <- results_to_populate(study)
+#   results <- get_results_basic(study)
+#   results <- get_results_offdiag(study)
+#   results <- get_results_diag(study)
+#   results <- get_results_intercepts(study)
+#   browser()
+#   pathStudy <- paste0(pathStudies,"/",study)
+#   destination <- file.path(pathStudy, "study_automation_result.csv")
+#   write.csv(results[results$study_name==study,], destination, row.names=F)
+#   return(results)
+# }
+# get_models("ilse")
 
 
