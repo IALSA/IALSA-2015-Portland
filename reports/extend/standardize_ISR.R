@@ -24,10 +24,16 @@ alpha <- 0.05
 limit <- ((1 - (alpha/2)))
 
 # CI for the intercept
-ds$int_zetau <- ds$corr_int + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$int_zetal <- ds$corr_int - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$ciu_corr_int <- tanh(ds$int_zetau)
-ds$cil_corr_int <- tanh(ds$int_zetal)
+ds$pc_ZETA_00_high <- ds$pc_CORR_00 + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_ZETA_00_low <- ds$pc_CORR_00 - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_CI95_00_high <- tanh(ds$pc_ZETA_00_high)
+ds$pc_CI95_00_low <- tanh(ds$pc_ZETA_00_low)
+
+# # CI for the intercept
+# ds$int_zetau <- ds$corr_int + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$int_zetal <- ds$corr_int - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$ciu_corr_int <- tanh(ds$int_zetau)
+# ds$cil_corr_int <- tanh(ds$int_zetal)
 
 # CI for the slope
 ds$slope_zetau <- ds$corr_slope + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
