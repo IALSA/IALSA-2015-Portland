@@ -24,8 +24,8 @@ dsb <- ds2 %>% dplyr::filter(model_number %in% c("u0","u2", "u1","b1"))
 }
 
 
-
-ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
+ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number")]
+# ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
 head(ds)
 
 
@@ -40,9 +40,9 @@ ds <- ds %>%
   dplyr::rename_("Study" = "study_name") %>%
   dplyr::rename_("Covariates" = "model_type") %>%
   dplyr::rename_("Sex" = "subgroup") %>%
-  dplyr::rename_("Corr.Intersepts" = "corr_int") %>%
-  dplyr::rename_("Corr.Slopes" = "corr_slope") %>%
-  dplyr::rename_("Corr.Residuals" = "corr_residual")
+  dplyr::rename_("Corr.Intersepts" = "pc_CORR_00") %>%
+  dplyr::rename_("Corr.Slopes" = "pc_CORR_11") %>%
+  dplyr::rename_("Corr.Residuals" = "pc_CORR_residual")
 head(ds)
 
 ds[,"Corr.Intersepts"] <- round(ds[ ,"Corr.Intersepts"], 3)
