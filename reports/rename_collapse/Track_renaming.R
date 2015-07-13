@@ -92,17 +92,16 @@ t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 
 ## @knitr correct_physical_measure
 # rename obvious type
-ds[ds$physical_measure == "fevc","physical_measure"] <- "fev"
+ds[ds$physical_measure %in% c("fevc", "fev1", "fvc") ,"physical_measure"] <- "fev"
 ## iN ILSE, look up philipp about tug
 ds[(ds$physical_measure == "nophysspec" | ds$physical_measure == "nophyscog")  & ds$physical_construct == "tug","physical_measure"] <- "tug"
-
-
+t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 
 # rename the absense of physical measure
 ds[ds$physical_measure %in% c("nophysspec","nophsyspec","nophyscog", "nophyspec", "nophyssec" ), "physical_measure"] <- "univar"
 # collapse a category
 ds[ds$physical_measure == "hand","physical_measure"] <- "grip"
-ds[ds$physical_measure %in% c("fev1"), "physical_measure"] <- "fev"
+
 
 
 
@@ -207,24 +206,24 @@ saveRDS(ds,"./data/shared/ds1.rds") # save corrected dataset
 
 ## @knitr dummy
 #### look for bad names ####
-ds %>% dplyr::count(study_name)
-ds %>% dplyr::count(model_number)
-ds %>% dplyr::count(subgroup)
-ds %>% dplyr::count(model_type)
-ds %>% dplyr::count(physical_construct)
-ds %>% dplyr::count(physical_measure)
-ds %>% dplyr::count(cognitive_construct)
-ds %>% dplyr::count(cognitive_measure)
-ds %>% dplyr::count(output_file)
-
-table(ds$model_number)
-table(ds$subgroup)
-table(ds$model_type)
-table(ds$physical_construct)
-table(ds$physical_measure)
-table(ds$cognitive_construct)
-table(ds$cognitive_measure)
-table(ds$output_file)
-
+# ds %>% dplyr::count(study_name)
+# ds %>% dplyr::count(model_number)
+# ds %>% dplyr::count(subgroup)
+# ds %>% dplyr::count(model_type)
+# ds %>% dplyr::count(physical_construct)
+# ds %>% dplyr::count(physical_measure)
+# ds %>% dplyr::count(cognitive_construct)
+# ds %>% dplyr::count(cognitive_measure)
+# ds %>% dplyr::count(output_file)
+#
+# table(ds$model_number)
+# table(ds$subgroup)
+# table(ds$model_type)
+# table(ds$physical_construct)
+# table(ds$physical_measure)
+# table(ds$cognitive_construct)
+# table(ds$cognitive_measure)
+# table(ds$output_file)
+#
 
 

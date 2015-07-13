@@ -36,8 +36,8 @@ This report establishes four key graphs that go into compiling the Model Catalog
 ```
     
      eas elsa habc ilse nas nuage octo radc satsa
-  b1 218 60   48   71   28  6     88   137  152  
-  u1 129 57   30   48   2   36    .    4    .    
+  b1 218 60   48   71   48  12    88   150  152  
+  u1 129 57   30   48   6   36    .    149  .    
 ```
 
 
@@ -84,7 +84,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-04, 12:58 -0700
+Report rendered by koval_000 at 2015-07-12, 23:28 -0700
 ```
 
 ```
@@ -100,11 +100,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.5       knitr_1.10.5      
+[1] lattice_0.20-31       shiny_0.12.1          dplyr_0.4.1           testit_0.4            ggplot2_1.0.1        
+[6] RColorBrewer_1.1-2    scales_0.2.5          knitr_1.10.5          MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 stringr_1.0.0   
- [7] plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1        htmltools_0.2.6 
-[13] lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1   formatR_1.2     
-[19] evaluate_0.7     rmarkdown_0.7    labeling_0.3     stringi_0.4-1    proto_0.3-10    
+ [1] Rcpp_0.11.6      formatR_1.2      plyr_1.8.2       highr_0.5        tools_3.2.0      boot_1.3-16     
+ [7] digest_0.6.8     evaluate_0.7     gtable_0.1.2     texreg_1.35      DBI_0.3.1        yaml_2.1.13     
+[13] parallel_3.2.0   proto_0.3-10     coda_0.17-1      stringr_1.0.0    R6_2.0.1         tcltk_3.2.0     
+[19] gsubfn_0.6-6     rmarkdown_0.7    reshape2_1.4.1   magrittr_1.5     htmltools_0.2.6  MASS_7.3-40     
+[25] rsconnect_0.3.79 assertthat_0.1   mime_0.3         xtable_1.7-4     colorspace_1.2-6 httpuv_1.3.2    
+[31] labeling_0.3     stringi_0.4-1    lazyeval_0.1.10  munsell_0.4.2   
 ```

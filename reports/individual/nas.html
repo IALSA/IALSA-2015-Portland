@@ -92,8 +92,9 @@ img {
 </ul></li>
 <li><a href="#list-of-models">List of models</a><ul>
 <li><a href="#b1">b1</a></li>
-<li><a href="#u1">u1</a></li>
 <li><a href="#u0">u0</a></li>
+<li><a href="#u1">u1</a></li>
+<li><a href="#u2">u2</a></li>
 </ul></li>
 <li><a href="#session-information">Session Information</a></li>
 </ul>
@@ -113,11 +114,11 @@ img {
 <p>Your study</p>
 <pre><code>[1] &quot;nas&quot;</code></pre>
 <p>has provided us with the total number of</p>
-<pre><code>45</code></pre>
+<pre><code>66</code></pre>
 <p>models, using univariate and bivariate specifications:</p>
 <pre><code>
-b1 u0 u1 
-41  2  2 </code></pre>
+b1 u0 u1 u2 
+48  6  6  6 </code></pre>
 <p>To remind you, <strong>model_number</strong> (<em>b1, u0, u1, u2</em>) refers to the model specification, as shown in the figure below. The first letter (<em>b</em> or <em>u</em>) indicates whether the models specifies a single outcome (<em>u</em> for <em>univariate</em>) or two outcomes (<em>b</em> for <em>bivariate</em>), while the number (e.g. u<em>0</em>, u<em>1</em>, u<em>2</em>) indicates the highest random term on the first level. </br></p>
 <p>The figure below (next section) shows the proper naming convention for the models you estimated in your study. Please use it to correct the names of some of your models. Our scripts rely on this naming convention for the key information about the model (most importantly, names of the constructs and measures). Therefore, it is of utmost importance that these rules are followed. <strong>If named incorrectly, models might not be used in the collective analysis</strong>.</p>
 <p>Some mistakes could be corrected automatically. Other, however, require <em>specifically</em> your attention. To illustrate, consider a cognitive construct <em>knowledge</em>. We’ve encountered entries <em>knowlegde</em>, <em>knowledg</em>, and <em>knwoledge</em>; it is obvious that these three spellings meant to say <em>knowledge</em>, and we program the script to correct it automatically. On the other hand, consider a physical construct <em>pulmonary</em>, which has two similarly spelled measures, <em>fev</em> and <em>fvc</em>. When we see a measure of <em>pulmonary</em> called <em>fevc</em>, we don’t know how to interpret it, it could be a misspelling of either one. This is where we need your help.</p>
@@ -161,7 +162,7 @@ b1 u0 u1
 <p>The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and measures were used in your models:</p>
 <pre><code>All your models were named properly</code></pre>
 <p>After removing incorrectly named files, there are</p>
-<pre><code>32</code></pre>
+<pre><code>66</code></pre>
 <p>models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention.</p>
 </div>
 <div id="simple-counts" class="section level1">
@@ -170,42 +171,40 @@ b1 u0 u1
 <div id="physical-constructs" class="section level2">
 <h2>Physical constructs</h2>
 <pre><code>           
-            b1 u0 u1
-  pulmonary 28 1  1 
-  Univar    .  1  1 </code></pre>
+            b1 u0 u1 u2
+  pulmonary 48 6  6  6 </code></pre>
 </div>
 <div id="physical-measures" class="section level2">
 <h2>Physical measures</h2>
-<pre><code>        
-         b1 u0 u1
-  fev    14 1  1 
-  fvc    14 .  . 
-  univar .  1  1 </code></pre>
+<pre><code>     
+      b1 u0 u1 u2
+  fev 48 6  6  6 </code></pre>
 </div>
 <div id="cognitive-constructs" class="section level2">
 <h2>Cognitive constructs</h2>
-<pre><code>           
-            b1 u0 u1
-  executive 4  .  . 
-  fluency   4  .  . 
-  memory    8  1  1 
-  mental    4  .  . 
-  reasoning 4  .  . 
-  speed     4  .  . 
-  Univar    .  1  1 </code></pre>
+<pre><code>               
+                b1 u0 u1 u2
+  fluency       6  .  .  . 
+  memory        12 .  .  . 
+  mental        6  .  .  . 
+  reasoning     6  .  .  . 
+  speed         6  .  .  . 
+  Univar        .  6  6  6 
+  workingmemory 12 .  .  . </code></pre>
 </div>
 <div id="cognitive-measures" class="section level2">
 <h2>Cognitive measures</h2>
-<pre><code>                   
-                    b1 u0 u1
-  categories        4  .  . 
-  digitsback        4  .  . 
-  figurecopy        4  .  . 
-  mmse              4  .  . 
-  patterncomparison 4  .  . 
-  univar            .  1  1 
-  wordlistdelay     4  1  1 
-  wordlistimmed     4  .  . </code></pre>
+<pre><code>                    
+                     b1 u0 u1 u2
+  categories         6  .  .  . 
+  delayedrecall      6  .  .  . 
+  digitbackwardspan  6  .  .  . 
+  digitbackwardtotal 6  .  .  . 
+  figurecopy         6  .  .  . 
+  mmse               6  .  .  . 
+  nocogm             .  6  6  6 
+  patterncomparison  6  .  .  . 
+  wordlistimmed      6  .  .  . </code></pre>
 <p></br></br></br></p>
 </div>
 </div>
@@ -217,71 +216,73 @@ b1 u0 u1
 <p>Physical <strong>constructs</strong> (columns) by physical <strong>measures</strong> (rows) in BIVARIATE models</p>
 <pre><code>     
       pulmonary
-  fev 14       
-  fvc 14       </code></pre>
+  fev 48       </code></pre>
 </div>
 <div id="cognitive" class="section level2">
 <h2>Cognitive</h2>
 <p>Cognitive <strong>constructs</strong> (columns) by cognitive <strong>measures</strong> (rows) in BIVARIATE models</p>
-<pre><code>                   
-                    executive fluency memory mental reasoning speed
-  categories        .         4       .      .      .         .    
-  digitsback        4         .       .      .      .         .    
-  figurecopy        .         .       .      .      4         .    
-  mmse              .         .       .      4      .         .    
-  patterncomparison .         .       .      .      .         4    
-  wordlistdelay     .         .       4      .      .         .    
-  wordlistimmed     .         .       4      .      .         .    </code></pre>
+<pre><code>                    
+                     fluency memory mental reasoning speed workingmemory
+  categories         6       .      .      .         .     .            
+  delayedrecall      .       6      .      .         .     .            
+  digitbackwardspan  .       .      .      .         .     6            
+  digitbackwardtotal .       .      .      .         .     6            
+  figurecopy         .       .      .      6         .     .            
+  mmse               .       .      6      .         .     .            
+  patterncomparison  .       .      .      .         6     .            
+  wordlistimmed      .       6      .      .         .     .            </code></pre>
 </div>
 <div id="constructs" class="section level2">
 <h2>Constructs</h2>
 <p>Number of models with the following <strong>physical constructs</strong> (columns) and <strong>cognitive constructs</strong> (rows)</p>
-<pre><code>           
-            pulmonary
-  executive 4        
-  fluency   4        
-  memory    8        
-  mental    4        
-  reasoning 4        
-  speed     4        </code></pre>
+<pre><code>               
+                pulmonary
+  fluency       6        
+  memory        12       
+  mental        6        
+  reasoning     6        
+  speed         6        
+  workingmemory 12       </code></pre>
 </div>
 <div id="phys.constructs" class="section level2">
 <h2>Phys.Constructs</h2>
 <p>Number of models with the following <strong>physical constructs</strong> (columns) and <strong>cognitive measures</strong> (rows)</p>
-<pre><code>                   
-                    pulmonary
-  categories        4        
-  digitsback        4        
-  figurecopy        4        
-  mmse              4        
-  patterncomparison 4        
-  wordlistdelay     4        
-  wordlistimmed     4        </code></pre>
+<pre><code>                    
+                     pulmonary
+  categories         6        
+  delayedrecall      6        
+  digitbackwardspan  6        
+  digitbackwardtotal 6        
+  figurecopy         6        
+  mmse               6        
+  patterncomparison  6        
+  wordlistimmed      6        </code></pre>
 </div>
 <div id="cog.constructs" class="section level2">
 <h2>Cog.Constructs</h2>
 <p>Number of models with the following <strong>physical measure</strong> (columns) and <strong>cognitive constructs</strong> (rows)</p>
-<pre><code>           
-            fev fvc
-  executive 2   2  
-  fluency   2   2  
-  memory    4   4  
-  mental    2   2  
-  reasoning 2   2  
-  speed     2   2  </code></pre>
+<pre><code>               
+                fev
+  fluency       6  
+  memory        12 
+  mental        6  
+  reasoning     6  
+  speed         6  
+  workingmemory 12 </code></pre>
 </div>
 <div id="measures" class="section level2">
 <h2>Measures</h2>
 <p>Number of models with the following <strong>physical measures</strong> (columns) and <strong>cognitive measures</strong> (rows)</p>
-<pre><code>                   
-                    fev fvc
-  categories        2   2  
-  digitsback        2   2  
-  figurecopy        2   2  
-  mmse              2   2  
-  patterncomparison 2   2  
-  wordlistdelay     2   2  
-  wordlistimmed     2   2  </code></pre>
+<pre><code>                    
+                     fev
+  categories         6  
+  delayedrecall      6  
+  digitbackwardspan  6  
+  digitbackwardtotal 6  
+  figurecopy         6  
+  mmse               6  
+  patterncomparison  6  
+  wordlistimmed      6  </code></pre>
 <p></br></br></br></p>
 </div>
 </div>
@@ -291,22 +292,20 @@ b1 u0 u1
 <div id="physical-1" class="section level2">
 <h2>Physical</h2>
 <p>Physical constructs (columns) by physical measures (rows) in UNIVARIATE models</p>
-<pre><code>           pulmonary Univar
-                           
-u0 fev             1      .
-   univar          .      1
-u1 fev             1      .
-   univar          .      1</code></pre>
+<pre><code>        pulmonary
+                 
+u0 fev          6
+u1 fev          6
+u2 fev          6</code></pre>
 </div>
 <div id="cognitive-1" class="section level2">
 <h2>Cognitive</h2>
 <p>Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models</p>
-<pre><code>                  memory Univar
-                               
-u0 univar              .      1
-   wordlistdelay       1      .
-u1 univar              .      1
-   wordlistdelay       1      .</code></pre>
+<pre><code>           Univar
+                 
+u0 nocogm       6
+u1 nocogm       6
+u2 nocogm       6</code></pre>
 <p></br></br></br></p>
 </div>
 </div>
@@ -333,449 +332,480 @@ u1 univar              .      1
 <td align="left">male</td>
 <td align="left">ae</td>
 <td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FEV1</td>
+<td align="left">fluency</td>
+<td align="left">fev</td>
+<td align="left">categories</td>
+<td align="left">b1_male_ae_pulmonary_verbalfluency_fev1_animals.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">pulmonary</td>
+<td align="left">fluency</td>
+<td align="left">fev</td>
+<td align="left">categories</td>
+<td align="left">b1_male_aeh_pulmonary_verbalfluency_fev1_animals.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">pulmonary</td>
+<td align="left">fluency</td>
+<td align="left">fev</td>
+<td align="left">categories</td>
+<td align="left">b1_male_aehplus_pulmonary_verbalfluency_fev1_animals.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">pulmonary</td>
+<td align="left">fluency</td>
+<td align="left">fev</td>
+<td align="left">categories</td>
+<td align="left">b1_male_age_pulmonary_verbalfluency_fev1_animals.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">pulmonary</td>
+<td align="left">fluency</td>
+<td align="left">fev</td>
+<td align="left">categories</td>
+<td align="left">b1_male_empty_pulmonary_verbalfluency_fev1_animals.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">full</td>
+<td align="left">pulmonary</td>
+<td align="left">fluency</td>
+<td align="left">fev</td>
+<td align="left">categories</td>
+<td align="left">b1_male_full_pulmonary_verbalfluency_fev1_animals.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">ae</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">delayedrecall</td>
+<td align="left">b1_male_ae_pulmonary_memory_fev1_delayedrecall.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">delayedrecall</td>
+<td align="left">b1_male_aeh_pulmonary_memory_fev1_delayedrecall.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">delayedrecall</td>
+<td align="left">b1_male_aehplus_pulmonary_memory_fev1_delayedrecall.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">delayedrecall</td>
+<td align="left">b1_male_age_pulmonary_memory_fev1_delayedrecall.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">delayedrecall</td>
+<td align="left">b1_male_empty_pulmonary_memory_fev1_delayedrecall.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">full</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">delayedrecall</td>
+<td align="left">b1_male_full_pulmonary_memory_fev1_delayedrecall.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">ae</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardspan</td>
+<td align="left">b1_male_ae_pulmonary_workingmemory_fev1_digitbackwardspan.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardspan</td>
+<td align="left">b1_male_aeh_pulmonary_workingmemory_fev1_digitbackwardspan.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardspan</td>
+<td align="left">b1_male_aehplus_pulmonary_workingmemory_fev1_digitbackwardspan.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardspan</td>
+<td align="left">b1_male_age_pulmonary_workingmemory_fev1_digitbackwardspan.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardspan</td>
+<td align="left">b1_male_empty_pulmonary_workingmemory_fev1_digitbackwardspan.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">full</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardspan</td>
+<td align="left">b1_male_full_pulmonary_workingmemory_fev1_digitbackwardspan.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">ae</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardtotal</td>
+<td align="left">b1_male_ae_pulmonary_workingmemory_fev1_digitbackwardtotal.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardtotal</td>
+<td align="left">b1_male_aeh_pulmonary_workingmemory_fev1_digitbackwardtotal.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardtotal</td>
+<td align="left">b1_male_aehplus_pulmonary_workingmemory_fev1_digitbackwardtotal.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardtotal</td>
+<td align="left">b1_male_age_pulmonary_workingmemory_fev1_digitbackwardtotal.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardtotal</td>
+<td align="left">b1_male_empty_pulmonary_workingmemory_fev1_digitbackwardtotal.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">full</td>
+<td align="left">pulmonary</td>
+<td align="left">workingmemory</td>
+<td align="left">fev</td>
+<td align="left">digitbackwardtotal</td>
+<td align="left">b1_male_full_pulmonary_workingmemory_fev1_digitbackwardtotal.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">ae</td>
+<td align="left">pulmonary</td>
+<td align="left">reasoning</td>
+<td align="left">fev</td>
 <td align="left">figurecopy</td>
-<td align="left">b1_male_ae_ pulmonary_fluidreasoning_FEV1_figurecopy.out</td>
+<td align="left">b1_male_ae_pulmonary_fluidreasoning_fev1_figurecopy.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">ae</td>
+<td align="left">aeh</td>
 <td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FEV1</td>
-<td align="left">patterncomparison</td>
-<td align="left">b1_male_ae_ pulmonary_fluidreasoning_FEV1_patterncomparison.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FVC</td>
+<td align="left">reasoning</td>
+<td align="left">fev</td>
 <td align="left">figurecopy</td>
-<td align="left">b1_male_ae_ pulmonary_fluidreasoning_FVC_figurecopy.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FVC</td>
-<td align="left">patterncomparison</td>
-<td align="left">b1_male_ae_ pulmonary_fluidreasoning_FVC_patterncomparison.out</td>
+<td align="left">b1_male_aeh_pulmonary_fluidreasoning_fev1_figurecopy.out</td>
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">aeplus</td>
+<td align="left">aehplus</td>
 <td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FEV1</td>
+<td align="left">reasoning</td>
+<td align="left">fev</td>
 <td align="left">figurecopy</td>
-<td align="left">b1_male_aeplus_ pulmonary_fluidreasoning_FEV1_figurecopy.out</td>
+<td align="left">b1_male_aehplus_pulmonary_fluidreasoning_fev1_figurecopy.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">aeplus</td>
+<td align="left">a</td>
 <td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FEV1</td>
-<td align="left">patterncomparison</td>
-<td align="left">b1_male_aeplus_ pulmonary_fluidreasoning_FEV1_patterncomparison.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aeplus</td>
-<td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FVC</td>
+<td align="left">reasoning</td>
+<td align="left">fev</td>
 <td align="left">figurecopy</td>
-<td align="left">b1_male_aeplus_ pulmonary_fluidreasoning_FVC_figurecopy.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aeplus</td>
-<td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FVC</td>
-<td align="left">patterncomparison</td>
-<td align="left">b1_male_aeplus_ pulmonary_fluidreasoning_FVC_patterncomparison.out</td>
+<td align="left">b1_male_age_pulmonary_fluidreasoning_fev1_figurecopy.out</td>
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">age</td>
+<td align="left">0</td>
 <td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FEV1</td>
+<td align="left">reasoning</td>
+<td align="left">fev</td>
 <td align="left">figurecopy</td>
-<td align="left">b1_male_age_ pulmonary_fluidreasoning_FEV1_figurecopy.out</td>
+<td align="left">b1_male_empty_pulmonary_fluidreasoning_fev1_figurecopy.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">age</td>
+<td align="left">full</td>
 <td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FEV1</td>
-<td align="left">patterncomparison</td>
-<td align="left">b1_male_age_ pulmonary_fluidreasoning_FEV1_patterncomparison.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FVC</td>
+<td align="left">reasoning</td>
+<td align="left">fev</td>
 <td align="left">figurecopy</td>
-<td align="left">b1_male_age_ pulmonary_fluidreasoning_FVC_figurecopy.out</td>
+<td align="left">b1_male_full_pulmonary_fluidreasoning_fev1_figurecopy.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">ae</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">wordlistimmed</td>
+<td align="left">b1_male_ae_pulmonary_memory_fev1_immediaterecall.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">age</td>
+<td align="left">aeh</td>
 <td align="left">pulmonary</td>
-<td align="left">fluidreasoning</td>
-<td align="left">FVC</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">wordlistimmed</td>
+<td align="left">b1_male_aeh_pulmonary_memory_fev1_immediaterecall.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">wordlistimmed</td>
+<td align="left">b1_male_aehplus_pulmonary_memory_fev1_immediaterecall.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">wordlistimmed</td>
+<td align="left">b1_male_age_pulmonary_memory_fev1_immediaterecall.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">wordlistimmed</td>
+<td align="left">b1_male_empty_pulmonary_memory_fev1_immediaterecall.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">full</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">wordlistimmed</td>
+<td align="left">b1_male_full_pulmonary_memory_fev1_immediaterecall.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">ae</td>
+<td align="left">pulmonary</td>
+<td align="left">mental</td>
+<td align="left">fev</td>
+<td align="left">mmse</td>
+<td align="left">b1_male_ae_pulmonary_global_fev1_mmse.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">pulmonary</td>
+<td align="left">mental</td>
+<td align="left">fev</td>
+<td align="left">mmse</td>
+<td align="left">b1_male_aeh_pulmonary_global_fev1_mmse.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">pulmonary</td>
+<td align="left">mental</td>
+<td align="left">fev</td>
+<td align="left">mmse</td>
+<td align="left">b1_male_aehplus_pulmonary_global_fev1_mmse.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">pulmonary</td>
+<td align="left">mental</td>
+<td align="left">fev</td>
+<td align="left">mmse</td>
+<td align="left">b1_male_age_pulmonary_global_fev1_mmse.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">pulmonary</td>
+<td align="left">mental</td>
+<td align="left">fev</td>
+<td align="left">mmse</td>
+<td align="left">b1_male_empty_pulmonary_global_fev1_mmse.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">full</td>
+<td align="left">pulmonary</td>
+<td align="left">mental</td>
+<td align="left">fev</td>
+<td align="left">mmse</td>
+<td align="left">b1_male_full_pulmonary_global_fev1_mmse.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">ae</td>
+<td align="left">pulmonary</td>
+<td align="left">speed</td>
+<td align="left">fev</td>
 <td align="left">patterncomparison</td>
-<td align="left">b1_male_age_ pulmonary_fluidreasoning_FVC_patterncomparison.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">global</td>
-<td align="left">FEV1</td>
-<td align="left">mmse</td>
-<td align="left">b1_male_ae_ pulmonary_global_FEV1_mmse.out</td>
+<td align="left">b1_male_ae_pulmonary_fluidreasoning_fev1_patterncomparison.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">ae</td>
+<td align="left">aeh</td>
 <td align="left">pulmonary</td>
-<td align="left">global</td>
-<td align="left">FVC</td>
-<td align="left">mmse</td>
-<td align="left">b1_male_ae_ pulmonary_global_FVC_mmse.out</td>
+<td align="left">speed</td>
+<td align="left">fev</td>
+<td align="left">patterncomparison</td>
+<td align="left">b1_male_aeh_pulmonary_fluidreasoning_fev1_patterncomparison.out</td>
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">aeplus</td>
+<td align="left">aehplus</td>
 <td align="left">pulmonary</td>
-<td align="left">global</td>
-<td align="left">FEV1</td>
-<td align="left">mmse</td>
-<td align="left">b1_male_aeplus_ pulmonary_global_FEV1_mmse.out</td>
+<td align="left">speed</td>
+<td align="left">fev</td>
+<td align="left">patterncomparison</td>
+<td align="left">b1_male_aehplus_pulmonary_fluidreasoning_fev1_patterncomparison.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">aeplus</td>
+<td align="left">a</td>
 <td align="left">pulmonary</td>
-<td align="left">global</td>
-<td align="left">fvc</td>
-<td align="left">mmse</td>
-<td align="left">b1_male_aeplus_ pulmonary_global_fvc_mmse.out</td>
+<td align="left">speed</td>
+<td align="left">fev</td>
+<td align="left">patterncomparison</td>
+<td align="left">b1_male_age_pulmonary_fluidreasoning_fev1_patterncomparison.out</td>
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">age</td>
+<td align="left">0</td>
 <td align="left">pulmonary</td>
-<td align="left">global</td>
-<td align="left">FEV1</td>
-<td align="left">mmse</td>
-<td align="left">b1_male_age_ pulmonary_global_FEV1_mmse.out</td>
+<td align="left">speed</td>
+<td align="left">fev</td>
+<td align="left">patterncomparison</td>
+<td align="left">b1_male_empty_pulmonary_fluidreasoning_fev1_patterncomparison.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
-<td align="left">age</td>
+<td align="left">full</td>
 <td align="left">pulmonary</td>
-<td align="left">global</td>
-<td align="left">FVC</td>
-<td align="left">mmse</td>
-<td align="left">b1_male_age_ pulmonary_global_FVC_mmse.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FEV1</td>
-<td align="left">delayedwordrecall</td>
-<td align="left">b1_male_ae_ pulmonary_memory_FEV1_delayedwordrecall.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FEV1</td>
-<td align="left">digitbackward</td>
-<td align="left">b1_male_ae_ pulmonary_memory_FEV1_digitbackward.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FEV1</td>
-<td align="left">immediaterecall</td>
-<td align="left">b1_male_ae_ pulmonary_memory_FEV1_immediaterecall.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FVC</td>
-<td align="left">delayedwordrecall</td>
-<td align="left">b1_male_ae_ pulmonary_memory_FVC_delayedwordrecall.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FVC</td>
-<td align="left">digitbackward</td>
-<td align="left">b1_male_ae_ pulmonary_memory_FVC_digitbackward.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FVC</td>
-<td align="left">immediaterecall</td>
-<td align="left">b1_male_ae_ pulmonary_memory_FVC_immediaterecall.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aeplus</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FEV1</td>
-<td align="left">delayedwordrecall</td>
-<td align="left">b1_male_aeplus_ pulmonary_memory_FEV1_delayedwordrecall.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aeplus</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FEV1</td>
-<td align="left">immediaterecall</td>
-<td align="left">b1_male_aeplus_ pulmonary_memory_FEV1_immediaterecall.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aeplus</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FVC</td>
-<td align="left">delayedwordrecall</td>
-<td align="left">b1_male_aeplus_ pulmonary_memory_FVC_delayedwordrecall.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aeplus</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FVC</td>
-<td align="left">digitbackward</td>
-<td align="left">b1_male_aeplus_ pulmonary_memory_FVC_digitbackward.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aeplus</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FVC</td>
-<td align="left">immediaterecall</td>
-<td align="left">b1_male_aeplus_ pulmonary_memory_FVC_immediaterecall.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FEV1</td>
-<td align="left">delayedwordrecall</td>
-<td align="left">b1_male_age_ pulmonary_memory_FEV1_delayedwordrecall.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FEV1</td>
-<td align="left">digitbackward</td>
-<td align="left">b1_male_age_ pulmonary_memory_FEV1_digitbackward.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FEV1</td>
-<td align="left">immediaterecall</td>
-<td align="left">b1_male_age_ pulmonary_memory_FEV1_immediaterecall.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FVC</td>
-<td align="left">delayedwordrecall</td>
-<td align="left">b1_male_age_ pulmonary_memory_FVC_delayedwordrecall.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FVC</td>
-<td align="left">digitbackward</td>
-<td align="left">b1_male_age_ pulmonary_memory_FVC_digitbackward.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">pulmonary</td>
-<td align="left">memory</td>
-<td align="left">FVC</td>
-<td align="left">immediaterecall</td>
-<td align="left">b1_male_age_ pulmonary_memory_FVC_immediaterecall.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">verbalfluency</td>
-<td align="left">FEV1</td>
-<td align="left">animals</td>
-<td align="left">b1_male_ae_ pulmonary_verbalfluency_FEV1_animals.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">ae</td>
-<td align="left">pulmonary</td>
-<td align="left">verbalfluency</td>
-<td align="left">FVC</td>
-<td align="left">animals</td>
-<td align="left">b1_male_ae_ pulmonary_verbalfluency_FVC_animals.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aeplus</td>
-<td align="left">pulmonary</td>
-<td align="left">verbalfluency</td>
-<td align="left">FEV1</td>
-<td align="left">animals</td>
-<td align="left">b1_male_aeplus_ pulmonary_verbalfluency_FEV1_animals.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aeplus</td>
-<td align="left">pulmonary</td>
-<td align="left">verbalfluency</td>
-<td align="left">FVC</td>
-<td align="left">animals</td>
-<td align="left">b1_male_aeplus_ pulmonary_verbalfluency_FVC_animals.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">pulmonary</td>
-<td align="left">verbalfluency</td>
-<td align="left">FEV1</td>
-<td align="left">animals</td>
-<td align="left">b1_male_age_ pulmonary_verbalfluency_FEV1_animals.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">pulmonary</td>
-<td align="left">verbalfluency</td>
-<td align="left">FVC</td>
-<td align="left">animals</td>
-<td align="left">b1_male_age_ pulmonary_verbalfluency_FVC_animals.out</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="u1" class="section level2">
-<h2>u1</h2>
-<table>
-<thead>
-<tr class="header">
-<th align="left">model<br />tag</th>
-<th align="left">sex</th>
-<th align="left">predictor<br />set</th>
-<th align="left">physical<br />construct</th>
-<th align="left">cognitive<br />construct</th>
-<th align="left">physical<br />measure</th>
-<th align="left">cognitive<br />measure</th>
-<th align="left">file name</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">pulmonary</td>
-<td align="left">noCog</td>
-<td align="left">FEV1</td>
-<td align="left">noCogSpec</td>
-<td align="left">u1_male_age_ pulmonary_noCog_FEV1_noCogSpec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">age</td>
-<td align="left">noPhys</td>
-<td align="left">memory</td>
-<td align="left">noPhysSpec</td>
-<td align="left">delayedwordrecall</td>
-<td align="left">u1_male_age_noPhys_memory_noPhysSpec_delayedwordrecall.out</td>
+<td align="left">speed</td>
+<td align="left">fev</td>
+<td align="left">patterncomparison</td>
+<td align="left">b1_male_full_pulmonary_fluidreasoning_fev1_patterncomparison.out</td>
 </tr>
 </tbody>
 </table>
@@ -799,22 +829,220 @@ u1 univar              .      1
 <tr class="odd">
 <td align="left">u0</td>
 <td align="left">male</td>
-<td align="left">empty</td>
-<td align="left">nophys</td>
-<td align="left">memory</td>
-<td align="left">noPhysSpec</td>
-<td align="left">delayedwordrecall</td>
-<td align="left">u0_male_empty_nophys_memory_noPhysSpec_delayedwordrecall.out</td>
+<td align="left">ae</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u0_male_ae_pulmonary_nocog_fev1_nocogm.out</td>
 </tr>
 <tr class="even">
 <td align="left">u0</td>
 <td align="left">male</td>
-<td align="left">empty</td>
+<td align="left">aeh</td>
 <td align="left">pulmonary</td>
-<td align="left">noCog</td>
-<td align="left">FEV1</td>
-<td align="left">noCogSpec</td>
-<td align="left">u0_male_empty_pulmonary_noCog_FEV1_noCogSpec.out</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u0_male_aeh_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u0_male_aehplus_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="even">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u0_male_age_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u0_male_empty_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="even">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">full</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u0_male_full_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="u1" class="section level2">
+<h2>u1</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">model<br />tag</th>
+<th align="left">sex</th>
+<th align="left">predictor<br />set</th>
+<th align="left">physical<br />construct</th>
+<th align="left">cognitive<br />construct</th>
+<th align="left">physical<br />measure</th>
+<th align="left">cognitive<br />measure</th>
+<th align="left">file name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">ae</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u1_male_ae_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u1_male_aeh_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u1_male_aehplus_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u1_male_age_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u1_male_empty_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">full</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u1_male_full_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="u2" class="section level2">
+<h2>u2</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">model<br />tag</th>
+<th align="left">sex</th>
+<th align="left">predictor<br />set</th>
+<th align="left">physical<br />construct</th>
+<th align="left">cognitive<br />construct</th>
+<th align="left">physical<br />measure</th>
+<th align="left">cognitive<br />measure</th>
+<th align="left">file name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">u2</td>
+<td align="left">male</td>
+<td align="left">ae</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u2_male_ae_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="even">
+<td align="left">u2</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u2_male_aeh_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u2</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u2_male_aehplus_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="even">
+<td align="left">u2</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u2_male_age_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u2</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u2_male_empty_pulmonary_nocog_fev1_nocogm.out</td>
+</tr>
+<tr class="even">
+<td align="left">u2</td>
+<td align="left">male</td>
+<td align="left">full</td>
+<td align="left">pulmonary</td>
+<td align="left">Univar</td>
+<td align="left">fev</td>
+<td align="left">nocogm</td>
+<td align="left">u2_male_full_pulmonary_nocog_fev1_nocogm.out</td>
 </tr>
 </tbody>
 </table>
@@ -823,7 +1051,7 @@ u1 univar              .      1
 <div id="session-information" class="section level1">
 <h1>Session Information</h1>
 <p>For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.</p>
-<pre><code>Report rendered by koval_000 at 2015-07-01, 09:37 -0700</code></pre>
+<pre><code>Report rendered by koval_000 at 2015-07-12, 23:23 -0700</code></pre>
 <pre><code>R version 3.2.0 (2015-04-16)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 8 x64 (build 9200)
@@ -836,17 +1064,16 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] rpivotTable_0.1.4.1   lattice_0.20-31       shiny_0.12.1          dplyr_0.4.1           testit_0.4           
- [6] ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5          knitr_1.10.5          MplusAutomation_0.6-3
+[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5         
+[6] knitr_1.10.5          MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6       formatR_1.2       plyr_1.8.2        highr_0.5         tools_3.2.0       boot_1.3-16      
- [7] digest_0.6.8      jsonlite_0.9.16   evaluate_0.7      gtable_0.1.2      texreg_1.35       rstudioapi_0.3.1 
-[13] DBI_0.3.1         yaml_2.1.13       parallel_3.2.0    proto_0.3-10      coda_0.17-1       stringr_1.0.0    
-[19] htmlwidgets_0.4.2 R6_2.0.1          tcltk_3.2.0       gsubfn_0.6-6      rmarkdown_0.7     tidyr_0.2.0      
-[25] reshape2_1.4.1    magrittr_1.5      htmltools_0.2.6   MASS_7.3-40       rsconnect_0.3.79  assertthat_0.1   
-[31] mime_0.3          xtable_1.7-4      colorspace_1.2-6  httpuv_1.3.2      labeling_0.3      stringi_0.4-1    
-[37] lazyeval_0.1.10   munsell_0.4.2    </code></pre>
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
+ [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
+[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
+[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
+[25] rsconnect_0.3.79 evaluate_0.7     rmarkdown_0.7    gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16     
+[31] proto_0.3-10    </code></pre>
 </div>
 
 

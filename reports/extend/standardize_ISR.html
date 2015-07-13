@@ -73,9 +73,15 @@ img {
 <!-- Load the datasets.   -->
 <!-- Tweak the datasets.   -->
 <!-- Basic view.   -->
-<pre class="r"><code>ds$corr_int &lt;- ds$cov_int/ (sqrt(ds$var_int_physical)*sqrt(ds$var_int_cog))
-ds$corr_slope &lt;- ds$cov_slope/ (sqrt(ds$var_slope_physical)*sqrt(ds$var_slope_cog))
-ds$corr_residual &lt;- ds$cov_residual/ (sqrt(ds$var_residual_physical)*sqrt(ds$var_residual_cog))
+<pre class="r"><code>ds$pc_CORR_00 &lt;- ds$pc_TAU_00 / sqrt(ds$pp_TAU_00)*sqrt(ds$cc_TAU_00)
+ds$pc_CORR_11 &lt;-  ds$pc_TAU_11 / sqrt(ds$pp_TAU_11)*sqrt(ds$cc_TAU_11)
+ds$pc_CORR_residual &lt;-  ds$pc_SIGMA / (sqrt(ds$p_SIGMA) * sqrt(ds$c_SIGMA))
+
+
+# standardize_coefficients
+# ds$corr_int &lt;- ds$cov_int/ (sqrt(ds$var_int_physical)*sqrt(ds$var_int_cog))
+# ds$corr_slope &lt;- ds$cov_slope/ (sqrt(ds$var_slope_physical)*sqrt(ds$var_slope_cog))
+# ds$corr_residual &lt;- ds$cov_residual/ (sqrt(ds$var_residual_physical)*sqrt(ds$var_residual_cog))
 
 is_univariate &lt;- grepl(pattern=&quot;^u\\d$&quot;, x=ds$model_number)
 is_bivariate &lt;- grepl(pattern=&quot;^b\\d$&quot;, x=ds$model_number)
@@ -86,22 +92,40 @@ alpha &lt;- 0.05
 limit &lt;- ((1 - (alpha/2)))
 
 # CI for the intercept
-ds$int_zetau &lt;- ds$corr_int + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$int_zetal &lt;- ds$corr_int - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$ciu_corr_int &lt;- tanh(ds$int_zetau)
-ds$cil_corr_int &lt;- tanh(ds$int_zetal)
+ds$pc_ZETA_00_high &lt;- ds$pc_CORR_00 + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_ZETA_00_low &lt;- ds$pc_CORR_00 - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_CI95_00_high &lt;- tanh(ds$pc_ZETA_00_high)
+ds$pc_CI95_00_low &lt;- tanh(ds$pc_ZETA_00_low)
+
+# # CI for the intercept
+# ds$int_zetau &lt;- ds$corr_int + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$int_zetal &lt;- ds$corr_int - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$ciu_corr_int &lt;- tanh(ds$int_zetau)
+# ds$cil_corr_int &lt;- tanh(ds$int_zetal)
 
 # CI for the slope
-ds$slope_zetau &lt;- ds$corr_slope + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$slope_zetal &lt;- ds$corr_slope - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$ciu_corr_slope &lt;- tanh(ds$slope_zetau)
-ds$cil_corr_slope &lt;- tanh(ds$slope_zetal)
+ds$pc_ZETA_11_high &lt;- ds$pc_CORR_11 + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_ZETA_11_low &lt;- ds$pc_CORR_11 - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_CI95_11_high &lt;- tanh(ds$pc_ZETA_11_high)
+ds$pc_CI95_11_low &lt;- tanh(ds$pc_ZETA_11_low)
+
+# # CI for the slope
+# ds$slope_zetau &lt;- ds$corr_slope + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$slope_zetal &lt;- ds$corr_slope - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$ciu_corr_slope &lt;- tanh(ds$slope_zetau)
+# ds$cil_corr_slope &lt;- tanh(ds$slope_zetal)
 
 # CI for the residual
-ds$residual_zetau &lt;- ds$corr_residual + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$residual_zetal &lt;- ds$corr_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$ciu_corr_residual &lt;- tanh(ds$residual_zetau)
-ds$cil_corr_residual &lt;- tanh(ds$residual_zetal)
+ds$pc_ZETA_residual_high &lt;- ds$pc_CORR_residual + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_ZETA_residual_low &lt;- ds$pc_CORR_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_CI95_residual_high &lt;- tanh(ds$pc_ZETA_residual_high)
+ds$pc_CI95_residual_low &lt;- tanh(ds$pc_ZETA_residual_low)
+
+# # CI for the residual
+# ds$residual_zetau &lt;- ds$corr_residual + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$residual_zetal &lt;- ds$corr_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$ciu_corr_residual &lt;- tanh(ds$residual_zetau)
+# ds$cil_corr_residual &lt;- tanh(ds$residual_zetal)
 
 
 ## add uni/bi indicator
@@ -109,36 +133,42 @@ ds$cil_corr_residual &lt;- tanh(ds$residual_zetal)
 ds$uni_bi &lt;- stringr::str_sub(ds$model_number,1,1)</code></pre>
 <pre class="r"><code>head(ds[ , c(&quot;study_name&quot;,&quot;model_number&quot;,&quot;subgroup&quot;, &quot;model_type&quot;, &quot;physical_measure&quot;,&quot;cognitive_measure&quot;)], 30)</code></pre>
 <pre><code>   study_name model_number subgroup model_type physical_measure cognitive_measure
-1         eas           b1   female         ae             grip      bostonnaming
-2         eas           b1   female         ae             grip          category
-3         eas           b1   female         ae             grip               fas
-12        eas           b1   female        aeh             grip      bostonnaming
-13        eas           b1   female        aeh             grip          category
-14        eas           b1   female        aeh             grip               fas
-23        eas           b1   female    aehplus             grip      bostonnaming
-24        eas           b1   female    aehplus             grip          category
-25        eas           b1   female    aehplus             grip               fas
-34        eas           b1   female        age             grip      bostonnaming
-35        eas           b1   female        age             grip          category
-36        eas           b1   female        age             grip               fas
-37        eas           b1   female        age             grip       information
-45        eas           b1   female       full             grip      bostonnaming
-46        eas           b1   female       full             grip          category
-47        eas           b1   female       full             grip               fas
-56        eas           b1     male         ae             grip      bostonnaming
-57        eas           b1     male         ae             grip          category
-58        eas           b1     male         ae             grip               fas
-59        eas           b1     male         ae             grip       information
-67        eas           b1     male        aeh             grip      bostonnaming
-68        eas           b1     male        aeh             grip          category
-69        eas           b1     male        aeh             grip               fas
-70        eas           b1     male        aeh             grip       information
-77        eas           b1     male    aehplus             grip      bostonnaming
-78        eas           b1     male    aehplus             grip          category
-79        eas           b1     male    aehplus             grip               fas
-80        eas           b1     male    aehplus             grip       information
-88        eas           b1     male        age             grip      bostonnaming
-89        eas           b1     male        age             grip          category</code></pre>
+1        habc           b1   female        aeh             grip               3ms
+2        habc           b1   female    aehplus             grip               3ms
+3        habc           b1   female          a             grip               3ms
+4        habc           b1   female       full             grip               3ms
+5        habc           b1     male        aeh             grip               3ms
+6        habc           b1     male    aehplus             grip               3ms
+7        habc           b1     male          a             grip               3ms
+8        habc           b1     male       full             grip               3ms
+9        habc           u1   female        aeh           univar               3ms
+10       habc           u1   female    aehplus           univar               3ms
+11       habc           u1   female          a           univar               3ms
+12       habc           u0   female          0           univar               3ms
+13       habc           u1     male        aeh           univar               3ms
+14       habc           u1     male    aehplus           univar               3ms
+15       habc           u1     male          a           univar               3ms
+16       habc           u0     male          0           univar               3ms
+17       habc           b1   female        aeh             gait               3ms
+18       habc           b1   female    aehplus             gait               3ms
+19       habc           b1   female          a             gait               3ms
+20       habc           b1   female       full             gait               3ms
+21       habc           b1     male        aeh             gait               3ms
+22       habc           b1     male    aehplus             gait               3ms
+23       habc           b1     male          a             gait               3ms
+24       habc           b1     male       full             gait               3ms
+25      satsa           b1   female         ae             grip         analogies
+26      satsa           b1   female        aeh             grip         analogies
+27      satsa           b1   female    aehplus             grip         analogies
+28      satsa           b1   female          a             grip         analogies
+29      satsa           b1     male         ae             grip         analogies
+30      satsa           b1     male        aeh             grip         analogies</code></pre>
+<div id="export-log" class="section level2">
+<h2>Export log</h2>
+<pre class="r"><code>saveRDS(ds,&quot;./data/shared/ds2.rds&quot;)
+#
+# source(&quot;./scripts/make_pretty.r&quot;)</code></pre>
+</div>
 
 
 </div>

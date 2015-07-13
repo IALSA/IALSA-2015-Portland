@@ -26,7 +26,17 @@ testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesT
 for( pathFile in pathFilesToBuild ) {
     rmarkdown::render(input = pathFile, output_format=c("html_document"), clean=TRUE)
 }
-# takes in ds1, produces ds1a (adjusted)
+# takes in ds0, produces ds1
+
+## Extend, Standardize, Adjust
+(pathFilesToBuild <- base::file.path("./reports/extend/standardize_ISR.Rmd"))
+testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesToBuild))
+# Build the report
+for( pathFile in pathFilesToBuild ) {
+    rmarkdown::render(input = pathFile, output_format=c("html_document"), clean=TRUE)
+}
+
+
 # renames model elements and collapses categories
 
 

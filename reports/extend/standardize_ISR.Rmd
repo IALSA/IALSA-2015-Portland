@@ -75,6 +75,12 @@ read_chunk("./reports/extend/standardize_ISR.R")
 head(ds[ , c("study_name","model_number","subgroup", "model_type", "physical_measure","cognitive_measure")], 30)
 ```
 
+## Export log
+```{r export_dataset}
+```
+
+
+
 
 
 

@@ -10,7 +10,7 @@ ds$pc_CORR_11 <-  ds$pc_TAU_11 / sqrt(ds$pp_TAU_11)*sqrt(ds$cc_TAU_11)
 ds$pc_CORR_residual <-  ds$pc_SIGMA / (sqrt(ds$p_SIGMA) * sqrt(ds$c_SIGMA))
 
 
-# ## @knitr standardize_coefficients
+# standardize_coefficients
 # ds$corr_int <- ds$cov_int/ (sqrt(ds$var_int_physical)*sqrt(ds$var_int_cog))
 # ds$corr_slope <- ds$cov_slope/ (sqrt(ds$var_slope_physical)*sqrt(ds$var_slope_cog))
 # ds$corr_residual <- ds$cov_residual/ (sqrt(ds$var_residual_physical)*sqrt(ds$var_residual_cog))
