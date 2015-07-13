@@ -1,25 +1,25 @@
-# These functions work with processing
-# models .out files
-options(width=160)
-rm(list=ls())
-cat("\f")
-
-library(MplusAutomation)
-
-## @knitr setPaths
-pathDir <- getwd() # establish home directory
-pathStudies <- file.path(pathDir,"studies")
-list.files(pathStudies) # inspect participating studies
-
-## @knitr setGlobals
-studies <- c("eas", "elsa")
-out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
-
-
-# for debugging functions
-# study <- "radc"
-study <- "ilse"
-i <- 1
+# # These functions work with processing
+# # models .out files
+# options(width=160)
+# rm(list=ls())
+# cat("\f")
+#
+# library(MplusAutomation)
+#
+# ## @knitr setPaths
+# pathDir <- getwd() # establish home directory
+# pathStudies <- file.path(pathDir,"studies")
+# list.files(pathStudies) # inspect participating studies
+#
+# ## @knitr setGlobals
+# studies <- c("eas", "elsa")
+# out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
+#
+#
+# # for debugging functions
+# # study <- "radc"
+# study <- "ilse"
+# i <- 1
 # comment out the code above when referenciing from 0_collect_studies.R
 ###########################################################################
 
@@ -131,7 +131,7 @@ get_msum <- function(study){
   }
   return(msum)
 }
-msum <- get_msum(study)
+# msum <- get_msum(study)
 # msum[190,"Filename"]
 
 
@@ -148,7 +148,7 @@ get_mpar <- function(study){
   }
   return(mpar)
 }
-mpar <- get_mpar(study)
+# mpar <- get_mpar(study)
 # mpar[[190]]
 ##### get_msum & get_mpar ####
 
@@ -187,7 +187,7 @@ results_to_populate <- function(study){
   selected_results
   return(results)
 }
-results <- results_to_populate(study)
+# results <- results_to_populate(study)
 
 
 # organize basic model descriptors
@@ -238,7 +238,7 @@ get_results_basic <- function(study){
   }
   return(results)
 } # close get_results_basic
-results <- get_results_basic(study)
+# results <- get_results_basic(study)
 
 
 get_results_covariance <- function(study){
@@ -310,7 +310,7 @@ get_results_covariance <- function(study){
   } # close study loop
   return(results)
 } # close get_results_covariance
-results <- get_results_covariance(study)
+# results <- get_results_covariance(study)
 
 ## not working past this line
 #################################################################
@@ -372,7 +372,7 @@ get_results_variance <- function(study){
     }# close has_converged
   } # close study loop
 }# close get_results_variance
-get_results_variance(study)
+# get_results_variance(study)
 
 # get_models <- function(study){
 #   msum <- get_msum(study)
@@ -382,8 +382,13 @@ get_results_variance(study)
 #   results <- get_results_covariance(study)
 #   results <- get_results_variance(study)
 #   return(results)
+#
+#   pathStudy <- paste0(pathStudies,"/",study)
+#   destination <- file.path(pathStudy, "study_automation_result.csv")
+#   write.csv(results[results$study_name==study,], destination, row.names=F)
+#
 # }
-# get_models("ilse")
+# # get_models("ilse")
 
 
 
