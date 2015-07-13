@@ -36,16 +36,28 @@ ds$pc_CI95_00_low <- tanh(ds$pc_ZETA_00_low)
 # ds$cil_corr_int <- tanh(ds$int_zetal)
 
 # CI for the slope
-ds$slope_zetau <- ds$corr_slope + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$slope_zetal <- ds$corr_slope - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$ciu_corr_slope <- tanh(ds$slope_zetau)
-ds$cil_corr_slope <- tanh(ds$slope_zetal)
+ds$pc_ZETA_11_high <- ds$pc_CORR_11 + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_ZETA_11_low <- ds$pc_CORR_11 - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_CI95_11_high <- tanh(ds$pc_ZETA_11_high)
+ds$pc_CI95_11_low <- tanh(ds$pc_ZETA_11_low)
+
+# # CI for the slope
+# ds$slope_zetau <- ds$corr_slope + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$slope_zetal <- ds$corr_slope - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$ciu_corr_slope <- tanh(ds$slope_zetau)
+# ds$cil_corr_slope <- tanh(ds$slope_zetal)
 
 # CI for the residual
-ds$residual_zetau <- ds$corr_residual + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$residual_zetal <- ds$corr_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
-ds$ciu_corr_residual <- tanh(ds$residual_zetau)
-ds$cil_corr_residual <- tanh(ds$residual_zetal)
+ds$pc_ZETA_residual_high <- ds$pc_CORR_residual + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_ZETA_residual_low <- ds$pc_CORR_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+ds$pc_CI95_residual_high <- tanh(ds$pc_ZETA_residual_high)
+ds$pc_CI95_residual_low <- tanh(ds$pc_ZETA_residual_low)
+
+# # CI for the residual
+# ds$residual_zetau <- ds$corr_residual + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$residual_zetal <- ds$corr_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
+# ds$ciu_corr_residual <- tanh(ds$residual_zetau)
+# ds$cil_corr_residual <- tanh(ds$residual_zetal)
 
 
 ## add uni/bi indicator
