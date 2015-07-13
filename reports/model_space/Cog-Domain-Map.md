@@ -85,7 +85,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-12, 23:28 -0700
+Report rendered by koval_000 at 2015-07-13, 05:32 -0700
 ```
 
 ```
@@ -109,6 +109,6 @@ loaded via a namespace (and not attached):
  [7] digest_0.6.8     evaluate_0.7     gtable_0.1.2     texreg_1.35      DBI_0.3.1        yaml_2.1.13     
 [13] parallel_3.2.0   proto_0.3-10     coda_0.17-1      stringr_1.0.0    R6_2.0.1         tcltk_3.2.0     
 [19] gsubfn_0.6-6     rmarkdown_0.7    reshape2_1.4.1   magrittr_1.5     htmltools_0.2.6  MASS_7.3-40     
-[25] rsconnect_0.3.79 assertthat_0.1   mime_0.3         xtable_1.7-4     colorspace_1.2-6 httpuv_1.3.2    
-[31] stringi_0.4-1    lazyeval_0.1.10  munsell_0.4.2   
+[25] assertthat_0.1   mime_0.3         xtable_1.7-4     colorspace_1.2-6 httpuv_1.3.2     stringi_0.4-1   
+[31] lazyeval_0.1.10  munsell_0.4.2   
 ```

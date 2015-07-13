@@ -18,8 +18,8 @@
 #
 # # for debugging functions
 # # study <- "radc"
-# study <- "ilse"
-# i <- 97
+# study <- "eas"
+# i <- 112
 # comment out the code above when referenciing from 0_collect_studies.R
 
 find.Conflicts <- function(study){
@@ -282,8 +282,10 @@ get_results_offdiag <- function(study){
   # models_in_a_study <- 1
   for(i in models_in_a_study){
     out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
+    # out_file <- "b1_female_ae_pulmonary_executive_pek_trailsb.out"
     message("Getting ", study, ", model ", i, ", ",out_file)
     mplus_output <- scan(out_list[i], what='character', sep='\n')
+    # mplus_output <- scan(out_list[out_file], what='character', sep='\n')
     model <- mpar[[i]]
     has_converged <- results[i,"converged"]
     if(has_converged) {
@@ -302,18 +304,37 @@ get_results_offdiag <- function(study){
       (test <- test[grep("^S", test$paramHeader),]) # paramHeader starting with S
       (test <- test[grep("^S", test$param),]) # pram starting with S
       (test <- test[ ,c("est", "se", "pval")])
-      if(dim(test)[1]!=0) {results[i, c("pc_TAU_00", "pc_TAU_00_se", "pc_TAU_00_pval")] <- test}
+      if(dim(test)[1]!=0) {results[i, c("pc_TAU_11", "pc_TAU_11_se", "pc_TAU_11_pval")] <- test}
+
+      ## covariance btw physical intercept and physical slope - pp_TAU_01
+      (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
+      (test <- test[grep("^IP|^SP", test$param),]) # param starting NOT with I or S
+      (test <- test[grep("^IP|^SP", test$paramHeader),])
+       if(dim(test)[1]!=0){results[i, c("cc_TAU_10","cc_TAU_10_se", "cc_TAU_10_pval")] <- test}
+
+      ## covariance btw cognitive slope and cognitive intercept - cc_TAU_10
+      (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
+      (test <- test[grep("^IC|^SC", test$param),]) # param starting NOT with I or S
+      (test <- test[grep("^IC|^SC", test$paramHeader),])
+       if(dim(test)[1]!=0){results[i, c("cc_TAU_10","cc_TAU_10_se", "cc_TAU_10_pval")] <- test}
+
 
       ## covariance btw physical and cognitive residuals - pc_SIGMA
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
-      (test <- test[-grep("I|S", test$param),]) # param starting NOT with I or S
-      ## Check whether only one cov has been estimated
-      if(length(unique(test$est))==1){
-        (test <- test[ ,c("est", "se", "pval")][1,]) # only the first line, they should be same
-        if(dim(test)[1]!=0){results[i, c("pc_SIGMA","pc_SIGMA_se", "pc_SIGMA_pval")] <- test}
-      } # close if
-      else{results[i, 'notes'] <- paste(results[i, 'notes'], "Heterogeneous Res Covs", sep='_')
-      } # close else
+      (test <- test[-grep("^I|S", test$param),]) # param starting NOT with I or S
+      (test <- test[ ,c("est", "se", "pval")][1,]) # only the first line, they should be same
+      if(dim(test)[1]!=0){results[i, c("pc_SIGMA","pc_SIGMA_se", "pc_SIGMA_pval")] <- test}
+
+
+#       ## Check whether only one cov has been estimated
+#       if(length(unique(test$est))==1){
+#         (test <- test[ ,c("est", "se", "pval")][1,]) # only the first line, they should be same
+#         if(dim(test)[1]!=0){results[i, c("pc_SIGMA","pc_SIGMA_se", "pc_SIGMA_pval")] <- test}
+#       } # close if
+#       else{results[i, 'notes'] <- paste(results[i, 'notes'], "Heterogeneous Res Covs", sep='_')
+#       } # close else
+#
+
 
     } # closes has_convered
   } # close study loop
@@ -338,6 +359,20 @@ get_results_diag <- function(study){
     model <- mpar[[i]]
     has_converged <- results[i,"converged"]
     if(has_converged) {
+            ## variance physical residual- p_SIGMA
+      (test <- model[grep("^P", model$param), ])
+      (test <- test[grep("^Residual.Variances", test$paramHeader), ])
+      (test <- test[ ,c("est", "se", "pval")][1,]) # only the first line, they should be same
+        if(dim(test)[1]!=0) {results[i, c("pp_TAU_01", "pp_TAU_01_se", "pp_TAU_01_pval")] <- test}
+
+      ## variance of cognitive residual - c_SIGMA
+      (test <- model[grep("^C", model$param), ])
+      (test <- test[grep("^Residual.Variances", test$paramHeader), ])
+      (test <- test[ ,c("est", "se", "pval")][1,]) # only the first line, they should be same
+        if(dim(test)[1]!=0) {results[i, c("cc_TAU_10", "cc_TAU_10_se", "cc_TAU_10_pval")] <- test}
+
+
+
       ## subset
       vrs <- model[grep("Residual.Variances", model$paramHeader),]
       vrs
@@ -423,7 +458,7 @@ results <- get_results_intercepts(study)
 
 # meta function
 # get_models <- function(study){
-  pathStudy <- paste0(pathStudies,"/",study)
+pathStudy <- paste0(pathStudies,"/",study)
 
 #   results <- results_to_populate(study)
 #
