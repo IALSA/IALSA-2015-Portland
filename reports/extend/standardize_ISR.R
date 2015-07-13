@@ -5,9 +5,15 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 ds <- readRDS('./data/shared/ds1.rds')
 
 ## @knitr standardize_coefficients
-ds$corr_int <- ds$cov_int/ (sqrt(ds$var_int_physical)*sqrt(ds$var_int_cog))
-ds$corr_slope <- ds$cov_slope/ (sqrt(ds$var_slope_physical)*sqrt(ds$var_slope_cog))
-ds$corr_residual <- ds$cov_residual/ (sqrt(ds$var_residual_physical)*sqrt(ds$var_residual_cog))
+ds$pc_CORR_00 <- ds$pc_TAU_00 / sqrt(ds$pp_TAU_00)*sqrt(ds$cc_TAU_00)
+ds$pc_CORR_11 <-  ds$pc_TAU_11 / sqrt(ds$pp_TAU_11)*sqrt(ds$cc_TAU_11)
+ds$pc_CORR_residual <-  ds$pc_SIGMA / (sqrt(ds$p_SIGMA) * sqrt(ds$c_SIGMA))
+
+
+# ## @knitr standardize_coefficients
+# ds$corr_int <- ds$cov_int/ (sqrt(ds$var_int_physical)*sqrt(ds$var_int_cog))
+# ds$corr_slope <- ds$cov_slope/ (sqrt(ds$var_slope_physical)*sqrt(ds$var_slope_cog))
+# ds$corr_residual <- ds$cov_residual/ (sqrt(ds$var_residual_physical)*sqrt(ds$var_residual_cog))
 
 is_univariate <- grepl(pattern="^u\\d$", x=ds$model_number)
 is_bivariate <- grepl(pattern="^b\\d$", x=ds$model_number)
