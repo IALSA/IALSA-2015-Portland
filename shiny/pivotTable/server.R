@@ -14,11 +14,13 @@ library(rpivotTable)
 
 
 if(basename(getwd())=="pivotTable"){
-ds1a <- readRDS('../../data/shared/ds1a.rds')
-dsb <- ds1a %>% dplyr::filter(model_number %in% c("u1","b1"))
+ds2 <- readRDS('../../data/shared/ds2.rds')
+# dsb <- ds2 %>% dplyr::filter(model_number %in% c("u1","b1"))
+dsb <- ds2 %>% dplyr::filter(model_number %in% c("u0","u2", "u1","b1"))
 }else{
-ds1a <- readRDS('./data/shared/ds1a.rds')
-dsb <- ds1a %>% dplyr::filter(model_number %in% c("u1","b1"))
+ds2 <- readRDS('./data/shared/ds2.rds')
+# dsb <- ds2 %>% dplyr::filter(model_number %in% c("u1","b1"))
+dsb <- ds2 %>% dplyr::filter(model_number %in% c("u0","u2", "u1","b1"))
 }
 
 
