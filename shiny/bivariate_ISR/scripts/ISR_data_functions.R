@@ -24,7 +24,7 @@ filter_model <- function(ds
   return(ds)
 }
 
-# ds <- filter_model(dsb, covars = c("a","aeh"))
+# ds <- filter_model(dsb, covars = c("aeh"))
 # library(rpivotTable)
 # rpivotTable(data = ds,
 #                rows = c("study_name", "cognitive_measure"),
@@ -60,7 +60,7 @@ for( i in seq_along(d$parameter)){
   d <- tidyr::spread_(d,"value_type","value")
   d$corr <- round(as.numeric(d$corr),3)
   d$pvalue <- round(as.numeric(d$pvalue),3)
-  d$parameter <- factor(d$parameter, levels= c("int", "slope","residual"))
+  d$parameter <- factor(d$parameter, levels= c("intercept", "slope","residual"))
   head(as.data.frame(d),20)
   str(d)
 
