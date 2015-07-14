@@ -1,25 +1,25 @@
-# # These functions work with processing
-# # models .out files
-# options(width=160)
-# rm(list=ls())
-# cat("\f")
-#
-# library(MplusAutomation)
-#
-# ## @knitr setPaths
-# pathDir <- getwd() # establish home directory
-# pathStudies <- file.path(pathDir,"studies")
-# list.files(pathStudies) # inspect participating studies
-#
-# ## @knitr setGlobals
-# studies <- c("eas", "elsa")
-# out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
-#
-#
-# # for debugging functions
-# # study <- "radc"
-# study <- "eas"
-# i <- 112
+# These functions work with processing
+# models .out files
+options(width=160)
+rm(list=ls())
+cat("\f")
+
+library(MplusAutomation)
+
+## @knitr setPaths
+pathDir <- getwd() # establish home directory
+pathStudies <- file.path(pathDir,"studies")
+list.files(pathStudies) # inspect participating studies
+
+## @knitr setGlobals
+studies <- c("eas", "elsa")
+out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
+
+
+# for debugging functions
+# study <- "radc"
+study <- "eas"
+i <- 1
 # comment out the code above when referenciing from 0_collect_studies.R
 
 find.Conflicts <- function(study){
@@ -56,7 +56,7 @@ find.Conflicts <- function(study){
   }
   return(conflict)
 } #close function
-
+find.Conflicts(study)
 
 # extractModelParameters() sometimes breakes down when encounters confidence intervals in out file.
 # Temporary Solution: Identify output files with CI and delete that section before reading them in
@@ -88,7 +88,7 @@ find.CI <- function(study){
   (conflict <- conf_file[!is.na(conf_file)])
   return(conflict)
 } # close function
-
+find.CI(study)
 
 # a dataset with model summaries
 get_msum <- function(study){
@@ -158,41 +158,45 @@ results_to_populate <- function(study){
   "LL", "aic", "bic", "adj_bic", "aaic",
   "output_file", "data_file",
 
+  # pc_TAU_00 - covariance btw physical intercept and cognitive intercept
+  "pc_TAU_00", "pc_TAU_00_se", "pc_TAU_00_pval",
+  # pc_TAU_11 - covariance btw physical slope and cognitive slope
+  "pc_TAU_11", "pc_TAU_11_se", "pc_TAU_11_pval",
+  # pc_TAU_01 - covariance btw physical intercept and cognitive slope
+  "pc_TAU_01", "pc_TAU_01_se", "pc_TAU_01_pval",
+  # pc_TAU_10 - covariance btw physical slope and cognitive intercept
+  "pc_TAU_10", "pc_TAU_10_se", "pc_TAU_10_pval",
+  # pc_SIGMA - covariance btw physcial residual and cogntive residual
+  "pc_SIGMA", "pc_SIGMA_se", "pc_SIGMA_pval",
+
+
   # variance of the physical intercept
   "pp_TAU_00", "pp_TAU_00_se", "pp_TAU_00_pval",
   # variance of the cognitive slope
   "pp_TAU_11", "pp_TAU_11_se", "pp_TAU_11_pval",
+  # covariance of physical intercept and physical slope
+  "pp_TAU_01", "pp_TAU_01_se", "pp_TAU_01_pval",
+  # variance of physical residual
+  "p_SIGMA", "p_SIGMA_se", "p_SIGMA_pval",
+
+
   # variance of the cognitive intercept
   "cc_TAU_00", "cc_TAU_00_se", "cc_TAU_00_pval",
-# variance of the cognitive slope
+  # variance of the cognitive slope
   "cc_TAU_11", "cc_TAU_11_se", "cc_TAU_11_pval",
-# variance of physical residual
-  "p_SIGMA", "p_SIGMA_se", "p_SIGMA_pval",
-# variance of cognitive residual
+  # cc_TAU_10 - covariance btw cognitive slope and cognitive intercept
+  "cc_TAU_10", "cc_TAU_10_se", "cc_TAU_10_pval",
+  # variance of cognitive residual
   "c_SIGMA", "c_SIGMA_se", "c_SIGMA_pval",
 
-# covariance of physical intercept and physical slope
-  "pp_TAU_01", "pp_TAU_01_se", "pp_TAU_01_pval",
-# pc_TAU_01 - covariance btw physical intercept and cognitive slope
-  "pc_TAU_01", "pc_TAU_01_se", "pc_TAU_01_pval",
-# pc_TAU_00 - covariance btw physical intercept and cognitive intercept
-  "pc_TAU_00", "pc_TAU_00_se", "pc_TAU_00_pval",
-# pc_TAU_11 - covariance btw physical slope and cognitive slope
-  "pc_TAU_11", "pc_TAU_11_se", "pc_TAU_11_pval",
-# pc_TAU_10 - covariance btw physical slope and cognitive intercept
-  "pc_TAU_10", "pc_TAU_10_se", "pc_TAU_10_pval",
-# cc_TAU_10 - covariance btw cognitive slope and cognitive intercept
-  "cc_TAU_10", "cc_TAU_10_se", "cc_TAU_10_pval",
-# pc_SIGMA - covariance btw physcial residual and cogntive residual
-  "pc_SIGMA", "pc_SIGMA_se", "pc_SIGMA_pval",
 
-# average initial status of physical outcome
+  # average initial status of physical outcome
   "p_GAMMA_00", "p_GAMMA_00_se", "p_GAMMA_00_pval",
-# average rate of change of physical outcome
+  # average rate of change of physical outcome
   "p_GAMMA_10", "p_GAMMA_10_se", "p_GAMMA_10_pval",
-# average initial status of cognitive outcome
+  # average initial status of cognitive outcome
   "c_GAMMA_00", "c_GAMMA_00_se", "c_GAMMA_00_pval",
-# average rate of change of cognitive outcome
+  # average rate of change of cognitive outcome
   "c_GAMMA_10", "c_GAMMA_10_se", "c_GAMMA_10_pval"
  )
   # Create data frame to populated from model output files
@@ -232,7 +236,7 @@ get_results_basic <- function(study){
     out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
     message("Getting ", study, ", model ", i, ", ",out_file)
     mplus_output <- scan(out_list[i], what='character', sep='\n')
-    model <- mpar[[i]]
+    model <- mpar[[i]] # model results for this i
 
     ## Populate with header info
     results[i, 'software'] <- mplus_output[1]
@@ -310,12 +314,14 @@ get_results_offdiag <- function(study){
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^IP|^SP", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IP|^SP", test$paramHeader),])
+      (test <- test[ ,c("est", "se", "pval")])
        if(dim(test)[1]!=0){results[i, c("cc_TAU_10","cc_TAU_10_se", "cc_TAU_10_pval")] <- test}
 
       ## covariance btw cognitive slope and cognitive intercept - cc_TAU_10
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^IC|^SC", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IC|^SC", test$paramHeader),])
+      (test <- test[ ,c("est", "se", "pval")])
        if(dim(test)[1]!=0){results[i, c("cc_TAU_10","cc_TAU_10_se", "cc_TAU_10_pval")] <- test}
 
 
