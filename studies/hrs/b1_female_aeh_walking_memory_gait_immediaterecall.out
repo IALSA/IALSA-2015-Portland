@@ -1,47 +1,54 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-07/09/2015  11:12 AM
+07/15/2015   1:49 PM
 
 INPUT INSTRUCTIONS
 
   TITLE: B1 Walking, Immediate Recall, AEH, Female
 
-  DATA:  File = "C:\Users\wuche\desktop\Mplus\hrs_IALSA_useable_walk.dat";
+  DATA:  File = "\\tsclient\C\Users\wuche\Dropbox\Research\IALSA\Mplus\Data\WALK.dat";
 
   Variable:
     Names are
-       hhid JAGE MALE educ04 smoke04 height04 diabetes04 cvd04 walk04 walk06
-       walk08 walk10 walk12 recall04i recall06i recall08i recall10i recall12i
-       recall04d recall06d recall08d recall10d recall12d serial06 serial04
-       serial08 serial10 serial12 tisc04 tisc06 tisc08 tisc10 tisc12 t1 t2
-       t3 t4 t5;
+       hhid pn JAGE JALIVE JINSAMP JIWWAVE KAGE KALIVE KINSAMP KIWWAVE LAGE
+       LALIVE LINSAMP LIWWAVE MAGE MALIVE MINSAMP MIWWAVE NAGE NALIVE NINSAMP
+       NIWWAVE WHITE MALE educ04 smoke04 height04 bmi04 diabetes04 cvd04
+       walk04 walk06 walk10 peak04 peak06 peak10 grip04 grip06 grip10 recall04i
+       recall06i recall08i recall10i recall12i recall04d recall06d recall08d
+       recall10d recall12d serial06 serial04 serial08 serial10 serial12 vocabulary04
+       vocabulary06 vocabulary08 vocabulary10 vocabulary12 tisc04 tisc06
+       tisc08 tisc10 tisc12 cesd04 cesd06 cesd08 cesd10 cesd12 t1 t2 t3 t4
+       t5;
 
-      MISSING are all(-9999);
-      USEVAR  are time1 time2 time3 time4 time5 Bage Educ Height
-                  p1 p2 p3 p4 p5 c1 c2 c3 c4 c5;
-      TSCORES =   time1 time2 time3 time4 time5;
-      CLUSTER =   hhid;
-      SUBPOPULATION are MALE EQ 0;
+    MISSING are all(-9999);
+    USEVAR  are time1 time2 time3 time4 time5
+                Educ Height
+                Bage p1 p2 p4 c1 c2 c3 c4 c5;
+    TSCORES =   time1 time2 time3 time4 time5;
+    CLUSTER =   hhid;
+    SUBPOPULATION are MALE EQ 0;
 
-    DEFINE: p1=walk04; p2 = walk06; p3 = walk08; p4 = walk10; p5 = walk12;
-            c1=recall04i; c2=recall06i; c3=recall08i; c4=recall10i; c5=recall12i;
-            time1 = t1; time2 = t2; time3 = t3; time4 = t4; time5 = t5;
-            Bage = JAGE-70;
-            Educ   = educ04-7;
-            Height = height04-1.60;
+  DEFINE: p1=walk04; p2 = walk06; p4 = walk10;
+          c1=recall04I; c2=recall06I; c3=recall08I; c4=recall10I; c5=recall12I;
+          time1 = t1; time2 = t2; time3 = t3; time4 = t4; time5 = t5;
+          Bage = JAGE-70;
+          Educ   = educ04-7;
+          Height = height04-1.60;
 
-    ANALYSIS: TYPE = RANDOM COMPLEX;
+  ANALYSIS: TYPE = RANDOM COMPLEX;
 
-    MODEL: ip sp | p1-p5 AT time1 time2 time3 time4 time5;
-           ic sc | c1-c5 AT time1 time2 time3 time4 time5;
+  MODEL: ip sp | p1 p2 p4 AT time1 time2       time4;
+         ic sc | c1-c5    AT time1 time2 time3 time4 time5;
 
-           ip sp ic sc ON Bage Educ Height;
+         ip sp ic sc ON Bage Educ Height;
 
-           p1-p5 (res_p);
-           c1-c5 (res_p);
-           p1-p5 pwith c1-c5(res_cov);
+         p1 p2 p4 (res_p);
+         c1-c5 (res_p);
+         p1  with c1  (res_cov);
+         p2  with c2  (res_cov);
+         p4  with c4  (res_cov);
 
-    OUTPUT: sampstat Cinterval;
+  OUTPUT: sampstat Cinterval;
 
 
 
@@ -54,20 +61,20 @@ B1 Walking, Immediate Recall, AEH, Female
 SUMMARY OF ANALYSIS
 
 Number of groups                                                 1
-Number of observations                                         965
+Number of observations                                         370
 
-Number of dependent variables                                   10
+Number of dependent variables                                    8
 Number of independent variables                                  3
 Number of continuous latent variables                            4
 
 Observed dependent variables
 
   Continuous
-   P1          P2          P3          P4          P5          C1
-   C2          C3          C4          C5
+   P1          P2          P4          C1          C2          C3
+   C4          C5
 
 Observed independent variables
-   BAGE        EDUC        HEIGHT
+   EDUC        HEIGHT      BAGE
 
 Continuous latent variables
    IP          SP          IC          SC
@@ -97,7 +104,7 @@ Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
 Input data file(s)
-  C:\Users\wuche\desktop\Mplus\hrs_IALSA_useable_walk.dat
+  \\tsclient\C\Users\wuche\Dropbox\Research\IALSA\Mplus\Data\WALK.dat
 Input data format  FREE
 
 
@@ -109,107 +116,95 @@ SAMPLE STATISTICS
 
 
            Means
-              P1            P2            P3            P4            P5
+              P1            P2            P4            C1            C2
               ________      ________      ________      ________      ________
- 1              0.768         0.686         0.619         0.589         0.571
+ 1              0.787         0.702         0.614         5.197         5.030
 
 
            Means
-              C1            C2            C3            C4            C5
+              C3            C4            C5            EDUC          HEIGHT
               ________      ________      ________      ________      ________
- 1              5.060         4.836         4.607         4.130         3.954
+ 1              4.705         4.423         4.236         5.378         0.000
 
 
            Means
-              BAGE          EDUC          HEIGHT
-              ________      ________      ________
- 1              7.316         5.024         0.001
+              BAGE
+              ________
+ 1              6.746
 
 
            Covariances
-              P1            P2            P3            P4            P5
+              P1            P2            P4            C1            C2
               ________      ________      ________      ________      ________
- P1             0.075
- P2             0.037         0.056
- P3             0.039         0.021         0.080
- P4             0.045         0.037         0.029         0.079
- P5             0.028         0.021         0.034         0.030         0.084
- C1             0.106         0.096         0.123         0.118         0.119
- C2             0.120         0.103         0.162         0.140         0.158
- C3             0.119         0.121         0.156         0.168         0.153
- C4             0.139         0.133         0.177         0.208         0.248
- C5             0.147         0.141         0.175         0.198         0.269
- BAGE          -0.690        -0.718        -0.832        -1.024        -1.230
- EDUC           0.141         0.143         0.156         0.242         0.149
- HEIGHT         0.003         0.002         0.002         0.002         0.003
+ P1             0.065
+ P2             0.032         0.053
+ P4             0.039         0.033         0.073
+ C1             0.102         0.088         0.104         2.337
+ C2             0.104         0.088         0.118         1.195         2.693
+ C3             0.105         0.103         0.141         1.224         1.411
+ C4             0.106         0.108         0.177         1.359         1.521
+ C5             0.103         0.104         0.155         1.384         1.642
+ EDUC           0.147         0.125         0.212         0.919         1.119
+ HEIGHT         0.002         0.001         0.002         0.014         0.006
+ BAGE          -0.530        -0.608        -0.864        -3.548        -3.928
 
 
            Covariances
-              C1            C2            C3            C4            C5
+              C3            C4            C5            EDUC          HEIGHT
               ________      ________      ________      ________      ________
- C1             2.486
- C2             1.505         3.129
- C3             1.477         1.683         2.939
- C4             1.505         1.705         1.869         3.330
- C5             1.704         1.810         1.993         2.204         3.441
- BAGE          -3.837        -4.427        -5.332        -6.451        -7.171
- EDUC           1.338         1.612         1.271         1.452         1.455
- HEIGHT         0.011         0.009         0.012         0.017         0.016
+ C3             2.727
+ C4             1.634         3.204
+ C5             1.699         1.946         3.057
+ EDUC           0.879         0.958         0.815         8.278
+ HEIGHT         0.007         0.017         0.022         0.032         0.005
+ BAGE          -4.324        -5.718        -6.251         0.258        -0.055
 
 
            Covariances
-              BAGE          EDUC          HEIGHT
-              ________      ________      ________
- BAGE          55.435
- EDUC          -1.211         9.161
- HEIGHT        -0.091         0.039         0.005
+              BAGE
+              ________
+ BAGE          51.254
 
 
            Correlations
-              P1            P2            P3            P4            P5
+              P1            P2            P4            C1            C2
               ________      ________      ________      ________      ________
  P1             1.000
- P2             0.573         1.000
- P3             0.503         0.317         1.000
- P4             0.580         0.564         0.362         1.000
- P5             0.354         0.306         0.412         0.371         1.000
- C1             0.245         0.259         0.277         0.266         0.261
- C2             0.248         0.248         0.324         0.282         0.308
- C3             0.253         0.299         0.322         0.348         0.308
- C4             0.278         0.308         0.343         0.404         0.469
- C5             0.289         0.321         0.334         0.379         0.500
- BAGE          -0.338        -0.409        -0.395        -0.489        -0.570
- EDUC           0.170         0.200         0.182         0.284         0.170
- HEIGHT         0.141         0.109         0.087         0.101         0.131
+ P2             0.546         1.000
+ P4             0.559         0.537         1.000
+ C1             0.261         0.251         0.251         1.000
+ C2             0.249         0.233         0.265         0.477         1.000
+ C3             0.248         0.273         0.314         0.485         0.521
+ C4             0.233         0.264         0.366         0.497         0.518
+ C5             0.230         0.259         0.327         0.518         0.572
+ EDUC           0.200         0.190         0.272         0.209         0.237
+ HEIGHT         0.123         0.086         0.090         0.131         0.057
+ BAGE          -0.290        -0.370        -0.446        -0.324        -0.334
 
 
            Correlations
-              C1            C2            C3            C4            C5
+              C3            C4            C5            EDUC          HEIGHT
               ________      ________      ________      ________      ________
- C1             1.000
- C2             0.540         1.000
- C3             0.547         0.555         1.000
- C4             0.523         0.528         0.598         1.000
- C5             0.582         0.552         0.627         0.651         1.000
- BAGE          -0.327        -0.336        -0.418        -0.475        -0.519
- EDUC           0.280         0.301         0.245         0.263         0.259
- HEIGHT         0.097         0.072         0.098         0.134         0.123
+ C3             1.000
+ C4             0.553         1.000
+ C5             0.589         0.622         1.000
+ EDUC           0.185         0.186         0.162         1.000
+ HEIGHT         0.063         0.140         0.186         0.161         1.000
+ BAGE          -0.366        -0.446        -0.499         0.013        -0.113
 
 
            Correlations
-              BAGE          EDUC          HEIGHT
-              ________      ________      ________
+              BAGE
+              ________
  BAGE           1.000
- EDUC          -0.054         1.000
- HEIGHT        -0.175         0.185         1.000
 
 
-     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -19455.635
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -7806.559
 
      WARNING: THE MODEL ESTIMATION HAS REACHED A SADDLE POINT OR A POINT WHERE THE
      OBSERVED AND THE EXPECTED INFORMATION MATRICES DO NOT MATCH.
      AN ADJUSTMENT TO THE ESTIMATION OF THE INFORMATION MATRIX HAS BEEN MADE.
-     THE CONDITION NUMBER IS      -0.133D-01.
+     THE CONDITION NUMBER IS      -0.702D-02.
      THE PROBLEM MAY ALSO BE RESOLVED BY DECREASING THE VALUE OF THE
      MCONVERGENCE OR LOGCRITERION OPTIONS OR BY CHANGING THE STARTING VALUES
      OR BY USING THE MLF ESTIMATOR.
@@ -225,15 +220,15 @@ Number of Free Parameters                       28
 
 Loglikelihood
 
-          H0 Value                       -8531.911
-          H0 Scaling Correction Factor      0.6811
+          H0 Value                       -3532.240
+          H0 Scaling Correction Factor      0.7279
             for MLR
 
 Information Criteria
 
-          Akaike (AIC)                   17119.821
-          Bayesian (BIC)                 17256.241
-          Sample-Size Adjusted BIC       17167.313
+          Akaike (AIC)                    7120.479
+          Bayesian (BIC)                  7230.057
+          Sample-Size Adjusted BIC        7141.223
             (n* = (n + 2) / 24)
 
 
@@ -244,88 +239,78 @@ MODEL RESULTS
                     Estimate       S.E.  Est./S.E.    P-Value
 
  IP         ON
-    BAGE              -0.011      0.001    -10.224      0.000
-    EDUC               0.013      0.003      5.198      0.000
-    HEIGHT             0.188      0.121      1.548      0.122
+    BAGE              -0.010      0.002     -5.082      0.000
+    EDUC               0.015      0.004      4.266      0.000
+    HEIGHT             0.176      0.219      0.802      0.422
 
  SP         ON
-    BAGE              -0.001      0.000     -3.259      0.001
-    EDUC               0.001      0.001      1.822      0.069
-    HEIGHT            -0.049      0.025     -1.936      0.053
+    BAGE              -0.001      0.001     -0.907      0.364
+    EDUC               0.002      0.001      1.764      0.078
+    HEIGHT            -0.037      0.060     -0.616      0.538
 
  IC         ON
-    BAGE              -0.065      0.006    -11.366      0.000
-    EDUC               0.148      0.015      9.751      0.000
-    HEIGHT            -0.459      0.610     -0.752      0.452
+    BAGE              -0.066      0.009     -7.545      0.000
+    EDUC               0.123      0.021      5.768      0.000
+    HEIGHT             0.220      0.956      0.230      0.818
 
  SC         ON
-    BAGE              -0.008      0.001     -7.249      0.000
-    EDUC               0.000      0.003     -0.116      0.908
-    HEIGHT             0.017      0.104      0.166      0.868
+    BAGE              -0.006      0.002     -3.820      0.000
+    EDUC              -0.002      0.004     -0.581      0.562
+    HEIGHT             0.142      0.146      0.967      0.334
 
  SP       WITH
-    IP                 0.000      0.001     -0.114      0.909
+    IP                 0.000      0.002     -0.076      0.939
 
  IC       WITH
-    IP                 0.037      0.129      0.286      0.775
-    SP                -0.001      0.002     -0.505      0.614
+    IP                 0.034      0.072      0.472      0.637
+    SP                -0.002      0.065     -0.027      0.979
 
  SC       WITH
-    IP                -0.001      0.020     -0.036      0.971
-    SP                 0.001      0.001      0.451      0.652
-    IC                -0.055      0.012     -4.708      0.000
+    IP                -0.001      0.024     -0.058      0.954
+    SP                 0.001      0.006      0.093      0.926
+    IC                -0.047      0.018     -2.605      0.009
 
  P1       WITH
-    C1                 0.014      0.008      1.719      0.086
+    C1                 0.011      0.010      1.103      0.270
 
  P2       WITH
-    C2                 0.014      0.008      1.719      0.086
-
- P3       WITH
-    C3                 0.014      0.008      1.719      0.086
+    C2                 0.011      0.010      1.103      0.270
 
  P4       WITH
-    C4                 0.014      0.008      1.719      0.086
-
- P5       WITH
-    C5                 0.014      0.008      1.719      0.086
+    C4                 0.011      0.010      1.103      0.270
 
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
-    P3                 0.000      0.000    999.000    999.000
     P4                 0.000      0.000    999.000    999.000
-    P5                 0.000      0.000    999.000    999.000
     C1                 0.000      0.000    999.000    999.000
     C2                 0.000      0.000    999.000    999.000
     C3                 0.000      0.000    999.000    999.000
     C4                 0.000      0.000    999.000    999.000
     C5                 0.000      0.000    999.000    999.000
-    IP                 0.771      0.017     46.630      0.000
-    SP                -0.023      0.004     -5.513      0.000
-    IC                 4.835      0.098     49.335      0.000
-    SC                -0.091      0.015     -6.135      0.000
+    IP                 0.759      0.022     34.493      0.000
+    SP                -0.027      0.007     -3.669      0.000
+    IC                 5.014      0.139     36.026      0.000
+    SC                -0.074      0.024     -3.105      0.002
 
  Residual Variances
-    P1                 0.659      0.021     31.291      0.000
-    P2                 0.659      0.021     31.291      0.000
-    P3                 0.659      0.021     31.291      0.000
-    P4                 0.659      0.021     31.291      0.000
-    P5                 0.659      0.021     31.291      0.000
-    C1                 0.659      0.021     31.291      0.000
-    C2                 0.659      0.021     31.291      0.000
-    C3                 0.659      0.021     31.291      0.000
-    C4                 0.659      0.021     31.291      0.000
-    C5                 0.659      0.021     31.291      0.000
-    IP                 0.002      0.007      0.204      0.839
-    SP                 0.000      0.000      0.119      0.905
-    IC                 1.330      0.091     14.617      0.000
-    SC                 0.021      0.003      7.638      0.000
+    P1                 0.635      0.031     20.759      0.000
+    P2                 0.635      0.031     20.759      0.000
+    P4                 0.635      0.031     20.759      0.000
+    C1                 0.635      0.031     20.759      0.000
+    C2                 0.635      0.031     20.759      0.000
+    C3                 0.635      0.031     20.759      0.000
+    C4                 0.635      0.031     20.759      0.000
+    C5                 0.635      0.031     20.759      0.000
+    IP                 0.002      0.006      0.262      0.793
+    SP                 0.000      0.001      0.066      0.948
+    IC                 1.160      0.137      8.465      0.000
+    SC                 0.021      0.005      4.384      0.000
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix             -0.133E-01
+     Condition Number for the Information Matrix             -0.702E-02
        (ratio of smallest to largest eigenvalue)
 
 
@@ -334,83 +319,73 @@ CONFIDENCE INTERVALS OF MODEL RESULTS
                   Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
 
  IP       ON
-    BAGE            -0.014      -0.013      -0.013      -0.011      -0.009      -0.009      -0.008
-    EDUC             0.007       0.008       0.009       0.013       0.018       0.018       0.020
-    HEIGHT          -0.125      -0.050      -0.012       0.188       0.388       0.426       0.501
+    BAGE            -0.015      -0.014      -0.013      -0.010      -0.007      -0.006      -0.005
+    EDUC             0.006       0.008       0.009       0.015       0.021       0.022       0.024
+    HEIGHT          -0.388      -0.254      -0.185       0.176       0.536       0.605       0.740
 
  SP       ON
-    BAGE            -0.002      -0.002      -0.002      -0.001       0.000       0.000       0.000
-    EDUC             0.000       0.000       0.000       0.001       0.002       0.002       0.003
-    HEIGHT          -0.115      -0.099      -0.091      -0.049      -0.007       0.001       0.016
+    BAGE            -0.004      -0.003      -0.003      -0.001       0.001       0.001       0.002
+    EDUC            -0.001       0.000       0.000       0.002       0.003       0.003       0.004
+    HEIGHT          -0.193      -0.156      -0.137      -0.037       0.062       0.081       0.118
 
  IC       ON
-    BAGE            -0.079      -0.076      -0.074      -0.065      -0.055      -0.054      -0.050
-    EDUC             0.109       0.118       0.123       0.148       0.173       0.177       0.187
-    HEIGHT          -2.030      -1.654      -1.462      -0.459       0.544       0.737       1.112
+    BAGE            -0.088      -0.083      -0.080      -0.066      -0.051      -0.049      -0.043
+    EDUC             0.068       0.081       0.088       0.123       0.158       0.164       0.177
+    HEIGHT          -2.242      -1.654      -1.353       0.220       1.792       2.093       2.682
 
  SC       ON
-    BAGE            -0.011      -0.010      -0.010      -0.008      -0.006      -0.006      -0.005
-    EDUC            -0.007      -0.005      -0.004       0.000       0.004       0.005       0.006
-    HEIGHT          -0.250      -0.186      -0.153       0.017       0.188       0.220       0.284
+    BAGE            -0.011      -0.010      -0.009      -0.006      -0.004      -0.003      -0.002
+    EDUC            -0.013      -0.010      -0.009      -0.002       0.004       0.006       0.008
+    HEIGHT          -0.236      -0.145      -0.099       0.142       0.382       0.429       0.519
 
  SP       WITH
-    IP              -0.002      -0.001      -0.001       0.000       0.001       0.001       0.002
+    IP              -0.006      -0.005      -0.004       0.000       0.004       0.004       0.006
 
  IC       WITH
-    IP              -0.296      -0.216      -0.175       0.037       0.249       0.290       0.369
-    SP              -0.006      -0.005      -0.004      -0.001       0.002       0.003       0.004
+    IP              -0.152      -0.107      -0.085       0.034       0.153       0.175       0.220
+    SP              -0.170      -0.130      -0.109      -0.002       0.106       0.126       0.166
 
  SC       WITH
-    IP              -0.052      -0.040      -0.034      -0.001       0.032       0.039       0.051
-    SP              -0.003      -0.002      -0.002       0.001       0.003       0.003       0.004
-    IC              -0.085      -0.078      -0.074      -0.055      -0.036      -0.032      -0.025
+    IP              -0.063      -0.048      -0.040      -0.001       0.038       0.045       0.060
+    SP              -0.015      -0.011      -0.009       0.001       0.011       0.013       0.016
+    IC              -0.093      -0.082      -0.076      -0.047      -0.017      -0.012      -0.001
 
  P1       WITH
-    C1              -0.007      -0.002       0.001       0.014       0.028       0.031       0.036
+    C1              -0.014      -0.008      -0.005       0.011       0.027       0.030       0.036
 
  P2       WITH
-    C2              -0.007      -0.002       0.001       0.014       0.028       0.031       0.036
-
- P3       WITH
-    C3              -0.007      -0.002       0.001       0.014       0.028       0.031       0.036
+    C2              -0.014      -0.008      -0.005       0.011       0.027       0.030       0.036
 
  P4       WITH
-    C4              -0.007      -0.002       0.001       0.014       0.028       0.031       0.036
-
- P5       WITH
-    C5              -0.007      -0.002       0.001       0.014       0.028       0.031       0.036
+    C4              -0.014      -0.008      -0.005       0.011       0.027       0.030       0.036
 
  Intercepts
     P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    IP               0.728       0.739       0.744       0.771       0.798       0.803       0.814
-    SP              -0.033      -0.031      -0.029      -0.023      -0.016      -0.015      -0.012
-    IC               4.582       4.643       4.673       4.835       4.996       5.027       5.087
-    SC              -0.130      -0.121      -0.116      -0.091      -0.067      -0.062      -0.053
+    IP               0.702       0.716       0.723       0.759       0.795       0.802       0.816
+    SP              -0.045      -0.041      -0.039      -0.027      -0.015      -0.012      -0.008
+    IC               4.655       4.741       4.785       5.014       5.243       5.286       5.372
+    SC              -0.135      -0.120      -0.113      -0.074      -0.035      -0.027      -0.013
 
  Residual Variances
-    P1               0.605       0.618       0.625       0.659       0.694       0.701       0.714
-    P2               0.605       0.618       0.625       0.659       0.694       0.701       0.714
-    P3               0.605       0.618       0.625       0.659       0.694       0.701       0.714
-    P4               0.605       0.618       0.625       0.659       0.694       0.701       0.714
-    P5               0.605       0.618       0.625       0.659       0.694       0.701       0.714
-    C1               0.605       0.618       0.625       0.659       0.694       0.701       0.714
-    C2               0.605       0.618       0.625       0.659       0.694       0.701       0.714
-    C3               0.605       0.618       0.625       0.659       0.694       0.701       0.714
-    C4               0.605       0.618       0.625       0.659       0.694       0.701       0.714
-    C5               0.605       0.618       0.625       0.659       0.694       0.701       0.714
-    IP              -0.018      -0.013      -0.011       0.002       0.014       0.016       0.021
-    SP              -0.001      -0.001      -0.001       0.000       0.001       0.001       0.001
-    IC               1.096       1.152       1.180       1.330       1.480       1.509       1.565
-    SC               0.014       0.016       0.017       0.021       0.026       0.027       0.029
+    P1               0.556       0.575       0.584       0.635       0.685       0.695       0.713
+    P2               0.556       0.575       0.584       0.635       0.685       0.695       0.713
+    P4               0.556       0.575       0.584       0.635       0.685       0.695       0.713
+    C1               0.556       0.575       0.584       0.635       0.685       0.695       0.713
+    C2               0.556       0.575       0.584       0.635       0.685       0.695       0.713
+    C3               0.556       0.575       0.584       0.635       0.685       0.695       0.713
+    C4               0.556       0.575       0.584       0.635       0.685       0.695       0.713
+    C5               0.556       0.575       0.584       0.635       0.685       0.695       0.713
+    IP              -0.014      -0.010      -0.008       0.002       0.012       0.014       0.017
+    SP              -0.003      -0.002      -0.002       0.000       0.002       0.002       0.003
+    IC               0.807       0.891       0.934       1.160       1.385       1.428       1.512
+    SC               0.009       0.011       0.013       0.021       0.029       0.030       0.033
 
 
 DIAGRAM INFORMATION
@@ -419,11 +394,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\wuche\desktop\mplus\aeh\b1_female_aeh_walking_memory_gait_immediaterecall.dgm
+    \\tsclient\c\users\wuche\dropbox\research\ialsa\mplus\aeh\b1_female_aeh_walking_memory_gait_imme
 
-     Beginning Time:  11:12:00
-        Ending Time:  11:12:24
-       Elapsed Time:  00:00:24
+     Beginning Time:  13:49:24
+        Ending Time:  13:49:52
+       Elapsed Time:  00:00:28
 
 
 
