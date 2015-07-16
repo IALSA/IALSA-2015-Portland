@@ -101,6 +101,8 @@ t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 ds[ds$physical_measure %in% c("nophysspec","nophsyspec","nophyscog", "nophyspec", "nophyssec" ), "physical_measure"] <- "univar"
 # collapse a category
 ds[ds$physical_measure == "hand","physical_measure"] <- "grip"
+# rename suspected misspelling
+ds[ds$physical_measure == "peak","physical_measure"] <- "pek"
 
 
 
