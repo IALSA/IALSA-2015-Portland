@@ -141,5 +141,6 @@ ds %>% dplyr::count(cognitive_measure, physical_measure, study_name, model_type,
 
 ## @knitr dashboard_tile_graph
 source("./reports/model_space/scripts/tile_model_5D.R")
+quadrotile_graph(ds)
 
 
