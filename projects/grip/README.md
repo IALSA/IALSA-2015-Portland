@@ -11,7 +11,7 @@ Here are gathered verbal interpretation of Bivariate ISR (BISR) graphs that list
 
 | Study's BISR | Contact |
 | :---- | :------ |
-| [EAS](/BISR/bisr_eas.md) | [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu) |
+| [EAS](/BISR/projects/grip/bisr_eas.md) | [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu) |
 | [ELSA](/BISR/bisr_elsa.md) | [Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |
 | [HABC](/BISR/bisr_hrs.md) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |
 | [ILSE](/BISR/bisr_ilse.md) | [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de) |
