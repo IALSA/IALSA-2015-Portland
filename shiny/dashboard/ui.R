@@ -8,19 +8,18 @@ dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       # select icons here: http://fortawesome.github.io/Font-Awesome/icons/
-      menuItem("Overview", tabName = "overview", icon = icon("anchor")),
+      menuItem("Overview", tabName = "overviewTab", icon = icon("anchor")),
       menuItem("Specification", tabName = "spec", icon = icon("coffee")),
       menuItem("Descriptives", tabName = "table1", icon = icon("table")),
       menuItem("pivot Table", tabName = "pivotTab", icon = icon("th")),
       menuItem("Bivariate ISR", tabName = "isr", icon = icon("area-chart")),
       menuItem("About", tabName = "doc", icon = icon("book")),
       radioButtons("radioStudy", label = h3("Study"),
-        choices = list("eas" = 'eas', "elsa" = "elsa", "habc" = "habc", "ilse" = "ilse",
+        choices = list("eas" = 'eas', "elsa" = "elsa", "hrs" = "hrs", "ilse" = "ilse",
                        "nas" = "nas", "nuage" = "nuage", "octo" = "octo", "radc" = "radc",
                        "satsa" = "satsa"), selected = "satsa"),
       radioButtons("radioPhysMeasure", label = h3(" Phys Measure"),
-        choices = list("fev" = "fev", "fvc" = "fvc", "gait" = "gait", "grip" = "grip",
-                       "pek" = "pek" ), selected = "grip"),
+        choices = list("fev" = "fev", "pek" = "pek", "gait" = "gait", "tug" = "tug", "grip" = "grip"), selected = "grip"),
       radioButtons("radioModelType", label = h3("Model type"),
         choices = list("0" = "0","a" = "a", "ae" = "ae", "aeh" = "aeh",
                        "aehplus" = "aehplus", "full" = "full"), selected = "aeh"),
@@ -36,8 +35,9 @@ dashboardPage(
 #     )),
 
     tabItems(
-      tabItem(tabName = "overview",
-        h2("Overview: quadrotile graph")
+      tabItem(tabName = "overviewTab",
+        h2("Overview: the Collective of models in Portland project"),
+        box(plotOutput("overview", height = 800, width = 1200))
       ),
 
       tabItem(tabName = "table1",
