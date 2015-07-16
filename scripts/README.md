@@ -15,7 +15,7 @@ Executing
 study <- "eas"
 source("./scripts/0a_collection_functions.R")
 ```
-will  collect all models located in [./studies/elsa](./studies/elsa) (i.e. process all *.out files resulted from fitting models in Mplus), and save a  *.csv file "study_automation_results.csv" which will contain 
+will  collect all models located in [./studies/elsa](./studies/elsa) (i.e. process all *.out files resulted from fitting models in Mplus), and save a  *.csv file "study_automation_results.csv" which will contain all model information extracted from the output files. 
 
 ###[0b_functions_that_test.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0b_functions_that_test.R) 
 Uses some basic ```dplyr::count()``` to inspect the names of the element used in the filenames of the model outputs. Used as a stand-aside: not sourced by ```0_collect_studies.R```  
