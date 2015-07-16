@@ -7,24 +7,24 @@
 
 
 
-## @knitr prep_for_tile
-# library(shiny)
-# library(ggplot2)
-# library(dplyr)
-#
-# if(basename(getwd())=="dashboard"){
-# dsb <- readRDS('../../data/shared/ds1a.rds')
+# @knitr prep_for_tile
+library(shiny)
+library(ggplot2)
+library(dplyr)
+
+if(basename(getwd())=="dashboard"){
+dsb <- readRDS('../../data/shared/ds2.rds')
 # source("../../shiny/dashboard/scripts/multiplot_function.R")
-# }else{
-# dsb <- readRDS('./data/shared/ds1a.rds')
+}else{
+dsb <- readRDS('./data/shared/ds2.rds')
 # source("./shiny/dashboard/scripts/multiplot_function.R")
-# }
-#
-# keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
-#
-# ds <- dsb[ , keepvar]
-#
-# dplyr::tbl_df(ds)
+}
+
+keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
+
+ds <- dsb[ , keepvar]
+
+dplyr::tbl_df(ds)
 
 ## @knitr define_themes
 baseSize <- 10
@@ -67,7 +67,7 @@ basic_tile <- function(ds,x_name){
   return(g)
 }
 
-basic_tile(ds,"physical_measure")
+# basic_tile(ds,"physical_measure")
 
 ## @knitr define_names_tile_function
 names_tile <- function(ds,x_name){
@@ -92,7 +92,7 @@ names_tile <- function(ds,x_name){
   return(g)
 }
 
-names_tile(ds,"physical_measure")
+# names_tile(ds,"physical_measure")
 
 
 
@@ -148,7 +148,7 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 
 
 
-
+quadrotile_graph <- function(ds){
 
     a <- basic_tile(ds,"study_name")
     b <- basic_tile(ds,"physical_measure")
@@ -156,7 +156,8 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
     d <- basic_tile(ds,"subgroup")
     d <- d + theme(axis.text.y = element_text(vjust=1, angle=0, hjust=0))
     # names <- names_tile(ds,"physical_measure")
-    g <- multiplot(a, b, d, c, cols=4)
-
-
+    multiplot(a, b, d, c, cols=4)
+    # return(g)
+}
+# quadrotile_graph(ds)
 
