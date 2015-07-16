@@ -9,7 +9,7 @@ Uses the functions defined in the script [0a_functions_that_collect.R](https://g
  Defines functions that conduct primary extraction of model results from the model output files.  
 - <code>find.Conflicts()</code> checks for issues associated with GitHub conflicts, usually marked by "<<<<" sign.  
 - <code>find.CI()</code> checks for and removes CIs from the model output because it breaks MplusAutomation performance.  
-- Other functions wxtract specific elements from the raw model output files. If you need to extract additional elements this function will have to be adjusted.  
+- Other functions extract specific elements from the raw model output files. If you need to extract additional elements this function will have to be adjusted.  
 Executing 
 ```
 study <- "eas"
