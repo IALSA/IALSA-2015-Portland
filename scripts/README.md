@@ -5,11 +5,17 @@
 Uses the functions defined in the script [0a_functions_that_collect.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0a_functions_that_collect.R) to extract model results from Mplus output files. 
 
 
-### [0a_functions_that_collect.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0a_functions_that_collect.R)
+### [0a_collection_functions.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0a_collection_functions.R)
  Defines functions that conduct primary extraction of model results from the model output files.  
 - <code>find.Conflicts()</code> checks for issues associated with GitHub conflicts, usually marked by "<<<<" sign.  
 - <code>find.CI()</code> checks for and removes CIs from the model output because it breaks MplusAutomation performance.  
-- <code>get.Models()</code> does all the heavy lifting. Extracts specific elements from the raw model output files. If you need to extract additional elements this function will have to be adjusted.  Executing ```get.Models("elsa")``` will  collect all models located in [./studies/elsa](./studies/elsa) (i.e. process all *.out files resulted from fitting models in Mplus) and save a  *.csv file "study_automation_results.csv" which will contain 
+- Other functions wxtract specific elements from the raw model output files. If you need to extract additional elements this function will have to be adjusted.  
+Executing 
+```
+study <- "eas"
+source("./scripts/0a_collection_functions.R")
+```
+will  collect all models located in [./studies/elsa](./studies/elsa) (i.e. process all *.out files resulted from fitting models in Mplus), and save a  *.csv file "study_automation_results.csv" which will contain 
 
 ###[0b_functions_that_test.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0b_functions_that_test.R) 
 Uses some basic ```dplyr::count()``` to inspect the names of the element used in the filenames of the model outputs. Used as a stand-aside: not sourced by ```0_collect_studies.R```  
