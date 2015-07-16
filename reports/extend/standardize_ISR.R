@@ -5,9 +5,24 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 ds <- readRDS('./data/shared/ds1.rds')
 
 ## @knitr standardize_coefficients
-ds$pc_CORR_00 <- ds$pc_TAU_00 / sqrt(ds$pp_TAU_00)*sqrt(ds$cc_TAU_00)
-ds$pc_CORR_11 <-  ds$pc_TAU_11 / sqrt(ds$pp_TAU_11)*sqrt(ds$cc_TAU_11)
-ds$pc_CORR_residual <-  ds$pc_SIGMA / (sqrt(ds$p_SIGMA) * sqrt(ds$c_SIGMA))
+ds$pc_CORR_00 <- ds$pc_TAU_00 / (sqrt(ds$pp_TAU_00)*sqrt(ds$cc_TAU_00))
+ds$pc_CORR_11 <-  ds$pc_TAU_11 / (sqrt(ds$pp_TAU_11)*sqrt(ds$cc_TAU_11))
+ds$pc_CORR_residual <-  ds$pc_SIGMA / ((sqrt(ds$p_SIGMA) * sqrt(ds$c_SIGMA)))
+
+
+# ## trim to make more managable
+# keepvar <- c(
+#   #"study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
+#   # "converged", "output_file",
+#   "pp_TAU_00" ,"cc_TAU_00","pc_CORR_00"
+# )
+# # keepvar <- c("study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file", "corr_int", "corr_slope",  "corr_residual",    "ciu_corr_int",    "cil_corr_int",    "ciu_corr_slope",  "cil_corr_slope", "ciu_corr_residual",       "cil_corr_residual", "p_cov_int", "p_cov_slope", "p_cov_res", )
+# # keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
+#
+# # reduce number of columns
+# ds <- ds[ , keepvar]
+# head(ds)
+# summary(ds)
 
 
 # standardize_coefficients
