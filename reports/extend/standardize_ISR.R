@@ -9,6 +9,15 @@ ds$pc_CORR_00 <- ds$pc_TAU_00 / (sqrt(ds$pp_TAU_00)*sqrt(ds$cc_TAU_00))
 ds$pc_CORR_11 <-  ds$pc_TAU_11 / (sqrt(ds$pp_TAU_11)*sqrt(ds$cc_TAU_11))
 ds$pc_CORR_residual <-  ds$pc_SIGMA / ((sqrt(ds$p_SIGMA) * sqrt(ds$c_SIGMA)))
 
+# ds <- ds[ds$study_name=="satsa",c(
+#   # "subgroup","model_type"
+#   "output_file"
+#   # , "pp_TAU_00", "cc_TAU_00",  "pc_CORR_00"
+#   ,"pc_TAU_11", "pp_TAU_11", "cc_TAU_11",  "pc_CORR_11"
+#   # , "pc_CORR_11","pc_CORR_residual"
+#   )]
+# ds[1:100, ]
+
 
 # ## trim to make more managable
 # keepvar <- c(
