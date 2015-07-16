@@ -10,6 +10,7 @@ library(ggplot2)
 library(dplyr)
 library(lattice)
 library(grid)
+library(rpivotTable)
 
 
 if(basename(getwd())=="dashboard"){
@@ -62,6 +63,38 @@ dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_ty
                               "display_int", "display_slope", "display_residual",
                               "pp_TAU_00_pval", "pp_TAU_11_pval", "pc_SIGMA_pval")
 
+# browser()
+# setdiff(c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number"),colnames(dsb))
+##############
+dsT <- ds2[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number")]
+# ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
+head(dsT)
+
+
+unique(dsT$study_name)
+unique(dsT$physical_construct)
+
+dsT <- dsT %>%
+  dplyr::rename_("Phys.Domain" = "physical_construct") %>%
+  dplyr::rename_("Phys.Measure" = "physical_measure") %>%
+  dplyr::rename_("Cog.Domain" = "cognitive_construct") %>%
+  dplyr::rename_("Cog.Measure" = "cognitive_measure") %>%
+  dplyr::rename_("Study" = "study_name") %>%
+  dplyr::rename_("Covariates" = "model_type") %>%
+  dplyr::rename_("Sex" = "subgroup") %>%
+  dplyr::rename_("Corr.Intersepts" = "pc_CORR_00") %>%
+  dplyr::rename_("Corr.Slopes" = "pc_CORR_11") %>%
+  dplyr::rename_("Corr.Residuals" = "pc_CORR_residual")
+head(dsT)
+
+dsT[,"Corr.Intersepts"] <- round(dsT[ ,"Corr.Intersepts"], 3)
+dsT[,"Corr.Slopes"] <- round(dsT[ ,"Corr.Intersepts"], 3)
+dsT[,"Corr.Residuals"] <- round(dsT[ ,"Corr.Intersepts"], 3)
+#############
+
+
+
+
 
 
 if(basename(getwd())=="dashboard"){
@@ -98,6 +131,21 @@ function(input, output, session) {
     print(TilePlot, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:firstPlot))
     print(ISRPlot, vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
   }) #close renderPlot
+
+   output$pivotTable <- rpivotTable::renderRpivotTable({
+     rpivotTable::rpivotTable(data = dsT,
+                 rows = c("Study", "Cog.Measure"),
+                 cols= c("Phys.Measure", "Sex", "Covariates")
+                 )
+
+#      output$pivotTable <- rpivotTable::renderRpivotTable({
+#      rpivotTable::rpivotTable(data = dsb,
+#                  rows = c("study_name"),
+#                  cols= c("model_number")
+#                  )
+
+   })
+
 
 
 } # close server

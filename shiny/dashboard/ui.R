@@ -7,8 +7,10 @@ dashboardPage(
   dashboardHeader(),
   dashboardSidebar(
     sidebarMenu(
+      # select icons here: http://fortawesome.github.io/Font-Awesome/icons/
       menuItem("Specification", tabName = "spec", icon = icon("coffee")),
       menuItem("Descriptives", tabName = "table1", icon = icon("table")),
+      menuItem("pivot Table", tabName = "pivotTab", icon = icon("th")),
       menuItem("Bivariate ISR", tabName = "isr", icon = icon("area-chart")),
       menuItem("About", tabName = "doc", icon = icon("book")),
       radioButtons("radioStudy", label = h3("Study"),
@@ -43,6 +45,14 @@ dashboardPage(
                 h2("SATSA"),
         shiny::img(src =  "images/table1/Table1_SATSA_Descriptives_IALSA_Portland.png", height = 800)
       ),
+      tabItem(tabName = "pivotTab",
+        h2("Pivot Table"),
+        # fluidRow(
+          # column(1,
+                 rpivotTable::rpivotTableOutput("pivotTable")
+                 # )
+          # )
+      ),
       tabItem(tabName = "spec",
         h2("Model Specification"),
         shiny::img(src =  "images/specification.png"),
@@ -57,11 +67,8 @@ dashboardPage(
         h2("About"),
         HTML("<br/>
              <font color='#605CA8'>",
-             "
-The current repository analyzes the results of the IALSA Analysis Workshop (pdf overview) that was held in Portland, Oregon from Monday February 23rd (8:30am) to Wednesday February 25th (12:30pm), 2015.
-
-The primary aim of the workshop was to examine associations between changes in physical functioning (i.e., grip strength, pulmonary function, chair stands, walking speed) and cognitive functioning (i.e., measures of speed, memory, reasoning, executive functioning) in multiple-study comparative framework. Bivariate growth processes were estimated to evaluate dynamic associations in change and variation within and across these domains and in relation to sample and individual differences in age, lifestyle, and health outcomes. The results from these analyses will extend recent systematic reviews and meta-analyses (e.g., Clouston et al., 2012, Epidemiological Reviews and will be submitted for publication as a set of independent brief reports, capped by a literature review/overview of analysis and completed with a research synthesis summary.
-",
+             "The current repository analyzes the results of the IALSA Analysis Workshop (pdf overview) that was held in Portland, Oregon from Monday February 23rd (8:30am) to Wednesday February 25th (12:30pm), 2015.
+              The primary aim of the workshop was to examine associations between changes in physical functioning (i.e., grip strength, pulmonary function, chair stands, walking speed) and cognitive functioning (i.e., measures of speed, memory, reasoning, executive functioning) in multiple-study comparative framework. Bivariate growth processes were estimated to evaluate dynamic associations in change and variation within and across these domains and in relation to sample and individual differences in age, lifestyle, and health outcomes. The results from these analyses will extend recent systematic reviews and meta-analyses (e.g., Clouston et al., 2012, Epidemiological Reviews and will be submitted for publication as a set of independent brief reports, capped by a literature review/overview of analysis and completed with a research synthesis summary.",
              "</font>")
       )
     )
