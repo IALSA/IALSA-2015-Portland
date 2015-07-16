@@ -127,7 +127,7 @@ function(input, output, session) {
 
 # browser()
   output$bivariate_ISR <- renderPlot({
-    TilePlot <- basic_tile(ds = selectedData(), x_name = "physical_measure")
+    TilePlot <- basic_tile_ISR(ds = selectedData(), x_name = "physical_measure")
     dsISR <- as.data.frame(ISR_tile_data(ds=selectedData()))
     ISRPlot <- ISR_plot(ds = dsISR,  display_value=input$radioDisplayMode)
 

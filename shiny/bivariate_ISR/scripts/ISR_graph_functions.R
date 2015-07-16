@@ -69,7 +69,7 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
 
 ######################  BASIC TILE ############
 ## @knitr define_basic_tile_function
-basic_tile <- function(ds,x_name){
+basic_tile_ISR <- function(ds,x_name){
   # define the data
   d <- ds %>% dplyr::count_(c("cognitive_construct", "cognitive_measure", x_name))
   d$cognitive_construct <- toupper(d$cognitive_construct)
@@ -93,7 +93,7 @@ basic_tile <- function(ds,x_name){
   return(g)
 }
 
-# basic_tile(dsTile,"physical_measure")
+# basic_tile_ISR(dsTile,"physical_measure")
 
 
 
