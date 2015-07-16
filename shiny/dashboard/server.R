@@ -36,7 +36,7 @@ keepvar <- c("study_name","model_number", "subgroup", "model_type","physical_con
 # reduce number of columns
 dsb <- ds2[ , keepvar]
 # reduce number of rows
-dsb <- dsb %>% dplyr::filter(model_number %in% c("u1","b1"))
+dsb <- dsb %>% dplyr::filter(model_number %in% c("b1"))
 
 table( dsb$cognitive_measure,dsb$cognitive_construct)
 
@@ -65,16 +65,15 @@ dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_ty
 
 # browser()
 # setdiff(c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number"),colnames(dsb))
-##############
-dsT <- ds2[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number")]
+############## Create a dadaset for use in pivot table.
+ds <- ds2[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number")]
 # ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
-head(dsT)
+head(ds)
 
+unique(ds$study_name)
+unique(ds$physical_construct)
 
-unique(dsT$study_name)
-unique(dsT$physical_construct)
-
-dsT <- dsT %>%
+ds <- ds %>%
   dplyr::rename_("Phys.Domain" = "physical_construct") %>%
   dplyr::rename_("Phys.Measure" = "physical_measure") %>%
   dplyr::rename_("Cog.Domain" = "cognitive_construct") %>%
@@ -85,11 +84,13 @@ dsT <- dsT %>%
   dplyr::rename_("Corr.Intersepts" = "pc_CORR_00") %>%
   dplyr::rename_("Corr.Slopes" = "pc_CORR_11") %>%
   dplyr::rename_("Corr.Residuals" = "pc_CORR_residual")
-head(dsT)
+head(ds)
 
-dsT[,"Corr.Intersepts"] <- round(dsT[ ,"Corr.Intersepts"], 3)
-dsT[,"Corr.Slopes"] <- round(dsT[ ,"Corr.Intersepts"], 3)
-dsT[,"Corr.Residuals"] <- round(dsT[ ,"Corr.Intersepts"], 3)
+ds[,"Corr.Intersepts"] <- round(ds[ ,"Corr.Intersepts"], 3)
+ds[,"Corr.Slopes"] <- round(ds[ ,"Corr.Intersepts"], 3)
+ds[,"Corr.Residuals"] <- round(ds[ ,"Corr.Intersepts"], 3)
+dsT <- ds # for the use in the pivotTable function
+
 #############
 
 
@@ -100,10 +101,12 @@ dsT[,"Corr.Residuals"] <- round(dsT[ ,"Corr.Intersepts"], 3)
 if(basename(getwd())=="dashboard"){
 source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
 source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+source("../../reports/model_space/scripts/tile_model_5D.R") # quadrotile
 
 }else{
 source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
 source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+source("./reports/model_space/scripts/tile_model_5D.R") # quadrotile
 }
 
 
