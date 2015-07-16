@@ -11,15 +11,15 @@ Here are gathered verbal interpretation of Bivariate ISR (BISR) graphs that list
 
 | Study's BISR | Contact |
 | :---- | :------ |
-| [EAS](/BISR/projects/grip/bisr_eas.md) | [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu) |
-| [ELSA](/BISR/bisr_elsa.md) | [Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |
-| [HABC](/BISR/bisr_hrs.md) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |
-| [ILSE](/BISR/bisr_ilse.md) | [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de) |
-| [NAS](/BISR/bisr_nas.md) | [Lewina Lee](mailto:lewina@bu.edu) |
-| [NuAge](/BISR/bisr_nuage.md) | [Valerie Jarry ](mailto:valerie.jarry@umontreal.ca ) |
-| [OCTO-Twin](/BISR/bisr_octo.md) | [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se) |
-| [RADC](/BISR/bisr_radc.md) | [Cassandra Brown](mailto:clb@uvic.ca) |
-| [SATSA](/BISR/bisr_satsa.md) | [Deborah Finkel](mailto:dfinkel@ius.edu) |
+| [EAS](/projects/grip/BISR/bisr_eas.md) | [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu) |
+| [ELSA](/projects/grip/BISR/bisr_elsa.md) | [Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |
+| [HABC](/projects/grip/BISR/bisr_hrs.md) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |
+| [ILSE](/projects/grip/BISR/bisr_ilse.md) | [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de) |
+| [NAS](/projects/grip/BISR/bisr_nas.md) | [Lewina Lee](mailto:lewina@bu.edu) |
+| [NuAge](/projects/grip/BISR/bisr_nuage.md) | [Valerie Jarry ](mailto:valerie.jarry@umontreal.ca ) |
+| [OCTO-Twin](/projects/grip/BISR/bisr_octo.md) | [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se) |
+| [RADC](/projects/grip/BISR/bisr_radc.md) | [Cassandra Brown](mailto:clb@uvic.ca) |
+| [SATSA](/projects/grip/BISR/bisr_satsa.md) | [Deborah Finkel](mailto:dfinkel@ius.edu) |
 
 
 ## MES - table 3
