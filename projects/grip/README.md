@@ -1,11 +1,13 @@
 Project: Grip and cognitive function
 ----
-![publication model](../.././libs/materials/publication_model/publication_model-01.png)
 
-## Study description - table 1
-Temporal design and sample properties
 
-## BISR - table 2
+## Study description 
+Table 1. Temporal design and sample properties  
+
+## BISR
+Table 2. Bivariate correlations  
+
 Here are gathered verbal interpretation of Bivariate ISR (BISR) graphs that list correlations between three elements of the bivariate (B) growth model: intercepts(I), slopes (S), and residuals(R). See [model specification](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_specification/README.md) for details.  
 
 
@@ -22,9 +24,11 @@ Here are gathered verbal interpretation of Bivariate ISR (BISR) graphs that list
 | [SATSA](/projects/grip/BISR/bisr_satsa.md) | [Deborah Finkel](mailto:dfinkel@ius.edu) |
 
 
-## MES - table 3
-Reporting and interpreting mixed effects
+## MES 
+Table 3. Mixed Effects Summary
 
+## Publication model
+![publication model](../.././libs/materials/publication_model/publication_model-01.png)
 
 ## Resources for the **grip** project
 
