@@ -15,7 +15,7 @@ Here are gathered verbal interpretation of Bivariate ISR (BISR) graphs that list
 | :---- | :------ |
 | [EAS](/projects/pulmonary/BISR/bisr_eas.md) | [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu) |
 | [ELSA](/projects/pulmonary/BISR/bisr_elsa.md) | [Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |
-| [HABC](/projects/pulmonary/BISR/bisr_hrs.md) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |
+| [HRS](/projects/pulmonary/BISR/bisr_hrs.md) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |
 | [ILSE](/projects/pulmonary/BISR/bisr_ilse.md) | [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de) |
 | [NAS](/projects/pulmonary/BISR/bisr_nas.md) | [Lewina Lee](mailto:lewina@bu.edu) |
 | [NuAge](/projects/pulmonary/BISR/bisr_nuage.md) | [Valerie Jarry ](mailto:valerie.jarry@umontreal.ca ) |
