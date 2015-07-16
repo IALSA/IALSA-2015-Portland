@@ -175,14 +175,14 @@ In this section, **model specification (columns)** are cross-tabulated with **co
   digitsback           8  8 
   digitsforward        8  8 
   lineorientation      10 8 
-  logicalmemorydelay   6  6 
+  logicalmemorydelay   8  6 
   logicalmemoryimmed   6  6 
   matrices             8  8 
   mmse                 6  8 
   nart                 8  8 
   numbercomparison     8  8 
   symbol               8  8 
-  wmslmdel             2  2 
+  wmslmdel             .  2 
   wmslmimmed           .  2 
   wordlistdelay        8  8 
   wordlistimmed        8  8 
@@ -219,14 +219,13 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
   digitsback           8         .       .         .        .      .      .         .     .           
   digitsforward        .         .       .         .        8      .      .         .     .           
   lineorientation      .         .       .         .        .      8      .         .     2           
-  logicalmemorydelay   .         .       .         .        6      .      .         .     .           
+  logicalmemorydelay   .         .       .         .        8      .      .         .     .           
   logicalmemoryimmed   .         .       .         .        6      .      .         .     .           
   matrices             .         .       .         .        .      .      8         .     .           
   mmse                 .         .       .         .        .      6      .         .     .           
   nart                 .         .       8         .        .      .      .         .     .           
   numbercomparison     .         .       .         .        .      .      .         8     .           
   symbol               .         .       .         .        .      .      .         8     .           
-  wmslmdel             .         .       .         .        2      .      .         .     .           
   wordlistdelay        .         .       .         .        8      .      .         .     .           
   wordlistimmed        .         .       .         .        8      .      .         .     .           
   wordlistrecog        .         .       .         .        8      .      .         .     .           
@@ -266,14 +265,13 @@ Number of models with the following  **physical constructs** (columns) and  **co
   digitsback           8        
   digitsforward        8        
   lineorientation      10       
-  logicalmemorydelay   6        
+  logicalmemorydelay   8        
   logicalmemoryimmed   6        
   matrices             8        
   mmse                 6        
   nart                 8        
   numbercomparison     8        
   symbol               8        
-  wmslmdel             2        
   wordlistdelay        8        
   wordlistimmed        8        
   wordlistrecog        8        
@@ -311,14 +309,13 @@ Number of models with the following  **physical measures** (columns) and  **cogn
   digitsback           8  
   digitsforward        8  
   lineorientation      10 
-  logicalmemorydelay   6  
+  logicalmemorydelay   8  
   logicalmemoryimmed   6  
   matrices             8  
   mmse                 6  
   nart                 8  
   numbercomparison     8  
   symbol               8  
-  wmslmdel             2  
   wordlistdelay        8  
   wordlistimmed        8  
   wordlistrecog        8  
@@ -612,9 +609,11 @@ b1              male     aeh                 pulmonary                mental    
 b1              male     aehplus             pulmonary                mental                    fev                    lineorientation         b1_male_aehplus_pulmonary_mental_fev_lineorientation.out        
 b1              female   aeh                 pulmonary                visuospatial              fev                    lineorientation         b1_female_aeh_pulmonary_visuospatial_fev_lineorientation.out    
 b1              male     aeh                 pulmonary                visuospatial              fev                    lineorientation         b1_male_aeh_pulmonary_visuospatial_fev_lineorientation.out      
+b1              female   a                   pulmonary                memory                    fev                    logicalmemorydelay      b1_female_a_pulmonary_memory_fev_logicalmemorydelay.out         
 b1              female   ae                  pulmonary                memory                    fev                    logicalmemorydelay      b1_female_ae_pulmonary_memory_fev_logicalmemorydelay.out        
 b1              female   aeh                 pulmonary                memory                    fev                    logicalmemorydelay      b1_female_aeh_pulmonary_memory_fev_logicalmemorydelay.out       
 b1              female   aehplus             pulmonary                memory                    fev                    logicalmemorydelay      b1_female_aehplus_pulmonary_memory_fev_logicalmemorydelay.out   
+b1              male     a                   pulmonary                memory                    fev                    logicalmemorydelay      b1_male_a_pulmonary_memory_fev_logicalmemorydelay.out           
 b1              male     ae                  pulmonary                memory                    fev                    logicalmemorydelay      b1_male_ae_pulmonary_memory_fev_logicalmemorydelay.out          
 b1              male     aeh                 pulmonary                memory                    fev                    logicalmemorydelay      b1_male_aeh_pulmonary_memory_fev_logicalmemorydelay.out         
 b1              male     aehplus             pulmonary                memory                    fev                    logicalmemorydelay      b1_male_aehplus_pulmonary_memory_fev_logicalmemorydelay.out     
@@ -654,8 +653,6 @@ b1              male     a                   pulmonary                speed     
 b1              male     ae                  pulmonary                speed                     fev                    numbercomparison        b1_male_ae_pulmonary_speed_fev_numbercomparison.out             
 b1              male     aeh                 pulmonary                speed                     fev                    numbercomparison        b1_male_aeh_pulmonary_speed_fev_numbercomparison.out            
 b1              male     aehplus             pulmonary                speed                     fev                    numbercomparison        b1_male_aehplus_pulmonary_speed_fev_numbercomparison.out        
-b1              female   a                   pulmonary                memory                    fev                    wmslmdel                b1_female_a_pulmonary_memory_fev_wmslmdel.out                   
-b1              male     a                   pulmonary                memory                    fev                    wmslmdel                b1_male_a_pulmonary_memory_fev_wmslmdel.out                     
 b1              female   a                   pulmonary                memory                    fev                    wordlistdelay           b1_female_a_pulmonary_memory_fev_wordlistdelay.out              
 b1              female   ae                  pulmonary                memory                    fev                    wordlistdelay           b1_female_ae_pulmonary_memory_fev_wordlistdelay.out             
 b1              female   aeh                 pulmonary                memory                    fev                    wordlistdelay           b1_female_aeh_pulmonary_memory_fev_wordlistdelay.out            
@@ -687,7 +684,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-13, 05:32 -0700
+Report rendered by koval_000 at 2015-07-15, 16:24 -0700
 ```
 
 ```

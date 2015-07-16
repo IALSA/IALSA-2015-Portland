@@ -42,14 +42,14 @@ Your study
 has provided us with the total number of 
 
 ```
-484
+483
 ```
 models, using univariate and bivariate specifications:
 
 ```
 
  b1  u0  u1  u2 
-218   6 129 131 
+219   6 129 129 
 ```
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
@@ -114,7 +114,7 @@ All your models were named properly
 After removing incorrectly named files, there are
 
 ```
-484
+483
 ```
 models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
 
@@ -128,7 +128,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
            
             b1  u0 u1  u2 
   muscle    109 2  10  10 
-  pulmonary 109 2  10  11 
+  pulmonary 110 2  10  9  
   Univar    .   2  109 110
 ```
 
@@ -140,7 +140,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
         
          b1  u0 u1  u2 
   grip   109 2  10  10 
-  pek    109 2  10  11 
+  pek    110 2  10  9  
   univar .   2  109 110
 ```
 
@@ -150,7 +150,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
            
             b1 u0 u1 u2
-  executive 19 .  9  11
+  executive 20 .  9  10
   fluency   40 .  20 20
   knowledge 40 .  20 20
   language  20 .  10 10
@@ -158,7 +158,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
   mental    20 .  10 10
   reasoning 20 2  10 10
   speed     20 .  10 10
-  Univar    .  4  20 20
+  Univar    .  4  20 19
 ```
 
 
@@ -176,8 +176,8 @@ In this section, **model specification (columns)** are cross-tabulated with **co
   logicalmemory 19 .  10 10
   mmse          20 .  10 10
   symbol        20 .  10 10
-  trailsb       19 .  9  11
-  univar        .  4  20 20
+  trailsb       20 .  9  10
+  univar        .  4  20 19
   verbalfluency 20 .  10 10
   waisvocab     20 .  10 10
 ```
@@ -195,7 +195,7 @@ Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE m
       
        muscle pulmonary
   grip 109    .        
-  pek  .      109      
+  pek  .      110      
 ```
 
 ## Cognitive 
@@ -212,7 +212,7 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
   logicalmemory .         .       .         .        19     .      .         .    
   mmse          .         .       .         .        .      20     .         .    
   symbol        .         .       .         .        .      .      .         20   
-  trailsb       19        .       .         .        .      .      .         .    
+  trailsb       20        .       .         .        .      .      .         .    
   verbalfluency .         20      .         .        .      .      .         .    
   waisvocab     .         .       20        .        .      .      .         .    
 ```
@@ -225,7 +225,7 @@ Number of models with the following **physical constructs** (columns) and  **cog
 ```
            
             muscle pulmonary
-  executive 10     9        
+  executive 10     10       
   fluency   20     20       
   knowledge 20     20       
   language  10     10       
@@ -249,7 +249,7 @@ Number of models with the following  **physical constructs** (columns) and  **co
   logicalmemory 9      10       
   mmse          10     10       
   symbol        10     10       
-  trailsb       10     9        
+  trailsb       10     10       
   verbalfluency 10     10       
   waisvocab     10     10       
 ```
@@ -260,7 +260,7 @@ Number of models with the following  **physical measure** (columns) and  **cogni
 ```
            
             grip pek
-  executive 10   9  
+  executive 10   10 
   fluency   20   20 
   knowledge 20   20 
   language  10   10 
@@ -284,7 +284,7 @@ Number of models with the following  **physical measures** (columns) and  **cogn
   logicalmemory 9    10 
   mmse          10   10 
   symbol        10   10 
-  trailsb       10   9  
+  trailsb       10   10 
   verbalfluency 10   10 
   waisvocab     10   10 
 ```
@@ -308,7 +308,7 @@ u1 grip       10        .      .
    pek        .         10     .  
    univar     .         .      109
 u2 grip       10        .      .  
-   pek        .         11     .  
+   pek        .         9      .  
    univar     .         .      110
 ```
 
@@ -350,8 +350,8 @@ u2 block                 .       .         .        .      .      .         10  
    logicalmemory         .       .         .        .      10     .         .     .      . 
    mmse                  .       .         .        .      .      10        .     .      . 
    symbol                .       .         .        .      .      .         .     10     . 
-   trailsb               11      .         .        .      .      .         .     .      . 
-   univar                .       .         .        .      .      .         .     .      20
+   trailsb               10      .         .        .      .      .         .     .      . 
+   univar                .       .         .        .      .      .         .     .      19
    verbalfluency         .       10        .        .      .      .         .     .      . 
    waisvocab             .       .         10       .      .      .         .     .      . 
 ```
@@ -543,6 +543,7 @@ b1              male     aehplus             pulmonary                mental    
 b1              male     a                   pulmonary                mental                    pek                    mmse                    b1_male_age_pulmonary_global_pek_mmse.out                     
 b1              male     full                pulmonary                mental                    pek                    mmse                    b1_male_full_pulmonary_global_pek_mmse.out                    
 b1              female   a                   pulmonary                executive                 pek                    trailsb                 b1_female_age_pulmonary_executive_pek_trailsB.out             
+b1              male     a                   pulmonary                executive                 pek                    trailsb                 b1_male_age_pulmonary_executive_pek_trailsB.out               
 b1              female   ae                  muscle                   executive                 grip                   trailsb                 b1_female_ae_muscle_fluid_grip_trailsb.out                    
 b1              female   aeh                 muscle                   executive                 grip                   trailsb                 b1_female_aeh_muscle_fluid_grip_trailsb.out                   
 b1              female   aehplus             muscle                   executive                 grip                   trailsb                 b1_female_aehplus_muscle_fluid_grip_trailsb.out               
@@ -829,7 +830,6 @@ u2              female   aeh                 pulmonary                Univar    
 u2              female   aehplus             pulmonary                Univar                    pek                    univar                  u2_female_aehplus_pulmonary_noCog_pek_noCogSpec.out           
 u2              female   a                   pulmonary                Univar                    pek                    univar                  u2_female_age_pulmonary_noCog_pek_noCogSpec.out               
 u2              female   full                pulmonary                Univar                    pek                    univar                  u2_female_full_pulmonary_noCog_pek_noCogSpec.out              
-u2              male     ae                  pulmonary                Univar                    pek                    univar                  u2_male_ae_pulmonary_noCog_pek_noCogSpec.out                  
 u2              male     aeh                 pulmonary                Univar                    pek                    univar                  u2_male_aeh_pulmonary_noCog_pek_noCogSpec.out                 
 u2              male     aehplus             pulmonary                Univar                    pek                    univar                  u2_male_aehplus_pulmonary_noCog_pek_noCogSpec.out             
 u2              male     a                   pulmonary                Univar                    pek                    univar                  u2_male_age_pulmonary_noCog_pek_noCogSpec.out                 
@@ -844,7 +844,6 @@ u2              male     aeh                 muscle                   Univar    
 u2              male     aehplus             muscle                   Univar                    grip                   univar                  u2_male_aehplus_muscle_nocog_grip_nocogspec.out               
 u2              male     a                   muscle                   Univar                    grip                   univar                  u2_male_age_muscle_nocog_grip_nocogspec.out                   
 u2              male     full                muscle                   Univar                    grip                   univar                  u2_male_full_muscle_nocog_grip_nocogspec.out                  
-u2              male     a                   pulmonary                executive                 pek                    trailsb                 u2_male_age_pulmonary_executive_pek_trailsB.out               
 u2              female   ae                  Univar                   executive                 univar                 trailsb                 u2_female_ae_noPhys_executive_noPhySpec_trailsb.out           
 u2              female   aeh                 Univar                   executive                 univar                 trailsb                 u2_female_aeh_noPhys_executive_noPhysSpec_trailsb.out         
 u2              female   aehplus             Univar                   executive                 univar                 trailsb                 u2_female_aehplus_noPhys_executive_noPhysSpec_trailsb.out     
@@ -872,7 +871,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-13, 05:32 -0700
+Report rendered by koval_000 at 2015-07-15, 16:24 -0700
 ```
 
 ```

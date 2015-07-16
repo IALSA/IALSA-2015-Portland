@@ -73,9 +73,24 @@ img {
 <!-- Load the datasets.   -->
 <!-- Tweak the datasets.   -->
 <!-- Basic view.   -->
-<pre class="r"><code>ds$pc_CORR_00 &lt;- ds$pc_TAU_00 / sqrt(ds$pp_TAU_00)*sqrt(ds$cc_TAU_00)
-ds$pc_CORR_11 &lt;-  ds$pc_TAU_11 / sqrt(ds$pp_TAU_11)*sqrt(ds$cc_TAU_11)
-ds$pc_CORR_residual &lt;-  ds$pc_SIGMA / (sqrt(ds$p_SIGMA) * sqrt(ds$c_SIGMA))
+<pre class="r"><code>ds$pc_CORR_00 &lt;- ds$pc_TAU_00 / (sqrt(ds$pp_TAU_00)*sqrt(ds$cc_TAU_00))
+ds$pc_CORR_11 &lt;-  ds$pc_TAU_11 / (sqrt(ds$pp_TAU_11)*sqrt(ds$cc_TAU_11))
+ds$pc_CORR_residual &lt;-  ds$pc_SIGMA / ((sqrt(ds$p_SIGMA) * sqrt(ds$c_SIGMA)))
+
+
+# ## trim to make more managable
+# keepvar &lt;- c(
+#   #&quot;study_name&quot;,&quot;model_number&quot;, &quot;subgroup&quot;, &quot;model_type&quot;,&quot;physical_construct&quot;,&quot;physical_measure&quot;, &quot;cognitive_construct&quot;,&quot;cognitive_measure&quot;,
+#   # &quot;converged&quot;, &quot;output_file&quot;,
+#   &quot;pp_TAU_00&quot; ,&quot;cc_TAU_00&quot;,&quot;pc_CORR_00&quot;
+# )
+# # keepvar &lt;- c(&quot;study_name&quot;,&quot;model_number&quot;, &quot;subgroup&quot;, &quot;model_type&quot;,&quot;physical_construct&quot;,&quot;physical_measure&quot;, &quot;cognitive_construct&quot;,&quot;cognitive_measure&quot;, &quot;converged&quot;, &quot;output_file&quot;, &quot;corr_int&quot;, &quot;corr_slope&quot;,  &quot;corr_residual&quot;,    &quot;ciu_corr_int&quot;,    &quot;cil_corr_int&quot;,    &quot;ciu_corr_slope&quot;,  &quot;cil_corr_slope&quot;, &quot;ciu_corr_residual&quot;,       &quot;cil_corr_residual&quot;, &quot;p_cov_int&quot;, &quot;p_cov_slope&quot;, &quot;p_cov_res&quot;, )
+# # keepvar &lt;- c(&quot;model_number&quot;,&quot;study_name&quot;,&quot;subgroup&quot;, &quot;model_type&quot;,&quot;physical_construct&quot;,&quot;cognitive_construct&quot;,&quot;physical_measure&quot;,&quot;cognitive_measure&quot;, &quot;output_file&quot;, &quot;converged&quot;)
+#
+# # reduce number of columns
+# ds &lt;- ds[ , keepvar]
+# head(ds)
+# summary(ds)
 
 
 # standardize_coefficients
