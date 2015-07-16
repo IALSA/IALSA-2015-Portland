@@ -8,6 +8,7 @@ dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       # select icons here: http://fortawesome.github.io/Font-Awesome/icons/
+      menuItem("Overview", tabName = "overview", icon = icon("anchor")),
       menuItem("Specification", tabName = "spec", icon = icon("coffee")),
       menuItem("Descriptives", tabName = "table1", icon = icon("table")),
       menuItem("pivot Table", tabName = "pivotTab", icon = icon("th")),
@@ -29,7 +30,16 @@ dashboardPage(
     )
   ),
   dashboardBody(
+#     tags$head(tags$style(
+#       type = 'text/css',
+#       '#test{ overflow-x: scroll; }'
+#     )),
+
     tabItems(
+      tabItem(tabName = "overview",
+        h2("Overview: quadrotile graph")
+      ),
+
       tabItem(tabName = "table1",
         h2("Description of the study's sample"),
         h2("EAS"),
@@ -47,9 +57,13 @@ dashboardPage(
       ),
       tabItem(tabName = "pivotTab",
         h2("Pivot Table"),
+        box(title = "Pivot", width=12, height= 600, status = "primary", solidHeader = TRUE,
+          tags$head(tags$style( type = 'text/css',  '#pivotTable{ overflow-x: scroll; }')),
+          rpivotTable::rpivotTableOutput("pivotTable")
+        )
         # fluidRow(
           # column(1,
-                 rpivotTable::rpivotTableOutput("pivotTable")
+                 # rpivotTable::rpivotTableOutput("pivotTable")
                  # )
           # )
       ),
