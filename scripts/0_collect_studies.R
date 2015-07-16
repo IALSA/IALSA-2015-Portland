@@ -73,10 +73,10 @@ study <- "habc" # not presently included
 source("./scripts/0a_collection_functions.R")
 
 study <- "hrs" # not presently included
-blacklist <- c("b1_female_aeh_muscle_memory_hand_delayedrecall.out",
-               "b1_female_aeh_pulmonary_memory_peak_delayedrecall.out",
-               "b1_male_age_walking_mental_gait_tics.out",
-               "b1_female_aeh_muscle_memory_hand_immediaterecall.out")
+# blacklist <- c("b1_female_aeh_muscle_memory_hand_delayedrecall.out",
+#                "b1_female_aeh_pulmonary_memory_peak_delayedrecall.out",
+#                "b1_male_age_walking_mental_gait_tics.out",
+#                "b1_female_aeh_muscle_memory_hand_immediaterecall.out")
 source("./scripts/0a_collection_functions.R")
 
 study <- "ilse"

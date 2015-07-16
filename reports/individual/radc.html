@@ -112,11 +112,11 @@ img {
 <p>Your study</p>
 <pre><code>[1] &quot;radc&quot;</code></pre>
 <p>has provided us with the total number of</p>
-<pre><code>299</code></pre>
+<pre><code>300</code></pre>
 <p>models, using univariate and bivariate specifications:</p>
 <pre><code>
  b1  u1 
-150 149 </code></pre>
+151 149 </code></pre>
 <p>To remind you, <strong>model_number</strong> (<em>b1, u0, u1, u2</em>) refers to the model specification, as shown in the figure below. The first letter (<em>b</em> or <em>u</em>) indicates whether the models specifies a single outcome (<em>u</em> for <em>univariate</em>) or two outcomes (<em>b</em> for <em>bivariate</em>), while the number (e.g. u<em>0</em>, u<em>1</em>, u<em>2</em>) indicates the highest random term on the first level. </br></p>
 <p>The figure below (next section) shows the proper naming convention for the models you estimated in your study. Please use it to correct the names of some of your models. Our scripts rely on this naming convention for the key information about the model (most importantly, names of the constructs and measures). Therefore, it is of utmost importance that these rules are followed. <strong>If named incorrectly, models might not be used in the collective analysis</strong>.</p>
 <p>Some mistakes could be corrected automatically. Other, however, require <em>specifically</em> your attention. To illustrate, consider a cognitive construct <em>knowledge</em>. We’ve encountered entries <em>knowlegde</em>, <em>knowledg</em>, and <em>knwoledge</em>; it is obvious that these three spellings meant to say <em>knowledge</em>, and we program the script to correct it automatically. On the other hand, consider a physical construct <em>pulmonary</em>, which has two similarly spelled measures, <em>fev</em> and <em>fvc</em>. When we see a measure of <em>pulmonary</em> called <em>fevc</em>, we don’t know how to interpret it, it could be a misspelling of either one. This is where we need your help.</p>
@@ -160,7 +160,7 @@ img {
 <p>The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and measures were used in your models:</p>
 <pre><code>All your models were named properly</code></pre>
 <p>After removing incorrectly named files, there are</p>
-<pre><code>299</code></pre>
+<pre><code>300</code></pre>
 <p>models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention.</p>
 </div>
 <div id="simple-counts" class="section level1">
@@ -170,14 +170,14 @@ img {
 <h2>Physical constructs</h2>
 <pre><code>           
             b1  u1 
-  pulmonary 150 .  
+  pulmonary 151 .  
   Univar    .   149</code></pre>
 </div>
 <div id="physical-measures" class="section level2">
 <h2>Physical measures</h2>
 <pre><code>        
          b1  u1 
-  fev    150 .  
+  fev    151 .  
   univar .   149</code></pre>
 </div>
 <div id="cognitive-constructs" class="section level2">
@@ -188,7 +188,7 @@ img {
   fluency      8  8 
   knowledge    8  8 
   language     16 16
-  memory       62 61
+  memory       63 61
   mental       14 16
   reasoning    8  8 
   speed        16 16
@@ -208,7 +208,7 @@ img {
   digitsforward        8  8 
   lineorientation      10 8 
   logicalmemorydelay   8  6 
-  logicalmemoryimmed   6  6 
+  logicalmemoryimmed   7  6 
   matrices             8  8 
   mmse                 6  8 
   nart                 8  8 
@@ -230,7 +230,7 @@ img {
 <p>Physical <strong>constructs</strong> (columns) by physical <strong>measures</strong> (rows) in BIVARIATE models</p>
 <pre><code>     
       pulmonary
-  fev 150      </code></pre>
+  fev 151      </code></pre>
 </div>
 <div id="cognitive" class="section level2">
 <h2>Cognitive</h2>
@@ -247,7 +247,7 @@ img {
   digitsforward        .         .       .         .        8      .      .         .     .           
   lineorientation      .         .       .         .        .      8      .         .     2           
   logicalmemorydelay   .         .       .         .        8      .      .         .     .           
-  logicalmemoryimmed   .         .       .         .        6      .      .         .     .           
+  logicalmemoryimmed   .         .       .         .        7      .      .         .     .           
   matrices             .         .       .         .        .      .      8         .     .           
   mmse                 .         .       .         .        .      6      .         .     .           
   nart                 .         .       8         .        .      .      .         .     .           
@@ -266,7 +266,7 @@ img {
   fluency      8        
   knowledge    8        
   language     16       
-  memory       62       
+  memory       63       
   mental       14       
   reasoning    8        
   speed        16       
@@ -287,7 +287,7 @@ img {
   digitsforward        8        
   lineorientation      10       
   logicalmemorydelay   8        
-  logicalmemoryimmed   6        
+  logicalmemoryimmed   7        
   matrices             8        
   mmse                 6        
   nart                 8        
@@ -306,7 +306,7 @@ img {
   fluency      8  
   knowledge    8  
   language     16 
-  memory       62 
+  memory       63 
   mental       14 
   reasoning    8  
   speed        16 
@@ -327,7 +327,7 @@ img {
   digitsforward        8  
   lineorientation      10 
   logicalmemorydelay   8  
-  logicalmemoryimmed   6  
+  logicalmemoryimmed   7  
   matrices             8  
   mmse                 6  
   nart                 8  
@@ -2838,6 +2838,16 @@ u1 bnt                           .       .         .        8      .      .     
 <tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
+<td align="left">a</td>
+<td align="left">pulmonary</td>
+<td align="left">memory</td>
+<td align="left">fev</td>
+<td align="left">logicalmemoryimmed</td>
+<td align="left">b1_male_a_pulmonary_memory_fev_logicalmemoryimmed.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
 <td align="left">ae</td>
 <td align="left">pulmonary</td>
 <td align="left">memory</td>
@@ -2845,7 +2855,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">logicalmemoryimmed</td>
 <td align="left">b1_male_ae_pulmonary_memory_fev_logicalmemoryimmed.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -2855,7 +2865,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">logicalmemoryimmed</td>
 <td align="left">b1_male_aeh_pulmonary_memory_fev_logicalmemoryimmed.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -2865,7 +2875,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">logicalmemoryimmed</td>
 <td align="left">b1_male_aehplus_pulmonary_memory_fev_logicalmemoryimmed.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">a</td>
@@ -2875,7 +2885,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">matrices</td>
 <td align="left">b1_female_a_pulmonary_reasoning_fev_matrices.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">ae</td>
@@ -2885,7 +2895,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">matrices</td>
 <td align="left">b1_female_ae_pulmonary_reasoning_fev_matrices.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -2895,7 +2905,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">matrices</td>
 <td align="left">b1_female_aeh_pulmonary_reasoning_fev_matrices.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -2905,7 +2915,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">matrices</td>
 <td align="left">b1_female_aehplus_pulmonary_reasoning_fev_matrices.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">a</td>
@@ -2915,7 +2925,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">matrices</td>
 <td align="left">b1_male_a_pulmonary_reasoning_fev_matrices.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">ae</td>
@@ -2925,7 +2935,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">matrices</td>
 <td align="left">b1_male_ae_pulmonary_reasoning_fev_matrices.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -2935,7 +2945,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">matrices</td>
 <td align="left">b1_male_aeh_pulmonary_reasoning_fev_matrices.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -2945,7 +2955,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">matrices</td>
 <td align="left">b1_male_aehplus_pulmonary_reasoning_fev_matrices.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">ae</td>
@@ -2955,7 +2965,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">mmse</td>
 <td align="left">b1_female_ae_pulmonary_mental_fev_mmse.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -2965,7 +2975,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">mmse</td>
 <td align="left">b1_female_aeh_pulmonary_mental_fev_mmse.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -2975,7 +2985,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">mmse</td>
 <td align="left">b1_female_aehplus_pulmonary_mental_fev_mmse.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">ae</td>
@@ -2985,7 +2995,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">mmse</td>
 <td align="left">b1_male_ae_pulmonary_mental_fev_mmse.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -2995,7 +3005,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">mmse</td>
 <td align="left">b1_male_aeh_pulmonary_mental_fev_mmse.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -3005,7 +3015,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">mmse</td>
 <td align="left">b1_male_aehplus_pulmonary_mental_fev_mmse.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">a</td>
@@ -3015,7 +3025,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">nart</td>
 <td align="left">b1_female_a_pulmonary_knowledge_fev_nart.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">ae</td>
@@ -3025,7 +3035,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">nart</td>
 <td align="left">b1_female_ae_pulmonary_knowledge_fev_nart.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -3035,7 +3045,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">nart</td>
 <td align="left">b1_female_aeh_pulmonary_knowledge_fev_nart.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -3045,7 +3055,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">nart</td>
 <td align="left">b1_female_aehplus_pulmonary_knowledge_fev_nart.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">a</td>
@@ -3055,7 +3065,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">nart</td>
 <td align="left">b1_male_a_pulmonary_knowledge_fev_nart.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">ae</td>
@@ -3065,7 +3075,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">nart</td>
 <td align="left">b1_male_ae_pulmonary_knowledge_fev_nart.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -3075,7 +3085,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">nart</td>
 <td align="left">b1_male_aeh_pulmonary_knowledge_fev_nart.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -3085,7 +3095,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">nart</td>
 <td align="left">b1_male_aehplus_pulmonary_knowledge_fev_nart.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">a</td>
@@ -3095,7 +3105,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">numbercomparison</td>
 <td align="left">b1_female_a_pulmonary_speed_fev_numbercomparison.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">ae</td>
@@ -3105,7 +3115,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">numbercomparison</td>
 <td align="left">b1_female_ae_pulmonary_speed_fev_numbercomparison.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -3115,7 +3125,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">numbercomparison</td>
 <td align="left">b1_female_aeh_pulmonary_speed_fev_numbercomparison.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -3125,7 +3135,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">numbercomparison</td>
 <td align="left">b1_female_aehplus_pulmonary_speed_fev_numbercomparison.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">a</td>
@@ -3135,7 +3145,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">numbercomparison</td>
 <td align="left">b1_male_a_pulmonary_speed_fev_numbercomparison.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">ae</td>
@@ -3145,7 +3155,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">numbercomparison</td>
 <td align="left">b1_male_ae_pulmonary_speed_fev_numbercomparison.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -3155,7 +3165,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">numbercomparison</td>
 <td align="left">b1_male_aeh_pulmonary_speed_fev_numbercomparison.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -3165,7 +3175,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">numbercomparison</td>
 <td align="left">b1_male_aehplus_pulmonary_speed_fev_numbercomparison.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">a</td>
@@ -3175,7 +3185,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistdelay</td>
 <td align="left">b1_female_a_pulmonary_memory_fev_wordlistdelay.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">ae</td>
@@ -3185,7 +3195,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistdelay</td>
 <td align="left">b1_female_ae_pulmonary_memory_fev_wordlistdelay.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -3195,7 +3205,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistdelay</td>
 <td align="left">b1_female_aeh_pulmonary_memory_fev_wordlistdelay.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -3205,7 +3215,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistdelay</td>
 <td align="left">b1_female_aehplus_pulmonary_memory_fev_wordlistdelay.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">a</td>
@@ -3215,7 +3225,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistdelay</td>
 <td align="left">b1_male_a_pulmonary_memory_fev_wordlistdelay.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">ae</td>
@@ -3225,7 +3235,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistdelay</td>
 <td align="left">b1_male_ae_pulmonary_memory_fev_wordlistdelay.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -3235,7 +3245,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistdelay</td>
 <td align="left">b1_male_aeh_pulmonary_memory_fev_wordlistdelay.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -3245,7 +3255,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistdelay</td>
 <td align="left">b1_male_aehplus_pulmonary_memory_fev_wordlistdelay.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">a</td>
@@ -3255,7 +3265,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistimmed</td>
 <td align="left">b1_female_a_pulmonary_memory_fev_wordlistimmed.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">ae</td>
@@ -3265,7 +3275,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistimmed</td>
 <td align="left">b1_female_ae_pulmonary_memory_fev_wordlistimmed.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -3275,7 +3285,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistimmed</td>
 <td align="left">b1_female_aeh_pulmonary_memory_fev_wordlistimmed.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -3285,7 +3295,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistimmed</td>
 <td align="left">b1_female_aehplus_pulmonary_memory_fev_wordlistimmed.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">a</td>
@@ -3295,7 +3305,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistimmed</td>
 <td align="left">b1_male_a_pulmonary_memory_fev_wordlistimmed.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">ae</td>
@@ -3305,7 +3315,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistimmed</td>
 <td align="left">b1_male_ae_pulmonary_memory_fev_wordlistimmed.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -3315,7 +3325,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistimmed</td>
 <td align="left">b1_male_aeh_pulmonary_memory_fev_wordlistimmed.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -3325,7 +3335,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistimmed</td>
 <td align="left">b1_male_aehplus_pulmonary_memory_fev_wordlistimmed.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">a</td>
@@ -3335,7 +3345,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistrecog</td>
 <td align="left">b1_female_a_pulmonary_memory_fev_wordlistrecog.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">ae</td>
@@ -3345,7 +3355,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistrecog</td>
 <td align="left">b1_female_ae_pulmonary_memory_fev_wordlistrecog.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
@@ -3355,7 +3365,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistrecog</td>
 <td align="left">b1_female_aeh_pulmonary_memory_fev_wordlistrecog.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
@@ -3365,7 +3375,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistrecog</td>
 <td align="left">b1_female_aehplus_pulmonary_memory_fev_wordlistrecog.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">a</td>
@@ -3375,7 +3385,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistrecog</td>
 <td align="left">b1_male_a_pulmonary_memory_fev_wordlistrecog.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">ae</td>
@@ -3385,7 +3395,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistrecog</td>
 <td align="left">b1_male_ae_pulmonary_memory_fev_wordlistrecog.out</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
@@ -3395,7 +3405,7 @@ u1 bnt                           .       .         .        8      .      .     
 <td align="left">wordlistrecog</td>
 <td align="left">b1_male_aeh_pulmonary_memory_fev_wordlistrecog.out</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
@@ -3412,7 +3422,7 @@ u1 bnt                           .       .         .        8      .      .     
 <div id="session-information" class="section level1">
 <h1>Session Information</h1>
 <p>For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.</p>
-<pre><code>Report rendered by koval_000 at 2015-07-15, 16:24 -0700</code></pre>
+<pre><code>Report rendered by koval_000 at 2015-07-15, 19:40 -0700</code></pre>
 <pre><code>R version 3.2.0 (2015-04-16)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 8 x64 (build 9200)

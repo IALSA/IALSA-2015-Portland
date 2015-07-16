@@ -42,14 +42,14 @@ Your study
 has provided us with the total number of 
 
 ```
-299
+300
 ```
 models, using univariate and bivariate specifications:
 
 ```
 
  b1  u1 
-150 149 
+151 149 
 ```
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
@@ -114,7 +114,7 @@ All your models were named properly
 After removing incorrectly named files, there are
 
 ```
-299
+300
 ```
 models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
 
@@ -127,7 +127,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
            
             b1  u1 
-  pulmonary 150 .  
+  pulmonary 151 .  
   Univar    .   149
 ```
 
@@ -138,7 +138,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
         
          b1  u1 
-  fev    150 .  
+  fev    151 .  
   univar .   149
 ```
 
@@ -152,7 +152,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
   fluency      8  8 
   knowledge    8  8 
   language     16 16
-  memory       62 61
+  memory       63 61
   mental       14 16
   reasoning    8  8 
   speed        16 16
@@ -176,7 +176,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
   digitsforward        8  8 
   lineorientation      10 8 
   logicalmemorydelay   8  6 
-  logicalmemoryimmed   6  6 
+  logicalmemoryimmed   7  6 
   matrices             8  8 
   mmse                 6  8 
   nart                 8  8 
@@ -201,7 +201,7 @@ Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE m
 ```
      
       pulmonary
-  fev 150      
+  fev 151      
 ```
 
 ## Cognitive 
@@ -220,7 +220,7 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
   digitsforward        .         .       .         .        8      .      .         .     .           
   lineorientation      .         .       .         .        .      8      .         .     2           
   logicalmemorydelay   .         .       .         .        8      .      .         .     .           
-  logicalmemoryimmed   .         .       .         .        6      .      .         .     .           
+  logicalmemoryimmed   .         .       .         .        7      .      .         .     .           
   matrices             .         .       .         .        .      .      8         .     .           
   mmse                 .         .       .         .        .      6      .         .     .           
   nart                 .         .       8         .        .      .      .         .     .           
@@ -243,7 +243,7 @@ Number of models with the following **physical constructs** (columns) and  **cog
   fluency      8        
   knowledge    8        
   language     16       
-  memory       62       
+  memory       63       
   mental       14       
   reasoning    8        
   speed        16       
@@ -266,7 +266,7 @@ Number of models with the following  **physical constructs** (columns) and  **co
   digitsforward        8        
   lineorientation      10       
   logicalmemorydelay   8        
-  logicalmemoryimmed   6        
+  logicalmemoryimmed   7        
   matrices             8        
   mmse                 6        
   nart                 8        
@@ -287,7 +287,7 @@ Number of models with the following  **physical measure** (columns) and  **cogni
   fluency      8  
   knowledge    8  
   language     16 
-  memory       62 
+  memory       63 
   mental       14 
   reasoning    8  
   speed        16 
@@ -310,7 +310,7 @@ Number of models with the following  **physical measures** (columns) and  **cogn
   digitsforward        8  
   lineorientation      10 
   logicalmemorydelay   8  
-  logicalmemoryimmed   6  
+  logicalmemoryimmed   7  
   matrices             8  
   mmse                 6  
   nart                 8  
@@ -620,6 +620,7 @@ b1              male     aehplus             pulmonary                memory    
 b1              female   ae                  pulmonary                memory                    fev                    logicalmemoryimmed      b1_female_ae_pulmonary_memory_fev_logicalmemoryimmed.out        
 b1              female   aeh                 pulmonary                memory                    fev                    logicalmemoryimmed      b1_female_aeh_pulmonary_memory_fev_logicalmemoryimmed.out       
 b1              female   aehplus             pulmonary                memory                    fev                    logicalmemoryimmed      b1_female_aehplus_pulmonary_memory_fev_logicalmemoryimmed.out   
+b1              male     a                   pulmonary                memory                    fev                    logicalmemoryimmed      b1_male_a_pulmonary_memory_fev_logicalmemoryimmed.out           
 b1              male     ae                  pulmonary                memory                    fev                    logicalmemoryimmed      b1_male_ae_pulmonary_memory_fev_logicalmemoryimmed.out          
 b1              male     aeh                 pulmonary                memory                    fev                    logicalmemoryimmed      b1_male_aeh_pulmonary_memory_fev_logicalmemoryimmed.out         
 b1              male     aehplus             pulmonary                memory                    fev                    logicalmemoryimmed      b1_male_aehplus_pulmonary_memory_fev_logicalmemoryimmed.out     
@@ -684,7 +685,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-15, 16:24 -0700
+Report rendered by koval_000 at 2015-07-15, 19:40 -0700
 ```
 
 ```

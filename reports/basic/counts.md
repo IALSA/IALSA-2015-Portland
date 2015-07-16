@@ -37,7 +37,7 @@ lasa nshd obas table_1_descriptives table_2_ISR
 
 
 Presently, the **total number of legally named models** supplied by the participating studies is
-**1644**
+**1649**
 : they include both *bivariate* and *univariate* models. Strings *"nophys"* and *"nocog"*, imply that the model is univariate (e.i. nocog == The particular cog predictor is "none")
 
 <!-- Frequency counts   -->
@@ -46,32 +46,32 @@ Counting valid models in each study:
 ```
 
   eas  elsa  habc   hrs  ilse   nas nuage  octo  radc satsa 
-  483   207    88    68   135    66    58    88   299   152 
+  483   207    88    72   135    66    58    88   300   152 
 ```
 
 ```
     
      eas elsa habc hrs ilse nas nuage octo radc satsa
-  b1 219 60   48   68  71   48  12    88   150  152  
+  b1 219 60   48   72  71   48  12    88   151  152  
   u0 6   60   10   .   16   6   10    .    .    .    
   u1 129 57   30   .   48   6   36    .    149  .    
   u2 129 30   .    .   .    6   .     .    .    .    
 ```
 
 However, for the present time, we will focus only on 
-**1371**
+**1376**
 linear models.
 
 ```
 
   eas  elsa  habc   hrs  ilse   nas nuage  octo  radc satsa 
-  348   117    78    68   119    54    48    88   299   152 
+  348   117    78    72   119    54    48    88   300   152 
 ```
 
 ```
     
      eas elsa habc hrs ilse nas nuage octo radc satsa
-  b1 219 60   48   68  71   48  12    88   150  152  
+  b1 219 60   48   72  71   48  12    88   151  152  
   u1 129 57   30   .   48   6   36    .    149  .    
 ```
 
@@ -88,11 +88,11 @@ Number of models that use the following **Physical contructs**
             eas elsa habc hrs ilse nas nuage octo radc satsa
   chair     .   .    .    .   .    .   6     .    .    .    
   flamingo  .   .    .    .   .    .   6     .    .    .    
-  muscle    119 27   30   22  41   .   18    44   .    46   
-  pulmonary 120 60   .    23  .    54  .     44   150  106  
+  muscle    119 27   30   24  41   .   18    44   .    46   
+  pulmonary 120 60   .    24  .    54  .     44   151  106  
   tug       .   .    .    .   42   .   6     .    .    .    
   Univar    109 30   18   .   36   .   6     .    149  .    
-  walking   .   .    30   23  .    .   6     .    .    .    
+  walking   .   .    30   24  .    .   6     .    .    .    
 ```
 
 ## Measures
@@ -102,10 +102,10 @@ Number of models that use the following **Physical measures**
 ```
         
          eas elsa habc hrs ilse nas nuage octo radc satsa
-  fev    .   60   .    .   .    54  .     .    150  106  
-  gait   .   .    30   23  .    .   .     .    .    .    
-  grip   119 27   30   22  41   .   18    44   .    46   
-  peak   .   .    .    23  .    .   .     .    .    .    
+  fev    .   60   .    .   .    54  .     .    151  106  
+  gait   .   .    30   24  .    .   .     .    .    .    
+  grip   119 27   30   24  41   .   18    44   .    46   
+  peak   .   .    .    24  .    .   .     .    .    .    
   pek    120 .    .    .   .    .   .     44   .    .    
   tug    .   .    .    .   42   .   6     .    .    .    
   univar 109 30   18   .   36   .   24    .    149  .    
@@ -118,10 +118,10 @@ Number of models using this **measure** of the  physical **construct**
 ```
         
          chair flamingo muscle pulmonary tug Univar walking
-  fev    .     .        .      370       .   .      .      
-  gait   .     .        .      .         .   .      53     
-  grip   .     .        347    .         .   .      .      
-  peak   .     .        .      23        .   .      .      
+  fev    .     .        .      371       .   .      .      
+  gait   .     .        .      .         .   .      54     
+  grip   .     .        349    .         .   .      .      
+  peak   .     .        .      24        .   .      .      
   pek    .     .        .      164       .   .      .      
   tug    .     .        .      .         48  .      .      
   univar 6     6        .      .         .   348    6      
@@ -156,9 +156,9 @@ habc  fev       .        .      .         .   .      .       .
       tug       .        .      .         .   .      .       .  
       univar    .        .      .         .   .      18      .  
 hrs   fev       .        .      .         .   .      .       .  
-      gait      .        .      .         .   .      .       23 
-      grip      .        .      22        .   .      .       .  
-      peak      .        .      .         23  .      .       .  
+      gait      .        .      .         .   .      .       24 
+      grip      .        .      24        .   .      .       .  
+      peak      .        .      .         24  .      .       .  
       pek       .        .      .         .   .      .       .  
       tug       .        .      .         .   .      .       .  
       univar    .        .      .         .   .      .       .  
@@ -190,7 +190,7 @@ octo  fev       .        .      .         .   .      .       .
       pek       .        .      .         44  .      .       .  
       tug       .        .      .         .   .      .       .  
       univar    .        .      .         .   .      .       .  
-radc  fev       .        .      .         150 .      .       .  
+radc  fev       .        .      .         151 .      .       .  
       gait      .        .      .         .   .      .       .  
       grip      .        .      .         .   .      .       .  
       peak      .        .      .         .   .      .       .  
@@ -220,8 +220,8 @@ Number of models that use the following **Cognitive contructs**
   fluency       60  10   .    .   30   6   .     .    16   .    
   knowledge     60  .    .    .   12   .   .     16   16   54   
   language      30  .    .    .   .    .   .     .    32   .    
-  memory        59  80   .    33  .    12  .     24   123  20   
-  mental        30  .    44   35  .    6   18    8    30   18   
+  memory        59  80   .    36  .    12  .     24   124  20   
+  mental        30  .    44   36  .    6   18    8    30   18   
   reasoning     30  .    .    .   47   6   .     16   16   10   
   speed         30  .    22   .   18   6   .     16   32   30   
   Univar        20  27   12   .   12   6   30    .    .    .    
@@ -245,7 +245,7 @@ Number of models that use the following **Cognitive measures**
   categories              30  10   .    .   .    6   .     .    16   .    
   clock                   .   .    22   .   .    .   .     .    .    .    
   complexideas            .   .    .    .   .    .   .     .    16   .    
-  delayedrecall           .   40   .    16  .    6   .     .    .    .    
+  delayedrecall           .   40   .    18  .    6   .     .    .    .    
   digitbackwardspan       .   .    .    .   .    6   .     .    .    .    
   digitbackwardtotal      .   .    .    .   .    6   .     .    .    .    
   digitordering           .   .    .    .   .    .   .     .    16   .    
@@ -261,7 +261,7 @@ Number of models that use the following **Cognitive measures**
   lineorientation         .   .    .    .   .    .   .     .    18   .    
   logicalmemory           29  .    .    .   .    .   .     .    .    .    
   logicalmemorydelay      .   .    .    .   .    .   .     .    14   .    
-  logicalmemoryimmed      .   .    .    .   .    .   .     .    12   .    
+  logicalmemoryimmed      .   .    .    .   .    .   .     .    13   .    
   lpsspacialability       .   .    .    .   6    .   .     .    .    .    
   lpsspatialability       .   .    .    .   11   .   .     .    .    .    
   matrices                .   .    .    .   .    .   .     .    16   .    
@@ -277,7 +277,7 @@ Number of models that use the following **Cognitive measures**
   serial7                 .   .    .    18  .    .   .     .    .    .    
   symbol                  30  .    22   .   16   .   .     8    16   18   
   synonyms                .   .    .    .   .    .   .     8    .    18   
-  tics                    .   .    .    17  .    .   .     .    .    .    
+  tics                    .   .    .    18  .    .   .     .    .    .    
   trailsb                 29  .    .    .   .    .   .     .    .    .    
   univar                  20  27   12   .   12   .   30    .    .    .    
   verbalfluency           30  .    .    .   18   .   .     .    .    .    
@@ -287,7 +287,7 @@ Number of models that use the following **Cognitive measures**
   wmslmdel                .   .    .    .   .    .   .     .    2    .    
   wmslmimmed              .   .    .    .   .    .   .     .    2    .    
   wordlistdelay           .   .    .    .   .    .   .     .    16   .    
-  wordlistimmed           .   40   .    17  .    6   .     .    16   .    
+  wordlistimmed           .   40   .    18  .    6   .     .    16   .    
   wordlistrecog           .   .    .    .   .    .   .     .    13   .    
 ```
 
@@ -307,7 +307,7 @@ Number of models using this **measure** of the  cognitive **construct**
   categories              .         62      .         .        .      .      .         .     .      .           
   clock                   .         .       .         .        .      22     .         .     .      .           
   complexideas            .         .       .         16       .      .      .         .     .      .           
-  delayedrecall           .         .       .         .        62     .      .         .     .      .           
+  delayedrecall           .         .       .         .        64     .      .         .     .      .           
   digitbackwardspan       .         .       .         .        .      .      .         .     .      .           
   digitbackwardtotal      .         .       .         .        .      .      .         .     .      .           
   digitordering           16        .       .         .        .      .      .         .     .      .           
@@ -323,7 +323,7 @@ Number of models using this **measure** of the  cognitive **construct**
   lineorientation         .         .       .         .        .      16     .         .     .      2           
   logicalmemory           .         .       .         .        29     .      .         .     .      .           
   logicalmemorydelay      .         .       .         .        14     .      .         .     .      .           
-  logicalmemoryimmed      .         .       .         .        12     .      .         .     .      .           
+  logicalmemoryimmed      .         .       .         .        13     .      .         .     .      .           
   lpsspacialability       .         .       .         .        .      .      6         .     .      .           
   lpsspatialability       .         6       .         .        .      .      5         .     .      .           
   matrices                .         .       .         .        .      .      16        .     .      .           
@@ -339,7 +339,7 @@ Number of models using this **measure** of the  cognitive **construct**
   serial7                 .         .       .         .        .      18     .         .     .      .           
   symbol                  .         .       .         .        .      .      .         110   .      .           
   synonyms                .         .       26        .        .      .      .         .     .      .           
-  tics                    .         .       .         .        .      17     .         .     .      .           
+  tics                    .         .       .         .        .      18     .         .     .      .           
   trailsb                 29        .       .         .        .      .      .         .     .      .           
   univar                  .         .       .         .        .      .      .         .     101    .           
   verbalfluency           .         48      .         .        .      .      .         .     .      .           
@@ -349,7 +349,7 @@ Number of models using this **measure** of the  cognitive **construct**
   wmslmdel                .         .       .         .        2      .      .         .     .      .           
   wmslmimmed              .         .       .         .        2      .      .         .     .      .           
   wordlistdelay           .         .       .         .        16     .      .         .     .      .           
-  wordlistimmed           .         .       .         .        79     .      .         .     .      .           
+  wordlistimmed           .         .       .         .        80     .      .         .     .      .           
   wordlistrecog           .         .       .         .        13     .      .         .     .      .           
                          
                           workingmemory
@@ -583,7 +583,7 @@ hrs   3ms                             .       .         .        .      .      .
       categories                      .       .         .        .      .      .         .     .      .            .             . 
       clock                           .       .         .        .      .      .         .     .      .            .             . 
       complexideas                    .       .         .        .      .      .         .     .      .            .             . 
-      delayedrecall                   .       .         .        .      16     .         .     .      .            .             . 
+      delayedrecall                   .       .         .        .      18     .         .     .      .            .             . 
       digitbackwardspan               .       .         .        .      .      .         .     .      .            .             . 
       digitbackwardtotal              .       .         .        .      .      .         .     .      .            .             . 
       digitordering                   .       .         .        .      .      .         .     .      .            .             . 
@@ -615,7 +615,7 @@ hrs   3ms                             .       .         .        .      .      .
       serial7                         .       .         .        .      .      18        .     .      .            .             . 
       symbol                          .       .         .        .      .      .         .     .      .            .             . 
       synonyms                        .       .         .        .      .      .         .     .      .            .             . 
-      tics                            .       .         .        .      .      17        .     .      .            .             . 
+      tics                            .       .         .        .      .      18        .     .      .            .             . 
       trailsb                         .       .         .        .      .      .         .     .      .            .             . 
       univar                          .       .         .        .      .      .         .     .      .            .             . 
       verbalfluency                   .       .         .        .      .      .         .     .      .            .             . 
@@ -625,7 +625,7 @@ hrs   3ms                             .       .         .        .      .      .
       wmslmdel                        .       .         .        .      .      .         .     .      .            .             . 
       wmslmimmed                      .       .         .        .      .      .         .     .      .            .             . 
       wordlistdelay                   .       .         .        .      .      .         .     .      .            .             . 
-      wordlistimmed                   .       .         .        .      17     .         .     .      .            .             . 
+      wordlistimmed                   .       .         .        .      18     .         .     .      .            .             . 
       wordlistrecog                   .       .         .        .      .      .         .     .      .            .             . 
 ilse  3ms                             .       .         .        .      .      .         .     .      .            .             . 
       analogies                       .       .         .        .      .      .         .     .      .            .             . 
@@ -864,7 +864,7 @@ radc  3ms                             .       .         .        .      .      .
       lineorientation                 .       .         .        .      .      16        .     .      .            2             . 
       logicalmemory                   .       .         .        .      .      .         .     .      .            .             . 
       logicalmemorydelay              .       .         .        .      14     .         .     .      .            .             . 
-      logicalmemoryimmed              .       .         .        .      12     .         .     .      .            .             . 
+      logicalmemoryimmed              .       .         .        .      13     .         .     .      .            .             . 
       lpsspacialability               .       .         .        .      .      .         .     .      .            .             . 
       lpsspatialability               .       .         .        .      .      .         .     .      .            .             . 
       matrices                        .       .         .        .      .      .         16    .      .            .             . 
@@ -966,8 +966,8 @@ Number of models that uses this **physical construct** (column) and  **cognitive
   fluency       .     .        26     34        6   56     .      
   knowledge     .     .        58     66        6   28     .      
   language      .     .        10     26        .   26     .      
-  memory        .     .        61     177       .   101    12     
-  mental        .     .        62     56        .   44     27     
+  memory        .     .        63     179       .   101    12     
+  mental        .     .        62     56        .   44     28     
   reasoning     .     .        35     42        18  30     .      
   speed         .     .        46     56        6   38     8      
   Univar        6     6        35     36        12  .      12     
@@ -992,7 +992,7 @@ Number of models that uses this **physical measure** (column) and  **cognitive m
   categories              14  .    10   .    10  .   28    
   clock                   .   8    8    .    .   .   6     
   complexideas            8   .    .    .    .   .   8     
-  delayedrecall           26  6    15   5    .   .   10    
+  delayedrecall           26  6    16   6    .   .   10    
   digitbackwardspan       6   .    .    .    .   .   .     
   digitbackwardtotal      6   .    .    .    .   .   .     
   digitordering           8   .    .    .    .   .   8     
@@ -1008,7 +1008,7 @@ Number of models that uses this **physical measure** (column) and  **cognitive m
   lineorientation         10  .    .    .    .   .   8     
   logicalmemory           .   .    9    .    10  .   10    
   logicalmemorydelay      8   .    .    .    .   .   6     
-  logicalmemoryimmed      6   .    .    .    .   .   6     
+  logicalmemoryimmed      7   .    .    .    .   .   6     
   lpsspacialability       .   .    .    .    .   6   .     
   lpsspatialability       .   .    5    .    .   .   6     
   matrices                8   .    .    .    .   .   8     
@@ -1024,7 +1024,7 @@ Number of models that uses this **physical measure** (column) and  **cognitive m
   serial7                 .   6    6    6    .   .   .     
   symbol                  18  8    36   .    14  4   30    
   synonyms                10  .    12   .    4   .   .     
-  tics                    .   5    6    6    .   .   .     
+  tics                    .   6    6    6    .   .   .     
   trailsb                 .   .    10   .    10  .   9     
   univar                  20  6    35   .    10  12  18    
   verbalfluency           .   .    16   .    10  6   16    
@@ -1034,7 +1034,7 @@ Number of models that uses this **physical measure** (column) and  **cognitive m
   wmslmdel                .   .    .    .    .   .   2     
   wmslmimmed              .   .    .    .    .   .   2     
   wordlistdelay           8   .    .    .    .   .   8     
-  wordlistimmed           34  6    15   6    .   .   18    
+  wordlistimmed           34  6    16   6    .   .   18    
   wordlistrecog           8   .    .    .    .   .   5     
 ```
 
@@ -1212,7 +1212,7 @@ hrs   3ms                       .    .    .    .   .   .      .
       categories                .    .    .    .   .   .      . 
       clock                     .    .    .    .   .   .      . 
       complexideas              .    .    .    .   .   .      . 
-      delayedrecall             .    6    5    5   .   .      . 
+      delayedrecall             .    6    6    6   .   .      . 
       digitbackwardspan         .    .    .    .   .   .      . 
       digitbackwardtotal        .    .    .    .   .   .      . 
       digitordering             .    .    .    .   .   .      . 
@@ -1244,7 +1244,7 @@ hrs   3ms                       .    .    .    .   .   .      .
       serial7                   .    6    6    6   .   .      . 
       symbol                    .    .    .    .   .   .      . 
       synonyms                  .    .    .    .   .   .      . 
-      tics                      .    5    6    6   .   .      . 
+      tics                      .    6    6    6   .   .      . 
       trailsb                   .    .    .    .   .   .      . 
       univar                    .    .    .    .   .   .      . 
       verbalfluency             .    .    .    .   .   .      . 
@@ -1254,7 +1254,7 @@ hrs   3ms                       .    .    .    .   .   .      .
       wmslmdel                  .    .    .    .   .   .      . 
       wmslmimmed                .    .    .    .   .   .      . 
       wordlistdelay             .    .    .    .   .   .      . 
-      wordlistimmed             .    6    5    6   .   .      . 
+      wordlistimmed             .    6    6    6   .   .      . 
       wordlistrecog             .    .    .    .   .   .      . 
 ilse  3ms                       .    .    .    .   .   .      . 
       analogies                 .    .    .    .   .   .      . 
@@ -1493,7 +1493,7 @@ radc  3ms                       .    .    .    .   .   .      .
       lineorientation           10   .    .    .   .   .      8 
       logicalmemory             .    .    .    .   .   .      . 
       logicalmemorydelay        8    .    .    .   .   .      6 
-      logicalmemoryimmed        6    .    .    .   .   .      6 
+      logicalmemoryimmed        7    .    .    .   .   .      6 
       lpsspacialability         .    .    .    .   .   .      . 
       lpsspatialability         .    .    .    .   .   .      . 
       matrices                  8    .    .    .   .   .      8 
@@ -1687,7 +1687,7 @@ Number of models in the **radc** study with the following combination of physica
   digitsforward        8   8     
   lineorientation      10  8     
   logicalmemorydelay   8   6     
-  logicalmemoryimmed   6   6     
+  logicalmemoryimmed   7   6     
   matrices             8   8     
   mmse                 6   8     
   nart                 8   8     
@@ -1705,10 +1705,10 @@ Number of models in the **hrs** study with the following combination of physical
 ```
                
                 gait grip peak
-  delayedrecall 6    5    5   
+  delayedrecall 6    6    6   
   serial7       6    6    6   
-  tics          5    6    6   
-  wordlistimmed 6    5    6   
+  tics          6    6    6   
+  wordlistimmed 6    6    6   
 ```
 
 ### ilse
@@ -1747,7 +1747,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-15, 16:24 -0700
+Report rendered by koval_000 at 2015-07-15, 18:44 -0700
 ```
 
 ```

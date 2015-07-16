@@ -36,7 +36,7 @@ This report establishes four key graphs that go into compiling the Model Catalog
 ```
     
      eas elsa habc hrs ilse nas nuage octo radc satsa
-  b1 219 60   48   68  71   48  12    88   150  152  
+  b1 219 60   48   72  71   48  12    88   151  152  
   u1 129 57   30   .   48   6   36    .    149  .    
 ```
 
@@ -84,7 +84,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-15, 16:25 -0700
+Report rendered by koval_000 at 2015-07-15, 19:41 -0700
 ```
 
 ```

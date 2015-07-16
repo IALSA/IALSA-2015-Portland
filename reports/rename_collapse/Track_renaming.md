@@ -47,12 +47,12 @@ tail(ds[c("cognitive_construct","cognitive_measure","output_file")])
 
 ```
      cognitive_construct cognitive_measure                                         output_file
-1729         proserecall              <NA>               b1_male_aeh_pulmonary_proserecall.out
-1730         proserecall              <NA>           b1_male_aehplus_pulmonary_proserecall.out
-1731         proserecall              <NA>               b1_male_age_pulmonary_proserecall.out
-1732         proserecall              <NA>              b1_male_full_pulmonary_proserecall.out
-1733              memory              <NA> b1_female_a_pulmonary_memory_logicalmemoryimmed.out
-1734              memory              <NA>   b1_male_a_pulmonary_memory_logicalmemoryimmed.out
+1733         proserecall              <NA>            b1_female_full_pulmonary_proserecall.out
+1734         proserecall              <NA>               b1_male_aeh_pulmonary_proserecall.out
+1735         proserecall              <NA>           b1_male_aehplus_pulmonary_proserecall.out
+1736         proserecall              <NA>               b1_male_age_pulmonary_proserecall.out
+1737         proserecall              <NA>              b1_male_full_pulmonary_proserecall.out
+1738              memory              <NA> b1_female_a_pulmonary_memory_logicalmemoryimmed.out
 ```
 
 ```r
@@ -60,7 +60,7 @@ nrow(ds)
 ```
 
 ```
-[1] 1734
+[1] 1738
 ```
 Each row is a model.
 <!-- Tweak the datasets.   -->
@@ -80,7 +80,7 @@ length(ds$output_file[!is_valid]) # that many models with omitted elements in th
 ```
 
 ```
-[1] 90
+[1] 89
 ```
 
 ```r
@@ -135,7 +135,7 @@ if(sum(!is_valid)>0){ print(ds$output_file[!is_valid])}else{
 [83] "b1_female_age_pulmonary_proserecall.out"             "b1_female_full_pulmonary_proserecall.out"           
 [85] "b1_male_aeh_pulmonary_proserecall.out"               "b1_male_aehplus_pulmonary_proserecall.out"          
 [87] "b1_male_age_pulmonary_proserecall.out"               "b1_male_full_pulmonary_proserecall.out"             
-[89] "b1_female_a_pulmonary_memory_logicalmemoryimmed.out" "b1_male_a_pulmonary_memory_logicalmemoryimmed.out"  
+[89] "b1_female_a_pulmonary_memory_logicalmemoryimmed.out"
 ```
 
 ```r
@@ -144,7 +144,7 @@ nrow(ds) # how many models we ended up with.
 ```
 
 ```
-[1] 1644
+[1] 1649
 ```
 
 To simplify editing of the names, we'll convert them to lowercase
@@ -169,7 +169,7 @@ t <- table(ds$model_number, ds$study_name);t[t==0]<-".";t
 ```
     
      eas elsa habc hrs ilse nas nuage octo radc satsa
-  b1 219 60   48   68  71   48  12    88   150  152  
+  b1 219 60   48   72  71   48  12    88   151  152  
   u0 6   60   10   .   16   6   10    .    .    .    
   u1 129 57   30   .   48   6   36    .    149  .    
   u2 129 30   .    .   .    6   .     .    .    .    
@@ -185,8 +185,8 @@ t <- table(ds$subgroup, ds$study_name);t[t==0]<-".";t
 ```
         
          eas elsa habc hrs ilse nas nuage octo radc satsa
-  female 243 105  44   33  68   .   29    44   149  76   
-  male   240 102  44   35  67   66  29    44   150  76   
+  female 243 105  44   36  68   .   29    44   149  76   
+  male   240 102  44   36  67   66  29    44   151  76   
 ```
 No obvious typos were detected.
 
@@ -200,11 +200,11 @@ t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
          
           eas elsa habc hrs ilse nas nuage octo radc satsa
   0       .   .    .    .   .    .   .     .    .    20   
-  a       .   .    .    .   22   .   10    .    72   10   
+  a       .   .    .    .   22   .   10    .    73   10   
   ae      95  42   .    .   .    11  .     .    74   34   
-  aeh     95  42   22   21  39   11  16    44   77   34   
+  aeh     95  42   22   24  39   11  16    44   77   34   
   aehplus 94  41   22   24  40   11  16    .    76   30   
-  age     96  41   22   23  18   11  6     44   .    24   
+  age     96  41   22   24  18   11  6     44   .    24   
   aheplus 1   .    .    .   .    .   .     .    .    .    
   empty   6   41   10   .   16   11  10    .    .    .    
   full    96  .    12   .   .    11  .     .    .    .    
@@ -228,9 +228,9 @@ t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
          
           eas elsa habc hrs ilse nas nuage octo radc satsa
   0       6   41   10   .   16   11  10    .    .    20   
-  a       96  41   22   23  40   11  16    44   72   34   
+  a       96  41   22   24  40   11  16    44   73   34   
   ae      95  42   .    .   .    11  .     .    74   34   
-  aeh     95  42   22   21  39   11  16    44   77   34   
+  aeh     95  42   22   24  39   11  16    44   77   34   
   aehplus 95  41   22   24  40   11  16    .    76   30   
   full    96  .    12   .   .    11  .     .    .    .    
 ```
@@ -253,13 +253,13 @@ t <- table(ds$physical_construct, ds$study_name);t[t==0]<-".";t
              eas elsa habc hrs ilse nas nuage octo radc satsa
   chair      .   .    .    .   .    .   8     .    .    .    
   flamingo   .   .    .    .   .    .   8     .    .    .    
-  muscle     131 37   32   22  43   .   20    44   .    46   
+  muscle     131 37   32   24  43   .   20    44   .    46   
   nophys     220 90   24   .   48   .   6     .    149  .    
   nophysspec 1   .    .    .   .    .   .     .    .    .    
-  pulmonary  131 80   .    23  .    66  .     44   150  105  
+  pulmonary  131 80   .    24  .    66  .     44   151  105  
   pumonary   .   .    .    .   .    .   .     .    .    1    
   tug        .   .    .    .   44   .   8     .    .    .    
-  walking    .   .    32   23  .    .   8     .    .    .    
+  walking    .   .    32   24  .    .   8     .    .    .    
 ```
 
 #### Correct Physical domain
@@ -279,11 +279,11 @@ t <- table(ds$physical_construct, ds$study_name);t[t==0]<-".";t
             eas elsa habc hrs ilse nas nuage octo radc satsa
   chair     .   .    .    .   .    .   8     .    .    .    
   flamingo  .   .    .    .   .    .   8     .    .    .    
-  muscle    131 37   32   22  43   .   20    44   .    46   
-  pulmonary 131 80   .    23  .    66  .     44   150  106  
+  muscle    131 37   32   24  43   .   20    44   .    46   
+  pulmonary 131 80   .    24  .    66  .     44   151  106  
   tug       .   .    .    .   44   .   8     .    .    .    
   Univar    221 90   24   .   48   .   6     .    149  .    
-  walking   .   .    32   23  .    .   8     .    .    .    
+  walking   .   .    32   24  .    .   8     .    .    .    
 ```
 
 #### QUESTIONS 
@@ -297,17 +297,17 @@ t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 ```
             
              eas elsa habc hrs ilse nas nuage octo radc satsa
-  fev        .   40   .    .   .    .   .     .    150  106  
+  fev        .   40   .    .   .    .   .     .    151  106  
   fev1       .   .    .    .   .    66  .     .    .    .    
   fvc        .   40   .    .   .    .   .     .    .    .    
-  gait       .   .    32   23  .    .   .     .    .    .    
+  gait       .   .    32   24  .    .   .     .    .    .    
   grip       131 37   .    .   43   .   21    44   .    46   
-  hand       .   .    32   22  .    .   .     .    .    .    
+  hand       .   .    32   24  .    .   .     .    .    .    
   nophsyspec 1   .    .    .   .    .   .     .    .    .    
   nophyspec  8   .    .    .   .    .   .     .    .    .    
   nophyssec  5   .    .    .   .    .   .     .    .    .    
   nophysspec 207 90   24   .   48   .   37    .    149  .    
-  peak       .   .    .    23  .    .   .     .    .    .    
+  peak       .   .    .    24  .    .   .     .    .    .    
   pek        131 .    .    .   .    .   .     44   .    .    
   tug        .   .    .    .   44   .   .     .    .    .    
 ```
@@ -326,15 +326,15 @@ t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 ```
             
              eas elsa habc hrs ilse nas nuage octo radc satsa
-  fev        .   80   .    .   .    66  .     .    150  106  
-  gait       .   .    32   23  .    .   .     .    .    .    
+  fev        .   80   .    .   .    66  .     .    151  106  
+  gait       .   .    32   24  .    .   .     .    .    .    
   grip       131 37   .    .   43   .   21    44   .    46   
-  hand       .   .    32   22  .    .   .     .    .    .    
+  hand       .   .    32   24  .    .   .     .    .    .    
   nophsyspec 1   .    .    .   .    .   .     .    .    .    
   nophyspec  8   .    .    .   .    .   .     .    .    .    
   nophyssec  5   .    .    .   .    .   .     .    .    .    
   nophysspec 207 90   24   .   48   .   29    .    149  .    
-  peak       .   .    .    23  .    .   .     .    .    .    
+  peak       .   .    .    24  .    .   .     .    .    .    
   pek        131 .    .    .   .    .   .     44   .    .    
   tug        .   .    .    .   44   .   8     .    .    .    
 ```
@@ -356,10 +356,10 @@ t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 ```
         
          eas elsa habc hrs ilse nas nuage octo radc satsa
-  fev    .   80   .    .   .    66  .     .    150  106  
-  gait   .   .    32   23  .    .   .     .    .    .    
-  grip   131 37   32   22  43   .   21    44   .    46   
-  peak   .   .    .    23  .    .   .     .    .    .    
+  fev    .   80   .    .   .    66  .     .    151  106  
+  gait   .   .    32   24  .    .   .     .    .    .    
+  grip   131 37   32   24  43   .   21    44   .    46   
+  peak   .   .    .    24  .    .   .     .    .    .    
   pek    131 .    .    .   .    .   .     44   .    .    
   tug    .   .    .    .   44   .   8     .    .    .    
   univar 221 90   24   .   48   .   29    .    149  .    
@@ -385,8 +385,8 @@ t <- table(ds$cognitive_construct, ds$study_name);t[t==0]<-".";t
   knowledge      72  .    .    .   12   .   .     16   16   54   
   knowlegde      1   .    .    .   .    .   .     .    .    .    
   language       .   .    .    .   .    .   .     .    32   .    
-  memory         79  120  .    33  .    12  .     32   123  20   
-  mental         .   .    48   35  .    .   .     .    30   2    
+  memory         79  120  .    36  .    12  .     32   124  20   
+  mental         .   .    48   36  .    .   .     .    30   2    
   nocog          43  57   16   .   16   18  40    .    .    .    
   reasoning      42  .    .    .   53   .   .     16   16   10   
   speed          40  .    24   .   20   .   .     16   32   30   
@@ -419,8 +419,8 @@ t <- table(ds$cognitive_construct, ds$study_name);t[t==0]<-".";t
   global        40  .    .    .   .    6   18    8    .    16   
   knowledge     74  .    .    .   12   .   .     16   16   54   
   language      .   .    .    .   .    .   .     .    32   .    
-  memory        79  120  .    33  .    12  .     32   123  20   
-  mental        .   .    48   35  .    .   .     .    30   2    
+  memory        79  120  .    36  .    12  .     32   124  20   
+  mental        .   .    48   36  .    .   .     .    30   2    
   reasoning     52  .    .    .   53   12  .     16   16   10   
   speed         40  .    24   .   20   .   .     16   32   30   
   Univar        43  57   16   .   16   18  40    .    .    .    
@@ -455,7 +455,7 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
   category                    40  .    .    .   .    .   .     .    .    .    
   clock                       .   .    24   .   .    .   .     .    .    .    
   complexideas                .   .    .    .   .    .   .     .    16   .    
-  delayedrecall               .   60   .    16  .    6   .     .    .    .    
+  delayedrecall               .   60   .    18  .    6   .     .    .    .    
   digitbackwardspan           .   .    .    .   .    6   .     .    .    .    
   digitbackwardtotal          .   .    .    .   .    6   .     .    .    .    
   digitordering               .   .    .    .   .    .   .     .    16   .    
@@ -475,13 +475,13 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
   figurecopy                  .   .    .    .   .    6   .     .    .    .    
   figurelogic                 .   .    .    .   .    .   .     8    .    .    
   figurememory                .   .    .    .   .    .   .     .    .    10   
-  immediaterecall             .   60   .    17  .    6   .     .    .    .    
+  immediaterecall             .   60   .    18  .    6   .     .    .    .    
   info                        .   .    .    .   .    .   .     .    .    18   
   information                 40  .    .    .   .    .   .     8    .    .    
   lineorientation             .   .    .    .   .    .   .     .    18   .    
   logicalmemory               30  .    .    .   .    .   .     .    .    .    
   logicalmemorydelay          .   .    .    .   .    .   .     .    14   .    
-  logicalmemoryimmed          .   .    .    .   .    .   .     .    12   .    
+  logicalmemoryimmed          .   .    .    .   .    .   .     .    13   .    
   logicalmemorytotal          9   .    .    .   .    .   .     .    .    .    
   lpsspacialability           .   .    .    .   7    .   .     .    .    .    
   lpsspatialability           .   .    .    .   12   .   .     .    .    .    
@@ -502,7 +502,7 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
   symbol                      .   .    .    .   .    .   .     .    .    18   
   synon                       .   .    .    .   .    .   .     .    .    16   
   synonyms                    .   .    .    .   .    .   .     8    .    2    
-  tics                        .   .    .    17  .    .   .     .    .    .    
+  tics                        .   .    .    18  .    .   .     .    .    .    
   trailsb                     39  .    .    .   .    .   .     .    .    .    
   verbalfluencytest           .   .    .    .   20   .   .     .    .    .    
   waisblockdesign             .   .    .    .   20   .   .     .    .    .    
@@ -595,7 +595,7 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
   categories              40  30   .    .   .    6   .     .    16   .    
   clock                   .   .    24   .   .    .   .     .    .    .    
   complexideas            .   .    .    .   .    .   .     .    16   .    
-  delayedrecall           .   60   .    16  .    6   .     .    .    .    
+  delayedrecall           .   60   .    18  .    6   .     .    .    .    
   digitbackwardspan       .   .    .    .   .    6   .     .    .    .    
   digitbackwardtotal      .   .    .    .   .    6   .     .    .    .    
   digitordering           .   .    .    .   .    .   .     .    16   .    
@@ -611,7 +611,7 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
   lineorientation         .   .    .    .   .    .   .     .    18   .    
   logicalmemory           39  .    .    .   .    .   .     .    .    .    
   logicalmemorydelay      .   .    .    .   .    .   .     .    14   .    
-  logicalmemoryimmed      .   .    .    .   .    .   .     .    12   .    
+  logicalmemoryimmed      .   .    .    .   .    .   .     .    13   .    
   lpsspacialability       .   .    .    .   7    .   .     .    .    .    
   lpsspatialability       .   .    .    .   12   .   .     .    .    .    
   matrices                .   .    .    .   .    .   .     .    16   .    
@@ -627,7 +627,7 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
   serial7                 .   .    .    18  .    .   .     .    .    .    
   symbol                  40  .    24   .   18   .   .     8    16   18   
   synonyms                .   .    .    .   .    .   .     8    .    18   
-  tics                    .   .    .    17  .    .   .     .    .    .    
+  tics                    .   .    .    18  .    .   .     .    .    .    
   trailsb                 39  .    .    .   .    .   .     .    .    .    
   univar                  43  57   16   .   16   .   40    .    .    .    
   verbalfluency           40  .    .    .   20   .   .     .    .    .    
@@ -637,7 +637,7 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
   wmslmdel                .   .    .    .   .    .   .     .    2    .    
   wmslmimmed              .   .    .    .   .    .   .     .    2    .    
   wordlistdelay           .   .    .    .   .    .   .     .    16   .    
-  wordlistimmed           .   60   .    17  .    6   .     .    16   .    
+  wordlistimmed           .   60   .    18  .    6   .     .    16   .    
   wordlistrecog           .   .    .    .   .    .   .     .    13   .    
 ```
 
@@ -659,7 +659,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-15, 16:24 -0700
+Report rendered by koval_000 at 2015-07-15, 18:44 -0700
 ```
 
 ```
