@@ -1,25 +1,25 @@
-# These functions work with processing
-# models .out files
-options(width=160)
-rm(list=ls())
-cat("\f")
-
-library(MplusAutomation)
-
-## @knitr setPaths
-pathDir <- getwd() # establish home directory
-pathStudies <- file.path(pathDir,"studies")
-list.files(pathStudies) # inspect participating studies
-
-## @knitr setGlobals
-studies <- c("eas", "elsa")
-out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
-
-
-# for debugging functions
-# study <- "radc"
-study <- "eas"
-i <- 1
+# # These functions work with processing
+# # models .out files
+# options(width=160)
+# rm(list=ls())
+# cat("\f")
+#
+# library(MplusAutomation)
+#
+# ## @knitr setPaths
+# pathDir <- getwd() # establish home directory
+# pathStudies <- file.path(pathDir,"studies")
+# list.files(pathStudies) # inspect participating studies
+#
+# ## @knitr setGlobals
+# studies <- c("eas", "elsa")
+# out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
+#
+#
+# # for debugging functions
+# # study <- "radc"
+# study <- "eas"
+# # i <- 234
 # comment out the code above when referenciing from 0_collect_studies.R
 
 find.Conflicts <- function(study){
@@ -123,7 +123,7 @@ get_msum <- function(study){
   return(msum)
 }
 msum <- get_msum(study)
-# msum[190,"Filename"]
+
 
 # a list of datasets containing estimated coefficients
 get_mpar <- function(study){
@@ -139,7 +139,7 @@ get_mpar <- function(study){
   return(mpar)
 }
 mpar <- get_mpar(study)
-# mpar[[190]]
+
 
 # create empty dataset "results"
 results_to_populate <- function(study){
@@ -274,27 +274,24 @@ get_results_basic <- function(study){
 } # close get_results_basic
 results <- get_results_basic(study)
 
-get_results_offdiag <- function(study){
+get_results_random <- function(study){
   # populate a dataset with data from msum and mpar
   pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
   # msum <- get_msum(study)
   # mpar <- get_mpar(study)
   # results <- get_results_basic(study)
-
   models_in_a_study <- seq_along(mpar)
-  # models_in_a_study <- 1
   for(i in models_in_a_study){
     out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
-    # out_file <- "b1_female_ae_pulmonary_executive_pek_trailsb.out"
     message("Getting ", study, ", model ", i, ", ",out_file)
     mplus_output <- scan(out_list[i], what='character', sep='\n')
     # mplus_output <- scan(out_list[out_file], what='character', sep='\n')
-    model <- mpar[[i]]
+    (model <- mpar[[i]])
     has_converged <- results[i,"converged"]
     if(has_converged) {
 
-      ## covariante btw phys and cog intercepts - pc_TAU_00
+      ## covariante btw phys intercept and cog intercept - pc_TAU_00
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^I|S", test$param),]) # param starting with I or S
       (test <- test[grep("^I", test$paramHeader),]) # paramHeader starting with I
@@ -302,7 +299,7 @@ get_results_offdiag <- function(study){
       (test <- test[ ,c("est", "se", "pval")])
       if(dim(test)[1]!=0){results[i, c("pc_TAU_00", "pc_TAU_00_se", "pc_TAU_00_pval")] <- test}
 
-      ## covariance btw phys and cog slopes - pc_TAU_11
+      ## covariance btw phys slope and cog slope - pc_TAU_11
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^I|S", test$param),]) # param starting with I or S
       (test <- test[grep("^S", test$paramHeader),]) # paramHeader starting with S
@@ -315,7 +312,25 @@ get_results_offdiag <- function(study){
       (test <- test[grep("^IP|^SP", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IP|^SP", test$paramHeader),])
       (test <- test[ ,c("est", "se", "pval")])
-       if(dim(test)[1]!=0){results[i, c("cc_TAU_10","cc_TAU_10_se", "cc_TAU_10_pval")] <- test}
+       if(dim(test)[1]!=0){results[i, c("pp_TAU_01","pp_TAU_01_se", "pp_TAU_01_pval")] <- test}
+
+
+      ## covariance btw physical intercept and cognitive slope - pc_TAU_01
+      (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
+      (test <- test[grep("^IP|^SC", test$param),]) # param starting NOT with I or S
+      (test <- test[grep("^IP|^SC", test$paramHeader),])
+      (test <- test[ ,c("est", "se", "pval")])
+       if(dim(test)[1]!=0){results[i, c("pc_TAU_01","pc_TAU_01_se", "pc_TAU_01_pval")] <- test}
+
+
+
+      ## covariance btw physical intercept and cognitive slope - pc_TAU_10
+      (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
+      (test <- test[grep("^IC|^SP", test$param),]) # param starting NOT with I or S
+      (test <- test[grep("^IC|^SP", test$paramHeader),])
+      (test <- test[ ,c("est", "se", "pval")])
+       if(dim(test)[1]!=0){results[i, c("pc_TAU_10","pc_TAU_10_se", "pc_TAU_10_pval")] <- test}
+
 
       ## covariance btw cognitive slope and cognitive intercept - cc_TAU_10
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
@@ -324,6 +339,63 @@ get_results_offdiag <- function(study){
       (test <- test[ ,c("est", "se", "pval")])
        if(dim(test)[1]!=0){results[i, c("cc_TAU_10","cc_TAU_10_se", "cc_TAU_10_pval")] <- test}
 
+      ## Variance of random Physical Intercept - pp_TAU_00
+      (test <- model[grep("Residual.Variances", model$paramHeader),])
+      (test <- test[test$param=='IP', ])
+      (test <- test[ , c('est', 'se', 'pval')])
+      if(dim(test)[1]!=0) {results[i, c("pp_TAU_00", "pp_TAU_00_se","pp_TAU_00_pval")] <- test}
+
+      ## Variance of random Physical Slope - pp_TAU_11
+      (test <- model[grep("Residual.Variances", model$paramHeader),])
+      (test <- test[test$param=='SP', ])
+      (test <- test[ , c('est', 'se', 'pval')])
+      if(dim(test)[1]!=0) {results[i, c("pp_TAU_11", "pp_TAU_11_se", "pp_TAU_11_pval")] <- test}
+
+      ## Variance of random Cognitive Intercept - cc_TAU_00
+      (test <- model[grep("Residual.Variances", model$paramHeader),])
+      (test <- test[test$param=='IC', ])
+      (test <- test[ , c('est', 'se', 'pval')])
+      if(dim(test)[1]!=0) {results[i, c("cc_TAU_00", "cc_TAU_00_se", "cc_TAU_00_pval")] <- test}
+
+      ## Variance of random Cognitive Slope - cc_TAU_11
+      (test <- model[grep("Residual.Variances", model$paramHeader),])
+      (test <- test[test$param=='SC', ])
+      (test <- test[ , c('est', 'se', 'pval')])
+      if(dim(test)[1]!=0) {results[i, c("cc_TAU_11", "cc_TAU_11_se", "cc_TAU_11_pval")] <- test}
+
+    }# close has_converged
+  } # close study loop
+    return(results)
+}# close get_results_random
+results <- get_results_random(study)
+
+get_results_residual <- function(study){
+  # populate a dataset with data from msum and mpar
+  pathStudy <- file.path(pathStudies, study) # folder with output files
+  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+  # msum <- get_msum(study)
+  # mpar <- get_mpar(study)
+  # results <- get_results_basic(study)
+  models_in_a_study <- seq_along(mpar)
+  for(i in models_in_a_study){
+    out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
+    message("Getting ", study, ", model ", i, ", ",out_file)
+    mplus_output <- scan(out_list[i], what='character', sep='\n')
+    # mplus_output <- scan(out_list[out_file], what='character', sep='\n')
+    (model <- mpar[[i]])
+    has_converged <- results[i,"converged"]
+    if(has_converged) {
+      ## variance physical residual- p_SIGMA
+      (test <- model[grep("^P", model$param), ])
+      (test <- test[grep("^Residual.Variances", test$paramHeader), ])
+      (test <- test[ ,c("est", "se", "pval")][1,]) # only the first line, they should be same
+        if(dim(test)[1]!=0) {results[i, c("p_SIGMA", "p_SIGMA_se", "p_SIGMA_pval")] <- test}
+
+      ## variance of cognitive residual - c_SIGMA
+      (test <- model[grep("^C", model$param), ])
+      (test <- test[grep("^Residual.Variances", test$paramHeader), ])
+      (test <- test[ ,c("est", "se", "pval")][1,]) # only the first line, they should be same
+        if(dim(test)[1]!=0) {results[i, c("c_SIGMA", "c_SIGMA_se", "c_SIGMA_pval")] <- test}
 
       ## covariance btw physical and cognitive residuals - pc_SIGMA
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
@@ -332,97 +404,14 @@ get_results_offdiag <- function(study){
       if(dim(test)[1]!=0){results[i, c("pc_SIGMA","pc_SIGMA_se", "pc_SIGMA_pval")] <- test}
 
 
-#       ## Check whether only one cov has been estimated
-#       if(length(unique(test$est))==1){
-#         (test <- test[ ,c("est", "se", "pval")][1,]) # only the first line, they should be same
-#         if(dim(test)[1]!=0){results[i, c("pc_SIGMA","pc_SIGMA_se", "pc_SIGMA_pval")] <- test}
-#       } # close if
-#       else{results[i, 'notes'] <- paste(results[i, 'notes'], "Heterogeneous Res Covs", sep='_')
-#       } # close else
-#
-
-
-    } # closes has_convered
-  } # close study loop
-  return(results)
-} # close get_results_covariance
-results <- get_results_offdiag(study)
-
-get_results_diag <- function(study){
-  # populate a dataset with data from msum and mpar
-  pathStudy <- file.path(pathStudies, study) # folder with output files
-  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
-#   msum <- get_msum(study)
-#   mpar <- get_mpar(study)
-#   results <- get_results_offdiag(study)
-
-  models_in_a_study <- seq_along(mpar)
-  # models_in_a_study <- 1
-  for(i in models_in_a_study){
-    out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
-    message("Getting ", study, ", model ", i, ", ",out_file)
-    mplus_output <- scan(out_list[i], what='character', sep='\n')
-    model <- mpar[[i]]
-    has_converged <- results[i,"converged"]
-    if(has_converged) {
-            ## variance physical residual- p_SIGMA
-      (test <- model[grep("^P", model$param), ])
-      (test <- test[grep("^Residual.Variances", test$paramHeader), ])
-      (test <- test[ ,c("est", "se", "pval")][1,]) # only the first line, they should be same
-        if(dim(test)[1]!=0) {results[i, c("pp_TAU_01", "pp_TAU_01_se", "pp_TAU_01_pval")] <- test}
-
-      ## variance of cognitive residual - c_SIGMA
-      (test <- model[grep("^C", model$param), ])
-      (test <- test[grep("^Residual.Variances", test$paramHeader), ])
-      (test <- test[ ,c("est", "se", "pval")][1,]) # only the first line, they should be same
-        if(dim(test)[1]!=0) {results[i, c("cc_TAU_10", "cc_TAU_10_se", "cc_TAU_10_pval")] <- test}
-
-
-
-      ## subset
-      vrs <- model[grep("Residual.Variances", model$paramHeader),]
-      vrs
-      ## test whether we actually have values that are returned
-
-      ## Variance of random Physical Intercept - pp_TAU_00
-      test <- vrs[vrs$param=='IP',c('est', 'se', 'pval')]
-      if(dim(test)[1]!=0) {results[i, c("pp_TAU_00", "pp_TAU_00_se","pp_TAU_00_pval")] <- test}
-
-      ## Variance of random Physical Slope - pp_TAU_11
-      test <- vrs[vrs$param=='SP',c('est', 'se', 'pval')]
-      if(dim(test)[1]!=0) {results[i, c("pp_TAU_11", "pp_TAU_11_se", "pp_TAU_11_pval")] <- test}
-
-      ## Variance of random Cognitive Intercept - cc_TAU_00
-      test <- vrs[vrs$param=='IC',c('est', 'se', 'pval')]
-      if(dim(test)[1]!=0) {results[i, c("cc_TAU_00", "cc_TAU_00_se", "cc_TAU_00_pval")] <- test}
-
-      ## Variance of random Cognitive Slope - cc_TAU_11
-      test <- vrs[vrs$param=='SC',c('est', 'se', 'pval')]
-      if(dim(test)[1]!=0) {results[i, c("cc_TAU_11", "cc_TAU_11_se", "cc_TAU_11_pval")] <- test}
-
-      ## Variance of Physical Residual - p_SIGMA
-      resP <- unique(vrs[grep("^P", vrs$param), c('est', 'se', 'pval')] ) # match only first letter with "^"
-      ## Write residual covariance and add warning if ResCov unconstrained
-      if(length(resP[,1])==1) {results[i, c("p_SIGMA", "p_SIGMA_se", "p_SIGMA_pval")] <- resP}
-      ## Test of unconstrained variances: needs development
-      #else {
-      #    results[i,'notes'] <- paste(results[i,'notes'], 'Phys ResCov unconstrained', sep='_')}
-
-      ## Variance of Cognitive Residual - c_SIGMA
-      resC <- unique(vrs[grep("^C", vrs$param), c('est', 'se', 'pval')] )
-
-      ## Write residual covariance and add warning if ResCov unconstrained
-      if(length(resC[, 1])==1) {results[i, c("c_SIGMA", "c_SIGMA_se", "c_SIGMA_pval")] <- resC}
-      ## Test of unconstrained variances: needs development
-      #else {
-       #    results[i,'notes'] <- paste(results[i,'notes'], 'Cog ResCov unconstrained', sep='_')}
     }# close has_converged
   } # close study loop
     return(results)
-}# close get_results_diag
-results <- get_results_diag(study)
+}# close get_results_random
+results <- get_results_residual(study)
 
-get_results_intercepts <- function(study){
+
+get_results_fixed <- function(study){
   # populate a dataset with data from msum and mpar
   pathStudy <- file.path(pathStudies, study) # folder with output files
   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
@@ -459,36 +448,24 @@ get_results_intercepts <- function(study){
     }
   }
   return(results)
-}# close get_results_intercepts
-results <- get_results_intercepts(study)
+}# close get_results_fixed
+results <- get_results_fixed(study)
 
-# meta function
-# get_models <- function(study){
+
+
+
+
+### Black list some models before they are corrected
+black_list <- function(study, blacklist) {
+  results <- results[!(results$study_name == study & results$output_file %in% blacklist), ]
+  return(results)
+}
+results <- black_list(study, blacklist = blacklist)
+
+# Export aggregated model results
 pathStudy <- paste0(pathStudies,"/",study)
+destination <- file.path(pathStudy, "study_automation_result.csv")
+write.csv(results[results$study_name==study,], destination, row.names=F)
 
-#   results <- results_to_populate(study)
-#
-  destination <- file.path(pathStudy, "study_automation_result.csv")
-  write.csv(results[results$study_name==study,], destination, row.names=F)
-# }
-# get_models("ilse")
-
-
-# # meta function
-# get_models <- function(study){
-#   msum <- get_msum(study)
-#   mpar <- get_mpar(study)
-#   results <- results_to_populate(study)
-#   results <- get_results_basic(study)
-#   results <- get_results_offdiag(study)
-#   results <- get_results_diag(study)
-#   results <- get_results_intercepts(study)
-#   browser()
-#   pathStudy <- paste0(pathStudies,"/",study)
-#   destination <- file.path(pathStudy, "study_automation_result.csv")
-#   write.csv(results[results$study_name==study,], destination, row.names=F)
-#   return(results)
-# }
-# get_models("ilse")
 
 
