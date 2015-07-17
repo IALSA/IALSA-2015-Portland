@@ -1,4 +1,3 @@
-## app.R ##
 # rm(list=ls(all=TRUE))
 cat("\f")
 
@@ -12,16 +11,14 @@ library(lattice)
 library(grid)
 library(rpivotTable)
 
-
 if(basename(getwd())=="dashboard"){
-ds2 <- readRDS('../../data/shared/ds2.rds')
-# source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
-# source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
-
-}else{
-ds2 <- readRDS('./data/shared/ds2.rds')
-# source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
-# source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+  ds2 <- readRDS('../../data/shared/ds2.rds')
+  # source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+  # source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R"
+} else {
+  ds2 <- readRDS('./data/shared/ds2.rds')
+  # source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+  # source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
 }
 
 ############ PREP ############
@@ -93,22 +90,16 @@ dsT <- dsT # for the use in the pivotTable function
 
 #############
 
-
-
-
-
-
 if(basename(getwd())=="dashboard"){
-source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
-source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
-source("../../reports/model_space/scripts/tile_model_5D.R") # quadrotile
+  source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+  source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+  source("../../reports/model_space/scripts/tile_model_5D.R") # quadrotile
 
-}else{
-source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
-source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
-source("./reports/model_space/scripts/tile_model_5D.R") # quadrotile
+} else {
+  source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+  source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+  source("./reports/model_space/scripts/tile_model_5D.R") # quadrotile
 }
-
 
 ############ SERVER ############
 # server <-
