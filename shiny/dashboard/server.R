@@ -120,12 +120,30 @@ function(input, output, session) {
     pm = input$radioPhysMeasure, covars = input$radioModelType)
   })
 
-# browser()
   output$overview <- renderPlot({
     quadrotile_graph(ds)
   })  # close overview
 
-# browser()
+  output$table_descriptives <- renderImage({
+    # TODO: create a graphic/placeholder for the studies without an image
+    #   Call it: Table1_Unready_Descriptives_IALSA_Portland.png
+    file_name_part <- plyr::revalue(input$radioStudy, warn_missing=F, replace=c(
+      "eas"   = 'EAS',
+      "elsa"  = "Unready",
+      "hrs"   = "Unready",
+      "ilse"  = "ILSE",
+      "nas"   = "NAS",
+      "nuage" = "NuAge",
+      "octo"  = "Unready",
+      "radc"  = "RADC",
+      "satsa" = "SATSA")
+    )
+    # Notice that when the path is specified from server.R (instead of ui.R), the `www` directory is NOT implied.
+    # path_file_name <- "www/images/table1/Table1_EAS_Descriptives_IALSA_Portland.png"
+    path_file_name <- sprintf("www/images/table1/Table1_%s_Descriptives_IALSA_Portland.png", file_name_part)
+    list(src = path_file_name, height = 800)
+  }, deleteFile = FALSE)  # close descriptive image
+
   output$bivariate_ISR <- renderPlot({
     TilePlot <- basic_tile_ISR(ds = selectedData(), x_name = "physical_measure")
     dsISR <- as.data.frame(ISR_tile_data(ds=selectedData()))
@@ -140,8 +158,8 @@ function(input, output, session) {
     print(ISRPlot, vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
   }) #close renderPlot
 
-   output$pivotTable <- rpivotTable::renderRpivotTable({
-     rpivotTable::rpivotTable(data = dsT,
+  output$pivotTable <- rpivotTable::renderRpivotTable({
+    rpivotTable::rpivotTable(data = dsT,
                  rows = c("Study", "Cog.Measure"),
                  cols= c("Phys.Measure", "Sex", "Covariates")
                  )
@@ -151,11 +169,5 @@ function(input, output, session) {
 #                  rows = c("study_name"),
 #                  cols= c("model_number")
 #                  )
-
    })
-
-
-
 } # close server
-
-# shinyApp(ui, server)
