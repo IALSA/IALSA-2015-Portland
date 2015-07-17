@@ -1,31 +1,27 @@
-## app.R ##
 # rm(list=ls(all=TRUE))
 cat("\f")
 
 library(shiny)
 library(shinydashboard)
-library(shiny)
 library(dplyr)
 library(ggplot2)
-library(dplyr)
-library(lattice)
 library(grid)
 library(rpivotTable)
-
+# library(lattice)
 
 if(basename(getwd())=="dashboard"){
-ds2 <- readRDS('../../data/shared/ds2.rds')
-# source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
-# source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
-
-}else{
-ds2 <- readRDS('./data/shared/ds2.rds')
-# source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
-# source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+  ds2 <- readRDS('../../data/shared/ds2.rds')
+  # source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+  # source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R"
+} else {
+  ds2 <- readRDS('./data/shared/ds2.rds')
+  # source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+  # source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
 }
 
 ############ PREP ############
 ## trim to make more managable
+
 keepvar <- c("study_name","model_number", "subgroup", "model_type",
   "physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
   "converged", "output_file",
@@ -56,13 +52,14 @@ dsb$display_int <- paste0(
 dsb$display_slope <- paste0(
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_1, 2)), " \n (",
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_11_low,2)), ",",
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_11_high,2)), ")")
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_11_high,2)), ")"
+)
 
 dsb$display_residual <- paste0(
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_residual, 2)), " \n (",
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_residual_low,2)), ",",
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_residual_high,2)), ")")
-
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_residual_high,2)), ")"
+)
 
 dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_type",
   "physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
@@ -74,7 +71,6 @@ dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_ty
   "pc_SIGMA", "pc_SIGMA_pval","display_residual"
 )
 
-# browser()
 # setdiff(c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number"),colnames(dsb))
 ############## Create a dadaset for use in pivot table.
 dsT <- ds2[ , c(  "study_name", "model_number","subgroup" ,"model_type", "cognitive_construct",
@@ -95,6 +91,7 @@ dsT <- ds2[ , c(  "study_name", "model_number","subgroup" ,"model_type", "cognit
 #                  "pc_TAU_00", "pc_TAU_00_pval", "pc_TAU_11", "pc_TAU_11_pval", "pc_TAU_residual", "pc_TAU_residual_pval",
 #                  "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual"
 #                  )]
+
 # dsT <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
 head(dsT)
 
@@ -121,39 +118,50 @@ unique(dsT$physical_construct)
 
 #############
 
-
-
-
-
-
 if(basename(getwd())=="dashboard"){
-source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
-source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
-source("../../reports/model_space/scripts/tile_model_5D.R") # quadrotile
+  source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+  source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+  source("../../reports/model_space/scripts/tile_model_5D.R") # quadrotile
 
-}else{
-source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
-source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
-source("./reports/model_space/scripts/tile_model_5D.R") # quadrotile
+} else {
+  source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+  source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+  source("./reports/model_space/scripts/tile_model_5D.R") # quadrotile
 }
-
 
 ############ SERVER ############
 # server <-
 function(input, output, session) {
 
-# browser()
   selectedData <- reactive({
     filter_model(ds = dsb, study = input$radioStudy ,
     pm = input$radioPhysMeasure, covars = input$radioModelType)
   })
 
-# browser()
   output$overview <- renderPlot({
     quadrotile_graph(ds=dsMS)
   })  # close overview
 
-# browser()
+  output$table_descriptives <- renderImage({
+    # TODO: create a graphic/placeholder for the studies without an image
+    #   Call it: Table1_Unready_Descriptives_IALSA_Portland.png
+    file_name_part <- plyr::revalue(input$radioStudy, warn_missing=F, replace=c(
+      "eas"   = 'EAS',
+      "elsa"  = "Unready",
+      "hrs"   = "Unready",
+      "ilse"  = "ILSE",
+      "nas"   = "NAS",
+      "nuage" = "NuAge",
+      "octo"  = "Unready",
+      "radc"  = "RADC",
+      "satsa" = "SATSA")
+    )
+    # Notice that when the path is specified from server.R (instead of ui.R), the `www` directory is NOT implied.
+    # path_file_name <- "www/images/table1/Table1_EAS_Descriptives_IALSA_Portland.png"
+    path_file_name <- sprintf("www/images/table1/Table1_%s_Descriptives_IALSA_Portland.png", file_name_part)
+    list(src = path_file_name, height = 800)
+  }, deleteFile = FALSE)  # close descriptive image
+
   output$bivariate_ISR <- renderPlot({
     TilePlot <- basic_tile_ISR(ds = selectedData(), x_name = "physical_measure")
     dsISR <- as.data.frame(ISR_tile_data(ds=selectedData()))
@@ -165,7 +173,7 @@ function(input, output, session) {
 
     pushViewport(viewport(layout = grid.layout(1, allPlots )))
     print(TilePlot, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:firstPlot))
-    print(ISRPlot, vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
+    print(ISRPlot,  vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
   }) #close renderPlot
 
    output$pivotTable <- rpivotTable::renderRpivotTable({
@@ -182,11 +190,6 @@ function(input, output, session) {
 #                  rows = c("study_name"),
 #                  cols= c("model_number")
 #                  )
-
    })
 
-
-
 } # close server
-
-# shinyApp(ui, server)

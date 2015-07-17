@@ -1,8 +1,6 @@
-############ UI ############
 library(shinydashboard)
 library(shiny)
 
-# ui <-
 dashboardPage(
   dashboardHeader(),
   dashboardSidebar(
@@ -29,65 +27,66 @@ dashboardPage(
     )
   ),
   dashboardBody(
-#     tags$head(tags$style(
-#       type = 'text/css',
-#       '#test{ overflow-x: scroll; }'
-#     )),
-
+    # tags$head(tags$style(
+    #   type = 'text/css',
+    #   '#test{ overflow-x: scroll; }'
+    # )),
     tabItems(
-      tabItem(tabName = "overviewTab",
+      tabItem(
+        tabName = "overviewTab",
         h2("Overview: the Collective of models in Portland project"),
         box(plotOutput("overview", height = 800, width = 1200))
       ),
-
-      tabItem(tabName = "table1",
+      tabItem(
+        tabName = "table1",
         h2("Description of the study's sample"),
-        h2("EAS"),
-        shiny::img(src =  "images/table1/Table1_EAS_Descriptives_IALSA_Portland.png", height = 800),
-        h2("ILSE"),
-        shiny::img(src =  "images/table1/Table1_ILSE_Descriptives_IALSA_Portland.png", height = 800),
-        h2("NAS"),
-        shiny::img(src =  "images/table1/Table1_NAS_Descriptives_IALSA_Portland.png", height = 800),
-                h2("NuAge"),
-        shiny::img(src =  "images/table1/Table1_NuAge_Descriptives_IALSA_Portland.png", height = 800),
-                h2("RADC"),
-        shiny::img(src =  "images/table1/Table1_RADC_Descriptives_IALSA_Portland.png", height = 800),
-                h2("SATSA"),
-        shiny::img(src =  "images/table1/Table1_SATSA_Descriptives_IALSA_Portland.png", height = 800)
+        "(Select the desired study in the left panel.)",
+        shiny::imageOutput(outputId ='table_descriptives')
       ),
-      tabItem(tabName = "pivotTab",
+      tabItem(
+        tabName = "pivotTab",
         h2("Pivot Table"),
         box(title = "Pivot", height= 750, width = 1200,  status = "primary", solidHeader = TRUE,
           tags$head(tags$style( type = 'text/css',  '#pivotTable{ overflow-x: scroll; }')),
           rpivotTable::rpivotTableOutput("pivotTable")
         )
-        # fluidRow(
-          # column(1,
-                 # rpivotTable::rpivotTableOutput("pivotTable")
-                 # )
-          # )
       ),
-      tabItem(tabName = "spec",
+      tabItem(
+        tabName = "spec",
         h2("Model Specification"),
-        shiny::img(src =  "images/specification.png"),
-        shiny::img(src =  "images/specification_covariance_structure.png", width=1400)
+        shiny::img(src = "images/specification.png"),
+        shiny::img(src = "images/specification_covariance_structure.png", width=1400)
       ),
-      tabItem(tabName = "isr",
+      tabItem(
+        tabName = "isr",
         h2("Bivariate ISR"),
         box(plotOutput("bivariate_ISR", height = 800, width = 1200))
         # box(plotOutput("bivariate_ISR"))
       ),
-      tabItem(tabName = "doc",
+      tabItem(
+        tabName = "doc",
         h2("About"),
         HTML("<br/>
-             <font color='#605CA8'>",
-             "The current repository analyzes the results of the IALSA Analysis Workshop (pdf overview) that was held in Portland, Oregon from Monday February 23rd (8:30am) to Wednesday February 25th (12:30pm), 2015.
-              The primary aim of the workshop was to examine associations between changes in physical functioning (i.e., grip strength, pulmonary function, chair stands, walking speed) and cognitive functioning (i.e., measures of speed, memory, reasoning, executive functioning) in multiple-study comparative framework. Bivariate growth processes were estimated to evaluate dynamic associations in change and variation within and across these domains and in relation to sample and individual differences in age, lifestyle, and health outcomes. The results from these analyses will extend recent systematic reviews and meta-analyses (e.g., Clouston et al., 2012, Epidemiological Reviews and will be submitted for publication as a set of independent brief reports, capped by a literature review/overview of analysis and completed with a research synthesis summary.",
-             "</font>")
+        <font color='#605CA8'>",
+        "The current repository analyzes the results of the IALSA Analysis Workshop (pdf overview)
+        that was held in Portland, Oregon from Monday February 23rd (8:30am) to Wednesday February 25th (12:30pm), 2015.
+        <br/><br/>
+
+        The primary aim of the workshop was to examine associations between changes in
+        physical functioning (i.e., grip strength, pulmonary function, chair stands, walking speed)
+        and cognitive functioning (i.e., measures of speed, memory, reasoning, executive functioning)
+        in multiple-study comparative framework.
+        <br/><br/>
+
+        Bivariate growth processes were estimated to evaluate dynamic associations in change and variation
+        within and across these domains and in relation to sample and individual differences in age, lifestyle, and health outcomes.
+
+        The results from these analyses will extend recent systematic reviews and meta-analyses
+        (e.g., Clouston et al., 2012, Epidemiological Reviews)
+        and will be submitted for publication as a set of independent brief reports,
+        capped by a literature review/overview of analysis and completed with a research synthesis summary.",
+        "</font>")
       )
     )
   )
 )
-
-
-
