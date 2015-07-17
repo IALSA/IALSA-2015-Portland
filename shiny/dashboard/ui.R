@@ -1,8 +1,6 @@
-############ UI ############
 library(shinydashboard)
 library(shiny)
 
-# ui <-
 dashboardPage(
   dashboardHeader(),
   dashboardSidebar(
@@ -29,58 +27,44 @@ dashboardPage(
     )
   ),
   dashboardBody(
-#     tags$head(tags$style(
-#       type = 'text/css',
-#       '#test{ overflow-x: scroll; }'
-#     )),
-
+    # tags$head(tags$style(
+    #   type = 'text/css',
+    #   '#test{ overflow-x: scroll; }'
+    # )),
     tabItems(
-      tabItem(tabName = "overviewTab",
+      tabItem(
+        tabName = "overviewTab",
         h2("Overview: the Collective of models in Portland project"),
         box(plotOutput("overview", height = 800, width = 1200))
       ),
-
-      tabItem(tabName = "table1",
+      tabItem(
+        tabName = "table1",
         h2("Description of the study's sample"),
+        "(Select the desired study in the left panel.)",
         shiny::imageOutput(outputId ='table_descriptives')
-        # shiny::img(src =  output$table_descriptives(), height = 800)
-#         h2("EAS"),
-#         browser(),
-#         shiny::img(src =  "images/table1/Table1_EAS_Descriptives_IALSA_Portland.png", height = 800),
-#         h2("ILSE"),
-#         shiny::img(src =  "images/table1/Table1_ILSE_Descriptives_IALSA_Portland.png", height = 800),
-#         h2("NAS"),
-#         shiny::img(src =  "images/table1/Table1_NAS_Descriptives_IALSA_Portland.png", height = 800),
-#                 h2("NuAge"),
-#         shiny::img(src =  "images/table1/Table1_NuAge_Descriptives_IALSA_Portland.png", height = 800),
-#                 h2("RADC"),
-#         shiny::img(src =  "images/table1/Table1_RADC_Descriptives_IALSA_Portland.png", height = 800),
-#                 h2("SATSA"),
-#         shiny::img(src =  "images/table1/Table1_SATSA_Descriptives_IALSA_Portland.png", height = 800)
       ),
-      tabItem(tabName = "pivotTab",
+      tabItem(
+        tabName = "pivotTab",
         h2("Pivot Table"),
         box(title = "Pivot", width=12, height= 12, status = "primary", solidHeader = TRUE,
           tags$head(tags$style( type = 'text/css',  '#pivotTable{ overflow-x: scroll; }')),
           rpivotTable::rpivotTableOutput("pivotTable")
         )
-        # fluidRow(
-          # column(1,
-                 # rpivotTable::rpivotTableOutput("pivotTable")
-                 # )
-          # )
       ),
-      tabItem(tabName = "spec",
+      tabItem(
+        tabName = "spec",
         h2("Model Specification"),
-        shiny::img(src =  "images/specification.png"),
-        shiny::img(src =  "images/specification_covariance_structure.png", width=1400)
+        shiny::img(src = "images/specification.png"),
+        shiny::img(src = "images/specification_covariance_structure.png", width=1400)
       ),
-      tabItem(tabName = "isr",
+      tabItem(
+        tabName = "isr",
         h2("Bivariate ISR"),
         box(plotOutput("bivariate_ISR", height = 800, width = 1200))
         # box(plotOutput("bivariate_ISR"))
       ),
-      tabItem(tabName = "doc",
+      tabItem(
+        tabName = "doc",
         h2("About"),
         HTML("<br/>
         <font color='#605CA8'>",
@@ -106,6 +90,3 @@ dashboardPage(
     )
   )
 )
-
-
-
