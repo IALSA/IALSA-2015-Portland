@@ -236,11 +236,11 @@ ds_pretty <- plyr::rename(ds_pretty, replace=c(
 # print(knitr::kable(ds_pretty[ , -(1)], caption="All your models", row.names= F))
 #
 
-tags <- unique(ds_pretty$`model<br/>tag`)
-for( i in 1:length(tags) ){
-  d <- ds_pretty[ds_pretty$`model<br/>tag`==tags[i], ]
+tags2 <- unique(ds_pretty$`model<br/>tag`)
+for( i in 1:length(tags2) ){
+  d <- ds_pretty[ds_pretty$`model<br/>tag`==tags2[i], ]
   cat("") #Force a new line
-  cat(paste0("## ", tags[i]))
+  cat(paste0("## ", tags2[i]))
   cat("\n") #Force a new line
     if( nrow(d) > 0L) {
       print(knitr::kable(d[ , -(1)], row.names= F))
