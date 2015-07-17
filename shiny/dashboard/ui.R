@@ -42,18 +42,21 @@ dashboardPage(
 
       tabItem(tabName = "table1",
         h2("Description of the study's sample"),
-        h2("EAS"),
-        shiny::img(src =  "images/table1/Table1_EAS_Descriptives_IALSA_Portland.png", height = 800),
-        h2("ILSE"),
-        shiny::img(src =  "images/table1/Table1_ILSE_Descriptives_IALSA_Portland.png", height = 800),
-        h2("NAS"),
-        shiny::img(src =  "images/table1/Table1_NAS_Descriptives_IALSA_Portland.png", height = 800),
-                h2("NuAge"),
-        shiny::img(src =  "images/table1/Table1_NuAge_Descriptives_IALSA_Portland.png", height = 800),
-                h2("RADC"),
-        shiny::img(src =  "images/table1/Table1_RADC_Descriptives_IALSA_Portland.png", height = 800),
-                h2("SATSA"),
-        shiny::img(src =  "images/table1/Table1_SATSA_Descriptives_IALSA_Portland.png", height = 800)
+        shiny::imageOutput(outputId ='table_descriptives')
+        # shiny::img(src =  output$table_descriptives(), height = 800)
+#         h2("EAS"),
+#         browser(),
+#         shiny::img(src =  "images/table1/Table1_EAS_Descriptives_IALSA_Portland.png", height = 800),
+#         h2("ILSE"),
+#         shiny::img(src =  "images/table1/Table1_ILSE_Descriptives_IALSA_Portland.png", height = 800),
+#         h2("NAS"),
+#         shiny::img(src =  "images/table1/Table1_NAS_Descriptives_IALSA_Portland.png", height = 800),
+#                 h2("NuAge"),
+#         shiny::img(src =  "images/table1/Table1_NuAge_Descriptives_IALSA_Portland.png", height = 800),
+#                 h2("RADC"),
+#         shiny::img(src =  "images/table1/Table1_RADC_Descriptives_IALSA_Portland.png", height = 800),
+#                 h2("SATSA"),
+#         shiny::img(src =  "images/table1/Table1_SATSA_Descriptives_IALSA_Portland.png", height = 800)
       ),
       tabItem(tabName = "pivotTab",
         h2("Pivot Table"),
