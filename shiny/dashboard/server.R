@@ -21,6 +21,7 @@ if(basename(getwd())=="dashboard"){
 
 ############ PREP ############
 ## trim to make more managable
+
 keepvar <- c("study_name","model_number", "subgroup", "model_type",
   "physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
   "converged", "output_file",
