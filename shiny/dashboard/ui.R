@@ -17,15 +17,15 @@ dashboardPage(
       radioButtons("radioStudy", label = h3("Study"),
         choices = list("eas" = 'eas', "elsa" = "elsa", "hrs" = "hrs", "ilse" = "ilse",
                        "nas" = "nas", "nuage" = "nuage", "octo" = "octo", "radc" = "radc",
-                       "satsa" = "satsa"), selected = "satsa"),
+                       "satsa" = "satsa"), selected = "ilse"),
       radioButtons("radioPhysMeasure", label = h3(" Phys Measure"),
         choices = list("fev" = "fev", "pek" = "pek", "gait" = "gait", "tug" = "tug", "grip" = "grip"), selected = "grip"),
       radioButtons("radioModelType", label = h3("Model type"),
         choices = list("0" = "0","a" = "a", "ae" = "ae", "aeh" = "aeh",
                        "aehplus" = "aehplus", "full" = "full"), selected = "aeh"),
       radioButtons("radioDisplayMode", label = h3("Display Values"),
-        choices = list("Correlations" = "corr","Correlations & CI" = "display",
-                       "p-value" = "pvalue"), selected = "display")
+        choices = list("Variance" = "corr", "p-value" = "pvalue",
+                       "Correlations & CI" = "display"), selected = "display")
     )
   ),
   dashboardBody(
