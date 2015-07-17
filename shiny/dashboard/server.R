@@ -63,7 +63,11 @@ dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_ty
 # browser()
 # setdiff(c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number"),colnames(dsb))
 ############## Create a dadaset for use in pivot table.
-dsT <- ds2[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number")]
+t_variables_initial <- c(
+  "physical_construct","physical_measure","cognitive_measure","cognitive_construct",
+  "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00",
+  "pc_CORR_11", "pc_CORR_residual", "model_number")
+dsT <- ds2[, t_variables_initial]
 # dsT <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
 head(dsT)
 
@@ -71,16 +75,17 @@ unique(dsT$study_name)
 unique(dsT$physical_construct)
 
 dsT <- dsT %>%
-  dplyr::rename_("Phys.Domain" = "physical_construct") %>%
-  dplyr::rename_("Phys.Measure" = "physical_measure") %>%
-  dplyr::rename_("Cog.Domain" = "cognitive_construct") %>%
-  dplyr::rename_("Cog.Measure" = "cognitive_measure") %>%
-  dplyr::rename_("Study" = "study_name") %>%
-  dplyr::rename_("Covariates" = "model_type") %>%
-  dplyr::rename_("Sex" = "subgroup") %>%
-  dplyr::rename_("Corr.Intersepts" = "pc_CORR_00") %>%
-  dplyr::rename_("Corr.Slopes" = "pc_CORR_11") %>%
-  dplyr::rename_("Corr.Residuals" = "pc_CORR_residual")
+  dplyr::rename_(
+    "Phys.Domain"       = "physical_construct",
+    "Phys.Measure"      = "physical_measure",
+    "Cog.Domain"        = "cognitive_construct",
+    "Cog.Measure"       = "cognitive_measure",
+    "Study"             = "study_name",
+    "Covariates"        = "model_type",
+    "Sex"               = "subgroup",
+    "Corr.Intersepts"   = "pc_CORR_00",
+    "Corr.Slopes"       = "pc_CORR_11",
+    "Corr.Residuals"    = "pc_CORR_residual")
 head(dsT)
 
 dsT[,"Corr.Intersepts"] <- round(dsT[ ,"Corr.Intersepts"], 3)
