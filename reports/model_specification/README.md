@@ -30,7 +30,7 @@ where
 - *<sub>cc</sub>&tau;<sub>10</sub>* - cc_TAU_10 - covariance btw cognitive slope and cognitive intercept      
 - *<sub>p</sub>&#963;</sub>* - p_SIGMA - variance of the physical residual   
 - *<sub>c</sub>&#963;</sub>* - c_SIGMA - variance of the cogntive residual    
-- *<sub>pp</sub>&#963;</sub>* - pc_SIGMA - covariance btw physcial residual and cogntive residual - **R** - p_cov_res /  corr_residual
+- *<sub>pc</sub>&#963;</sub>* - pc_SIGMA - covariance btw physcial residual and cogntive residual - **R** - p_cov_res /  corr_residual
   
 THe model of this type could be fitted with the following Mplus syntax. To exemplify, we'll look at the model [b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.out](https://github.com/IALSA/IALSA-2015-Portland/blob/master/studies/ilse/TUG/b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.out) from ILSE study.  This ILSE was specified in Mplus as follows  
 ```
