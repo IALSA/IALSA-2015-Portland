@@ -26,10 +26,16 @@ ds2 <- readRDS('./data/shared/ds2.rds')
 
 ############ PREP ############
 ## trim to make more managable
-keepvar <- c("study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file",
-  "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual",
-  "pc_CI95_00_high", "pc_CI95_00_low", "pc_CI95_11_high", "pc_CI95_11_low", "pc_CI95_residual_high", "pc_CI95_residual_low",
-  "pp_TAU_00_pval", "pp_TAU_11_pval", "pc_SIGMA_pval" )
+keepvar <- c("study_name","model_number", "subgroup", "model_type",
+  "physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
+  "converged", "output_file",
+  "pc_TAU_00",      "pc_TAU_11",         "pc_SIGMA",
+  "pc_TAU_00_pval", "pc_TAU_11_pval",    "pc_SIGMA_pval",
+  "pc_CORR_00",     "pc_CORR_11",        "pc_CORR_residual",
+  "pc_CI95_00_high", "pc_CI95_00_low",
+  "pc_CI95_11_high", "pc_CI95_11_low",
+  "pc_CI95_residual_high", "pc_CI95_residual_low",
+  "pp_TAU_00_pval", "pp_TAU_11_pval" )
 # keepvar <- c("study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file", "corr_int", "corr_slope",  "corr_residual",    "ciu_corr_int",    "cil_corr_int",    "ciu_corr_slope",  "cil_corr_slope", "ciu_corr_residual",       "cil_corr_residual", "p_cov_int", "p_cov_slope", "p_cov_res", )
 # keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
 
@@ -58,41 +64,60 @@ dsb$display_residual <- paste0(
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_residual_high,2)), ")")
 
 
-dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
-                              "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual",
-                              "display_int", "display_slope", "display_residual",
-                              "pp_TAU_00_pval", "pp_TAU_11_pval", "pc_SIGMA_pval")
+dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_type",
+  "physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
+#   "pc_CORR_00", "pc_TAU_00_pval","display_int",
+#   "pc_CORR_11", "pc_TAU_11_pval","display_slope",
+#   "pc_CORR_residual", "pc_SIGMA_pval","display_residual"
+  "pc_TAU_00", "pc_TAU_00_pval","display_int",
+  "pc_TAU_11", "pc_TAU_11_pval","display_slope",
+  "pc_SIGMA", "pc_SIGMA_pval","display_residual"
+)
 
 # browser()
 # setdiff(c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number"),colnames(dsb))
 ############## Create a dadaset for use in pivot table.
-dsT <- ds2[ , c(  "study_name", "model_number","subgroup", "model_type",
-                  "physical_construct","cognitive_construct","physical_measure","cognitive_measure",
-                 "converged", "output_file",
-                 "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual")]
+dsT <- ds2[ , c(  "study_name", "model_number","subgroup" ,"model_type", "cognitive_construct",
+  "physical_measure", "cognitive_measure",
+  "converged", "output_file",
+  "pc_TAU_00",      "pc_TAU_11",         "pc_SIGMA",
+  "pc_TAU_00_pval", "pc_TAU_11_pval",    "pc_SIGMA_pval",
+  "pc_CORR_00",     "pc_CORR_11",        "pc_CORR_residual"
+)]
+
+#
+# dsT <- ds2[ , c(  "study_name", "model_number","subgroup" ,"model_type",
+#
+#
+#
+#                   "physical_construct","cognitive_construct","physical_measure","cognitive_measure",
+#                  "converged", "output_file",
+#                  "pc_TAU_00", "pc_TAU_00_pval", "pc_TAU_11", "pc_TAU_11_pval", "pc_TAU_residual", "pc_TAU_residual_pval",
+#                  "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual"
+#                  )]
 # dsT <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
 head(dsT)
 
 unique(dsT$study_name)
 unique(dsT$physical_construct)
 
-dsT <- dsT %>%
-  dplyr::rename_("Phys.Domain" = "physical_construct") %>%
-  dplyr::rename_("Phys.Measure" = "physical_measure") %>%
-  dplyr::rename_("Cog.Domain" = "cognitive_construct") %>%
-  dplyr::rename_("Cog.Measure" = "cognitive_measure") %>%
-  dplyr::rename_("Study" = "study_name") %>%
-  dplyr::rename_("Covariates" = "model_type") %>%
-  dplyr::rename_("Sex" = "subgroup") %>%
-  dplyr::rename_("Corr.Intersepts" = "pc_CORR_00") %>%
-  dplyr::rename_("Corr.Slopes" = "pc_CORR_11") %>%
-  dplyr::rename_("Corr.Residuals" = "pc_CORR_residual")
-head(dsT)
-
-dsT[,"Corr.Intersepts"] <- round(dsT[ ,"Corr.Intersepts"], 3)
-dsT[,"Corr.Slopes"] <- round(dsT[ ,"Corr.Intersepts"], 3)
-dsT[,"Corr.Residuals"] <- round(dsT[ ,"Corr.Intersepts"], 3)
-dsT <- dsT # for the use in the pivotTable function
+# dsT <- dsT %>%
+#   dplyr::rename_("Phys.Domain" = "physical_construct") %>%
+#   dplyr::rename_("Phys.Measure" = "physical_measure") %>%
+#   dplyr::rename_("Cog.Domain" = "cognitive_construct") %>%
+#   dplyr::rename_("Cog.Measure" = "cognitive_measure") %>%
+#   dplyr::rename_("Study" = "study_name") %>%
+#   dplyr::rename_("Covariates" = "model_type") %>%
+#   dplyr::rename_("Sex" = "subgroup") %>%
+#   dplyr::rename_("Corr.Intersepts" = "pc_CORR_00") %>%
+#   dplyr::rename_("Corr.Slopes" = "pc_CORR_11") %>%
+#   dplyr::rename_("Corr.Residuals" = "pc_CORR_residual")
+# head(dsT)
+#
+# dsT[,"Corr.Intersepts"] <- round(dsT[ ,"Corr.Intersepts"], 3)
+# dsT[,"Corr.Slopes"] <- round(dsT[ ,"Corr.Intersepts"], 3)
+# dsT[,"Corr.Residuals"] <- round(dsT[ ,"Corr.Intersepts"], 3)
+# dsT <- dsT # for the use in the pivotTable function
 
 #############
 
@@ -125,7 +150,7 @@ function(input, output, session) {
 
 # browser()
   output$overview <- renderPlot({
-    quadrotile_graph(ds)
+    quadrotile_graph(ds=dsMS)
   })  # close overview
 
 # browser()
@@ -145,8 +170,11 @@ function(input, output, session) {
 
    output$pivotTable <- rpivotTable::renderRpivotTable({
      rpivotTable::rpivotTable(data = dsT,
-                 rows = c("Study", "Cog.Measure"),
-                 cols= c("Phys.Measure", "Sex", "Covariates"), height = 730
+#                  rows = c("Study", "Cog.Measure"),
+#                  cols= c("Phys.Measure", "Sex", "Covariates"), height = 730
+                 rows = c("study_name", "cognitive_measure"),
+                 cols= c("physical_measure", "subgroup", "model_type"), height = 730
+
                  )
 
 #      output$pivotTable <- rpivotTable::renderRpivotTable({
