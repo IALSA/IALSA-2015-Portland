@@ -3,13 +3,11 @@ cat("\f")
 
 library(shiny)
 library(shinydashboard)
-library(shiny)
 library(dplyr)
 library(ggplot2)
-library(dplyr)
-library(lattice)
 library(grid)
 library(rpivotTable)
+# library(lattice)
 
 if(basename(getwd())=="dashboard"){
   ds2 <- readRDS('../../data/shared/ds2.rds')
@@ -23,10 +21,12 @@ if(basename(getwd())=="dashboard"){
 
 ############ PREP ############
 ## trim to make more managable
-keepvar <- c("study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file",
+keepvar <- c(
+  "study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file",
   "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual",
   "pc_CI95_00_high", "pc_CI95_00_low", "pc_CI95_11_high", "pc_CI95_11_low", "pc_CI95_residual_high", "pc_CI95_residual_low",
-  "pp_TAU_00_pval", "pp_TAU_11_pval", "pc_SIGMA_pval" )
+  "pp_TAU_00_pval", "pp_TAU_11_pval", "pc_SIGMA_pval"
+)
 # keepvar <- c("study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file", "corr_int", "corr_slope",  "corr_residual",    "ciu_corr_int",    "cil_corr_int",    "ciu_corr_slope",  "cil_corr_slope", "ciu_corr_residual",       "cil_corr_residual", "p_cov_int", "p_cov_slope", "p_cov_res", )
 # keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
 
@@ -47,25 +47,27 @@ dsb$display_int <- paste0(
 dsb$display_slope <- paste0(
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_1, 2)), " \n (",
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_11_low,2)), ",",
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_11_high,2)), ")")
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_11_high,2)), ")"
+)
 
 dsb$display_residual <- paste0(
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_residual, 2)), " \n (",
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_residual_low,2)), ",",
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_residual_high,2)), ")")
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_residual_high,2)), ")"
+)
 
+dsb <- dsb %>% dplyr::select_(
+  "study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
+  "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual",
+  "display_int", "display_slope", "display_residual",
+  "pp_TAU_00_pval", "pp_TAU_11_pval", "pc_SIGMA_pval"
+)
 
-dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
-                              "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual",
-                              "display_int", "display_slope", "display_residual",
-                              "pp_TAU_00_pval", "pp_TAU_11_pval", "pc_SIGMA_pval")
-
-# browser()
 # setdiff(c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number"),colnames(dsb))
 ############## Create a dadaset for use in pivot table.
 t_variables_initial <- c(
-  "physical_construct","physical_measure","cognitive_measure","cognitive_construct",
-  "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00",
+  "physical_construct", "physical_measure", "cognitive_measure", "cognitive_construct",
+  "study_name", "model_type", "subgroup", "converged", "output_file", "pc_CORR_00",
   "pc_CORR_11", "pc_CORR_residual", "model_number")
 dsT <- ds2[, t_variables_initial]
 # dsT <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
@@ -88,9 +90,9 @@ dsT <- dsT %>%
     "Corr.Residuals"    = "pc_CORR_residual")
 head(dsT)
 
-dsT[,"Corr.Intersepts"] <- round(dsT[ ,"Corr.Intersepts"], 3)
-dsT[,"Corr.Slopes"] <- round(dsT[ ,"Corr.Intersepts"], 3)
-dsT[,"Corr.Residuals"] <- round(dsT[ ,"Corr.Intersepts"], 3)
+dsT[, "Corr.Intersepts"] <- round(dsT[ ,"Corr.Intersepts"], 3)
+dsT[, "Corr.Slopes"]     <- round(dsT[ ,"Corr.Intersepts"], 3)
+dsT[, "Corr.Residuals"]  <- round(dsT[ ,"Corr.Intersepts"], 3)
 dsT <- dsT # for the use in the pivotTable function
 
 #############
@@ -110,7 +112,6 @@ if(basename(getwd())=="dashboard"){
 # server <-
 function(input, output, session) {
 
-# browser()
   selectedData <- reactive({
     filter_model(ds = dsb, study = input$radioStudy ,
     pm = input$radioPhysMeasure, covars = input$radioModelType)
@@ -151,19 +152,20 @@ function(input, output, session) {
 
     pushViewport(viewport(layout = grid.layout(1, allPlots )))
     print(TilePlot, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:firstPlot))
-    print(ISRPlot, vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
+    print(ISRPlot,  vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
   }) #close renderPlot
 
   output$pivotTable <- rpivotTable::renderRpivotTable({
-    rpivotTable::rpivotTable(data = dsT,
-                 rows = c("Study", "Cog.Measure"),
-                 cols= c("Phys.Measure", "Sex", "Covariates")
-                 )
+    rpivotTable::rpivotTable(
+      data = dsT,
+      rows = c("Study", "Cog.Measure"),
+      cols = c("Phys.Measure", "Sex", "Covariates")
+    )
+  })
 
-#      output$pivotTable <- rpivotTable::renderRpivotTable({
-#      rpivotTable::rpivotTable(data = dsb,
-#                  rows = c("study_name"),
-#                  cols= c("model_number")
-#                  )
-   })
+  # rpivotTable::rpivotTable(
+  #   data = dsb,
+  #   rows = c("study_name"),
+  #   cols= c("model_number")
+  # )
 } # close server
