@@ -74,6 +74,7 @@ dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_ty
 # browser()
 # setdiff(c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number"),colnames(dsb))
 ############## Create a dadaset for use in pivot table.
+
 dsT <- ds2[ , c(  "study_name", "model_number","subgroup" ,"model_type", "cognitive_construct",
   "physical_measure", "cognitive_measure",
   "converged", "output_file",
@@ -92,6 +93,7 @@ dsT <- ds2[ , c(  "study_name", "model_number","subgroup" ,"model_type", "cognit
 #                  "pc_TAU_00", "pc_TAU_00_pval", "pc_TAU_11", "pc_TAU_11_pval", "pc_TAU_residual", "pc_TAU_residual_pval",
 #                  "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual"
 #                  )]
+
 # dsT <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
 head(dsT)
 
@@ -115,6 +117,7 @@ unique(dsT$physical_construct)
 # dsT[,"Corr.Slopes"] <- round(dsT[ ,"Corr.Intersepts"], 3)
 # dsT[,"Corr.Residuals"] <- round(dsT[ ,"Corr.Intersepts"], 3)
 # dsT <- dsT # for the use in the pivotTable function
+
 
 #############
 
