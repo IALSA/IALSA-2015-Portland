@@ -57,7 +57,7 @@ dashboardPage(
       ),
       tabItem(tabName = "pivotTab",
         h2("Pivot Table"),
-        box(title = "Pivot", width=12, height= 12, status = "primary", solidHeader = TRUE,
+        box(title = "Pivot", height= 750, width = 1200,  status = "primary", solidHeader = TRUE,
           tags$head(tags$style( type = 'text/css',  '#pivotTable{ overflow-x: scroll; }')),
           rpivotTable::rpivotTableOutput("pivotTable")
         )

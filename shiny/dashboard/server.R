@@ -66,7 +66,10 @@ dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_ty
 # browser()
 # setdiff(c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number"),colnames(dsb))
 ############## Create a dadaset for use in pivot table.
-dsT <- ds2[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number")]
+dsT <- ds2[ , c(  "study_name", "model_number","subgroup", "model_type",
+                  "physical_construct","cognitive_construct","physical_measure","cognitive_measure",
+                 "converged", "output_file",
+                 "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual")]
 # dsT <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
 head(dsT)
 
@@ -143,7 +146,7 @@ function(input, output, session) {
    output$pivotTable <- rpivotTable::renderRpivotTable({
      rpivotTable::rpivotTable(data = dsT,
                  rows = c("Study", "Cog.Measure"),
-                 cols= c("Phys.Measure", "Sex", "Covariates")
+                 cols= c("Phys.Measure", "Sex", "Covariates"), height = 730
                  )
 
 #      output$pivotTable <- rpivotTable::renderRpivotTable({
