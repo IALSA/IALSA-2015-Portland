@@ -11,7 +11,7 @@
 
 filter_model <- function(ds
                     # select
-                    , study = "satsa"
+                    , study = "ilse"
                     , pm = "grip"
                     , covars = unique(ds$model_type) # model_type
                     , cognitive_domain = unique(ds$cognitive_construct)
@@ -24,7 +24,7 @@ filter_model <- function(ds
   return(ds)
 }
 
-# ds <- filter_model(dsb, covars = c("aeh"))
+# ds <- filter_model(dsb, covars = c("a"))
 # library(rpivotTable)
 # rpivotTable(data = ds,
 #                rows = c("study_name", "cognitive_measure"),
@@ -35,17 +35,20 @@ filter_model <- function(ds
 ISR_tile_data <- function(ds){
  ## three long gather
 d <- ds %>% tidyr::gather_("parameter","value", c(
-    "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual",
+    # "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual",
+  "pc_TAU_00", "pc_TAU_11", "pc_SIGMA",
   # "pc_CI95_00_high", "pc_CI95_00_low", "pc_CI95_11_high", "pc_CI95_11_low", "pc_CI95_residual_high", "pc_CI95_residual_low",
   "display_int", "display_slope", "display_residual",
-    "pp_TAU_00_pval", "pp_TAU_11_pval", "pc_SIGMA_pval"))
+    "pc_TAU_00_pval", "pc_TAU_11_pval", "pc_SIGMA_pval"))
 # d <- ds %>% tidyr::gather_("parameter","value", c("corr_int", "corr_slope", "corr_residual" ,    "display_int", "display_slope", "display_residual", "p_cov_int", "p_cov_slope", 'p_cov_res'))
   # d$parameter <- stringr::str_replace(d$parameter, "cov_res", "cov_residual")
   # d$parameter <- stringr::str_replace(d$parameter, "pc_SIGMA_pval", "pvalue")
 for( i in seq_along(d$parameter)){
 
   x <- stringr::str_split(d$parameter, pattern = "_")[[i]]
-  d[i, "value_type"] <- ifelse("CORR" %in% x,  "corr",
+  # d[i, "value_type"] <- ifelse("CORR" %in% x,  "corr",
+  d[i, "value_type"] <- ifelse( ("TAU" %in% x) & (!"pval" %in% x) |
+                                ("SIGMA" %in% x) & (!"pval" %in% x),  "corr",
                                ifelse("pval" %in% x, "pvalue",
                                       ifelse("display" %in% x, "display", NA)))
 
@@ -58,7 +61,7 @@ for( i in seq_along(d$parameter)){
   d$short <- NULL
 
   d <- tidyr::spread_(d,"value_type","value")
-  d$corr <- round(as.numeric(d$corr),3)
+  d$corr <- round(as.numeric(d$corr),4)
   d$pvalue <- round(as.numeric(d$pvalue),3)
   d$parameter <- factor(d$parameter, levels= c("intercept", "slope","residual"))
   head(as.data.frame(d),20)
