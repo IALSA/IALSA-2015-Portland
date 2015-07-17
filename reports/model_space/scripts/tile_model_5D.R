@@ -13,16 +13,16 @@ library(ggplot2)
 library(dplyr)
 
 if(basename(getwd())=="dashboard"){
-dsb <- readRDS('../../data/shared/ds2.rds')
+dsMS <- readRDS('../../data/shared/ds2.rds')
 # source("../../shiny/dashboard/scripts/multiplot_function.R")
 }else{
-dsb <- readRDS('./data/shared/ds2.rds')
+dsMS <- readRDS('./data/shared/ds2.rds')
 # source("./shiny/dashboard/scripts/multiplot_function.R")
 }
 
 keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
 
-ds <- dsb[ , keepvar]
+ds <- dsMS[ , keepvar]
 
 dplyr::tbl_df(ds)
 
