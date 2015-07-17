@@ -21,7 +21,6 @@ if(basename(getwd())=="dashboard"){
 
 ############ PREP ############
 ## trim to make more managable
-<<<<<<< HEAD
 keepvar <- c("study_name","model_number", "subgroup", "model_type",
   "physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
   "converged", "output_file",
@@ -32,14 +31,6 @@ keepvar <- c("study_name","model_number", "subgroup", "model_type",
   "pc_CI95_11_high", "pc_CI95_11_low",
   "pc_CI95_residual_high", "pc_CI95_residual_low",
   "pp_TAU_00_pval", "pp_TAU_11_pval" )
-=======
-keepvar <- c(
-  "study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file",
-  "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual",
-  "pc_CI95_00_high", "pc_CI95_00_low", "pc_CI95_11_high", "pc_CI95_11_low", "pc_CI95_residual_high", "pc_CI95_residual_low",
-  "pp_TAU_00_pval", "pp_TAU_11_pval", "pc_SIGMA_pval"
-)
->>>>>>> tidy indentions
 # keepvar <- c("study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file", "corr_int", "corr_slope",  "corr_residual",    "ciu_corr_int",    "cil_corr_int",    "ciu_corr_slope",  "cil_corr_slope", "ciu_corr_residual",       "cil_corr_residual", "p_cov_int", "p_cov_slope", "p_cov_res", )
 # keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
 
@@ -124,14 +115,6 @@ unique(dsT$physical_construct)
 # dsT[,"Corr.Residuals"] <- round(dsT[ ,"Corr.Intersepts"], 3)
 # dsT <- dsT # for the use in the pivotTable function
 
-<<<<<<< HEAD
-=======
-dsT[, "Corr.Intersepts"] <- round(dsT[ ,"Corr.Intersepts"], 3)
-dsT[, "Corr.Slopes"]     <- round(dsT[ ,"Corr.Intersepts"], 3)
-dsT[, "Corr.Residuals"]  <- round(dsT[ ,"Corr.Intersepts"], 3)
-dsT <- dsT # for the use in the pivotTable function
->>>>>>> tidy indentions
-
 #############
 
 if(basename(getwd())=="dashboard"){
@@ -192,7 +175,6 @@ function(input, output, session) {
     print(ISRPlot,  vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
   }) #close renderPlot
 
-<<<<<<< HEAD
    output$pivotTable <- rpivotTable::renderRpivotTable({
      rpivotTable::rpivotTable(data = dsT,
 #                  rows = c("Study", "Cog.Measure"),
@@ -208,19 +190,5 @@ function(input, output, session) {
 #                  cols= c("model_number")
 #                  )
    })
-=======
-  output$pivotTable <- rpivotTable::renderRpivotTable({
-    rpivotTable::rpivotTable(
-      data = dsT,
-      rows = c("Study", "Cog.Measure"),
-      cols = c("Phys.Measure", "Sex", "Covariates")
-    )
-  })
 
-  # rpivotTable::rpivotTable(
-  #   data = dsb,
-  #   rows = c("study_name"),
-  #   cols= c("model_number")
-  # )
->>>>>>> tidy indentions
 } # close server
