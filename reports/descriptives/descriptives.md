@@ -174,7 +174,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by wibeasley at 2015-07-17, 13:31 -0500
+Report rendered by wibeasley at 2015-07-17, 19:28 -0400
 ```
 
 ```
@@ -188,14 +188,17 @@ locale:
  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+[1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.5       knitr_1.10.5      
+[1] RColorBrewer_1.1-2   scales_0.2.5         knitr_1.10.5         rpivotTable_0.1.5.2  ggplot2_1.0.1       
+[6] dplyr_0.4.2          shinydashboard_0.5.0 shiny_0.12.1        
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6        digest_0.6.8       MASS_7.3-43        grid_3.2.1         plyr_1.8.3         gtable_0.1.2      
- [7] formatR_1.2        magrittr_1.5       evaluate_0.7       stringi_0.5-5      reshape2_1.4.1     rmarkdown_0.7     
-[13] labeling_0.3       proto_0.3-10       tools_3.2.1        stringr_1.0.0.9000 munsell_0.4.2      yaml_2.1.13       
-[19] colorspace_1.2-6   htmltools_0.2.6   
+ [1] Rcpp_0.11.6        formatR_1.2        plyr_1.8.3         tools_3.2.1        digest_0.6.8       jsonlite_0.9.16   
+ [7] evaluate_0.7       gtable_0.1.2       DBI_0.3.1          rstudioapi_0.3.1   yaml_2.1.13        parallel_3.2.1    
+[13] proto_0.3-10       stringr_1.0.0.9000 htmlwidgets_0.5    R6_2.1.0           rmarkdown_0.7      reshape2_1.4.1    
+[19] tidyr_0.2.0        magrittr_1.5       htmltools_0.2.6    MASS_7.3-43        assertthat_0.1     testit_0.4        
+[25] mime_0.3           xtable_1.7-4       colorspace_1.2-6   httpuv_1.3.2       labeling_0.3       stringi_0.5-5     
+[31] lazyeval_0.1.10    munsell_0.4.2     
 ```

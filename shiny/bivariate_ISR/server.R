@@ -49,11 +49,12 @@ dsb <- dsb %>% dplyr::filter(model_number %in% c("u1","b1"))
 table( dsb$cognitive_measure,dsb$cognitive_construct)
 
 ## @knitr extend_data
-dsb$display_int <- paste0(
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_00, 2)), " \n (",
+dsb$display_int_center <-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_00, 2))
+dsb$display_int_ci <-  paste0("(",
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_00_low,2)), ",",
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_00_high,2)), ")"
 )
+dsb$display_int <- paste0(display_int_center, "\n", display_int_ci)
 
 dsb$display_slope <- paste0(
   gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_1, 2)), " \n (",
