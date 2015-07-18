@@ -35,7 +35,9 @@ dashboardPage(
       tabItem(
         tabName = "overviewTab",
         h2("Overview: the Collective of models in Portland project"),
-        box(plotOutput("overview", height = 800, width = 1200))
+        # box( #Andrey, what's the point of the box?
+        plotOutput("overview", height = 800, width = 1200)
+        #)
       ),
       tabItem(
         tabName = "table1",
@@ -60,7 +62,11 @@ dashboardPage(
       tabItem(
         tabName = "isr",
         h2("Bivariate ISR"),
-        box(plotOutput("bivariate_ISR", height = 800, width = 1200))
+        radioButtons('format', 'Document format', c('PDF', 'HTML', 'Word'), inline = TRUE),
+        downloadButton(outputId = 'download_isr'),
+        # box( #Andrey, what's the point of the box?
+        plotOutput("bivariate_ISR", height = 800, width = 1200)
+        # )
         # box(plotOutput("bivariate_ISR"))
       ),
       tabItem(

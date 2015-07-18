@@ -176,6 +176,44 @@ function(input, output, session) {
     print(ISRPlot,  vp = viewport(layout.pos.row = 1, layout.pos.col = firstPlot+1:secondPlot))
   }) #close renderPlot
 
+  output$download_isr <- downloadHandler(
+    filename = function() {
+      paste('my-report', sep = '.', switch(
+        input$format, PDF = 'pdf', HTML = 'html', Word = 'docx'
+      ))
+    },
+
+    content = function(path_to_save) {
+      src <- normalizePath('../../reports/descriptives/descriptives.Rmd')
+      testit::assert("The isr Rmd source file was not found", file.exists(src))
+
+      # path_rendered <- rmarkdown::render(input=src, output_format=rmarkdown::pdf_document())
+      path_rendered <- rmarkdown::render(input=src, switch(
+        input$format,
+        PDF  = rmarkdown::pdf_document(),
+        HTML = rmarkdown::html_document(),
+        Word = rmarkdown::word_document()
+      ))
+
+      # # temporarily switch to the temp dir, in case you do not have write
+      # # permission to the current working directory
+      # owd <- setwd(tempdir())
+      # on.exit(setwd(owd))
+      # file.copy(src, 'report.Rmd')
+      # path_rendered <- rmarkdown::render(input='report.Rmd', output_format=rmarkdown::pdf_document())
+
+      # library(rmarkdown)
+      # out <- render('report.Rmd', "html_document")
+      # out <- render('report.Rmd', switch(
+      #   input$format,
+      #   PDF = pdf_document(), HTML = html_document(), Word = word_document()
+      # ))
+      browser()
+      file.rename(from = path_rendered, to = path_to_save)
+      browser()
+    }
+  )
+
    output$pivotTable <- rpivotTable::renderRpivotTable({
      rpivotTable::rpivotTable(data = dsT,
 #                  rows = c("Study", "Cog.Measure"),
