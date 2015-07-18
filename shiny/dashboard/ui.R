@@ -62,8 +62,8 @@ dashboardPage(
       tabItem(
         tabName = "isr",
         h2("Bivariate ISR"),
-        radioButtons('format', 'Document format', c('PDF', 'HTML', 'Word'), inline = TRUE),
-        downloadButton(outputId = 'download_isr'),
+        radioButtons('format', 'Table format', c('PDF', 'HTML', 'Word'), inline = TRUE),
+        downloadButton(outputId='download_isr', label="Download Table"),
         shiny::HTML("<br/>"),
         box( #Andrey, what's the point of the box?
           plotOutput("bivariate_ISR", height = 800, width = 1200)
