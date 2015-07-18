@@ -139,7 +139,7 @@ basic_tile_ISR <- function(ds,x_name){
   g <- g + geom_text(size = baseSize-3, lineheight=.7)
   g <- g + facet_grid(. ~  physical_measure)
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
-  g <- g + scale_fill_brewer(palette = "Set2", name = "Cog Domains")
+  g <- g + scale_fill_brewer(palette = "Set2", name = "Cognitive\nDomains")
   g <- g + labs(title=x_name_labels[x_name], x=NULL, y=NULL)
   g <- g + theme1
   g <- g + theme(axis.text.y = ggplot2::element_blank(),
@@ -174,15 +174,26 @@ ISR_plot <- function(ds = dsISR
   ds$cognitive_construct <- toupper(ds$cognitive_construct)
   # ds$pretty_number <- paste0(ds$cognitive_construct," - ",ds$cognitive_measure)
 
-  if( display_value == "display" ) {
+  if( display_value == "corr" ) { #Andrey, should this be 'covariance' instead of 'correlation'?
+    ds$display_line_1 <- ds[, display_value]
+    ds$display_line_1 <- sprintf("%.3f", as.numeric(ds$display_line_1))
+    ds$display_line_2 <- ""
+  } else if( display_value == "pvalue" ) {
+    ds$display_line_1 <- ds[, display_value]
+    ds$display_line_1 <- sprintf("%.4f", as.numeric(ds$display_line_1))
+    ds$display_line_1 <- gsub("^(0)\\.", ".", ds$display_line_1)
+    ds$display_line_2 <- ""
+  } else if( display_value == "display" ) {
     #ds$display_line_1 <- gsub("(\\.02)", "\\1", ds$display)
-    ds$display_line_1 <- sapply(strsplit(ds$display, "\n"), function(l) l[1])
-    ds$display_line_2 <- sapply(strsplit(ds$display, "\n"), function(l) l[2])
-    ds[, c("display", "display_line_1", "display_line_2")]
-  } else {
-    ds$display_line_1 <- ds$display
+    ds$display_line_1 <- sapply(strsplit(ds[, display_value], "\n"), function(l) l[1])
+    ds$display_line_1 <- sprintf("%+.2f  ", as.numeric(ds$display_line_1)) #2 trailing spaces to roughly offset the "+/-."
+    ds$display_line_1 <- gsub("^([+-])(0)\\.", "\\1.", ds$display_line_1)
+    ds$display_line_2 <- sapply(strsplit(ds[, display_value], "\n"), function(l) l[2])
+  } else { #Potentially includes others in the future
+    ds$display_line_1 <- ds[, display_value]
     ds$display_line_2 <- ""
   }
+  # ds[, c("display", "display_line_1", "display_line_2")]
 
   g <- ggplot2::ggplot(ds, aes_string(x=x_name, y="cognitive_measure", label="display_line_1", fill="sign"))
   g <- g + geom_tile()
