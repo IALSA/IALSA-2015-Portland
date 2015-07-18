@@ -55,7 +55,7 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
                      "model_type"="Predictor Set",
                      "subgroup"="Sex Subgroup")
   # 8th multi-hue at colorbrewer2.org, 5 categories, first 4
-  pvalueColors <- c(">.10" = "white",
+  pvalueColors <- c("> .10" = "white",
                     "<=.10" = "#feebe2",
                     "<=.05" = "#fbb4b9",
                     "<=.01" = "#f768a1",
