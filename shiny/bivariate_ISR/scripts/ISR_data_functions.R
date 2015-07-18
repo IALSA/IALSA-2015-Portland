@@ -68,25 +68,12 @@ for( i in seq_along(d$parameter)){
   head(as.data.frame(d),20)
   str(d)
 
-  #TODO: replace the next ~10 lines with a call to cut()
   d$sign <- cut(
     x = d$pvalue,
     breaks = c(-Inf, .001, .01, .05, .10, Inf),
     labels = c("<=.001", "<=.01", "<=.05", "<=.10", "> .10"), #These need to coordinate with the color specs.
     right = TRUE, ordered_result = TRUE
   )
-
-  # d$unsign <- d$pvalue > .10
-  # d$sign10 <- d$pvalue <= .10 & d$pvalue > .05
-  # d$sign05 <- d$pvalue <= .05 & d$pvalue > .01
-  # d$sign01 <- d$pvalue <= .01 & d$pvalue > .001
-  # d$sign001 <- d$pvalue <= .001
-  #
-  # d$sign <- ifelse(d$pvalue >.10, ">.10",
-  #             ifelse(d$pvalue <= .10 & d$pvalue > .05, "<=.10",
-  #               ifelse(d$pvalue <= .05 & d$pvalue > .01, "<=.05",
-  #                 ifelse(d$pvalue <= .01 & d$pvalue > .001, "<=.01",
-  #                   ifelse(d$pvalue <= .001, "<=.001", NA)))))
 
   head(as.data.frame(d))
   return(d)
