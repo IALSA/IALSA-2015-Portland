@@ -177,9 +177,14 @@ function(input, output, session) {
 
   output$bivariate_ISR <- renderPlot({
     # browser()
-    TilePlot <- basic_tile_ISR(ds = selectedData(), x_name = "physical_measure")
-    dsISR <- as.data.frame(ISR_tile_data(ds=selectedData()))
-    ISRPlot <- ISR_plot(ds = dsISR,  display_value=input$radioDisplayMode)
+    if( nrow(selectedData()) > 0L ) {
+      TilePlot <- basic_tile_ISR(ds = selectedData(), x_name = "physical_measure")
+      dsISR <- as.data.frame(ISR_tile_data(ds=selectedData()))
+      ISRPlot <- ISR_plot(ds = dsISR,  display_value=input$radioDisplayMode)
+    } else {
+      TilePlot <- basic_tile_ISR_blank()
+      ISRPlot <- ISR_plot_blank()
+    }
 
     allPlots <- 11
     firstPlot <- 3

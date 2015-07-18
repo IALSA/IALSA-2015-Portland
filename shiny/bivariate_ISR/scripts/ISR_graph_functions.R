@@ -71,6 +71,7 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
 ## @knitr define_basic_tile_function
 basic_tile_ISR <- function(ds,x_name){
 
+  #Andrey, should this remapping be moved upstream?  Would other steps benefit?
   ds$cognitive_measure <- plyr::revalue(ds$cognitive_measure, warn_missing=F, replace  = c(
     "3ms"                      = "3ms"
     , "analogies"                = "analogies"
@@ -153,6 +154,14 @@ basic_tile_ISR <- function(ds,x_name){
   return(g)
 }
 
+#Placeholder graph when the data is entirely invalid/empty
+basic_tile_ISR_blank <- function( ) {
+  d <- data.frame(x=0, y=0, label="Select different\nstudy variables\nplease.")
+  ggplot(d, aes(x=x,y=y,label=label)) +
+    geom_text(size=10) +
+    ggthemes::theme_solid() #+
+    # theme(plot.background=element_rect(fill="#4E5D6C")) #Matches the CSS style.
+}
 # basic_tile_ISR(dsTile,"physical_measure")
 
 
@@ -223,7 +232,11 @@ ISR_plot <- function(ds = dsISR
 }
 # ISR_plot(ds = dsISR, display_value="corr")
 
-
-
-
-
+#Placeholder graph when the data is entirely invalid/empty
+ISR_plot_blank <- function( ) {
+  d <- data.frame(x=0, y=0, label="This study does not contain\nthis combination of variables.")
+  ggplot(d, aes(x=x,y=y,label=label)) +
+    geom_text(size=15) +
+    ggthemes::theme_solid() +
+    theme(plot.background=element_rect(fill="#4E5D6C")) #Matches the CSS style.
+}
