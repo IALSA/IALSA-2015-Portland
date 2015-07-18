@@ -178,13 +178,14 @@ function(input, output, session) {
 
   output$download_isr <- downloadHandler(
     filename = function() {
-      paste('my-report', sep = '.', switch(
+      paste('test_report', sep = '.', switch(
         input$format, PDF = 'pdf', HTML = 'html', Word = 'docx'
       ))
     },
 
     content = function(path_to_save) {
-      src <- normalizePath('../../reports/descriptives/descriptives.Rmd')
+      # src <- normalizePath('../../reports/descriptives/descriptives.Rmd')
+      src <- normalizePath('../../reports/descriptives/report.Rmd')
       testit::assert("The isr Rmd source file was not found", file.exists(src))
 
       # path_rendered <- rmarkdown::render(input=src, output_format=rmarkdown::pdf_document())
@@ -208,10 +209,9 @@ function(input, output, session) {
       #   input$format,
       #   PDF = pdf_document(), HTML = html_document(), Word = word_document()
       # ))
-      browser()
       file.rename(from = path_rendered, to = path_to_save)
-      browser()
     }
+    # , contentType = "text/html"
   )
 
    output$pivotTable <- rpivotTable::renderRpivotTable({
