@@ -131,12 +131,12 @@ basic_tile_ISR <- function(ds,x_name){
   # define the data
   d <- ds %>% dplyr::count_(c("cognitive_construct", "cognitive_measure", x_name))
   d$cognitive_construct <- toupper(d$cognitive_construct)
-  #
+
   d$cognitive_measure <- gsub("_", "\n", d$cognitive_measure)
 
   g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", fill="cognitive_construct", label="cognitive_measure"))
   g <- g + geom_tile()
-  g <- g + geom_text(size = baseSize-3, line=13)
+  g <- g + geom_text(size = baseSize-3, lineheight=.7)
   g <- g + facet_grid(. ~  physical_measure)
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
   g <- g + scale_fill_brewer(palette = "Set2", name = "Cog Domains")
@@ -174,11 +174,20 @@ ISR_plot <- function(ds = dsISR
   ds$cognitive_construct <- toupper(ds$cognitive_construct)
   # ds$pretty_number <- paste0(ds$cognitive_construct," - ",ds$cognitive_measure)
 
-  # browser()
+  if( display_value == "display" ) {
+    #ds$display_line_1 <- gsub("(\\.02)", "\\1", ds$display)
+    ds$display_line_1 <- sapply(strsplit(ds$display, "\n"), function(l) l[1])
+    ds$display_line_2 <- sapply(strsplit(ds$display, "\n"), function(l) l[2])
+    ds[, c("display", "display_line_1", "display_line_2")]
+  } else {
+    ds$display_line_1 <- ds$display
+    ds$display_line_2 <- ""
+  }
 
-  g <- ggplot2::ggplot(ds, aes_string(x=x_name, y="cognitive_measure", label=display_value, fill="sign"))
+  g <- ggplot2::ggplot(ds, aes_string(x=x_name, y="cognitive_measure", label="display_line_1", fill="sign"))
   g <- g + geom_tile()
-  g <- g + geom_text(size = baseSize-3)
+  g <- g + geom_text(size = baseSize, vjust=-.1)
+  g <- g + geom_text(aes(label=display_line_2), size = baseSize-3, vjust=1.1, color="gray40")
   # g <- g + facet_grid(subgroup ~ model_type)
   g <- g + facet_grid(as.formula(paste0(y_facet," ~ ", x_facet)))
   # g <- g + scale_x_discrete(labels = c("int"="INT", "slope"="SLP" , "res"="RES"))
