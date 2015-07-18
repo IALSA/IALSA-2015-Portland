@@ -17,10 +17,10 @@ library(grid)
 ## "b" in "dsb" is for BASIC
 
 if(basename(getwd())=="dashboard"){
-dsb <- readRDS('../../data/shared/ds1a.rds')
+dsb <- readRDS('../../data/shared/ds2.rds')
 source("../../shiny/dashboard/scripts/multiplot_function.R")
 }else{
-dsb <- readRDS('./data/shared/ds1a.rds')
+dsb <- readRDS('./data/shared/ds2.rds')
 source("./shiny/dashboard/scripts/multiplot_function.R")
 }
 

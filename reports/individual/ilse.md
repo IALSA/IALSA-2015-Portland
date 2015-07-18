@@ -314,155 +314,155 @@ u1 block                       .         6     .      .
 ## b1
 
 
-model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure         file name                                                           
---------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------------  --------------------------------------------------------------------
-b1              female   a                   muscle                   fluency                   grip                   verbalfluencytest             b1_female_a_muscle_fluency_grip_verbalfluencytest.out               
-b1              female   aeh                 muscle                   fluency                   grip                   verbalfluencytest             b1_female_aeh_muscle_fluency_grip_verbalfluencytest.out             
-b1              female   aehplus             muscle                   fluency                   grip                   verbalfluencytest             b1_female_aehplus_muscle_fluency_grip_verbalfluencytest.out         
-b1              male     a                   muscle                   fluency                   grip                   verbalfluencytest             b1_male_a_muscle_fluency_grip_verbalfluencytest.out                 
-b1              male     aeh                 muscle                   fluency                   grip                   verbalfluencytest             b1_male_aeh_muscle_fluency_grip_verbalfluencytest.out               
-b1              male     aehplus             muscle                   fluency                   grip                   verbalfluencytest             b1_male_aehplus_muscle_fluency_grip_verbalfluencytest.out           
-b1              female   a                   muscle                   knowledge                 grip                   waisgeneralknowledge          b1_female_a_muscle_knowledge_grip_waisgeneralknowledge.out          
-b1              female   aeh                 muscle                   knowledge                 grip                   waisgeneralknowledge          b1_female_aeh_muscle_knowledge_grip_waisgeneralknowledge.out        
-b1              female   aehplus             muscle                   knowledge                 grip                   waisgeneralknowledge          b1_female_aehplus_muscle_knowledge_grip_waisgeneralknowledge.out    
-b1              male     a                   muscle                   knowledge                 grip                   waisgeneralknowledge          b1_male_a_muscle_knowledge_grip_waisgeneralknowledge.out            
-b1              male     aeh                 muscle                   knowledge                 grip                   waisgeneralknowledge          b1_male_aeh_muscle_knowledge_grip_waisgeneralknowledge.out          
-b1              male     aehplus             muscle                   knowledge                 grip                   waisgeneralknowledge          b1_male_aehplus_muscle_knowledge_grip_waisgeneralknowledge.out      
-b1              female   a                   muscle                   reasoning                 grip                   lpsspatialability             b1_female_a_muscle_reasoning_grip_lpsspatialability.out             
-b1              female   a                   muscle                   reasoning                 grip                   waisblockdesign               b1_female_a_muscle_reasoning_grip_waisblockdesign.out               
-b1              female   a                   muscle                   reasoning                 grip                   waispicturecompletion         b1_female_a_muscle_reasoning_grip_waispicturecompletion.out         
-b1              female   aeh                 muscle                   reasoning                 grip                   lpsspatialability             b1_female_aeh_muscle_reasoning_grip_lpsspatialability.out           
-b1              female   aeh                 muscle                   reasoning                 grip                   waisblockdesign               b1_female_aeh_muscle_reasoning_grip_waisblockdesign.out             
-b1              female   aeh                 muscle                   reasoning                 grip                   waispicturecompletion         b1_female_aeh_muscle_reasoning_grip_waispicturecompletion.out       
-b1              female   aehplus             muscle                   reasoning                 grip                   lpsspatialability             b1_female_aehplus_muscle_reasoning_grip_lpsspatialability.out       
-b1              female   aehplus             muscle                   reasoning                 grip                   waisblockdesign               b1_female_aehplus_muscle_reasoning_grip_waisblockdesign.out         
-b1              female   aehplus             muscle                   reasoning                 grip                   waispicturecompletion         b1_female_aehplus_muscle_reasoning_grip_waispicturecompletion.out   
-b1              male     a                   muscle                   reasoning                 grip                   lpsspatialability             b1_male_a_muscle_reasoning_grip_lpsspatialability.out               
-b1              male     a                   muscle                   reasoning                 grip                   waisblockdesign               b1_male_a_muscle_reasoning_grip_waisblockdesign.out                 
-b1              male     a                   muscle                   reasoning                 grip                   waispicturecompletion         b1_male_a_muscle_reasoning_grip_waispicturecompletion.out           
-b1              male     aeh                 muscle                   reasoning                 grip                   waisblockdesign               b1_male_aeh_muscle_reasoning_grip_waisblockdesign.out               
-b1              male     aeh                 muscle                   reasoning                 grip                   waispicturecompletion         b1_male_aeh_muscle_reasoning_grip_waispicturecompletion.out         
-b1              male     aehplus             muscle                   reasoning                 grip                   lpsspatialability             b1_male_aehplus_muscle_reasoning_grip_lpsspatialability.out         
-b1              male     aehplus             muscle                   reasoning                 grip                   waisblockdesign               b1_male_aehplus_muscle_reasoning_grip_waisblockdesign.out           
-b1              male     aehplus             muscle                   reasoning                 grip                   waispicturecompletion         b1_male_aehplus_muscle_reasoning_grip_waispicturecompletion.out     
-b1              female   a                   muscle                   speed                     grip                   digitsymbolsubstitutiontest   b1_female_a_muscle_speed_grip_digitsymbolsubstitutiontest.out       
-b1              female   aeh                 muscle                   speed                     grip                   digitsymbolsubstitutiontest   b1_female_aeh_muscle_speed_grip_digitsymbolsubstitutiontest.out     
-b1              female   aehplus             muscle                   speed                     grip                   digitsymbolsubstitutiontest   b1_female_aehplus_muscle_speed_grip_digitsymbolsubstitutiontest.out 
-b1              male     a                   muscle                   speed                     grip                   digitsymbolsubstitutiontest   b1_male_a_muscle_speed_grip_digitsymbolsubstitutiontest.out         
-b1              male     aeh                 muscle                   speed                     grip                   digitsymbolsubstitutiontest   b1_male_aeh_muscle_speed_grip_digitsymbolsubstitutiontest.out       
-b1              male     aehplus             muscle                   speed                     grip                   digitsymbolsubstitutiontest   b1_male_aehplus_muscle_speed_grip_digitsymbolsubstitutiontest.out   
-b1              female   aeh                 tug                      fluency                   tug                    verbalfluencytest             b1_female_aeh_tug_fluency_tug_verbalfluencytest.out                 
-b1              female   aehplus             tug                      fluency                   tug                    verbalfluencytest             b1_female_aehplus_tug_fluency_tug_verbalfluencytest.out             
-b1              female   age                 tug                      fluency                   tug                    verbalfluencytest             b1_female_age_tug_fluency_tug_verbalfluencytest.out                 
-b1              male     aeh                 tug                      fluency                   tug                    verbalfluencytest             b1_male_aeh_tug_fluency_tug_verbalfluencytest.out                   
-b1              male     aehplus             tug                      fluency                   tug                    verbalfluencytest             b1_male_aehplus_tug_fluency_tug_verbalfluencytest.out               
-b1              male     age                 tug                      fluency                   tug                    verbalfluencytest             b1_male_age_tug_fluency_tug_verbalfluencytest.out                   
-b1              female   aeh                 tug                      knowledge                 tug                    waisgeneralknowledge          b1_female_aeh_tug_knowledge_tug_waisgeneralknowledge.out            
-b1              female   aehplus             tug                      knowledge                 tug                    waisgeneralknowledge          b1_female_aehplus_tug_knowledge_tug_waisgeneralknowledge.out        
-b1              female   age                 tug                      knowledge                 tug                    waisgeneralknowledge          b1_female_age_tug_knowledge_tug_waisgeneralknowledge.out            
-b1              male     aeh                 tug                      knowledge                 tug                    waisgeneralknowledge          b1_male_aeh_tug_knowledge_tug_waisgeneralknowledge.out              
-b1              male     aehplus             tug                      knowledge                 tug                    waisgeneralknowledge          b1_male_aehplus_tug_knowledge_tug_waisgeneralknowledge.out          
-b1              male     age                 tug                      knowledge                 tug                    waisgeneralknowledge          b1_male_age_tug_knowledge_tug_waisgeneralknowledge.out              
-b1              female   aeh                 tug                      reasoning                 tug                    lpsspacialability             b1_female_aeh_tug_reasoning_tug_lpsspacialability.out               
-b1              female   aeh                 tug                      reasoning                 tug                    waisblockdesign               b1_female_aeh_tug_reasoning_tug_waisblockdesign.out                 
-b1              female   aeh                 tug                      reasoning                 tug                    waispicturecompletion         b1_female_aeh_tug_reasoning_tug_waispicturecompletion.out           
-b1              female   aehplus             tug                      reasoning                 tug                    lpsspacialability             b1_female_aehplus_tug_reasoning_tug_lpsspacialability.out           
-b1              female   aehplus             tug                      reasoning                 tug                    waisblockdesign               b1_female_aehplus_tug_reasoning_tug_waisblockdesign.out             
-b1              female   aehplus             tug                      reasoning                 tug                    waispicturecompletion         b1_female_aehplus_tug_reasoning_tug_waispicturecompletion.out       
-b1              female   age                 tug                      reasoning                 tug                    lpsspacialability             b1_female_age_tug_reasoning_tug_lpsspacialability.out               
-b1              female   age                 tug                      reasoning                 tug                    waisblockdesign               b1_female_age_tug_reasoning_tug_waisblockdesign.out                 
-b1              female   age                 tug                      reasoning                 tug                    waispicturecompletion         b1_female_age_tug_reasoning_tug_waispicturecompletion.out           
-b1              male     aeh                 tug                      reasoning                 tug                    lpsspacialability             b1_male_aeh_tug_reasoning_tug_lpsspacialability.out                 
-b1              male     aeh                 tug                      reasoning                 tug                    waisblockdesign               b1_male_aeh_tug_reasoning_tug_waisblockdesign.out                   
-b1              male     aeh                 tug                      reasoning                 tug                    waispicturecompletion         b1_male_aeh_tug_reasoning_tug_waispicturecompletion.out             
-b1              male     aehplus             tug                      reasoning                 tug                    lpsspacialability             b1_male_aehplus_tug_reasoning_tug_lpsspacialability.out             
-b1              male     aehplus             tug                      reasoning                 tug                    waisblockdesign               b1_male_aehplus_tug_reasoning_tug_waisblockdesign.out               
-b1              male     aehplus             tug                      reasoning                 tug                    waispicturecompletion         b1_male_aehplus_tug_reasoning_tug_waispicturecompletion.out         
-b1              male     age                 tug                      reasoning                 tug                    lpsspacialability             b1_male_age_tug_reasoning_tug_lpsspacialability.out                 
-b1              male     age                 tug                      reasoning                 tug                    waisblockdesign               b1_male_age_tug_reasoning_tug_waisblockdesign.out                   
-b1              male     age                 tug                      reasoning                 tug                    waispicturecompletion         b1_male_age_tug_reasoning_tug_waispicturecompletion.out             
-b1              female   aeh                 tug                      speed                     tug                    digitsymbolsubstitutiontest   b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.out         
-b1              female   aehplus             tug                      speed                     tug                    digitsymbolsubstitution       b1_female_aehplus_tug_speed_tug_digitsymbolsubstitution.out         
-b1              female   age                 tug                      speed                     tug                    digitsymbolsubstitutiontest   b1_female_age_tug_speed_tug_digitsymbolsubstitutiontest.out         
-b1              male     aeh                 tug                      speed                     tug                    digitsymbolsubstitutiontest   b1_male_aeh_tug_speed_tug_digitsymbolsubstitutiontest.out           
-b1              male     aehplus             tug                      speed                     tug                    digitsymbolsubstitution       b1_male_aehplus_tug_speed_tug_digitsymbolsubstitution.out           
-b1              male     age                 tug                      speed                     tug                    digitsymbolsubstitutiontest   b1_male_age_tug_speed_tug_digitsymbolsubstitutiontest.out           
+model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure     file name                                                           
+--------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ------------------------  --------------------------------------------------------------------
+b1              female   aehplus             tug                      speed                     tug                    digitsymbolsubstitution   b1_female_aehplus_tug_speed_tug_digitsymbolsubstitution.out         
+b1              male     aehplus             tug                      speed                     tug                    digitsymbolsubstitution   b1_male_aehplus_tug_speed_tug_digitsymbolsubstitution.out           
+b1              female   a                   muscle                   speed                     grip                   symbol                    b1_female_a_muscle_speed_grip_digitsymbolsubstitutiontest.out       
+b1              female   aeh                 muscle                   speed                     grip                   symbol                    b1_female_aeh_muscle_speed_grip_digitsymbolsubstitutiontest.out     
+b1              female   aehplus             muscle                   speed                     grip                   symbol                    b1_female_aehplus_muscle_speed_grip_digitsymbolsubstitutiontest.out 
+b1              male     a                   muscle                   speed                     grip                   symbol                    b1_male_a_muscle_speed_grip_digitsymbolsubstitutiontest.out         
+b1              male     aeh                 muscle                   speed                     grip                   symbol                    b1_male_aeh_muscle_speed_grip_digitsymbolsubstitutiontest.out       
+b1              male     aehplus             muscle                   speed                     grip                   symbol                    b1_male_aehplus_muscle_speed_grip_digitsymbolsubstitutiontest.out   
+b1              female   aeh                 tug                      speed                     tug                    symbol                    b1_female_aeh_tug_speed_tug_digitsymbolsubstitutiontest.out         
+b1              female   a                   tug                      speed                     tug                    symbol                    b1_female_age_tug_speed_tug_digitsymbolsubstitutiontest.out         
+b1              male     aeh                 tug                      speed                     tug                    symbol                    b1_male_aeh_tug_speed_tug_digitsymbolsubstitutiontest.out           
+b1              male     a                   tug                      speed                     tug                    symbol                    b1_male_age_tug_speed_tug_digitsymbolsubstitutiontest.out           
+b1              female   aeh                 tug                      reasoning                 tug                    lpsspacialability         b1_female_aeh_tug_reasoning_tug_lpsspacialability.out               
+b1              female   aehplus             tug                      reasoning                 tug                    lpsspacialability         b1_female_aehplus_tug_reasoning_tug_lpsspacialability.out           
+b1              female   a                   tug                      reasoning                 tug                    lpsspacialability         b1_female_age_tug_reasoning_tug_lpsspacialability.out               
+b1              male     aeh                 tug                      reasoning                 tug                    lpsspacialability         b1_male_aeh_tug_reasoning_tug_lpsspacialability.out                 
+b1              male     aehplus             tug                      reasoning                 tug                    lpsspacialability         b1_male_aehplus_tug_reasoning_tug_lpsspacialability.out             
+b1              male     a                   tug                      reasoning                 tug                    lpsspacialability         b1_male_age_tug_reasoning_tug_lpsspacialability.out                 
+b1              female   a                   muscle                   reasoning                 grip                   lpsspatialability         b1_female_a_muscle_reasoning_grip_lpsspatialability.out             
+b1              female   aeh                 muscle                   reasoning                 grip                   lpsspatialability         b1_female_aeh_muscle_reasoning_grip_lpsspatialability.out           
+b1              female   aehplus             muscle                   reasoning                 grip                   lpsspatialability         b1_female_aehplus_muscle_reasoning_grip_lpsspatialability.out       
+b1              male     a                   muscle                   reasoning                 grip                   lpsspatialability         b1_male_a_muscle_reasoning_grip_lpsspatialability.out               
+b1              male     aehplus             muscle                   reasoning                 grip                   lpsspatialability         b1_male_aehplus_muscle_reasoning_grip_lpsspatialability.out         
+b1              female   a                   muscle                   fluency                   grip                   verbalfluency             b1_female_a_muscle_fluency_grip_verbalfluencytest.out               
+b1              female   aeh                 muscle                   fluency                   grip                   verbalfluency             b1_female_aeh_muscle_fluency_grip_verbalfluencytest.out             
+b1              female   aehplus             muscle                   fluency                   grip                   verbalfluency             b1_female_aehplus_muscle_fluency_grip_verbalfluencytest.out         
+b1              male     a                   muscle                   fluency                   grip                   verbalfluency             b1_male_a_muscle_fluency_grip_verbalfluencytest.out                 
+b1              male     aeh                 muscle                   fluency                   grip                   verbalfluency             b1_male_aeh_muscle_fluency_grip_verbalfluencytest.out               
+b1              male     aehplus             muscle                   fluency                   grip                   verbalfluency             b1_male_aehplus_muscle_fluency_grip_verbalfluencytest.out           
+b1              female   aeh                 tug                      fluency                   tug                    verbalfluency             b1_female_aeh_tug_fluency_tug_verbalfluencytest.out                 
+b1              female   aehplus             tug                      fluency                   tug                    verbalfluency             b1_female_aehplus_tug_fluency_tug_verbalfluencytest.out             
+b1              female   a                   tug                      fluency                   tug                    verbalfluency             b1_female_age_tug_fluency_tug_verbalfluencytest.out                 
+b1              male     aeh                 tug                      fluency                   tug                    verbalfluency             b1_male_aeh_tug_fluency_tug_verbalfluencytest.out                   
+b1              male     aehplus             tug                      fluency                   tug                    verbalfluency             b1_male_aehplus_tug_fluency_tug_verbalfluencytest.out               
+b1              male     a                   tug                      fluency                   tug                    verbalfluency             b1_male_age_tug_fluency_tug_verbalfluencytest.out                   
+b1              female   a                   muscle                   reasoning                 grip                   block                     b1_female_a_muscle_reasoning_grip_waisblockdesign.out               
+b1              female   aeh                 muscle                   reasoning                 grip                   block                     b1_female_aeh_muscle_reasoning_grip_waisblockdesign.out             
+b1              female   aehplus             muscle                   reasoning                 grip                   block                     b1_female_aehplus_muscle_reasoning_grip_waisblockdesign.out         
+b1              male     a                   muscle                   reasoning                 grip                   block                     b1_male_a_muscle_reasoning_grip_waisblockdesign.out                 
+b1              male     aeh                 muscle                   reasoning                 grip                   block                     b1_male_aeh_muscle_reasoning_grip_waisblockdesign.out               
+b1              male     aehplus             muscle                   reasoning                 grip                   block                     b1_male_aehplus_muscle_reasoning_grip_waisblockdesign.out           
+b1              female   aeh                 tug                      reasoning                 tug                    block                     b1_female_aeh_tug_reasoning_tug_waisblockdesign.out                 
+b1              female   aehplus             tug                      reasoning                 tug                    block                     b1_female_aehplus_tug_reasoning_tug_waisblockdesign.out             
+b1              female   a                   tug                      reasoning                 tug                    block                     b1_female_age_tug_reasoning_tug_waisblockdesign.out                 
+b1              male     aeh                 tug                      reasoning                 tug                    block                     b1_male_aeh_tug_reasoning_tug_waisblockdesign.out                   
+b1              male     aehplus             tug                      reasoning                 tug                    block                     b1_male_aehplus_tug_reasoning_tug_waisblockdesign.out               
+b1              male     a                   tug                      reasoning                 tug                    block                     b1_male_age_tug_reasoning_tug_waisblockdesign.out                   
+b1              female   a                   muscle                   knowledge                 grip                   waisgeneralknowledge      b1_female_a_muscle_knowledge_grip_waisgeneralknowledge.out          
+b1              female   aeh                 muscle                   knowledge                 grip                   waisgeneralknowledge      b1_female_aeh_muscle_knowledge_grip_waisgeneralknowledge.out        
+b1              female   aehplus             muscle                   knowledge                 grip                   waisgeneralknowledge      b1_female_aehplus_muscle_knowledge_grip_waisgeneralknowledge.out    
+b1              male     a                   muscle                   knowledge                 grip                   waisgeneralknowledge      b1_male_a_muscle_knowledge_grip_waisgeneralknowledge.out            
+b1              male     aeh                 muscle                   knowledge                 grip                   waisgeneralknowledge      b1_male_aeh_muscle_knowledge_grip_waisgeneralknowledge.out          
+b1              male     aehplus             muscle                   knowledge                 grip                   waisgeneralknowledge      b1_male_aehplus_muscle_knowledge_grip_waisgeneralknowledge.out      
+b1              female   aeh                 tug                      knowledge                 tug                    waisgeneralknowledge      b1_female_aeh_tug_knowledge_tug_waisgeneralknowledge.out            
+b1              female   aehplus             tug                      knowledge                 tug                    waisgeneralknowledge      b1_female_aehplus_tug_knowledge_tug_waisgeneralknowledge.out        
+b1              female   a                   tug                      knowledge                 tug                    waisgeneralknowledge      b1_female_age_tug_knowledge_tug_waisgeneralknowledge.out            
+b1              male     aeh                 tug                      knowledge                 tug                    waisgeneralknowledge      b1_male_aeh_tug_knowledge_tug_waisgeneralknowledge.out              
+b1              male     aehplus             tug                      knowledge                 tug                    waisgeneralknowledge      b1_male_aehplus_tug_knowledge_tug_waisgeneralknowledge.out          
+b1              male     a                   tug                      knowledge                 tug                    waisgeneralknowledge      b1_male_age_tug_knowledge_tug_waisgeneralknowledge.out              
+b1              female   a                   muscle                   reasoning                 grip                   waispicturecompletion     b1_female_a_muscle_reasoning_grip_waispicturecompletion.out         
+b1              female   aeh                 muscle                   reasoning                 grip                   waispicturecompletion     b1_female_aeh_muscle_reasoning_grip_waispicturecompletion.out       
+b1              female   aehplus             muscle                   reasoning                 grip                   waispicturecompletion     b1_female_aehplus_muscle_reasoning_grip_waispicturecompletion.out   
+b1              male     a                   muscle                   reasoning                 grip                   waispicturecompletion     b1_male_a_muscle_reasoning_grip_waispicturecompletion.out           
+b1              male     aeh                 muscle                   reasoning                 grip                   waispicturecompletion     b1_male_aeh_muscle_reasoning_grip_waispicturecompletion.out         
+b1              male     aehplus             muscle                   reasoning                 grip                   waispicturecompletion     b1_male_aehplus_muscle_reasoning_grip_waispicturecompletion.out     
+b1              female   aeh                 tug                      reasoning                 tug                    waispicturecompletion     b1_female_aeh_tug_reasoning_tug_waispicturecompletion.out           
+b1              female   aehplus             tug                      reasoning                 tug                    waispicturecompletion     b1_female_aehplus_tug_reasoning_tug_waispicturecompletion.out       
+b1              female   a                   tug                      reasoning                 tug                    waispicturecompletion     b1_female_age_tug_reasoning_tug_waispicturecompletion.out           
+b1              male     aeh                 tug                      reasoning                 tug                    waispicturecompletion     b1_male_aeh_tug_reasoning_tug_waispicturecompletion.out             
+b1              male     aehplus             tug                      reasoning                 tug                    waispicturecompletion     b1_male_aehplus_tug_reasoning_tug_waispicturecompletion.out         
+b1              male     a                   tug                      reasoning                 tug                    waispicturecompletion     b1_male_age_tug_reasoning_tug_waispicturecompletion.out             
 
 ## u1
 
 
-model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure         file name                                                                 
---------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------------  --------------------------------------------------------------------------
-u1              female   a                   muscle                   nocog                     grip                   nocogspec                     u1_female_a_muscle_nocog_grip_nocogspec.out                               
-u1              female   aeh                 muscle                   nocog                     grip                   nocogspec                     u1_female_aeh_muscle_nocog_grip_nocogspec.out                             
-u1              female   aehplus             muscle                   nocog                     grip                   nocogspec                     u1_female_aehplus_muscle_nocog_grip_nocogspec.out                         
-u1              male     a                   muscle                   nocog                     grip                   nocogspec                     u1_male_a_muscle_nocog_grip_nocogspec.out                                 
-u1              male     aeh                 muscle                   nocog                     grip                   nocogspec                     u1_male_aeh_muscle_nocog_grip_nocogspec.out                               
-u1              male     aehplus             muscle                   nocog                     grip                   nocogspec                     u1_male_aehplus_muscle_nocog_grip_nocogspec.out                           
-u1              female   a                   nophys                   fluency                   nophysspec             verbalfluencytest             u1_female_a_nophys_fluency_nophysspec_verbalfluencytest.out               
-u1              female   aeh                 nophys                   fluency                   nophysspec             lpsspatialability             u1_female_aeh_nophys_fluency_nophysspec_lpsspatialability.out             
-u1              female   aeh                 nophys                   fluency                   nophysspec             verbalfluencytest             u1_female_aeh_nophys_fluency_nophysspec_verbalfluencytest.out             
-u1              female   aeh                 nophys                   fluency                   nophysspec             waisgeneralknowledge          u1_female_aeh_nophys_fluency_nophysspec_waisgeneralknowledge.out          
-u1              female   aehplus             nophys                   fluency                   nophysspec             lpsspatialability             u1_female_aehplus_nophys_fluency_nophysspec_lpsspatialability.out         
-u1              female   aehplus             nophys                   fluency                   nophysspec             verbalfluencytest             u1_female_aehplus_nophys_fluency_nophysspec_verbalfluencytest.out         
-u1              female   aehplus             nophys                   fluency                   nophysspec             waisgeneralknowledge          u1_female_aehplus_nophys_fluency_nophysspec_waisgeneralknowledge.out      
-u1              female   age                 nophys                   fluency                   nophysspec             lpsspatialability             u1_female_age_nophys_fluency_nophysspec_lpsspatialability.out             
-u1              female   age                 nophys                   fluency                   nophysspec             waisgeneralknowledge          u1_female_age_nophys_fluency_nophysspec_waisgeneralknowledge.out          
-u1              male     a                   nophys                   fluency                   nophysspec             verbalfluencytest             u1_male_a_nophys_fluency_nophysspec_verbalfluencytest.out                 
-u1              male     aeh                 nophys                   fluency                   nophysspec             lpsspatialability             u1_male_aeh_nophys_fluency_nophysspec_lpsspatialability.out               
-u1              male     aeh                 nophys                   fluency                   nophysspec             verbalfluencytest             u1_male_aeh_nophys_fluency_nophysspec_verbalfluencytest.out               
-u1              male     aeh                 nophys                   fluency                   nophysspec             waisgeneralknowledge          u1_male_aeh_nophys_fluency_nophysspec_waisgeneralknowledge.out            
-u1              male     aehplus             nophys                   fluency                   nophysspec             lpsspatialability             u1_male_aehplus_nophys_fluency_nophysspec_lpsspatialability.out           
-u1              male     aehplus             nophys                   fluency                   nophysspec             verbalfluencytest             u1_male_aehplus_nophys_fluency_nophysspec_verbalfluencytest.out           
-u1              male     aehplus             nophys                   fluency                   nophysspec             waisgeneralknowledge          u1_male_aehplus_nophys_fluency_nophysspec_waisgeneralknowledge.out        
-u1              male     age                 nophys                   fluency                   nophysspec             lpsspatialability             u1_male_age_nophys_fluency_nophysspec_lpsspatialability.out               
-u1              male     age                 nophys                   fluency                   nophysspec             waisgeneralknowledge          u1_male_age_nophys_fluency_nophysspec_waisgeneralknowledge.out            
-u1              female   a                   nophys                   reasoning                 nophysspec             waisblockdesign               u1_female_a_nophys_reasoning_nophysspec_waisblockdesign.out               
-u1              female   a                   nophys                   reasoning                 nophysspec             waispicturecompletion         u1_female_a_nophys_reasoning_nophysspec_waispicturecompletion.out         
-u1              female   aeh                 nophys                   reasoning                 nophysspec             waisblockdesign               u1_female_aeh_nophys_reasoning_nophysspec_waisblockdesign.out             
-u1              female   aeh                 nophys                   reasoning                 nophysspec             waispicturecompletion         u1_female_aeh_nophys_reasoning_nophysspec_waispicturecompletion.out       
-u1              female   aehplus             nophys                   reasoning                 nophysspec             waisblockdesign               u1_female_aehplus_nophys_reasoning_nophysspec_waisblockdesign.out         
-u1              female   aehplus             nophys                   reasoning                 nophysspec             waispicturecompletion         u1_female_aehplus_nophys_reasoning_nophysspec_waispicturecompletion.out   
-u1              male     a                   nophys                   reasoning                 nophysspec             waisblockdesign               u1_male_a_nophys_reasoning_nophysspec_waisblockdesign.out                 
-u1              male     a                   nophys                   reasoning                 nophysspec             waispicturecompletion         u1_male_a_nophys_reasoning_nophysspec_waispicturecompletion.out           
-u1              male     aeh                 nophys                   reasoning                 nophysspec             waisblockdesign               u1_male_aeh_nophys_reasoning_nophysspec_waisblockdesign.out               
-u1              male     aeh                 nophys                   reasoning                 nophysspec             waispicturecompletion         u1_male_aeh_nophys_reasoning_nophysspec_waispicturecompletion.out         
-u1              male     aehplus             nophys                   reasoning                 nophysspec             waisblockdesign               u1_male_aehplus_nophys_reasoning_nophysspec_waisblockdesign.out           
-u1              male     aehplus             nophys                   reasoning                 nophysspec             waispicturecompletion         u1_male_aehplus_nophys_reasoning_nophysspec_waispicturecompletion.out     
-u1              female   a                   nophys                   speed                     nophysspec             digitsymbolsubstitutiontest   u1_female_a_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out       
-u1              female   aeh                 nophys                   speed                     nophysspec             digitsymbolsubstitutiontest   u1_female_aeh_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out     
-u1              female   aehplus             nophys                   speed                     nophysspec             digitsymbolsubstitutiontest   u1_female_aehplus_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out 
-u1              male     a                   nophys                   speed                     nophysspec             digitsymbolsubstitutiontest   u1_male_a_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out         
-u1              male     aeh                 nophys                   speed                     nophysspec             digitsymbolsubstitutiontest   u1_male_aeh_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out       
-u1              male     aehplus             nophys                   speed                     nophysspec             digitsymbolsubstitutiontest   u1_male_aehplus_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out   
-u1              female   aeh                 tug                      nocog                     tug                    nocogspec                     u1_female_aeh_tug_nocog_tug_nocogspec.out                                 
-u1              female   aehplus             tug                      nocog                     tug                    nocogspec                     u1_female_aehplus_tug_nocog_tug_nocogspec.out                             
-u1              female   age                 tug                      nocog                     tug                    nocogspec                     u1_female_age_tug_nocog_tug_nocogspec.out                                 
-u1              male     aeh                 tug                      nocog                     tug                    nocogspec                     u1_male_aeh_tug_nocog_tug_nocogspec.out                                   
-u1              male     aehplus             tug                      nocog                     tug                    nocogspec                     u1_male_aehplus_tug_nocog_tug_nocogspec.out                               
-u1              male     age                 tug                      nocog                     tug                    nocogspec                     u1_male_age_tug_nocog_tug_nocogspec.out                                   
+model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                                 
+--------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------------------------------------------------
+u1              female   a                   Univar                   speed                     univar                 symbol                  u1_female_a_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out       
+u1              female   aeh                 Univar                   speed                     univar                 symbol                  u1_female_aeh_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out     
+u1              female   aehplus             Univar                   speed                     univar                 symbol                  u1_female_aehplus_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out 
+u1              male     a                   Univar                   speed                     univar                 symbol                  u1_male_a_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out         
+u1              male     aeh                 Univar                   speed                     univar                 symbol                  u1_male_aeh_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out       
+u1              male     aehplus             Univar                   speed                     univar                 symbol                  u1_male_aehplus_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out   
+u1              female   aeh                 Univar                   fluency                   univar                 lpsspatialability       u1_female_aeh_nophys_fluency_nophysspec_lpsspatialability.out             
+u1              female   aehplus             Univar                   fluency                   univar                 lpsspatialability       u1_female_aehplus_nophys_fluency_nophysspec_lpsspatialability.out         
+u1              female   a                   Univar                   fluency                   univar                 lpsspatialability       u1_female_age_nophys_fluency_nophysspec_lpsspatialability.out             
+u1              male     aeh                 Univar                   fluency                   univar                 lpsspatialability       u1_male_aeh_nophys_fluency_nophysspec_lpsspatialability.out               
+u1              male     aehplus             Univar                   fluency                   univar                 lpsspatialability       u1_male_aehplus_nophys_fluency_nophysspec_lpsspatialability.out           
+u1              male     a                   Univar                   fluency                   univar                 lpsspatialability       u1_male_age_nophys_fluency_nophysspec_lpsspatialability.out               
+u1              female   a                   muscle                   Univar                    grip                   univar                  u1_female_a_muscle_nocog_grip_nocogspec.out                               
+u1              female   aeh                 muscle                   Univar                    grip                   univar                  u1_female_aeh_muscle_nocog_grip_nocogspec.out                             
+u1              female   aehplus             muscle                   Univar                    grip                   univar                  u1_female_aehplus_muscle_nocog_grip_nocogspec.out                         
+u1              male     a                   muscle                   Univar                    grip                   univar                  u1_male_a_muscle_nocog_grip_nocogspec.out                                 
+u1              male     aeh                 muscle                   Univar                    grip                   univar                  u1_male_aeh_muscle_nocog_grip_nocogspec.out                               
+u1              male     aehplus             muscle                   Univar                    grip                   univar                  u1_male_aehplus_muscle_nocog_grip_nocogspec.out                           
+u1              female   aeh                 tug                      Univar                    tug                    univar                  u1_female_aeh_tug_nocog_tug_nocogspec.out                                 
+u1              female   aehplus             tug                      Univar                    tug                    univar                  u1_female_aehplus_tug_nocog_tug_nocogspec.out                             
+u1              female   a                   tug                      Univar                    tug                    univar                  u1_female_age_tug_nocog_tug_nocogspec.out                                 
+u1              male     aeh                 tug                      Univar                    tug                    univar                  u1_male_aeh_tug_nocog_tug_nocogspec.out                                   
+u1              male     aehplus             tug                      Univar                    tug                    univar                  u1_male_aehplus_tug_nocog_tug_nocogspec.out                               
+u1              male     a                   tug                      Univar                    tug                    univar                  u1_male_age_tug_nocog_tug_nocogspec.out                                   
+u1              female   a                   Univar                   fluency                   univar                 verbalfluency           u1_female_a_nophys_fluency_nophysspec_verbalfluencytest.out               
+u1              female   aeh                 Univar                   fluency                   univar                 verbalfluency           u1_female_aeh_nophys_fluency_nophysspec_verbalfluencytest.out             
+u1              female   aehplus             Univar                   fluency                   univar                 verbalfluency           u1_female_aehplus_nophys_fluency_nophysspec_verbalfluencytest.out         
+u1              male     a                   Univar                   fluency                   univar                 verbalfluency           u1_male_a_nophys_fluency_nophysspec_verbalfluencytest.out                 
+u1              male     aeh                 Univar                   fluency                   univar                 verbalfluency           u1_male_aeh_nophys_fluency_nophysspec_verbalfluencytest.out               
+u1              male     aehplus             Univar                   fluency                   univar                 verbalfluency           u1_male_aehplus_nophys_fluency_nophysspec_verbalfluencytest.out           
+u1              female   a                   Univar                   reasoning                 univar                 block                   u1_female_a_nophys_reasoning_nophysspec_waisblockdesign.out               
+u1              female   aeh                 Univar                   reasoning                 univar                 block                   u1_female_aeh_nophys_reasoning_nophysspec_waisblockdesign.out             
+u1              female   aehplus             Univar                   reasoning                 univar                 block                   u1_female_aehplus_nophys_reasoning_nophysspec_waisblockdesign.out         
+u1              male     a                   Univar                   reasoning                 univar                 block                   u1_male_a_nophys_reasoning_nophysspec_waisblockdesign.out                 
+u1              male     aeh                 Univar                   reasoning                 univar                 block                   u1_male_aeh_nophys_reasoning_nophysspec_waisblockdesign.out               
+u1              male     aehplus             Univar                   reasoning                 univar                 block                   u1_male_aehplus_nophys_reasoning_nophysspec_waisblockdesign.out           
+u1              female   aeh                 Univar                   fluency                   univar                 waisgeneralknowledge    u1_female_aeh_nophys_fluency_nophysspec_waisgeneralknowledge.out          
+u1              female   aehplus             Univar                   fluency                   univar                 waisgeneralknowledge    u1_female_aehplus_nophys_fluency_nophysspec_waisgeneralknowledge.out      
+u1              female   a                   Univar                   fluency                   univar                 waisgeneralknowledge    u1_female_age_nophys_fluency_nophysspec_waisgeneralknowledge.out          
+u1              male     aeh                 Univar                   fluency                   univar                 waisgeneralknowledge    u1_male_aeh_nophys_fluency_nophysspec_waisgeneralknowledge.out            
+u1              male     aehplus             Univar                   fluency                   univar                 waisgeneralknowledge    u1_male_aehplus_nophys_fluency_nophysspec_waisgeneralknowledge.out        
+u1              male     a                   Univar                   fluency                   univar                 waisgeneralknowledge    u1_male_age_nophys_fluency_nophysspec_waisgeneralknowledge.out            
+u1              female   a                   Univar                   reasoning                 univar                 waispicturecompletion   u1_female_a_nophys_reasoning_nophysspec_waispicturecompletion.out         
+u1              female   aeh                 Univar                   reasoning                 univar                 waispicturecompletion   u1_female_aeh_nophys_reasoning_nophysspec_waispicturecompletion.out       
+u1              female   aehplus             Univar                   reasoning                 univar                 waispicturecompletion   u1_female_aehplus_nophys_reasoning_nophysspec_waispicturecompletion.out   
+u1              male     a                   Univar                   reasoning                 univar                 waispicturecompletion   u1_male_a_nophys_reasoning_nophysspec_waispicturecompletion.out           
+u1              male     aeh                 Univar                   reasoning                 univar                 waispicturecompletion   u1_male_aeh_nophys_reasoning_nophysspec_waispicturecompletion.out         
+u1              male     aehplus             Univar                   reasoning                 univar                 waispicturecompletion   u1_male_aehplus_nophys_reasoning_nophysspec_waispicturecompletion.out     
 
 ## u0
 
 
-model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure         file name                                                               
---------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------------  ------------------------------------------------------------------------
-u0              female   empty               muscle                   nocog                     grip                   nocogspec                     u0_female_empty_muscle_nocog_grip_nocogspec.out                         
-u0              male     empty               muscle                   nocog                     grip                   nocogspec                     u0_male_empty_muscle_nocog_grip_nocogspec.out                           
-u0              female   empty               nophys                   fluency                   nophysspec             verbalfluencytest             u0_female_empty_nophys_fluency_nophysspec_verbalfluencytest.out         
-u0              female   empty               nophys                   fluency                   nophysspec             waisgeneralknowledge          u0_female_empty_nophys_fluency_nophysspec_waisgeneralknowledge.out      
-u0              male     empty               nophys                   fluency                   nophysspec             verbalfluencytest             u0_male_empty_nophys_fluency_nophysspec_verbalfluencytest.out           
-u0              male     empty               nophys                   fluency                   nophysspec             waisgeneralknowledge          u0_male_empty_nophys_fluency_nophysspec_waisgeneralknowledge.out        
-u0              female   empty               nophys                   reasoning                 nophysspec             lpsspatialability             u0_female_empty_nophys_reasoning_nophysspec_lpsspatialability.out       
-u0              female   empty               nophys                   reasoning                 nophysspec             waisblockdesign               u0_female_empty_nophys_reasoning_nophysspec_waisblockdesign.out         
-u0              female   empty               nophys                   reasoning                 nophysspec             waispicturecompletion         u0_female_empty_nophys_reasoning_nophysspec_waispicturecompletion.out   
-u0              male     empty               nophys                   reasoning                 nophysspec             lpsspacialability             u0_male_empty_nophys_reasoning_nophysspec_lpsspacialability.out         
-u0              male     empty               nophys                   reasoning                 nophysspec             waisblockdesign               u0_male_empty_nophys_reasoning_nophysspec_waisblockdesign.out           
-u0              male     empty               nophys                   reasoning                 nophysspec             waispicturecompletion         u0_male_empty_nophys_reasoning_nophysspec_waispicturecompletion.out     
-u0              female   empty               nophys                   speed                     nophysspec             digitsymbolsubstitutiontest   u0_female_empty_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out 
-u0              male     empty               nophys                   speed                     nophysspec             digitsymbolsubstitutiontest   u0_male_empty_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out   
-u0              female   empty               tug                      nocog                     tug                    nocogspec                     u0_female_empty_tug_nocog_tug_nocogspec.out                             
-u0              male     empty               tug                      nocog                     tug                    nocogspec                     u0_male_empty_tug_nocog_tug_nocogspec.out                               
+model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                               
+--------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ------------------------------------------------------------------------
+u0              female   0                   Univar                   speed                     univar                 symbol                  u0_female_empty_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out 
+u0              male     0                   Univar                   speed                     univar                 symbol                  u0_male_empty_nophys_speed_nophysspec_digitsymbolsubstitutiontest.out   
+u0              male     0                   Univar                   reasoning                 univar                 lpsspacialability       u0_male_empty_nophys_reasoning_nophysspec_lpsspacialability.out         
+u0              female   0                   Univar                   reasoning                 univar                 lpsspatialability       u0_female_empty_nophys_reasoning_nophysspec_lpsspatialability.out       
+u0              female   0                   muscle                   Univar                    grip                   univar                  u0_female_empty_muscle_nocog_grip_nocogspec.out                         
+u0              male     0                   muscle                   Univar                    grip                   univar                  u0_male_empty_muscle_nocog_grip_nocogspec.out                           
+u0              female   0                   tug                      Univar                    tug                    univar                  u0_female_empty_tug_nocog_tug_nocogspec.out                             
+u0              male     0                   tug                      Univar                    tug                    univar                  u0_male_empty_tug_nocog_tug_nocogspec.out                               
+u0              female   0                   Univar                   fluency                   univar                 verbalfluency           u0_female_empty_nophys_fluency_nophysspec_verbalfluencytest.out         
+u0              male     0                   Univar                   fluency                   univar                 verbalfluency           u0_male_empty_nophys_fluency_nophysspec_verbalfluencytest.out           
+u0              female   0                   Univar                   reasoning                 univar                 block                   u0_female_empty_nophys_reasoning_nophysspec_waisblockdesign.out         
+u0              male     0                   Univar                   reasoning                 univar                 block                   u0_male_empty_nophys_reasoning_nophysspec_waisblockdesign.out           
+u0              female   0                   Univar                   fluency                   univar                 waisgeneralknowledge    u0_female_empty_nophys_fluency_nophysspec_waisgeneralknowledge.out      
+u0              male     0                   Univar                   fluency                   univar                 waisgeneralknowledge    u0_male_empty_nophys_fluency_nophysspec_waisgeneralknowledge.out        
+u0              female   0                   Univar                   reasoning                 univar                 waispicturecompletion   u0_female_empty_nophys_reasoning_nophysspec_waispicturecompletion.out   
+u0              male     0                   Univar                   reasoning                 univar                 waispicturecompletion   u0_male_empty_nophys_reasoning_nophysspec_waispicturecompletion.out     
 
 
 # Session Information
@@ -470,7 +470,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-01, 09:37 -0700
+Report rendered by koval_000 at 2015-07-15, 19:40 -0700
 ```
 
 ```
@@ -486,15 +486,13 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] rpivotTable_0.1.4.1   lattice_0.20-31       shiny_0.12.1          dplyr_0.4.1           testit_0.4           
- [6] ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5          knitr_1.10.5          MplusAutomation_0.6-3
+[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5         
+[6] knitr_1.10.5          MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6       formatR_1.2       plyr_1.8.2        highr_0.5         tools_3.2.0       boot_1.3-16      
- [7] digest_0.6.8      jsonlite_0.9.16   evaluate_0.7      gtable_0.1.2      texreg_1.35       rstudioapi_0.3.1 
-[13] DBI_0.3.1         yaml_2.1.13       parallel_3.2.0    proto_0.3-10      coda_0.17-1       stringr_1.0.0    
-[19] htmlwidgets_0.4.2 R6_2.0.1          tcltk_3.2.0       gsubfn_0.6-6      rmarkdown_0.7     tidyr_0.2.0      
-[25] reshape2_1.4.1    magrittr_1.5      htmltools_0.2.6   MASS_7.3-40       rsconnect_0.3.79  assertthat_0.1   
-[31] mime_0.3          xtable_1.7-4      colorspace_1.2-6  httpuv_1.3.2      labeling_0.3      stringi_0.4-1    
-[37] lazyeval_0.1.10   munsell_0.4.2    
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
+ [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
+[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
+[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
+[25] evaluate_0.7     rmarkdown_0.7    gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
 ```

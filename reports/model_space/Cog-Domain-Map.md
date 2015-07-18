@@ -85,7 +85,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-01, 09:25 -0700
+Report rendered by koval_000 at 2015-07-15, 19:41 -0700
 ```
 
 ```

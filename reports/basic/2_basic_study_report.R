@@ -18,13 +18,13 @@ library(testit, quietly=TRUE) #For asserts
 library(dplyr)
 
 ## @knitr load_data
-ds1a <- readRDS('./data/shared/ds1a.rds')
+ds2 <- readRDS('./data/shared/ds2.rds')
 keepvar <- c("model_number","study_name", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
-dsTemp <- ds1a[ , keepvar]
+dsTemp <- ds2[ , keepvar]
 
 
 ## at this point we'd like to keep the span of models to linear forms (u1, b1)
-dsb <- ds1a %>% dplyr::filter(model_number %in% c("u1","b1")) %>%
+dsb <- ds2 %>% dplyr::filter(model_number %in% c("u1","b1")) %>%
   dplyr::select_("study_name","model_number","subgroup","model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
 
 
@@ -35,7 +35,7 @@ unique(ds$study_name)
 names(ds)
 
 ## @knitr number_studies
-cat(paste0("**",length(ds1a$study_name),"**"))
+cat(paste0("**",length(ds2$study_name),"**"))
 
 ## @knitr number_studies_filtered
 cat(paste0("**",length(dsb$study_name),"**"))
@@ -46,7 +46,7 @@ pathDir <- getwd() # establish home directory
 pathStudies <- file.path(pathDir,"studies")
 misslong <- list.dirs(pathStudies, recursive = F)
 missing <- basename(misslong)
-present <- unique(ds1a$study_name)
+present <- unique(ds2$study_name)
 miss <- missing[!(missing %in% present)]
 cat(miss)
 
@@ -63,12 +63,12 @@ cat(miss)
 
 
 ## @knitr freq_studies
-t1<-table(ds1a$study_name)
+t1<-table(ds2$study_name)
 t1[t1==0] <- "."
 t1
 
 
-t1a<-table(ds1a$model_number, ds1a$study_name)
+t1a<-table(ds2$model_number, ds2$study_name)
 t1a[t1a==0] <- "."
 t1a
 
@@ -249,7 +249,7 @@ dplyr::arrange(physSpec, name)
 ## @knitr prepare_pretty
 # names(dsb)
 
-ds <- ds1a %>%
+ds <- ds2 %>%
   dplyr::arrange(physical_construct, cognitive_construct, physical_measure, cognitive_measure, subgroup, model_type)
 
 

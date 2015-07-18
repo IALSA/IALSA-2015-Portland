@@ -18,13 +18,13 @@ library(testit, quietly=TRUE) #For asserts
 library(dplyr)
 
 ## @knitr load_data
-ds1a <- readRDS('./data/shared/ds1a.rds')
-dsb <- ds1a %>% dplyr::filter(model_number %in% c("u1","b1")) %>%
+ds2 <- readRDS('./data/shared/ds2.rds')
+dsb <- ds2 %>% dplyr::filter(model_number %in% c("u1","b1")) %>%
   dplyr::select_("study_name","model_number","subgroup","model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
 
 keepvar <- c("study_name","model_number","subgroup","model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
 
-dsDemo <- ds1a[ , keepvar]
+dsDemo <- ds2[ , keepvar]
 # head(dsDemo)
 ## @knitr dummy
 
@@ -141,5 +141,6 @@ ds %>% dplyr::count(cognitive_measure, physical_measure, study_name, model_type,
 
 ## @knitr dashboard_tile_graph
 source("./reports/model_space/scripts/tile_model_5D.R")
+quadrotile_graph(ds)
 
 

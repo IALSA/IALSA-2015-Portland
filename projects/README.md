@@ -1,6 +1,6 @@
 #Current Projects
 
-Each of the projects ideally will result in a special issue publication, consisting of one overarching paper and one smaller paper for each study. 
+Each of the projects ideally will result in a special issue publication, consisting of two overarching papers and one smaller paper for each study. 
 ![publication model](.././libs/materials/publication_model/publication_model-01.png)
 [CLICK TO ADD DESCRIPTION](https://github.com/IALSA/IALSA-2015-Portland/edit/master/projects/README.md)
 

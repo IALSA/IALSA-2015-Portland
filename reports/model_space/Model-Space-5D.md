@@ -35,9 +35,9 @@ This report establishes four key graphs that go into compiling the Model Catalog
 
 ```
     
-     eas elsa habc ilse nas nuage octo radc satsa
-  b1 218 60   48   71   28  6     88   137  152  
-  u1 129 57   30   48   2   36    .    4    .    
+     eas elsa habc hrs ilse nas nuage octo radc satsa
+  b1 219 60   48   72  71   48  12    88   151  152  
+  u1 129 57   30   .   48   6   36    .    149  .    
 ```
 
 
@@ -84,7 +84,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-04, 12:58 -0700
+Report rendered by koval_000 at 2015-07-16, 10:06 -0700
 ```
 
 ```
@@ -100,11 +100,13 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.5       knitr_1.10.5      
+[1] shiny_0.12.1       dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.5      
+[7] knitr_1.10.5      
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 stringr_1.0.0   
- [7] plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2     DBI_0.3.1        htmltools_0.2.6 
-[13] lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1   reshape2_1.4.1   formatR_1.2     
-[19] evaluate_0.7     rmarkdown_0.7    labeling_0.3     stringi_0.4-1    proto_0.3-10    
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    xtable_1.7-4     colorspace_1.2-6
+ [7] R6_2.0.1         stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2    
+[13] DBI_0.3.1        htmltools_0.2.6  lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1  
+[19] reshape2_1.4.1   formatR_1.2      mime_0.3         evaluate_0.7     rmarkdown_0.7    labeling_0.3    
+[25] stringi_0.4-1    httpuv_1.3.2     proto_0.3-10    
 ```

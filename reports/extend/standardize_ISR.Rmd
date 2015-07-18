@@ -1,3 +1,12 @@
+---
+title: "Standardize ISR"
+output:
+  html_document:
+    keep_md: yes
+    toc: yes
+---
+
+
 <!-- These two chunks should be added in the beginning of every .Rmd that you want to source an .R script -->
 
 
@@ -65,15 +74,83 @@ read_chunk("./reports/extend/standardize_ISR.R")
 ```{r tweak_data, echo=echoChunks, results='show', message=FALSE}
 ```
 
+At this point in the workflow, we have a **ds1** - with cleaned, renamed, and re-classified model descriptors. 
+<!-- Basic view.   -->
+```{r basic_view, echo=TRUE, results='show', message=FALSE}
 
+```
+The rows of this dataset correspond to the individual models submitted into the Collective, while the columns store various model descriptors, including estimated model parameters.   
 
+All of these model predictors were extracted from the original Mplus output files. They contain misfit , subject and parameter counts, various fit indicies, and estimated parameters. [Model Specification](./reports/model_specification/README.md) report shows how the equation elements correspond to 1) the elements on the Mplus output and 2) to the columns in the dataset. Use this notation to keep track of the following trasformations.  
+  
+
+![bivariate model specification](../../libs/images/general_model_specification.png)    
+![covariance structure](../../libs/images/specification_covariance_structure.png)
+
+- *&gamma;<sub>00</sub>* - o_GAMMA_00 -  average **initial status** / common intercept of an outcome       
+- *&gamma;<sub>10</sub>* - o_GAMMA_10 -  average **rate of change** / common slope of an outcome      
+- *&gamma;<sub>0k</sub>* - o_GAMMA_0k -  effect of the *k*th predictor on the random intercept of an outcome  
+- *&gamma;<sub>1k</sub>* - o_GAMMA_1k - effect of the *k*th predictor on the random slope of an outcome
+- *<sub>pp</sub>&tau;<sub>00</sub>* - pp_TAU_00 - variance of physical intercept  
+- *<sub>pp</sub>&tau;<sub>11</sub>* - pp_TAU_11 - variance of physical slope  
+- *<sub>cc</sub>&tau;<sub>11</sub>* - cc_TAU_11 - variance of cognitive slope  
+- *<sub>cc</sub>&tau;<sub>00</sub>* - cc_TAU_00 - variance of cogntive intercept     
+- *<sub>pp</sub>&tau;<sub>01</sub>* - pp_TAU_01 - covariance btw physical intercept and physical slope  
+- *<sub>pc</sub>&tau;<sub>01</sub>* - pc_TAU_01 - covariance btw physical intercept and cognitive slope   
+- *<sub>pc</sub>&tau;<sub>00</sub>* - pc_TAU_00 - covariance btw physical intercept and cognitive intercept - **I**   
+- *<sub>pc</sub>&tau;<sub>11</sub>* - pc_TAU_11 - covariance btw physical slope and cognitive slope  - **S**  - 
+- *<sub>pc</sub>&tau;<sub>10</sub>* - pc_TAU_10 - covariance btw physical slope and cognitive intercept   
+- *<sub>cc</sub>&tau;<sub>10</sub>* - cc_TAU_10 - covariance btw cognitive slope and cognitive intercept      
+- *<sub>p</sub>&#963;</sub>* - p_SIGMA - variance of the physical residual   
+- *<sub>c</sub>&#963;</sub>* - c_SIGMA - variance of the cogntive residual    
+- *<sub>pc</sub>&#963;</sub>* - pc_SIGMA - covariance btw physcial residual and cogntive residual - **R** 
+
+## Covariance into Correlation
+In order to compare models we would like to bring their covariances between intercepts (pc_TAU_00), slopes (pc_TAU_11), and residuals (pc_SIGMA) on the the same scale. A standardized covariance is a correlation. Therefore we compute it by deviding the varince by the product of the square roots of the individual variances:
 <!-- Basic view.   -->
 ```{r standardize_coefficients, echo=TRUE, results='show', message=FALSE}
 ```
 
-```{r}
-head(ds[ , c("study_name","model_number","subgroup", "model_type", "physical_measure","cognitive_measure")], 30)
+
+```{r bivariate_test, echo=FALSE, results='hide', message=FALSE}
 ```
+
+## Confidence Intervals
+
+See [http://www2.sas.com/proceedings/sugi31/170-31.pdf](http://www2.sas.com/proceedings/sugi31/170-31.pdf) and [http://www.fon.hum.uva.nl/praat/manual/Correlation__Confidence_intervals___.html](http://www.fon.hum.uva.nl/praat/manual/Correlation__Confidence_intervals___.html) for details.
+We set alpha to .05, intending to compute 95% confidence intervals.   
+
+```{r alpha_limit, echo=TRUE, results='hide', message=FALSE}
+```
+
+we compute confidence limits as
+\[\begin{array}{l}
+{\zeta _{low}} = {r} - {r_{(1 - \alpha /2)}}\sqrt {\frac{1}{{n - 3}}} \\
+{\zeta _{high}} = {r} + {r_{(1 - \alpha /2)}}\sqrt {\frac{1}{{n - 3}}} 
+\end{array}\]  
+
+```{r confidence_limits, echo=TRUE, results='show', message=FALSE}
+```
+
+Now we use these computed confidence limits to obtain confidence intervals for the correlation
+\[\begin{array}{l}
+{r_{low}} = \tanh ({\zeta _{low}}) = \frac{{\exp (2{\zeta _{low}}) - 1}}{{\exp (2{\zeta _{low}}) + 1}}\\
+{r_{high}} = \tanh ({\zeta _{high}}) = \frac{{\exp (2{\zeta _{high}}) - 1}}{{\exp (2{\zeta _{high}}) + 1}}
+\end{array}\]
+
+```{r ci_correlation, echo=TRUE, results='show', message=FALSE}
+```
+
+
+```{r}
+# head(ds[ , c("study_name","model_number","subgroup", "model_type", "physical_measure","cognitive_measure")], 30)
+```
+
+## Export log
+```{r export_dataset}
+```
+
+
 
 
 

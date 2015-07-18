@@ -1,0 +1,262 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+07/15/2015  12:44 PM
+INPUT INSTRUCTIONS
+  TITLE: B1 Hand strength, Delayed Recall, AEHPLUS, Female
+  DATA:  File = "\\tsclient\C\Users\wuche\Dropbox\Research\IALSA\Mplus\Data\grip.dat";
+  Variable:
+    Names are
+       hhid pn JAGE JALIVE JINSAMP JIWWAVE KAGE KALIVE KINSAMP KIWWAVE LAGE
+       LALIVE LINSAMP LIWWAVE MAGE MALIVE MINSAMP MIWWAVE NAGE NALIVE NINSAMP
+       NIWWAVE WHITE MALE educ04 smoke04 height04 bmi04 diabetes04 cvd04
+       walk04 walk06 walk10 peak04 peak06 peak10 grip04 grip06 grip10 recall04i
+       recall06i recall08i recall10i recall12i recall04d recall06d recall08d
+       recall10d recall12d serial06 serial04 serial08 serial10 serial12 vocabulary04
+       vocabulary06 vocabulary08 vocabulary10 vocabulary12 tisc04 tisc06
+       tisc08 tisc10 tisc12 cesd04 cesd06 cesd08 cesd10 cesd12 t1 t2 t3 t4
+       t5;
+    MISSING are all(-9999);
+    USEVAR  are diabetes04 cvd04 smoke04 time1 time2 time3 time4 time5
+                Educ Height
+                Bage p1 p2 p4 c1 c2 c3 c4 c5;
+    TSCORES =   time1 time2 time3 time4 time5;
+    CLUSTER =   hhid;
+    SUBPOPULATION are MALE EQ 0;
+  DEFINE: p1=grip04; p2 = grip06; p4 = grip10;
+          c1=recall04d; c2=recall06d; c3=recall08d; c4=recall10d; c5=recall12d;
+          time1 = t1; time2 = t2; time3 = t3; time4 = t4; time5 = t5;
+          Bage = JAGE-70;
+          Educ   = educ04-7;
+          Height = height04-1.60;
+  ANALYSIS: TYPE = RANDOM COMPLEX;
+  MODEL: ip sp | p1 p2 p4 AT time1 time2       time4;
+         ic sc | c1-c5    AT time1 time2 time3 time4 time5;
+         ip sp ic sc ON Bage Educ Height diabetes04 cvd04 smoke04;
+         p1 p2 p4 (res_p);
+         c1-c5 (res_p);
+         p1  with c1  (res_cov);
+         p2  with c2  (res_cov);
+         p4  with c4  (res_cov);
+  OUTPUT: sampstat Cinterval;
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+B1 Hand strength, Delayed Recall, AEHPLUS, Female
+SUMMARY OF ANALYSIS
+Number of groups                                                 1
+Number of observations                                         641
+Number of dependent variables                                    8
+Number of independent variables                                  6
+Number of continuous latent variables                            4
+Observed dependent variables
+  Continuous
+   P1          P2          P4          C1          C2          C3
+   C4          C5
+Observed independent variables
+   DIABETES    CVD04       SMOKE04     EDUC        HEIGHT      BAGE
+Continuous latent variables
+   IP          SP          IC          SC
+Variables with special functions
+  Cluster variable      HHID
+  Weight variable       _WEIGHT
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Input data file(s)
+  \\tsclient\C\Users\wuche\Dropbox\Research\IALSA\Mplus\Data\grip.dat
+Input data format  FREE
+SAMPLE STATISTICS
+     ESTIMATED SAMPLE STATISTICS
+           Means
+              P1            P2            P4            C1            C2
+              ________      ________      ________      ________      ________
+ 1             24.678        23.049        21.159         4.508         4.295
+           Means
+              C3            C4            C5            DIABETES      CVD04
+              ________      ________      ________      ________      ________
+ 1              4.277         4.042         3.839         0.159         0.218
+           Means
+              SMOKE04       EDUC          HEIGHT        BAGE
+              ________      ________      ________      ________
+ 1              0.117         5.688         0.010        -0.933
+           Covariances
+              P1            P2            P4            C1            C2
+              ________      ________      ________      ________      ________
+ P1           272.798
+ P2            30.603        37.625
+ P4            27.032        31.655        44.326
+ C1             4.293         3.940         4.904         3.823
+ C2             5.651         4.894         5.374         2.510         4.517
+ C3             4.289         4.603         5.740         2.419         2.899
+ C4             5.569         5.113         6.286         2.411         2.924
+ C5             5.112         5.823         6.662         2.432         3.003
+ DIABETES      -0.382        -0.307        -0.316        -0.093        -0.108
+ CVD04         -0.760        -0.597        -0.691        -0.162        -0.220
+ SMOKE04        0.069         0.199         0.205         0.081         0.086
+ EDUC           4.403         1.763         2.350         1.458         1.627
+ HEIGHT         0.101         0.123         0.140         0.021         0.025
+ BAGE         -42.034       -40.327       -44.469        -9.559       -12.005
+           Covariances
+              C3            C4            C5            DIABETES      CVD04
+              ________      ________      ________      ________      ________
+ C3             5.026
+ C4             2.957         4.735
+ C5             3.190         3.296         5.481
+ DIABETES      -0.101        -0.112        -0.152         0.134
+ CVD04         -0.191        -0.195        -0.207         0.018         0.171
+ SMOKE04        0.068         0.087         0.053        -0.005        -0.007
+ EDUC           1.450         1.599         1.179        -0.128        -0.105
+ HEIGHT         0.023         0.027         0.024        -0.003        -0.002
+ BAGE         -11.944       -14.824       -14.672         0.432         1.208
+           Covariances
+              SMOKE04       EDUC          HEIGHT        BAGE
+              ________      ________      ________      ________
+ SMOKE04        0.103
+ EDUC          -0.035         7.893
+ HEIGHT         0.001         0.035         0.005
+ BAGE          -1.037        -4.004        -0.165       133.570
+           Correlations
+              P1            P2            P4            C1            C2
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.302         1.000
+ P4             0.246         0.775         1.000
+ C1             0.133         0.329         0.377         1.000
+ C2             0.161         0.375         0.380         0.604         1.000
+ C3             0.116         0.335         0.385         0.552         0.608
+ C4             0.155         0.383         0.434         0.567         0.632
+ C5             0.132         0.405         0.427         0.531         0.604
+ DIABETES      -0.063        -0.137        -0.130        -0.130        -0.139
+ CVD04         -0.111        -0.236        -0.251        -0.201        -0.250
+ SMOKE04        0.013         0.101         0.096         0.129         0.125
+ EDUC           0.095         0.102         0.126         0.265         0.272
+ HEIGHT         0.090         0.296         0.309         0.161         0.176
+ BAGE          -0.220        -0.569        -0.578        -0.423        -0.489
+           Correlations
+              C3            C4            C5            DIABETES      CVD04
+              ________      ________      ________      ________      ________
+ C3             1.000
+ C4             0.606         1.000
+ C5             0.608         0.647         1.000
+ DIABETES      -0.123        -0.140        -0.178         1.000
+ CVD04         -0.206        -0.217        -0.214         0.121         1.000
+ SMOKE04        0.095         0.124         0.070        -0.039        -0.051
+ EDUC           0.230         0.261         0.179        -0.125        -0.090
+ HEIGHT         0.151         0.182         0.150        -0.119        -0.055
+ BAGE          -0.461        -0.589        -0.542         0.102         0.253
+           Correlations
+              SMOKE04       EDUC          HEIGHT        BAGE
+              ________      ________      ________      ________
+ SMOKE04        1.000
+ EDUC          -0.039         1.000
+ HEIGHT         0.046         0.186         1.000
+ BAGE          -0.279        -0.123        -0.210         1.000
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -27081.706
+     WARNING: THE MODEL ESTIMATION HAS REACHED A SADDLE POINT OR A POINT WHERE THE
+     OBSERVED AND THE EXPECTED INFORMATION MATRICES DO NOT MATCH.
+     AN ADJUSTMENT TO THE ESTIMATION OF THE INFORMATION MATRIX HAS BEEN MADE.
+     THE CONDITION NUMBER IS      -0.292D-03.
+     THE PROBLEM MAY ALSO BE RESOLVED BY DECREASING THE VALUE OF THE
+     MCONVERGENCE OR LOGCRITERION OPTIONS OR BY CHANGING THE STARTING VALUES
+     OR BY USING THE MLF ESTIMATOR.
+THE MODEL ESTIMATION TERMINATED NORMALLY
+MODEL FIT INFORMATION
+Number of Free Parameters                       40
+Loglikelihood
+          H0 Value                      -13826.331
+          H0 Scaling Correction Factor      9.8875
+            for MLR
+Information Criteria
+          Akaike (AIC)                   27732.662
+          Bayesian (BIC)                 27911.184
+          Sample-Size Adjusted BIC       27784.186
+            (n* = (n + 2) / 24)
+MODEL RESULTS
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+ IP         ON
+    BAGE              -0.287      0.070     -4.121      0.000
+    EDUC               0.218      0.184      1.186      0.236
+    HEIGHT             9.967      6.155      1.619      0.105
+    DIABETES04        -1.122      0.695     -1.614      0.106
+    CVD04             -1.793      0.734     -2.442      0.015
+    SMOKE04           -2.008      1.064     -1.888      0.059
+ SP         ON
+    BAGE               0.002      0.015      0.123      0.902
+    EDUC              -0.050      0.039     -1.291      0.197
+    HEIGHT             1.747      1.294      1.349      0.177
+    DIABETES04         0.019      0.147      0.130      0.897
+    CVD04             -0.005      0.154     -0.033      0.973
+    SMOKE04            0.126      0.215      0.587      0.557
+ IC         ON
+    BAGE              -0.062      0.006    -10.791      0.000
+    EDUC               0.152      0.021      7.242      0.000
+    HEIGHT             1.293      0.990      1.305      0.192
+    DIABETES04        -0.225      0.169     -1.330      0.184
+    CVD04             -0.486      0.164     -2.965      0.003
+    SMOKE04            0.177      0.189      0.934      0.350
+ SC         ON
+    BAGE              -0.004      0.001     -3.774      0.000
+    EDUC              -0.005      0.004     -1.384      0.166
+    HEIGHT            -0.149      0.173     -0.859      0.390
+    DIABETES04        -0.046      0.032     -1.425      0.154
+    CVD04              0.020      0.030      0.653      0.514
+    SMOKE04           -0.074      0.035     -2.134      0.033
+ SP       WITH
+    IP               -24.339     13.076     -1.861      0.063
+ IC       WITH
+    IP                 0.766      1.368      0.560      0.575
+    SP                -0.039      0.476     -0.081      0.935
+ SC       WITH
+    IP                -0.119      0.254     -0.469      0.639
+    SP                 0.022      0.092      0.240      0.811
+    IC                -0.003      0.399     -0.006      0.995
+ P1       WITH
+    C1                 0.078      0.060      1.307      0.191
+ P2       WITH
+    C2                 0.078      0.060      1.307      0.191
+ P4       WITH
+    C4                 0.078      0.060      1.307      0.191
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    IP                23.637      0.893     26.479      0.000
+    SP                -0.264      0.188     -1.403      0.161
+    IC                 3.687      0.144     25.612      0.000
+    SC                -0.023      0.026     -0.875      0.381
+ Residual Variances
+    P1                16.316      6.490      2.514      0.012
+    P2                16.316      6.490      2.514      0.012
+    P4                16.316      6.490      2.514      0.012
+    C1                16.316      6.490      2.514      0.012
+    C2                16.316      6.490      2.514      0.012
+    C3                16.316      6.490      2.514      0.012
+    C4                16.316      6.490      2.514      0.012
+    C5                16.316      6.490      2.514      0.012
+    IP               131.156     63.823      2.055      0.040
+    SP                 4.959      2.518      1.969      0.049
+    IC                 0.042      0.415      0.101      0.920
+    SC                 0.001      0.123      0.005      0.996
+QUALITY OF NUMERICAL RESULTS
+     Condition Number for the Information Matrix             -0.292E-03
+       (ratio of smallest to largest eigenvalue)

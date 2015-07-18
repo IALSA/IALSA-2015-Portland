@@ -21,59 +21,59 @@ library(dplyr)
 
 ## @knitr load_data
 ds1 <- readRDS('./data/shared/ds1.rds')
-ds1a <- readRDS('./data/shared/ds1a.rds') # names corrected
+ds2 <- readRDS('./data/shared/ds2.rds') # names corrected
 keepvar <- c("model_number","study_name","model_type", "subgroup", "physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file")
 ds <- ds1[ , keepvar]
 
 ## @knitr load_eas
 selected_study <- "eas"
 ds <- ds1[ds1$study_name==selected_study,]
-dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds2[ds2$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_elsa
 selected_study <- "elsa"
 ds <- ds1[ds1$study_name==selected_study,]
-dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds2[ds2$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_habc
 selected_study <- "habc"
 ds <- ds1[ds1$study_name==selected_study,]
-dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds2[ds2$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_ilse
 selected_study <- "ilse"
 ds <- ds1[ds1$study_name==selected_study,]
-dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds2[ds2$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_nas
 selected_study <- "nas"
 ds <- ds1[ds1$study_name==selected_study,]
-dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds2[ds2$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_nuage
 selected_study <- "nuage"
 ds <- ds1[ds1$study_name==selected_study,]
-dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds2[ds2$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_obas
 selected_study <- "obas"
 ds <- ds1[ds1$study_name==selected_study,]
-dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds2[ds2$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_octo
 selected_study <- "octo"
 ds <- ds1[ds1$study_name==selected_study,]
-dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds2[ds2$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_radc
 selected_study <- "radc"
 ds <- ds1[ds1$study_name==selected_study,]
-dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds2[ds2$study_name==selected_study,] # filtered and corrected
 
 ## @knitr load_satsa
 selected_study <- "satsa"
 ds <- ds1[ds1$study_name==selected_study,]
-dsa <- ds1a[ds1a$study_name==selected_study,] # filtered and corrected
+dsa <- ds2[ds2$study_name==selected_study,] # filtered and corrected
 
 
 
@@ -236,11 +236,11 @@ ds_pretty <- plyr::rename(ds_pretty, replace=c(
 # print(knitr::kable(ds_pretty[ , -(1)], caption="All your models", row.names= F))
 #
 
-tags <- unique(ds_pretty$`model<br/>tag`)
-for( i in 1:length(tags) ){
-  d <- ds_pretty[ds_pretty$`model<br/>tag`==tags[i], ]
+tags2 <- unique(ds_pretty$`model<br/>tag`)
+for( i in 1:length(tags2) ){
+  d <- ds_pretty[ds_pretty$`model<br/>tag`==tags2[i], ]
   cat("") #Force a new line
-  cat(paste0("## ", tags[i]))
+  cat(paste0("## ", tags2[i]))
   cat("\n") #Force a new line
     if( nrow(d) > 0L) {
       print(knitr::kable(d[ , -(1)], row.names= F))

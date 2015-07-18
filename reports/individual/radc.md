@@ -42,14 +42,14 @@ Your study
 has provided us with the total number of 
 
 ```
-156
+300
 ```
 models, using univariate and bivariate specifications:
 
 ```
 
  b1  u1 
-147   9 
+151 149 
 ```
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
@@ -108,28 +108,13 @@ The exact spelling of the explicit absence is not very important: *noPhys*, *nop
 The most common mistake is omitting some of the 7 elements in the name of the output file. The following files need to be renamed so that our scripts can understand what constructs and measures were used in your models:
 
 ```
-                ds$output_file[!is_valid]
-1        b1_male_age_muscle_executive.out
-2        b1_male_age_muscle_knowledge.out
-3          u1_female_age_muscle_nocog.out
-4        b1_male_age_muscle_reasoning.out
-5            b1_male_age_muscle_speed.out
-6     b1_male_age_muscle_visuospatial.out
-7     b1_male_age_pulmonary_executive.out
-8     b1_male_age_pulmonary_knowledge.out
-9       u1_female_age_pulmonary_noCog.out
-10        u1_male_age_pulmonary_noCog.out
-11    b1_male_age_pulmonary_reasoning.out
-12        b1_male_age_pulmonary_speed.out
-13 b1_male_age_pulmonary_visuospatial.out
-14        u1_female_age_walking_noCog.out
-15          u1_male_age_walking_noCog.out
+All your models were named properly
 ```
 
 After removing incorrectly named files, there are
 
 ```
-141
+300
 ```
 models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
 
@@ -141,9 +126,9 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 ```
            
-            b1 u1
-  muscle    77 2 
-  pulmonary 60 2 
+            b1  u1 
+  pulmonary 151 .  
+  Univar    .   149
 ```
 
 
@@ -151,10 +136,10 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-      
-       b1 u1
-  fev  60 2 
-  grip 77 2 
+        
+         b1  u1 
+  fev    151 .  
+  univar .   149
 ```
 
 ## Cognitive constructs
@@ -163,16 +148,15 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
               
                b1 u1
-  executive    14 . 
-  fluency      5  . 
-  knowledge    9  . 
-  language     14 . 
-  memory       54 . 
-  mental       8  . 
-  reasoning    9  . 
-  speed        15 . 
-  Univar       .  4 
-  visuospatial 9  . 
+  executive    16 16
+  fluency      8  8 
+  knowledge    8  8 
+  language     16 16
+  memory       63 61
+  mental       14 16
+  reasoning    8  8 
+  speed        16 16
+  visuospatial 2  . 
 ```
 
 
@@ -182,26 +166,27 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 ```
                       
                        b1 u1
-  bnt                  7  . 
-  bostonstorydelay     7  . 
-  bostonstoryimmediate 7  . 
-  categories           5  . 
-  complexideas         7  . 
-  digitordering        6  . 
-  digitsback           8  . 
-  digitsforward        7  . 
-  lineorientation      9  . 
-  logicalmemorydelay   7  . 
-  logicalmemoryimmed   5  . 
-  matrices             9  . 
-  mmse                 8  . 
-  nart                 9  . 
-  numbercomparison     7  . 
-  symbol               8  . 
-  univar               .  4 
-  wordlistdelay        7  . 
-  wordlistimmed        7  . 
-  wordlistrecog        7  . 
+  bnt                  8  8 
+  bostonstorydelay     8  8 
+  bostonstoryimmediate 8  8 
+  categories           8  8 
+  complexideas         8  8 
+  digitordering        8  8 
+  digitsback           8  8 
+  digitsforward        8  8 
+  lineorientation      10 8 
+  logicalmemorydelay   8  6 
+  logicalmemoryimmed   7  6 
+  matrices             8  8 
+  mmse                 6  8 
+  nart                 8  8 
+  numbercomparison     8  8 
+  symbol               8  8 
+  wmslmdel             .  2 
+  wmslmimmed           .  2 
+  wordlistdelay        8  8 
+  wordlistimmed        8  8 
+  wordlistrecog        8  5 
 ```
 </br></br></br>
 
@@ -214,10 +199,9 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE models
 
 ```
-      
-       muscle pulmonary
-  fev  .      60       
-  grip 77     .        
+     
+      pulmonary
+  fev 151      
 ```
 
 ## Cognitive 
@@ -226,25 +210,25 @@ Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE
 ```
                       
                        executive fluency knowledge language memory mental reasoning speed visuospatial
-  bnt                  .         .       .         7        .      .      .         .     .           
-  bostonstorydelay     .         .       .         .        7      .      .         .     .           
-  bostonstoryimmediate .         .       .         .        7      .      .         .     .           
-  categories           .         5       .         .        .      .      .         .     .           
-  complexideas         .         .       .         7        .      .      .         .     .           
-  digitordering        6         .       .         .        .      .      .         .     .           
+  bnt                  .         .       .         8        .      .      .         .     .           
+  bostonstorydelay     .         .       .         .        8      .      .         .     .           
+  bostonstoryimmediate .         .       .         .        8      .      .         .     .           
+  categories           .         8       .         .        .      .      .         .     .           
+  complexideas         .         .       .         8        .      .      .         .     .           
+  digitordering        8         .       .         .        .      .      .         .     .           
   digitsback           8         .       .         .        .      .      .         .     .           
-  digitsforward        .         .       .         .        7      .      .         .     .           
-  lineorientation      .         .       .         .        .      .      .         .     9           
-  logicalmemorydelay   .         .       .         .        7      .      .         .     .           
-  logicalmemoryimmed   .         .       .         .        5      .      .         .     .           
-  matrices             .         .       .         .        .      .      9         .     .           
-  mmse                 .         .       .         .        .      8      .         .     .           
-  nart                 .         .       9         .        .      .      .         .     .           
-  numbercomparison     .         .       .         .        .      .      .         7     .           
+  digitsforward        .         .       .         .        8      .      .         .     .           
+  lineorientation      .         .       .         .        .      8      .         .     2           
+  logicalmemorydelay   .         .       .         .        8      .      .         .     .           
+  logicalmemoryimmed   .         .       .         .        7      .      .         .     .           
+  matrices             .         .       .         .        .      .      8         .     .           
+  mmse                 .         .       .         .        .      6      .         .     .           
+  nart                 .         .       8         .        .      .      .         .     .           
+  numbercomparison     .         .       .         .        .      .      .         8     .           
   symbol               .         .       .         .        .      .      .         8     .           
-  wordlistdelay        .         .       .         .        7      .      .         .     .           
-  wordlistimmed        .         .       .         .        7      .      .         .     .           
-  wordlistrecog        .         .       .         .        7      .      .         .     .           
+  wordlistdelay        .         .       .         .        8      .      .         .     .           
+  wordlistimmed        .         .       .         .        8      .      .         .     .           
+  wordlistrecog        .         .       .         .        8      .      .         .     .           
 ```
 
 
@@ -254,16 +238,16 @@ Number of models with the following **physical constructs** (columns) and  **cog
 
 ```
               
-               muscle pulmonary
-  executive    7      7        
-  fluency      5      .        
-  knowledge    5      4        
-  language     8      6        
-  memory       30     24       
-  mental       4      4        
-  reasoning    5      4        
-  speed        8      7        
-  visuospatial 5      4        
+               pulmonary
+  executive    16       
+  fluency      8        
+  knowledge    8        
+  language     16       
+  memory       63       
+  mental       14       
+  reasoning    8        
+  speed        16       
+  visuospatial 2        
 ```
 
 ## Phys.Constructs
@@ -271,26 +255,26 @@ Number of models with the following  **physical constructs** (columns) and  **co
 
 ```
                       
-                       muscle pulmonary
-  bnt                  4      3        
-  bostonstorydelay     4      3        
-  bostonstoryimmediate 4      3        
-  categories           5      .        
-  complexideas         4      3        
-  digitordering        3      3        
-  digitsback           4      4        
-  digitsforward        4      3        
-  lineorientation      5      4        
-  logicalmemorydelay   4      3        
-  logicalmemoryimmed   2      3        
-  matrices             5      4        
-  mmse                 4      4        
-  nart                 5      4        
-  numbercomparison     4      3        
-  symbol               4      4        
-  wordlistdelay        4      3        
-  wordlistimmed        4      3        
-  wordlistrecog        4      3        
+                       pulmonary
+  bnt                  8        
+  bostonstorydelay     8        
+  bostonstoryimmediate 8        
+  categories           8        
+  complexideas         8        
+  digitordering        8        
+  digitsback           8        
+  digitsforward        8        
+  lineorientation      10       
+  logicalmemorydelay   8        
+  logicalmemoryimmed   7        
+  matrices             8        
+  mmse                 6        
+  nart                 8        
+  numbercomparison     8        
+  symbol               8        
+  wordlistdelay        8        
+  wordlistimmed        8        
+  wordlistrecog        8        
 ```
 
 ## Cog.Constructs
@@ -298,16 +282,16 @@ Number of models with the following  **physical measure** (columns) and  **cogni
 
 ```
               
-               fev grip
-  executive    7   7   
-  fluency      .   5   
-  knowledge    4   5   
-  language     6   8   
-  memory       24  30  
-  mental       4   4   
-  reasoning    4   5   
-  speed        7   8   
-  visuospatial 4   5   
+               fev
+  executive    16 
+  fluency      8  
+  knowledge    8  
+  language     16 
+  memory       63 
+  mental       14 
+  reasoning    8  
+  speed        16 
+  visuospatial 2  
 ```
 
 ## Measures
@@ -315,26 +299,26 @@ Number of models with the following  **physical measures** (columns) and  **cogn
 
 ```
                       
-                       fev grip
-  bnt                  3   4   
-  bostonstorydelay     3   4   
-  bostonstoryimmediate 3   4   
-  categories           .   5   
-  complexideas         3   4   
-  digitordering        3   3   
-  digitsback           4   4   
-  digitsforward        3   4   
-  lineorientation      4   5   
-  logicalmemorydelay   3   4   
-  logicalmemoryimmed   3   2   
-  matrices             4   5   
-  mmse                 4   4   
-  nart                 4   5   
-  numbercomparison     3   4   
-  symbol               4   4   
-  wordlistdelay        3   4   
-  wordlistimmed        3   4   
-  wordlistrecog        3   4   
+                       fev
+  bnt                  8  
+  bostonstorydelay     8  
+  bostonstoryimmediate 8  
+  categories           8  
+  complexideas         8  
+  digitordering        8  
+  digitsback           8  
+  digitsforward        8  
+  lineorientation      10 
+  logicalmemorydelay   8  
+  logicalmemoryimmed   7  
+  matrices             8  
+  mmse                 6  
+  nart                 8  
+  numbercomparison     8  
+  symbol               8  
+  wordlistdelay        8  
+  wordlistimmed        8  
+  wordlistrecog        8  
 ```
 </br></br></br>
 
@@ -347,190 +331,353 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical constructs (columns) by physical measures (rows) in UNIVARIATE models
 
 ```
-         muscle pulmonary
-                         
-u1 fev        .         2
-   grip       2         .
+           Univar
+                 
+u1 univar     149
 ```
 
 ## Cognitive
 Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models
 
 ```
-           Univar
-                 
-u1 univar       4
+                         executive fluency knowledge language memory mental reasoning speed
+                                                                                           
+u1 bnt                           .       .         .        8      .      .         .     .
+   bostonstorydelay              .       .         .        .      8      .         .     .
+   bostonstoryimmediate          .       .         .        .      8      .         .     .
+   categories                    .       8         .        .      .      .         .     .
+   complexideas                  .       .         .        8      .      .         .     .
+   digitordering                 8       .         .        .      .      .         .     .
+   digitsback                    8       .         .        .      .      .         .     .
+   digitsforward                 .       .         .        .      8      .         .     .
+   lineorientation               .       .         .        .      .      8         .     .
+   logicalmemorydelay            .       .         .        .      6      .         .     .
+   logicalmemoryimmed            .       .         .        .      6      .         .     .
+   matrices                      .       .         .        .      .      .         8     .
+   mmse                          .       .         .        .      .      8         .     .
+   nart                          .       .         8        .      .      .         .     .
+   numbercomparison              .       .         .        .      .      .         .     8
+   symbol                        .       .         .        .      .      .         .     8
+   wmslmdel                      .       .         .        .      2      .         .     .
+   wmslmimmed                    .       .         .        .      2      .         .     .
+   wordlistdelay                 .       .         .        .      8      .         .     .
+   wordlistimmed                 .       .         .        .      8      .         .     .
+   wordlistrecog                 .       .         .        .      5      .         .     .
 ```
 </br></br></br>
 
 # List of models
-## b1
-
-
-model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                        
---------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  -----------------------------------------------------------------
-b1              female   aeh                 muscle                   attention                 grip                   digitsforward           b1_female_aeh_muscle_attention_grip_digitsforward.out            
-b1              female   aehplus             muscle                   attention                 grip                   digitsforward           b1_female_aehplus_muscle_attention_grip_digitsforward.out        
-b1              male     aeh                 muscle                   attention                 grip                   digitsforward           b1_male_aeh_muscle_attention_grip_digitsforward.out              
-b1              male     aehplus             muscle                   attention                 grip                   digitsforward           b1_male_aehplus_muscle_attention_grip_digitsforward.out          
-b1              female   aeh                 muscle                   executive                 grip                   categoryfluency         b1_female_aeh_muscle_executive_grip_categoryfluency.out          
-b1              female   aeh                 muscle                   executive                 grip                   digitordering           b1_female_aeh_muscle_executive_grip_digitordering.out            
-b1              female   aeh                 muscle                   executive                 grip                   digitsback              b1_female_aeh_muscle_executive_grip_digitsback.out               
-b1              female   aehplus             muscle                   executive                 grip                   categoryfluency         b1_female_aehplus_muscle_executive_grip_categoryfluency.out      
-b1              female   aehplus             muscle                   executive                 grip                   digitordering           b1_female_aehplus_muscle_executive_grip_digitordering.out        
-b1              female   aehplus             muscle                   executive                 grip                   digitsback              b1_female_aehplus_muscle_executive_grip_digitsback.out           
-b1              female   age                 muscle                   executive                 grip                   categoryfluency         b1_female_age_muscle_executive_grip_categoryfluency.out          
-b1              female   age                 muscle                   executive                 grip                   digitsback              b1_female_age_muscle_executive_grip_digitsback.out               
-b1              male     aeh                 muscle                   executive                 grip                   categoryfluency         b1_male_aeh_muscle_executive_grip_categoryfluency.out            
-b1              male     aehplus             muscle                   executive                 grip                   categoryfluency         b1_male_aehplus_muscle_executive_grip_categoryfluency.out        
-b1              male     aehplus             muscle                   executive                 grip                   digitordering           b1_male_aehplus_muscle_executive_grip_digitordering.out          
-b1              male     aehplus             muscle                   executive                 grip                   digitsback              b1_male_aehplus_muscle_executive_grip_digitsback.out             
-b1              male     age                 muscle                   executive                 NA                     NA                      b1_male_age_muscle_executive.out                                 
-b1              female   aeh                 muscle                   global                    grip                   mmse                    b1_female_aeh_muscle_global_grip_mmse.out                        
-b1              female   aehplus             muscle                   global                    grip                   mmse                    b1_female_aehplus_muscle_global_grip_mmse.out                    
-b1              male     aeh                 muscle                   global                    grip                   mmse                    b1_male_aeh_muscle_global_grip_mmse.out                          
-b1              male     aehplus             muscle                   global                    grip                   mmse                    b1_male_aehplus_muscle_global_grip_mmse.out                      
-b1              female   aeh                 muscle                   knowledge                 grip                   nart                    b1_female_aeh_muscle_knowledge_grip_nart.out                     
-b1              female   aehplus             muscle                   knowledge                 grip                   nart                    b1_female_aehplus_muscle_knowledge_grip_nart.out                 
-b1              female   age                 muscle                   knowledge                 grip                   nart                    b1_female_age_muscle_knowledge_grip_nart.out                     
-b1              male     aeh                 muscle                   knowledge                 grip                   nart                    b1_male_aeh_muscle_knowledge_grip_nart.out                       
-b1              male     aehplus             muscle                   knowledge                 grip                   nart                    b1_male_aehplus_muscle_knowledge_grip_nart.out                   
-b1              male     age                 muscle                   knowledge                 NA                     NA                      b1_male_age_muscle_knowledge.out                                 
-b1              female   aeh                 muscle                   language                  grip                   bnt                     b1_female_aeh_muscle_language_grip_bnt.out                       
-b1              female   aeh                 muscle                   language                  grip                   complexideas            b1_female_aeh_muscle_language_grip_complexideas.out              
-b1              female   aehplus             muscle                   language                  grip                   bnt                     b1_female_aehplus_muscle_language_grip_bnt.out                   
-b1              female   aehplus             muscle                   language                  grip                   complexideas            b1_female_aehplus_muscle_language_grip_complexideas.out          
-b1              female   age                 muscle                   language                  grip                   bnt                     b1_female_age_muscle_language_grip_bnt.out                       
-b1              male     aeh                 muscle                   language                  grip                   bnt                     b1_male_aeh_muscle_language_grip_bnt.out                         
-b1              male     aeh                 muscle                   language                  grip                   complexideas            b1_male_aeh_muscle_language_grip_complexideas.out                
-b1              male     aehplus             muscle                   language                  grip                   complexideas            b1_male_aehplus_muscle_language_grip_complexideas.out            
-b1              female   aeh                 muscle                   memory                    grip                   bostonstorydelay        b1_female_aeh_muscle_memory_grip_bostonstorydelay.out            
-b1              female   aeh                 muscle                   memory                    grip                   bostonstoryimmediate    b1_female_aeh_muscle_memory_grip_bostonstoryimmediate.out        
-b1              female   aeh                 muscle                   memory                    grip                   logicalmemorydelay      b1_female_aeh_muscle_memory_grip_logicalmemorydelay.out          
-b1              female   aeh                 muscle                   memory                    grip                   wordlistdelay           b1_female_aeh_muscle_memory_grip_wordlistdelay.out               
-b1              female   aeh                 muscle                   memory                    grip                   wordlistimmed           b1_female_aeh_muscle_memory_grip_wordlistimmed.out               
-b1              female   aeh                 muscle                   memory                    grip                   wordlistrecog           b1_female_aeh_muscle_memory_grip_wordlistrecog.out               
-b1              female   aehplus             muscle                   memory                    grip                   bostonstorydelay        b1_female_aehplus_muscle_memory_grip_bostonstorydelay.out        
-b1              female   aehplus             muscle                   memory                    grip                   bostonstoryimmediate    b1_female_aehplus_muscle_memory_grip_bostonstoryimmediate.out    
-b1              female   aehplus             muscle                   memory                    grip                   logicalmemorydelay      b1_female_aehplus_muscle_memory_grip_logicalmemorydelay.out      
-b1              female   aehplus             muscle                   memory                    grip                   logicalmemoryimmed      b1_female_aehplus_muscle_memory_grip_logicalmemoryimmed.out      
-b1              female   aehplus             muscle                   memory                    grip                   wordlistdelay           b1_female_aehplus_muscle_memory_grip_wordlistdelay.out           
-b1              female   aehplus             muscle                   memory                    grip                   wordlistimmed           b1_female_aehplus_muscle_memory_grip_wordlistimmed.out           
-b1              female   aehplus             muscle                   memory                    grip                   wordlistrecog           b1_female_aehplus_muscle_memory_grip_wordlistrecog.out           
-b1              male     aeh                 muscle                   memory                    grip                   bostonstorydelay        b1_male_aeh_muscle_memory_grip_bostonstorydelay.out              
-b1              male     aeh                 muscle                   memory                    grip                   bostonstoryimmediate    b1_male_aeh_muscle_memory_grip_bostonstoryimmediate.out          
-b1              male     aeh                 muscle                   memory                    grip                   logicalmemorydelay      b1_male_aeh_muscle_memory_grip_logicalmemorydelay.out            
-b1              male     aeh                 muscle                   memory                    grip                   logicalmemoryimmed      b1_male_aeh_muscle_memory_grip_logicalmemoryimmed.out            
-b1              male     aeh                 muscle                   memory                    grip                   wordlistdelay           b1_male_aeh_muscle_memory_grip_wordlistdelay.out                 
-b1              male     aeh                 muscle                   memory                    grip                   wordlistimmed           b1_male_aeh_muscle_memory_grip_wordlistimmed.out                 
-b1              male     aeh                 muscle                   memory                    grip                   wordlistrecog           b1_male_aeh_muscle_memory_grip_wordlistrecog.out                 
-b1              male     aehplus             muscle                   memory                    grip                   bostonstorydelay        b1_male_aehplus_muscle_memory_grip_bostonstorydelay.out          
-b1              male     aehplus             muscle                   memory                    grip                   bostonstoryimmediate    b1_male_aehplus_muscle_memory_grip_bostonstoryimmediate.out      
-b1              male     aehplus             muscle                   memory                    grip                   logicalmemorydelay      b1_male_aehplus_muscle_memory_grip_logicalmemorydelay.out        
-b1              male     aehplus             muscle                   memory                    grip                   wordlistdelay           b1_male_aehplus_muscle_memory_grip_wordlistdelay.out             
-b1              male     aehplus             muscle                   memory                    grip                   wordlistimmed           b1_male_aehplus_muscle_memory_grip_wordlistimmed.out             
-b1              male     aehplus             muscle                   memory                    grip                   wordlistrecog           b1_male_aehplus_muscle_memory_grip_wordlistrecog.out             
-b1              female   aeh                 muscle                   reasoning                 grip                   matrices                b1_female_aeh_muscle_reasoning_grip_matrices.out                 
-b1              female   aehplus             muscle                   reasoning                 grip                   matrices                b1_female_aehplus_muscle_reasoning_grip_matrices.out             
-b1              female   age                 muscle                   reasoning                 grip                   matrices                b1_female_age_muscle_reasoning_grip_matrices.out                 
-b1              male     aeh                 muscle                   reasoning                 grip                   matrices                b1_male_aeh_muscle_reasoning_grip_matrices.out                   
-b1              male     aehplus             muscle                   reasoning                 grip                   matrices                b1_male_aehplus_muscle_reasoning_grip_matrices.out               
-b1              male     age                 muscle                   reasoning                 NA                     NA                      b1_male_age_muscle_reasoning.out                                 
-b1              female   aeh                 muscle                   speed                     grip                   digitsymbol             b1_female_aeh_muscle_speed_grip_digitsymbol.out                  
-b1              female   aeh                 muscle                   speed                     grip                   numbercomparison        b1_female_aeh_muscle_speed_grip_numbercomparison.out             
-b1              female   aehplus             muscle                   speed                     grip                   digitsymbol             b1_female_aehplus_muscle_speed_grip_digitsymbol.out              
-b1              female   aehplus             muscle                   speed                     grip                   numbercomparison        b1_female_aehplus_muscle_speed_grip_numbercomparison.out         
-b1              male     aeh                 muscle                   speed                     grip                   digitsymbol             b1_male_aeh_muscle_speed_grip_digitsymbol.out                    
-b1              male     aeh                 muscle                   speed                     grip                   numbercomparison        b1_male_aeh_muscle_speed_grip_numbercomparison.out               
-b1              male     aehplus             muscle                   speed                     grip                   digitsymbol             b1_male_aehplus_muscle_speed_grip_digitsymbol.out                
-b1              male     aehplus             muscle                   speed                     grip                   numbercomparison        b1_male_aehplus_muscle_speed_grip_numbercomparison.out           
-b1              male     age                 muscle                   speed                     NA                     NA                      b1_male_age_muscle_speed.out                                     
-b1              female   aeh                 muscle                   visuospatial              grip                   lineorientation         b1_female_aeh_muscle_visuospatial_grip_lineorientation.out       
-b1              female   aehplus             muscle                   visuospatial              grip                   lineorientation         b1_female_aehplus_muscle_visuospatial_grip_lineorientation.out   
-b1              female   age                 muscle                   visuospatial              grip                   lineorientation         b1_female_age_muscle_visuospatial_grip_lineorientation.out       
-b1              male     aeh                 muscle                   visuospatial              grip                   lineorientation         b1_male_aeh_muscle_visuospatial_grip_lineorientation.out         
-b1              male     aehplus             muscle                   visuospatial              grip                   lineorientation         b1_male_aehplus_muscle_visuospatial_grip_lineorientation.out     
-b1              male     age                 muscle                   visuospatial              NA                     NA                      b1_male_age_muscle_visuospatial.out                              
-b1              female   aehplus             pulmonary                attention                 fev                    digitsforward           b1_female_aehplus_pulmonary_attention_fev_digitsforward.out      
-b1              male     aeh                 pulmonary                attention                 fev                    digitsforward           b1_male_aeh_pulmonary_attention_fev_digitsforward.out            
-b1              male     aehplus             pulmonary                attention                 fev                    digitsforward           b1_male_aehplus_pulmonary_attention_fev_digitsforward.out        
-b1              female   aehplus             pulmonary                executive                 fev                    digitordering           b1_female_aehplus_pulmonary_executive_fev_digitordering.out      
-b1              female   aehplus             pulmonary                executive                 fev                    digitsback              b1_female_aehplus_pulmonary_executive_fev_digitsback.out         
-b1              female   age                 pulmonary                executive                 fev                    digitsback              b1_female_age_pulmonary_executive_fev_digitsback.out             
-b1              male     aeh                 pulmonary                executive                 fev                    digitordering           b1_male_aeh_pulmonary_executive_fev_digitordering.out            
-b1              male     aeh                 pulmonary                executive                 fev                    digitsback              b1_male_aeh_pulmonary_executive_fev_digitsback.out               
-b1              male     aehplus             pulmonary                executive                 fev                    digitordering           b1_male_aehplus_pulmonary_executive_fev_digitordering.out        
-b1              male     aehplus             pulmonary                executive                 fev                    digitsback              b1_male_aehplus_pulmonary_executive_fev_digitsback.out           
-b1              male     age                 pulmonary                executive                 NA                     NA                      b1_male_age_pulmonary_executive.out                              
-b1              female   aehplus             pulmonary                global                    fev                    mmse                    b1_female_aehplus_pulmonary_global_fev_mmse.out                  
-b1              female   age                 pulmonary                global                    fev                    mmse                    b1_female_age_pulmonary_global_fev_mmse.out                      
-b1              male     aeh                 pulmonary                global                    fev                    mmse                    b1_male_aeh_pulmonary_global_fev_mmse.out                        
-b1              male     aehplus             pulmonary                global                    fev                    mmse                    b1_male_aehplus_pulmonary_global_fev_mmse.out                    
-b1              female   aehplus             pulmonary                knowledge                 fev                    nart                    b1_female_aehplus_pulmonary_knowledge_fev_nart.out               
-b1              female   age                 pulmonary                knowledge                 fev                    nart                    b1_female_age_pulmonary_knowledge_fev_nart.out                   
-b1              male     aeh                 pulmonary                knowledge                 fev                    nart                    b1_male_aeh_pulmonary_knowledge_fev_nart.out                     
-b1              male     aehplus             pulmonary                knowledge                 fev                    nart                    b1_male_aehplus_pulmonary_knowledge_fev_nart.out                 
-b1              male     age                 pulmonary                knowledge                 NA                     NA                      b1_male_age_pulmonary_knowledge.out                              
-b1              female   aehplus             pulmonary                language                  fev                    bnt                     b1_female_aehplus_pulmonary_language_fev_bnt.out                 
-b1              female   aehplus             pulmonary                language                  fev                    complexideas            b1_female_aehplus_pulmonary_language_fev_complexideas.out        
-b1              male     aeh                 pulmonary                language                  fev                    bnt                     b1_male_aeh_pulmonary_language_fev_bnt.out                       
-b1              male     aeh                 pulmonary                language                  fev                    complexideas            b1_male_aeh_pulmonary_language_fev_complexideas.out              
-b1              male     aehplus             pulmonary                language                  fev                    bnt                     b1_male_aehplus_pulmonary_language_fev_bnt.out                   
-b1              male     aehplus             pulmonary                language                  fev                    complexideas            b1_male_aehplus_pulmonary_language_fev_complexideas.out          
-b1              female   aehplus             pulmonary                memory                    fev                    bostonstorydelay        b1_female_aehplus_pulmonary_memory_fev_bostonstorydelay.out      
-b1              female   aehplus             pulmonary                memory                    fev                    bostonstoryimmediate    b1_female_aehplus_pulmonary_memory_fev_bostonstoryimmediate.out  
-b1              female   aehplus             pulmonary                memory                    fev                    logicalmemorydelay      b1_female_aehplus_pulmonary_memory_fev_logicalmemorydelay.out    
-b1              female   aehplus             pulmonary                memory                    fev                    logicalmemoryimmed      b1_female_aehplus_pulmonary_memory_fev_logicalmemoryimmed.out    
-b1              female   aehplus             pulmonary                memory                    fev                    wordlistdelay           b1_female_aehplus_pulmonary_memory_fev_wordlistdelay.out         
-b1              female   aehplus             pulmonary                memory                    fev                    wordlistimmed           b1_female_aehplus_pulmonary_memory_fev_wordlistimmed.out         
-b1              female   aehplus             pulmonary                memory                    fev                    wordlistrecog           b1_female_aehplus_pulmonary_memory_fev_wordlistrecog.out         
-b1              male     aeh                 pulmonary                memory                    fev                    bostonstorydelay        b1_male_aeh_pulmonary_memory_fev_bostonstorydelay.out            
-b1              male     aeh                 pulmonary                memory                    fev                    bostonstoryimmediate    b1_male_aeh_pulmonary_memory_fev_bostonstoryimmediate.out        
-b1              male     aeh                 pulmonary                memory                    fev                    logicalmemorydelay      b1_male_aeh_pulmonary_memory_fev_logicalmemorydelay.out          
-b1              male     aeh                 pulmonary                memory                    fev                    logicalmemoryimmed      b1_male_aeh_pulmonary_memory_fev_logicalmemoryimmed.out          
-b1              male     aeh                 pulmonary                memory                    fev                    wordlistdelay           b1_male_aeh_pulmonary_memory_fev_wordlistdelay.out               
-b1              male     aeh                 pulmonary                memory                    fev                    wordlistimmed           b1_male_aeh_pulmonary_memory_fev_wordlistimmed.out               
-b1              male     aeh                 pulmonary                memory                    fev                    wordlistrecog           b1_male_aeh_pulmonary_memory_fev_wordlistrecog.out               
-b1              male     aehplus             pulmonary                memory                    fev                    bostonstorydelay        b1_male_aehplus_pulmonary_memory_fev_bostonstorydelay.out        
-b1              male     aehplus             pulmonary                memory                    fev                    bostonstoryimmediate    b1_male_aehplus_pulmonary_memory_fev_bostonstoryimmediate.out    
-b1              male     aehplus             pulmonary                memory                    fev                    logicalmemorydelay      b1_male_aehplus_pulmonary_memory_fev_logicalmemorydelay.out      
-b1              male     aehplus             pulmonary                memory                    fev                    logicalmemoryimmed      b1_male_aehplus_pulmonary_memory_fev_logicalmemoryimmed.out      
-b1              male     aehplus             pulmonary                memory                    fev                    wordlistdelay           b1_male_aehplus_pulmonary_memory_fev_wordlistdelay.out           
-b1              male     aehplus             pulmonary                memory                    fev                    wordlistimmed           b1_male_aehplus_pulmonary_memory_fev_wordlistimmed.out           
-b1              male     aehplus             pulmonary                memory                    fev                    wordlistrecog           b1_male_aehplus_pulmonary_memory_fev_wordlistrecog.out           
-b1              female   aehplus             pulmonary                reasoning                 fev                    matrices                b1_female_aehplus_pulmonary_reasoning_fev_matrices.out           
-b1              female   age                 pulmonary                reasoning                 fev                    matrices                b1_female_age_pulmonary_reasoning_fev_matrices.out               
-b1              male     aeh                 pulmonary                reasoning                 fev                    matrices                b1_male_aeh_pulmonary_reasoning_fev_matrices.out                 
-b1              male     aehplus             pulmonary                reasoning                 fev                    matrices                b1_male_aehplus_pulmonary_reasoning_fev_matrices.out             
-b1              male     age                 pulmonary                reasoning                 NA                     NA                      b1_male_age_pulmonary_reasoning.out                              
-b1              female   aehplus             pulmonary                speed                     fev                    digitsymbol             b1_female_aehplus_pulmonary_speed_fev_digitsymbol.out            
-b1              female   aehplus             pulmonary                speed                     fev                    numbercomparison        b1_female_aehplus_pulmonary_speed_fev_numbercomparison.out       
-b1              female   age                 pulmonary                speed                     fev                    digitsymbol             b1_female_age_pulmonary_speed_fev_digitsymbol.out                
-b1              male     aeh                 pulmonary                speed                     fev                    digitsymbol             b1_male_aeh_pulmonary_speed_fev_digitsymbol.out                  
-b1              male     aeh                 pulmonary                speed                     fev                    numbercomparison        b1_male_aeh_pulmonary_speed_fev_numbercomparison.out             
-b1              male     aehplus             pulmonary                speed                     fev                    digitsymbol             b1_male_aehplus_pulmonary_speed_fev_digitsymbol.out              
-b1              male     aehplus             pulmonary                speed                     fev                    numbercomparison        b1_male_aehplus_pulmonary_speed_fev_numbercomparison.out         
-b1              male     age                 pulmonary                speed                     NA                     NA                      b1_male_age_pulmonary_speed.out                                  
-b1              female   aehplus             pulmonary                visuospatial              fev                    lineorientation         b1_female_aehplus_pulmonary_visuospatial_fev_lineorientation.out 
-b1              female   age                 pulmonary                visuospatial              fev                    lineorientation         b1_female_age_pulmonary_visuospatial_fev_lineorientation.out     
-b1              male     aeh                 pulmonary                visuospatial              fev                    lineorientation         b1_male_aeh_pulmonary_visuospatial_fev_lineorientation.out       
-b1              male     aehplus             pulmonary                visuospatial              fev                    lineorientation         b1_male_aehplus_pulmonary_visuospatial_fev_lineorientation.out   
-b1              male     age                 pulmonary                visuospatial              NA                     NA                      b1_male_age_pulmonary_visuospatial.out                           
-
 ## u1
 
 
-model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                         
---------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------------------------
-u1              female   age                 muscle                   nocog                     NA                     NA                      u1_female_age_muscle_nocog.out                    
-u1              female   empty               muscle                   nocog                     grip                   nocogspec               u1_female_empty_muscle_nocog_grip_nocogspec.out   
-u1              male     empty               muscle                   nocog                     grip                   nocogspec               u1_male_empty_muscle_nocog_grip_nocogspec.out     
-u1              female   empty               pulmonary                nocog                     fev                    nocogspec               u1_female_empty_pulmonary_nocog_fev_nocogspec.out 
-u1              male     empty               pulmonary                nocog                     fev                    nocogspec               u1_male_empty_pulmonary_nocog_fev_nocogspec.out   
-u1              female   age                 pulmonary                noCog                     NA                     NA                      u1_female_age_pulmonary_noCog.out                 
-u1              male     age                 pulmonary                noCog                     NA                     NA                      u1_male_age_pulmonary_noCog.out                   
-u1              female   age                 walking                  noCog                     NA                     NA                      u1_female_age_walking_noCog.out                   
-u1              male     age                 walking                  noCog                     NA                     NA                      u1_male_age_walking_noCog.out                     
+model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                           
+--------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------------------------------------------
+u1              female   a                   Univar                   language                  univar                 bnt                     u1_female_a_nophys_language_nophysspec_bnt.out                      
+u1              female   ae                  Univar                   language                  univar                 bnt                     u1_female_ae_nophys_language_nophysspec_bnt.out                     
+u1              female   aeh                 Univar                   language                  univar                 bnt                     u1_female_aeh_nophys_language_nophysspec_bnt.out                    
+u1              female   aehplus             Univar                   language                  univar                 bnt                     u1_female_aehplus_nophys_language_nophysspec_bnt.out                
+u1              male     a                   Univar                   language                  univar                 bnt                     u1_male_a_nophys_language_nophysspec_bnt.out                        
+u1              male     ae                  Univar                   language                  univar                 bnt                     u1_male_ae_nophys_language_nophysspec_bnt.out                       
+u1              male     aeh                 Univar                   language                  univar                 bnt                     u1_male_aeh_nophys_language_nophysspec_bnt.out                      
+u1              male     aehplus             Univar                   language                  univar                 bnt                     u1_male_aehplus_nophys_language_nophysspec_bnt.out                  
+u1              female   a                   Univar                   memory                    univar                 bostonstorydelay        u1_female_a_nophys_memory_nophysspec_bostonstorydelay.out           
+u1              female   ae                  Univar                   memory                    univar                 bostonstorydelay        u1_female_ae_nophys_memory_nophysspec_bostonstorydelay.out          
+u1              female   aeh                 Univar                   memory                    univar                 bostonstorydelay        u1_female_aeh_nophys_memory_nophysspec_bostonstorydelay.out         
+u1              female   aehplus             Univar                   memory                    univar                 bostonstorydelay        u1_female_aehplus_nophys_memory_nophysspec_bostonstorydelay.out     
+u1              male     a                   Univar                   memory                    univar                 bostonstorydelay        u1_male_a_nophys_memory_nophysspec_bostonstorydelay.out             
+u1              male     ae                  Univar                   memory                    univar                 bostonstorydelay        u1_male_ae_nophys_memory_nophysspec_bostonstorydelay.out            
+u1              male     aeh                 Univar                   memory                    univar                 bostonstorydelay        u1_male_aeh_nophys_memory_nophysspec_bostonstorydelay.out           
+u1              male     aehplus             Univar                   memory                    univar                 bostonstorydelay        u1_male_aehplus_nophys_memory_nophysspec_bostonstorydelay.out       
+u1              female   a                   Univar                   memory                    univar                 bostonstoryimmediate    u1_female_a_nophys_memory_nophysspec_bostonstoryimmediate.out       
+u1              female   ae                  Univar                   memory                    univar                 bostonstoryimmediate    u1_female_ae_nophys_memory_nophysspec_bostonstoryimmediate.out      
+u1              female   aeh                 Univar                   memory                    univar                 bostonstoryimmediate    u1_female_aeh_nophys_memory_nophysspec_bostonstoryimmediate.out     
+u1              female   aehplus             Univar                   memory                    univar                 bostonstoryimmediate    u1_female_aehplus_nophys_memory_nophysspec_bostonstoryimmediate.out 
+u1              male     a                   Univar                   memory                    univar                 bostonstoryimmediate    u1_male_a_nophys_memory_nophysspec_bostonstoryimmediate.out         
+u1              male     ae                  Univar                   memory                    univar                 bostonstoryimmediate    u1_male_ae_nophys_memory_nophysspec_bostonstoryimmediate.out        
+u1              male     aeh                 Univar                   memory                    univar                 bostonstoryimmediate    u1_male_aeh_nophys_memory_nophysspec_bostonstoryimmediate.out       
+u1              male     aehplus             Univar                   memory                    univar                 bostonstoryimmediate    u1_male_aehplus_nophys_memory_nophysspec_bostonstoryimmediate.out   
+u1              female   a                   Univar                   fluency                   univar                 categories              u1_female_a_nophys_fluency_nophysspec_categories.out                
+u1              female   ae                  Univar                   fluency                   univar                 categories              u1_female_ae_nophys_fluency_nophysspec_categories.out               
+u1              female   aeh                 Univar                   fluency                   univar                 categories              u1_female_aeh_nophys_fluency_nophysspec_categories.out              
+u1              female   aehplus             Univar                   fluency                   univar                 categories              u1_female_aehplus_nophys_fluency_nophysspec_categories.out          
+u1              male     a                   Univar                   fluency                   univar                 categories              u1_male_a_nophys_fluency_nophysspec_categories.out                  
+u1              male     ae                  Univar                   fluency                   univar                 categories              u1_male_ae_nophys_fluency_nophysspec_categories.out                 
+u1              male     aeh                 Univar                   fluency                   univar                 categories              u1_male_aeh_nophys_fluency_nophysspec_categories.out                
+u1              male     aehplus             Univar                   fluency                   univar                 categories              u1_male_aehplus_nophys_fluency_nophysspec_categories.out            
+u1              female   a                   Univar                   language                  univar                 complexideas            u1_female_a_nophys_language_nophysspec_complexideas.out             
+u1              female   ae                  Univar                   language                  univar                 complexideas            u1_female_ae_nophys_language_nophysspec_complexideas.out            
+u1              female   aeh                 Univar                   language                  univar                 complexideas            u1_female_aeh_nophys_language_nophysspec_complexideas.out           
+u1              female   aehplus             Univar                   language                  univar                 complexideas            u1_female_aehplus_nophys_language_nophysspec_complexideas.out       
+u1              male     a                   Univar                   language                  univar                 complexideas            u1_male_a_nophys_language_nophysspec_complexideas.out               
+u1              male     ae                  Univar                   language                  univar                 complexideas            u1_male_ae_nophys_language_nophysspec_complexideas.out              
+u1              male     aeh                 Univar                   language                  univar                 complexideas            u1_male_aeh_nophys_language_nophysspec_complexideas.out             
+u1              male     aehplus             Univar                   language                  univar                 complexideas            u1_male_aehplus_nophys_language_nophysspec_complexideas.out         
+u1              female   a                   Univar                   executive                 univar                 digitordering           u1_female_a_nophys_executive_nophysspec_digitordering.out           
+u1              female   ae                  Univar                   executive                 univar                 digitordering           u1_female_ae_nophys_executive_nophysspec_digitordering.out          
+u1              female   aeh                 Univar                   executive                 univar                 digitordering           u1_female_aeh_nophys_executive_nophysspec_digitordering.out         
+u1              female   aehplus             Univar                   executive                 univar                 digitordering           u1_female_aehplus_nophys_executive_nophysspec_digitordering.out     
+u1              male     a                   Univar                   executive                 univar                 digitordering           u1_male_a_nophys_executive_nophysspec_digitordering.out             
+u1              male     ae                  Univar                   executive                 univar                 digitordering           u1_male_ae_nophys_executive_nophysspec_digitordering.out            
+u1              male     aeh                 Univar                   executive                 univar                 digitordering           u1_male_aeh_nophys_executive_nophysspec_digitordering.out           
+u1              male     aehplus             Univar                   executive                 univar                 digitordering           u1_male_aehplus_nophys_executive_nophysspec_digitordering.out       
+u1              female   a                   Univar                   executive                 univar                 digitsback              u1_female_a_nophys_executive_nophysspec_digitsback.out              
+u1              female   ae                  Univar                   executive                 univar                 digitsback              u1_female_ae_nophys_executive_nophysspec_digitsback.out             
+u1              female   aeh                 Univar                   executive                 univar                 digitsback              u1_female_aeh_nophys_executive_nophysspec_digitsback.out            
+u1              female   aehplus             Univar                   executive                 univar                 digitsback              u1_female_aehplus_nophys_executive_nophysspec_digitsback.out        
+u1              male     a                   Univar                   executive                 univar                 digitsback              u1_male_a_nophys_executive_nophysspec_digitsback.out                
+u1              male     ae                  Univar                   executive                 univar                 digitsback              u1_male_ae_nophys_executive_nophysspec_digitsback.out               
+u1              male     aeh                 Univar                   executive                 univar                 digitsback              u1_male_aeh_nophys_executive_nophysspec_digitsback.out              
+u1              male     aehplus             Univar                   executive                 univar                 digitsback              u1_male_aehplus_nophys_executive_nophysspec_digitsback.out          
+u1              female   a                   Univar                   memory                    univar                 digitsforward           u1_female_a_nophys_memory_nophysspec_digitsforward.out              
+u1              female   ae                  Univar                   memory                    univar                 digitsforward           u1_female_ae_nophys_memory_nophysspec_digitsforward.out             
+u1              female   aeh                 Univar                   memory                    univar                 digitsforward           u1_female_aeh_nophys_memory_nophysspec_digitsforward.out            
+u1              female   aehplus             Univar                   memory                    univar                 digitsforward           u1_female_aehplus_nophys_memory_nophysspec_digitsforward.out        
+u1              male     a                   Univar                   memory                    univar                 digitsforward           u1_male_a_nophys_memory_nophysspec_digitsforward.out                
+u1              male     ae                  Univar                   memory                    univar                 digitsforward           u1_male_ae_nophys_memory_nophysspec_digitsforward.out               
+u1              male     aeh                 Univar                   memory                    univar                 digitsforward           u1_male_aeh_nophys_memory_nophysspec_digitsforward.out              
+u1              male     aehplus             Univar                   memory                    univar                 digitsforward           u1_male_aehplus_nophys_memory_nophysspec_digitsforward.out          
+u1              female   a                   Univar                   speed                     univar                 symbol                  u1_female_a_nophys_speed_nophysspec_digitsymbol.out                 
+u1              female   ae                  Univar                   speed                     univar                 symbol                  u1_female_ae_nophys_speed_nophysspec_digitsymbol.out                
+u1              female   aeh                 Univar                   speed                     univar                 symbol                  u1_female_aeh_nophys_speed_nophysspec_digitsymbol.out               
+u1              female   aehplus             Univar                   speed                     univar                 symbol                  u1_female_aehplus_nophys_speed_nophysspec_digitsymbol.out           
+u1              male     a                   Univar                   speed                     univar                 symbol                  u1_male_a_nophys_speed_nophysspec_digitsymbol.out                   
+u1              male     ae                  Univar                   speed                     univar                 symbol                  u1_male_ae_nophys_speed_nophysspec_digitsymbol.out                  
+u1              male     aeh                 Univar                   speed                     univar                 symbol                  u1_male_aeh_nophys_speed_nophysspec_digitsymbol.out                 
+u1              male     aehplus             Univar                   speed                     univar                 symbol                  u1_male_aehplus_nophys_speed_nophysspec_digitsymbol.out             
+u1              female   a                   Univar                   mental                    univar                 lineorientation         u1_female_a_nophys_mental_nophysspec_lineorientation.out            
+u1              female   ae                  Univar                   mental                    univar                 lineorientation         u1_female_ae_nophys_mental_nophysspec_lineorientation.out           
+u1              female   aeh                 Univar                   mental                    univar                 lineorientation         u1_female_aeh_nophys_mental_nophysspec_lineorientation.out          
+u1              female   aehplus             Univar                   mental                    univar                 lineorientation         u1_female_aehplus_nophys_mental_nophysspec_lineorientation.out      
+u1              male     a                   Univar                   mental                    univar                 lineorientation         u1_male_a_nophys_mental_nophysspec_lineorientation.out              
+u1              male     ae                  Univar                   mental                    univar                 lineorientation         u1_male_ae_nophys_mental_nophysspec_lineorientation.out             
+u1              male     aeh                 Univar                   mental                    univar                 lineorientation         u1_male_aeh_nophys_mental_nophysspec_lineorientation.out            
+u1              male     aehplus             Univar                   mental                    univar                 lineorientation         u1_male_aehplus_nophys_mental_nophysspec_lineorientation.out        
+u1              female   ae                  Univar                   memory                    univar                 logicalmemorydelay      u1_female_ae_nophys_memory_nophysspec_logicalmemorydelay.out        
+u1              female   aeh                 Univar                   memory                    univar                 logicalmemorydelay      u1_female_aeh_nophys_memory_nophysspec_logicalmemorydelay.out       
+u1              female   aehplus             Univar                   memory                    univar                 logicalmemorydelay      u1_female_aehplus_nophys_memory_nophysspec_logicalmemorydelay.out   
+u1              male     ae                  Univar                   memory                    univar                 logicalmemorydelay      u1_male_ae_nophys_memory_nophysspec_logicalmemorydelay.out          
+u1              male     aeh                 Univar                   memory                    univar                 logicalmemorydelay      u1_male_aeh_nophys_memory_nophysspec_logicalmemorydelay.out         
+u1              male     aehplus             Univar                   memory                    univar                 logicalmemorydelay      u1_male_aehplus_nophys_memory_nophysspec_logicalmemorydelay.out     
+u1              female   ae                  Univar                   memory                    univar                 logicalmemoryimmed      u1_female_ae_nophys_memory_nophysspec_logicalmemoryimmed.out        
+u1              female   aeh                 Univar                   memory                    univar                 logicalmemoryimmed      u1_female_aeh_nophys_memory_nophysspec_logicalmemoryimmed.out       
+u1              female   aehplus             Univar                   memory                    univar                 logicalmemoryimmed      u1_female_aehplus_nophys_memory_nophysspec_logicalmemoryimmed.out   
+u1              male     ae                  Univar                   memory                    univar                 logicalmemoryimmed      u1_male_ae_nophys_memory_nophysspec_logicalmemoryimmed.out          
+u1              male     aeh                 Univar                   memory                    univar                 logicalmemoryimmed      u1_male_aeh_nophys_memory_nophysspec_logicalmemoryimmed.out         
+u1              male     aehplus             Univar                   memory                    univar                 logicalmemoryimmed      u1_male_aehplus_nophys_memory_nophysspec_logicalmemoryimmed.out     
+u1              female   a                   Univar                   reasoning                 univar                 matrices                u1_female_a_nophys_reasoning_nophysspec_matrices.out                
+u1              female   ae                  Univar                   reasoning                 univar                 matrices                u1_female_ae_nophys_reasoning_nophysspec_matrices.out               
+u1              female   aeh                 Univar                   reasoning                 univar                 matrices                u1_female_aeh_nophys_reasoning_nophysspec_matrices.out              
+u1              female   aehplus             Univar                   reasoning                 univar                 matrices                u1_female_aehplus_nophys_reasoning_nophysspec_matrices.out          
+u1              male     a                   Univar                   reasoning                 univar                 matrices                u1_male_a_nophys_reasoning_nophysspec_matrices.out                  
+u1              male     ae                  Univar                   reasoning                 univar                 matrices                u1_male_ae_nophys_reasoning_nophysspec_matrices.out                 
+u1              male     aeh                 Univar                   reasoning                 univar                 matrices                u1_male_aeh_nophys_reasoning_nophysspec_matrices.out                
+u1              male     aehplus             Univar                   reasoning                 univar                 matrices                u1_male_aehplus_nophys_reasoning_nophysspec_matrices.out            
+u1              female   a                   Univar                   mental                    univar                 mmse                    u1_female_a_nophys_mental_nophysspec_mmse.out                       
+u1              female   ae                  Univar                   mental                    univar                 mmse                    u1_female_ae_nophys_mental_nophysspec_mmse.out                      
+u1              female   aeh                 Univar                   mental                    univar                 mmse                    u1_female_aeh_nophys_mental_nophysspec_mmse.out                     
+u1              female   aehplus             Univar                   mental                    univar                 mmse                    u1_female_aehplus_nophys_mental_nophysspec_mmse.out                 
+u1              male     a                   Univar                   mental                    univar                 mmse                    u1_male_a_nophys_mental_nophysspec_mmse.out                         
+u1              male     ae                  Univar                   mental                    univar                 mmse                    u1_male_ae_nophys_mental_nophysspec_mmse.out                        
+u1              male     aeh                 Univar                   mental                    univar                 mmse                    u1_male_aeh_nophys_mental_nophysspec_mmse.out                       
+u1              male     aehplus             Univar                   mental                    univar                 mmse                    u1_male_aehplus_nophys_mental_nophysspec_mmse.out                   
+u1              female   a                   Univar                   knowledge                 univar                 nart                    u1_female_a_nophys_knowledge_nophysspec_nart.out                    
+u1              female   ae                  Univar                   knowledge                 univar                 nart                    u1_female_ae_nophys_knowledge_nophysspec_nart.out                   
+u1              female   aeh                 Univar                   knowledge                 univar                 nart                    u1_female_aeh_nophys_knowledge_nophysspec_nart.out                  
+u1              female   aehplus             Univar                   knowledge                 univar                 nart                    u1_female_aehplus_nophys_knowledge_nophysspec_nart.out              
+u1              male     a                   Univar                   knowledge                 univar                 nart                    u1_male_a_nophys_knowledge_nophysspec_nart.out                      
+u1              male     ae                  Univar                   knowledge                 univar                 nart                    u1_male_ae_nophys_knowledge_nophysspec_nart.out                     
+u1              male     aeh                 Univar                   knowledge                 univar                 nart                    u1_male_aeh_nophys_knowledge_nophysspec_nart.out                    
+u1              male     aehplus             Univar                   knowledge                 univar                 nart                    u1_male_aehplus_nophys_knowledge_nophysspec_nart.out                
+u1              female   a                   Univar                   speed                     univar                 numbercomparison        u1_female_a_nophys_speed_nophysspec_numbercomparison.out            
+u1              female   ae                  Univar                   speed                     univar                 numbercomparison        u1_female_ae_nophys_speed_nophysspec_numbercomparison.out           
+u1              female   aeh                 Univar                   speed                     univar                 numbercomparison        u1_female_aeh_nophys_speed_nophysspec_numbercomparison.out          
+u1              female   aehplus             Univar                   speed                     univar                 numbercomparison        u1_female_aehplus_nophys_speed_nophysspec_numbercomparison.out      
+u1              male     a                   Univar                   speed                     univar                 numbercomparison        u1_male_a_nophys_speed_nophysspec_numbercomparison.out              
+u1              male     ae                  Univar                   speed                     univar                 numbercomparison        u1_male_ae_nophys_speed_nophysspec_numbercomparison.out             
+u1              male     aeh                 Univar                   speed                     univar                 numbercomparison        u1_male_aeh_nophys_speed_nophysspec_numbercomparison.out            
+u1              male     aehplus             Univar                   speed                     univar                 numbercomparison        u1_male_aehplus_nophys_speed_nophysspec_numbercomparison.out        
+u1              female   a                   Univar                   memory                    univar                 wmslmdel                u1_female_a_nophys_memory_nophysspec_wmslmdel.out                   
+u1              male     a                   Univar                   memory                    univar                 wmslmdel                u1_male_a_nophys_memory_nophysspec_wmslmdel.out                     
+u1              female   a                   Univar                   memory                    univar                 wmslmimmed              u1_female_a_nophys_memory_nophysspec_wmslmimmed.out                 
+u1              male     a                   Univar                   memory                    univar                 wmslmimmed              u1_male_a_nophys_memory_nophysspec_wmslmimmed.out                   
+u1              female   a                   Univar                   memory                    univar                 wordlistdelay           u1_female_a_nophys_memory_nophysspec_wordlistdelay.out              
+u1              female   ae                  Univar                   memory                    univar                 wordlistdelay           u1_female_ae_nophys_memory_nophysspec_wordlistdelay.out             
+u1              female   aeh                 Univar                   memory                    univar                 wordlistdelay           u1_female_aeh_nophys_memory_nophysspec_wordlistdelay.out            
+u1              female   aehplus             Univar                   memory                    univar                 wordlistdelay           u1_female_aehplus_nophys_memory_nophysspec_wordlistdelay.out        
+u1              male     a                   Univar                   memory                    univar                 wordlistdelay           u1_male_a_nophys_memory_nophysspec_wordlistdelay.out                
+u1              male     ae                  Univar                   memory                    univar                 wordlistdelay           u1_male_ae_nophys_memory_nophysspec_wordlistdelay.out               
+u1              male     aeh                 Univar                   memory                    univar                 wordlistdelay           u1_male_aeh_nophys_memory_nophysspec_wordlistdelay.out              
+u1              male     aehplus             Univar                   memory                    univar                 wordlistdelay           u1_male_aehplus_nophys_memory_nophysspec_wordlistdelay.out          
+u1              female   a                   Univar                   memory                    univar                 wordlistimmed           u1_female_a_nophys_memory_nophysspec_wordlistimmed.out              
+u1              female   ae                  Univar                   memory                    univar                 wordlistimmed           u1_female_ae_nophys_memory_nophysspec_wordlistimmed.out             
+u1              female   aeh                 Univar                   memory                    univar                 wordlistimmed           u1_female_aeh_nophys_memory_nophysspec_wordlistimmed.out            
+u1              female   aehplus             Univar                   memory                    univar                 wordlistimmed           u1_female_aehplus_nophys_memory_nophysspec_wordlistimmed.out        
+u1              male     a                   Univar                   memory                    univar                 wordlistimmed           u1_male_a_nophys_memory_nophysspec_wordlistimmed.out                
+u1              male     ae                  Univar                   memory                    univar                 wordlistimmed           u1_male_ae_nophys_memory_nophysspec_wordlistimmed.out               
+u1              male     aeh                 Univar                   memory                    univar                 wordlistimmed           u1_male_aeh_nophys_memory_nophysspec_wordlistimmed.out              
+u1              male     aehplus             Univar                   memory                    univar                 wordlistimmed           u1_male_aehplus_nophys_memory_nophysspec_wordlistimmed.out          
+u1              female   a                   Univar                   memory                    univar                 wordlistrecog           u1_female_a_nophys_memory_nophysspec_wordlistrecog.out              
+u1              female   aehplus             Univar                   memory                    univar                 wordlistrecog           u1_female_aehplus_nophys_memory_nophysspec_wordlistrecog.out        
+u1              male     a                   Univar                   memory                    univar                 wordlistrecog           u1_male_a_nophys_memory_nophysspec_wordlistrecog.out                
+u1              male     aeh                 Univar                   memory                    univar                 wordlistrecog           u1_male_aeh_nophys_memory_nophysspec_wordlistrecog.out              
+u1              male     aehplus             Univar                   memory                    univar                 wordlistrecog           u1_male_aehplus_nophys_memory_nophysspec_wordlistrecog.out          
+
+## b1
+
+
+model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                       
+--------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ----------------------------------------------------------------
+b1              female   a                   pulmonary                language                  fev                    bnt                     b1_female_a_pulmonary_language_fev_bnt.out                      
+b1              female   ae                  pulmonary                language                  fev                    bnt                     b1_female_ae_pulmonary_language_fev_bnt.out                     
+b1              female   aeh                 pulmonary                language                  fev                    bnt                     b1_female_aeh_pulmonary_language_fev_bnt.out                    
+b1              female   aehplus             pulmonary                language                  fev                    bnt                     b1_female_aehplus_pulmonary_language_fev_bnt.out                
+b1              male     a                   pulmonary                language                  fev                    bnt                     b1_male_a_pulmonary_language_fev_bnt.out                        
+b1              male     ae                  pulmonary                language                  fev                    bnt                     b1_male_ae_pulmonary_language_fev_bnt.out                       
+b1              male     aeh                 pulmonary                language                  fev                    bnt                     b1_male_aeh_pulmonary_language_fev_bnt.out                      
+b1              male     aehplus             pulmonary                language                  fev                    bnt                     b1_male_aehplus_pulmonary_language_fev_bnt.out                  
+b1              female   a                   pulmonary                memory                    fev                    bostonstorydelay        b1_female_a_pulmonary_memory_fev_bostonstorydelay.out           
+b1              female   ae                  pulmonary                memory                    fev                    bostonstorydelay        b1_female_ae_pulmonary_memory_fev_bostonstorydelay.out          
+b1              female   aeh                 pulmonary                memory                    fev                    bostonstorydelay        b1_female_aeh_pulmonary_memory_fev_bostonstorydelay.out         
+b1              female   aehplus             pulmonary                memory                    fev                    bostonstorydelay        b1_female_aehplus_pulmonary_memory_fev_bostonstorydelay.out     
+b1              male     a                   pulmonary                memory                    fev                    bostonstorydelay        b1_male_a_pulmonary_memory_fev_bostonstorydelay.out             
+b1              male     ae                  pulmonary                memory                    fev                    bostonstorydelay        b1_male_ae_pulmonary_memory_fev_bostonstorydelay.out            
+b1              male     aeh                 pulmonary                memory                    fev                    bostonstorydelay        b1_male_aeh_pulmonary_memory_fev_bostonstorydelay.out           
+b1              male     aehplus             pulmonary                memory                    fev                    bostonstorydelay        b1_male_aehplus_pulmonary_memory_fev_bostonstorydelay.out       
+b1              female   a                   pulmonary                memory                    fev                    bostonstoryimmediate    b1_female_a_pulmonary_memory_fev_bostonstoryimmediate.out       
+b1              female   ae                  pulmonary                memory                    fev                    bostonstoryimmediate    b1_female_ae_pulmonary_memory_fev_bostonstoryimmediate.out      
+b1              female   aeh                 pulmonary                memory                    fev                    bostonstoryimmediate    b1_female_aeh_pulmonary_memory_fev_bostonstoryimmediate.out     
+b1              female   aehplus             pulmonary                memory                    fev                    bostonstoryimmediate    b1_female_aehplus_pulmonary_memory_fev_bostonstoryimmediate.out 
+b1              male     a                   pulmonary                memory                    fev                    bostonstoryimmediate    b1_male_a_pulmonary_memory_fev_bostonstoryimmediate.out         
+b1              male     ae                  pulmonary                memory                    fev                    bostonstoryimmediate    b1_male_ae_pulmonary_memory_fev_bostonstoryimmediate.out        
+b1              male     aeh                 pulmonary                memory                    fev                    bostonstoryimmediate    b1_male_aeh_pulmonary_memory_fev_bostonstoryimmediate.out       
+b1              male     aehplus             pulmonary                memory                    fev                    bostonstoryimmediate    b1_male_aehplus_pulmonary_memory_fev_bostonstoryimmediate.out   
+b1              female   a                   pulmonary                fluency                   fev                    categories              b1_female_a_pulmonary_fluency_fev_categories.out                
+b1              female   ae                  pulmonary                fluency                   fev                    categories              b1_female_ae_pulmonary_fluency_fev_categories.out               
+b1              female   aeh                 pulmonary                fluency                   fev                    categories              b1_female_aeh_pulmonary_fluency_fev_categories.out              
+b1              female   aehplus             pulmonary                fluency                   fev                    categories              b1_female_aehplus_pulmonary_fluency_fev_categories.out          
+b1              male     a                   pulmonary                fluency                   fev                    categories              b1_male_a_pulmonary_fluency_fev_categories.out                  
+b1              male     ae                  pulmonary                fluency                   fev                    categories              b1_male_ae_pulmonary_fluency_fev_categories.out                 
+b1              male     aeh                 pulmonary                fluency                   fev                    categories              b1_male_aeh_pulmonary_fluency_fev_categories.out                
+b1              male     aehplus             pulmonary                fluency                   fev                    categories              b1_male_aehplus_pulmonary_fluency_fev_categories.out            
+b1              female   a                   pulmonary                language                  fev                    complexideas            b1_female_a_pulmonary_language_fev_complexideas.out             
+b1              female   ae                  pulmonary                language                  fev                    complexideas            b1_female_ae_pulmonary_language_fev_complexideas.out            
+b1              female   aeh                 pulmonary                language                  fev                    complexideas            b1_female_aeh_pulmonary_language_fev_complexideas.out           
+b1              female   aehplus             pulmonary                language                  fev                    complexideas            b1_female_aehplus_pulmonary_language_fev_complexideas.out       
+b1              male     a                   pulmonary                language                  fev                    complexideas            b1_male_a_pulmonary_language_fev_complexideas.out               
+b1              male     ae                  pulmonary                language                  fev                    complexideas            b1_male_ae_pulmonary_language_fev_complexideas.out              
+b1              male     aeh                 pulmonary                language                  fev                    complexideas            b1_male_aeh_pulmonary_language_fev_complexideas.out             
+b1              male     aehplus             pulmonary                language                  fev                    complexideas            b1_male_aehplus_pulmonary_language_fev_complexideas.out         
+b1              female   a                   pulmonary                executive                 fev                    digitordering           b1_female_a_pulmonary_executive_fev_digitordering.out           
+b1              female   ae                  pulmonary                executive                 fev                    digitordering           b1_female_ae_pulmonary_executive_fev_digitordering.out          
+b1              female   aeh                 pulmonary                executive                 fev                    digitordering           b1_female_aeh_pulmonary_executive_fev_digitordering.out         
+b1              female   aehplus             pulmonary                executive                 fev                    digitordering           b1_female_aehplus_pulmonary_executive_fev_digitordering.out     
+b1              male     a                   pulmonary                executive                 fev                    digitordering           b1_male_a_pulmonary_executive_fev_digitordering.out             
+b1              male     ae                  pulmonary                executive                 fev                    digitordering           b1_male_ae_pulmonary_executive_fev_digitordering.out            
+b1              male     aeh                 pulmonary                executive                 fev                    digitordering           b1_male_aeh_pulmonary_executive_fev_digitordering.out           
+b1              male     aehplus             pulmonary                executive                 fev                    digitordering           b1_male_aehplus_pulmonary_executive_fev_digitordering.out       
+b1              female   a                   pulmonary                executive                 fev                    digitsback              b1_female_a_pulmonary_executive_fev_digitsback.out              
+b1              female   ae                  pulmonary                executive                 fev                    digitsback              b1_female_ae_pulmonary_executive_fev_digitsback.out             
+b1              female   aeh                 pulmonary                executive                 fev                    digitsback              b1_female_aeh_pulmonary_executive_fev_digitsback.out            
+b1              female   aehplus             pulmonary                executive                 fev                    digitsback              b1_female_aehplus_pulmonary_executive_fev_digitsback.out        
+b1              male     a                   pulmonary                executive                 fev                    digitsback              b1_male_a_pulmonary_executive_fev_digitsback.out                
+b1              male     ae                  pulmonary                executive                 fev                    digitsback              b1_male_ae_pulmonary_executive_fev_digitsback.out               
+b1              male     aeh                 pulmonary                executive                 fev                    digitsback              b1_male_aeh_pulmonary_executive_fev_digitsback.out              
+b1              male     aehplus             pulmonary                executive                 fev                    digitsback              b1_male_aehplus_pulmonary_executive_fev_digitsback.out          
+b1              female   a                   pulmonary                memory                    fev                    digitsforward           b1_female_a_pulmonary_memory_fev_digitsforward.out              
+b1              female   ae                  pulmonary                memory                    fev                    digitsforward           b1_female_ae_pulmonary_memory_fev_digitsforward.out             
+b1              female   aeh                 pulmonary                memory                    fev                    digitsforward           b1_female_aeh_pulmonary_memory_fev_digitsforward.out            
+b1              female   aehplus             pulmonary                memory                    fev                    digitsforward           b1_female_aehplus_pulmonary_memory_fev_digitsforward.out        
+b1              male     a                   pulmonary                memory                    fev                    digitsforward           b1_male_a_pulmonary_memory_fev_digitsforward.out                
+b1              male     ae                  pulmonary                memory                    fev                    digitsforward           b1_male_ae_pulmonary_memory_fev_digitsforward.out               
+b1              male     aeh                 pulmonary                memory                    fev                    digitsforward           b1_male_aeh_pulmonary_memory_fev_digitsforward.out              
+b1              male     aehplus             pulmonary                memory                    fev                    digitsforward           b1_male_aehplus_pulmonary_memory_fev_digitsforward.out          
+b1              female   a                   pulmonary                speed                     fev                    symbol                  b1_female_a_pulmonary_speed_fev_digitsymbol.out                 
+b1              female   ae                  pulmonary                speed                     fev                    symbol                  b1_female_ae_pulmonary_speed_fev_digitsymbol.out                
+b1              female   aeh                 pulmonary                speed                     fev                    symbol                  b1_female_aeh_pulmonary_speed_fev_digitsymbol.out               
+b1              female   aehplus             pulmonary                speed                     fev                    symbol                  b1_female_aehplus_pulmonary_speed_fev_digitsymbol.out           
+b1              male     a                   pulmonary                speed                     fev                    symbol                  b1_male_a_pulmonary_speed_fev_digitsymbol.out                   
+b1              male     ae                  pulmonary                speed                     fev                    symbol                  b1_male_ae_pulmonary_speed_fev_digitsymbol.out                  
+b1              male     aeh                 pulmonary                speed                     fev                    symbol                  b1_male_aeh_pulmonary_speed_fev_digitsymbol.out                 
+b1              male     aehplus             pulmonary                speed                     fev                    symbol                  b1_male_aehplus_pulmonary_speed_fev_digitsymbol.out             
+b1              female   a                   pulmonary                mental                    fev                    lineorientation         b1_female_a_pulmonary_mental_fev_lineorientation.out            
+b1              female   ae                  pulmonary                mental                    fev                    lineorientation         b1_female_ae_pulmonary_mental_fev_lineorientation.out           
+b1              female   aeh                 pulmonary                mental                    fev                    lineorientation         b1_female_aeh_pulmonary_mental_fev_lineorientation.out          
+b1              female   aehplus             pulmonary                mental                    fev                    lineorientation         b1_female_aehplus_pulmonary_mental_fev_lineorientation.out      
+b1              male     a                   pulmonary                mental                    fev                    lineorientation         b1_male_a_pulmonary_mental_fev_lineorientation.out              
+b1              male     ae                  pulmonary                mental                    fev                    lineorientation         b1_male_ae_pulmonary_mental_fev_lineorientation.out             
+b1              male     aeh                 pulmonary                mental                    fev                    lineorientation         b1_male_aeh_pulmonary_mental_fev_lineorientation.out            
+b1              male     aehplus             pulmonary                mental                    fev                    lineorientation         b1_male_aehplus_pulmonary_mental_fev_lineorientation.out        
+b1              female   aeh                 pulmonary                visuospatial              fev                    lineorientation         b1_female_aeh_pulmonary_visuospatial_fev_lineorientation.out    
+b1              male     aeh                 pulmonary                visuospatial              fev                    lineorientation         b1_male_aeh_pulmonary_visuospatial_fev_lineorientation.out      
+b1              female   a                   pulmonary                memory                    fev                    logicalmemorydelay      b1_female_a_pulmonary_memory_fev_logicalmemorydelay.out         
+b1              female   ae                  pulmonary                memory                    fev                    logicalmemorydelay      b1_female_ae_pulmonary_memory_fev_logicalmemorydelay.out        
+b1              female   aeh                 pulmonary                memory                    fev                    logicalmemorydelay      b1_female_aeh_pulmonary_memory_fev_logicalmemorydelay.out       
+b1              female   aehplus             pulmonary                memory                    fev                    logicalmemorydelay      b1_female_aehplus_pulmonary_memory_fev_logicalmemorydelay.out   
+b1              male     a                   pulmonary                memory                    fev                    logicalmemorydelay      b1_male_a_pulmonary_memory_fev_logicalmemorydelay.out           
+b1              male     ae                  pulmonary                memory                    fev                    logicalmemorydelay      b1_male_ae_pulmonary_memory_fev_logicalmemorydelay.out          
+b1              male     aeh                 pulmonary                memory                    fev                    logicalmemorydelay      b1_male_aeh_pulmonary_memory_fev_logicalmemorydelay.out         
+b1              male     aehplus             pulmonary                memory                    fev                    logicalmemorydelay      b1_male_aehplus_pulmonary_memory_fev_logicalmemorydelay.out     
+b1              female   ae                  pulmonary                memory                    fev                    logicalmemoryimmed      b1_female_ae_pulmonary_memory_fev_logicalmemoryimmed.out        
+b1              female   aeh                 pulmonary                memory                    fev                    logicalmemoryimmed      b1_female_aeh_pulmonary_memory_fev_logicalmemoryimmed.out       
+b1              female   aehplus             pulmonary                memory                    fev                    logicalmemoryimmed      b1_female_aehplus_pulmonary_memory_fev_logicalmemoryimmed.out   
+b1              male     a                   pulmonary                memory                    fev                    logicalmemoryimmed      b1_male_a_pulmonary_memory_fev_logicalmemoryimmed.out           
+b1              male     ae                  pulmonary                memory                    fev                    logicalmemoryimmed      b1_male_ae_pulmonary_memory_fev_logicalmemoryimmed.out          
+b1              male     aeh                 pulmonary                memory                    fev                    logicalmemoryimmed      b1_male_aeh_pulmonary_memory_fev_logicalmemoryimmed.out         
+b1              male     aehplus             pulmonary                memory                    fev                    logicalmemoryimmed      b1_male_aehplus_pulmonary_memory_fev_logicalmemoryimmed.out     
+b1              female   a                   pulmonary                reasoning                 fev                    matrices                b1_female_a_pulmonary_reasoning_fev_matrices.out                
+b1              female   ae                  pulmonary                reasoning                 fev                    matrices                b1_female_ae_pulmonary_reasoning_fev_matrices.out               
+b1              female   aeh                 pulmonary                reasoning                 fev                    matrices                b1_female_aeh_pulmonary_reasoning_fev_matrices.out              
+b1              female   aehplus             pulmonary                reasoning                 fev                    matrices                b1_female_aehplus_pulmonary_reasoning_fev_matrices.out          
+b1              male     a                   pulmonary                reasoning                 fev                    matrices                b1_male_a_pulmonary_reasoning_fev_matrices.out                  
+b1              male     ae                  pulmonary                reasoning                 fev                    matrices                b1_male_ae_pulmonary_reasoning_fev_matrices.out                 
+b1              male     aeh                 pulmonary                reasoning                 fev                    matrices                b1_male_aeh_pulmonary_reasoning_fev_matrices.out                
+b1              male     aehplus             pulmonary                reasoning                 fev                    matrices                b1_male_aehplus_pulmonary_reasoning_fev_matrices.out            
+b1              female   ae                  pulmonary                mental                    fev                    mmse                    b1_female_ae_pulmonary_mental_fev_mmse.out                      
+b1              female   aeh                 pulmonary                mental                    fev                    mmse                    b1_female_aeh_pulmonary_mental_fev_mmse.out                     
+b1              female   aehplus             pulmonary                mental                    fev                    mmse                    b1_female_aehplus_pulmonary_mental_fev_mmse.out                 
+b1              male     ae                  pulmonary                mental                    fev                    mmse                    b1_male_ae_pulmonary_mental_fev_mmse.out                        
+b1              male     aeh                 pulmonary                mental                    fev                    mmse                    b1_male_aeh_pulmonary_mental_fev_mmse.out                       
+b1              male     aehplus             pulmonary                mental                    fev                    mmse                    b1_male_aehplus_pulmonary_mental_fev_mmse.out                   
+b1              female   a                   pulmonary                knowledge                 fev                    nart                    b1_female_a_pulmonary_knowledge_fev_nart.out                    
+b1              female   ae                  pulmonary                knowledge                 fev                    nart                    b1_female_ae_pulmonary_knowledge_fev_nart.out                   
+b1              female   aeh                 pulmonary                knowledge                 fev                    nart                    b1_female_aeh_pulmonary_knowledge_fev_nart.out                  
+b1              female   aehplus             pulmonary                knowledge                 fev                    nart                    b1_female_aehplus_pulmonary_knowledge_fev_nart.out              
+b1              male     a                   pulmonary                knowledge                 fev                    nart                    b1_male_a_pulmonary_knowledge_fev_nart.out                      
+b1              male     ae                  pulmonary                knowledge                 fev                    nart                    b1_male_ae_pulmonary_knowledge_fev_nart.out                     
+b1              male     aeh                 pulmonary                knowledge                 fev                    nart                    b1_male_aeh_pulmonary_knowledge_fev_nart.out                    
+b1              male     aehplus             pulmonary                knowledge                 fev                    nart                    b1_male_aehplus_pulmonary_knowledge_fev_nart.out                
+b1              female   a                   pulmonary                speed                     fev                    numbercomparison        b1_female_a_pulmonary_speed_fev_numbercomparison.out            
+b1              female   ae                  pulmonary                speed                     fev                    numbercomparison        b1_female_ae_pulmonary_speed_fev_numbercomparison.out           
+b1              female   aeh                 pulmonary                speed                     fev                    numbercomparison        b1_female_aeh_pulmonary_speed_fev_numbercomparison.out          
+b1              female   aehplus             pulmonary                speed                     fev                    numbercomparison        b1_female_aehplus_pulmonary_speed_fev_numbercomparison.out      
+b1              male     a                   pulmonary                speed                     fev                    numbercomparison        b1_male_a_pulmonary_speed_fev_numbercomparison.out              
+b1              male     ae                  pulmonary                speed                     fev                    numbercomparison        b1_male_ae_pulmonary_speed_fev_numbercomparison.out             
+b1              male     aeh                 pulmonary                speed                     fev                    numbercomparison        b1_male_aeh_pulmonary_speed_fev_numbercomparison.out            
+b1              male     aehplus             pulmonary                speed                     fev                    numbercomparison        b1_male_aehplus_pulmonary_speed_fev_numbercomparison.out        
+b1              female   a                   pulmonary                memory                    fev                    wordlistdelay           b1_female_a_pulmonary_memory_fev_wordlistdelay.out              
+b1              female   ae                  pulmonary                memory                    fev                    wordlistdelay           b1_female_ae_pulmonary_memory_fev_wordlistdelay.out             
+b1              female   aeh                 pulmonary                memory                    fev                    wordlistdelay           b1_female_aeh_pulmonary_memory_fev_wordlistdelay.out            
+b1              female   aehplus             pulmonary                memory                    fev                    wordlistdelay           b1_female_aehplus_pulmonary_memory_fev_wordlistdelay.out        
+b1              male     a                   pulmonary                memory                    fev                    wordlistdelay           b1_male_a_pulmonary_memory_fev_wordlistdelay.out                
+b1              male     ae                  pulmonary                memory                    fev                    wordlistdelay           b1_male_ae_pulmonary_memory_fev_wordlistdelay.out               
+b1              male     aeh                 pulmonary                memory                    fev                    wordlistdelay           b1_male_aeh_pulmonary_memory_fev_wordlistdelay.out              
+b1              male     aehplus             pulmonary                memory                    fev                    wordlistdelay           b1_male_aehplus_pulmonary_memory_fev_wordlistdelay.out          
+b1              female   a                   pulmonary                memory                    fev                    wordlistimmed           b1_female_a_pulmonary_memory_fev_wordlistimmed.out              
+b1              female   ae                  pulmonary                memory                    fev                    wordlistimmed           b1_female_ae_pulmonary_memory_fev_wordlistimmed.out             
+b1              female   aeh                 pulmonary                memory                    fev                    wordlistimmed           b1_female_aeh_pulmonary_memory_fev_wordlistimmed.out            
+b1              female   aehplus             pulmonary                memory                    fev                    wordlistimmed           b1_female_aehplus_pulmonary_memory_fev_wordlistimmed.out        
+b1              male     a                   pulmonary                memory                    fev                    wordlistimmed           b1_male_a_pulmonary_memory_fev_wordlistimmed.out                
+b1              male     ae                  pulmonary                memory                    fev                    wordlistimmed           b1_male_ae_pulmonary_memory_fev_wordlistimmed.out               
+b1              male     aeh                 pulmonary                memory                    fev                    wordlistimmed           b1_male_aeh_pulmonary_memory_fev_wordlistimmed.out              
+b1              male     aehplus             pulmonary                memory                    fev                    wordlistimmed           b1_male_aehplus_pulmonary_memory_fev_wordlistimmed.out          
+b1              female   a                   pulmonary                memory                    fev                    wordlistrecog           b1_female_a_pulmonary_memory_fev_wordlistrecog.out              
+b1              female   ae                  pulmonary                memory                    fev                    wordlistrecog           b1_female_ae_pulmonary_memory_fev_wordlistrecog.out             
+b1              female   aeh                 pulmonary                memory                    fev                    wordlistrecog           b1_female_aeh_pulmonary_memory_fev_wordlistrecog.out            
+b1              female   aehplus             pulmonary                memory                    fev                    wordlistrecog           b1_female_aehplus_pulmonary_memory_fev_wordlistrecog.out        
+b1              male     a                   pulmonary                memory                    fev                    wordlistrecog           b1_male_a_pulmonary_memory_fev_wordlistrecog.out                
+b1              male     ae                  pulmonary                memory                    fev                    wordlistrecog           b1_male_ae_pulmonary_memory_fev_wordlistrecog.out               
+b1              male     aeh                 pulmonary                memory                    fev                    wordlistrecog           b1_male_aeh_pulmonary_memory_fev_wordlistrecog.out              
+b1              male     aehplus             pulmonary                memory                    fev                    wordlistrecog           b1_male_aehplus_pulmonary_memory_fev_wordlistrecog.out          
 
 
 # Session Information
@@ -538,7 +685,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-01, 09:37 -0700
+Report rendered by koval_000 at 2015-07-15, 19:40 -0700
 ```
 
 ```
@@ -554,15 +701,13 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] rpivotTable_0.1.4.1   lattice_0.20-31       shiny_0.12.1          dplyr_0.4.1           testit_0.4           
- [6] ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5          knitr_1.10.5          MplusAutomation_0.6-3
+[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5         
+[6] knitr_1.10.5          MplusAutomation_0.6-3
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6       formatR_1.2       plyr_1.8.2        highr_0.5         tools_3.2.0       boot_1.3-16      
- [7] digest_0.6.8      jsonlite_0.9.16   evaluate_0.7      gtable_0.1.2      texreg_1.35       rstudioapi_0.3.1 
-[13] DBI_0.3.1         yaml_2.1.13       parallel_3.2.0    proto_0.3-10      coda_0.17-1       stringr_1.0.0    
-[19] htmlwidgets_0.4.2 R6_2.0.1          tcltk_3.2.0       gsubfn_0.6-6      rmarkdown_0.7     tidyr_0.2.0      
-[25] reshape2_1.4.1    magrittr_1.5      htmltools_0.2.6   MASS_7.3-40       rsconnect_0.3.79  assertthat_0.1   
-[31] mime_0.3          xtable_1.7-4      colorspace_1.2-6  httpuv_1.3.2      labeling_0.3      stringi_0.4-1    
-[37] lazyeval_0.1.10   munsell_0.4.2    
+ [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
+ [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
+[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
+[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
+[25] evaluate_0.7     rmarkdown_0.7    gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
 ```
