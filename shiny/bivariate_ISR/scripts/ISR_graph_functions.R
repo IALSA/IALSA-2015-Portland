@@ -193,21 +193,22 @@ ISR_plot <- function(ds = dsISR
     ds$display_line_1 <- gsub("^(0)\\.", ".", ds$display_line_1)
     ds$display_line_2 <- ""
   } else if( display_value == "display" ) {
-    # browser()
     prettify_r <- function( r, trail_2_spaces=FALSE ) {
+      #This block truncates or pads to two decimals
       if( trail_2_spaces ) {
         r_pretty <- sprintf("%+.2f  ", as.numeric(r)) #2 trailing spaces to roughly offset the "+/-."
       } else {
-        r_pretty <- sprintf("%+.2f", as.numeric(r)) #2 trailing spaces to roughly offset the "+/-."
+        r_pretty <- sprintf("%+.2f", as.numeric(r))
       }
+
+      #This strips out the leading zero.
       r_pretty <- gsub("^([+-])(0)\\.", "\\1.", r_pretty)
+
       return( r_pretty )
     }
 
     # Without escaping: "^(-?[\d\.]+)\\n\((-?[\d\.]+),(-?[\d\.]+)\)$"
     pattern <- "^(-?[\\d\\.]+)##\\((-?[\\d\\.]+),(-?[\\d\\.]+)\\)$"
-    # cbind(ds$display, sub("(\\n)", "##", ds$display, perl=T))
-    # a <- sub("(\\n)", "##", ds$display, perl=T) # Replace the problematic "\n"
     # cbind(ds$display, gsub("^(-?[\\d\\.]+)##\\((-?[\\d\\.]+),(-?[\\d\\.]+)\\)$", "#\\1#\\2#\\3#", a, perl=T))
     a <- sub("(\\n)", "##", ds$display, perl=T) # Replace the problematic "\n"
     center <- gsub(pattern, "\\1", a, perl=T)
@@ -223,7 +224,6 @@ ISR_plot <- function(ds = dsISR
     ds$display_line_1 <- ds[, display_value]
     ds$display_line_2 <- ""
   }
-  # ds[, c("display", "display_line_1", "display_line_2")]
 
   g <- ggplot2::ggplot(ds, aes_string(x=x_name, y="cognitive_measure", label="display_line_1", fill="sign"))
   g <- g + geom_tile()
