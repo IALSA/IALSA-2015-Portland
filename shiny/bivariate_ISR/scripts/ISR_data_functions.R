@@ -43,6 +43,7 @@ d <- ds %>% tidyr::gather_("parameter","value", c(
 # d <- ds %>% tidyr::gather_("parameter","value", c("corr_int", "corr_slope", "corr_residual" ,    "display_int", "display_slope", "display_residual", "p_cov_int", "p_cov_slope", 'p_cov_res'))
   # d$parameter <- stringr::str_replace(d$parameter, "cov_res", "cov_residual")
   # d$parameter <- stringr::str_replace(d$parameter, "pc_SIGMA_pval", "pvalue")
+
 for( i in seq_along(d$parameter)){
 
   x <- stringr::str_split(d$parameter, pattern = "_")[[i]]
@@ -67,6 +68,7 @@ for( i in seq_along(d$parameter)){
   head(as.data.frame(d),20)
   str(d)
 
+  #TODO: replace the next ~10 lines with a call to cut()
   d$unsign <- d$pvalue > .10
   d$sign10 <- d$pvalue <= .10 & d$pvalue > .05
   d$sign05 <- d$pvalue <= .05 & d$pvalue > .01

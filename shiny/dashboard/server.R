@@ -43,23 +43,26 @@ dsb <- dsb %>% dplyr::filter(model_number %in% c("b1"))
 table( dsb$cognitive_measure,dsb$cognitive_construct)
 
 ## @knitr extend_data
-dsb$display_int <- paste0(
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_00, 2)), " \n (",
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_00_low,2)), ",",
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_00_high,2)), ")"
+dsb$display_int_center <- gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3", round(dsb$pc_CORR_00, 2))
+dsb$display_int_ci <- paste0("(",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3", round(dsb$pc_CI95_00_low,2)), ",",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3", round(dsb$pc_CI95_00_high,2)), ")"
 )
+dsb$display_int <- paste0(dsb$display_int_center, "\n", dsb$display_int_ci)
 
-dsb$display_slope <- paste0(
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_1, 2)), " \n (",
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_11_low,2)), ",",
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_11_high,2)), ")"
+dsb$display_slope_center <- gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_1, 2))
+dsb$display_slope_ci <- paste0("(",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3", round(dsb$pc_CI95_11_low,2)), ",",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3", round(dsb$pc_CI95_11_high,2)), ")"
 )
+dsb$display_slope <- paste0(dsb$display_slope_center, "\n", dsb$display_slope_ci)
 
-dsb$display_residual <- paste0(
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CORR_residual, 2)), " \n (",
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_residual_low,2)), ",",
-  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3",  round(dsb$pc_CI95_residual_high,2)), ")"
+dsb$display_residual_center <- gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3", round(dsb$pc_CORR_residual, 2))
+dsb$display_residual_ci <- paste0("(",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3", round(dsb$pc_CI95_residual_low,2)), ",",
+  gsub("^([+-])?(0)?(\\.\\d+)$", "\\1\\3", round(dsb$pc_CI95_residual_high,2)), ")"
 )
+dsb$display_residual <- paste0(dsb$display_residual_center, "\n", dsb$display_residual_ci)
 
 dsb <- dsb %>% dplyr::select_("study_name","model_number", "subgroup", "model_type",
   "physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
@@ -118,20 +121,30 @@ unique(dsT$physical_construct)
 
 #############
 
-if(basename(getwd())=="dashboard"){
-  source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
-  source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
-  source("../../reports/model_space/scripts/tile_model_5D.R") # quadrotile
-
-} else {
-  source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
-  source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
-  source("./reports/model_space/scripts/tile_model_5D.R") # quadrotile
-}
+# if(basename(getwd())=="dashboard"){
+#   source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+#   source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+#   source("../../reports/model_space/scripts/tile_model_5D.R") # quadrotile
+#
+# } else {
+#   source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+#   source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+#   source("./reports/model_space/scripts/tile_model_5D.R") # quadrotile
+# }
 
 ############ SERVER ############
 # server <-
 function(input, output, session) {
+  if(basename(getwd())=="dashboard"){
+    source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+    source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+    source("../../reports/model_space/scripts/tile_model_5D.R") # quadrotile
+
+  } else {
+    source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+    source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+    source("./reports/model_space/scripts/tile_model_5D.R") # quadrotile
+  }
 
   selectedData <- reactive({
     filter_model(ds = dsb, study = input$radioStudy ,
@@ -163,6 +176,7 @@ function(input, output, session) {
   }, deleteFile = FALSE)  # close descriptive image
 
   output$bivariate_ISR <- renderPlot({
+    # browser()
     TilePlot <- basic_tile_ISR(ds = selectedData(), x_name = "physical_measure")
     dsISR <- as.data.frame(ISR_tile_data(ds=selectedData()))
     ISRPlot <- ISR_plot(ds = dsISR,  display_value=input$radioDisplayMode)

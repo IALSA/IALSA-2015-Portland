@@ -70,16 +70,76 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
 ######################  BASIC TILE ############
 ## @knitr define_basic_tile_function
 basic_tile_ISR <- function(ds,x_name){
+
+  ds$cognitive_measure <- plyr::revalue(ds$cognitive_measure, warn_missing=F, replace  = c(
+    "3ms"                      = "3ms"
+    , "analogies"                = "analogies"
+    , "block"                    = "block"
+    , "bnt"                      = "bnt"
+    , "bostonstorydelay"         = "boston_story_delay"
+    , "bostonstoryimmediate"     = "boston_story_immediate"
+    , "categories"               = "categories"
+    , "clock"                    = "clock"
+    , "complexideas"             = "complex_ideas"
+    , "delayedrecall"            = "delayed_recall"
+    , "digitbackwardspan"        = "digit_backward_span"
+    , "digitbackwardtotal"       = "digit_backward_total"
+    , "digitordering"            = "digit_ordering"
+    , "digitsback"               = "digits_back"
+    , "digitsforward"            = "digits_forward"
+    , "digitspan"                = "digit_span"
+    , "digitsymbolsubstitution"  = "digit_symbol_substitution"
+    , "figurecopy"               = "figure_copy"
+    , "figureid"                 = "figure_id"
+    , "figurelogic"              = "figure_logic"
+    , "figurememory"             = "figure_memory"
+    , "info"                     = "info"
+    , "lineorientation"          = "line_orientation"
+    , "logicalmemory"            = "logical_memory"
+    , "logicalmemorydelay"       = "logical_memory_delay"
+    , "logicalmemoryimmed"       = "logical_memory_immed"
+    , "lpsspacialability"        = "lps_spacial_ability"
+    , "lpsspatialability"        = "lps_spatial_ability"
+    , "matrices"                 = "matrices"
+    , "mirrecall"                = "mir_recall"
+    , "mmse"                     = "mmse"
+    , "nart"                     = "nart"
+    , "nocogm"                   = "nocogm"
+    , "numbercomparison"         = "number_comparison"
+    , "patterncomparison"        = "pattern_comparison"
+    , "proserecall"              = "prose_recall"
+    , "psif"                     = "psif"
+    , "rotations"                = "rotations"
+    , "serial7"                  = "serial7"
+    , "symbol"                   = "symbol"
+    , "synonyms"                 = "synonyms"
+    , "tics"                     = "tics"
+    , "trailsb"                  = "trailsb"
+    , "univar"                   = "univar"
+    , "verbalfluency"            = "verbal_fluency"
+    , "waisgeneralknowledge"     = "wais_general_knowledge"
+    , "waispicturecompletion"    = "wais_picture_completion"
+    , "waisvocab"                = "wais_vocab"
+    , "wmslmdel"                 = "wmslmdel"
+    , "wmslmimmed"               = "wmslmimmed"
+    , "wordlistdelay"            = "word_list_delay"
+    , "wordlistimmed"            = "word_list_immed"
+    , "wordlistrecog"            = "word_list_recog"
+  ))
+
+
   # define the data
   d <- ds %>% dplyr::count_(c("cognitive_construct", "cognitive_measure", x_name))
   d$cognitive_construct <- toupper(d$cognitive_construct)
   #
+  d$cognitive_measure <- gsub("_", "\n", d$cognitive_measure)
+
   g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", fill="cognitive_construct", label="cognitive_measure"))
   g <- g + geom_tile()
-  g <- g + geom_text(size = baseSize-3)
+  g <- g + geom_text(size = baseSize-3, line=13)
   g <- g + facet_grid(. ~  physical_measure)
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
-  g <- g + scale_fill_discrete(name = "Cog Domains")
+  g <- g + scale_fill_brewer(palette = "Set2", name = "Cog Domains")
   g <- g + labs(title=x_name_labels[x_name], x=NULL, y=NULL)
   g <- g + theme1
   g <- g + theme(axis.text.y = ggplot2::element_blank(),
@@ -113,6 +173,9 @@ ISR_plot <- function(ds = dsISR
 ){
   ds$cognitive_construct <- toupper(ds$cognitive_construct)
   # ds$pretty_number <- paste0(ds$cognitive_construct," - ",ds$cognitive_measure)
+
+  # browser()
+
   g <- ggplot2::ggplot(ds, aes_string(x=x_name, y="cognitive_measure", label=display_value, fill="sign"))
   g <- g + geom_tile()
   g <- g + geom_text(size = baseSize-3)
