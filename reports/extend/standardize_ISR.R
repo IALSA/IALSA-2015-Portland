@@ -107,20 +107,32 @@ ds$pc_CI95_residual_high <-   tanh(ds$pc_ZETA_residual_high)
 
 
 ds$test_00 <- ifelse(
-  (ds$pc_CI95_00_low < ds$pc_CORR_00) &
-    (ds$pc_CI95_00_high > ds$pc_CORR_00), "-", "ERROR" )
-ds$test_11 <- ifelse(
-  (ds$pc_CI95_11_low < ds$pc_CORR_11) &
-    (ds$pc_CI95_11_high > ds$pc_CORR_11), "-", "ERROR" )
-ds$test_Res <- ifelse(
-  (ds$pc_CI95_residual_low < ds$pc_SIGMA) &
-    (ds$pc_CI95_residual_high > ds$pc_SIGMA), "-", "ERROR" )
 
-d <-ds[1:100,c("pc_SIGMA", "pc_SIGMA_pval", "pc_CORR_residual",
- "pc_CORR_residual_z",  "pc_ZETA_residual_low","pc_ZETA_residual_high",
+  (ds$pc_CI95_00_low < 0) &
+    (ds$pc_CI95_00_high > 0), "-", "ERROR" )
+ds$test_11 <- ifelse(
+  (ds$pc_CI95_11_low < 0) &
+    (ds$pc_CI95_11_high > 0), "-", "ERROR" )
+# ds$test_Res <- ifelse(
+#   (ds$pc_CI95_residual_low < 0) &
+#     (ds$pc_CI95_residual_high > ds$pc_SIGMA), "-", "ERROR" )
+ds$test_Res <- (ds$pc_SIGMA_pval >.05) ==
+  (ds$pc_CI95_residual_low < 0) & (0 < ds$pc_CI95_residual_high)
+
+# d <-ds[1:100,c("pc_SIGMA", "pc_SIGMA_pval", "pc_CORR_residual",
+#  "pc_CORR_residual_z",  "pc_ZETA_residual_low","pc_ZETA_residual_high",
+#  "pc_CI95_residual_low", "pc_CI95_residual_high", "study_name",
+#  "output_file", "test_00", "test_11", "test_Res"
+#               )]
+
+d <-ds[1:100,c("output_file","pc_SIGMA", "pc_SIGMA_pval", "pc_CORR_residual",
  "pc_CI95_residual_low", "pc_CI95_residual_high", "study_name",
- "output_file", "test_00", "test_11", "test_Res"
+  "test_00", "test_11", "test_Res"
               )]
+# d <- dplyr::arrange(d, output_file) %>%
+#   # dplyr::filter(model_number =="b1") %>%
+#   dplyr::select(output_file, pc_SIGMA)
+
 table( ds$test_00,ds$study)
 table( ds$test_11,ds$study)
 table( ds$test_Res,ds$study)
