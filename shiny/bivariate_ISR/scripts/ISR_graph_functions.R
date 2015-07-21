@@ -147,11 +147,9 @@ basic_tile_ISR <- function(ds,x_name){
     , "wordlistrecog"            = "word_list_recog"
   ))
 
-
   # define the data
   d <- ds %>% dplyr::count_(c("cognitive_construct", "cognitive_measure", x_name))
   d$cognitive_construct <- toupper(d$cognitive_construct)
-
   d$cognitive_measure <- gsub("_", "\n", d$cognitive_measure)
 
   g <- ggplot2::ggplot(d, aes_string(x=x_name, y="cognitive_measure", fill="cognitive_construct", label="cognitive_measure"))
@@ -162,14 +160,16 @@ basic_tile_ISR <- function(ds,x_name){
   g <- g + scale_fill_brewer(palette = "Set2", name = "Cognitive\nDomains")
   g <- g + labs(title=x_name_labels[x_name], x=NULL, y=NULL)
   g <- g + theme1
-  g <- g + theme(axis.text.y = ggplot2::element_blank(),
-                 axis.text.x = element_text(hjust=.5, angle=0, size=baseSize+10),
-                 axis.title = element_blank(),
-                 legend.title = ggplot2::element_text(size=legendTitleSize, vjust =.2),
-                 legend.text =  ggplot2::element_text(size=legendTextSize),
-                 # axis.text.position = "right",
-                 legend.position="left")
-    g <- g + theme(strip.text.x = ggplot2::element_text(angle = 0, size=facetFontSize, color="black"))
+  g <- g + theme(
+    axis.text.y  = ggplot2::element_blank(),
+    axis.text.x  = element_text(hjust=.5, angle=0, size=baseSize+10),
+    axis.title   = element_blank(),
+    legend.title = ggplot2::element_text(size=legendTitleSize, vjust =.2),
+    legend.text  = ggplot2::element_text(size=legendTextSize),
+    # axis.text.position = "right",
+    legend.position="left",
+    strip.text.x = ggplot2::element_text(angle = 0, size=facetFontSize, color="black")
+  )
   return(g)
 }
 basic_tile_ISR(dsb, "physical_measure")
