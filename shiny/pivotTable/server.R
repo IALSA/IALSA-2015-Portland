@@ -71,7 +71,7 @@ shinyServer(function(input, output) {
    rpivotTable(data = dsT,
 #                rows = c("Study", "Cog.Measure"),
 #                cols= c("Phys.Measure", "Sex", "Covariates")
-               rows = c("study_name", "cognitive_measure"),
+               rows = c("study_name", "cognitive_construct", "cognitive_measure"),
                cols= c("physical_measure", "subgroup", "model_type"), height = 730
                )
  })
