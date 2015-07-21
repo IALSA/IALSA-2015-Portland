@@ -62,18 +62,18 @@ read_chunk("./synthesis/model_synthesis.R") #This allows knitr to call chunks ta
 ```
 
 
-<!-- FREQS across studies and outcomes.   -->
+<!-- FREQS across studies and outcomes.  
 ```{r studyfreqs, echo=echoChunks, results='show', message=FALSE}
 ```
-
-<!-- Calculate the forest results (but don't plot yet).   -->
+ -->
+<!-- Calculate the forest results (but don't plot yet).  
 ```{r calculate_forest, echo=echoChunks, message=TRUE, results='asis'}
 ```
-
+ -->
 
 ## Notes
 
-**Note 1**: The current report covers `r length(dto_paths)` studies: `r paste(study_names, collapse=", ")`.
+**Note 1**: The current report covers `r length(study_names)` studies: `r paste(study_names, collapse=", ")`.
 
 
 # Forest Plot (Static)
