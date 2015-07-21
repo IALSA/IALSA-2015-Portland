@@ -1,36 +1,55 @@
-##  Fou4 tile graphs of model counts:
-##    Rows                  Columns
-##  Cognitive measure     Physical Measure
-##  Cognitive measure     Study
-##  Cognitive measure     Subgroup
-##  Cognitive measure     Model type
+#  Fou4 tile graphs of model counts:
+#    Rows                  Columns
+#  Cognitive measure     Physical Measure
+#  Cognitive measure     Study
+#  Cognitive measure     Subgroup
+#  Cognitive measure     Model type
 
 
-################################################## uncomment when used in server.R ####
-## @knitr prep_for_tile
-# library(shiny)
-# library(ggplot2)
-# library(dplyr)
-#
-# if(basename(getwd())=="bivariate_ISR"){
-# ds1a <- readRDS('../../data/shared/ds1a.rds')
-# }else{
-# ds1a <- readRDS('./data/shared/ds1a.rds')
-# }
-#
-#
-# ## @knitr tweak_data
-#
-#
-# ## @knitr subset_data
-# ## trim to make more managable
-# keepvar <- c("study_name","model_number", "subgroup", "model_type","physical_construct","physical_measure", "cognitive_construct","cognitive_measure", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "ciu_corr_int", "cil_corr_int", "ciu_corr_slope", "cil_corr_slope", "ciu_corr_residual", "cil_corr_residual", "p_cov_int", "p_cov_slope", "p_cov_res")
-# # keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
-#
-# # reduce number of columns
-# dsb <- ds1a[ , keepvar]
-# # reduce number of rows
-# dsb <- dsb %>% dplyr::filter(model_number %in% c("u1","b1"))
+################################################# uncomment when used in server.R ####
+# @knitr prep_for_tile
+# rm(list=ls(all=TRUE))
+cat("\f")
+
+library(shiny)
+library(shinydashboard)
+library(dplyr)
+library(ggplot2)
+library(grid)
+library(rpivotTable)
+# library(lattice)
+
+if(basename(getwd())=="dashboard"){
+  ds2 <- readRDS('../../data/shared/ds2.rds')
+  # source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+  # source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R"
+} else {
+  ds2 <- readRDS('./data/shared/ds2.rds')
+  # source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
+  # source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
+}
+
+
+## @knitr tweak_data
+
+
+## @knitr subset_data
+## trim to make more managable
+keepvar <- c("study_name","model_number", "subgroup", "model_type",
+  "physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
+  "converged", "output_file",
+  "pc_TAU_00",      "pc_TAU_11",         "pc_SIGMA",
+  "pc_TAU_00_pval", "pc_TAU_11_pval",    "pc_SIGMA_pval",
+  "pc_CORR_00",     "pc_CORR_11",        "pc_CORR_residual",
+  "pc_CI95_00_high", "pc_CI95_00_low",
+  "pc_CI95_11_high", "pc_CI95_11_low",
+  "pc_CI95_residual_high", "pc_CI95_residual_low",
+  "pp_TAU_00_pval", "pp_TAU_11_pval" )# keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
+
+# reduce number of columns
+dsb <- ds2[ , keepvar]
+# reduce number of rows
+dsb <- dsb %>% dplyr::filter(model_number %in% c("u1","b1"))
 
 
 
@@ -153,6 +172,7 @@ basic_tile_ISR <- function(ds,x_name){
     g <- g + theme(strip.text.x = ggplot2::element_text(angle = 0, size=facetFontSize, color="black"))
   return(g)
 }
+basic_tile_ISR(dsb, "physical_measure")
 
 #Placeholder graph when the data is entirely invalid/empty
 basic_tile_ISR_blank <- function( ) {
@@ -255,7 +275,7 @@ ISR_plot <- function(ds = dsISR
 
 #Placeholder graph when the data is entirely invalid/empty
 ISR_plot_blank <- function( ) {
-  d <- data.frame(x=0, y=0, label="This study does not contain\nthis combination of variables.")
+  d <- data.frame(x=0, y=0, label="This study does not contain\this combination of variables.")
   ggplot(d, aes(x=x,y=y,label=label)) +
     geom_text(size=15) +
     ggthemes::theme_solid() +
