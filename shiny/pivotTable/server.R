@@ -20,10 +20,15 @@ dsb <- ds2 %>% dplyr::filter(model_number %in% c("u0","u2", "u1","b1"))
 }else{
 ds2 <- readRDS('./data/shared/ds2.rds')
 # dsb <- ds2 %>% dplyr::filter(model_number %in% c("u1","b1"))
-dsb <- ds2 %>% dplyr::filter(model_number %in% c("u0","u2", "u1","b1"))
+ds <- ds2 %>% dplyr::filter(model_number %in% c("u0","u2", "u1","b1"))
 }
 
-dsT <- ds2[ , c(  "study_name", "model_number","subgroup" ,"model_type", "cognitive_construct",
+ds[,"pc_CORR_00"] <- round(ds[ ,"pc_CORR_00"], 3)
+ds[,"pc_CORR_11"] <- round(ds[ ,"pc_CORR_11"], 3)
+ds[,"pc_CORR_residual"] <- round(ds[ ,"pc_CORR_residual"], 3)
+
+
+dsT <- ds[ , c(  "study_name", "model_number","subgroup" ,"model_type", "cognitive_construct",
   "physical_measure", "cognitive_measure",
   "converged", "output_file",
   "pc_TAU_00",      "pc_TAU_11",         "pc_SIGMA",
@@ -31,9 +36,7 @@ dsT <- ds2[ , c(  "study_name", "model_number","subgroup" ,"model_type", "cognit
   "pc_CORR_00",     "pc_CORR_11",        "pc_CORR_residual"
 )]
 
-ds[,"pc_CORR_00"] <- round(ds[ ,"pc_CORR_00"], 3)
-ds[,"pc_CORR_11"] <- round(ds[ ,"pc_CORR_11"], 3)
-ds[,"pc_CORR_residual"] <- round(ds[ ,"pc_CORR_residual"], 3)
+
 
 # ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual", "model_number")]
 # # ds <- dsb[ , c( "physical_construct","physical_measure","cognitive_measure","cognitive_construct", "study_name", "model_type","subgroup", "converged", "output_file", "corr_int", "corr_slope", "corr_residual", "model_number")]
