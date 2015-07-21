@@ -1,13 +1,10 @@
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-#####################################
-## @knitr load_sources
+# @knitr load_sources ==============================
 #Load any source files that contain/define functions, but that don't load any other types of variables
 #   into memory.  Avoid side effects and don't pollute the global environment.
-source("./scripts/prepare_for_reporting.R")
+# source("./scripts/prepare_for_reporting.R")
 
-
-#####################################
-## @knitr load_packages
+# @knitr load_packages ==============================
 # library(xtable)
 library(knitr)
 library(scales) #For formating values in graphs
@@ -17,26 +14,28 @@ library(grid) #For graphing
 library(ggplot2) #For graphing
 library(testit, quietly=TRUE) #For asserts
 
+# @knitr declare_globals ==============================
+
+# @knitr load_data ==============================
+
+# @knitr tweak_data ==============================
 
 #Determine the ranges for each quantity to be graphed.
 range_int <- range(ds$sd_int, ds$cil_sd_int, ds$ciu_sd_int, na.rm=T)
 range_slope <- range(ds$sd_slope, ds$cil_sd_slope, ds$ciu_sd_slope, na.rm=T)
 range_residual <- range(ds$sd_residual, ds$cil_sd_residual, ds$ciu_sd_residual, na.rm=T)
 
-## @knitr studyfreqs
+# @knitr studyfreqs
 table(ds$physical_outcome, ds$study_name)
 table(ds$cognitive_outcome, ds$study_name)
 table(ds$cognitive_outcome, ds$physical_outcome)
 
 
-#####################################
-## @knitr calculate_forest
+# @knitr calculate_forest ==============================
 #TODO: Andrey, calcalulate the graph coordinates, using Philipe's equations that start with
 #  the SEM output.
 
-
-#####################################
-## @knitr study_tables
+# @knitr study_tables ==============================
 
 for( i in seq_along(dtos) ) {
   dto <- dtos[[i]]
@@ -70,8 +69,7 @@ for( i in seq_along(dtos) ) {
   cat("\n")
 }
 
-#####################################
-## @knitr forest_static
+# @knitr forest_static ==============================
 report_theme <- theme_bw() + #Adapted from https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/CommonCode/BookTheme.R
   theme(axis.text = element_text(colour="gray40")) +
   theme(axis.title = element_text(colour="gray40")) +
@@ -146,7 +144,5 @@ for( physical_name in physical_names ) {
   }
 }
 
-
-#####################################
-## @knitr forest_animated
+# @knitr forest_animated ==============================
 # Use this as a starting point: https://github.com/OuhscBbmc/OsctrAstonWeber
