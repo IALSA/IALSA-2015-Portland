@@ -11,6 +11,11 @@
  - [about](#about)
  [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
 
+##News
+ - [Wellcome Trust Conference]()
+ - [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)   
+ - 
+
 
 ##Goals
 

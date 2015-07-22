@@ -7,4 +7,11 @@ date: 22-July-2015
 Publication model
 ========================================================
 
-![publication model](../../libs/materials/publication_model/publication_model-01.png.png)
+![publication model](test.png)
+
+
+Forest Plot
+===
+![forest plot](forest_static_bisr_covariates_aeh-1.png)
+
+
