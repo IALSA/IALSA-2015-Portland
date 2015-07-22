@@ -11,7 +11,7 @@ dashboardPage(
       menuItem("Specification", tabName = "spec", icon = icon("coffee")),
 
       # menuItem("Descriptives", tabName = "table1", icon = icon("table")),
-      menuItem("Counts", tabName = "pivotTab", icon = icon("th")),
+      menuItem("Pivot Table", tabName = "pivotTab", icon = icon("th")),
       menuItem("Bivariate ISR", tabName = "isr", icon = icon("area-chart")),
       menuItem("Forest", tabName = "forest", icon = icon("table")),
       menuItem("Sample details", tabName = "table1", icon = icon("table")),
@@ -61,10 +61,12 @@ dashboardPage(
       tabItem(
         tabName = "pivotTab",
         h2("Pivot Table"),
-        box(title = "Pivot", height= 750, width = 1200,  status = "primary", solidHeader = TRUE,
+        HTML("<br/><a href=http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable/>(Click here for a larger pivot table.)</a>"),
+        box(title = "Pivot", height= 550, width = 1200,  status = "primary", solidHeader = TRUE,
           tags$head(tags$style( type = 'text/css',  '#pivotTable{ overflow-x: scroll; }')),
           rpivotTable::rpivotTableOutput("pivotTable")
-        )
+        ),
+        HTML("<a href=http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable/>(Click here for a larger pivot table.)</a>")
       ),
       tabItem(
         tabName = "spec",
