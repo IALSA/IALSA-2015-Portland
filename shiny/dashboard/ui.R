@@ -55,7 +55,7 @@ dashboardPage(
       ),
       tabItem(
         tabName = "forest",
-        h2("Forest plot of intercepts"),
+        h2("Forest plot of slopes"),
         shiny::img(src = "images/forest_static_bisr_covariates_aeh-1.png")
       ),
       tabItem(

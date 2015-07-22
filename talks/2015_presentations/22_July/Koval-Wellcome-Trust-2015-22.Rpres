@@ -43,13 +43,14 @@ Dashboard
 ![dashboard](dashboard.png)
 - built with ```shinydashboard``` R package
 - interactive html interface on top of R script
+- what exactly do those number count?
 
 About: Model ID
 ===
 ![naming](model_naming_convention.png)
 
-- each file with model output provided model ID
-
+- each file with model output provided a unique model ID
+- ID is parsed into variables we can use in meta-analysis over studies
 
 About: Domain Mapping
 ====
@@ -61,7 +62,7 @@ About: Domain Mapping
 
 Model Collective
 ====
- - counting models
+ - counts models in each combination
  - each color adds to 100%
  - pivot table
   - study_name: EAS
@@ -69,6 +70,7 @@ Model Collective
   - model_type: aeh
   - list unique values
   - pc_CORR_11
+ - what are the key info about the model that we want to collect?  (ISR)
 
 Specification
 ===
@@ -76,19 +78,20 @@ Specification
 - Bivariate ISR (BISR) graph
 
 
+
 BISR
 ===
-
+- view for one study and one physical measure
+- variance, p-value, 95CIs
 Compare
-- (EAS, grip, aeh) vs. (OCTO, grip, aeh)
 - (EAS, grip, aeh) vs. (EAS, grip, a)
-
+- (EAS, grip, aeh) vs. (OCTO, grip, aeh)
 
 Forest
 ===
 
 Compare
-
+- view for all studies with this physical measure
 - block : (eas,males) vs. (octo, females)
 - mmse : (octo, males) vs. (oct, females)
 
@@ -109,7 +112,9 @@ Thanks
 - IALSA team
 - Andrea Piccinin
 - Scott Hofer
+- Graciela Muniz
 - Will Beasley
+![logo](ialsa_long.png)
 
 
 
