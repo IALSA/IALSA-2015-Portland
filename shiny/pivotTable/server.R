@@ -16,7 +16,7 @@ library(rpivotTable)
 if(basename(getwd())=="pivotTable"){
 ds2 <- readRDS('../../data/shared/ds2.rds')
 # dsb <- ds2 %>% dplyr::filter(model_number %in% c("u1","b1"))
-dsb <- ds2 %>% dplyr::filter(model_number %in% c("u0","u2", "u1","b1"))
+ds <- ds2 %>% dplyr::filter(model_number %in% c("u0","u2", "u1","b1"))
 }else{
 ds2 <- readRDS('./data/shared/ds2.rds')
 # dsb <- ds2 %>% dplyr::filter(model_number %in% c("u1","b1"))
