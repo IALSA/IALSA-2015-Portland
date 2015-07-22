@@ -30,12 +30,12 @@ no_grid_or_y_labels_theme <- report_theme + #Adapted from https://github.com/Ouh
   theme(panel.grid = element_blank()) +
   theme(plot.margin = unit(c(.1,.2,.2,0), "lines"))
 
-palette_gender_dark <- adjustcolor(brewer.pal(5, "Dark2")[c(2,3)])
+# palette_gender_dark <- adjustcolor(brewer.pal(5, "Dark2")[c(2,3)])
+palette_gender_dark <- c("#af6ca8", "#5a8fc1") #duller than below. http://colrd.com/image-dna/42282/ & http://colrd.com/image-dna/42275/
+# palette_gender_dark <- c("#f25091", "#6718f4") #brighter than above. http://colrd.com/palette/42278/
 palette_gender_light <- adjustcolor(palette_gender_dark, alpha.f = .2)
 names(palette_gender_dark) <- c("female", "male")
 names(palette_gender_light) <- names(palette_gender_dark)
-
-
 
 # ---- load_data ----
 ds <- readRDS(path_input)
@@ -111,7 +111,7 @@ clean_for_range <- function( x ) {
 }
 
 range_int <- range(clean_for_range(c(ds$pc_CORR_00, ds$pc_CI95_00_low, ds$pc_CI95_00_high)), na.rm=T)
-range_slope <- range(clean_for_range(c(ds$pc_CORR_11, ds$pc_CI95_11_low, ds$pc_CI95_11_high)), na.rm=T)
+range_slope <- c(-1, 1) #range(clean_for_range(c(ds$pc_CORR_11, ds$pc_CI95_11_low, ds$pc_CI95_11_high)), na.rm=T)
 range_residual <- range(clean_for_range(c(ds$pc_CORR_residual, ds$pc_CI95_residual_low, ds$pc_CI95_residual_high)), na.rm=T)
 
 # ---- studyfreqs
@@ -210,8 +210,9 @@ d_forest$cognitive_measure_pretty <- gsub("_", "\n", d_forest$cognitive_measure)
 g_slope <- ggplot(d_forest, aes(x=study_name, y=pc_CORR_11, ymin=pc_CI95_11_low, ymax=pc_CI95_11_high, color=subgroup, fill=subgroup)) +
   geom_hline(x=0, color="gray70", size=1, na.rm=T) +
   # geom_text(aes(label=p_cov_int_pretty), hjust=0, vjust=2) + #Uncomment when the datasets are cleaner.
-  geom_linerange(size=4, alpha=.5, na.rm=T) +
-  geom_point(size=6, shape=21, na.rm=T) +
+  geom_linerange(size=2, alpha=.5, na.rm=T) +
+  geom_point(size=3, shape=21, na.rm=T) +
+  scale_x_discrete(limits=rev(study_names)) +
   scale_colour_manual(values=palette_gender_dark) +
   scale_fill_manual(values=palette_gender_light) +
   coord_flip(ylim=range_slope) +
