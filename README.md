@@ -12,9 +12,8 @@
  [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
 
 ##News
- - [A Collaborative Modeling Framework for Multi-Study Coordinated Analyses](http://htmlpreview.github.io/?https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/talks/2015_presentations/22_July/Koval-Wellcome-Trust-2015-22-rpubs.html#/2), *Wellcome Trust Conference**, July 22, 2015  
- - [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)   
- - 
+ - [A Collaborative Modeling Framework for Multi-Study Coordinated Analyses](http://htmlpreview.github.io/?https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/talks/2015_presentations/22_July/Koval-Wellcome-Trust-2015-22-rpubs.html#/2), *Wellcome Trust Conference*, July 22, 2015  
+ - [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)  
 
  
 ## About 
