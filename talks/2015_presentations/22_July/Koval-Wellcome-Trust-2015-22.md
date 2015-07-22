@@ -6,11 +6,9 @@
 
 A Collaborative Modeling Framework for Multi-Study Coordinated Analyses
 ========================================================
-
 Andriy Koval, University of Victoria
 [IALSA network](http://ialsa.org)
 July 22, 2015
-
 *Wellcome Trust Conference*
 
 Portland Workshop
