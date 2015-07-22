@@ -11,7 +11,7 @@ dashboardPage(
       menuItem("Specification", tabName = "spec", icon = icon("coffee")),
 
       # menuItem("Descriptives", tabName = "table1", icon = icon("table")),
-      # menuItem("pivot Table", tabName = "pivotTab", icon = icon("th")),
+      menuItem("Counts", tabName = "pivotTab", icon = icon("th")),
       menuItem("Bivariate ISR", tabName = "isr", icon = icon("area-chart")),
       menuItem("Forest", tabName = "forest", icon = icon("table")),
       menuItem("Sample details", tabName = "table1", icon = icon("table")),
