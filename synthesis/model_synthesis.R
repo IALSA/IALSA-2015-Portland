@@ -180,6 +180,52 @@ g_slope <- ggplot(d_forest, aes(x=study_name, y=pc_CORR_11, ymin=pc_CI95_11_low,
 
 g_slope
 
+# ---- forest_static_bisr_covariates_aeh ----
+# dput(sort(unique(ds$cognitive_measure)))
+desired_cog_variables <- c(
+  # "3ms", "analogies",
+  "block",
+  # "bnt", "boston_story_delay", "boston_story_immediate",
+  # "categories", "clock", "complex_ideas",
+  "delayed_recall",
+  # "digit_backward_span", "digit_backward_total", "digit_ordering", "digits_back", "digits_forward",
+  # "digit_span", "digit_symbol_substitution",
+  # "figure_copy", "figure_id", "figure_logic", "figure_memory",
+  "info", "line_orientation",
+  #"logical_memory", "logical_memory_delay", "logical_memory_immed",
+  # "lps_spacial_ability", "lps_spatial_ability", "matrices", "mir_recall",
+  "mmse", "nart", "nocogm", "number_comparison", "pattern_comparison",
+  # "prose_recall", "psif", "rotations", "serial7",
+  "symbol", "synonyms",
+  # "tics", "trailsb", "univar",
+  "verbal_fluency",
+  # "wais_general_knowledge", "wais_picture_completion", "wais_vocab", "wmslmdel", "wmslmimmed",
+  "word_list_delay", "word_list_immed", "word_list_recog"
+)
+# covariates <- "symbol"
+model_type <- "aeh"
+physical_name <- "grip"
+d_forest <- ds[ds$model_type==model_type & ds$physical_measure==physical_name & (ds$cognitive_measure %in% desired_cog_variables), ]
+d_forest$cognitive_measure_pretty <- gsub("_", "\n", d_forest$cognitive_measure)
+g_slope <- ggplot(d_forest, aes(x=study_name, y=pc_CORR_11, ymin=pc_CI95_11_low, ymax=pc_CI95_11_high, color=subgroup, fill=subgroup)) +
+  geom_hline(x=0, color="gray70", size=1, na.rm=T) +
+  # geom_text(aes(label=p_cov_int_pretty), hjust=0, vjust=2) + #Uncomment when the datasets are cleaner.
+  geom_linerange(size=4, alpha=.5, na.rm=T) +
+  geom_point(size=6, shape=21, na.rm=T) +
+  scale_colour_manual(values=palette_gender_dark) +
+  scale_fill_manual(values=palette_gender_light) +
+  coord_flip(ylim=range_slope) +
+  facet_grid(cognitive_measure_pretty ~ .) +
+  report_theme +
+  theme(strip.text.y = element_text(colour="gray20", angle=0, size=10, hjust=0.5, vjust=0.5)) +
+  theme(strip.background = element_rect(fill="gray95", color="white")) +
+  theme(legend.position=c(0, 0), legend.justification=c(0,0)) + #Inside bottom left corner
+  # theme(legend.position="none") + #Remove legend entirely: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
+  theme(legend.title=element_blank()) + #Remove self-evident legend title: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
+  labs(x=NULL, y="Correlation", title=paste("Correlation of", physical_name, "& selected cognitive measures"))
+
+g_slope
+
 
 # ---- forest_static ----
 

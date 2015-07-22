@@ -77,8 +77,10 @@ read_chunk("./synthesis/model_synthesis.R") #This allows knitr to call chunks ta
 
 
 # Forest Plot (Static -BISR)
-*TODO: Andrey, this is just a single graph for tomorrow's presentation.  Decide how you want to iterated through all the possible bivariates.  It's also just for slopes.*
+*TODO: Andrey, these are just single graphs for tomorrow's presentation.  Decide how you want to iterated through all the possible bivariates.  It's also just for slopes.*
 ```{r forest_static_bisr_covariates_all, echo=echoChunks, message=TRUE, results='asis', fig.height=8, fig.width=6}
+```
+```{r forest_static_bisr_covariates_aeh, echo=echoChunks, message=TRUE, results='asis', fig.height=8, fig.width=6}
 ```
 
 # Forest Plot (Static)

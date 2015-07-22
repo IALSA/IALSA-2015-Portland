@@ -167,8 +167,9 @@ This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
 
 # Forest Plot (Static -BISR)
-*TODO: Andrey, this is just a single graph for tomorrow's presentation.  Decide how you want to iterated through all the possible bivariates.  It's also just for slopes.*
-![](figure_meta/forest_static_bisr-1.png) 
+*TODO: Andrey, these are just single graphs for tomorrow's presentation.  Decide how you want to iterated through all the possible bivariates.  It's also just for slopes.*
+![](figure_meta/forest_static_bisr_covariates_all-1.png) 
+![](figure_meta/forest_static_bisr_covariates_aeh-1.png) 
 
 # Forest Plot (Static)
 
@@ -2086,7 +2087,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by wibeasley at 2015-07-22, 00:44 +0100
+Report rendered by wibeasley at 2015-07-22, 01:20 +0100
 ```
 
 ```
