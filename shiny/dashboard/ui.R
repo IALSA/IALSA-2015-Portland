@@ -13,12 +13,13 @@ dashboardPage(
       # menuItem("Descriptives", tabName = "table1", icon = icon("table")),
       # menuItem("pivot Table", tabName = "pivotTab", icon = icon("th")),
       menuItem("Bivariate ISR", tabName = "isr", icon = icon("area-chart")),
+      menuItem("Forest", tabName = "forest", icon = icon("table")),
       menuItem("Sample details", tabName = "table1", icon = icon("table")),
 
       radioButtons("radioStudy", label = h3("Study"),
         choices = list("eas" = 'eas', "elsa" = "elsa", "hrs" = "hrs", "ilse" = "ilse",
                        "nas" = "nas", "nuage" = "nuage", "octo" = "octo", "radc" = "radc",
-                       "satsa" = "satsa"), selected = "ilse"),
+                       "satsa" = "satsa"), selected = "eas"),
       radioButtons("radioPhysMeasure", label = h3(" Phys Measure"),
         choices = list("fev" = "fev", "pek" = "pek", "gait" = "gait", "tug" = "tug", "grip" = "grip"), selected = "grip"),
       radioButtons("radioModelType", label = h3("Model type"),
@@ -51,6 +52,11 @@ dashboardPage(
         h2("Description of the study's sample"),
         "(Select the desired study in the left panel.)",
         shiny::imageOutput(outputId ='table_descriptives')
+      ),
+      tabItem(
+        tabName = "forest",
+        h2("Forest plot of intercepts"),
+        shiny::img(src = "images/forest_static_bisr_covariates_aeh-1.png")
       ),
       tabItem(
         tabName = "pivotTab",
