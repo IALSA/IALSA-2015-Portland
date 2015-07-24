@@ -1,0 +1,775 @@
+Mplus VERSION 7.3
+MUTHEN & MUTHEN
+07/22/2015   9:46 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: M1 Pulmonary Function, Linear LGM, Age Educ Height Conditional, line orientation, F
+
+  Data:
+  	File is
+    C:\Users\Cassandra\Desktop\unshared\brown\New pulmonary models\radcMAP_wide.dat;
+  Variable:
+  	Names are
+  projid study_x scaled_to_x agreeableness conscientiousness extraversion
+  neo_altruism neo_conscientiousness neo_trust openness anxiety_10items
+  neuroticism_12 neuroticism_6 age_bl age_death educ msex race spanish q1inc
+  apoe_genotype ldai_bl q3smo_bl q4smo_bl smoking married married2 age_at_visit_00
+  age_at_visit_01 age_at_visit_02 age_at_visit_03 age_at_visit_04 age_at_visit_05
+  age_at_visit_06 age_at_visit_07 age_at_visit_08 age_at_visit_09 age_at_visit_10
+  age_at_visit_11 age_at_visit_12 age_at_visit_13 age_at_visit_14 age_at_visit_15
+  age_at_visit_16 age_at_visit_17 age_at_visit_18 age_at_visit_19 age_at_visit_20
+  alcohol_g_00 alcohol_g_01 alcohol_g_02 alcohol_g_03 alcohol_g_04 alcohol_g_05
+  alcohol_g_06 alcohol_g_07 alcohol_g_08 alcohol_g_09 alcohol_g_10 alcohol_g_11
+  alcohol_g_12 alcohol_g_13 alcohol_g_14 alcohol_g_15 alcohol_g_16 alcohol_g_17
+  alcohol_g_18 alcohol_g_19 alcohol_g_20 bmi_00 bmi_01 bmi_02 bmi_03 bmi_04 bmi_05
+  bmi_06 bmi_07 bmi_08 bmi_09 bmi_10 bmi_11 bmi_12 bmi_13 bmi_14 bmi_15 bmi_16
+  bmi_17 bmi_18 bmi_19 bmi_20 bp11_00 bp11_01 bp11_02 bp11_03 bp11_04 bp11_05
+  bp11_06 bp11_07 bp11_08 bp11_09 bp11_10 bp11_11 bp11_12 bp11_13 bp11_14 bp11_15
+  bp11_16 bp11_17 bp11_18 bp11_19 bp11_20 bp2_00 bp2_01 bp2_02 bp2_03 bp2_04
+  bp2_05 bp2_06 bp2_07 bp2_08 bp2_09 bp2_10 bp2_11 bp2_12 bp2_13 bp2_14 bp2_15
+  bp2_16 bp2_17 bp2_18 bp2_19 bp2_20 bp3_00 bp3_01 bp3_02 bp3_03 bp3_04 bp3_05
+  bp3_06 bp3_07 bp3_08 bp3_09 bp3_10 bp31_00 bp31_01 bp31_02 bp31_03 bp31_04
+  bp31_05 bp31_06 bp31_07 bp31_08 bp31_09 bp3_11 bp31_10 bp31_11 bp31_12 bp31_13
+  bp31_14 bp31_15 bp31_16 bp31_17 bp31_18 bp31_19 bp3_12 bp31_20 bp3_13 bp3_14
+  bp3_15 bp3_16 bp3_17 bp3_18 bp3_19 bp3_20 bun_00 bun_01 bun_02 bun_03 bun_04
+  bun_05 bun_06 bun_07 bun_08 bun_09 bun_10 bun_11 bun_12 bun_13 bun_14 bun_15
+  bun_16 bun_17 bun_18 bun_19 bun_20 ca_00 ca_01 ca_02 ca_03 ca_04 ca_05 ca_06
+  ca_07 ca_08 ca_09 ca_10 ca_11 ca_12 ca_13 ca_14 ca_15 ca_16 ca_17 ca_18 ca_19
+  ca_20 cesdsum_00 cesdsum_01 cesdsum_02 cesdsum_03 cesdsum_04 cesdsum_05
+  cesdsum_06 cesdsum_07 cesdsum_08 cesdsum_09 cesdsum_10 cesdsum_11 cesdsum_12
+  cesdsum_13 cesdsum_14 cesdsum_15 cesdsum_16 cesdsum_17 cesdsum_18 cesdsum_19
+  cesdsum_20 chf_cum_00 chf_cum_01 chf_cum_02 chf_cum_03 chf_cum_04 chf_cum_05
+  chf_cum_06 chf_cum_07 chf_cum_08 chf_cum_09 chf_cum_10 chf_cum_11 chf_cum_12
+  chf_cum_13 chf_cum_14 chf_cum_15 chf_cum_16 chf_cum_17 chf_cum_18 chf_cum_19
+  chf_cum_20 chlstrl_00 chlstrl_01 chlstrl_02 chlstrl_03 chlstrl_04 chlstrl_05
+  chlstrl_06 chlstrl_07 chlstrl_08 chlstrl_09 chlstrl_10 chlstrl_11 chlstrl_12
+  chlstrl_13 chlstrl_14 chlstrl_15 chlstrl_16 chlstrl_17 chlstrl_18 chlstrl_19
+  chlstrl_20 cl_00 cl_01 cl_02 cl_03 cl_04 cl_05 cl_06 cl_07 cl_08 cl_09 cl_10
+  cl_11 cl_12 cl_13 cl_14 cl_15 cl_16 cl_17 cl_18 cl_19 cl_20 claudication_cum_00
+  claudication_cum_01 claudication_cum_02 claudication_cum_03 claudication_cum_04
+  claudication_cum_05 claudication_cum_06 claudication_cum_07 claudication_cum_08
+  claudication_cum_09 claudication_cum_10 claudication_cum_11 claudication_cum_12
+  claudication_cum_13 claudication_cum_14 claudication_cum_15 claudication_cum_16
+  claudication_cum_17 claudication_cum_18 claudication_cum_19 claudication_cum_20
+  co2_00 co2_01 co2_02 co2_03 co2_04 co2_05 co2_06 co2_07 co2_08 co2_09 co2_10
+  co2_11 co2_12 co2_13 co2_14 co2_15 co2_16 co2_17 co2_18 co2_19 co2_20 cogn_ep_00
+  cogn_ep_01 cogn_ep_02 cogn_ep_03 cogn_ep_04 cogn_ep_05 cogn_ep_06 cogn_ep_07
+  cogn_ep_08 cogn_ep_09 cogn_ep_10 cogn_ep_11 cogn_ep_12 cogn_ep_13 cogn_ep_14
+  cogn_ep_15 cogn_ep_16 cogn_ep_17 cogn_ep_18 cogn_ep_19 cogn_ep_20 cogn_global_00
+  cogn_global_01 cogn_global_02 cogn_global_03 cogn_global_04 cogn_global_05
+  cogn_global_06 cogn_global_07 cogn_global_08 cogn_global_09 cogn_global_10
+  cogn_global_11 cogn_global_12 cogn_global_13 cogn_global_14 cogn_global_15
+  cogn_global_16 cogn_global_17 cogn_global_18 cogn_global_19 cogn_global_20
+  cogn_po_00 cogn_po_01 cogn_po_02 cogn_po_03 cogn_po_04 cogn_po_05 cogn_po_06
+  cogn_po_07 cogn_po_08 cogn_po_09 cogn_po_10 cogn_po_11 cogn_po_12 cogn_po_13
+  cogn_po_14 cogn_po_15 cogn_po_16 cogn_po_17 cogn_po_18 cogn_po_19 cogn_po_20
+  cogn_ps_00 cogn_ps_01 cogn_ps_02 cogn_ps_03 cogn_ps_04 cogn_ps_05 cogn_ps_06
+  cogn_ps_07 cogn_ps_08 cogn_ps_09 cogn_ps_10 cogn_ps_11 cogn_ps_12 cogn_ps_13
+  cogn_ps_14 cogn_ps_15 cogn_ps_16 cogn_ps_17 cogn_ps_18 cogn_ps_19 cogn_ps_20
+  cogn_se_00 cogn_se_01 cogn_se_02 cogn_se_03 cogn_se_04 cogn_se_05 cogn_se_06
+  cogn_se_07 cogn_se_08 cogn_se_09 cogn_se_10 cogn_se_11 cogn_se_12 cogn_se_13
+  cogn_se_14 cogn_se_15 cogn_se_16 cogn_se_17 cogn_se_18 cogn_se_19 cogn_se_20
+  cogn_wo_00 cogn_wo_01 cogn_wo_02 cogn_wo_03 cogn_wo_04 cogn_wo_05 cogn_wo_06
+  cogn_wo_07 cogn_wo_08 cogn_wo_09 cogn_wo_10 cogn_wo_11 cogn_wo_12 cogn_wo_13
+  cogn_wo_14 cogn_wo_15 cogn_wo_16 cogn_wo_17 cogn_wo_18 cogn_wo_19 cogn_wo_20
+  crn_00 crn_01 crn_02 crn_03 crn_04 crn_05 crn_06 crn_07 crn_08 crn_09 crn_10
+  crn_11 crn_12 crn_13 crn_14 crn_15 crn_16 crn_17 crn_18 crn_19 crn_20
+  cts_bname_00 cts_bname_01 cts_bname_02 cts_bname_03 cts_bname_04 cts_bname_05
+  cts_bname_06 cts_bname_07 cts_bname_08 cts_bname_09 cts_bname_10 cts_bname_11
+  cts_bname_12 cts_bname_13 cts_bname_14 cts_bname_15 cts_bname_16 cts_bname_17
+  cts_bname_18 cts_bname_19 cts_bname_20 cts_catflu_00 cts_catflu_01 cts_catflu_02
+  cts_catflu_03 cts_catflu_04 cts_catflu_05 cts_catflu_06 cts_catflu_07
+  cts_catflu_08 cts_catflu_09 cts_catflu_10 cts_catflu_11 cts_catflu_12
+  cts_catflu_13 cts_catflu_14 cts_catflu_15 cts_catflu_16 cts_catflu_17
+  cts_catflu_18 cts_catflu_19 cts_catflu_20 cts_db_00 cts_db_01 cts_db_02
+  cts_db_03 cts_db_04 cts_db_05 cts_db_06 cts_db_07 cts_db_08 cts_db_09 cts_db_10
+  cts_db_11 cts_db_12 cts_db_13 cts_db_14 cts_db_15 cts_db_16 cts_db_17 cts_db_18
+  cts_db_19 cts_db_20 cts_delay_00 cts_delay_01 cts_delay_02 cts_delay_03
+  cts_delay_04 cts_delay_05 cts_delay_06 cts_delay_07 cts_delay_08 cts_delay_09
+  cts_delay_10 cts_delay_11 cts_delay_12 cts_delay_13 cts_delay_14 cts_delay_15
+  cts_delay_16 cts_delay_17 cts_delay_18 cts_delay_19 cts_delay_20 cts_df_00
+  cts_df_01 cts_df_02 cts_df_03 cts_df_04 cts_df_05 cts_df_06 cts_df_07 cts_df_08
+  cts_df_09 cts_df_10 cts_df_11 cts_df_12 cts_df_13 cts_df_14 cts_df_15 cts_df_16
+  cts_df_17 cts_df_18 cts_df_19 cts_df_20 cts_doperf_00 cts_doperf_01
+  cts_doperf_02 cts_doperf_03 cts_doperf_04 cts_doperf_05 cts_doperf_06
+  cts_doperf_07 cts_doperf_08 cts_doperf_09 cts_doperf_10 cts_doperf_11
+  cts_doperf_12 cts_doperf_13 cts_doperf_14 cts_doperf_15 cts_doperf_16
+  cts_doperf_17 cts_doperf_18 cts_doperf_19 cts_doperf_20 cts_ebdr_00 cts_ebdr_01
+  cts_ebdr_02 cts_ebdr_03 cts_ebdr_04 cts_ebdr_05 cts_ebdr_06 cts_ebdr_07
+  cts_ebdr_08 cts_ebdr_09 cts_ebdr_10 cts_ebdr_11 cts_ebdr_12 cts_ebdr_13
+  cts_ebdr_14 cts_ebdr_15 cts_ebdr_16 cts_ebdr_17 cts_ebdr_18 cts_ebdr_19
+  cts_ebdr_20 cts_ebmt_00 cts_ebmt_01 cts_ebmt_02 cts_ebmt_03 cts_ebmt_04
+  cts_ebmt_05 cts_ebmt_06 cts_ebmt_07 cts_ebmt_08 cts_ebmt_09 cts_ebmt_10
+  cts_ebmt_11 cts_ebmt_12 cts_ebmt_13 cts_ebmt_14 cts_ebmt_15 cts_ebmt_16
+  cts_ebmt_17 cts_ebmt_18 cts_ebmt_19 cts_ebmt_20 cts_idea_00 cts_idea_01
+  cts_idea_02 cts_idea_03 cts_idea_04 cts_idea_05 cts_idea_06 cts_idea_07
+  cts_idea_08 cts_idea_09 cts_idea_10 cts_idea_11 cts_idea_12 cts_idea_13
+  cts_idea_14 cts_idea_15 cts_idea_16 cts_idea_17 cts_idea_18 cts_idea_19
+  cts_idea_20 cts_lopair_00 cts_lopair_01 cts_lopair_02 cts_lopair_03
+  cts_lopair_04 cts_lopair_05 cts_lopair_06 cts_lopair_07 cts_lopair_08
+  cts_lopair_09 cts_lopair_10 cts_lopair_11 cts_lopair_12 cts_lopair_13
+  cts_lopair_14 cts_lopair_15 cts_lopair_16 cts_lopair_17 cts_lopair_18
+  cts_lopair_19 cts_lopair_20 cts_mmse30_00 cts_mmse30_01 cts_mmse30_02
+  cts_mmse30_03 cts_mmse30_04 cts_mmse30_05 cts_mmse30_06 cts_mmse30_07
+  cts_mmse30_08 cts_mmse30_09 cts_mmse30_10 cts_mmse30_11 cts_mmse30_12
+  cts_mmse30_13 cts_mmse30_14 cts_mmse30_15 cts_mmse30_16 cts_mmse30_17
+  cts_mmse30_18 cts_mmse30_19 cts_mmse30_20 cts_nccrtd_00 cts_nccrtd_01
+  cts_nccrtd_02 cts_nccrtd_03 cts_nccrtd_04 cts_nccrtd_05 cts_nccrtd_06
+  cts_nccrtd_07 cts_nccrtd_08 cts_nccrtd_09 cts_nccrtd_10 cts_nccrtd_11
+  cts_nccrtd_12 cts_nccrtd_13 cts_nccrtd_14 cts_nccrtd_15 cts_nccrtd_16
+  cts_nccrtd_17 cts_nccrtd_18 cts_nccrtd_19 cts_nccrtd_20 cts_pmat_00 cts_pmat_01
+  cts_pmat_02 cts_pmat_03 cts_pmat_04 cts_pmat_05 cts_pmat_06 cts_pmat_07
+  cts_pmat_08 cts_pmat_09 cts_pmat_10 cts_pmat_11 cts_pmat_12 cts_pmat_13
+  cts_pmat_14 cts_pmat_15 cts_pmat_16 cts_pmat_17 cts_pmat_18 cts_pmat_19
+  cts_pmat_20 cts_read_nart_00 cts_read_nart_01 cts_read_nart_02 cts_read_nart_03
+  cts_read_nart_04 cts_read_nart_05 cts_read_nart_06 cts_read_nart_07
+  cts_read_nart_08 cts_read_nart_09 cts_read_nart_10 cts_read_nart_11
+  cts_read_nart_12 cts_read_nart_13 cts_read_nart_14 cts_read_nart_15
+  cts_read_nart_16 cts_read_nart_17 cts_read_nart_18 cts_read_nart_19
+  cts_read_nart_20 cts_read_wrat_00 cts_read_wrat_01 cts_read_wrat_02
+  cts_read_wrat_03 cts_read_wrat_04 cts_read_wrat_05 cts_read_wrat_06
+  cts_read_wrat_07 cts_read_wrat_08 cts_read_wrat_09 cts_read_wrat_10
+  cts_read_wrat_11 cts_read_wrat_12 cts_read_wrat_13 cts_read_wrat_14
+  cts_read_wrat_15 cts_read_wrat_16 cts_read_wrat_17 cts_read_wrat_18
+  cts_read_wrat_19 cts_read_wrat_20 cts_sdmt_00 cts_sdmt_01 cts_sdmt_02
+  cts_sdmt_03 cts_sdmt_04 cts_sdmt_05 cts_sdmt_06 cts_sdmt_07 cts_sdmt_08
+  cts_sdmt_09 cts_sdmt_10 cts_sdmt_11 cts_sdmt_12 cts_sdmt_13 cts_sdmt_14
+  cts_sdmt_15 cts_sdmt_16 cts_sdmt_17 cts_sdmt_18 cts_sdmt_19 cts_sdmt_20
+  cts_story_00 cts_story_01 cts_story_02 cts_story_03 cts_story_04 cts_story_05
+  cts_story_06 cts_story_07 cts_story_08 cts_story_09 cts_story_10 cts_story_11
+  cts_story_12 cts_story_13 cts_story_14 cts_story_15 cts_story_16 cts_story_17
+  cts_story_18 cts_story_19 cts_story_20 cts_wli_00 cts_wli_01 cts_wli_02
+  cts_wli_03 cts_wli_04 cts_wli_05 cts_wli_06 cts_wli_07 cts_wli_08 cts_wli_09
+  cts_wli_10 cts_wli_11 cts_wli_12 cts_wli_13 cts_wli_14 cts_wli_15 cts_wli_16
+  cts_wli_17 cts_wli_18 cts_wli_19 cts_wli_20 cts_wlii_00 cts_wlii_01 cts_wlii_02
+  cts_wlii_03 cts_wlii_04 cts_wlii_05 cts_wlii_06 cts_wlii_07 cts_wlii_08
+  cts_wlii_09 cts_wlii_10 cts_wlii_11 cts_wlii_12 cts_wlii_13 cts_wlii_14
+  cts_wlii_15 cts_wlii_16 cts_wlii_17 cts_wlii_18 cts_wlii_19 cts_wlii_20
+  cts_wliii_00 cts_wliii_01 cts_wliii_02 cts_wliii_03 cts_wliii_04 cts_wliii_05
+  cts_wliii_06 cts_wliii_07 cts_wliii_08 cts_wliii_09 cts_wliii_10 cts_wliii_11
+  cts_wliii_12 cts_wliii_13 cts_wliii_14 cts_wliii_15 cts_wliii_16 cts_wliii_17
+  cts_wliii_18 cts_wliii_19 cts_wliii_20 dcfdx_00 dcfdx_01 dcfdx_02 dcfdx_03
+  dcfdx_04 dcfdx_05 dcfdx_06 dcfdx_07 dcfdx_08 dcfdx_09 dcfdx_10 dcfdx_11 dcfdx_12
+  dcfdx_13 dcfdx_14 dcfdx_15 dcfdx_16 dcfdx_17 dcfdx_18 dcfdx_19 dcfdx_20
+  dementia_00 dementia_01 dementia_02 dementia_03 dementia_04 dementia_05
+  dementia_06 dementia_07 dementia_08 dementia_09 dementia_10 dementia_11
+  dementia_12 dementia_13 dementia_14 dementia_15 dementia_16 dementia_17
+  dementia_18 dementia_19 dementia_20 dm_cum_00 dm_cum_01 dm_cum_02 dm_cum_03
+  dm_cum_04 dm_cum_05 dm_cum_06 dm_cum_07 dm_cum_08 dm_cum_09 dm_cum_10 dm_cum_11
+  dm_cum_12 dm_cum_13 dm_cum_14 dm_cum_15 dm_cum_16 dm_cum_17 dm_cum_18 dm_cum_19
+  dm_cum_20 fasting_00 fasting_01 fasting_02 fasting_03 fasting_04 fasting_05
+  fasting_06 fasting_07 fasting_08 fasting_09 fasting_10 fasting_11 fasting_12
+  fasting_13 fasting_14 fasting_15 fasting_16 fasting_17 fasting_18 fasting_19
+  fasting_20 fev_00 fev_01 fev_02 fev_03 fev_04 fev_05 fev_06 fev_07 fev_08 fev_09
+  fev_10 fev_11 fev_12 fev_13 fev_14 fev_15 fev_16 fev_17 fev_18 fev_19 fev_20
+  fu_year gait_speed_00 gait_speed_01 gait_speed_02 gait_speed_03 gait_speed_04
+  gait_speed_05 gait_speed_06 gait_speed_07 gait_speed_08 gait_speed_09
+  gait_speed_10 gait_speed_11 gait_speed_12 gait_speed_13 gait_speed_14
+  gait_speed_15 gait_speed_16 gait_speed_17 gait_speed_18 gait_speed_19
+  gait_speed_20 glucose_00 glucose_01 glucose_02 glucose_03 glucose_04 glucose_05
+  glucose_06 glucose_07 glucose_08 glucose_09 glucose_10 glucose_11 glucose_12
+  glucose_13 glucose_14 glucose_15 glucose_16 glucose_17 glucose_18 glucose_19
+  glucose_20 gripavg_00 gripavg_01 gripavg_02 gripavg_03 gripavg_04 gripavg_05
+  gripavg_06 gripavg_07 gripavg_08 gripavg_09 gripavg_10 gripavg_11 gripavg_12
+  gripavg_13 gripavg_14 gripavg_15 gripavg_16 gripavg_17 gripavg_18 gripavg_19
+  gripavg_20 hba1c_00 hba1c_01 hba1c_02 hba1c_03 hba1c_04 hba1c_05 hba1c_06
+  hba1c_07 hba1c_08 hba1c_09 hba1c_10 hba1c_11 hba1c_12 hba1c_13 hba1c_14 hba1c_15
+  hba1c_16 hba1c_17 hba1c_18 hba1c_19 hba1c_20 hdlchlstrl_00 hdlchlstrl_01
+  hdlchlstrl_02 hdlchlstrl_03 hdlchlstrl_04 hdlchlstrl_05 hdlchlstrl_06
+  hdlchlstrl_07 hdlchlstrl_08 hdlchlstrl_09 hdlchlstrl_10 hdlchlstrl_11
+  hdlchlstrl_12 hdlchlstrl_13 hdlchlstrl_14 hdlchlstrl_15 hdlchlstrl_16
+  hdlchlstrl_17 hdlchlstrl_18 hdlchlstrl_19 hdlchlstrl_20 hdlratio_00 hdlratio_01
+  hdlratio_02 hdlratio_03 hdlratio_04 hdlratio_05 hdlratio_06 hdlratio_07
+  hdlratio_08 hdlratio_09 hdlratio_10 hdlratio_11 hdlratio_12 hdlratio_13
+  hdlratio_14 hdlratio_15 hdlratio_16 hdlratio_17 hdlratio_18 hdlratio_19
+  hdlratio_20 heart_cum_00 heart_cum_01 heart_cum_02 heart_cum_03 heart_cum_04
+  heart_cum_05 heart_cum_06 heart_cum_07 heart_cum_08 heart_cum_09 heart_cum_10
+  heart_cum_11 heart_cum_12 heart_cum_13 heart_cum_14 heart_cum_15 heart_cum_16
+  heart_cum_17 heart_cum_18 heart_cum_19 heart_cum_20 htm_00 htm_01 htm_02 htm_03
+  htm_04 htm_05 htm_06 htm_07 htm_08 htm_09 htm_10 htm_11 htm_12 htm_13 htm_14
+  htm_15 htm_16 htm_17 htm_18 htm_19 htm_20 hypertension_cum_00
+  hypertension_cum_01 hypertension_cum_02 hypertension_cum_03 hypertension_cum_04
+  hypertension_cum_05 hypertension_cum_06 hypertension_cum_07 hypertension_cum_08
+  hypertension_cum_09 hypertension_cum_10 hypertension_cum_11 hypertension_cum_12
+  hypertension_cum_13 hypertension_cum_14 hypertension_cum_15 hypertension_cum_16
+  hypertension_cum_17 hypertension_cum_18 hypertension_cum_19 hypertension_cum_20
+  iadlsum_00 iadlsum_01 iadlsum_02 iadlsum_03 iadlsum_04 iadlsum_05 iadlsum_06
+  iadlsum_07 iadlsum_08 iadlsum_09 iadlsum_10 iadlsum_11 iadlsum_12 iadlsum_13
+  iadlsum_14 iadlsum_15 iadlsum_16 iadlsum_17 iadlsum_18 iadlsum_19 iadlsum_20
+  intrusion_00 intrusion_01 intrusion_02 intrusion_03 intrusion_04 intrusion_05
+  intrusion_06 intrusion_07 intrusion_08 intrusion_09 intrusion_10 intrusion_11
+  intrusion_12 intrusion_13 intrusion_14 intrusion_15 intrusion_16 intrusion_17
+  intrusion_18 intrusion_19 intrusion_20 k_00 k_01 k_02 k_03 k_04 k_05 k_06 k_07
+  k_08 k_09 k_10 k_11 k_12 k_13 k_14 k_15 k_16 k_17 k_18 k_19 k_20 katzsum_00
+  katzsum_01 katzsum_02 katzsum_03 katzsum_04 katzsum_05 katzsum_06 katzsum_07
+  katzsum_08 katzsum_09 katzsum_10 katzsum_11 katzsum_12 katzsum_13 katzsum_14
+  katzsum_15 katzsum_16 katzsum_17 katzsum_18 katzsum_19 katzsum_20 ldlchlstrl_00
+  ldlchlstrl_01 ldlchlstrl_02 ldlchlstrl_03 ldlchlstrl_04 ldlchlstrl_05
+  ldlchlstrl_06 ldlchlstrl_07 ldlchlstrl_08 ldlchlstrl_09 ldlchlstrl_10
+  ldlchlstrl_11 ldlchlstrl_12 ldlchlstrl_13 ldlchlstrl_14 ldlchlstrl_15
+  ldlchlstrl_16 ldlchlstrl_17 ldlchlstrl_18 ldlchlstrl_19 ldlchlstrl_20 mep_00
+  mep_01 mep_02 mep_03 mep_04 mep_05 mep_06 mep_07 mep_08 mep_09 mep_10 mep_11
+  mep_12 mep_13 mep_14 mep_15 mep_16 mep_17 mep_18 mep_19 mep_20 mip_00 mip_01
+  mip_02 mip_03 mip_04 mip_05 mip_06 mip_07 mip_08 mip_09 mip_10 mip_11 mip_12
+  mip_13 mip_14 mip_15 mip_16 mip_17 mip_18 mip_19 mip_20 na_00 na_01 na_02 na_03
+  na_04 na_05 na_06 na_07 na_08 na_09 na_10 na_11 na_12 na_13 na_14 na_15 na_16
+  na_17 na_18 na_19 na_20 neglifeevents_00 neglifeevents_01 neglifeevents_02
+  neglifeevents_03 neglifeevents_04 neglifeevents_05 neglifeevents_06
+  neglifeevents_07 neglifeevents_08 neglifeevents_09 neglifeevents_10
+  neglifeevents_11 neglifeevents_12 neglifeevents_13 neglifeevents_14
+  neglifeevents_15 neglifeevents_16 neglifeevents_17 neglifeevents_18
+  neglifeevents_19 neglifeevents_20 negsocexchange_00 negsocexchange_01
+  negsocexchange_02 negsocexchange_03 negsocexchange_04 negsocexchange_05
+  negsocexchange_06 negsocexchange_07 negsocexchange_08 negsocexchange_09
+  negsocexchange_10 negsocexchange_11 negsocexchange_12 negsocexchange_13
+  negsocexchange_14 negsocexchange_15 negsocexchange_16 negsocexchange_17
+  negsocexchange_18 negsocexchange_19 negsocexchange_20 nohelp_00 nohelp_01
+  nohelp_02 nohelp_03 nohelp_04 nohelp_05 nohelp_06 nohelp_07 nohelp_08 nohelp_09
+  nohelp_10 nohelp_11 nohelp_12 nohelp_13 nohelp_14 nohelp_15 nohelp_16 nohelp_17
+  nohelp_18 nohelp_19 nohelp_20 panas_00 panas_01 panas_02 panas_03 panas_04
+  panas_05 panas_06 panas_07 panas_08 panas_09 panas_10 panas_11 panas_12 panas_13
+  panas_14 panas_15 panas_16 panas_17 panas_18 panas_19 panas_20
+  perceivedstress_00 perceivedstress_01 perceivedstress_02 perceivedstress_03
+  perceivedstress_04 perceivedstress_05 perceivedstress_06 perceivedstress_07
+  perceivedstress_08 perceivedstress_09 perceivedstress_10 perceivedstress_11
+  perceivedstress_12 perceivedstress_13 perceivedstress_14 perceivedstress_15
+  perceivedstress_16 perceivedstress_17 perceivedstress_18 perceivedstress_19
+  perceivedstress_20 phys5itemsum_00 phys5itemsum_01 phys5itemsum_02
+  phys5itemsum_03 phys5itemsum_04 phys5itemsum_05 phys5itemsum_06 phys5itemsum_07
+  phys5itemsum_08 phys5itemsum_09 phys5itemsum_10 phys5itemsum_11 phys5itemsum_12
+  phys5itemsum_13 phys5itemsum_14 phys5itemsum_15 phys5itemsum_16 phys5itemsum_17
+  phys5itemsum_18 phys5itemsum_19 phys5itemsum_20 pvc_00 pvc_01 pvc_02 pvc_03
+  pvc_04 pvc_05 pvc_06 pvc_07 pvc_08 pvc_09 pvc_10 pvc_11 pvc_12 pvc_13 pvc_14
+  pvc_15 pvc_16 pvc_17 pvc_18 pvc_19 pvc_20 r_depres_00 r_depres_01 r_depres_02
+  r_depres_03 r_depres_04 r_depres_05 r_depres_06 r_depres_07 r_depres_08
+  r_depres_09 r_depres_10 r_depres_11 r_depres_12 r_depres_13 r_depres_14
+  r_depres_15 r_depres_16 r_depres_17 r_depres_18 r_depres_19 r_depres_20
+  rejection_00 rejection_01 rejection_02 rejection_03 rejection_04 rejection_05
+  rejection_06 rejection_07 rejection_08 rejection_09 rejection_10 rejection_11
+  rejection_12 rejection_13 rejection_14 rejection_15 rejection_16 rejection_17
+  rejection_18 rejection_19 rejection_20 rosbscl_00 rosbscl_01 rosbscl_02
+  rosbscl_03 rosbscl_04 rosbscl_05 rosbscl_06 rosbscl_07 rosbscl_08 rosbscl_09
+  rosbscl_10 rosbscl_11 rosbscl_12 rosbscl_13 rosbscl_14 rosbscl_15 rosbscl_16
+  rosbscl_17 rosbscl_18 rosbscl_19 rosbscl_20 rosbsum_00 rosbsum_01 rosbsum_02
+  rosbsum_03 rosbsum_04 rosbsum_05 rosbsum_06 rosbsum_07 rosbsum_08 rosbsum_09
+  rosbsum_10 rosbsum_11 rosbsum_12 rosbsum_13 rosbsum_14 rosbsum_15 rosbsum_16
+  rosbsum_17 rosbsum_18 rosbsum_19 rosbsum_20 r_stroke_00 r_stroke_01 r_stroke_02
+  r_stroke_03 r_stroke_04 r_stroke_05 r_stroke_06 r_stroke_07 r_stroke_08
+  r_stroke_09 r_stroke_10 r_stroke_11 r_stroke_12 r_stroke_13 r_stroke_14
+  r_stroke_15 r_stroke_16 r_stroke_17 r_stroke_18 r_stroke_19 r_stroke_20
+  scaled_to_y stroke_cum_00 stroke_cum_01 stroke_cum_02 stroke_cum_03
+  stroke_cum_04 stroke_cum_05 stroke_cum_06 stroke_cum_07 stroke_cum_08
+  stroke_cum_09 stroke_cum_10 stroke_cum_11 stroke_cum_12 stroke_cum_13
+  stroke_cum_14 stroke_cum_15 stroke_cum_16 stroke_cum_17 stroke_cum_18
+  stroke_cum_19 stroke_cum_20 study_y thyroid_cum_00 thyroid_cum_01 thyroid_cum_02
+  thyroid_cum_03 thyroid_cum_04 thyroid_cum_05 thyroid_cum_06 thyroid_cum_07
+  thyroid_cum_08 thyroid_cum_09 thyroid_cum_10 thyroid_cum_11 thyroid_cum_12
+  thyroid_cum_13 thyroid_cum_14 thyroid_cum_15 thyroid_cum_16 thyroid_cum_17
+  thyroid_cum_18 thyroid_cum_19 thyroid_cum_20 unsympathetic_00 unsympathetic_01
+  unsympathetic_02 unsympathetic_03 unsympathetic_04 unsympathetic_05
+  unsympathetic_06 unsympathetic_07 unsympathetic_08 unsympathetic_09
+  unsympathetic_10 unsympathetic_11 unsympathetic_12 unsympathetic_13
+  unsympathetic_14 unsympathetic_15 unsympathetic_16 unsympathetic_17
+  unsympathetic_18 unsympathetic_19 unsympathetic_20 vasc_3dis_sum_00
+  vasc_3dis_sum_01 vasc_3dis_sum_02 vasc_3dis_sum_03 vasc_3dis_sum_04
+  vasc_3dis_sum_05 vasc_3dis_sum_06 vasc_3dis_sum_07 vasc_3dis_sum_08
+  vasc_3dis_sum_09 vasc_3dis_sum_10 vasc_3dis_sum_11 vasc_3dis_sum_12
+  vasc_3dis_sum_13 vasc_3dis_sum_14 vasc_3dis_sum_15 vasc_3dis_sum_16
+  vasc_3dis_sum_17 vasc_3dis_sum_18 vasc_3dis_sum_19 vasc_3dis_sum_20
+  vasc_4dis_sum_00 vasc_4dis_sum_01 vasc_4dis_sum_02 vasc_4dis_sum_03
+  vasc_4dis_sum_04 vasc_4dis_sum_05 vasc_4dis_sum_06 vasc_4dis_sum_07
+  vasc_4dis_sum_08 vasc_4dis_sum_09 vasc_4dis_sum_10 vasc_4dis_sum_11
+  vasc_4dis_sum_12 vasc_4dis_sum_13 vasc_4dis_sum_14 vasc_4dis_sum_15
+  vasc_4dis_sum_16 vasc_4dis_sum_17 vasc_4dis_sum_18 vasc_4dis_sum_19
+  vasc_4dis_sum_20 vasc_risks_sum_00 vasc_risks_sum_01 vasc_risks_sum_02
+  vasc_risks_sum_03 vasc_risks_sum_04 vasc_risks_sum_05 vasc_risks_sum_06
+  vasc_risks_sum_07 vasc_risks_sum_08 vasc_risks_sum_09 vasc_risks_sum_10
+  vasc_risks_sum_11 vasc_risks_sum_12 vasc_risks_sum_13 vasc_risks_sum_14
+  vasc_risks_sum_15 vasc_risks_sum_16 vasc_risks_sum_17 vasc_risks_sum_18
+  vasc_risks_sum_19 vasc_risks_sum_20 vision_00 vision_01 vision_02 vision_03
+  vision_04 vision_05 vision_06 vision_07 vision_08 vision_09 vision_10 vision_11
+  vision_12 vision_13 vision_14 vision_15 vision_16 vision_17 vision_18 vision_19
+  vision_20 visionlog_00 visionlog_01 visionlog_02 visionlog_03 visionlog_04
+  visionlog_05 visionlog_06 visionlog_07 visionlog_08 visionlog_09 visionlog_10
+  visionlog_11 visionlog_12 visionlog_13 visionlog_14 visionlog_15 visionlog_16
+  visionlog_17 visionlog_18 visionlog_19 visionlog_20 wtkg_00 wtkg_01 wtkg_02
+  wtkg_03 wtkg_04 wtkg_05 wtkg_06 wtkg_07 wtkg_08 wtkg_09 wtkg_10 wtkg_11 wtkg_12
+  wtkg_13 wtkg_14 wtkg_15 wtkg_16 wtkg_17 wtkg_18 wtkg_19 wtkg_20 T0 T1 T2 T3 T4
+  T5 T6 T7 T8 T9 T10 T11 T12 T13 T14 T15 T16 T17 T18 T19 T20;
+
+
+           Missing are all (-9999);
+           USEVAR are  educ time1-time5 p1-p5 c1-c5 Bage Height;
+           TSCORES =   time1-time5;
+
+           USEOBSERVATIONS are
+              dementia_00 NE 1 and dementia_01 NE 1 and dementia_02 NE 1 and
+              dementia_03 NE 1 and dementia_04 NE 1 and dementia_05 NE 1 and
+              dementia_06 NE 1 and dementia_07 NE 1 and dementia_08 NE 1 and
+              dementia_09 NE 1 and dementia_10 NE 1 and dementia_11 NE 1 and
+              dementia_12 NE 1 and dementia_13 NE 1 and dementia_14 NE 1 and
+              dementia_15 NE 1 and dementia_16 NE 1 and dementia_17 NE 1 and
+              dementia_18 NE 1 and dementia_19 NE 1 and dementia_20 NE 1 and
+              msex EQ 0 and projid NE 1634158;
+
+    Define: p1=gripavg_00; p2=gripavg_01; p3=gripavg_02; p4=gripavg_03;
+     p5=gripavg_04;
+            c1=cts_ebdr_00; c2=cts_ebdr_01; c3=cts_ebdr_02;
+            c4=cts_ebdr_03; c5=cts_ebdr_04;
+
+            time1=T0; time2 =T1; time3=T2; time4=T3; time5=T4;
+
+            Bage=age_bl-70;   !Age centered at 70 baseline
+            !Dage=age_death;
+            !Sex=msex;         !0=female
+            Educ=educ-7;     ! Centered at 7 years
+            !SEP=SESgrp; couldn't find
+            !Marstat;
+            Height=htm_00-1.60;
+            !Weight
+            !BMI
+            !SmokHist=smoking;
+            !Alcohol;
+            !CompExp;
+            !PhysAct;
+            !BP;
+            !DepSymp;
+            !Cardio;
+            !Diab;
+            !MorbInd;
+
+
+
+          !BageEduc=Bage*Educ;
+
+
+  ANALYSIS: TYPE = RANDOM;
+            !COVERAGE=.05;
+
+  MODEL:  Bage;
+          Educ;
+          Height;
+          ip sp | p1-p5 AT time1-time5;
+          ic sc | c1-c5 AT time1-time5;
+
+          ip sp ic sc ON Bage Educ Height;
+
+          p1-p5 (res_p);
+          c1-c5 (res_c);
+
+          p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across tim
+
+  OUTPUT: sampstat;
+
+
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+  TITLE: M1 Pulmonary Function, Linear LGM, Age Educ Height Conditional, line orientation, Fe
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+          p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across time
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+M1 Pulmonary Function, Linear LGM, Age Educ Height Conditional, line orientation, Fe
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1010
+
+Number of dependent variables                                   10
+Number of independent variables                                  3
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5          C1
+   C2          C3          C4          C5
+
+Observed independent variables
+   EDUC        BAGE        HEIGHT
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Cassandra\Desktop\unshared\brown\New pulmonary models\radcMAP_wide.da
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns           101
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.851
+ P2             0.603         0.611
+ P3             0.477         0.434         0.498
+ P4             0.323         0.285         0.294         0.395
+ P5             0.210         0.174         0.181         0.230         0.276
+ C1             0.850         0.610         0.497         0.393         0.275
+ C2             0.723         0.608         0.487         0.387         0.267
+ C3             0.603         0.505         0.495         0.384         0.266
+ C4             0.496         0.421         0.389         0.390         0.270
+ C5             0.400         0.335         0.310         0.300         0.272
+ EDUC           0.851         0.611         0.498         0.395         0.276
+ BAGE           0.851         0.611         0.498         0.395         0.276
+ HEIGHT         0.846         0.606         0.494         0.392         0.273
+
+
+           Covariance Coverage
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             0.950
+ C2             0.808         0.810
+ C3             0.686         0.665         0.688
+ C4             0.570         0.558         0.548         0.572
+ C5             0.468         0.455         0.445         0.447         0.469
+ EDUC           0.950         0.810         0.688         0.572         0.469
+ BAGE           0.950         0.810         0.688         0.572         0.469
+ HEIGHT         0.941         0.803         0.683         0.568         0.465
+
+
+           Covariance Coverage
+              EDUC          BAGE          HEIGHT
+              ________      ________      ________
+ EDUC           0.999
+ BAGE           0.999         1.000
+ HEIGHT         0.943         0.943         0.943
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1             41.571        40.252        39.721        38.161        36.854
+
+
+           Means
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1              9.376         9.282         9.227         9.246         9.049
+
+
+           Means
+              EDUC          BAGE          HEIGHT
+              ________      ________      ________
+ 1              7.337         8.665        -0.001
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1           154.215
+ P2           134.437       158.225
+ P3           128.547       130.936       145.472
+ P4           130.339       130.765       131.457       153.112
+ P5           134.438       131.476       130.184       141.200       161.050
+ C1             1.580         1.326         1.377         2.016         1.090
+ C2             2.529         2.405         2.288         3.016         3.369
+ C3             5.364         4.956         5.127         5.903         7.580
+ C4             4.659         3.966         3.335         4.854         4.999
+ C5             5.116         4.905         4.927         6.320         7.093
+ EDUC           5.730         5.350         4.058         3.793         3.702
+ BAGE         -42.045       -42.699       -44.844       -45.980       -45.850
+ HEIGHT         0.301         0.297         0.288         0.265         0.290
+
+
+           Covariances
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             3.525
+ C2             1.407         3.721
+ C3             1.547         1.946         4.962
+ C4             1.524         1.977         2.767         5.085
+ C5             1.598         1.998         2.681         2.919         5.753
+ EDUC           0.995         0.825         0.814         0.751         1.067
+ BAGE          -1.831        -2.327        -4.039        -3.364        -4.525
+ HEIGHT         0.009         0.008         0.017         0.016         0.018
+
+
+           Covariances
+              EDUC          BAGE          HEIGHT
+              ________      ________      ________
+ EDUC           9.633
+ BAGE          -1.096        63.201
+ HEIGHT         0.037        -0.111         0.006
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.861         1.000
+ P3             0.858         0.863         1.000
+ P4             0.848         0.840         0.881         1.000
+ P5             0.853         0.824         0.851         0.899         1.000
+ C1             0.068         0.056         0.061         0.087         0.046
+ C2             0.106         0.099         0.098         0.126         0.138
+ C3             0.194         0.177         0.191         0.214         0.268
+ C4             0.166         0.140         0.123         0.174         0.175
+ C5             0.172         0.163         0.170         0.213         0.233
+ EDUC           0.149         0.137         0.108         0.099         0.094
+ BAGE          -0.426        -0.427        -0.468        -0.467        -0.454
+ HEIGHT         0.323         0.314         0.318         0.285         0.305
+
+
+           Correlations
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.389         1.000
+ C3             0.370         0.453         1.000
+ C4             0.360         0.454         0.551         1.000
+ C5             0.355         0.432         0.502         0.540         1.000
+ EDUC           0.171         0.138         0.118         0.107         0.143
+ BAGE          -0.123        -0.152        -0.228        -0.188        -0.237
+ HEIGHT         0.066         0.057         0.104         0.094         0.099
+
+
+           Correlations
+              EDUC          BAGE          HEIGHT
+              ________      ________      ________
+ EDUC           1.000
+ BAGE          -0.044         1.000
+ HEIGHT         0.159        -0.186         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -21064.096
+
+
+UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P1                   41.234       0.305       5.250    0.12%      30.500     38.000     41.000
+             860.000     154.056       0.428      97.750    0.12%      43.500     50.750
+     P2                   39.813       0.155       0.000    0.16%      29.750     36.500     39.750
+             617.000     146.923       0.363      85.000    0.16%      42.250     49.750
+     P3                   39.924       0.091       0.000    0.20%      29.500     36.750     39.750
+             503.000     134.693      -0.206      72.500    0.20%      42.500     50.250
+     P4                   38.681       0.167       6.000    0.25%      28.750     35.000     38.500
+             399.000     131.151      -0.039      73.750    0.25%      41.250     47.750
+     P5                   38.333       0.331       0.000    0.36%      28.333     35.250     38.000
+             279.000     148.188       0.546      76.250    0.36%      40.250     47.500
+     C1                    9.374      -0.992       0.000    0.52%       8.000      9.000     10.000
+             959.000       3.523       2.726      12.000   14.18%      10.000     11.000
+     C2                    9.324      -0.814       0.000    0.37%       8.000      9.000     10.000
+             818.000       3.688       1.619      12.000   15.28%      10.000     11.000
+     C3                    9.282      -1.337       0.000    1.15%       8.000      9.000     10.000
+             695.000       4.913       3.172      12.000   16.98%      10.000     11.000
+     C4                    9.367      -1.352       0.000    1.38%       8.000      9.000     10.000
+             578.000       4.814       3.471      12.000   17.82%      10.000     11.000
+     C5                    9.285      -1.292       0.000    1.48%       8.000      9.000     10.000
+             474.000       5.301       2.854      12.000   19.62%      10.000     11.000
+     EDUC                  7.337      -0.194      -7.000    0.10%       5.000      6.000      7.000
+            1009.000       9.633       1.318      18.000    0.10%       8.000     10.000
+     BAGE                  8.665      -0.451     -16.653    0.10%       1.849      7.552      9.669
+            1010.000      63.201       0.014      28.708    0.10%      11.380     15.410
+     HEIGHT               -0.001       0.354      -0.381    0.11%      -0.051     -0.025      0.000
+             952.000       0.006       4.249       0.432    0.21%       0.026      0.051
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       38
+
+Loglikelihood
+
+          H0 Value                      -21102.997
+          H0 Scaling Correction Factor      1.2557
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   42281.994
+          Bayesian (BIC)                 42468.867
+          Sample-Size Adjusted BIC       42348.176
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.592      0.049    -12.024      0.000
+    EDUC               0.381      0.126      3.017      0.003
+    HEIGHT            39.401      4.230      9.315      0.000
+
+ SP         ON
+    BAGE              -0.022      0.012     -1.841      0.066
+    EDUC              -0.065      0.033     -1.995      0.046
+    HEIGHT            -1.238      1.163     -1.064      0.287
+
+ IC         ON
+    BAGE              -0.027      0.007     -4.003      0.000
+    EDUC               0.093      0.017      5.472      0.000
+    HEIGHT             0.386      0.684      0.565      0.572
+
+ SC         ON
+    BAGE              -0.010      0.003     -3.569      0.000
+    EDUC              -0.005      0.007     -0.693      0.488
+    HEIGHT             0.303      0.303      0.999      0.318
+
+ SP       WITH
+    IP                -1.280      1.080     -1.185      0.236
+
+ IC       WITH
+    IP                -0.066      0.609     -0.108      0.914
+    SP                 0.065      0.171      0.379      0.704
+
+ SC       WITH
+    IP                 0.445      0.265      1.679      0.093
+    SP                 0.057      0.064      0.887      0.375
+    IC                 0.100      0.055      1.829      0.067
+
+ P1       WITH
+    C1                 0.056      0.191      0.292      0.770
+
+ P2       WITH
+    C2                 0.056      0.191      0.292      0.770
+
+ P3       WITH
+    C3                 0.056      0.191      0.292      0.770
+
+ P4       WITH
+    C4                 0.056      0.191      0.292      0.770
+
+ P5       WITH
+    C5                 0.056      0.191      0.292      0.770
+
+ BAGE     WITH
+    EDUC              -1.096      0.783     -1.401      0.161
+
+ HEIGHT   WITH
+    EDUC               0.037      0.008      4.795      0.000
+    BAGE              -0.111      0.020     -5.595      0.000
+
+ Means
+    EDUC               7.337      0.098     75.069      0.000
+    BAGE               8.665      0.250     34.638      0.000
+    HEIGHT            -0.001      0.002     -0.394      0.693
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    IP                43.926      1.137     38.641      0.000
+    SP                -0.456      0.304     -1.498      0.134
+    IC                 8.929      0.145     61.509      0.000
+    SC                 0.054      0.059      0.921      0.357
+
+ Variances
+    EDUC               9.633      0.552     17.438      0.000
+    BAGE              63.201      2.822     22.392      0.000
+    HEIGHT             0.006      0.000     12.341      0.000
+
+ Residual Variances
+    P1                20.045      1.101     18.212      0.000
+    P2                20.045      1.101     18.212      0.000
+    P3                20.045      1.101     18.212      0.000
+    P4                20.045      1.101     18.212      0.000
+    P5                20.045      1.101     18.212      0.000
+    C1                 2.326      0.122     19.123      0.000
+    C2                 2.326      0.122     19.123      0.000
+    C3                 2.326      0.122     19.123      0.000
+    C4                 2.326      0.122     19.123      0.000
+    C5                 2.326      0.122     19.123      0.000
+    IP                95.408      6.024     15.838      0.000
+    SP                 0.752      0.331      2.267      0.023
+    IC                 1.139      0.147      7.768      0.000
+    SC                 0.085      0.029      2.930      0.003
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.177E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\cassandra\desktop\unshared\brown\new muscle models\b1_female_aeh_muscle_memory_grip_bos
+
+     Beginning Time:  21:46:33
+        Ending Time:  21:46:52
+       Elapsed Time:  00:00:19
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
