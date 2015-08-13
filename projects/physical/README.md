@@ -4,9 +4,9 @@ Project description
 
 Table 1 identifies physical outcomes that were used in statistical models by each participating study.
 
-Table 1. Phystical outcomes in participating studies.
+Table 1. Phystical outcomes in participating studies 
 
-| |study/outcome   |   |   |   |   |   |   |  
+| STUDIES & outcomes  |   |   |   |   |   |   |  
 |---|---|---|---|---|---|---| 
 |ELSA   | grip |  | fev  |    |   |   | 
 |HRS    | grip  | gait  |   | pek  |   |   | 
@@ -17,9 +17,13 @@ Table 1. Phystical outcomes in participating studies.
 Note: Should we allow studies in with only 2 outcome? Is it still worth it?
 
 
-This table suggest the following roadmap for running bivariate models.
 
-|outcome pair   |   |   |   |   |
+
+If we consider all possible pairings of physical outcomes and match them to the availability of the variables in the study we'll get table 2. 
+
+Table 2. Availability of outcome pairs across participating studies
+
+|pairs & STUDIES   |   |   |   |   |
 |---|---|---|---|---|
 | grip-gait   |   | HRS  | OCTO   | RADC  |
 | grip-fev  | ELSA   |   |   | RADC  |
@@ -27,3 +31,19 @@ This table suggest the following roadmap for running bivariate models.
 | gait-fev  |   |   |   | RADC   |
 | gait-pek  |   |HRS  | OCTO  |   |
 | fev-pek  |   |   |   |   |
+
+
+Table 3. Re-expression of Table 2 in a matrix form 
+
+| outcomes & STUDIES  |grip   |gait   |fev   |pek   |
+|---|---|---|---|---|
+|grip   | * |HRS, OCTO, RADC   | ELSA, RADC   |HRS, OCTO   |
+|gait   |   | *  |RADC   | HRS, OCTO   |
+|fev   |   |   | * | -  |
+|pek   |   |   |   | * |
+
+
+
+
+
+This table suggest the following roadmap for running bivariate models.
