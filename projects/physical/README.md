@@ -43,7 +43,7 @@ Table 3. Availability of outcome pairs across participating studies
 |ELSA   |   |grip_fev  |   |   |   | |  
 |HRS    | grip_gait  |  | grip_pek  |   |gait_pek   | | 
 |OCTO   | grip_gait  |  | grip_pek  |   |gait_pek   | | 
-|RADC   | grip_gait  |grip_fev  |   |gait_fev   |   |fev_pek | 
+|RADC   | grip_gait  |grip_fev  |   |gait_fev   |   | | 
 
 
 
