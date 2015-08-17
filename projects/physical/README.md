@@ -4,7 +4,6 @@ Note: The features of the workflow will be organized in accordance to the  [gith
 
 ## Resources for the **physical** project
 
-Table 1 identifies physical outcomes that were used in statistical models by each participating study.
 
 Table 1. Phystical outcomes in participating studies 
 
@@ -16,23 +15,36 @@ Table 1. Phystical outcomes in participating studies
 |RADC   | grip  | gait  | fev  |   |   |   | 
 
 
-Note: Should we allow studies in with only 2 outcome? Is it still worth it?
+Table 2.  
 
-
+| outcomes & STUDIES  |   |   |   |   |
+|---|---|---|---|---|
+|grip   | ELSA | HRS | OCTO | RADC |
+|gait   |   | HRS | OCTO | RADC | 
+|fev   |  ELSA |  |  | RADC |
+|pek   |   | HRS | OCTO |  |
 
 
 If we consider all possible pairings of physical outcomes and match them to the availability of the variables in the study we'll get table 2. 
 
-Table 2. Availability of outcome pairs across participating studies
+Table 3. Availability of outcome pairs across participating studies
 
 |pairs & STUDIES   |   |   |   |   |
 |---|---|---|---|---|
-| grip-gait   |   | HRS  | OCTO   | RADC  |
-| grip-fev  | ELSA   |   |   | RADC  |
-| grip-pek  |   | HRS  | OCTO|   |
-| gait-fev  |   |   |   | RADC   |
-| gait-pek  |   |HRS  | OCTO  |   |
-| fev-pek  |   |   |   |   |
+| grip_gait   |   | HRS  | OCTO   | RADC  |
+| grip_fev  | ELSA   |   |   | RADC  |
+| grip_pek  |   | HRS  | OCTO|   |
+| gait_fev  |   |   |   | RADC   |
+| gait_pek  |   |HRS  | OCTO  |   |
+| fev_pek  |   |   |   |   |
+
+| STUDIES & pairs  |   |   |   |   |   |   |  
+|---|---|---|---|---|---|---| 
+|ELSA   |   |grip_fev  |   |   |   | |  
+|HRS    | grip_gait  |  | grip_pek  |   |gait_pek   | | 
+|OCTO   | grip_gait  |  | grip_pek  |   |gait_pek   | | 
+|RADC   | grip_gait  |grip_fev  |   |gait_fev   |   |fev_pek | 
+
 
 
 Table 3. Re-expression of Table 2 in a matrix form 
