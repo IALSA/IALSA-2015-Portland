@@ -4,7 +4,7 @@ Table 1a. Studies and Outcomes
 
 | STUDIES & outcomes  |   |   |   |   |   |   |  
 |---|---|---|---|---|---|---| 
-|ELSA   | grip |  | fev  |    |   |   | 
+|ELSA   | grip | NA | fev  |    |   |   | 
 |HRS    | grip  | gait  |   | pek  |   |   | 
 |OCTO   | grip  | gait  |   | pek  |   |   | 
 |RADC   | grip  | gait  | fev  |   |   |   | 
