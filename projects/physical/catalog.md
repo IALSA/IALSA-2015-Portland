@@ -23,6 +23,7 @@ Table 1b.
 If we consider all possible pairings of physical outcomes and match them to the availability of the variables in the study we'll get table 2. 
 
 Table 2a.  Studies and Pairs
+
 | STUDIES & pairs  |   |   |   |   |   |   |  
 |---|---|---|---|---|---|---| 
 |ELSA   |   |grip_fev  |   |   |   | |  
