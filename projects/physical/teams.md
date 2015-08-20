@@ -8,4 +8,4 @@ Currently the teams for the Physical ("PxP") project are as follows
 |*auxiliary1*  |         |Piccinin    | Koval |Koval  |
 |*auxiliary2*  |         |    |  |  |
 
-These teams roughly correspond to our definition of these [github labels](../projects/github_labels.md)
+These teams roughly correspond to our definition of these [github labels](../github_labels.md)
