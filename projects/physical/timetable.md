@@ -1,6 +1,6 @@
 Week of| Weeks left| Focus | Soft-Deadline  | Hard-Deadline | Notes |
 -------|-----------|-------|----------------|---------------|-------| 
-Aug 17 |10 | Analytic strategy. Estimation blueprint |  |  |  |
+Aug 17 |10 | Analytic strategy. Estimation blueprint. Contact contributors |  |  |  |
 24     |9 |  |  |  |  |
 31     |8 |  |  |  |  |  
 Sep 07 |7 |  |  |  |  |  
