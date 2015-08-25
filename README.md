@@ -4,7 +4,7 @@
 
 # Concurrent decline of body and mind  
  - [about](#about)
- - [goals](#goals)  
+ - [projects](#projects)  
  - [means](#means)
  - [log](#log)
  - [participants](#participants)
