@@ -12,6 +12,7 @@ Oct 05 |3 |  |  |  |  |
 19     |1 |  |  |  |  |  
 26     |0 | proofing among all|  |submission ready|  |  
 
+deadline: October 31
 
 [edit me](https://github.com/IALSA/IALSA-2015-Portland/edit/master/projects/physical/timetable.md)
 
