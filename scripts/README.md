@@ -2,7 +2,7 @@
 ## Data Collection
 
 ### [```0_collect_studies.R```](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0_collect_studies.R) 
-Uses the functions defined in the script [0a_functions_that_collect.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0a_functions_that_collect.R) to extract model results from Mplus output files. 
+Uses the functions defined in the script [0a_collection_functions.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0a_functions_that_collect.R) to extract model results from Mplus output files. 
 
 
 ### [0a_collection_functions.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0a_collection_functions.R)
