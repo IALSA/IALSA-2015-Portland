@@ -3,11 +3,11 @@
 [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)  
 
 # Concurrent decline of body and mind  
- - [about](#about)
+ - [news](#news)
  - [projects](#projects)  
- - [means](#means)
+ - [tools](#tools)
  - [log](#log)
- - [participants](#participants)
+ - [contacts](#participants)
  
  [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
 
@@ -30,10 +30,12 @@ Our current goals include publication of papers investigating the following fi5e
 
 See [projects](./projects/README.md) page for a detailed overview of these five projects.
 
-##Means  
+
+##Tools  
 Analytic tools available to the workshop participants include dynamic **reports** and interactive **apps**. Both reports and apps are regenerated with each new influx of model submissions.  
 
-### Reports 
+
+###Reports 
  - [Rename and collapse](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  gives account of how model filename elements (subgroup, model_type, cognitive_measure, etc.) are corrected, renamed, and reclassified. Incorporates the results of Teleconference 1 on Jun 12.    
  - [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/counts.html)  and  [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/essentials.html)  give basic tabled view of data in model space.   
  - Current status update for each study:
@@ -46,7 +48,7 @@ Analytic tools available to the workshop participants include dynamic **reports*
  - [reproduce](./scripts/utility/reproduce.R) script that re-generates all these reports.   
  - [scripts README](./scripts/README.md) overview scripts that replicates data preparation  
  
-###  Apps  
+###Apps  
  - [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)  
  - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
  -  [Bivariate ISR](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/bivariate_ISR) reviews correlations between intercepts (I), slopes (S), and residuals(R) for all models in one study using the same physical measure. 
@@ -55,7 +57,7 @@ Analytic tools available to the workshop participants include dynamic **reports*
   
 
 
-## Log 
+##Log 
 
 The agenda and outcomes of each teleconference following the Portland workshop  
 
