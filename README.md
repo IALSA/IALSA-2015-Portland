@@ -7,7 +7,7 @@
  - [projects](#projects)  
  - [tools](#tools)
  - [log](#log)
- - [contacts](#participants)
+ - [participants](#participants)[.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
  
  [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
 
@@ -125,11 +125,8 @@ The **covariance structure** will be given as
 For  details see [model specification](./reports/model_specification/README.md).  
   
 # Table of Contents
- - [goals](#goals)  
- - [means](#means)
- - [log](log)  
- - [participants](#participants)
- - [about](#about)
- 
- 
-[.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
+ - [news](#news)
+ - [projects](#projects)  
+ - [tools](#tools)
+ - [log](#log)
+ - [participants](#participants)[.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
