@@ -128,4 +128,5 @@ For  details see [model specification](./reports/model_specification/README.md).
  - [projects](#projects)  
  - [tools](#tools)
  - [log](#log)
- - [participants](#participants)[.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
+ - [participants](#participants)
+  [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
