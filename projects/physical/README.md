@@ -22,3 +22,16 @@ Currently we identified the following physical measures in longitudinal studies:
 | SATSA  |grip   | pef  |   |  
 
 
+```
+EAS   <- c("grip", "pef",  NA  ,  NA  ,  NA  )
+ELSA  <- c("grip",  NA  , "fev",  NA  ,  NA  )
+HRS   <- c("grip", "pef",  NA  ,  NA  ,"gait")
+ILSE  <- c("grip",  NA  ,  NA  , "tug",  NA  )
+LASA  <- c("grip", "pef",  NA  ,  NA  ,"gait")
+NUAGE <- c("grip",  NA  ,  NA  , "tug",  NA)
+OCTO  <- c("grip", "pef",  NA  ,  NA  ,"gait")
+RADC  <- c("grip",  NA  , "fev",  NA  ,"gait")
+SATSA <- c("grip", "pef",  NA  ,  NA  ,  NA  )
+```
+
+
