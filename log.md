@@ -7,7 +7,8 @@ Updates and News
 
 
 ##Announcing Physical Track
- [edit me](https://github.com/IALSA/IALSA-2015-Portland/edit/master/log.md)
+ [edit me](https://github.com/IALSA/IALSA-2015-Portland/edit/master/log.md)  
+ 
  Dear colleagues, 
    
 1.    
@@ -22,6 +23,7 @@ Updates and News
 4.    
    Another important development occured in the area of workflow organization. So far our focus has been on estimating, uploading, and processing models. We were building the infrastructure, so the primary goal was to just make it work. It is worth recognizing that we did it!! It's not perfect, not at all, but works well enough to start shifting out focus to actually doing something with the wealth of information we have at our disposal.  Model submission will continue, of course, but it will be much easier now. It will be more targeted and  more structured, motivated by a more precise set of questions.  Our challange  now is to **discuss how certain groups of these models can help us understand particular aspects of human aging**. Five [projects](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md) in our current publication model trace the five aspects. 
   
+
 [edit me](https://github.com/IALSA/IALSA-2015-Portland/edit/master/log.md)
 
  
