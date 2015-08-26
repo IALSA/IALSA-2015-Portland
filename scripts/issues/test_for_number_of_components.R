@@ -13,7 +13,7 @@ library(dplyr)
 ds1 <- readRDS('./data/shared/ds1.rds')
 
 ##
-ds <- dplyr::select(ds1, model_number, subgroup, model_type, physical_construct, cognitive_construct, physical_measure, cognitive_measure, output_file)
+ds <- dplyr::select(ds1, model_number, subgroup, model_type, physical_constructphysical_construct, cognitive_construct, physical_measure, cognitive_measure, output_file)
 
 
 desired_subpart_count <- 7L

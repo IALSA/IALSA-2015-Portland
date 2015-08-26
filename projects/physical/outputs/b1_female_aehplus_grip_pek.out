@@ -55,7 +55,7 @@ INPUT INSTRUCTIONS
   MODEL:  ip sp | p1-p5 AT time1-time5;
           ic sc | c1-c5 AT time1-time5;
 
-  		ip (v_ip);
+  		  ip (v_ip);
           sp (v_sp);
           ic (v_ic);
           sc (v_sc);
@@ -66,7 +66,7 @@ INPUT INSTRUCTIONS
           sp WITH sc (c_spsc);
           ic WITH sc (c_icsc);
 
-           ip sp ic sc ON Bage Educ Heightc SmokHist Diabetes;
+          ip sp ic sc ON Bage Educ Heightc SmokHist Diabetes;
           p1-p5 (res_p);
           c1-c5 (res_c);
           p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal
