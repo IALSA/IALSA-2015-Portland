@@ -18,12 +18,12 @@ Updates and News
    This event allowed our tech team to patch many gaps in the software system and made serious progress in user interface of analytic tools. You'll see many reports updated to reflect the changes. The main dashboard has been altered too. But if you can't spot these changes: no worries. It's even better that way. 
  
 3.  
-   One important methodological news. As you all know, we had a hard time explaining why some confidence intervals of the correlation ( that we've computed after extracting model outputs ) didn't line up in the statistical significance decision with the pvalues of the covariances that came directly from the model outputs. We suspected scripting errors. As it turns out, there are theoretically valid reasons why they wouldn't line up. If you are interested in details, please follow [issue #75](https://github.com/IALSA/IALSA-2015-Portland/issues/75). In short, now we'll try to estimate correlations and CIs directly in MPlus. But more about this later, in the technical instructions. 
+   One important methodological news. As you all know, we had a hard time explaining why some confidence intervals of the correlation ( that we've computed after extracting model outputs ) didn't line up in the statistical significance decision with the pvalues of the covariances that came directly from the model outputs. We suspected scripting errors. As it turns out, there are theoretically valid reasons why they wouldn't line up. If you are interested in details, please follow [issue #75](https://github.com/IALSA/IALSA-2015-Portland/issues/75). In short, now we'll try to estimate correlations and CIs directly in MPlus. This will happen impact on how you run your model and M plus. But more about this later, in the technical instructions. 
 
 4.    
    Another important development occured in the area of workflow organization. So far our focus has been on estimating, uploading, and processing models. We were building the infrastructure, so the primary goal was to just make it work. It is worth recognizing that we did it!! It's not perfect, not at all, but works well enough to start shifting out focus to actually doing something with the wealth of information we have at our disposal.  Model submission will continue, of course, but it will be much easier now. It will be more targeted and  more structured, motivated by a more precise set of questions.  Our challange  now is to **discuss how certain groups of these models can help us understand particular aspects of human aging**.
 
-5.
+5. 
 
  Five [projects](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md) in our current publication model trace the five aspects. 
   
