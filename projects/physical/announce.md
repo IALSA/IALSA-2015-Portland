@@ -172,7 +172,7 @@ Dear colleagues,
 	
 - 1. After the Wellcome Trust conference - others also think we're doing a cool thing, let's keep at it!    
 - 2. Behind the Scenes Updates  -  technical details     
-- 3. Significance Decisions: pvalues and CIs  - discrapancy clarified     
+- 3. Significance Decisions: pvalues and CIs  - discrepancy clarified     
 - 4. New Focus: Analytics  - focus on completing projects : publishing     
 - 5. New Focus: Physical-Physical  - best current opportunity     
 - 6. Our Deadline: October 31 -  we can do it, here's [timetable](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/timetable.md) how.   
