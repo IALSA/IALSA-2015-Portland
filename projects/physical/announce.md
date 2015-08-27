@@ -3,19 +3,19 @@
  
  Dear colleagues, 
  
-Table of Contents
-1. After the Wellcome Trust conference
-2. Behind the Scenes Updates  
-3. Significance Decisions: pvalues and CIs  
-4. New Focus: Analytics  
-5. New Focus: Physical-Physical  
-6. Our Deadline: October 31
-7. Describe your physical measures  
-8. Models to Run 
-9. Adjust MPlus code: PxP 
-10. Adjust MPlus code: Correlation and CI
-11. Where to Upload the Output Files 
-12. How to Follow the Developments  
+Table of Contents   
+- 1. After the Wellcome Trust conference   
+- 2. Behind the Scenes Updates    
+- 3. Significance Decisions: pvalues and CIs    
+- 4. New Focus: Analytics    
+- 5. New Focus: Physical-Physical    
+- 6. Our Deadline: October 31   
+- 7. Describe your physical measures     
+- 8. Models to Run    
+- 9. Adjust MPlus code: PxP    
+- 10. Adjust MPlus code: Correlation and CI   
+- 11. Where to Upload the Output Files    
+- 12. How to Follow the Developments     
 
 	 
  
