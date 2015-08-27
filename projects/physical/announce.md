@@ -21,19 +21,19 @@ Dear colleagues,
 	 
  
 1.  **After the Wellcome Trust conference**    
-	Hope all of you had a good summer and now ready for a productive season! First some good news. All of the hard work started paying off after we presented the first preliminary results of Portland Collective at the Wellcome Trust [Longitudinal Studies: Maximising their Value for Ageing Research](http://conf.hinxton.wellcome.ac.uk/advancedcourses/LongitudinalStudies.pdf) conference in Hinxton, England on July 21-23. We had a great reaction to our [presentation](http://htmlpreview.github.io/?https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/talks/2015_presentations/22_July/A%20Collaborative%20Modeling%20Framework%20for%20Multi-Study%20Coordinated%20Analyses.html#/): many have shared their excitement at the prospects of such collaborative framework as we've demonstrated. In particular, the power to process and make sense of such a vast number of models has been in the spotlight. 
+	Hope all of you had a good summer and are now ready for a productive season! First some good news. All of the hard work started paying off after we presented the first preliminary results of Portland Collective at the Wellcome Trust [Longitudinal Studies: Maximising their Value for Ageing Research](http://conf.hinxton.wellcome.ac.uk/advancedcourses/LongitudinalStudies.pdf) conference in Hinxton, England on July 21-23. We had a great reaction to our [presentation](http://htmlpreview.github.io/?https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/talks/2015_presentations/22_July/A%20Collaborative%20Modeling%20Framework%20for%20Multi-Study%20Coordinated%20Analyses.html#/): many have shared their excitement at the prospects of such collaborative framework as we've demonstrated. In particular, the power to process and make sense of such a vast number of models has been in the spotlight. 
  
 2.  **Behind the Scenes Updates**    
 	This event allowed our tech team to patch many gaps in the software system and make serious progress in the performance of analytic tools. You'll see many reports updated to reflect the changes. The main dashboard has been altered too. But if you can't spot these changes, no worries.   
  
 3.  **Significance Decisions: pvalues and CIs**    
-	One important methodological news. As you all know, we had a hard time explaining why some confidence intervals of the correlation ( that we've computed after extracting model outputs ) didn't line up in the statistical significance decision with the pvalues of the covariances that came directly from the model outputs. We suspected scripting errors, but couldn't find verification. As it turns out, there are theoretically valid reasons why they wouldn't line up. If you are interested in details, please follow [issue #75](https://github.com/IALSA/IALSA-2015-Portland/issues/75). In short, now we'll try to estimate correlations and CIs directly in MPlus. This will have an impact on how you run your model and M plus. But more about this later, in the technical instructions. 
+	One important methodological news. As you all know, we had a hard time explaining why some confidence intervals of the correlation ( that we've computed after extracting model outputs ) didn't line up in the statistical significance decision with the pvalues of the covariances that came directly from the model outputs. We suspected scripting errors, but couldn't find verification. As it turns out, there are theoretically valid reasons why they wouldn't line up. If you are interested in details, please follow [issue #75](https://github.com/IALSA/IALSA-2015-Portland/issues/75). In short, now we'll try to estimate correlations and CIs directly in MPlus. This will impact how you run your models in Mplus. But more about this later, in the technical instructions. 
 
 4.  **New Focus: Analytics**     
-	Another important development occured in the area of workflow organization. So far our focus has been on estimating, uploading, and processing models. We were building the infrastructure, so the primary goal was to just make it work. It is worth recognizing that we did it!! It's not perfect, not at all, but works well enough to start shifting our focus to actually doing something with the wealth of information we have at our disposal.  Model submission will continue, of course, but it will be much easier now. It will be more targeted and  more structured, motivated by a more precise set of questions.  Our challenge now is to **discuss how certain groups of these models can help us understand particular aspects of human aging**. Practically, this will mean fine-tuning our efforts to cater to the needs of the specific [project](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md), so that we all can get published. Let's keep our eyes on the deliverables. 
+	Another important development occured in the area of workflow organization. So far our focus has been on estimating, uploading, and processing models. We were building the infrastructure, so the primary goal was to just make it work. It is worth recognizing that we did it!! It's not perfect, not at all, but works well enough to start shifting out focus to actually doing something with the wealth of information we have at our disposal.  Model submission will continue, of course, but it will be much easier now. It will be more targeted and  more structured, motivated by a more precise set of questions.  Our challange now is to **discuss how certain groups of these models can help us understand particular aspects of human aging**. Practically, this will mean fine-tuning our efforts to cater to the needs of the specific [project](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md), so that we all can get published. Let's keep our eyes on the deliverables. 
 
 5.  **New Focus: Physical-Physical**   
-	One of such groups will constist of models pairing only physical measures. Hence a slight shift of focus for the next few months, that Andrea Piccinin announced in the previous email:
+	This project will consist of models pairing only physical measures. Hence a slight shift of focus for the next few months, that Andrea Piccinin announced in the previous email:
 	```
     The paper will provide information regarding the extent to
 	which various physical functions decline together within individuals, as opposed to 
@@ -41,7 +41,7 @@ Dear colleagues,
 	```	
 	
 	
-	To remind you. Our current publication model intends 5 foci. So far we've been referring to them as: pulmonary, grip, gait, cognitive, and physical.  Each of them implies a paper or a series of papers exploring particular associations and their replications across multiple longitudinal studies. Each of them is organized as a separate [project](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md) and is (will be) given a unique [Milestone](https://github.com/IALSA/IALSA-2015-Portland/milestones) within GitHub Issues. Pulmonary project has been our flagship project so far, however it appears that the publication opportunity with IJE offers a quicker path to a deliverable: a multistudy paper on physical outcomes, [project 5](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/README.md) on our publication agenda. 
+	To remind you. Our current publication model intends 5 foci. So far we've been referring to them as: pulmonary, grip, gait, cognitive, and physical (ANDREY: What do you mean by physical. I thought Grip and gait... fell under the physical umbrella).  Each of them implies a paper or a series of papers exploring particular associations and their replications across multiple longitudinal studies. Each of them is organized as a separate [project](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md) and is (will be)  given a unique [Milestone](https://github.com/IALSA/IALSA-2015-Portland/milestones) within GitHub Issues. Pulmonary project has been our flagship project so far, however it appears that the publication opportunity with IJE offers a quicker path to a deliverable: a multistudy paper on physical outcomes, [project 5](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/README.md) on our publication agenda. 
 
 
 6.  **Deadline : October 31**   
@@ -59,7 +59,7 @@ Dear colleagues,
 	| RADC |grip|   |fev|   |gait|  
 	| SATSA|grip|pef|   |   |    |  
 
-	In order to maximize replication we will combine PEF and FEV, as well as TUG and GAIT, resulting in the following formation:
+	In order to maximize replication effect we will combine PEF and FEV, as well as TUG and GAIT, resulting in the following formation:
 
 	| STUDY / domain  |grip  |breath | locomoto |   
 	|---|---|---|---|
@@ -73,14 +73,14 @@ Dear colleagues,
 	| RADC  |grip   |fev|gait|  
 	| SATSA |grip   |pef|    | 
 
-	Please see if we missed any measures, and whether your study has measures to fill in the blanks. 
+	Please see if we missed any measures. 
 
 
 7.  **Describe measures**   
-	If you are interested in the project and would like to submit model outputs to the collective, please start by documenting the measures the association among which you will be exploring with bivariate models. Each study's folder on github now contains a file ```./studies/STUDY/measures.md```. Please edit this file to provide the description of your measures.  Please refer to the [issue #79](https://github.com/IALSA/IALSA-2015-Portland/issues/79) for announcements and discussion of what should go into these descriptions. 
+	If you are interested in the project and would like to submit model outputs to the collective, please start by documenting the measures among which you will be exploring with bivariate models. Each study's folder on github now contains a file ```./studies/STUDY/measures.md```. Please edit this file to provide the description of your measures.  Please refer to the [issue #79](https://github.com/IALSA/IALSA-2015-Portland/issues/79) for announcements and discussion of what should go into these descriptions. 
    
 8.  **Run models**   
-	There are just a few models in each study that needs to be run, so we list them all here. Each name refers to a pair of models, one for each sex. For the purposes of this paper the "aehplus" model type is sufficient (that is models containing, age, education, height, and the specific "plus variables" agreed on during the Portland workshop as covariates) You can use this list as your roadmap.  
+	There are just a few models in each study that need to be run, so we list them all here. Each name refers to a pair of models, one for each sex. For the purposes of this paper the "aehplus" model type is sufficient (e.i., models containing, age, education, height, and additional health-related variables as covariates) You can use this list as your roadmap.  
    
 	|study  | model | 
 	|---|---|
@@ -123,7 +123,7 @@ Dear colleagues,
 	```
 	
 10. **Adjust MPlus code: Correlation and CI**	   
-   As I mentioned before, we are adjusting our Mplus scripts to compute the correlations (not just covariances) and their confidence intervals. THis will require two straigforward steps.  
+   As I mentioned before, we are adjusting our Mplus scripts to compute the correlations (not just covariances) and their confidence intervals. This will require two straigforward steps.  
    **STEP 1**: Name parameters in the MODEL statement   
    ```
 	ip (v_ip); ! v - variance
@@ -157,7 +157,7 @@ Dear colleagues,
 	Here's the complete model specification in Mplus used in this [example](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/outputs/b1_female_aehplus_grip_pek.out). 
 
 11. **Upload the output files**      
-    In the folder of you study, create a folder called "physical",  for example  
+    In the folder of your study, create a folder called "physical",  for example  
 	```	
 	./studies/eas/physical
 	```     
