@@ -105,7 +105,7 @@
     c1=pek1;   c2=pek2;   c3=pek3;   c4=pek4;   c5=pek5;
 	```
 	
-9. Adjust MPlus code: Correlation and CI	   
+10. Adjust MPlus code: Correlation and CI	   
    As I mentioned before, we are adjusting our Mplus scripts to compute the correlations (not just covariances) and their confidence intervals. THis will require two straigforward steps.  
    STEP 1. Name parameters in the MODEL statement   
    ```
@@ -139,12 +139,12 @@
 	Please make sure you copy the OUTPUT statement as well to request Cinterval.    
 	Here's the complete model specification in Mplus used in this [example](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/outputs/b1_female_aehplus_grip_pek.out). 
 
-10. Upload the output files      
+11. Upload the output files      
     In the folder of you study, create a folder called "physical",  for example  
 	```	./studies/eas/physical```  
 	and upload your models there. 
 	
 	
-11. Follow the developments      
+12. Follow the developments      
 	The "./projects/physical/[README](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/README.md)" will be the frontpage for this project. I'll post all reports and analytic tools there, as well as the project administration instruments.  Closer to the end of September we'll begin unrolling the reports and interactive apps that make sense of these models. 
 	
