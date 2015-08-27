@@ -149,16 +149,19 @@ Updates and News
 	OUTPUT: sampstat Cinterval;
     ```
 	Please make sure you copy the OUTPUT statement as well to request Cinterval. 
+	Here's the complete model specification in Mplus used in this [example](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/outputs/b1_female_aehplus_grip_pek.out). 
 
+10. Upload the output files
+    In the folder of you study, create a folder called "physical",  for example  
+	```	./studies/eas/physical```  
+	and upload your models there. 
+	
+	
+11. Follow the developments
+	The "./projects/physical/[README](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/README.md)" will be the frontpage for this project. I'll post all reports and analytic tools there, as well as the project administration instruments. 
+	
+	
 
-   
-   
-   k. We need to 1) run a few new models, but do it 2) with a slighly modified script. I've started a [README](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/README.md) for this project, referred to as "physical" or "physical by physical" or "PxP" for short. Please refer to this webpage as the primary source of content and communication for this project.
-
-   
-7. New models to run.
-   
-   
 
 
 
