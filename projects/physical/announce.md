@@ -107,7 +107,7 @@
 	
 10. Adjust MPlus code: Correlation and CI	   
    As I mentioned before, we are adjusting our Mplus scripts to compute the correlations (not just covariances) and their confidence intervals. THis will require two straigforward steps.  
-   STEP 1. Name parameters in the MODEL statement   
+   **STEP 1**: Name parameters in the MODEL statement   
    ```
 	ip (v_ip); ! v - variance
 	sp (v_sp); 
@@ -121,7 +121,7 @@
 	ic WITH sc (c_icsc);
     ```
 	
-	STEP 2: Add MODEL CONSTRAINT statement   
+	**STEP 2**: Add MODEL CONSTRAINT statement   
     Referring to the estimated parameters by the names defined in STEP 1, we compute correlations and their confidence intervals:
 	```
 	MODEL CONSTRAINT:
@@ -141,7 +141,8 @@
 
 11. Upload the output files      
     In the folder of you study, create a folder called "physical",  for example  
-	```	./studies/eas/physical```  
+	```	./studies/eas/physical
+	```     
 	and upload your models there. 
 	
 	
