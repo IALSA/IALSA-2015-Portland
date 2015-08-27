@@ -141,7 +141,8 @@
 
 11. Upload the output files      
     In the folder of you study, create a folder called "physical",  for example  
-	```	./studies/eas/physical
+	```	
+	./studies/eas/physical
 	```     
 	and upload your models there. 
 	
