@@ -30,7 +30,7 @@ Dear colleagues,
 	One important methodological news. As you all know, we had a hard time explaining why some confidence intervals of the correlation ( that we've computed after extracting model outputs ) didn't line up in the statistical significance decision with the pvalues of the covariances that came directly from the model outputs. We suspected scripting errors, but couldn't find verification. As it turns out, there are theoretically valid reasons why they wouldn't line up. If you are interested in details, please follow [issue #75](https://github.com/IALSA/IALSA-2015-Portland/issues/75). In short, now we'll try to estimate correlations and CIs directly in MPlus. This will impact how you run your models in Mplus. But more about this later, in the technical instructions. 
 
 4.  **New Focus: Analytics**     
-	Another important development occured in the area of workflow organization. So far our focus has been on estimating, uploading, and processing models. We were building the infrastructure, so the primary goal was to just make it work. It is worth recognizing that we did it!! It's not perfect, not at all, but works well enough to start shifting out focus to actually doing something with the wealth of information we have at our disposal.  Model submission will continue, of course, but it will be much easier now. It will be more targeted and  more structured, motivated by a more precise set of questions.  Our challange now is to **discuss how certain groups of these models can help us understand particular aspects of human aging**. Practically, this will mean fine-tuning our efforts to cater to the needs of the specific [project](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md), so that we all can get published. Let's keep our eyes on the deliverables. 
+	Another important development occurred in the area of workflow organization. So far our focus has been on estimating, uploading, and processing models. We were building the infrastructure, so the primary goal was to just make it work. It is worth recognizing that we did it!! It's not perfect, not at all, but works well enough to start shifting out focus to actually doing something with the wealth of information we have at our disposal.  Model submission will continue, of course, but it will be much easier now. It will be more targeted and  more structured, motivated by a more precise set of questions.  Our challenge now is to **discuss how certain groups of these models can help us understand particular aspects of human aging**. Practically, this will mean fine-tuning our efforts to cater to the needs of the specific [project](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md), so that we all can get published. Let's keep our eyes on the deliverables. 
 
 5.  **New Focus: Physical-Physical**   
 	This project will consist of models pairing only physical measures. Hence a slight shift of focus for the next few months, that Andrea Piccinin announced in the previous email:
@@ -80,7 +80,7 @@ Dear colleagues,
 	If you are interested in the project and would like to submit model outputs to the collective, please start by documenting the measures among which you will be exploring with bivariate models. Each study's folder on github now contains a file ```./studies/STUDY/measures.md```. Please edit this file to provide the description of your measures.  Please refer to the [issue #79](https://github.com/IALSA/IALSA-2015-Portland/issues/79) for announcements and discussion of what should go into these descriptions. 
    
 8.  **Run models**   
-	There are just a few models in each study that need to be run, so we list them all here. Each name refers to a pair of models, one for each sex. For the purposes of this paper the "aehplus" model type is sufficient (e.i., models containing, age, education, height, and additional health-related variables as covariates) You can use this list as your roadmap.  
+	There are just a few models in each study that need to be run, so we list them all here. Each name refers to a pair of models, one for each sex. For the purposes of this paper the "aehplus" model type is sufficient (i.e., models containing, age, education, height, and additional health-related variables as covariates) You can use this list as your roadmap.  
    
 	|study  | model | 
 	|---|---|
@@ -115,7 +115,7 @@ Dear colleagues,
 
 
 9.  **Adjust MPlus code: PxP**  
-    Some adjustment are in order to accomodate this shift from  physical-cognitive to physical-physical pairing. Let's say we'd like to run ```b1_SEX_aehplus_grip_pef```.  In the DEFINE statement we used "p" and "c" to refer to "physical" and "cogntive", but now we'll simply think of them as "process A" and "process B". Here's the confusing part: in order to maintain the integrity of the post-processing scripts we won't do any renaming in MPplus scritp, we'll just point to different variables. To demonstrate, the first two lines of the DEFINE statement would read something like: 
+    Some adjustment are in order to accommodate this shift from  physical-cognitive to physical-physical pairing. Let's say we'd like to run ```b1_SEX_aehplus_grip_pef```.  In the DEFINE statement we used "p" and "c" to refer to "physical" and "cognitive", but now we'll simply think of them as "process A" and "process B". Here's the confusing part: in order to maintain the integrity of the post-processing scripts we won't do any renaming in Mplus script, we'll just point to different variables. To demonstrate, the first two lines of the DEFINE statement would read something like: 
 	```
 	DEFINE:
 	p1=gripp1; p2=gripp2; p3=gripp3; p4=gripp4; p5=gripp5;
@@ -123,7 +123,7 @@ Dear colleagues,
 	```
 	
 10. **Adjust MPlus code: Correlation and CI**	   
-   As I mentioned before, we are adjusting our Mplus scripts to compute the correlations (not just covariances) and their confidence intervals. This will require two straigforward steps.  
+   As I mentioned before, we are adjusting our Mplus scripts to compute the correlations (not just covariances) and their confidence intervals. This will require two straigt forward steps.  
    **STEP 1**: Name parameters in the MODEL statement   
    ```
 	ip (v_ip); ! v - variance
