@@ -170,7 +170,7 @@ Dear colleagues,
 	
 	So, allow me to recap: 
 	
-- 1. After the Wellcome Trust conference - others think we're doing a cool thing, let's keep at it!    
+- 1. After the Wellcome Trust conference - others also think we're doing a cool thing, let's keep at it!    
 - 2. Behind the Scenes Updates  -  technical details     
 - 3. Significance Decisions: pvalues and CIs  - discrapancy clarified     
 - 4. New Focus: Analytics  - focus on completing projects : publishing     
