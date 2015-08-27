@@ -1,18 +1,15 @@
 Updates and News
 ---
-
+ - Announcing [Physical Track](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/announce.md)  
  - [Teleconference #3, 10-July-2015](./log.md)
  - [Teleconference #2, 26-June-2015](./log.md)
  - [Teleconference #1, 12-June-2015](./log.md#New) 
 
 
-
-	
-
-
-
-
 [edit me](https://github.com/IALSA/IALSA-2015-Portland/edit/master/log.md)
+
+##Announcing PHysical Track
+ An [email](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/announce.md)
 
  
 ##Teleconference #3 
