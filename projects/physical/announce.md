@@ -44,7 +44,7 @@ Dear colleagues,
 	To remind you. Our current publication model intends 5 foci. So far we've been referring to them as: pulmonary, grip, gait, cognitive, and physical.  Each of them implies a paper or a series of papers exploring particular associations and their replications across multiple longitudinal studies. Each of them is organized as a separate [project](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md) and is (will be)  given a unique [Milestone](https://github.com/IALSA/IALSA-2015-Portland/milestones) within GitHub Issues. Pulmonary project has been our flagship project so far, however it appears that the publication opportunity with IJE offers a quicker path to a deliverable: a multistudy paper on physical outcomes, [project 5](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/README.md) on our publication agenda. 
 
 
-6.  **Deadline : October 31**
+6.  **Deadline : October 31**   
    It's 9 weeks away, so we need to move fast. Here are the physical outcomes we've identified we have:
    
 	| STUDY / outcome |  | |  | | |   
