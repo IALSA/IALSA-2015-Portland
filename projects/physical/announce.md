@@ -9,8 +9,15 @@ Table of Contents
 3. Significance Decisions: pvalues and CIs  
 4. New Focus: Analytics  
 5. New Focus: Physical-Physical  
-6. Deadline : October 31
+6. Our Deadline: October 31
+7. Describe your physical measures  
+8. Models to Run 
+9. Adjust MPlus code: PxP 
+10. Adjust MPlus code: Correlation and CI
+11. Where to Upload the Output Files 
+12. How to Follow the Developments  
 
+	 
  
 1.After the Wellcome Trust conference    
 	Hope all of you had a good summer and now ready for a productive season! First some good news. All of the hard work started paying off after we presented the first preliminary results of Portland Collective at the Wellcome Trust [Longitudinal Studies: Maximising their Value for Ageing Research](http://conf.hinxton.wellcome.ac.uk/advancedcourses/LongitudinalStudies.pdf) conference in Hinxton, England on July 21-23. We had a great reaction to our [presentation](http://htmlpreview.github.io/?https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/talks/2015_presentations/22_July/A%20Collaborative%20Modeling%20Framework%20for%20Multi-Study%20Coordinated%20Analyses.html#/): many have shared their excitement at the prospects of such collaborative framework as we've demonstrated. In particular, the power to process and make sense of such a vast number of models has been in the spotlight. 
@@ -158,4 +165,30 @@ Table of Contents
 	
 12. Follow the developments      
 	The "./projects/physical/[README](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/README.md)" will be the frontpage for this project. I'll post all reports and analytic tools there, as well as the project administration instruments.  Closer to the end of September we'll begin unrolling the reports and interactive apps that make sense of these models. 
+	
+	
+	So, allow me to recap: 
+	
+1. After the Wellcome Trust conference - others think we're doing a cool thing, let's keep at it!  
+2. Behind the Scenes Updates  -  technical details  
+3. Significance Decisions: pvalues and CIs  - discrapancy clarified  
+4. New Focus: Analytics  - focus on completing projects : publishing  
+5. New Focus: Physical-Physical  - best current opportunity  
+6. Our Deadline: October 31 -  we can do it, here's [timetable](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/timetable.md) how.   
+
+**CALL FOR ACTION**: 
+7. Describe your physical measures  - it's only two or three. we need them to start analytics asap.    
+8. Models to Run - you won't have to run more than 6  
+9. Adjust MPlus code: PxP - important technical details on how to modify the scripts  
+10. Adjust MPlus code: Correlation and CI - important technical details on how to modify the scripts   
+11. Where to Upload the Output Files - ./studies/YOURSTUDY/physical/
+12. How to Follow the Developments  - read ./projects/physical/[README](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/README.md)
+
+
+
+
+
+
+	
+	
 	
