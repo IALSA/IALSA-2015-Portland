@@ -109,7 +109,7 @@ Updates and News
 	Please use these exact names when naming your output files (after substituting SEX for "female" or "male").
 
 
-8.  Adjust MPlus code
+8.  Adjust MPlus code: PxP
     Some adjustment are in order to accomodate this shift from  physical-cognitive to physical-physical pairing. Let's say we'd like to run ```b1_SEX_aehplus_grip_pef```.  In the DEFINE statement we used "p" and "c" to refer to "physical" and "cogntive", but now we'll simply think of them as "process A" and "process B". Here's the confusing part: in order to maintain the integrity of the post-processing scripts we won't do any renaming in MPplus scritp, we'll just point to different variables. To demonstrate, the first two lines of the DEFINE statement would read something like: 
 	```
 	DEFINE:
@@ -117,9 +117,38 @@ Updates and News
     c1=pek1;   c2=pek2;   c3=pek3;   c4=pek4;   c5=pek5;
 	```
 	
+9. Adjust MPlus code: Correlation and CI	
+   As I mentioned before, we are adjusting our Mplus scripts to compute the correlations (not just covariances) and their confidence intervals. THis will require two straigforward steps.
+   STEP 1. Name parameters in the MODEL statement
+   ```
+	ip (v_ip); ! v - variance
+	sp (v_sp); 
+	ic (v_ic);
+	sc (v_sc);
+	ip WITH sp (c_ipsp); ! c - covariance
+	ip WITH ic (c_ipic);
+	ip WITH sc (c_ipsc);
+	sp WITH ic (c_spic);
+	sp WITH sc (c_spsc);
+	ic WITH sc (c_icsc);
+    ```
 	
+	STEP 2: Add MODEL CONSTRAINT statement
+    Referring to the estimated parameters by the names defined in STEP 1, we compute correlations and their confidence intervals:
+	```
+	MODEL CONSTRAINT:
 
+	NEW r_ipic;
+	NEW r_spsc;
+	NEW r_res_pc;
 
+	r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
+	r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
+	r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+	OUTPUT: sampstat Cinterval;
+    ```
+	Please make sure you copy the OUTPUT statement as well to request Cinterval. 
 
 
    
