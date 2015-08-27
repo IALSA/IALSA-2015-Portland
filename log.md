@@ -35,33 +35,34 @@ Updates and News
 
 6. Deadline : October 31
    It's 9 weeks away, so we need to move fast. Here are the physical outcomes we've identified we have:
-| STUDY / outcome |  | |  | | |   
-|---|---|---|---|---|---|
-| EAS  |grip|pef|   |   |    |  
-| ELSA |grip|   |fev|   |    |  
-| HRS  |grip|pef|   |   |gait|  
-| ILSE |grip|   |   |tug|    |  
-| LASA |grip|pef|   |   |gait|  
-| NUAGE|grip|   |   |tug|    |   
-| OCTO |grip|pef|   |   |gait| 
-| RADC |grip|   |fev|   |gait|  
-| SATSA|grip|pef|   |   |    |  
+   
+	| STUDY / outcome |  | |  | | |   
+	|---|---|---|---|---|---|
+	| EAS  |grip|pef|   |   |    |  
+	| ELSA |grip|   |fev|   |    |  
+	| HRS  |grip|pef|   |   |gait|  
+	| ILSE |grip|   |   |tug|    |  
+	| LASA |grip|pef|   |   |gait|  
+	| NUAGE|grip|   |   |tug|    |   
+	| OCTO |grip|pef|   |   |gait| 
+	| RADC |grip|   |fev|   |gait|  
+	| SATSA|grip|pef|   |   |    |  
 
-In order to maximize replication effect we will combine PEF and FEV, as well as TUG and GAIT, resulting in the following formation:
+	In order to maximize replication effect we will combine PEF and FEV, as well as TUG and GAIT, resulting in the following formation:
 
-| STUDY / domain  |grip  |breath | locomoto |   
-|---|---|---|---|
-| EAS   |grip   |pef|    |  
-| ELSA  |grip   |fev|    |  
-| HRS   |grip   |pef|gait|  
-| ILSE  |grip   |   |tug |  
-| LASA  |grip   |pef|gait|  
-| NUAGE |grip   |   |tug |  
-| OCTO  |grip   |pef|    |  
-| RADC  |grip   |fev|gait|  
-| SATSA |grip   |pef|    | 
+	| STUDY / domain  |grip  |breath | locomoto |   
+	|---|---|---|---|
+	| EAS   |grip   |pef|    |  
+	| ELSA  |grip   |fev|    |  
+	| HRS   |grip   |pef|gait|  
+	| ILSE  |grip   |   |tug |  
+	| LASA  |grip   |pef|gait|  
+	| NUAGE |grip   |   |tug |  
+	| OCTO  |grip   |pef|    |  
+	| RADC  |grip   |fev|gait|  
+	| SATSA |grip   |pef|    | 
 
-If your study has at least one pair of physical measures, you are welcome to participat and submit the models. 
+	If your study has at least one pair of physical measures, you are welcome to participat and submit the models. 
 
 
 7. Describe measures
