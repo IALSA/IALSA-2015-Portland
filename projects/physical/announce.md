@@ -169,20 +169,20 @@ Table of Contents
 	
 	So, allow me to recap: 
 	
-1. After the Wellcome Trust conference - others think we're doing a cool thing, let's keep at it!  
-2. Behind the Scenes Updates  -  technical details  
-3. Significance Decisions: pvalues and CIs  - discrapancy clarified  
-4. New Focus: Analytics  - focus on completing projects : publishing  
-5. New Focus: Physical-Physical  - best current opportunity  
+1. After the Wellcome Trust conference - others think we're doing a cool thing, let's keep at it!    
+2. Behind the Scenes Updates  -  technical details     
+3. Significance Decisions: pvalues and CIs  - discrapancy clarified     
+4. New Focus: Analytics  - focus on completing projects : publishing     
+5. New Focus: Physical-Physical  - best current opportunity     
 6. Our Deadline: October 31 -  we can do it, here's [timetable](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/timetable.md) how.   
 
-**CALL FOR ACTION**: 
-7. Describe your physical measures  - it's only two or three. we need them to start analytics asap.    
-8. Models to Run - you won't have to run more than 6  
-9. Adjust MPlus code: PxP - important technical details on how to modify the scripts  
-10. Adjust MPlus code: Correlation and CI - important technical details on how to modify the scripts   
-11. Where to Upload the Output Files - ./studies/YOURSTUDY/physical/
-12. How to Follow the Developments  - read ./projects/physical/[README](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/README.md)
+**CALL FOR ACTION**:    
+7. Describe your physical measures  - it's only two or three. we need them to start analytics asap.       
+8. Models to Run - you won't have to run more than 6     
+9. Adjust MPlus code: PxP - important technical details on how to modify the scripts     
+10. Adjust MPlus code: Correlation and CI - important technical details on how to modify the scripts      
+11. Where to Upload the Output Files - ./studies/YOURSTUDY/physical/   
+12. How to Follow the Developments  - read ./projects/physical/[README](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/README.md)   
 
 
 
