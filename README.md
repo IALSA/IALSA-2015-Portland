@@ -60,6 +60,7 @@ Analytic tools available to the workshop participants include dynamic **reports*
 ##Log 
 
 The agenda and outcomes of each teleconference following the Portland workshop  
+ - Announcing [Physical Track](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/announce.md)  
 
  - [Teleconference #3, 10-July-2015](./log.md)
 
