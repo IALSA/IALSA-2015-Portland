@@ -2,20 +2,29 @@
  [edit me](https://github.com/IALSA/IALSA-2015-Portland/edit/master/log.md)  
  
  Dear colleagues, 
-   
-1.  After the Wellcome Trust conference   
+ 
+Table of Contents
+1. After the Wellcome Trust conference
+2. Behind the Scenes Updates  
+3. Significance Decisions: pvalues and CIs  
+4. New Focus: Analytics  
+5. New Focus: Physical-Physical  
+6. Deadline : October 31
+
+ 
+1.After the Wellcome Trust conference    
 	Hope all of you had a good summer and now ready for a productive season! First some good news. All of the hard work started paying off after we presented the first preliminary results of Portland Collective at the Wellcome Trust [Longitudinal Studies: Maximising their Value for Ageing Research](http://conf.hinxton.wellcome.ac.uk/advancedcourses/LongitudinalStudies.pdf) conference in Hinxton, England on July 21-23. We had a great reaction to our [presentation](http://htmlpreview.github.io/?https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/talks/2015_presentations/22_July/A%20Collaborative%20Modeling%20Framework%20for%20Multi-Study%20Coordinated%20Analyses.html#/): many have shared their excitement at the prospects of such collaborative framework as we've demonstrated. In particular, the power to process and make sense of such a vast number of models has been in the spotlight. 
  
-2.  Behind the Scenes Updates  
+2.Behind the Scenes Updates    
 	This event allowed our tech team to patch many gaps in the software system and make serious progress in the performance of analytic tools. You'll see many reports updated to reflect the changes. The main dashboard has been altered too. But if you can't spot these changes, no worries.   
  
-3.  Significance Decisions: pvalues and CIs    
+3. Significance Decisions: pvalues and CIs    
 	One important methodological news. As you all know, we had a hard time explaining why some confidence intervals of the correlation ( that we've computed after extracting model outputs ) didn't line up in the statistical significance decision with the pvalues of the covariances that came directly from the model outputs. We suspected scripting errors, but couldn't find verification. As it turns out, there are theoretically valid reasons why they wouldn't line up. If you are interested in details, please follow [issue #75](https://github.com/IALSA/IALSA-2015-Portland/issues/75). In short, now we'll try to estimate correlations and CIs directly in MPlus. This will happen impact on how you run your model and M plus. But more about this later, in the technical instructions. 
 
 4.  New Focus: Analytics     
 	Another important development occured in the area of workflow organization. So far our focus has been on estimating, uploading, and processing models. We were building the infrastructure, so the primary goal was to just make it work. It is worth recognizing that we did it!! It's not perfect, not at all, but works well enough to start shifting out focus to actually doing something with the wealth of information we have at our disposal.  Model submission will continue, of course, but it will be much easier now. It will be more targeted and  more structured, motivated by a more precise set of questions.  Our challange  now is to **discuss how certain groups of these models can help us understand particular aspects of human aging**. Practically, this will mean to fine-tuning our efforts to cater to the needs of the specifict [project](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/README.md), so that we all can get published. Let's keep our eyes on the deliverables. 
 
-5.  Publication Model  
+5. New Focus: Physical-Physical   
 	One of such groups will constists of models pairing only physical measures. Hence a slight shift of focus for the next few months, that Andrea Piccinin announced in the previous email:
 	```
     The paper will provide information regarding the extent to
