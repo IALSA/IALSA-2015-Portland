@@ -1,6 +1,6 @@
 Mplus VERSION 7.2
 MUTHEN & MUTHEN
-06/10/2015  11:03 PM
+08/12/2015   1:31 PM
 
 INPUT INSTRUCTIONS
 
@@ -87,7 +87,7 @@ INPUT INSTRUCTIONS
   Define:
 
          Bage=bagey-80;   !Centered at Age 80
-          Height=htval-1.60;
+          Height=htval-1.72;
           SmokHist=hesmk-1;
 
           if (edqual eq 7) then Educn=1;
@@ -290,7 +290,7 @@ SAMPLE STATISTICS
            Means
               EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
               ________      ________      ________      ________      ________
- 1              0.145         0.047         0.078       171.022         0.270
+ 1              0.145         0.047         0.078       170.902         0.270
 
 
            Means
@@ -526,10 +526,10 @@ MODEL RESULTS
     C2                 0.000      0.000    999.000    999.000
     C4                 0.000      0.000    999.000    999.000
     C6                 0.000      0.000    999.000    999.000
-    IP                -3.108      0.506     -6.141      0.000
-    SP                -0.056      0.070     -0.807      0.420
-    IC                 1.408      1.211      1.163      0.245
-    SC                -0.205      0.174     -1.177      0.239
+    IP                -3.105      0.506     -6.138      0.000
+    SP                -0.056      0.070     -0.808      0.419
+    IC                 1.410      1.210      1.165      0.244
+    SC                -0.204      0.174     -1.177      0.239
 
  Residual Variances
     P2                 0.209      0.025      8.341      0.000
@@ -558,9 +558,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\annie robitaille\dropbox\elsa_portland\biv delayed recall and fev\b1_male_aehplus_pulmo
 
-     Beginning Time:  23:03:41
-        Ending Time:  23:04:29
-       Elapsed Time:  00:00:48
+     Beginning Time:  13:31:18
+        Ending Time:  13:31:59
+       Elapsed Time:  00:00:41
 
 
 
