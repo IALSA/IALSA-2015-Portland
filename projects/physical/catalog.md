@@ -12,8 +12,8 @@ Table 1a. Studies and Outcomes
 
 Table 1b.  
 
-| outcomes & STUDIES  |   |   |   |   |
-|---|---|---|---|---|
+| outcomes & STUDIES  |   |   |   |   |   |
+|---|---|---|---|---|---|
 |grip   | ELSA | HRS | OCTO | RADC | LASA |
 |gait   | ELSA  | HRS | OCTO | RADC | LASA |
 |fev   |  ELSA |  |  | RADC |
