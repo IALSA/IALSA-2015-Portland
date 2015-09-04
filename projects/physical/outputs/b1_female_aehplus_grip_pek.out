@@ -4,7 +4,7 @@ MUTHEN & MUTHEN
 
 INPUT INSTRUCTIONS
 
-  TITLE: M6 Pulmonary Function, Block Design, Fully Conditional, Male
+  TITLE: M6 Pulmonary Function, Grip, Fully Conditional, Male
 
   DATA:  File = octomult_12aug2010.dat;
 
@@ -36,8 +36,8 @@ INPUT INSTRUCTIONS
   		   Bage Educ Heightc SmokHist Diabetes;
   		
   TSCORES =   time1 time2 time3 time4 time5;
-  CLUSTER = PairID;      !(when cluster: see subpopulation and Analysis)
-  SUBPOPULATION are DemEver EQ 0 and female EQ 1; ! (use USEOBSERVATIONS when no ..
+  CLUSTER = PairID; !only include when you have clustered data(i.e.Twin data in OCTO). See Subpopulation and Analysis.
+  SUBPOPULATION are DemEver EQ 0 and female EQ 1; !Use USEOBSERVATIONS when no CLUSTER 
   !USEOBSERVATIONS are DemEver EQ 0 and female EQ 0;
 
   Define: p1=gripp1; p2=gripp2; p3=gripp3; p4=gripp4; p5=gripp5;
@@ -50,7 +50,7 @@ INPUT INSTRUCTIONS
                 SmokHist=Smoke;
                 Diabetes=diab1;
 
-        ANALYSIS: TYPE = RANDOM COMPLEX; !Type of analysis requested,
+        ANALYSIS: TYPE = RANDOM COMPLEX; !Type of analysis requested, Use TYPE = RANDOM when no CLUSTER (COMPLEX is not needed)
 
   MODEL:  ip sp | p1-p5 AT time1-time5;
           ic sc | c1-c5 AT time1-time5;
@@ -74,7 +74,7 @@ INPUT INSTRUCTIONS
   		
   MODEL CONSTRAINT:
 
-          NEW r_ipic;
+          NEW r_ipic; !assigns labels to new parameters;
           NEW r_spsc;
           NEW r_res_pc;
 
@@ -100,7 +100,7 @@ INPUT INSTRUCTIONS
 
 
 
-M6 Pulmonary Function, Block Design, Fully Conditional, Male
+M6 Pulmonary Function, Grip, Fully Conditional, Male
 
 SUMMARY OF ANALYSIS
 
