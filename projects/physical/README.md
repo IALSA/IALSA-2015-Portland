@@ -11,7 +11,7 @@ Currently we identified the following physical measures in longitudinal studies:
 
 | STUDY / domain  |grip  |breath | locomoto |   
 |---|---|---|---|
-| EAS  |grip   |pef   |   |  
+| EAS  |grip   |pef   | gait  |  
 | ELSA  |grip   |fev   |   |  
 | HRS  | grip   | pef  |gait    |  
 | ILSE  |grip   |   |tug   |  
@@ -25,7 +25,7 @@ Currently we identified the following physical measures in longitudinal studies:
 
 | STUDY / outcome | grip |breath |breath  |locomoto |locomoto |   
 |---|---|---|---|---|---|
-| EAS  |grip|pef|   |   |    |  
+| EAS  |grip|pef|   |   | gait|  
 | ELSA |grip|   |fev|   |    |  
 | HRS  |grip|pef|   |   |gait|  
 | ILSE |grip|   |   |tug|    |  
