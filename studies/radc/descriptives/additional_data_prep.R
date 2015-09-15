@@ -19,6 +19,15 @@ str(a)
 
 names(ds0) <- as.vector(radcNames[,1]) # adding variable names
 
+#check
+ds0[1:20, 1:15]
+
+
+## returns the number of available cases of men and women.
+nrow(ds0[ds0$msex==1,])
+nrow(ds0[ds0$msex==0,])
+
+
 #Filtering out individuals with dementia diagnosis at any time point.
 ds1<-filter(ds0, dementia.00!=1, dementia.01!=1, dementia.02!=1, dementia.03!=1,
 dementia.04!=1, dementia.05!=1, dementia.06!=1, dementia.07!=1, dementia.08!=1,
@@ -26,7 +35,15 @@ dementia.09!=1, dementia.10!=1, dementia.11!=1, dementia.12!=1, dementia.13!=1,
 dementia.14!=1, dementia.15!=1, dementia.16!=1, dementia.17!=1, dementia.18!=1,
 dementia.19!=1, dementia.20!=1)
 
-attach(ds1)
+#recode missing to be R friendly
+ds1[ds1==-9999] = NA
+
+ds1[1:20, 1:20]
+
+#returns the frequencies of race
+count(ds1, race)
+count(ds1, spanish)
+mean()
 
 ds2<-select(ds1, age_bl, age_death, educ, msex, race, spanish, q3smo_bl, q4smo_bl, smoking,
 married, married2, age_at_visit.00, age_at_visit.01, age_at_visit.02, age_at_visit.03,
@@ -63,8 +80,6 @@ htm.00,  htm.01,  htm.02,  htm.03,  htm.04,  htm.05)
 #check
 ds2[1:20, 100:150]
 
-#recode missing to be R friendly
-ds2[ds2==-9999] = NA
 
 #activate ds2
 attach(ds2)
@@ -76,4 +91,5 @@ as.data.frame( t(sapply(ds2, function(cl) list(means=mean(cl,na.rm=TRUE),
                                               sds=sd(cl,na.rm=TRUE))) ))
 # To get number of NA
 summary(ds2, n.rm=TRUE)
+
 
