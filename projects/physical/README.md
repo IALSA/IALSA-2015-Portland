@@ -1,5 +1,5 @@
 
-
+- [Announcement](./announce.md) of the physical track, initial instructions
 - [Catalog](./catalog.md) shows studies and outcomes
 - [Timetable](./timetable.md)  shows deadlines and progress
 - Collaboraion will be traced by a collection of [github issues](https://github.com/IALSA/IALSA-2015-Portland/milestones/PxP%20-%20Physical)   
