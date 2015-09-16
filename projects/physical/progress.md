@@ -1,12 +1,9 @@
 
 
 
-| Study | Contact |Descriptives|Measures| PxP models |
-| :---- | :------ |---|---|   
+| Study | Contact |Descriptives|Measures| PxP models |   
+|---|---|---|---|     
 | [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html) | [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu) | [+](https://github.com/IALSA/IALSA-2015-Portland/blob/master/studies/table_1_descriptives/Table1_EAS_Descriptives_IALSA_Portland.pdf) | [please submit](./studies/eas/measures.md) | [6](https://github.com/IALSA/IALSA-2015-Portland/tree/master/studies/eas/PHYSICAL) |
-
-
-
 | [ELSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/elsa.html) | [Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |[please submit](https://github.com/IALSA/IALSA-2015-Portland/blob/master/studies/table_1_descriptives/Table1_ELSA_Descriptives_IALSA_Portland.pdf) | [+](./studies/elsa/measures.md) |[2](https://github.com/IALSA/IALSA-2015-Portland/tree/master/studies/elsa/Physical) |
 | [HRS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/hrs.html) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |[+](https://github.com/IALSA/IALSA-2015-Portland/blob/master/studies/table_1_descriptives/Table1_HRS_Descriptives_IALSA_Portland.pdf) | [+](./studies/hrs/measures.md) | [6](https://github.com/IALSA/IALSA-2015-Portland/tree/master/studies/hrs/physical) |
 
