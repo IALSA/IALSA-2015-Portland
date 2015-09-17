@@ -11,4 +11,5 @@ Walking speed: Gait variables were collected using a 12-foot instrumented walkwa
 References
 
 Bilney B, Morris M, Webster K. Concurrent related validity of the GAITRite walkway system for quantification of the spatial and temporal parameters of gait. Gait Posture; 2003;17:68–74. 
+
 Verghese J, Buschke H, Viola L, et al. Validity of divided attention tasks in predicting falls in older individuals: A preliminary study. J Am Geriatr Soc. 2002;50:1572–1576. 
