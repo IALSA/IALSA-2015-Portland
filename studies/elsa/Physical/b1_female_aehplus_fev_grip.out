@@ -1,6 +1,6 @@
-Mplus VERSION 7.2
+Mplus VERSION 7.31
 MUTHEN & MUTHEN
-09/04/2015  12:13 PM
+09/16/2015   1:28 PM
 
 INPUT INSTRUCTIONS
 
@@ -13,28 +13,28 @@ INPUT INSTRUCTIONS
       WIDE = c1-c6 | p1-p6 |hei1-hei6|time1-time6|
       smoke1-smoke6|diab1-diab6|cardio1-cardio6;
       IDVARIABLE = idauniq;
-      REPETITION = years (0 2 4 6 8 10);
+      REPETITION = wave (1 2 3 4 5 6);
 
 
   VARIABLE: Names are
-   idauniq dimar hedia01 hedia02 hedia03 hedia04
-   hedia05 hedia06 hedia07 hedia08
-      hedia09 hedia10 heage hedib01 hedib02 hedib03
-      hedib04 hedib05 hedib06 hedib07 hedib08 hedib09
-      hedib10 hesmk heala heacta heactb heactc mmwlka
-      mmwlkb cflisen cfani cfmem cfpascr cflisd cfmscr
-      cfpbscr cfptscr cfwhz1 cfwhz2 cfwhz3 cfwhz4 psceda
-       pscedb pscedc pscedd pscede pscedf pscedg pscedh
-      edqual scfamm scsca scscc intdatm intdaty iintdtm
-       iintdty indobyr indager aethnicr wave heagcr
-      heagcry hedbwlu hedbwas hedbwar hedbwos hedbwca
-       hedbwpd hedbwps hedbwad hedbwde herosmd hemobcs
-      hehsm86 hehsm96 hedcc heaidcr iintdatm iintdaty
-       chesmk cfmersp cfprmem cfspeed cfanig cfexind
-      cfaccur cfrecal hedimbp hediman hedimmi hedimhf
-      hedimhm hedimar hedimdi hedbts hedimst hedimch
-      hediblu hedibas hedibar hedibos hedibca hedibpd
-       hedibps hedibad hedibde cfmeind cfind hedizm51
+   idauniq wave dimar hedia01 hedia02 hedia03
+   hedia04 hedia05 hedia06 hedia07
+      hedia08 hedia09 hedia10 heage hedib01
+      hedib02 hedib03 hedib04 hedib05 hedib06 hedib07 hedib08
+      hedib09 hedib10 hesmk heala heacta heactb
+      heactc mmwlka mmwlkb cflisen cfani cfmem cfpascr cflisd
+      cfmscr cfpbscr cfptscr cfwhz1 cfwhz2 cfwhz3
+      cfwhz4 psceda pscedb pscedc pscedd pscede pscedf pscedg
+      pscedh edqual scfamm scsca scscc intdatm
+      intdaty iintdtm iintdty indobyr indager aethnicr heagcr
+      heagcry hedbwlu hedbwas hedbwar hedbwos
+      hedbwca hedbwpd hedbwps hedbwad hedbwde herosmd hemobcs
+      hehsm86 hehsm96 hedcc heaidcr iintdatm
+      iintdaty chesmk cfmersp cfprmem cfspeed cfanig cfexind
+      cfaccur cfrecal hedimbp hediman hedimmi
+      hedimhf hedimhm hedimar hedimdi hedbts hedimst hedimch
+      hediblu hedibas hedibar hedibos hedibca
+      hedibpd hedibps hedibad hedibde cfmeind cfind hedizm51
       hedizm52 hediagbp hediagan hediagmi hediaghf
       hediaghm hediagar hediagdh hediagdi hediagst hediaghc
       hebdialu hebdiaas hebdiaar hebdiaos hebdiaca
@@ -42,12 +42,12 @@ INPUT INSTRUCTIONS
       hepdiamd hepdiaca cvd7dibt sex sysval diaval
       pulval mapval mmgsd1 mmgsn1 mmgsd2 mmgsn2 mmgsd3
       mmgsn3 chol trig fglu htval wtval bmival bmiobe
-       fvc1 fev1 pf1 fvc2 fev2 pf2 fvc3 fev3 pf3 htfvc
+      fvc1 fev1 pf1 fvc2 fev2 pf2 fvc3 fev3 pf3 htfvc
       htfev htpf mmssre mmssti mmssna mmstre mmstti
-       mmftre2 mmftti mmlore mmloti mmlsre mmlsti mmcrre
+      mmftre2 mmftti mmlore mmloti mmlsre mmlsti mmcrre
       mmrrre mmrrfti mmrrtti mmrroc vitd mmftre prfvc
-       pcfvc prfev pcfev htpef prpef pcpef nurmer bagey
-      years diab cardio;
+      pcfvc prfev pcfev htpef prpef pcpef bagey years
+      diab cardio walkspee;
 
          MISSING is all(-99999, -8, -9, -1);
 
@@ -166,18 +166,14 @@ INPUT INSTRUCTIONS
 
 
 *** WARNING
-  Data set contains cases with missing on all variables.
-  These cases were not included in the analysis.
-  Number of cases with missing on all variables:  64
-*** WARNING
   Data set contains cases with missing on x-variables.
   These cases were not included in the analysis.
-  Number of cases with missing on x-variables:  3335
+  Number of cases with missing on x-variables:  2194
 *** WARNING
-  Data set contains cases with missing on or unknown values for the
-  repetition variable.  These cases were not included in the analysis.
-  Number of such cases:  2845
-   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+  Data set contains cases with missing on time scores but non-missing on the
+  corresponding dependent variables.  These cases were not included in the analysis.
+  Number of such cases:  67
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
 
 
 
@@ -186,7 +182,7 @@ M6 Pulmonary Function, FEV, Grip, Fully Conditional, female
 SUMMARY OF ANALYSIS
 
 Number of groups                                                 1
-Number of observations                                        2782
+Number of observations                                        3920
 
 Number of dependent variables                                    6
 Number of independent variables                                 11
@@ -234,7 +230,7 @@ Input data format  FREE
 
 SUMMARY OF DATA
 
-     Number of missing data patterns            46
+     Number of missing data patterns            52
 
 
 COVARIANCE COVERAGE OF DATA
@@ -248,40 +244,40 @@ Minimum covariance coverage value   0.100
            Covariance Coverage
               P2            P4            P6            C2            C4
               ________      ________      ________      ________      ________
- P2             0.969
- P4             0.544         0.560
- P6             0.464         0.385         0.475
- C2             0.900         0.523         0.449         0.923
- C4             0.502         0.504         0.362         0.487         0.517
- C6             0.422         0.352         0.417         0.410         0.336
- BAGE           0.969         0.560         0.475         0.923         0.517
- EDUCN          0.969         0.560         0.475         0.923         0.517
- EDUCSEC        0.969         0.560         0.475         0.923         0.517
- EDUCDE         0.969         0.560         0.475         0.923         0.517
- EDUCHE         0.969         0.560         0.475         0.923         0.517
- EDUCF          0.969         0.560         0.475         0.923         0.517
- EDUCO          0.969         0.560         0.475         0.923         0.517
- HEI2           0.969         0.560         0.475         0.923         0.517
- SMOKE1         0.969         0.560         0.475         0.923         0.517
- DIAB1          0.969         0.560         0.475         0.923         0.517
- CARDIO1        0.969         0.560         0.475         0.923         0.517
+ P2             0.967
+ P4             0.648         0.666
+ P6             0.544         0.497         0.556
+ C2             0.895         0.622         0.524         0.919
+ C4             0.604         0.602         0.471         0.584         0.622
+ C6             0.487         0.445         0.481         0.469         0.427
+ BAGE           0.967         0.666         0.556         0.919         0.622
+ EDUCN          0.967         0.666         0.556         0.919         0.622
+ EDUCSEC        0.967         0.666         0.556         0.919         0.622
+ EDUCDE         0.967         0.666         0.556         0.919         0.622
+ EDUCHE         0.967         0.666         0.556         0.919         0.622
+ EDUCF          0.967         0.666         0.556         0.919         0.622
+ EDUCO          0.967         0.666         0.556         0.919         0.622
+ HEI2           0.967         0.666         0.556         0.919         0.622
+ SMOKE1         0.967         0.666         0.556         0.919         0.622
+ DIAB1          0.967         0.666         0.556         0.919         0.622
+ CARDIO1        0.967         0.666         0.556         0.919         0.622
 
 
            Covariance Coverage
               C6            BAGE          EDUCN         EDUCSEC       EDUCDE
               ________      ________      ________      ________      ________
- C6             0.431
- BAGE           0.431         1.000
- EDUCN          0.431         1.000         1.000
- EDUCSEC        0.431         1.000         1.000         1.000
- EDUCDE         0.431         1.000         1.000         1.000         1.000
- EDUCHE         0.431         1.000         1.000         1.000         1.000
- EDUCF          0.431         1.000         1.000         1.000         1.000
- EDUCO          0.431         1.000         1.000         1.000         1.000
- HEI2           0.431         1.000         1.000         1.000         1.000
- SMOKE1         0.431         1.000         1.000         1.000         1.000
- DIAB1          0.431         1.000         1.000         1.000         1.000
- CARDIO1        0.431         1.000         1.000         1.000         1.000
+ C6             0.496
+ BAGE           0.496         1.000
+ EDUCN          0.496         1.000         1.000
+ EDUCSEC        0.496         1.000         1.000         1.000
+ EDUCDE         0.496         1.000         1.000         1.000         1.000
+ EDUCHE         0.496         1.000         1.000         1.000         1.000
+ EDUCF          0.496         1.000         1.000         1.000         1.000
+ EDUCO          0.496         1.000         1.000         1.000         1.000
+ HEI2           0.496         1.000         1.000         1.000         1.000
+ SMOKE1         0.496         1.000         1.000         1.000         1.000
+ DIAB1          0.496         1.000         1.000         1.000         1.000
+ CARDIO1        0.496         1.000         1.000         1.000         1.000
 
 
            Covariance Coverage
@@ -312,144 +308,188 @@ SAMPLE STATISTICS
            Means
               P2            P4            P6            C2            C4
               ________      ________      ________      ________      ________
- 1             21.068        19.640        18.471         1.915         1.830
+ 1             21.303        19.759        18.583         1.942         1.844
 
 
            Means
               C6            BAGE          EDUCN         EDUCSEC       EDUCDE
               ________      ________      ________      ________      ________
- 1              1.711       -15.670         0.424         0.192         0.091
+ 1              1.730       -16.307         0.416         0.193         0.091
 
 
            Means
               EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
               ________      ________      ________      ________      ________
- 1              0.102         0.114         0.022        -0.757         0.441
+ 1              0.103         0.119         0.021        -0.665         0.439
 
 
            Means
               DIAB1         CARDIO1
               ________      ________
- 1              0.049         0.090
+ 1              0.049         0.088
 
 
            Covariances
               P2            P4            P6            C2            C4
               ________      ________      ________      ________      ________
- P2            38.203
- P4            31.854        43.184
- P6            29.307        32.856        39.590
- C2             1.661         1.817         1.766         0.397
- C4             1.578         1.736         1.713         0.275         0.377
- C6             1.548         1.765         1.707         0.288         0.284
- BAGE         -29.205       -35.882       -33.885        -3.177        -3.185
- EDUCN         -0.726        -0.727        -0.662        -0.075        -0.078
- EDUCSEC        0.269         0.269         0.245         0.036         0.035
- EDUCDE         0.261         0.273         0.299         0.025         0.026
- EDUCHE         0.141         0.157         0.173         0.012         0.015
- EDUCF          0.001        -0.069        -0.093        -0.006        -0.003
- EDUCO          0.012         0.021         0.004         0.003         0.002
- HEI2          16.733        17.180        16.110         1.902         1.837
- SMOKE1         0.021        -0.015         0.087         0.025         0.026
- DIAB1         -0.122        -0.108        -0.073        -0.011        -0.009
- CARDIO1       -0.340        -0.383        -0.301        -0.034        -0.030
+ P2            37.680
+ P4            30.105        41.687
+ P6            28.806        32.126        39.366
+ C2             1.655         1.713         1.747         0.398
+ C4             1.559         1.664         1.722         0.291         0.408
+ C6             1.467         1.594         1.660         0.286         0.295
+ BAGE         -27.721       -32.671       -33.291        -3.114        -3.165
+ EDUCN         -0.697        -0.695        -0.696        -0.076        -0.079
+ EDUCSEC        0.248         0.245         0.253         0.033         0.032
+ EDUCDE         0.237         0.243         0.264         0.023         0.026
+ EDUCHE         0.140         0.149         0.165         0.014         0.012
+ EDUCF          0.001        -0.067        -0.054        -0.003         0.001
+ EDUCO          0.018         0.035         0.022         0.002         0.003
+ HEI2          15.736        15.918        15.852         1.870         1.849
+ SMOKE1         0.018        -0.015         0.021         0.026         0.028
+ DIAB1         -0.114        -0.126        -0.119        -0.011        -0.010
+ CARDIO1       -0.326        -0.354        -0.308        -0.036        -0.030
 
 
            Covariances
               C6            BAGE          EDUCN         EDUCSEC       EDUCDE
               ________      ________      ________      ________      ________
- C6             0.374
- BAGE          -3.314        92.353
- EDUCN         -0.073         1.250         0.244
- EDUCSEC        0.027        -0.640        -0.081         0.155
- EDUCDE         0.024        -0.388        -0.039        -0.017         0.083
- EDUCHE         0.016        -0.123        -0.043        -0.020        -0.009
- EDUCF          0.000         0.085        -0.048        -0.022        -0.010
- EDUCO          0.004        -0.022        -0.009        -0.004        -0.002
- HEI2           1.668       -22.683        -0.725         0.290         0.252
- SMOKE1         0.028         0.026        -0.015         0.002         0.006
- DIAB1         -0.011         0.150         0.004        -0.002        -0.002
- CARDIO1       -0.036         0.571         0.013        -0.007        -0.004
+ C6             0.381
+ BAGE          -3.050        86.791
+ EDUCN         -0.078         1.173         0.243
+ EDUCSEC        0.031        -0.557        -0.080         0.156
+ EDUCDE         0.024        -0.330        -0.038        -0.018         0.083
+ EDUCHE         0.013        -0.147        -0.043        -0.020        -0.009
+ EDUCF          0.002         0.077        -0.050        -0.023        -0.011
+ EDUCO          0.003        -0.037        -0.009        -0.004        -0.002
+ HEI2           1.707       -21.277        -0.692         0.258         0.254
+ SMOKE1         0.029         0.071        -0.013         0.003         0.004
+ DIAB1         -0.011         0.175         0.007        -0.003        -0.002
+ CARDIO1       -0.034         0.565         0.014        -0.007        -0.004
 
 
            Covariances
               EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
               ________      ________      ________      ________      ________
  EDUCHE         0.092
- EDUCF         -0.012         0.101
- EDUCO         -0.002        -0.003         0.022
- HEI2           0.161         0.000        -0.007        45.294
- SMOKE1         0.007         0.003         0.000        -0.082         0.247
- DIAB1         -0.002         0.002         0.001        -0.011         0.000
- CARDIO1       -0.002         0.001         0.000        -0.242        -0.008
+ EDUCF         -0.012         0.105
+ EDUCO         -0.002        -0.002         0.020
+ HEI2           0.130         0.002        -0.001        44.135
+ SMOKE1         0.006         0.002        -0.001        -0.104         0.246
+ DIAB1         -0.002         0.001         0.000        -0.024        -0.002
+ CARDIO1       -0.003         0.000        -0.001        -0.241        -0.006
 
 
            Covariances
               DIAB1         CARDIO1
               ________      ________
- DIAB1          0.047
- CARDIO1        0.008         0.082
+ DIAB1          0.046
+ CARDIO1        0.007         0.080
 
 
            Correlations
               P2            P4            P6            C2            C4
               ________      ________      ________      ________      ________
  P2             1.000
- P4             0.784         1.000
- P6             0.754         0.795         1.000
- C2             0.426         0.439         0.445         1.000
- C4             0.416         0.430         0.443         0.710         1.000
- C6             0.409         0.439         0.443         0.748         0.756
- BAGE          -0.492        -0.568        -0.560        -0.524        -0.539
- EDUCN         -0.238        -0.224        -0.213        -0.240        -0.258
- EDUCSEC        0.110         0.104         0.099         0.146         0.145
- EDUCDE         0.147         0.144         0.165         0.138         0.148
- EDUCHE         0.075         0.079         0.091         0.065         0.080
- EDUCF          0.001        -0.033        -0.046        -0.028        -0.017
- EDUCO          0.013         0.021         0.005         0.030         0.023
- HEI2           0.402         0.388         0.380         0.448         0.444
- SMOKE1         0.007        -0.005         0.028         0.081         0.085
- DIAB1         -0.092        -0.076        -0.054        -0.080        -0.066
- CARDIO1       -0.192        -0.204        -0.167        -0.188        -0.169
+ P4             0.760         1.000
+ P6             0.748         0.793         1.000
+ C2             0.428         0.421         0.442         1.000
+ C4             0.398         0.404         0.430         0.724         1.000
+ C6             0.387         0.400         0.428         0.734         0.749
+ BAGE          -0.485        -0.543        -0.570        -0.530        -0.532
+ EDUCN         -0.230        -0.218        -0.225        -0.244        -0.250
+ EDUCSEC        0.102         0.096         0.102         0.134         0.128
+ EDUCDE         0.134         0.131         0.146         0.126         0.140
+ EDUCHE         0.075         0.076         0.087         0.072         0.061
+ EDUCF          0.001        -0.032        -0.026        -0.017         0.006
+ EDUCO          0.021         0.038         0.025         0.026         0.037
+ HEI2           0.386         0.371         0.380         0.446         0.436
+ SMOKE1         0.006        -0.005         0.007         0.083         0.090
+ DIAB1         -0.086        -0.090        -0.088        -0.078        -0.074
+ CARDIO1       -0.187        -0.194        -0.174        -0.202        -0.167
 
 
            Correlations
               C6            BAGE          EDUCN         EDUCSEC       EDUCDE
               ________      ________      ________      ________      ________
  C6             1.000
- BAGE          -0.564         1.000
- EDUCN         -0.242         0.263         1.000
- EDUCSEC        0.112        -0.169        -0.418         1.000
- EDUCDE         0.138        -0.141        -0.271        -0.154         1.000
- EDUCHE         0.085        -0.042        -0.290        -0.165        -0.107
- EDUCF          0.002         0.028        -0.308        -0.175        -0.113
- EDUCO          0.040        -0.016        -0.129        -0.074        -0.048
- HEI2           0.405        -0.351        -0.218         0.109         0.130
- SMOKE1         0.091         0.005        -0.062         0.008         0.039
- DIAB1         -0.081         0.072         0.037        -0.027        -0.026
- CARDIO1       -0.204         0.207         0.093        -0.061        -0.052
+ BAGE          -0.530         1.000
+ EDUCN         -0.255         0.256         1.000
+ EDUCSEC        0.129        -0.152        -0.413         1.000
+ EDUCDE         0.135        -0.123        -0.267        -0.155         1.000
+ EDUCHE         0.069        -0.052        -0.286        -0.166        -0.107
+ EDUCF          0.012         0.026        -0.310        -0.180        -0.117
+ EDUCO          0.032        -0.028        -0.123        -0.072        -0.046
+ HEI2           0.416        -0.344        -0.211         0.098         0.133
+ SMOKE1         0.096         0.015        -0.055         0.013         0.025
+ DIAB1         -0.080         0.087         0.066        -0.033        -0.026
+ CARDIO1       -0.196         0.214         0.103        -0.063        -0.045
 
 
            Correlations
               EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
               ________      ________      ________      ________      ________
  EDUCHE         1.000
- EDUCF         -0.121         1.000
- EDUCO         -0.051        -0.054         1.000
- HEI2           0.079         0.000        -0.007         1.000
- SMOKE1         0.046         0.018        -0.007        -0.025         1.000
- DIAB1         -0.028         0.033         0.022        -0.008        -0.002
- CARDIO1       -0.028         0.009        -0.005        -0.125        -0.058
+ EDUCF         -0.125         1.000
+ EDUCO         -0.050        -0.054         1.000
+ HEI2           0.064         0.001        -0.001         1.000
+ SMOKE1         0.040         0.015        -0.007        -0.031         1.000
+ DIAB1         -0.034         0.012         0.000        -0.017        -0.014
+ CARDIO1       -0.031         0.005        -0.014        -0.128        -0.042
 
 
            Correlations
               DIAB1         CARDIO1
               ________      ________
  DIAB1          1.000
- CARDIO1        0.125         1.000
+ CARDIO1        0.118         1.000
 
 
-     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -41663.375
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -61015.715
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P2                   21.362      -0.218       0.667    0.03%      16.500     20.000     21.667
+            3792.000      37.492       0.304      45.833    0.03%      23.167     26.333
+     P4                   20.445      -0.178       0.000    0.15%      15.500     19.167     20.667
+            2612.000      37.717       0.124      39.500    0.04%      22.167     25.500
+     P6                   19.914      -0.169       0.000    0.05%      15.167     18.667     20.167
+            2179.000      32.976       0.112      38.667    0.05%      21.500     24.667
+     C2                    1.962      -0.219       0.000    0.17%       1.440      1.850      2.020
+            3604.000       0.383      -0.164       4.400    0.03%       2.160      2.480
+     C4                    1.924       1.145       0.000    0.08%       1.480      1.810      1.940
+            2438.000       0.370      14.344       9.950    0.04%       2.090      2.390
+     C6                    1.866      -0.793       0.000    2.36%       1.467      1.791      1.906
+            1946.000       0.324       1.335       3.499    0.05%       2.041      2.335
+     BAGE                -16.307       0.488     -30.000    2.04%     -25.000    -21.000    -17.000
+            3920.000      86.791      -0.684      10.000    0.05%     -14.000     -8.000
+     EDUCN                 0.416       0.343       0.000   58.44%       0.000      0.000      0.000
+            3920.000       0.243      -1.883       1.000   41.56%       1.000      1.000
+     EDUCSEC               0.193       1.553       0.000   80.66%       0.000      0.000      0.000
+            3920.000       0.156       0.411       1.000   19.34%       0.000      0.000
+     EDUCDE                0.091       2.843       0.000   90.89%       0.000      0.000      0.000
+            3920.000       0.083       6.081       1.000    9.11%       0.000      0.000
+     EDUCHE                0.103       2.611       0.000   89.69%       0.000      0.000      0.000
+            3920.000       0.092       4.818       1.000   10.31%       0.000      0.000
+     EDUCF                 0.119       2.348       0.000   88.06%       0.000      0.000      0.000
+            3920.000       0.105       3.512       1.000   11.94%       0.000      0.000
+     EDUCO                 0.021       6.695       0.000   97.91%       0.000      0.000      0.000
+            3920.000       0.020      42.826       1.000    2.09%       0.000      0.000
+     HEI2                 -0.665      -0.093     -40.200    0.03%      -6.300     -2.200     -0.700
+            3920.000      44.135       0.301      21.400    0.03%       1.100      5.000
+     SMOKE1                0.439       0.245       0.000   56.07%       0.000      0.000      0.000
+            3920.000       0.246      -1.940       1.000   43.93%       1.000      1.000
+     DIAB1                 0.049       4.192       0.000   95.13%       0.000      0.000      0.000
+            3920.000       0.046      15.575       1.000    4.87%       0.000      0.000
+     CARDIO1               0.088       2.914       0.000   91.22%       0.000      0.000      0.000
+            3920.000       0.080       6.492       1.000    8.78%       0.000      0.000
 
 
 THE MODEL ESTIMATION TERMINATED NORMALLY
@@ -462,15 +502,15 @@ Number of Free Parameters                       61
 
 Loglikelihood
 
-          H0 Value                      -19170.351
-          H0 Scaling Correction Factor      1.2651
+          H0 Value                      -29504.263
+          H0 Scaling Correction Factor      1.3796
             for MLR
 
 Information Criteria
 
-          Akaike (AIC)                   38462.702
-          Bayesian (BIC)                 38824.489
-          Sample-Size Adjusted BIC       38630.671
+          Akaike (AIC)                   59130.526
+          Bayesian (BIC)                 59513.230
+          Sample-Size Adjusted BIC       59319.400
             (n* = (n + 2) / 24)
 
 
@@ -481,77 +521,77 @@ MODEL RESULTS
                     Estimate       S.E.  Est./S.E.    P-Value
 
  IP         ON
-    BAGE              -0.219      0.013    -17.095      0.000
-    EDUCN             -0.692      0.516     -1.341      0.180
-    EDUCSEC            0.212      0.538      0.394      0.694
-    EDUCDE             0.998      0.576      1.733      0.083
-    EDUCHE             0.520      0.593      0.877      0.381
-    EDUCF              0.324      0.580      0.558      0.577
-    EDUCO              0.534      0.780      0.685      0.493
-    HEI2               0.233      0.018     12.603      0.000
-    SMOKE1            -0.071      0.221     -0.321      0.748
-    DIAB1             -1.744      0.536     -3.253      0.001
-    CARDIO1           -1.724      0.429     -4.020      0.000
+    BAGE              -0.221      0.011    -19.769      0.000
+    EDUCN             -0.788      0.450     -1.751      0.080
+    EDUCSEC            0.041      0.469      0.087      0.930
+    EDUCDE             0.808      0.500      1.618      0.106
+    EDUCHE             0.390      0.511      0.763      0.446
+    EDUCF              0.016      0.496      0.032      0.974
+    EDUCO              0.255      0.680      0.375      0.708
+    HEI2               0.222      0.016     14.057      0.000
+    SMOKE1             0.066      0.190      0.349      0.727
+    DIAB1             -1.086      0.443     -2.450      0.014
+    CARDIO1           -1.626      0.380     -4.279      0.000
 
  SP         ON
-    BAGE              -0.011      0.002     -6.100      0.000
-    EDUCN              0.064      0.061      1.054      0.292
-    EDUCSEC           -0.010      0.062     -0.153      0.878
-    EDUCDE             0.053      0.067      0.798      0.425
-    EDUCHE             0.069      0.067      1.028      0.304
-    EDUCF             -0.073      0.067     -1.094      0.274
-    EDUCO             -0.016      0.098     -0.159      0.874
-    HEI2              -0.005      0.002     -2.328      0.020
-    SMOKE1             0.032      0.027      1.184      0.236
-    DIAB1              0.150      0.059      2.545      0.011
-    CARDIO1            0.059      0.055      1.077      0.281
+    BAGE              -0.011      0.001     -7.507      0.000
+    EDUCN              0.061      0.049      1.251      0.211
+    EDUCSEC            0.026      0.050      0.509      0.611
+    EDUCDE             0.051      0.054      0.942      0.346
+    EDUCHE             0.070      0.054      1.293      0.196
+    EDUCF             -0.012      0.054     -0.217      0.828
+    EDUCO              0.077      0.080      0.966      0.334
+    HEI2              -0.004      0.002     -2.257      0.024
+    SMOKE1             0.008      0.022      0.363      0.717
+    DIAB1              0.012      0.052      0.220      0.825
+    CARDIO1            0.067      0.048      1.392      0.164
 
  IC         ON
-    BAGE              -0.025      0.001    -19.572      0.000
-    EDUCN             -0.041      0.048     -0.853      0.394
-    EDUCSEC            0.081      0.052      1.561      0.119
-    EDUCDE             0.089      0.057      1.545      0.122
-    EDUCHE             0.037      0.057      0.653      0.514
-    EDUCF             -0.037      0.057     -0.658      0.511
-    EDUCO              0.107      0.075      1.435      0.151
-    HEI2               0.029      0.002     15.267      0.000
-    SMOKE1             0.103      0.022      4.621      0.000
-    DIAB1             -0.114      0.050     -2.269      0.023
-    CARDIO1           -0.107      0.040     -2.690      0.007
+    BAGE              -0.027      0.001    -23.641      0.000
+    EDUCN             -0.067      0.043     -1.534      0.125
+    EDUCSEC            0.035      0.046      0.751      0.453
+    EDUCDE             0.044      0.051      0.861      0.389
+    EDUCHE             0.032      0.051      0.624      0.532
+    EDUCF             -0.042      0.051     -0.825      0.409
+    EDUCO              0.047      0.080      0.588      0.557
+    HEI2               0.029      0.002     17.174      0.000
+    SMOKE1             0.113      0.019      5.823      0.000
+    DIAB1             -0.073      0.044     -1.672      0.095
+    CARDIO1           -0.140      0.034     -4.066      0.000
 
  SC         ON
-    BAGE               0.000      0.000     -2.017      0.044
-    EDUCN              0.005      0.006      0.821      0.412
-    EDUCSEC           -0.001      0.006     -0.198      0.843
-    EDUCDE             0.005      0.007      0.667      0.505
-    EDUCHE             0.009      0.007      1.411      0.158
-    EDUCF              0.011      0.007      1.621      0.105
-    EDUCO              0.007      0.008      0.824      0.410
-    HEI2              -0.001      0.000     -3.098      0.002
-    SMOKE1             0.001      0.003      0.335      0.737
-    DIAB1              0.003      0.009      0.310      0.757
-    CARDIO1            0.000      0.008      0.011      0.991
+    BAGE               0.000      0.000     -0.547      0.585
+    EDUCN              0.005      0.006      0.786      0.432
+    EDUCSEC            0.005      0.006      0.819      0.413
+    EDUCDE             0.009      0.007      1.318      0.188
+    EDUCHE             0.005      0.007      0.714      0.475
+    EDUCF              0.013      0.007      1.819      0.069
+    EDUCO              0.010      0.009      1.085      0.278
+    HEI2               0.000      0.000     -2.154      0.031
+    SMOKE1             0.002      0.002      0.683      0.495
+    DIAB1              0.000      0.007      0.056      0.955
+    CARDIO1            0.005      0.006      0.801      0.423
 
  IP       WITH
-    SP                -0.199      0.142     -1.398      0.162
-    IC                 0.356      0.081      4.400      0.000
-    SC                -0.013      0.011     -1.190      0.234
+    SP                -0.201      0.121     -1.664      0.096
+    IC                 0.364      0.068      5.376      0.000
+    SC                -0.015      0.009     -1.734      0.083
 
  SP       WITH
-    IC                -0.001      0.010     -0.080      0.936
-    SC                 0.001      0.001      0.360      0.719
+    IC                -0.007      0.008     -0.961      0.337
+    SC                 0.001      0.001      0.742      0.458
 
  IC       WITH
-    SC                -0.001      0.003     -0.503      0.615
+    SC                -0.001      0.002     -0.595      0.552
 
  P2       WITH
-    C2                -0.010      0.029     -0.362      0.717
+    C2                 0.016      0.022      0.723      0.470
 
  P4       WITH
-    C4                -0.010      0.029     -0.362      0.717
+    C4                 0.016      0.022      0.723      0.470
 
  P6       WITH
-    C6                -0.010      0.029     -0.362      0.717
+    C6                 0.016      0.022      0.723      0.470
 
  Intercepts
     P2                 0.000      0.000    999.000    999.000
@@ -560,32 +600,32 @@ MODEL RESULTS
     C2                 0.000      0.000    999.000    999.000
     C4                 0.000      0.000    999.000    999.000
     C6                 0.000      0.000    999.000    999.000
-    IP                18.813      0.539     34.931      0.000
-    SP                -0.575      0.069     -8.358      0.000
-    IC                 1.566      0.052     30.295      0.000
-    SC                -0.036      0.007     -5.408      0.000
+    IP                18.971      0.472     40.220      0.000
+    SP                -0.588      0.056    -10.585      0.000
+    IC                 1.569      0.047     33.558      0.000
+    SC                -0.036      0.007     -5.348      0.000
 
  Residual Variances
-    P2                 8.348      0.514     16.255      0.000
-    P4                 8.348      0.514     16.255      0.000
-    P6                 8.348      0.514     16.255      0.000
-    C2                 0.100      0.012      8.559      0.000
-    C4                 0.100      0.012      8.559      0.000
-    C6                 0.100      0.012      8.559      0.000
-    IP                18.654      1.310     14.241      0.000
-    SP                 0.030      0.022      1.404      0.160
-    IC                 0.150      0.021      7.141      0.000
-    SC                 0.000      0.000      0.267      0.790
+    P2                 8.814      0.406     21.712      0.000
+    P4                 8.814      0.406     21.712      0.000
+    P6                 8.814      0.406     21.712      0.000
+    C2                 0.102      0.009     10.872      0.000
+    C4                 0.102      0.009     10.872      0.000
+    C6                 0.102      0.009     10.872      0.000
+    IP                18.526      1.146     16.169      0.000
+    SP                 0.025      0.017      1.432      0.152
+    IC                 0.152      0.017      8.937      0.000
+    SC                 0.000      0.000      0.601      0.548
 
 New/Additional Parameters
-    R_IPIC             0.213      0.051      4.197      0.000
-    R_SPSC             0.262      0.884      0.297      0.767
-    R_RES_PC          -0.011      0.031     -0.363      0.716
+    R_IPIC             0.217      0.042      5.224      0.000
+    R_SPSC             0.335      0.547      0.613      0.540
+    R_RES_PC           0.016      0.023      0.722      0.470
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.621E-07
+     Condition Number for the Information Matrix              0.971E-07
        (ratio of smallest to largest eigenvalue)
 
 
@@ -594,77 +634,77 @@ CONFIDENCE INTERVALS OF MODEL RESULTS
                   Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
 
  IP       ON
-    BAGE            -0.252      -0.244      -0.240      -0.219      -0.198      -0.194      -0.186
-    EDUCN           -2.021      -1.704      -1.541      -0.692       0.157       0.319       0.637
-    EDUCSEC         -1.174      -0.843      -0.673       0.212       1.097       1.267       1.598
-    EDUCDE          -0.486      -0.131       0.050       0.998       1.945       2.126       2.481
-    EDUCHE          -1.008      -0.643      -0.456       0.520       1.495       1.682       2.047
-    EDUCF           -1.171      -0.814      -0.631       0.324       1.279       1.462       1.819
-    EDUCO           -1.474      -0.994      -0.748       0.534       1.817       2.062       2.543
-    HEI2             0.185       0.197       0.202       0.233       0.263       0.269       0.280
-    SMOKE1          -0.639      -0.503      -0.434      -0.071       0.292       0.362       0.498
-    DIAB1           -3.126      -2.795      -2.626      -1.744      -0.862      -0.693      -0.363
-    CARDIO1         -2.829      -2.564      -2.429      -1.724      -1.018      -0.883      -0.619
+    BAGE            -0.250      -0.243      -0.240      -0.221      -0.203      -0.199      -0.193
+    EDUCN           -1.948      -1.670      -1.529      -0.788      -0.048       0.094       0.371
+    EDUCSEC         -1.167      -0.878      -0.730       0.041       0.812       0.960       1.248
+    EDUCDE          -0.479      -0.171      -0.014       0.808       1.630       1.787       2.095
+    EDUCHE          -0.927      -0.612      -0.451       0.390       1.231       1.392       1.707
+    EDUCF           -1.262      -0.956      -0.800       0.016       0.832       0.988       1.294
+    EDUCO           -1.497      -1.078      -0.864       0.255       1.374       1.588       2.007
+    HEI2             0.181       0.191       0.196       0.222       0.247       0.252       0.262
+    SMOKE1          -0.424      -0.306      -0.247       0.066       0.379       0.439       0.556
+    DIAB1           -2.229      -1.955      -1.816      -1.086      -0.357      -0.217       0.056
+    CARDIO1         -2.604      -2.370      -2.251      -1.626      -1.001      -0.881      -0.647
 
  SP       ON
-    BAGE            -0.016      -0.015      -0.014      -0.011      -0.008      -0.008      -0.007
-    EDUCN           -0.092      -0.055      -0.036       0.064       0.163       0.182       0.220
-    EDUCSEC         -0.169      -0.131      -0.112      -0.010       0.093       0.112       0.150
-    EDUCDE          -0.119      -0.078      -0.057       0.053       0.164       0.185       0.226
-    EDUCHE          -0.104      -0.063      -0.042       0.069       0.180       0.201       0.243
-    EDUCF           -0.245      -0.204      -0.183      -0.073       0.037       0.058       0.099
-    EDUCO           -0.267      -0.207      -0.176      -0.016       0.145       0.176       0.236
-    HEI2            -0.011      -0.010      -0.009      -0.005      -0.002      -0.001       0.001
-    SMOKE1          -0.038      -0.021      -0.013       0.032       0.078       0.086       0.103
-    DIAB1           -0.002       0.034       0.053       0.150       0.246       0.265       0.301
-    CARDIO1         -0.083      -0.049      -0.031       0.059       0.150       0.167       0.201
+    BAGE            -0.015      -0.014      -0.014      -0.011      -0.009      -0.008      -0.007
+    EDUCN           -0.065      -0.035      -0.019       0.061       0.142       0.158       0.188
+    EDUCSEC         -0.104      -0.073      -0.057       0.026       0.108       0.124       0.155
+    EDUCDE          -0.088      -0.055      -0.038       0.051       0.139       0.156       0.189
+    EDUCHE          -0.069      -0.036      -0.019       0.070       0.159       0.176       0.209
+    EDUCF           -0.152      -0.119      -0.101      -0.012       0.078       0.095       0.129
+    EDUCO           -0.129      -0.079      -0.054       0.077       0.209       0.234       0.283
+    HEI2            -0.009      -0.008      -0.007      -0.004      -0.001      -0.001       0.001
+    SMOKE1          -0.049      -0.036      -0.029       0.008       0.045       0.052       0.066
+    DIAB1           -0.123      -0.091      -0.074       0.012       0.097       0.114       0.146
+    CARDIO1         -0.057      -0.027      -0.012       0.067       0.145       0.161       0.190
 
  IC       ON
-    BAGE            -0.028      -0.027      -0.027      -0.025      -0.022      -0.022      -0.021
-    EDUCN           -0.165      -0.135      -0.120      -0.041       0.038       0.053       0.083
-    EDUCSEC         -0.053      -0.021      -0.004       0.081       0.166       0.182       0.214
-    EDUCDE          -0.059      -0.024      -0.006       0.089       0.183       0.201       0.237
-    EDUCHE          -0.109      -0.074      -0.056       0.037       0.131       0.148       0.183
-    EDUCF           -0.184      -0.149      -0.131      -0.037       0.056       0.074       0.109
-    EDUCO           -0.085      -0.039      -0.016       0.107       0.230       0.254       0.300
-    HEI2             0.024       0.025       0.026       0.029       0.032       0.033       0.034
-    SMOKE1           0.046       0.059       0.066       0.103       0.140       0.147       0.160
-    DIAB1           -0.243      -0.212      -0.197      -0.114      -0.031      -0.016       0.015
-    CARDIO1         -0.210      -0.185      -0.173      -0.107      -0.042      -0.029      -0.005
+    BAGE            -0.030      -0.029      -0.029      -0.027      -0.025      -0.025      -0.024
+    EDUCN           -0.179      -0.152      -0.138      -0.067       0.005       0.019       0.045
+    EDUCSEC         -0.084      -0.056      -0.041       0.035       0.110       0.125       0.153
+    EDUCDE          -0.088      -0.056      -0.040       0.044       0.128       0.145       0.176
+    EDUCHE          -0.099      -0.068      -0.052       0.032       0.115       0.131       0.162
+    EDUCF           -0.173      -0.142      -0.126      -0.042       0.042       0.058       0.089
+    EDUCO           -0.159      -0.109      -0.084       0.047       0.178       0.203       0.252
+    HEI2             0.024       0.025       0.026       0.029       0.031       0.032       0.033
+    SMOKE1           0.063       0.075       0.081       0.113       0.145       0.151       0.163
+    DIAB1           -0.186      -0.159      -0.145      -0.073      -0.001       0.013       0.040
+    CARDIO1         -0.228      -0.207      -0.196      -0.140      -0.083      -0.072      -0.051
 
  SC       ON
-    BAGE            -0.001      -0.001      -0.001       0.000       0.000       0.000       0.000
-    EDUCN           -0.010      -0.007      -0.005       0.005       0.014       0.016       0.020
-    EDUCSEC         -0.018      -0.014      -0.012      -0.001       0.009       0.011       0.015
-    EDUCDE          -0.013      -0.009      -0.007       0.005       0.016       0.018       0.022
-    EDUCHE          -0.008      -0.004      -0.002       0.009       0.021       0.023       0.027
-    EDUCF           -0.007      -0.002       0.000       0.011       0.023       0.025       0.029
-    EDUCO           -0.014      -0.009      -0.007       0.007       0.020       0.023       0.028
-    HEI2            -0.001      -0.001      -0.001      -0.001       0.000       0.000       0.000
-    SMOKE1          -0.007      -0.005      -0.004       0.001       0.006       0.007       0.009
-    DIAB1           -0.020      -0.014      -0.012       0.003       0.017       0.020       0.025
-    CARDIO1         -0.019      -0.015      -0.012       0.000       0.012       0.015       0.020
+    BAGE            -0.001       0.000       0.000       0.000       0.000       0.000       0.000
+    EDUCN           -0.011      -0.007      -0.005       0.005       0.015       0.017       0.021
+    EDUCSEC         -0.011      -0.007      -0.005       0.005       0.016       0.018       0.022
+    EDUCDE          -0.009      -0.005      -0.002       0.009       0.021       0.023       0.028
+    EDUCHE          -0.013      -0.009      -0.007       0.005       0.017       0.019       0.023
+    EDUCF           -0.005      -0.001       0.001       0.013       0.024       0.026       0.030
+    EDUCO           -0.014      -0.008      -0.005       0.010       0.026       0.029       0.035
+    HEI2            -0.001      -0.001      -0.001       0.000       0.000       0.000       0.000
+    SMOKE1          -0.005      -0.003      -0.002       0.002       0.006       0.007       0.008
+    DIAB1           -0.018      -0.013      -0.011       0.000       0.012       0.014       0.018
+    CARDIO1         -0.010      -0.007      -0.005       0.005       0.014       0.016       0.019
 
  IP       WITH
-    SP              -0.566      -0.478      -0.434      -0.199       0.035       0.080       0.168
-    IC               0.148       0.197       0.223       0.356       0.489       0.515       0.565
-    SC              -0.041      -0.034      -0.031      -0.013       0.005       0.008       0.015
+    SP              -0.511      -0.437      -0.399      -0.201      -0.002       0.036       0.110
+    IC               0.190       0.231       0.253       0.364       0.475       0.497       0.539
+    SC              -0.038      -0.033      -0.030      -0.015      -0.001       0.002       0.007
 
  SP       WITH
-    IC              -0.027      -0.021      -0.017      -0.001       0.016       0.019       0.025
-    SC              -0.003      -0.002      -0.002       0.001       0.003       0.003       0.004
+    IC              -0.027      -0.023      -0.020      -0.007       0.005       0.008       0.013
+    SC              -0.002      -0.001      -0.001       0.001       0.003       0.003       0.003
 
  IC       WITH
-    SC              -0.009      -0.007      -0.006      -0.001       0.003       0.004       0.006
+    SC              -0.007      -0.006      -0.005      -0.001       0.002       0.003       0.005
 
  P2       WITH
-    C2              -0.084      -0.066      -0.057      -0.010       0.037       0.046       0.063
+    C2              -0.040      -0.027      -0.020       0.016       0.051       0.058       0.071
 
  P4       WITH
-    C4              -0.084      -0.066      -0.057      -0.010       0.037       0.046       0.063
+    C4              -0.040      -0.027      -0.020       0.016       0.051       0.058       0.071
 
  P6       WITH
-    C6              -0.084      -0.066      -0.057      -0.010       0.037       0.046       0.063
+    C6              -0.040      -0.027      -0.020       0.016       0.051       0.058       0.071
 
  Intercepts
     P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
@@ -673,27 +713,27 @@ CONFIDENCE INTERVALS OF MODEL RESULTS
     C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     C6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    IP              17.426      17.758      17.927      18.813      19.699      19.869      20.201
-    SP              -0.752      -0.710      -0.688      -0.575      -0.462      -0.440      -0.398
-    IC               1.433       1.464       1.481       1.566       1.651       1.667       1.699
-    SC              -0.054      -0.049      -0.047      -0.036      -0.025      -0.023      -0.019
+    IP              17.756      18.047      18.195      18.971      19.747      19.896      20.186
+    SP              -0.732      -0.697      -0.680      -0.588      -0.497      -0.479      -0.445
+    IC               1.449       1.478       1.492       1.569       1.646       1.661       1.690
+    SC              -0.053      -0.049      -0.047      -0.036      -0.025      -0.023      -0.018
 
  Residual Variances
-    P2               7.025       7.341       7.503       8.348       9.193       9.354       9.671
-    P4               7.025       7.341       7.503       8.348       9.193       9.354       9.671
-    P6               7.025       7.341       7.503       8.348       9.193       9.354       9.671
-    C2               0.070       0.077       0.081       0.100       0.119       0.123       0.130
-    C4               0.070       0.077       0.081       0.100       0.119       0.123       0.130
-    C6               0.070       0.077       0.081       0.100       0.119       0.123       0.130
-    IP              15.280      16.087      16.499      18.654      20.809      21.221      22.028
-    SP              -0.025      -0.012      -0.005       0.030       0.066       0.073       0.086
-    IC               0.096       0.109       0.115       0.150       0.184       0.191       0.204
-    SC              -0.001      -0.001      -0.001       0.000       0.001       0.001       0.001
+    P2               7.769       8.019       8.146       8.814       9.482       9.610       9.860
+    P4               7.769       8.019       8.146       8.814       9.482       9.610       9.860
+    P6               7.769       8.019       8.146       8.814       9.482       9.610       9.860
+    C2               0.078       0.084       0.087       0.102       0.117       0.120       0.126
+    C4               0.078       0.084       0.087       0.102       0.117       0.120       0.126
+    C6               0.078       0.084       0.087       0.102       0.117       0.120       0.126
+    IP              15.575      16.280      16.641      18.526      20.411      20.772      21.478
+    SP              -0.020      -0.009      -0.004       0.025       0.053       0.058       0.069
+    IC               0.108       0.119       0.124       0.152       0.180       0.186       0.196
+    SC              -0.001       0.000       0.000       0.000       0.001       0.001       0.001
 
 New/Additional Parameters
-    R_IPIC           0.082       0.114       0.130       0.213       0.297       0.313       0.344
-    R_SPSC          -2.015      -1.470      -1.192       0.262       1.716       1.995       2.539
-    R_RES_PC        -0.092      -0.073      -0.063      -0.011       0.040       0.050       0.069
+    R_IPIC           0.110       0.135       0.149       0.217       0.285       0.298       0.324
+    R_SPSC          -1.073      -0.737      -0.564       0.335       1.234       1.406       1.743
+    R_RES_PC        -0.042      -0.028      -0.021       0.016       0.054       0.061       0.075
 
 
 DIAGRAM INFORMATION
@@ -702,11 +742,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\annie robitaille\dropbox\ialsa_cambridge\elsa-phy-phy\b1_female_aehplus_fev_grip.dgm
+    c:\users\annie\dropbox\ialsa_cambridge\elsa-phy-phy\b1_female_aehplus_fev_grip.dgm
 
-     Beginning Time:  12:13:28
-        Ending Time:  12:15:37
-       Elapsed Time:  00:02:09
+     Beginning Time:  13:28:18
+        Ending Time:  13:30:40
+       Elapsed Time:  00:02:22
 
 
 
@@ -719,4 +759,4 @@ Fax: (310) 391-8971
 Web: www.StatModel.com
 Support: Support@StatModel.com
 
-Copyright (c) 1998-2014 Muthen & Muthen
+Copyright (c) 1998-2015 Muthen & Muthen
