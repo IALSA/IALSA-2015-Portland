@@ -17,9 +17,9 @@
 #
 #
 # # for debugging functions
-# # study <- "radc"
+# # study <- "eas"
 # study <- "eas"
-# # i <- 234
+# # i <- 2
 # comment out the code above when referenciing from 0_collect_studies.R
 
 find.Conflicts <- function(study){
@@ -90,10 +90,14 @@ find.CI <- function(study){
 } # close function
 find.CI(study)
 
+
+
+
+
 # a dataset with model summaries
 get_msum <- function(study){
-  pathStudy <- file.path(pathStudies, study) # folder with output files
-  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+  # pathStudy <- file.path(pathStudies, study) # folder with output files
+  # out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
   ## Model descriptors we would like to have:
   msum_names <- c("Mplus.version",
                   "Title",
@@ -110,31 +114,40 @@ get_msum <- function(study){
   msum
 
   # cycle through all model output files in this study
-  for(i in seq_along(out_list)){
+  for(i in seq_along(out_list_all)){
+# for(i in seq_along(out_list)){
     # get a single model summary
-    ith_msum <- MplusAutomation::extractModelSummaries(target=out_list[i], recursive=T)
+    ith_msum <- MplusAutomation::extractModelSummaries(target=out_list_all[i], recursive=T)
     # LOGICAL: is this descriptor present in the current model?
     (descriptor_exists <- names(ith_msum) %in% msum_names)
     # names of descriptors that exist in ith model
     (existing_descriptors <- names(ith_msum)[descriptor_exists])
     # populate existing fields
     msum[i, existing_descriptors] <- ith_msum[names(ith_msum) %in% msum_names]
+    msum$filePath[i] <- out_list_all[i]
+
+    a <- strsplit(msum$filePath[i], split="/")
+    selector <- a[[1]] %in% c("studies")
+    element_number <- c(1:length(selector))[selector]
+    msum$study_name[i] <- a[[1]][element_number+1]
   }
   return(msum)
 }
 msum <- get_msum(study)
-
+# a <- msum[msum$study_name=="eas", ]
+# a
 
 # a list of datasets containing estimated coefficients
 get_mpar <- function(study){
-  pathStudy <- file.path(pathStudies, study) # folder with output files
-  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+#   pathStudy <- file.path(pathStudies, study) # folder with output files
+#   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
   ## Create list object to populated from model output files
   mpar <- list()
 
   # cycle through all model output files in this study
-  for(i in seq_along(out_list)){
-    mpar[i] <- MplusAutomation::extractModelParameters(target=out_list[i], recursive=T, dropDimensions=T)
+  # for(i in seq_along(out_list)){
+  for(i in seq_along(out_list_all)){
+    mpar[i] <- MplusAutomation::extractModelParameters(target=out_list_all[i], recursive=T, dropDimensions=T)
   }
   return(mpar)
 }

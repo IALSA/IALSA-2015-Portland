@@ -12,9 +12,33 @@ list.files(pathStudies) # inspect participating studies
 
 ## @knitr setGlobals
 # studies <- c("eas", "elsa")
-out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
+# out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
 
-## @knitr loadFunctionsThatCollect
+a <- list.files(file.path(pathStudies,"eas/physical"),full.names=T, recursive=T, pattern="out$")
+b <- list.files(file.path(pathStudies,"elsa/physical"),full.names=T, recursive=T, pattern="out$")
+# c <- list.files(file.path(pathStudies,"habc/physical"),full.names=T, recursive=T, pattern="out$")
+d <- list.files(file.path(pathStudies,"hrs/physical"),full.names=T, recursive=T, pattern="out$")
+e <- list.files(file.path(pathStudies,"ilse/physical"),full.names=T, recursive=T, pattern="out$")
+f <- list.files(file.path(pathStudies,"lasa/physical"),full.names=T, recursive=T, pattern="out$")
+# g <- list.files(file.path(pathStudies,"nas/physical"),full.names=T, recursive=T, pattern="out$")
+h <- list.files(file.path(pathStudies,"nuage/physical"),full.names=T, recursive=T, pattern="out$")
+i <- list.files(file.path(pathStudies,"octo/OUTPUT_files/physical"),full.names=T, recursive=T, pattern="out$")
+j <- list.files(file.path(pathStudies,"radc/outputs/physical"),full.names=T, recursive=T, pattern="out$")
+# k <- list.files(file.path(pathStudies,"satsa/physical"),full.names=T, recursive=T, pattern="out$")
+out_list_all <- c(a,b, d, e, f, h, i, j)
+# i <- length(out_list_all)
+# i
+study_name <- list()
+for(i in 1:length(out_list_all)){
+  a <- strsplit(out_list_all[i], split="/")
+  selector <- a[[1]] %in% c("studies")
+  element_number <- c(1:length(selector))[selector]
+  study_name[i] <- a[[1]][element_number+1]
+}
+
+
+#### Extra ####
+  ## @knitr loadFunctionsThatCollect
 # source("./scripts/0a_functions_that_collect.R")
 # source("./scripts/0a_collection_functions.R")
 #
@@ -52,6 +76,7 @@ out_list_all <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$
 # find.CI("satsa")
 #
 
+#####    #####
 ## Each of the following collects models in the specific study and places them in a .csv file
 ## these data transfer objects (dto) are then fed to 1_prepare_for_reporting.R
 
