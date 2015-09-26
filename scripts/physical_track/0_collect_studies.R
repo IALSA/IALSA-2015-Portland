@@ -25,17 +25,21 @@ h <- list.files(file.path(pathStudies,"nuage/physical"),full.names=T, recursive=
 i <- list.files(file.path(pathStudies,"octo/OUTPUT_files/physical"),full.names=T, recursive=T, pattern="out$")
 j <- list.files(file.path(pathStudies,"radc/outputs/physical"),full.names=T, recursive=T, pattern="out$")
 # k <- list.files(file.path(pathStudies,"satsa/physical"),full.names=T, recursive=T, pattern="out$")
-out_list_all <- c(a,b, d, e, f, h, i, j)
+model_path <- c(a,b, d, e, f, h, i, j)
 # i <- length(out_list_all)
 # i
 study_name <- list()
-for(i in 1:length(out_list_all)){
-  a <- strsplit(out_list_all[i], split="/")
+for(i in 1:length(model_path)){
+  a <- strsplit(model_path[i], split="/")
   selector <- a[[1]] %in% c("studies")
   element_number <- c(1:length(selector))[selector]
   study_name[i] <- a[[1]][element_number+1]
 }
 
+out_list_all <- list()
+out_list_all[["path"]] <- model_path
+out_list_all[["study"]] <- study_name
+names(out_list_all)
 
 #### Extra ####
   ## @knitr loadFunctionsThatCollect
@@ -89,38 +93,48 @@ for(i in 1:length(out_list_all)){
 
 study <- "eas"
 blacklist <- c("u2_male_ae_pulmonary_noCog_pek_noCogSpec.out")
-source("./scripts/0a_collection_functions.R")
+# source("./scripts/0a_collection_functions.R")
+source("./scripts/physical_track/0a_collection_functions.R")
 
 study <- "elsa"
-source("./scripts/0a_collection_functions.R")
+# source("./scripts/0a_collection_functions.R")
+source("./scripts/physical_track/0a_collection_functions.R")
 
-study <- "habc" # not presently included
-source("./scripts/0a_collection_functions.R")
+# study <- "habc" # not presently included
+# source("./scripts/0a_collection_functions.R")
 
 study <- "hrs" # not presently included
 # blacklist <- c("b1_female_aeh_muscle_memory_hand_delayedrecall.out",
 #                "b1_female_aeh_pulmonary_memory_peak_delayedrecall.out",
 #                "b1_male_age_walking_mental_gait_tics.out",
 #                "b1_female_aeh_muscle_memory_hand_immediaterecall.out")
-source("./scripts/0a_collection_functions.R")
+# source("./scripts/0a_collection_functions.R")
+source("./scripts/physical_track/0a_collection_functions.R")
+
 
 study <- "ilse"
-source("./scripts/0a_collection_functions.R")
+# source("./scripts/0a_collection_functions.R")
+source("./scripts/physical_track/0a_collection_functions.R")
 
-study <- "nas"
-source("./scripts/0a_collection_functions.R")
+
+study <- "lasa"
+source("./scripts/physical_track/0a_collection_functions.R")
+
+
+# study <- "nas"
+# source("./scripts/physical_track/0a_collection_functions.R")
 
 study <- "nuage"
-source("./scripts/0a_collection_functions.R")
+source("./scripts/physical_track/0a_collection_functions.R")
 
 study <- "octo"
-source("./scripts/0a_collection_functions.R")
+source("./scripts/physical_track/0a_collection_functions.R")
 
 study <- "radc"
-source("./scripts/0a_collection_functions.R")
+source("./scripts/physical_track/0a_collection_functions.R")
 
-study <- "satsa"
-source("./scripts/0a_collection_functions.R")
+# study <- "satsa"
+# source("./scripts/physical_track/0a_collection_functions.R")
 
 # get_models("eas")
 # get_models("elsa")

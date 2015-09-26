@@ -1,12 +1,9 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
 09/15/2015  10:01 AM
-
 INPUT INSTRUCTIONS
-
   TITLE:
    u2, Gait, aeh, female
-
   DATA:
     File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
   VARIABLE:
@@ -241,28 +238,18 @@ INPUT INSTRUCTIONS
        !sp WITH ic (c_spic);
        !sp WITH sc (c_spsc);
        !ic WITH SC (C_ICSC);
-
        ip sp  qp  ON Bage educ  height; !smokhist cardio diab;
         !c1-c9 (res_c);
          p1-p9 (res_p);
          ! p1-p9 pwith c1-c9(res_cov);
-
   !  MODEL CONSTRAINT:
-
            ! NEW r_ipic; !assigns labels to new parameters;
             !NEW r_spsc;
             !NEW r_res_pc;
-
            ! r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
             !r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
             !r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
-
     OUTPUT: sampstat Cinterval;
-
-
-
-
-
 *** WARNING
   Data set contains cases with missing on x-variables.
   These cases were not included in the analysis.
@@ -272,40 +259,25 @@ INPUT INSTRUCTIONS
   x-variables.  These cases were not included in the analysis.
   Number of cases with missing on all variables except x-variables:  23
    2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
-
-
-
-
 u2, Gait, aeh, female
-
 SUMMARY OF ANALYSIS
-
 Number of groups                                                 1
 Number of observations                                         127
-
 Number of dependent variables                                    9
 Number of independent variables                                  3
 Number of continuous latent variables                            3
-
 Observed dependent variables
-
   Continuous
    P1          P2          P3          P4          P5          P6
    P7          P8          P9
-
 Observed independent variables
    BAGE        EDUC        HEIGHT
-
 Continuous latent variables
    IP          SP          QP
-
 Variables with special functions
-
   Time scores
    TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
    TIME7       TIME8       TIME9
-
-
 Estimator                                                      MLF
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -320,25 +292,14 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-04
 Optimization algorithm                                         EMA
-
 Input data file(s)
   C:\Users\Andrea Zammit\Desktop\EASMaster.csv
 Input data format  FREE
-
-
 SUMMARY OF DATA
-
      Number of missing data patterns            29
-
-
 COVARIANCE COVERAGE OF DATA
-
 Minimum covariance coverage value   0.001
-
-
      PROPORTION OF DATA PRESENT
-
-
            Covariance Coverage
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -354,8 +315,6 @@ Minimum covariance coverage value   0.001
  BAGE           0.945         0.646         0.417         0.346         0.299
  EDUC           0.945         0.646         0.417         0.346         0.299
  HEIGHT         0.945         0.646         0.417         0.346         0.299
-
-
            Covariance Coverage
               P6            P7            P8            P9            BAGE
               ________      ________      ________      ________      ________
@@ -366,39 +325,25 @@ Minimum covariance coverage value   0.001
  BAGE           0.181         0.102         0.024         0.024         1.000
  EDUC           0.181         0.102         0.024         0.024         1.000
  HEIGHT         0.181         0.102         0.024         0.024         1.000
-
-
            Covariance Coverage
               EDUC          HEIGHT
               ________      ________
  EDUC           1.000
  HEIGHT         1.000         1.000
-
-
 SAMPLE STATISTICS
-
-
      ESTIMATED SAMPLE STATISTICS
-
-
            Means
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
  1             93.335        91.693        86.142        85.143        78.530
-
-
            Means
               P6            P7            P8            P9            BAGE
               ________      ________      ________      ________      ________
  1             80.182        85.881        89.639        92.781         8.551
-
-
            Means
               EDUC          HEIGHT
               ________      ________
  1              6.913        -2.543
-
-
            Covariances
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -414,8 +359,6 @@ SAMPLE STATISTICS
  BAGE         -43.890       -48.028       -48.025       -49.087       -66.739
  EDUC           7.263         1.670         2.784         6.259         4.726
  HEIGHT        33.287        31.927        37.430        42.492        52.540
-
-
            Covariances
               P6            P7            P8            P9            BAGE
               ________      ________      ________      ________      ________
@@ -426,15 +369,11 @@ SAMPLE STATISTICS
  BAGE         -48.543        -5.001         2.299         1.647        28.335
  EDUC          23.270        20.064       -27.765       -23.589         1.489
  HEIGHT        69.308        15.620        13.676        11.800       -16.118
-
-
            Covariances
               EDUC          HEIGHT
               ________      ________
  EDUC          10.221
  HEIGHT         0.851        60.484
-
-
            Correlations
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -450,8 +389,6 @@ SAMPLE STATISTICS
  BAGE          -0.366        -0.400        -0.365        -0.427        -0.506
  EDUC           0.101         0.023         0.035         0.091         0.060
  HEIGHT         0.190         0.182         0.195         0.253         0.272
-
-
            Correlations
               P6            P7            P8            P9            BAGE
               ________      ________      ________      ________      ________
@@ -462,26 +399,16 @@ SAMPLE STATISTICS
  BAGE          -0.366        -0.043         0.034         0.030         1.000
  EDUC           0.292         0.286        -0.694        -0.708         0.088
  HEIGHT         0.357         0.091         0.140         0.145        -0.389
-
-
            Correlations
               EDUC          HEIGHT
               ________      ________
  EDUC           1.000
  HEIGHT         0.034         1.000
-
-
      MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -2505.897
-
-
 UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
-
      UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
          Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
         Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
-
      P1                   93.529      -0.459      29.900    0.83%      76.400     90.300     95.450
              120.000     482.923      -0.067     143.900    0.83%     100.800    114.400
      P2                   93.998      -0.459      29.000    1.22%      76.000     89.700     96.550
@@ -506,56 +433,36 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
              127.000      10.221       0.158      13.000    5.51%       7.000     10.000
      HEIGHT               -2.543      -0.183     -22.000    0.79%      -9.000     -4.000     -3.000
              127.000      60.484      -0.294      15.000    0.79%       0.000      4.000
-
-
 THE MODEL ESTIMATION TERMINATED NORMALLY
-
-
-
 MODEL FIT INFORMATION
-
 Number of Free Parameters                       19
-
 Loglikelihood
-
           H0 Value                       -1515.711
-
 Information Criteria
-
           Akaike (AIC)                    3069.422
           Bayesian (BIC)                  3123.461
           Sample-Size Adjusted BIC        3063.375
             (n* = (n + 2) / 24)
-
-
-
 MODEL RESULTS
-
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
-
  IP         ON
     BAGE              -1.208      0.552     -2.187      0.029
     EDUC               1.051      0.931      1.129      0.259
     HEIGHT             0.251      0.400      0.628      0.530
-
  SP         ON
     BAGE              -0.323      0.268     -1.207      0.228
     EDUC              -0.340      0.483     -0.704      0.482
     HEIGHT            -0.140      0.214     -0.653      0.513
-
  QP         ON
     BAGE               0.043      0.044      0.962      0.336
     EDUC               0.066      0.062      1.062      0.288
     HEIGHT             0.032      0.029      1.122      0.262
-
  IP       WITH
     SP               -22.899     50.993     -0.449      0.653
     QP                 0.966      7.296      0.132      0.895
-
  SP       WITH
     QP                -0.544      3.066     -0.177      0.859
-
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
@@ -569,7 +476,6 @@ MODEL RESULTS
     IP               100.638      9.413     10.691      0.000
     SP                 1.467      5.250      0.280      0.780
     QP                -0.751      0.742     -1.013      0.311
-
  Residual Variances
     P1                59.297      6.523      9.090      0.000
     P2                59.297      6.523      9.090      0.000
@@ -583,90 +489,6 @@ MODEL RESULTS
     IP               419.459    110.186      3.807      0.000
     SP                10.635     23.346      0.456      0.649
     QP                 0.067      0.387      0.174      0.862
-
-
 QUALITY OF NUMERICAL RESULTS
-
      Condition Number for the Information Matrix              0.274E-06
        (ratio of smallest to largest eigenvalue)
-
-
-CONFIDENCE INTERVALS OF MODEL RESULTS
-
-                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
-
- IP       ON
-    BAGE            -2.630      -2.290      -2.116      -1.208      -0.299      -0.125       0.215
-    EDUC            -1.346      -0.773      -0.480       1.051       2.582       2.875       3.448
-    HEIGHT          -0.778      -0.532      -0.406       0.251       0.909       1.035       1.281
-
- SP       ON
-    BAGE            -1.013      -0.848      -0.764      -0.323       0.117       0.202       0.367
-    EDUC            -1.584      -1.286      -1.134      -0.340       0.455       0.607       0.904
-    HEIGHT          -0.692      -0.560      -0.493      -0.140       0.213       0.280       0.412
-
- QP       ON
-    BAGE            -0.072      -0.044      -0.030       0.043       0.116       0.130       0.157
-    EDUC            -0.094      -0.056      -0.036       0.066       0.168       0.188       0.226
-    HEIGHT          -0.042      -0.024      -0.015       0.032       0.080       0.089       0.107
-
- IP       WITH
-    SP            -154.246    -122.845    -106.782     -22.899      60.984      77.046     108.448
-    QP             -17.827     -13.334     -11.035       0.966      12.968      15.267      19.759
-
- SP       WITH
-    QP              -8.442      -6.554      -5.588      -0.544       4.500       5.466       7.355
-
- Intercepts
-    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P7               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P8               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P9               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    IP              76.392      82.188      85.154     100.638     116.123     119.088     124.885
-    SP             -12.056      -8.823      -7.169       1.467      10.104      11.757      14.990
-    QP              -2.662      -2.205      -1.971      -0.751       0.469       0.702       1.159
-
- Residual Variances
-    P1              42.494      46.512      48.566      59.297      70.028      72.083      76.100
-    P2              42.494      46.512      48.566      59.297      70.028      72.083      76.100
-    P3              42.494      46.512      48.566      59.297      70.028      72.083      76.100
-    P4              42.494      46.512      48.566      59.297      70.028      72.083      76.100
-    P5              42.494      46.512      48.566      59.297      70.028      72.083      76.100
-    P6              42.494      46.512      48.566      59.297      70.028      72.083      76.100
-    P7              42.494      46.512      48.566      59.297      70.028      72.083      76.100
-    P8              42.494      46.512      48.566      59.297      70.028      72.083      76.100
-    P9              42.494      46.512      48.566      59.297      70.028      72.083      76.100
-    IP             135.643     203.495     238.203     419.459     600.714     635.423     703.275
-    SP             -49.500     -35.123     -27.769      10.635      49.039      56.393      70.769
-    QP              -0.930      -0.691      -0.569       0.067       0.704       0.826       1.064
-
-
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\gait\u2_female_aeh_walki
-
-     Beginning Time:  10:01:12
-        Ending Time:  10:01:16
-       Elapsed Time:  00:00:04
-
-
-
-MUTHEN & MUTHEN
-3463 Stoner Ave.
-Los Angeles, CA  90066
-
-Tel: (310) 391-9971
-Fax: (310) 391-8971
-Web: www.StatModel.com
-Support: Support@StatModel.com
-
-Copyright (c) 1998-2014 Muthen & Muthen

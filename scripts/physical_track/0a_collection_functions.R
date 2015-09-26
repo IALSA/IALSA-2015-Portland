@@ -62,9 +62,13 @@ find.Conflicts(study)
 # Temporary Solution: Identify output files with CI and delete that section before reading them in
 find.CI <- function(study){
   # study <- "eas" # for manual
-  pathStudy <- paste0(pathStudies,"/",study)
-  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
-  length(out_list)
+#   pathStudy <- paste0(pathStudies,"/",study)
+#   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+#   length(out_list)
+
+  # list paths to the models in a given study
+  study_selector <- out_list_all[["study"]] %in% study
+  out_list <- out_list_all[["path"]][study_selector]
 
   # locate conflicts
   conf_file <- array(NA, dim=length(out_list)) # set up empty object
@@ -92,7 +96,7 @@ find.CI(study)
 
 
 
-
+# study <- "eas"
 
 # a dataset with model summaries
 get_msum <- function(study){
@@ -113,18 +117,21 @@ get_msum <- function(study){
   names(msum) <- msum_names # columns is what we want
   msum
 
+  # list paths to the models in a given study
+  study_selector <- out_list_all[["study"]] %in% study
+  out_list <- out_list_all[["path"]][study_selector]
+
   # cycle through all model output files in this study
-  for(i in seq_along(out_list_all)){
-# for(i in seq_along(out_list)){
+  for(i in seq_along(out_list)){
     # get a single model summary
-    ith_msum <- MplusAutomation::extractModelSummaries(target=out_list_all[i], recursive=T)
+    ith_msum <- MplusAutomation::extractModelSummaries(target=out_list[i], recursive=T)
     # LOGICAL: is this descriptor present in the current model?
     (descriptor_exists <- names(ith_msum) %in% msum_names)
     # names of descriptors that exist in ith model
     (existing_descriptors <- names(ith_msum)[descriptor_exists])
     # populate existing fields
     msum[i, existing_descriptors] <- ith_msum[names(ith_msum) %in% msum_names]
-    msum$filePath[i] <- out_list_all[i]
+    msum$filePath[i] <- out_list[i]
 
     a <- strsplit(msum$filePath[i], split="/")
     selector <- a[[1]] %in% c("studies")
@@ -134,20 +141,23 @@ get_msum <- function(study){
   return(msum)
 }
 msum <- get_msum(study)
-# a <- msum[msum$study_name=="eas", ]
-# a
+
 
 # a list of datasets containing estimated coefficients
 get_mpar <- function(study){
 #   pathStudy <- file.path(pathStudies, study) # folder with output files
 #   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+    # list paths to the models in a given study
+  study_selector <- out_list_all[["study"]] %in% study
+  out_list <- out_list_all[["path"]][study_selector]
+
+
   ## Create list object to populated from model output files
   mpar <- list()
-
-  # cycle through all model output files in this study
+    # cycle through all model output files in this study
   # for(i in seq_along(out_list)){
-  for(i in seq_along(out_list_all)){
-    mpar[i] <- MplusAutomation::extractModelParameters(target=out_list_all[i], recursive=T, dropDimensions=T)
+  for(i in seq_along(out_list)){
+    mpar[i] <- MplusAutomation::extractModelParameters(target=out_list[i], recursive=T, dropDimensions=T)
   }
   return(mpar)
 }
@@ -157,9 +167,13 @@ mpar <- get_mpar(study)
 # create empty dataset "results"
 results_to_populate <- function(study){
   # populate a dataset with data from msum and mpar
-  pathStudy <- file.path(pathStudies, study) # folder with output files
-  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+#   pathStudy <- file.path(pathStudies, study) # folder with output files
+#   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
   # mpar <- get_mpar(study)
+
+  # list paths to the models in a given study
+  study_selector <- out_list_all[["study"]] %in% study
+  out_list <- out_list_all[["path"]][study_selector]
 
   # What model estimation results we should keep?
   selected_results <- c("software",  "version", "date", "time",
@@ -220,10 +234,14 @@ results_to_populate <- function(study){
 }
 results <- results_to_populate(study)
 
-# in dev
+# in development/ supsended / deprecated
 load_study<- function(){
-  pathStudy <- file.path(pathStudies, study) # folder with output files
-  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+#   pathStudy <- file.path(pathStudies, study) # folder with output files
+#   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+
+  # list paths to the models in a given study
+  study_selector <- out_list_all[["study"]] %in% study
+  out_list <- out_list_all[["path"]][study_selector]
 
   models_in_a_study <- seq_along(mpar)
   # models_in_a_study <- 1
@@ -237,11 +255,15 @@ load_study<- function(){
 
 get_results_basic <- function(study){
   # populate a dataset with data from msum and mpar
-  pathStudy <- file.path(pathStudies, study) # folder with output files
-  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+#   pathStudy <- file.path(pathStudies, study) # folder with output files
+#   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
   # msum <- get_msum(study)
   # mpar <- get_mpar(study)
   # results <- results_to_populate(study)
+
+  # list paths to the models in a given study
+  study_selector <- out_list_all[["study"]] %in% study
+  out_list <- out_list_all[["path"]][study_selector]
 
   models_in_a_study <- seq_along(mpar)
   # models_in_a_study <- 1
@@ -289,11 +311,17 @@ results <- get_results_basic(study)
 
 get_results_random <- function(study){
   # populate a dataset with data from msum and mpar
-  pathStudy <- file.path(pathStudies, study) # folder with output files
-  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+#   pathStudy <- file.path(pathStudies, study) # folder with output files
+#   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
   # msum <- get_msum(study)
   # mpar <- get_mpar(study)
   # results <- get_results_basic(study)
+
+  # list paths to the models in a given study
+  study_selector <- out_list_all[["study"]] %in% study
+  out_list <- out_list_all[["path"]][study_selector]
+
+
   models_in_a_study <- seq_along(mpar)
   for(i in models_in_a_study){
     out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
@@ -384,11 +412,16 @@ results <- get_results_random(study)
 
 get_results_residual <- function(study){
   # populate a dataset with data from msum and mpar
-  pathStudy <- file.path(pathStudies, study) # folder with output files
-  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+#   pathStudy <- file.path(pathStudies, study) # folder with output files
+#   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
   # msum <- get_msum(study)
   # mpar <- get_mpar(study)
   # results <- get_results_basic(study)
+
+  # list paths to the models in a given study
+  study_selector <- out_list_all[["study"]] %in% study
+  out_list <- out_list_all[["path"]][study_selector]
+
   models_in_a_study <- seq_along(mpar)
   for(i in models_in_a_study){
     out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
@@ -426,11 +459,15 @@ results <- get_results_residual(study)
 
 get_results_fixed <- function(study){
   # populate a dataset with data from msum and mpar
-  pathStudy <- file.path(pathStudies, study) # folder with output files
-  out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
+#   pathStudy <- file.path(pathStudies, study) # folder with output files
+#   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
 #   msum <- get_msum(study)
 #   mpar <- get_mpar(study)
 #   results <- get_results_offdiag(study)
+
+  # list paths to the models in a given study
+  study_selector <- out_list_all[["study"]] %in% study
+  out_list <- out_list_all[["path"]][study_selector]
 
   models_in_a_study <- seq_along(mpar)
   # models_in_a_study <- 1
@@ -476,8 +513,8 @@ black_list <- function(study, blacklist) {
 results <- black_list(study, blacklist = blacklist)
 
 # Export aggregated model results
-pathStudy <- paste0(pathStudies,"/",study)
-destination <- file.path(pathStudy, "study_automation_result.csv")
+pathStudy <- paste0(pathStudies,"/",study,"/physical") # change to project to generalize
+destination <- file.path(pathStudy, "study_automation_result_physical.csv")
 write.csv(results[results$study_name==study,], destination, row.names=F)
 
 

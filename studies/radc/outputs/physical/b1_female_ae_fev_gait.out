@@ -1,11 +1,8 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
 09/14/2015   5:07 PM
-
 INPUT INSTRUCTIONS
-
   TITLE: B1 Pulmonary Function X Grip
-
   Data:
   	File is
   C:\Users\Cassandra\Desktop\RADC Portland Workshop\brown\radcMAP_wide.dat;
@@ -297,12 +294,9 @@ INPUT INSTRUCTIONS
   wtkg_03 wtkg_04 wtkg_05 wtkg_06 wtkg_07 wtkg_08 wtkg_09 wtkg_10 wtkg_11 wtkg_12
   wtkg_13 wtkg_14 wtkg_15 wtkg_16 wtkg_17 wtkg_18 wtkg_19 wtkg_20 T0 T1 T2 T3 T4
   T5 T6 T7 T8 T9 T10 T11 T12 T13 T14 T15 T16 T17 T18 T19 T20;
-
-
            Missing are all (-9999);
            USEVAR are  educ time1-time5 p1-p5 c1-c5 Bage;
            TSCORES =   time1-time5;
-
            USEOBSERVATIONS are
               dementia_00 NE 1 and dementia_01 NE 1 and dementia_02 NE 1 and
               dementia_03 NE 1 and dementia_04 NE 1 and dementia_05 NE 1 and
@@ -312,15 +306,12 @@ INPUT INSTRUCTIONS
               dementia_15 NE 1 and dementia_16 NE 1 and dementia_17 NE 1 and
               dementia_18 NE 1 and dementia_19 NE 1 and dementia_20 NE 1 and
               msex EQ 0;
-
     Define: p1=fev_00; p2=fev_01; p3=fev_02; p4=fev_03; p5=fev_04;
             !p6=fev_05;
             c1=gait_speed_00; c2=gait_speed_01; c3=gait_speed_02; c4=gait_speed_03;
             c5=gait_speed_04; !c6=gait_speed_05;
-
             time1=T0; time2 =T1; time3=T2; time4=T3; time5=T4; !time6=T5;
             !time7=T6; !time8=T7; !time9=T8; !time10=T9;
-
             Bage=age_bl-70;   !Age centered at 70 baseline
             !Dage=age_death;
             !Sex=msex;         !0=female
@@ -339,21 +330,14 @@ INPUT INSTRUCTIONS
             !Cardio;
             !Diab;
             !MorbInd;
-
-
-
           !BageEduc=Bage*Educ;
-
-
   ANALYSIS: TYPE = RANDOM;
             COVERAGE=.05;
             MITERATION = 700
-
   MODEL:  Bage;
           educ;
           ip sp | p1-p5 AT time1-time5;
           ic sc | c1-c5 AT time1-time5;
-
           ip(v_ip);
           sp(v_sp);
           ic(v_ic);
@@ -364,69 +348,41 @@ INPUT INSTRUCTIONS
           sp WITH ic(c_spic);
           sp WITH sc(c_spsc);
           ic WITH sc(c_icsc);
-
-
           ip sp ic sc ON Bage educ;
-
           p1-p5 (res_p);
           c1-c5 (res_c);
-
           p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across tim
-
   MODEL CONSTRAINT:
-
   MODEL CONSTRAINT:
-
           NEW r_ipic;
           NEW r_spsc;
           NEW r_res_pc;
-
           r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
           r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
           r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
-
   OUTPUT: sampstat Cinterval;
-
-
-
-
-
 *** WARNING
   Input line exceeded 90 characters. Some input may be truncated.
           p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across time
    1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
-
-
-
 B1 Pulmonary Function X Grip
-
 SUMMARY OF ANALYSIS
-
 Number of groups                                                 1
 Number of observations                                        1011
-
 Number of dependent variables                                   10
 Number of independent variables                                  2
 Number of continuous latent variables                            4
-
 Observed dependent variables
-
   Continuous
    P1          P2          P3          P4          P5          C1
    C2          C3          C4          C5
-
 Observed independent variables
    EDUC        BAGE
-
 Continuous latent variables
    IP          SP          IC          SC
-
 Variables with special functions
-
   Time scores
    TIME1       TIME2       TIME3       TIME4       TIME5
-
-
 Estimator                                                      MLR
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -441,25 +397,14 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
-
 Input data file(s)
   C:\Users\Cassandra\Desktop\RADC Portland Workshop\brown\radcMAP_wide.dat
 Input data format  FREE
-
-
 SUMMARY OF DATA
-
      Number of missing data patterns           164
-
-
 COVARIANCE COVERAGE OF DATA
-
 Minimum covariance coverage value   0.050
-
-
      PROPORTION OF DATA PRESENT
-
-
            Covariance Coverage
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -475,8 +420,6 @@ Minimum covariance coverage value   0.050
  C5             0.342         0.296         0.268         0.211         0.236
  EDUC           0.838         0.593         0.477         0.333         0.269
  BAGE           0.838         0.593         0.477         0.333         0.269
-
-
            Covariance Coverage
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -487,39 +430,25 @@ Minimum covariance coverage value   0.050
  C5             0.409         0.393         0.347         0.357         0.410
  EDUC           0.859         0.682         0.570         0.495         0.410
  BAGE           0.859         0.682         0.570         0.495         0.410
-
-
            Covariance Coverage
               EDUC          BAGE
               ________      ________
  EDUC           0.999
  BAGE           0.998         0.999
-
-
 SAMPLE STATISTICS
-
-
      ESTIMATED SAMPLE STATISTICS
-
-
            Means
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
  1              1.521         1.476         1.466         1.417         1.386
-
-
            Means
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
  1              0.632         0.628         0.593         0.584         0.581
-
-
            Means
               EDUC          BAGE
               ________      ________
  1              7.335         8.665
-
-
            Covariances
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -535,8 +464,6 @@ SAMPLE STATISTICS
  C5             0.035         0.034         0.036         0.029         0.035
  EDUC           0.220         0.222         0.219         0.187         0.213
  BAGE          -1.579        -1.597        -1.557        -1.201        -1.548
-
-
            Covariances
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -547,15 +474,11 @@ SAMPLE STATISTICS
  C5             0.022         0.026         0.026         0.029         0.048
  EDUC           0.132         0.135         0.105         0.051         0.079
  BAGE          -0.429        -0.457        -0.583        -0.506        -0.653
-
-
            Covariances
               EDUC          BAGE
               ________      ________
  EDUC           9.629
  BAGE          -1.096        63.201
-
-
            Correlations
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -571,8 +494,6 @@ SAMPLE STATISTICS
  C5             0.361         0.359         0.376         0.295         0.364
  EDUC           0.159         0.164         0.164         0.135         0.157
  BAGE          -0.446        -0.460        -0.453        -0.338        -0.443
-
-
            Correlations
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -583,26 +504,16 @@ SAMPLE STATISTICS
  C5             0.488         0.569         0.592         0.662         1.000
  EDUC           0.204         0.205         0.166         0.082         0.116
  BAGE          -0.258        -0.270        -0.361        -0.316        -0.375
-
-
            Correlations
               EDUC          BAGE
               ________      ________
  EDUC           1.000
  BAGE          -0.044         1.000
-
-
      MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -5108.153
-
-
 UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
-
      UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
          Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
         Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
-
      P1                    1.521       0.227       0.355    0.12%       1.140      1.390      1.505
              847.000       0.201       0.111       3.135    0.12%       1.620      1.880
      P2                    1.477       0.229       0.370    0.17%       1.110      1.345      1.470
@@ -627,93 +538,63 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
             1010.000       9.629       1.317      18.000    0.10%       8.000     10.000
      BAGE                  8.665      -0.451     -16.653    0.10%       1.849      7.552      9.669
             1010.000      63.201       0.014      28.708    0.10%      11.380     15.410
-
      THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES MAY NOT BE
      TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE
      FIRST-ORDER DERIVATIVE PRODUCT MATRIX.  THIS MAY BE DUE TO THE STARTING
      VALUES BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE
      CONDITION NUMBER IS       0.755D-10.  PROBLEM INVOLVING THE FOLLOWING PARAMETER:
      Parameter 32, R_SPSC
-
-
 THE MODEL ESTIMATION TERMINATED NORMALLY
-
-
-
 MODEL FIT INFORMATION
-
 Number of Free Parameters                       30
-
 Loglikelihood
-
           H0 Value                       -5191.228
           H0 Scaling Correction Factor      2.1366
             for MLR
-
 Information Criteria
-
           Akaike (AIC)                   10442.456
           Bayesian (BIC)                 10590.016
           Sample-Size Adjusted BIC       10494.734
             (n* = (n + 2) / 24)
-
-
-
 MODEL RESULTS
-
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
-
  IP         ON
     BAGE              -0.025      0.002    -14.799      0.000
     EDUC               0.020      0.004      5.251      0.000
-
  SP         ON
     BAGE               0.001      0.000      2.009      0.045
     EDUC               0.000      0.001     -0.408      0.683
-
  IC         ON
     BAGE              -0.006      0.001     -7.866      0.000
     EDUC               0.014      0.002      6.756      0.000
-
  SC         ON
     BAGE              -0.001      0.000     -3.229      0.001
     EDUC              -0.002      0.001     -2.992      0.003
-
  IP       WITH
     SP                -0.001      0.001     -0.633      0.527
     IC                 0.014      0.003      5.265      0.000
     SC                 0.001      0.001      0.676      0.499
-
  SP       WITH
     IC                 0.000      0.001     -0.212      0.832
     SC                 0.000      0.000     -0.019      0.984
-
  IC       WITH
     SC                -0.001      0.001     -1.622      0.105
-
  P1       WITH
     C1                 0.000      0.001      0.566      0.571
-
  P2       WITH
     C2                 0.000      0.001      0.566      0.571
-
  P3       WITH
     C3                 0.000      0.001      0.566      0.571
-
  P4       WITH
     C4                 0.000      0.001      0.566      0.571
-
  P5       WITH
     C5                 0.000      0.001      0.566      0.571
-
  BAGE     WITH
     EDUC              -1.096      0.782     -1.401      0.161
-
  Means
     EDUC               7.335      0.098     75.099      0.000
     BAGE               8.665      0.250     34.638      0.000
-
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
@@ -729,11 +610,9 @@ MODEL RESULTS
     SP                -0.036      0.008     -4.483      0.000
     IC                 0.590      0.017     33.889      0.000
     SC                 0.008      0.006      1.268      0.205
-
  Variances
     EDUC               9.629      0.552     17.449      0.000
     BAGE              63.201      2.822     22.392      0.000
-
  Residual Variances
     P1                 0.027      0.005      5.728      0.000
     P2                 0.027      0.005      5.728      0.000
@@ -749,441 +628,10 @@ MODEL RESULTS
     SP                 0.000      0.001      0.632      0.527
     IC                 0.021      0.002     11.702      0.000
     SC                 0.001      0.000      3.096      0.002
-
 New/Additional Parameters
     R_IPIC             0.270      0.047      5.699      0.000
     R_SPSC            -0.008      0.386     -0.020      0.984
     R_RES_PC           0.016      0.028      0.574      0.566
-
-
 QUALITY OF NUMERICAL RESULTS
-
      Condition Number for the Information Matrix              0.755E-10
        (ratio of smallest to largest eigenvalue)
-
-
-CONFIDENCE INTERVALS OF MODEL RESULTS
-
-                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
-
- IP       ON
-    BAGE            -0.029      -0.028      -0.028      -0.025      -0.022      -0.022      -0.021
-    EDUC             0.010       0.013       0.014       0.020       0.026       0.027       0.030
-
- SP       ON
-    BAGE             0.000       0.000       0.000       0.001       0.001       0.002       0.002
-    EDUC            -0.003      -0.002      -0.002       0.000       0.001       0.001       0.002
-
- IC       ON
-    BAGE            -0.009      -0.008      -0.008      -0.006      -0.005      -0.005      -0.004
-    EDUC             0.008       0.010       0.010       0.014       0.017       0.017       0.019
-
- SC       ON
-    BAGE            -0.002      -0.001      -0.001      -0.001       0.000       0.000       0.000
-    EDUC            -0.004      -0.003      -0.003      -0.002      -0.001      -0.001       0.000
-
- IP       WITH
-    SP              -0.004      -0.003      -0.003      -0.001       0.001       0.002       0.002
-    IC               0.007       0.009       0.009       0.014       0.018       0.019       0.021
-    SC              -0.002      -0.001      -0.001       0.001       0.002       0.002       0.003
-
- SP       WITH
-    IC              -0.002      -0.001      -0.001       0.000       0.001       0.001       0.001
-    SC              -0.001       0.000       0.000       0.000       0.000       0.000       0.000
-
- IC       WITH
-    SC              -0.002      -0.002      -0.002      -0.001       0.000       0.000       0.000
-
- P1       WITH
-    C1              -0.001      -0.001      -0.001       0.000       0.001       0.002       0.002
-
- P2       WITH
-    C2              -0.001      -0.001      -0.001       0.000       0.001       0.002       0.002
-
- P3       WITH
-    C3              -0.001      -0.001      -0.001       0.000       0.001       0.002       0.002
-
- P4       WITH
-    C4              -0.001      -0.001      -0.001       0.000       0.001       0.002       0.002
-
- P5       WITH
-    C5              -0.001      -0.001      -0.001       0.000       0.001       0.002       0.002
-
- BAGE     WITH
-    EDUC            -3.111      -2.629      -2.383      -1.096       0.191       0.437       0.919
-
- Means
-    EDUC             7.083       7.143       7.174       7.335       7.496       7.526       7.586
-    BAGE             8.021       8.175       8.253       8.665       9.076       9.155       9.309
-
- Intercepts
-    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    IP               1.500       1.522       1.532       1.589       1.645       1.656       1.677
-    SP              -0.057      -0.052      -0.050      -0.036      -0.023      -0.020      -0.015
-    IC               0.545       0.556       0.561       0.590       0.619       0.624       0.635
-    SC              -0.008      -0.004      -0.002       0.008       0.018       0.020       0.024
-
- Variances
-    EDUC             8.207       8.547       8.721       9.629      10.536      10.710      11.050
-    BAGE            55.931      57.669      58.558      63.201      67.844      68.733      70.471
-
- Residual Variances
-    P1               0.015       0.017       0.019       0.027       0.034       0.036       0.039
-    P2               0.015       0.017       0.019       0.027       0.034       0.036       0.039
-    P3               0.015       0.017       0.019       0.027       0.034       0.036       0.039
-    P4               0.015       0.017       0.019       0.027       0.034       0.036       0.039
-    P5               0.015       0.017       0.019       0.027       0.034       0.036       0.039
-    C1               0.015       0.016       0.016       0.018       0.019       0.019       0.020
-    C2               0.015       0.016       0.016       0.018       0.019       0.019       0.020
-    C3               0.015       0.016       0.016       0.018       0.019       0.019       0.020
-    C4               0.015       0.016       0.016       0.018       0.019       0.019       0.020
-    C5               0.015       0.016       0.016       0.018       0.019       0.019       0.020
-    IP               0.106       0.111       0.113       0.126       0.140       0.142       0.147
-    SP              -0.001      -0.001      -0.001       0.000       0.001       0.002       0.002
-    IC               0.016       0.017       0.018       0.021       0.024       0.024       0.025
-    SC               0.000       0.000       0.000       0.001       0.001       0.001       0.001
-
-New/Additional Parameters
-    R_IPIC           0.148       0.177       0.192       0.270       0.348       0.363       0.392
-    R_SPSC          -1.003      -0.765      -0.643      -0.008       0.628       0.750       0.988
-    R_RES_PC        -0.056      -0.039      -0.030       0.016       0.062       0.071       0.089
-
-
-TECHNICAL 1 OUTPUT
-
-
-     PARAMETER SPECIFICATION
-
-
-           NU
-              P1            P2            P3            P4            P5
-              ________      ________      ________      ________      ________
- 1                  0             0             0             0             0
-
-
-           NU
-              C1            C2            C3            C4            C5
-              ________      ________      ________      ________      ________
- 1                  0             0             0             0             0
-
-
-           NU
-              EDUC          BAGE
-              ________      ________
- 1                  0             0
-
-
-           LAMBDA
-              IP            SP            IC            SC            EDUC
-              ________      ________      ________      ________      ________
- P1                 0             0             0             0             0
- P2                 0             0             0             0             0
- P3                 0             0             0             0             0
- P4                 0             0             0             0             0
- P5                 0             0             0             0             0
- C1                 0             0             0             0             0
- C2                 0             0             0             0             0
- C3                 0             0             0             0             0
- C4                 0             0             0             0             0
- C5                 0             0             0             0             0
- EDUC               0             0             0             0             0
- BAGE               0             0             0             0             0
-
-
-           LAMBDA
-              BAGE
-              ________
- P1                 0
- P2                 0
- P3                 0
- P4                 0
- P5                 0
- C1                 0
- C2                 0
- C3                 0
- C4                 0
- C5                 0
- EDUC               0
- BAGE               0
-
-
-           THETA
-              P1            P2            P3            P4            P5
-              ________      ________      ________      ________      ________
- P1                 1
- P2                 0             1
- P3                 0             0             1
- P4                 0             0             0             1
- P5                 0             0             0             0             1
- C1                 2             0             0             0             0
- C2                 0             2             0             0             0
- C3                 0             0             2             0             0
- C4                 0             0             0             2             0
- C5                 0             0             0             0             2
- EDUC               0             0             0             0             0
- BAGE               0             0             0             0             0
-
-
-           THETA
-              C1            C2            C3            C4            C5
-              ________      ________      ________      ________      ________
- C1                 3
- C2                 0             3
- C3                 0             0             3
- C4                 0             0             0             3
- C5                 0             0             0             0             3
- EDUC               0             0             0             0             0
- BAGE               0             0             0             0             0
-
-
-           THETA
-              EDUC          BAGE
-              ________      ________
- EDUC               0
- BAGE               0             0
-
-
-           ALPHA
-              IP            SP            IC            SC            EDUC
-              ________      ________      ________      ________      ________
- 1                  4             5             6             7             8
-
-
-           ALPHA
-              BAGE
-              ________
- 1                  9
-
-
-           BETA
-              IP            SP            IC            SC            EDUC
-              ________      ________      ________      ________      ________
- IP                 0             0             0             0            10
- SP                 0             0             0             0            12
- IC                 0             0             0             0            14
- SC                 0             0             0             0            16
- EDUC               0             0             0             0             0
- BAGE               0             0             0             0             0
-
-
-           BETA
-              BAGE
-              ________
- IP                11
- SP                13
- IC                15
- SC                17
- EDUC               0
- BAGE               0
-
-
-           PSI
-              IP            SP            IC            SC            EDUC
-              ________      ________      ________      ________      ________
- IP                18
- SP                19            20
- IC                21            22            23
- SC                24            25            26            27
- EDUC               0             0             0             0            28
- BAGE               0             0             0             0            29
-
-
-           PSI
-              BAGE
-              ________
- BAGE              30
-
-
-     PARAMETER SPECIFICATION FOR THE ADDITIONAL PARAMETERS
-
-
-           NEW/ADDITIONAL PARAMETERS
-              R_IPIC        R_SPSC        R_RES_PC
-              ________      ________      ________
- 1                 31            32            33
-
-
-     STARTING VALUES
-
-
-           NU
-              P1            P2            P3            P4            P5
-              ________      ________      ________      ________      ________
- 1              0.000         0.000         0.000         0.000         0.000
-
-
-           NU
-              C1            C2            C3            C4            C5
-              ________      ________      ________      ________      ________
- 1              0.000         0.000         0.000         0.000         0.000
-
-
-           NU
-              EDUC          BAGE
-              ________      ________
- 1              0.000         0.000
-
-
-           LAMBDA
-              IP            SP            IC            SC            EDUC
-              ________      ________      ________      ________      ________
- P1             0.000         0.000         0.000         0.000         0.000
- P2             0.000         0.000         0.000         0.000         0.000
- P3             0.000         0.000         0.000         0.000         0.000
- P4             0.000         0.000         0.000         0.000         0.000
- P5             0.000         0.000         0.000         0.000         0.000
- C1             0.000         0.000         0.000         0.000         0.000
- C2             0.000         0.000         0.000         0.000         0.000
- C3             0.000         0.000         0.000         0.000         0.000
- C4             0.000         0.000         0.000         0.000         0.000
- C5             0.000         0.000         0.000         0.000         0.000
- EDUC           0.000         0.000         0.000         0.000         1.000
- BAGE           0.000         0.000         0.000         0.000         0.000
-
-
-           LAMBDA
-              BAGE
-              ________
- P1             0.000
- P2             0.000
- P3             0.000
- P4             0.000
- P5             0.000
- C1             0.000
- C2             0.000
- C3             0.000
- C4             0.000
- C5             0.000
- EDUC           0.000
- BAGE           1.000
-
-
-           THETA
-              P1            P2            P3            P4            P5
-              ________      ________      ________      ________      ________
- P1             0.101
- P2             0.000         0.096
- P3             0.000         0.000         0.087
- P4             0.000         0.000         0.000         0.093
- P5             0.000         0.000         0.000         0.000         0.084
- C1             0.000         0.000         0.000         0.000         0.000
- C2             0.000         0.000         0.000         0.000         0.000
- C3             0.000         0.000         0.000         0.000         0.000
- C4             0.000         0.000         0.000         0.000         0.000
- C5             0.000         0.000         0.000         0.000         0.000
- EDUC           0.000         0.000         0.000         0.000         0.000
- BAGE           0.000         0.000         0.000         0.000         0.000
-
-
-           THETA
-              C1            C2            C3            C4            C5
-              ________      ________      ________      ________      ________
- C1             0.022
- C2             0.000         0.022
- C3             0.000         0.000         0.020
- C4             0.000         0.000         0.000         0.019
- C5             0.000         0.000         0.000         0.000         0.023
- EDUC           0.000         0.000         0.000         0.000         0.000
- BAGE           0.000         0.000         0.000         0.000         0.000
-
-
-           THETA
-              EDUC          BAGE
-              ________      ________
- EDUC           0.000
- BAGE           0.000         0.000
-
-
-           ALPHA
-              IP            SP            IC            SC            EDUC
-              ________      ________      ________      ________      ________
- 1              1.538        -0.030         0.642        -0.016         7.335
-
-
-           ALPHA
-              BAGE
-              ________
- 1              8.665
-
-
-           BETA
-              IP            SP            IC            SC            EDUC
-              ________      ________      ________      ________      ________
- IP             0.000         0.000         0.000         0.000         0.000
- SP             0.000         0.000         0.000         0.000         0.000
- IC             0.000         0.000         0.000         0.000         0.000
- SC             0.000         0.000         0.000         0.000         0.000
- EDUC           0.000         0.000         0.000         0.000         0.000
- BAGE           0.000         0.000         0.000         0.000         0.000
-
-
-           BETA
-              BAGE
-              ________
- IP             0.000
- SP             0.000
- IC             0.000
- SC             0.000
- EDUC           0.000
- BAGE           0.000
-
-
-           PSI
-              IP            SP            IC            SC            EDUC
-              ________      ________      ________      ________      ________
- IP             0.207
- SP             0.000         0.023
- IC             0.000         0.000         0.038
- SC             0.000         0.000         0.000         0.014
- EDUC           0.000         0.000         0.000         0.000         4.814
- BAGE           0.000         0.000         0.000         0.000         0.000
-
-
-           PSI
-              BAGE
-              ________
- BAGE          31.600
-
-
-     STARTING VALUES FOR THE ADDITIONAL PARAMETERS
-
-
-           NEW/ADDITIONAL PARAMETERS
-              R_IPIC        R_SPSC        R_RES_PC
-              ________      ________      ________
- 1              0.500         0.500         0.500
-
-
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    c:\users\cassandra\desktop\radc portland workshop\brown\physical x physical\b1_female_ae_fev_gai
-
-     Beginning Time:  17:07:44
-        Ending Time:  17:08:01
-       Elapsed Time:  00:00:17
-
-
-
-MUTHEN & MUTHEN
-3463 Stoner Ave.
-Los Angeles, CA  90066
-
-Tel: (310) 391-9971
-Fax: (310) 391-8971
-Web: www.StatModel.com
-Support: Support@StatModel.com
-
-Copyright (c) 1998-2014 Muthen & Muthen

@@ -1,11 +1,8 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
 09/14/2015   4:52 PM
-
 INPUT INSTRUCTIONS
-
   TITLE: B1 Pulmonary Function X Grip
-
   Data:
   	File is
   C:\Users\Cassandra\Desktop\RADC Portland Workshop\brown\radcMAP_wide.dat;
@@ -297,12 +294,9 @@ INPUT INSTRUCTIONS
   wtkg_03 wtkg_04 wtkg_05 wtkg_06 wtkg_07 wtkg_08 wtkg_09 wtkg_10 wtkg_11 wtkg_12
   wtkg_13 wtkg_14 wtkg_15 wtkg_16 wtkg_17 wtkg_18 wtkg_19 wtkg_20 T0 T1 T2 T3 T4
   T5 T6 T7 T8 T9 T10 T11 T12 T13 T14 T15 T16 T17 T18 T19 T20;
-
-
            Missing are all (-9999);
            USEVAR are  time1-time5 p1-p5 c1-c5 Bage;
            TSCORES =  time1-time5;
-
            USEOBSERVATIONS are
               dementia_00 NE 1 and dementia_01 NE 1 and dementia_02 NE 1 and
               dementia_03 NE 1 and dementia_04 NE 1 and dementia_05 NE 1 and
@@ -312,15 +306,11 @@ INPUT INSTRUCTIONS
               dementia_15 NE 1 and dementia_16 NE 1 and dementia_17 NE 1 and
               dementia_18 NE 1 and dementia_19 NE 1 and dementia_20 NE 1 and
               msex EQ 0;
-
     Define: p1=gait_speed_00; p2=gait_speed_01; p3=gait_speed_02; p4=gait_speed_03;
      p5=gait_speed_04;
             c1=gripavg_00; c2=gripavg_01; c3=gripavg_02;
             c4=gripavg_03; c5=gripavg_04;
-
             time1=T0; time2 =T1; time3=T2; time4=T3; time5=T4;
-
-
             Bage=age_bl-70;   !Age centered at 70 baseline
             !Dage=age_death;
             !Sex=msex;         !0=female
@@ -339,19 +329,12 @@ INPUT INSTRUCTIONS
             !Cardio;
             !Diab;
             !MorbInd;
-
-
-
           !BageEduc=Bage*Educ;
-
-
   ANALYSIS: TYPE = RANDOM;
             COVERAGE=.05;
-
   MODEL:  Bage;
           ip sp | p1-p5 AT time1-time5;
           ic sc | c1-c5 AT time1-time5;
-
           ip(v_ip);
           sp(v_sp);
           ic(v_ic);
@@ -362,33 +345,19 @@ INPUT INSTRUCTIONS
           sp WITH ic(c_spic);
           sp WITH sc(c_spsc);
           ic WITH sc(c_icsc);
-
-
           ip sp ic sc ON Bage;
-
           p1-p5 (res_p);
           c1-c5 (res_c);
-
           p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across tim
-
   MODEL CONSTRAINT:
-
   MODEL CONSTRAINT:
-
           NEW r_ipic;
           NEW r_spsc;
           NEW r_res_pc;
-
           r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
           r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
           r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
-
   OUTPUT: sampstat Cinterval;
-
-
-
-
-
 *** WARNING
   Input line exceeded 90 characters. Some input may be truncated.
           p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across time
@@ -397,38 +366,24 @@ INPUT INSTRUCTIONS
   These cases were not included in the analysis.
   Number of cases with missing on all variables:  1
    2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
-
-
-
 B1 Pulmonary Function X Grip
-
 SUMMARY OF ANALYSIS
-
 Number of groups                                                 1
 Number of observations                                        1010
-
 Number of dependent variables                                   10
 Number of independent variables                                  1
 Number of continuous latent variables                            4
-
 Observed dependent variables
-
   Continuous
    P1          P2          P3          P4          P5          C1
    C2          C3          C4          C5
-
 Observed independent variables
    BAGE
-
 Continuous latent variables
    IP          SP          IC          SC
-
 Variables with special functions
-
   Time scores
    TIME1       TIME2       TIME3       TIME4       TIME5
-
-
 Estimator                                                      MLR
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -443,25 +398,14 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
-
 Input data file(s)
   C:\Users\Cassandra\Desktop\RADC Portland Workshop\brown\radcMAP_wide.dat
 Input data format  FREE
-
-
 SUMMARY OF DATA
-
      Number of missing data patterns           159
-
-
 COVARIANCE COVERAGE OF DATA
-
 Minimum covariance coverage value   0.050
-
-
      PROPORTION OF DATA PRESENT
-
-
            Covariance Coverage
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -476,8 +420,6 @@ Minimum covariance coverage value   0.050
  C4             0.382         0.333         0.313         0.334         0.262
  C5             0.270         0.256         0.221         0.237         0.243
  BAGE           0.859         0.683         0.570         0.495         0.411
-
-
            Covariance Coverage
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -487,38 +429,24 @@ Minimum covariance coverage value   0.050
  C4             0.323         0.285         0.294         0.395
  C5             0.210         0.174         0.181         0.230         0.276
  BAGE           0.851         0.611         0.498         0.395         0.276
-
-
            Covariance Coverage
               BAGE
               ________
  BAGE           1.000
-
-
 SAMPLE STATISTICS
-
-
      ESTIMATED SAMPLE STATISTICS
-
-
            Means
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
  1              0.631         0.628         0.592         0.580         0.579
-
-
            Means
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
  1             41.518        40.141        39.640        38.006        36.676
-
-
            Means
               BAGE
               ________
  1              8.665
-
-
            Covariances
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -533,8 +461,6 @@ SAMPLE STATISTICS
  C4             0.795         1.009         1.165         0.936         1.118
  C5             0.775         1.003         1.059         0.812         1.035
  BAGE          -0.428        -0.445        -0.571        -0.490        -0.645
-
-
            Covariances
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -544,14 +470,10 @@ SAMPLE STATISTICS
  C4           129.734       129.901       131.585       152.608
  C5           134.758       130.074       130.093       141.423       162.179
  BAGE         -41.958       -42.160       -44.529       -45.833       -45.711
-
-
            Covariances
               BAGE
               ________
  BAGE          63.201
-
-
            Correlations
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -566,8 +488,6 @@ SAMPLE STATISTICS
  C4             0.308         0.386         0.463         0.377         0.414
  C5             0.291         0.372         0.408         0.317         0.371
  BAGE          -0.258        -0.264        -0.353        -0.306        -0.371
-
-
            Correlations
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
@@ -577,25 +497,15 @@ SAMPLE STATISTICS
  C4             0.847         0.839         0.882         1.000
  C5             0.854         0.815         0.846         0.899         1.000
  BAGE          -0.426        -0.423        -0.464        -0.467        -0.452
-
-
            Correlations
               BAGE
               ________
  BAGE           1.000
-
-
      MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -11424.738
-
-
 UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
-
      UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
          Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
         Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
-
      P1                    0.638       0.580       0.125    0.12%       0.460      0.581      0.617
              868.000       0.044       0.662       1.573    0.12%       0.677      0.813
      P2                    0.645       0.595       0.140    0.14%       0.464      0.567      0.610
@@ -618,78 +528,50 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
              279.000     148.188       0.546      76.250    0.36%      40.250     47.500
      BAGE                  8.665      -0.451     -16.653    0.10%       1.849      7.552      9.669
             1010.000      63.201       0.014      28.708    0.10%      11.380     15.410
-
-
 THE MODEL ESTIMATION TERMINATED NORMALLY
-
-
-
 MODEL FIT INFORMATION
-
 Number of Free Parameters                       23
-
 Loglikelihood
-
           H0 Value                      -11477.296
           H0 Scaling Correction Factor      1.2070
             for MLR
-
 Information Criteria
-
           Akaike (AIC)                   23000.593
           Bayesian (BIC)                 23113.700
           Sample-Size Adjusted BIC       23040.650
             (n* = (n + 2) / 24)
-
-
-
 MODEL RESULTS
-
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
-
  IP         ON
     BAGE              -0.007      0.001     -7.785      0.000
-
  SP         ON
     BAGE              -0.001      0.000     -2.870      0.004
-
  IC         ON
     BAGE              -0.665      0.050    -13.160      0.000
-
  SC         ON
     BAGE              -0.019      0.012     -1.564      0.118
-
  IP       WITH
     SP                -0.001      0.001     -2.083      0.037
     IC                 0.524      0.077      6.782      0.000
     SC                 0.013      0.021      0.626      0.531
-
  SP       WITH
     IC                 0.050      0.026      1.952      0.051
     SC                -0.009      0.007     -1.297      0.195
-
  IC       WITH
     SC                -2.015      1.170     -1.722      0.085
-
  P1       WITH
     C1                -0.007      0.018     -0.381      0.703
-
  P2       WITH
     C2                -0.007      0.018     -0.381      0.703
-
  P3       WITH
     C3                -0.007      0.018     -0.381      0.703
-
  P4       WITH
     C4                -0.007      0.018     -0.381      0.703
-
  P5       WITH
     C5                -0.007      0.018     -0.381      0.703
-
  Means
     BAGE               8.665      0.250     34.638      0.000
-
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
@@ -705,10 +587,8 @@ MODEL RESULTS
     SP                -0.009      0.003     -2.764      0.006
     IC                47.277      0.621     76.170      0.000
     SC                -0.992      0.143     -6.919      0.000
-
  Variances
     BAGE              63.201      2.822     22.392      0.000
-
  Residual Variances
     P1                 0.018      0.001     20.061      0.000
     P2                 0.018      0.001     20.061      0.000
@@ -724,127 +604,10 @@ MODEL RESULTS
     SP                 0.001      0.000      3.396      0.001
     IC               106.504      6.532     16.304      0.000
     SC                 0.849      0.346      2.452      0.014
-
 New/Additional Parameters
     R_IPIC             0.340      0.046      7.432      0.000
     R_SPSC            -0.396      0.290     -1.365      0.172
     R_RES_PC          -0.011      0.030     -0.381      0.703
-
-
 QUALITY OF NUMERICAL RESULTS
-
      Condition Number for the Information Matrix              0.144E-06
        (ratio of smallest to largest eigenvalue)
-
-
-CONFIDENCE INTERVALS OF MODEL RESULTS
-
-                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
-
- IP       ON
-    BAGE            -0.009      -0.008      -0.008      -0.007      -0.005      -0.005      -0.004
-
- SP       ON
-    BAGE            -0.002      -0.001      -0.001      -0.001       0.000       0.000       0.000
-
- IC       ON
-    BAGE            -0.795      -0.764      -0.748      -0.665      -0.581      -0.566      -0.534
-
- SC       ON
-    BAGE            -0.049      -0.042      -0.038      -0.019       0.001       0.005       0.012
-
- IP       WITH
-    SP              -0.002      -0.002      -0.002      -0.001       0.000       0.000       0.000
-    IC               0.325       0.373       0.397       0.524       0.651       0.676       0.723
-    SC              -0.040      -0.028      -0.021       0.013       0.047       0.054       0.066
-
- SP       WITH
-    IC              -0.016       0.000       0.008       0.050       0.092       0.101       0.116
-    SC              -0.028      -0.024      -0.021      -0.009       0.003       0.005       0.009
-
- IC       WITH
-    SC              -5.029      -4.308      -3.940      -2.015      -0.090       0.279       0.999
-
- P1       WITH
-    C1              -0.052      -0.041      -0.036      -0.007       0.022       0.028       0.039
-
- P2       WITH
-    C2              -0.052      -0.041      -0.036      -0.007       0.022       0.028       0.039
-
- P3       WITH
-    C3              -0.052      -0.041      -0.036      -0.007       0.022       0.028       0.039
-
- P4       WITH
-    C4              -0.052      -0.041      -0.036      -0.007       0.022       0.028       0.039
-
- P5       WITH
-    C5              -0.052      -0.041      -0.036      -0.007       0.022       0.028       0.039
-
- Means
-    BAGE             8.020       8.174       8.253       8.665       9.076       9.155       9.309
-
- Intercepts
-    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    IP               0.664       0.670       0.673       0.691       0.708       0.711       0.718
-    SP              -0.018      -0.016      -0.014      -0.009      -0.004      -0.003      -0.001
-    IC              45.678      46.060      46.256      47.277      48.298      48.493      48.876
-    SC              -1.362      -1.273      -1.228      -0.992      -0.756      -0.711      -0.623
-
- Variances
-    BAGE            55.931      57.669      58.558      63.201      67.844      68.733      70.471
-
- Residual Variances
-    P1               0.015       0.016       0.016       0.018       0.019       0.019       0.020
-    P2               0.015       0.016       0.016       0.018       0.019       0.019       0.020
-    P3               0.015       0.016       0.016       0.018       0.019       0.019       0.020
-    P4               0.015       0.016       0.016       0.018       0.019       0.019       0.020
-    P5               0.015       0.016       0.016       0.018       0.019       0.019       0.020
-    C1              17.163      17.842      18.189      20.002      21.814      22.161      22.840
-    C2              17.163      17.842      18.189      20.002      21.814      22.161      22.840
-    C3              17.163      17.842      18.189      20.002      21.814      22.161      22.840
-    C4              17.163      17.842      18.189      20.002      21.814      22.161      22.840
-    C5              17.163      17.842      18.189      20.002      21.814      22.161      22.840
-    IP               0.018       0.019       0.019       0.022       0.025       0.026       0.027
-    SP               0.000       0.000       0.000       0.001       0.001       0.001       0.001
-    IC              89.679      93.701      95.759     106.504     117.250     119.308     123.330
-    SC              -0.043       0.170       0.279       0.849       1.419       1.528       1.742
-
-New/Additional Parameters
-    R_IPIC           0.222       0.250       0.265       0.340       0.415       0.429       0.458
-    R_SPSC          -1.143      -0.964      -0.873      -0.396       0.081       0.172       0.351
-    R_RES_PC        -0.088      -0.069      -0.060      -0.011       0.037       0.047       0.065
-
-
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    c:\users\cassandra\desktop\radc portland workshop\brown\physical x physical\b1_female_a_gait_gri
-
-     Beginning Time:  16:52:53
-        Ending Time:  16:53:06
-       Elapsed Time:  00:00:13
-
-
-
-MUTHEN & MUTHEN
-3463 Stoner Ave.
-Los Angeles, CA  90066
-
-Tel: (310) 391-9971
-Fax: (310) 391-8971
-Web: www.StatModel.com
-Support: Support@StatModel.com
-
-Copyright (c) 1998-2014 Muthen & Muthen
