@@ -431,6 +431,7 @@ get_results_residual <- function(study){
     (model <- mpar[[i]])
     has_converged <- results[i,"converged"]
     if(has_converged) {
+      
       ## variance physical residual- p_SIGMA
       (test <- model[grep("^P", model$param), ])
       (test <- test[grep("^Residual.Variances", test$paramHeader), ])
@@ -478,6 +479,7 @@ get_results_fixed <- function(study){
     model <- mpar[[i]]
     has_converged <- results[i,"converged"]
     if(has_converged) {
+      ## intercept    
       int <- model[grep("Intercepts", model$paramHeader),]
 
       ## average initial status of physical - p_GAMMA_00
