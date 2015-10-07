@@ -1,19 +1,19 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
+<<<<<<< HEAD
 10/07/2015   7:55 AM
 
+=======
+08/28/2015   3:35 PM
+>>>>>>> origin/master
 INPUT INSTRUCTIONS
-
     TITLE: Peak Flow, Grip Strength, Fully Conditional, Female
-
     DATA:  File = "C:\Users\wuche\Dropbox\Research\IALSA\Physical_Project\Physical.dat";
-
     VARIABLE:
        NAMES are
        HHID PN JAGE WHITE MALE educ04 height04 diabetes04 cvd04 walk04 walk06
        walk10 peak04 peak06 peak10 grip04 grip06 grip10 smoke04 time1 time2
        time3;
-
     MISSING are all(-9999);
     USEVAR are  time1 time2 time3
                 p1    p2    p3
@@ -23,22 +23,21 @@ INPUT INSTRUCTIONS
     TSCORES =   time1 time2 time3;
     CLUSTER =   HHID;
     SUBPOPULATION are MALE EQ 0;
-
     Define: p1=peak04;  p2=peak06;  p3=peak10;
             c1=walk04;  c2=walk06;  c3=walk10;
-
             Bage     = JAGE-75;
             Educ     = educ04-7;
             Heightc  = height04-1.60;
             SmokHist = smoke04;
             Diabetes = diabetes04;
+<<<<<<< HEAD
             Cardio   = cvd04;
 
+=======
+>>>>>>> origin/master
     ANALYSIS: TYPE = RANDOM COMPLEX;
-
     MODEL:  ip sp | p1-p3 AT time1-time3;
             ic sc | c1-c3 AT time1-time3;
-
             ip (v_ip);
             sp (v_sp);
             ic (v_ic);
@@ -49,61 +48,49 @@ INPUT INSTRUCTIONS
             sp WITH ic (c_spic);
             sp WITH sc (c_spsc);
             ic WITH sc (c_icsc);
+<<<<<<< HEAD
 
             ip sp ic sc ON Bage Educ Heightc SmokHist Diabetes Cardio;
+=======
+            ip sp ic sc ON Bage Educ Heightc SmokHist Diabetes;
+>>>>>>> origin/master
             p1-p3 (res_p);
             c1-c3 (res_c);
             p1-p3 pwith c1-c3(res_cov); !Paired covariances constrained to be equal
     	 		
     MODEL CONSTRAINT:
-
             NEW r_ipic;
             NEW r_spsc;
             NEW r_res_pc;
-
             r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
             r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
             r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
-
     OUTPUT: sampstat Cinterval;
-
-
-
 INPUT READING TERMINATED NORMALLY
-
-
-
 Peak Flow, Grip Strength, Fully Conditional, Female
-
 SUMMARY OF ANALYSIS
-
 Number of groups                                                 1
 Number of observations                                         286
-
 Number of dependent variables                                    6
 Number of independent variables                                  6
 Number of continuous latent variables                            4
-
 Observed dependent variables
-
   Continuous
    P1          P2          P3          C1          C2          C3
-
 Observed independent variables
+<<<<<<< HEAD
    BAGE        EDUC        HEIGHTC     SMOKHIST    DIABETES    CARDIO
 
+=======
+   BAGE        EDUC        HEIGHTC     SMOKHIST    DIABETES
+>>>>>>> origin/master
 Continuous latent variables
    IP          SP          IC          SC
-
 Variables with special functions
-
   Cluster variable      HHID
   Weight variable       _WEIGHT
-
   Time scores
    TIME1       TIME2       TIME3
-
-
 Estimator                                                      MLR
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -118,32 +105,27 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
-
 Input data file(s)
   C:\Users\wuche\Dropbox\Research\IALSA\Physical_Project\Physical.dat
 Input data format  FREE
-
-
-
 SAMPLE STATISTICS
-
-
      ESTIMATED SAMPLE STATISTICS
-
-
            Means
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
+<<<<<<< HEAD
  1            262.318       258.701       238.307         0.826         0.736
 
 
+=======
+ 1            262.351       258.701       238.352         0.826         0.736
+>>>>>>> origin/master
            Means
               C3            BAGE          EDUC          HEIGHTC       SMOKHIST
               ________      ________      ________      ________      ________
  1              0.649         0.829         5.409         0.002         0.378
-
-
            Means
+<<<<<<< HEAD
               DIABETES      CARDIO
               ________      ________
  1              0.189         0.255
@@ -166,6 +148,25 @@ SAMPLE STATISTICS
  CARDIO        -2.487        -2.007        -3.168        -0.012        -0.010
 
 
+=======
+              DIABETES
+              ________
+ 1              0.189
+           Covariances
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1          5630.871
+ P2          3988.215      5904.020
+ P3          4464.483      4665.495      7395.481
+ C1             4.802         5.779         5.942         0.060
+ C2             3.984         6.447         6.630         0.024         0.049
+ C3             6.797         7.103        11.160         0.034         0.028
+ BAGE        -147.444      -187.193      -280.320        -0.380        -0.466
+ EDUC          38.087        39.635        38.976         0.159         0.140
+ HEIGHTC        0.912         0.804         1.479         0.002         0.002
+ SMOKHIST      -4.214        -2.153        -4.165        -0.009        -0.002
+ DIABETES      -0.782         0.115        -1.651        -0.010        -0.006
+>>>>>>> origin/master
            Covariances
               C3            BAGE          EDUC          HEIGHTC       SMOKHIST
               ________      ________      ________      ________      ________
@@ -175,16 +176,22 @@ SAMPLE STATISTICS
  HEIGHTC        0.002        -0.063         0.043         0.005
  SMOKHIST      -0.006        -0.365        -0.008        -0.001         0.235
  DIABETES      -0.011        -0.111        -0.109        -0.002         0.009
+<<<<<<< HEAD
  CARDIO        -0.013         0.306        -0.094         0.002        -0.002
 
 
+=======
+>>>>>>> origin/master
            Covariances
               DIABETES      CARDIO
               ________      ________
  DIABETES       0.153
+<<<<<<< HEAD
  CARDIO         0.018         0.190
 
 
+=======
+>>>>>>> origin/master
            Correlations
               P1            P2            P3            C1            C2
               ________      ________      ________      ________      ________
@@ -199,9 +206,12 @@ SAMPLE STATISTICS
  HEIGHTC        0.176         0.151         0.249         0.135         0.121
  SMOKHIST      -0.116        -0.058        -0.099        -0.079        -0.016
  DIABETES      -0.027         0.004        -0.049        -0.100        -0.072
+<<<<<<< HEAD
  CARDIO        -0.076        -0.060        -0.085        -0.113        -0.109
 
 
+=======
+>>>>>>> origin/master
            Correlations
               C3            BAGE          EDUC          HEIGHTC       SMOKHIST
               ________      ________      ________      ________      ________
@@ -209,26 +219,33 @@ SAMPLE STATISTICS
  BAGE          -0.412         1.000
  EDUC           0.307         0.012         1.000
  HEIGHTC        0.097        -0.135         0.207         1.000
+<<<<<<< HEAD
  SMOKHIST      -0.051        -0.112        -0.005        -0.038         1.000
  DIABETES      -0.103        -0.042        -0.092        -0.064         0.048
  CARDIO        -0.109         0.104        -0.071         0.066        -0.009
 
 
+=======
+ SMOKHIST      -0.050        -0.112        -0.005        -0.038         1.000
+ DIABETES      -0.104        -0.042        -0.092        -0.064         0.048
+>>>>>>> origin/master
            Correlations
               DIABETES      CARDIO
               ________      ________
  DIABETES       1.000
+<<<<<<< HEAD
  CARDIO         0.107         1.000
 
 
      MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -10999.302
 
 
+=======
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -10703.376
+>>>>>>> origin/master
 THE MODEL ESTIMATION TERMINATED NORMALLY
-
-
-
 MODEL FIT INFORMATION
+<<<<<<< HEAD
 
 Number of Free Parameters                       41
 
@@ -236,23 +253,30 @@ Loglikelihood
 
           H0 Value                       -4218.710
           H0 Scaling Correction Factor      1.1081
+=======
+Number of Free Parameters                       37
+Loglikelihood
+          H0 Value                       -4219.780
+          H0 Scaling Correction Factor      1.1271
+>>>>>>> origin/master
             for MLR
-
 Information Criteria
+<<<<<<< HEAD
 
           Akaike (AIC)                    8519.421
           Bayesian (BIC)                  8669.316
           Sample-Size Adjusted BIC        8539.302
+=======
+          Akaike (AIC)                    8513.560
+          Bayesian (BIC)                  8648.832
+          Sample-Size Adjusted BIC        8531.502
+>>>>>>> origin/master
             (n* = (n + 2) / 24)
-
-
-
 MODEL RESULTS
-
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
-
  IP         ON
+<<<<<<< HEAD
     BAGE              -3.211      0.567     -5.661      0.000
     EDUC               3.886      1.324      2.935      0.003
     HEIGHTC           84.364     52.370      1.611      0.107
@@ -305,6 +329,46 @@ MODEL RESULTS
  P3       WITH
     C3                 0.976      0.429      2.278      0.023
 
+=======
+    BAGE              -3.255      0.559     -5.826      0.000
+    EDUC               3.954      1.313      3.011      0.003
+    HEIGHTC           80.676     52.395      1.540      0.124
+    SMOKHIST         -18.796      8.308     -2.262      0.024
+    DIABETES           0.663     10.400      0.064      0.949
+ SP         ON
+    BAGE              -0.473      0.090     -5.286      0.000
+    EDUC              -0.064      0.265     -0.241      0.810
+    HEIGHTC           14.932      8.404      1.777      0.076
+    SMOKHIST          -0.751      1.293     -0.581      0.562
+    DIABETES          -1.357      1.606     -0.845      0.398
+ IC         ON
+    BAGE              -0.008      0.002     -4.433      0.000
+    EDUC               0.014      0.004      3.613      0.000
+    HEIGHTC            0.196      0.191      1.024      0.306
+    SMOKHIST          -0.038      0.024     -1.563      0.118
+    DIABETES          -0.043      0.029     -1.508      0.132
+ SC         ON
+    BAGE              -0.001      0.000     -3.368      0.001
+    EDUC               0.002      0.001      2.224      0.026
+    HEIGHTC           -0.057      0.045     -1.260      0.208
+    SMOKHIST          -0.001      0.006     -0.144      0.886
+    DIABETES          -0.003      0.006     -0.480      0.632
+ IP       WITH
+    SP                 3.126     54.449      0.057      0.954
+    IC                 1.930      0.947      2.039      0.041
+    SC                 0.158      0.195      0.810      0.418
+ SP       WITH
+    IC                 0.134      0.167      0.801      0.423
+    SC                 0.011      0.039      0.281      0.779
+ IC       WITH
+    SC                 0.000      0.001     -0.424      0.672
+ P1       WITH
+    C1                 0.977      0.428      2.281      0.023
+ P2       WITH
+    C2                 0.977      0.428      2.281      0.023
+ P3       WITH
+    C3                 0.977      0.428      2.281      0.023
+>>>>>>> origin/master
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
@@ -312,6 +376,7 @@ MODEL RESULTS
     C1                 0.000      0.000    999.000    999.000
     C2                 0.000      0.000    999.000    999.000
     C3                 0.000      0.000    999.000    999.000
+<<<<<<< HEAD
     IP               253.916      9.749     26.045      0.000
     SP                -2.895      1.805     -1.604      0.109
     IC                 0.777      0.025     30.808      0.000
@@ -452,3 +517,27 @@ Web: www.StatModel.com
 Support: Support@StatModel.com
 
 Copyright (c) 1998-2013 Muthen & Muthen
+=======
+    IP               252.354      9.231     27.338      0.000
+    SP                -2.890      1.793     -1.612      0.107
+    IC                 0.766      0.024     32.402      0.000
+    SC                -0.037      0.005     -6.891      0.000
+ Residual Variances
+    P1              1756.837    207.073      8.484      0.000
+    P2              1756.837    207.073      8.484      0.000
+    P3              1756.837    207.073      8.484      0.000
+    C1                 0.029      0.003      8.667      0.000
+    C2                 0.029      0.003      8.667      0.000
+    C3                 0.029      0.003      8.667      0.000
+    IP              3080.246    396.047      7.777      0.000
+    SP                 7.960     15.665      0.508      0.611
+    IC                 0.019      0.004      4.676      0.000
+    SC                 0.000      0.000      0.431      0.667
+ New/Additional Parameters
+    R_IPIC             0.249      0.117      2.138      0.033
+    R_SPSC             0.383      1.304      0.294      0.769
+    R_RES_PC           0.136      0.058      2.327      0.020
+QUALITY OF NUMERICAL RESULTS
+     Condition Number for the Information Matrix              0.184E-08
+       (ratio of smallest to largest eigenvalue)
+>>>>>>> origin/master

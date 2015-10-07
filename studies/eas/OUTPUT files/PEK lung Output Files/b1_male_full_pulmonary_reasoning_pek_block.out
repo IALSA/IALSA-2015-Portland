@@ -1,389 +1,408 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-03/02/2015   3:10 PM
+07/18/2015   4:47 PM
 
 INPUT INSTRUCTIONS
 
+  TITLE: pulmonary, blocks, bi LGM,full Conditional, male
 
+          DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
 
 
-        TITLE: pulmonary, blocks, bi LGM,full Conditional, male
+          VARIABLE: Names are
+            ! demographics
+            SubjectID	Sex	Ethnic	Caus	DemEver	Bagesq	deathage	DEMO23	Educyrs	Status	
 
-        DATA:  File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
+            !wave (1-10)
+            Wave_1	Wave_2	Wave_3	Wave_4	Wave_5	Wave_6	Wave_7	Wave_8	Wave_9	Wave_10
 
+            !age at wave	(1-10)
+            AgeAtWaveOne	AgeAtWave_2	AgeAtWave_3	AgeAtWave_4	AgeAtWave_5	AgeAtWave_6	
+            AgeAtWave_7	
+            AgeAtWave_8	AgeAtWave_9	AgeAtWave_10	
 
-        VARIABLE: Names are
-          ! demographics
-          SubjectID	Sex	Ethnic	Caus	DemEver	Bagesq	deathage	DEMO23	Educyrs	Status	
+            !years since baseline (1-10)
+            YrsSinceBaseline_1	YrsSinceBaseline_2	YrsSinceBaseline_3	YrsSinceBaseline_4	
+            YrsSinceBaseline_5	YrsSinceBaseline_6	YrsSinceBaseline_7	YrsSinceBaseline_8	
+            YrsSinceBaseline_9	YrsSinceBaseline_10	
 
-          !wave (1-10)
-          Wave_1	Wave_2	Wave_3	Wave_4	Wave_5	Wave_6	Wave_7	Wave_8	Wave_9	Wave_10
+            !Blessed (1-10)
+            Blessd_1	Blessd_2	Blessd_3	Blessd_4	Blessd_5	Blessd_6	Blessd_7	
+            Blessd_8	Blessd_9	Blessd_10	
 
-          !age at wave	(1-10)
-          AgeAtWaveOne	AgeAtWave_2	AgeAtWave_3	AgeAtWave_4	AgeAtWave_5	AgeAtWave_6	
-          AgeAtWave_7	
-          AgeAtWave_8	AgeAtWave_9	AgeAtWave_10	
+            !MMSE (1-10)
+            MMS_1	MMS_2	MMS_3	MMS_4	MMS_5	MMS_6	MMS_7	MMS_8	MMS_9	MMS_10	
 
-          !years since baseline (1-10)
-          YrsSinceBaseline_1	YrsSinceBaseline_2	YrsSinceBaseline_3	YrsSinceBaseline_4	
-          YrsSinceBaseline_5	YrsSinceBaseline_6	YrsSinceBaseline_7	YrsSinceBaseline_8	
-          YrsSinceBaseline_9	YrsSinceBaseline_10	
+            !GDS (1-10)
+            GDSScore_1	GDSScore_2	GDSScore_3	GDSScore_4	GDSScore_5	GDSScore_6	GDSScore_7	
+            GDSScore_8	GDSScore_9	GDSScore_10	
 
-          !Blessed (1-10)
-          Blessd_1	Blessd_2	Blessd_3	Blessd_4	Blessd_5	Blessd_6	Blessd_7	
-          Blessd_8	Blessd_9	Blessd_10	
+            !Free recall (1-10)
+            FreeRecall_1	FreeRecall_2	FreeRecall_3	FreeRecall_4	FreeRecall_5	
+            FreeRecall_6	FreeRecall_7	FreeRecall_8	FreeRecall_9	FreeRecall_10
 
-          !MMSE (1-10)
-          MMS_1	MMS_2	MMS_3	MMS_4	MMS_5	MMS_6	MMS_7	MMS_8	MMS_9	MMS_10	
+            !Total recall (1-10)	
+            TotRecall_1	TotRecall_2	TotRecall_3	TotRecall_4	TotRecall_5	TotRecall_6	
+            TotRecall_7	
+            TotRecall_8	TotRecall_9	TotRecall_10
 
-          !GDS (1-10)
-          GDSScore_1	GDSScore_2	GDSScore_3	GDSScore_4	GDSScore_5	GDSScore_6	GDSScore_7	
-          GDSScore_8	GDSScore_9	GDSScore_10	
+           !Delayed free recall (1-10)
+            DelFreeRecall_1	DelFreeRecall_2	DelFreeRecall_3	DelFreeRecall_4	DelFreeRecall_5	
+            DelFreeRecall_6	DelFreeRecall_7	DelFreeRecall_8	DelFreeRecall_9	DelFreeRecall_10
 
-          !Free recall (1-10)
-          FreeRecall_1	FreeRecall_2	FreeRecall_3	FreeRecall_4	FreeRecall_5	
-          FreeRecall_6	FreeRecall_7	FreeRecall_8	FreeRecall_9	FreeRecall_10
+            !Delayed total recall (1-10)	
+            DelTotRecall_1	DelTotRecall_2	DelTotRecall_3	DelTotRecall_4	DelTotRecall_5	
+            DelTotRecall_6	DelTotRecall_7	DelTotRecall_8	DelTotRecall_9	DelTotRecall_10	
 
-          !Total recall (1-10)	
-          TotRecall_1	TotRecall_2	TotRecall_3	TotRecall_4	TotRecall_5	TotRecall_6	
-          TotRecall_7	
-          TotRecall_8	TotRecall_9	TotRecall_10
+            !Boston (1-10)
+            BostonFree_1	BostonFree_2	BostonFree_3	BostonFree_4	BostonFree_5	
+            BostonFree_6	BostonFree_7	BostonFree_8	BostonFree_9	BostonFree_10
 
-         !Delayed free recall (1-10)
-          DelFreeRecall_1	DelFreeRecall_2	DelFreeRecall_3	DelFreeRecall_4	DelFreeRecall_5	
-          DelFreeRecall_6	DelFreeRecall_7	DelFreeRecall_8	DelFreeRecall_9	DelFreeRecall_10
+            !Infraw (1-10)	
+            Infraw_1	Infraw_2	Infraw_3	Infraw_4	Infraw_5	Infraw_6	Infraw_7	
+            Infraw_8	Infraw_9	Infraw_10	
 
-          !Delayed total recall (1-10)	
-          DelTotRecall_1	DelTotRecall_2	DelTotRecall_3	DelTotRecall_4	DelTotRecall_5	
-          DelTotRecall_6	DelTotRecall_7	DelTotRecall_8	DelTotRecall_9	DelTotRecall_10	
+            !voc raw (1-10)	
+            Vocraw_1	Vocraw_2	Vocraw_3	Vocraw_4	Vocraw_5	Vocraw_6	Vocraw_7	
+            Vocraw_8	Vocraw_9	Vocraw_10	
 
-          !Boston (1-10)
-          BostonFree_1	BostonFree_2	BostonFree_3	BostonFree_4	BostonFree_5	
-          BostonFree_6	BostonFree_7	BostonFree_8	BostonFree_9	BostonFree_10
+          !span raw (1-10)
+            Spnraw_1	Spnraw_2	Spnraw_3	Spnraw_4	Spnraw_5	Spnraw_6 Spnraw_7	
+            Spnraw_8	Spnraw_9	Spnraw_10	
 
-          !Infraw (1-10)	
-          Infraw_1	Infraw_2	Infraw_3	Infraw_4	Infraw_5	Infraw_6	Infraw_7	
-          Infraw_8	Infraw_9	Infraw_10	
+            !span age scaled (1-10)
+            DSpnAgeScaledScore_1	DSpnAgeScaledScore_2	DSpnAgeScaledScore_3	
+            DSpnAgeScaledScore_4	DSpnAgeScaledScore_5	DSpnAgeScaledScore_6	
+            DSpnAgeScaledScore_7	DSpnAgeScaledScore_8	DSpnAgeScaledScore_9	
+            DSpnAgeScaledScore_10	
 
-          !voc raw (1-10)	
-          Vocraw_1	Vocraw_2	Vocraw_3	Vocraw_4	Vocraw_5	Vocraw_6	Vocraw_7	
-          Vocraw_8	Vocraw_9	Vocraw_10	
 
-        !span raw (1-10)
-          Spnraw_1	Spnraw_2	Spnraw_3	Spnraw_4	Spnraw_5	Spnraw_6 Spnraw_7	
-          Spnraw_8	Spnraw_9	Spnraw_10	
+            !symraw (1-10)
+            Symraw_1	Symraw_2	Symraw_3	Symraw_4	Symraw_5	Symraw_6	
+            Symraw_7	Symraw_8	Symraw_9	Symraw_10
 
-          !span age scaled (1-10)
-          DSpnAgeScaledScore_1	DSpnAgeScaledScore_2	DSpnAgeScaledScore_3	
-          DSpnAgeScaledScore_4	DSpnAgeScaledScore_5	DSpnAgeScaledScore_6	
-          DSpnAgeScaledScore_7	DSpnAgeScaledScore_8	DSpnAgeScaledScore_9	
-          DSpnAgeScaledScore_10	
 
+            !Block (1-10)
+            Blockraw_1	Blockraw_2	Blockraw_3	Blockraw_4	Blockraw_5	Blockraw_6	
+            Blockraw_7	Blockraw_8	Blockraw_9	Blockraw_10	
 
-          !symraw (1-10)
-          Symraw_1	Symraw_2	Symraw_3	Symraw_4	Symraw_5	Symraw_6	
-          Symraw_7	Symraw_8	Symraw_9	Symraw_10
+            !FAS (1-10)
+            FAS_1	FAS_2	FAS_3	FAS_4	FAS_5	FAS_6	FAS_7	FAS_8	FAS_9	FAS_10
+            	
 
+            CAT_1	CAT_2	CAT_3	CAT_4
+            CAT_5	CAT_6	CAT_7	CAT_8	CAT_9	CAT_10	
 
-          !Block (1-10)
-          Blockraw_1	Blockraw_2	Blockraw_3	Blockraw_4	Blockraw_5	Blockraw_6	
-          Blockraw_7	Blockraw_8	Blockraw_9	Blockraw_10	
+            Grade_1	Grade_2	Grade_3	Grade_4	Grade_5	Grade_6	Grade_7	Grade_8	Grade_9	Grade_10
 
-          !FAS (1-10)
-          FAS_1	FAS_2	FAS_3	FAS_4	FAS_5	FAS_6	FAS_7	FAS_8	FAS_9	FAS_10
-          	
+            LM_1	LM_2	LM_3	LM_4	LM_5	LM_6	LM_7	LM_8	LM_9	LM_10	
 
-          CAT_1	CAT_2	CAT_3	CAT_4
-          CAT_5	CAT_6	CAT_7	CAT_8	CAT_9	CAT_10	
+            CFCopy_1	CFCopy_2	CFCopy_3	CFCopy_4	CFCopy_5	CFCopy_6	CFCopy_7	
+            CFCopy_8	CFCopy_9	CFCopy_10	
 
-          Grade_1	Grade_2	Grade_3	Grade_4	Grade_5	Grade_6	Grade_7	Grade_8	Grade_9	Grade_10	
+            CFRecall_1	CFRecall_2	CFRecall_3	CFRecall_4	CFRecall_5	CFRecall_6	CFRecall_7
+            CFRecall_8	CFRecall_9	CFRecall_10	
 
-          LM_1	LM_2	LM_3	LM_4	LM_5	LM_6	LM_7	LM_8	LM_9	LM_10	
 
-          CFCopy_1	CFCopy_2	CFCopy_3	CFCopy_4	CFCopy_5	CFCopy_6	CFCopy_7	
-          CFCopy_8	CFCopy_9	CFCopy_10	
+            TrA1_1	TrA1_2	TrA1_3	TrA1_4	TrA1_5	TrA1_6	TrA1_7	TrA1_8	TrA1_9	TrA1_10	
 
-          CFRecall_1	CFRecall_2	CFRecall_3	CFRecall_4	CFRecall_5	CFRecall_6	CFRecall_7
-          CFRecall_8	CFRecall_9	CFRecall_10	
+            TrlAZScore_1	TrlAZScore_2	TrlAZScore_3	TrlAZScore_4	TrlAZScore_5	
+            TrlAZScore_6	TrlAZScore_7	TrlAZScore_8	TrlAZScore_9	TrlAZScore_10	
 
 
-          TrA1_1	TrA1_2	TrA1_3	TrA1_4	TrA1_5	TrA1_6	TrA1_7	TrA1_8	TrA1_9	TrA1_10	
+            TMTARate_1	TMTARate_2	TMTARate_3	TMTARate_4	TMTARate_5	TMTARate_6	TMTARate_7	
+            TMTARate_8	TMTARate_9	TMTARate_10	
 
-          TrlAZScore_1	TrlAZScore_2	TrlAZScore_3	TrlAZScore_4	TrlAZScore_5	
-          TrlAZScore_6	TrlAZScore_7	TrlAZScore_8	TrlAZScore_9	TrlAZScore_10	
+            TrA2_1	TrA2_2	TrA2_3	TrA2_4	TrA2_5	TrA2_6	TrA2_7	TrA2_8	TrA2_9	TrA2_10	
 
+            TrB1_1	TrB1_2	TrB1_3	TrB1_4	TrB1_5	TrB1_6	TrB1_7	TrB1_8	TrB1_9	TrB1_10	
 
-          TMTARate_1	TMTARate_2	TMTARate_3	TMTARate_4	TMTARate_5	TMTARate_6	TMTARate_7	
-          TMTARate_8	TMTARate_9	TMTARate_10	
+            TrlBZScore_1	TrlBZScore_2	TrlBZScore_3	TrlBZScore_4	TrlBZScore_5	
+            TrlBZScore_6	TrlBZScore_7	TrlBZScore_8	TrlBZScore_9	TrlBZScore_10	
 
-          TrA2_1	TrA2_2	TrA2_3	TrA2_4	TrA2_5	TrA2_6	TrA2_7	TrA2_8	TrA2_9	TrA2_10	
+            TMTBRate_1	TMTBRate_2	TMTBRate_3	TMTBRate_4	TMTBRate_5	TMTBRate_6	TMTBRate_7
+            TMTBRate_8	TMTBRate_9	TMTBRate_10	
 
-          TrB1_1	TrB1_2	TrB1_3	TrB1_4	TrB1_5	TrB1_6	TrB1_7	TrB1_8	TrB1_9	TrB1_10	
+            TrB2_1	TrB2_2	TrB2_3	TrB2_4	TrB2_5	TrB2_6
+            TrB2_7	TrB2_8	TrB2_9	TrB2_10	
 
-          TrlBZScore_1	TrlBZScore_2	TrlBZScore_3	TrlBZScore_4	TrlBZScore_5	
-          TrlBZScore_6	TrlBZScore_7	TrlBZScore_8	TrlBZScore_9	TrlBZScore_10	
+            EpisodicMemory2FreeCatLM_1	EpisodicMemory2FreeCatLM_2	
+            EpisodicMemory2FreeCatLM_3	
+            EpisodicMemory2FreeCatLM_4	EpisodicMemory2FreeCatLM_5	
+            EpisodicMemory2FreeCatLM_6	EpisodicMemory2FreeCatLM_7	
+            EpisodicMemory2FreeCatLM_8	EpisodicMemory2FreeCatLM_9	
+            EpisodicMemory2FreeCatLM_10	
 
-          TMTBRate_1	TMTBRate_2	TMTBRate_3	TMTBRate_4	TMTBRate_5	TMTBRate_6	TMTBRate_7
-          TMTBRate_8	TMTBRate_9	TMTBRate_10	
+            FrontalExecFunc_1	FrontalExecFunc_2	FrontalExecFunc_3	FrontalExecFunc_4	
+            FrontalExecFunc_5	FrontalExecFunc_6	FrontalExecFunc_7	FrontalExecFunc_8	
+            FrontalExecFunc_9	FrontalExecFunc_10	
 
-          TrB2_1	TrB2_2	TrB2_3	TrB2_4	TrB2_5	TrB2_6
-          TrB2_7	TrB2_8	TrB2_9	TrB2_10	
+            Language2BostVoc_1	Language2BostVoc_2	
+            Language2BostVoc_3	Language2BostVoc_4	Language2BostVoc_5	
+            Language2BostVoc_6	Language2BostVoc_7	Language2BostVoc_8	
+            Language2BostVoc_9	Language2BostVoc_10	
 
-          EpisodicMemory2FreeCatLM_1	EpisodicMemory2FreeCatLM_2	
-          EpisodicMemory2FreeCatLM_3	
-          EpisodicMemory2FreeCatLM_4	EpisodicMemory2FreeCatLM_5	
-          EpisodicMemory2FreeCatLM_6	EpisodicMemory2FreeCatLM_7	
-          EpisodicMemory2FreeCatLM_8	EpisodicMemory2FreeCatLM_9	
-          EpisodicMemory2FreeCatLM_10	
+            DysExec_1	DysExec_2	DysExec_3	DysExec_4	DysExec_5	DysExec_6	DysExec_7	
+            DysExec_8	DysExec_9	DysExec_10	
 
-          FrontalExecFunc_1	FrontalExecFunc_2	FrontalExecFunc_3	FrontalExecFunc_4	
-          FrontalExecFunc_5	FrontalExecFunc_6	FrontalExecFunc_7	FrontalExecFunc_8	
-          FrontalExecFunc_9	FrontalExecFunc_10	
+            aMCI1_1	aMCI1_2	aMCI1_3	aMCI1_4	aMCI1_5	aMCI1_6	aMCI1_7	aMCI1_8	aMCI1_9	aMCI1_10
 
-          Language2BostVoc_1	Language2BostVoc_2	
-          Language2BostVoc_3	Language2BostVoc_4	Language2BostVoc_5	
-          Language2BostVoc_6	Language2BostVoc_7	Language2BostVoc_8	
-          Language2BostVoc_9	Language2BostVoc_10	
+            naMCI1_1	naMCI1_2	naMCI1_3	naMCI1_4	naMCI1_5	naMCI1_6	naMCI1_7	
+            naMCI1_8	naMCI1_9	naMCI1_10	
 
-          DysExec_1	DysExec_2	DysExec_3	DysExec_4	DysExec_5	DysExec_6	DysExec_7	
-          DysExec_8	DysExec_9	DysExec_10	
+            CumulMI_1	CumulMI_2	CumulMI_3	CumulMI_4	
+            CumulMI_5	CumulMI_6	CumulMI_7	CumulMI_8	CumulMI_9	CumulMI_10	
 
-          aMCI1_1	aMCI1_2	aMCI1_3	aMCI1_4	aMCI1_5	aMCI1_6	aMCI1_7	aMCI1_8	aMCI1_9	aMCI1_10	
+            CumulStroke_1	CumulStroke_2	CumulStroke_3	CumulStroke_4	CumulStroke_5	
+            CumulStroke_6	CumulStroke_7	CumulStroke_8	CumulStroke_9	CumulStroke_10	
 
-          naMCI1_1	naMCI1_2	naMCI1_3	naMCI1_4	naMCI1_5	naMCI1_6	naMCI1_7	
-          naMCI1_8	naMCI1_9	naMCI1_10	
+            CumulDiab_1	CumulDiab_2	CumulDiab_3	CumulDiab_4	CumulDiab_5	CumulDiab_6	
+            CumulDiab_7	CumulDiab_8	CumulDiab_9	CumulDiab_10	
 
-          CumulMI_1	CumulMI_2	CumulMI_3	CumulMI_4	
-          CumulMI_5	CumulMI_6	CumulMI_7	CumulMI_8	CumulMI_9	CumulMI_10	
+            DMever	
 
-          CumulStroke_1	CumulStroke_2	CumulStroke_3	CumulStroke_4	CumulStroke_5	
-          CumulStroke_6	CumulStroke_7	CumulStroke_8	CumulStroke_9	CumulStroke_10	
+            CumulHyper_1	CumulHyper_2	CumulHyper_3	CumulHyper_4	CumulHyper_5	
+            CumulHyper_6	CumulHyper_7	CumulHyper_8	CumulHyper_9	CumulHyper_10	
 
-          CumulDiab_1	CumulDiab_2	CumulDiab_3	CumulDiab_4	CumulDiab_5	CumulDiab_6	
-          CumulDiab_7	CumulDiab_8	CumulDiab_9	CumulDiab_10	
+            CumulAngina_1	CumulAngina_2	CumulAngina_3	CumulAngina_4	CumulAngina_5	
+            CumulAngina_6	CumulAngina_7	CumulAngina_8	CumulAngina_9	CumulAngina_10
+            	
+            CumulHrtFail_1	CumulHrtFail_2	CumulHrtFail_3	CumulHrtFail_4	CumulHrtFail_5	
+            CumulHrtFail_6	CumulHrtFail_7	CumulHrtFail_8	CumulHrtFail_9	CumulHrtFail_10	
 
-          DMever	
+            CumulPD_1	CumulPD_2	CumulPD_3	CumulPD_4	CumulPD_5	CumulPD_6	CumulPD_7	
+            CumulPD_8	CumulPD_9	CumulPD_10	
 
-          CumulHyper_1	CumulHyper_2	CumulHyper_3	CumulHyper_4	CumulHyper_5	
-          CumulHyper_6	CumulHyper_7	CumulHyper_8	CumulHyper_9	CumulHyper_10	
+            CumulDep_1	CumulDep_2	CumulDep_3	CumulDep_4	
+            CumulDep_5	CumulDep_6	CumulDep_7	CumulDep_8	CumulDep_9	CumulDep_10	
 
-          CumulAngina_1	CumulAngina_2	CumulAngina_3	CumulAngina_4	CumulAngina_5	
-          CumulAngina_6	CumulAngina_7	CumulAngina_8	CumulAngina_9	CumulAngina_10
-          	
-          CumulHrtFail_1	CumulHrtFail_2	CumulHrtFail_3	CumulHrtFail_4	CumulHrtFail_5	
-          CumulHrtFail_6	CumulHrtFail_7	CumulHrtFail_8	CumulHrtFail_9	CumulHrtFail_10	
+            CumulAnemia_1	CumulAnemia_2	CumulAnemia_3	CumulAnemia_4	CumulAnemia_5	
+            CumulAnemia_6	CumulAnemia_7	CumulAnemia_8	CumulAnemia_9	CumulAnemia_10	
 
-          CumulPD_1	CumulPD_2	CumulPD_3	CumulPD_4	CumulPD_5	CumulPD_6	CumulPD_7	
-          CumulPD_8	CumulPD_9	CumulPD_10	
+            CVIndexArWave_1 CVIndexArWave_2	CVIndexArWave_3	CVIndexArWave_4	CVIndexArWave_5	
+            CVIndexArWave_6 CVIndexArWave_7	CVIndexArWave_8	CVIndexArWave_9	CVIndexArWave_10
 
-          CumulDep_1	CumulDep_2	CumulDep_3	CumulDep_4	
-          CumulDep_5	CumulDep_6	CumulDep_7	CumulDep_8	CumulDep_9	CumulDep_10	
 
-          CumulAnemia_1	CumulAnemia_2	CumulAnemia_3	CumulAnemia_4	CumulAnemia_5	
-          CumulAnemia_6	CumulAnemia_7	CumulAnemia_8	CumulAnemia_9	CumulAnemia_10	
+            CVIndexCumul_1 CVIndexCumul_2	CVIndexCumul_3	CVIndexCumul_4	CVIndexCumul_5	
+            CVIndexCumul_6 CVIndexCumul_7	CVIndexCumul_8	CVIndexCumul_9	CVIndexCumul_10	
 
-          CVIndexArWave_1 CVIndexArWave_2	CVIndexArWave_3	CVIndexArWave_4	CVIndexArWave_5	
-          CVIndexArWave_6 CVIndexArWave_7	CVIndexArWave_8	CVIndexArWave_9	CVIndexArWave_10	
+            BloodPres1stSys_1	BloodPres1stSys_2	BloodPres1stSys_3	BloodPres1stSys_4	
+            BloodPres1stSys_5	BloodPres1stSys_6	BloodPres1stSys_7	BloodPres1stSys_8	
+            BloodPres1stSys_9	BloodPres1stSys_10	
 
+            BloodPres1stDia_1	BloodPres1stDia_2	BloodPres1stDia_3	BloodPres1stDia_4	
+            BloodPres1stDia_5	BloodPres1stDia_6	BloodPres1stDia_7	BloodPres1stDia_8	
+            BloodPres1stDia_9	BloodPres1stDia_10	
 
-          CVIndexCumul_1 CVIndexCumul_2	CVIndexCumul_3	CVIndexCumul_4	CVIndexCumul_5	
-          CVIndexCumul_6 CVIndexCumul_7	CVIndexCumul_8	CVIndexCumul_9	CVIndexCumul_10	
+            Ht_1	Ht_2	Ht_3	Ht_4	Ht_5	Ht_6	Ht_7	Ht_8	Ht_9	Ht_10	
 
-          BloodPres1stSys_1	BloodPres1stSys_2	BloodPres1stSys_3	BloodPres1stSys_4	
-          BloodPres1stSys_5	BloodPres1stSys_6	BloodPres1stSys_7	BloodPres1stSys_8	
-          BloodPres1stSys_9	BloodPres1stSys_10	
+            Wt_1	Wt_2	Wt_3	Wt_4	Wt_5	Wt_6	Wt_7	Wt_8	Wt_9	Wt_10	
 
-          BloodPres1stDia_1	BloodPres1stDia_2	BloodPres1stDia_3	BloodPres1stDia_4	
-          BloodPres1stDia_5	BloodPres1stDia_6	BloodPres1stDia_7	BloodPres1stDia_8	
-          BloodPres1stDia_9	BloodPres1stDia_10	
+            BMI_1	BMI_2	BMI_3	BMI_4	BMI_5	BMI_6	BMI_7	BMI_8	BMI_9	BMI_10	
 
-          Ht_1	Ht_2	Ht_3	Ht_4	Ht_5	Ht_6	Ht_7	Ht_8	Ht_9	Ht_10	
+            Waist_1	Waist_2	Waist_3	Waist_4	Waist_5	Waist_6	Waist_7	Waist_8	Waist_9	Waist_10
 
-          Wt_1	Wt_2	Wt_3	Wt_4	Wt_5	Wt_6	Wt_7	Wt_8	Wt_9	Wt_10	
+            Hip_1	Hip_2	Hip_3	Hip_4	Hip_5	Hip_6	Hip_7	Hip_8	Hip_9	Hip_10	
 
-          BMI_1	BMI_2	BMI_3	BMI_4	BMI_5	BMI_6	BMI_7	BMI_8	BMI_9	BMI_10	
+            Velocity_1	Velocity_2	Velocity_3	Velocity_4	Velocity_5	Velocity_6	Velocity_7	
+            Velocity_8	Velocity_9	Velocity_10	
 
-          Waist_1	Waist_2	Waist_3	Waist_4	Waist_5	Waist_6	Waist_7	Waist_8	Waist_9	Waist_10	
+            ChairRaiseTime_1	ChairRaiseTime_2	ChairRaiseTime_3	ChairRaiseTime_4	
+            ChairRaiseTime_5	ChairRaiseTime_6	ChairRaiseTime_7	ChairRaiseTime_8	
+            ChairRaiseTime_9	ChairRaiseTime_10	
 
-          Hip_1	Hip_2	Hip_3	Hip_4	Hip_5	Hip_6	Hip_7	Hip_8	Hip_9	Hip_10	
+            FlamingoStandTime_1	FlamingoStandTime_2	FlamingoStandTime_3	FlamingoStandTime_4	
+            FlamingoStandTime_5	FlamingoStandTime_6	FlamingoStandTime_7	FlamingoStandTime_8	
+            FlamingoStandTime_9	FlamingoStandTime_10	
 
-          Velocity_1	Velocity_2	Velocity_3	Velocity_4	Velocity_5	Velocity_6	Velocity_7	
-          Velocity_8	Velocity_9	Velocity_10	
+            MaxEff_1	MaxEff_2	MaxEff_3	MaxEff_4	MaxEff_5	MaxEff_6	MaxEff_7	
+            MaxEff_8	MaxEff_9	MaxEff_10	
 
-          ChairRaiseTime_1	ChairRaiseTime_2	ChairRaiseTime_3	ChairRaiseTime_4	
-          ChairRaiseTime_5	ChairRaiseTime_6	ChairRaiseTime_7	ChairRaiseTime_8	
-          ChairRaiseTime_9	ChairRaiseTime_10	
+            PeakFlowBestOf3_1	PeakFlowBestOf3_2	PeakFlowBestOf3_3	PeakFlowBestOf3_4	
+            PeakFlowBestOf3_5	PeakFlowBestOf3_6	PeakFlowBestOf3_7	PeakFlowBestOf3_8	
+            PeakFlowBestOf3_9	PeakFlowBestOf3_10	
 
-          FlamingoStandTime_1	FlamingoStandTime_2	FlamingoStandTime_3	FlamingoStandTime_4	
-          FlamingoStandTime_5	FlamingoStandTime_6	FlamingoStandTime_7	FlamingoStandTime_8	
-          FlamingoStandTime_9	FlamingoStandTime_10	
+            UPDRS15_1	UPDRS15_2	UPDRS15_3	UPDRS15_4	UPDRS15_5	UPDRS15_6	UPDRS15_7	
+            UPDRS15_8	UPDRS15_9	UPDRS15_10	
 
-          MaxEff_1	MaxEff_2	MaxEff_3	MaxEff_4	MaxEff_5	MaxEff_6	MaxEff_7	
-          MaxEff_8	MaxEff_9	MaxEff_10	
+            UPDRS27_1	UPDRS27_2	UPDRS27_3	UPDRS27_4	UPDRS27_5	UPDRS27_6	UPDRS27_7	
+            UPDRS27_8	UPDRS27_9	UPDRS27_10	
 
-          PeakFlowBestOf3_1	PeakFlowBestOf3_2	PeakFlowBestOf3_3	PeakFlowBestOf3_4	
-          PeakFlowBestOf3_5	PeakFlowBestOf3_6	PeakFlowBestOf3_7	PeakFlowBestOf3_8	
-          PeakFlowBestOf3_9	PeakFlowBestOf3_10	
+            UPDRS28_1	UPDRS28_2	UPDRS28_3	UPDRS28_4	
+            UPDRS28_5	UPDRS28_6	UPDRS28_7	UPDRS28_8	UPDRS28_9	UPDRS28_10	
 
-          UPDRS15_1	UPDRS15_2	UPDRS15_3	UPDRS15_4	UPDRS15_5	UPDRS15_6	UPDRS15_7	
-          UPDRS15_8	UPDRS15_9	UPDRS15_10	
+            UPDRS29_1	UPDRS29_2	UPDRS29_3	UPDRS29_4	UPDRS29_5	UPDRS29_6	UPDRS29_7	
+            UPDRS29_8	UPDRS29_9	UPDRS29_10	
 
-          UPDRS27_1	UPDRS27_2	UPDRS27_3	UPDRS27_4	UPDRS27_5	UPDRS27_6	UPDRS27_7	
-          UPDRS27_8	UPDRS27_9	UPDRS27_10	
+            EMail_1	EMail_2	EMail_3	EMail_4	EMail_5	EMail_6	EMail_7	EMail_8	EMail_9	EMail_10
 
-          UPDRS28_1	UPDRS28_2	UPDRS28_3	UPDRS28_4	
-          UPDRS28_5	UPDRS28_6	UPDRS28_7	UPDRS28_8	UPDRS28_9	UPDRS28_10	
+            Aerobic_1	Aerobic_2	Aerobic_3	Aerobic_4	Aerobic_5	Aerobic_6	Aerobic_7	
+            Aerobic_8	Aerobic_9	Aerobic_10	
 
-          UPDRS29_1	UPDRS29_2	UPDRS29_3	UPDRS29_4	UPDRS29_5	UPDRS29_6	UPDRS29_7	
-          UPDRS29_8	UPDRS29_9	UPDRS29_10	
+            HrsFor2WeekLight_1	HrsFor2WeekLight_2	HrsFor2WeekLight_3	HrsFor2WeekLight_4	
+            HrsFor2WeekLight_5	HrsFor2WeekLight_6	HrsFor2WeekLight_7	HrsFor2WeekLight_8	
+            HrsFor2WeekLight_9	HrsFor2WeekLight_10	
 
-          EMail_1	EMail_2	EMail_3	EMail_4	EMail_5	EMail_6	EMail_7	EMail_8	EMail_9	EMail_10	
+            HrsFor2WeekMedium_1	HrsFor2WeekMedium_2	HrsFor2WeekMedium_3	HrsFor2WeekMedium_4	
+            HrsFor2WeekMedium_5	HrsFor2WeekMedium_6	HrsFor2WeekMedium_7	HrsFor2WeekMedium_8	
+            HrsFor2WeekMedium_9	HrsFor2WeekMedium_10	
 
-          Aerobic_1	Aerobic_2	Aerobic_3	Aerobic_4	Aerobic_5	Aerobic_6	Aerobic_7	
-          Aerobic_8	Aerobic_9	Aerobic_10	
+            HrsFor2WeekHeavy_1	HrsFor2WeekHeavy_2	HrsFor2WeekHeavy_3	HrsFor2WeekHeavy_4	
+            HrsFor2WeekHeavy_5	HrsFor2WeekHeavy_6	HrsFor2WeekHeavy_7	HrsFor2WeekHeavy_8	
+            HrsFor2WeekHeavy_9	HrsFor2WeekHeavy_10	
 
-          HrsFor2WeekLight_1	HrsFor2WeekLight_2	HrsFor2WeekLight_3	HrsFor2WeekLight_4	
-          HrsFor2WeekLight_5	HrsFor2WeekLight_6	HrsFor2WeekLight_7	HrsFor2WeekLight_8	
-          HrsFor2WeekLight_9	HrsFor2WeekLight_10	
+            DaysPerWeekLight_1	DaysPerWeekLight_2	DaysPerWeekLight_3	DaysPerWeekLight_4	
+            DaysPerWeekLight_5	DaysPerWeekLight_6	DaysPerWeekLight_7	DaysPerWeekLight_8	
+            DaysPerWeekLight_9	DaysPerWeekLight_10	
 
-          HrsFor2WeekMedium_1	HrsFor2WeekMedium_2	HrsFor2WeekMedium_3	HrsFor2WeekMedium_4	
-          HrsFor2WeekMedium_5	HrsFor2WeekMedium_6	HrsFor2WeekMedium_7	HrsFor2WeekMedium_8	
-          HrsFor2WeekMedium_9	HrsFor2WeekMedium_10	
+            DaysPerWeekMedium_1 DaysPerWeekMedium_2	DaysPerWeekMedium_3	DaysPerWeekMedium_4	
+            DaysPerWeekMedium_5	
+            DaysPerWeekMedium_6	DaysPerWeekMedium_7	DaysPerWeekMedium_8	DaysPerWeekMedium_9	
+            DaysPerWeekMedium_10	
 
-          HrsFor2WeekHeavy_1	HrsFor2WeekHeavy_2	HrsFor2WeekHeavy_3	HrsFor2WeekHeavy_4	
-          HrsFor2WeekHeavy_5	HrsFor2WeekHeavy_6	HrsFor2WeekHeavy_7	HrsFor2WeekHeavy_8	
-          HrsFor2WeekHeavy_9	HrsFor2WeekHeavy_10	
+            DaysPerWeekHeavy_1	DaysPerWeekHeavy_2	DaysPerWeekHeavy_3	DaysPerWeekHeavy_4	
+            DaysPerWeekHeavy_5	DaysPerWeekHeavy_6	DaysPerWeekHeavy_7	DaysPerWeekHeavy_8	
+            DaysPerWeekHeavy_9	DaysPerWeekHeavy_10	
 
-          DaysPerWeekLight_1	DaysPerWeekLight_2	DaysPerWeekLight_3	DaysPerWeekLight_4	
-          DaysPerWeekLight_5	DaysPerWeekLight_6	DaysPerWeekLight_7	DaysPerWeekLight_8	
-          DaysPerWeekLight_9	DaysPerWeekLight_10	
+            CigsPerDay_1	CigsPerDay_2	CigsPerDay_3	
+            CigsPerDay_4	CigsPerDay_5	CigsPerDay_6	CigsPerDay_7	CigsPerDay_8	
+            CigsPerDay_9	CigsPerDay_10	
 
-          DaysPerWeekMedium_1 DaysPerWeekMedium_2	DaysPerWeekMedium_3	DaysPerWeekMedium_4	
-          DaysPerWeekMedium_5	
-          DaysPerWeekMedium_6	DaysPerWeekMedium_7	DaysPerWeekMedium_8	DaysPerWeekMedium_9	
-          DaysPerWeekMedium_10	
+            SmokNow_1	SmokNow_2	SmokNow_3	SmokNow_4	
+            SmokNow_5	SmokNow_6	SmokNow_7	SmokNow_8	SmokNow_9	SmokNow_10	
 
-          DaysPerWeekHeavy_1	DaysPerWeekHeavy_2	DaysPerWeekHeavy_3	DaysPerWeekHeavy_4	
-          DaysPerWeekHeavy_5	DaysPerWeekHeavy_6	DaysPerWeekHeavy_7	DaysPerWeekHeavy_8	
-          DaysPerWeekHeavy_9	DaysPerWeekHeavy_10	
+            SmokEver_1	SmokEver_2	SmokEver_3	SmokEver_4	SmokEver_5	SmokEver_6	SmokEver_7	
+            SmokEver_8	SmokEver_9	SmokEver_10	
 
-          CigsPerDay_1	CigsPerDay_2	CigsPerDay_3	
-          CigsPerDay_4	CigsPerDay_5	CigsPerDay_6	CigsPerDay_7	CigsPerDay_8	
-          CigsPerDay_9	CigsPerDay_10	
+            SmokNumYrs_1	SmokNumYrs_2	SmokNumYrs_3	SmokNumYrs_4 SmokNumYrs_5	
+            SmokNumYrs_6	SmokNumYrs_7	SmokNumYrs_8	SmokNumYrs_9 SmokNumYrs_10	
 
-          SmokNow_1	SmokNow_2	SmokNow_3	SmokNow_4	
-          SmokNow_5	SmokNow_6	SmokNow_7	SmokNow_8	SmokNow_9	SmokNow_10	
+            DrinksPerMonth_1	DrinksPerMonth_2	DrinksPerMonth_3 DrinksPerMonth_4	
+            DrinksPerMonth_5	DrinksPerMonth_6	DrinksPerMonth_7	DrinksPerMonth_8	
+            DrinksPerMonth_9	DrinksPerMonth_10	
 
-          SmokEver_1	SmokEver_2	SmokEver_3	SmokEver_4	SmokEver_5	SmokEver_6	SmokEver_7	
-          SmokEver_8	SmokEver_9	SmokEver_10	
+            Glucose_1	Glucose_2	Glucose_3	Glucose_4	Glucose_5	Glucose_6	Glucose_7	
+            Glucose_8	Glucose_9	Glucose_10	
 
-          SmokNumYrs_1	SmokNumYrs_2	SmokNumYrs_3	SmokNumYrs_4 SmokNumYrs_5	
-          SmokNumYrs_6	SmokNumYrs_7	SmokNumYrs_8	SmokNumYrs_9 SmokNumYrs_10	
+            chronicpi1	chronicpi2	chronicpi3	chronicpi4	chronicpi5	chronicpi6	chronicpi7	
+            chronicpi8	chronicpi9	chronicpi10	
 
-          DrinksPerMonth_1	DrinksPerMonth_2	DrinksPerMonth_3 DrinksPerMonth_4	
-          DrinksPerMonth_5	DrinksPerMonth_6	DrinksPerMonth_7	DrinksPerMonth_8	
-          DrinksPerMonth_9	DrinksPerMonth_10	
+            Pdever
+            Cvd cisum;
+          MISSING = ALL(-9999); !specification of missing observations coded in data file
 
-          Glucose_1	Glucose_2	Glucose_3	Glucose_4	Glucose_5	Glucose_6	Glucose_7	
-          Glucose_8	Glucose_9	Glucose_10	
+                 USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 !time9 	
+                             p1 p2 p3 p4 p5 p6 p7 p8 !p9
+                           c1 c2 c3 c4 c5 c6 c7 c8 !c9
+                           Bage educ height Diab SmokHist Cardio DepSymp;
+                 TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8; !time9;
 
-          chronicpi1	chronicpi2	chronicpi3	chronicpi4	chronicpi5	chronicpi6	chronicpi7	
-          chronicpi8	chronicpi9	chronicpi10	
+                USEOBSERVATIONS are DemEver EQ 0 and sex EQ 0;
 
-          Pdever
-          Cvd cisum;
-        MISSING = ALL(-9999); !specification of missing observations coded in data file
+          Define: p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
+         p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
+         p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	!p9=PeakFlowBestOf3_9;	
 
-               USEVAR are  time1 time2 time3 time4 time5 time6 time7 time8 !time9 	
-                           p1 p2 p3 p4 p5 p6 p7 p8 !p9
-                         c1 c2 c3 c4 c5 c6 c7 c8 !c9
-                         Bage educ height Diab SmokHist Cardio DepSymp;
-               TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8; !time9;
+                 	c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;
+                             c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	
+                             !c9=Blockraw_9;	
 
-              USEOBSERVATIONS are DemEver EQ 0 and sex EQ 0;
 
-        Define: p1=PeakFlowBestOf3_1;	p2=PeakFlowBestOf3_2;	p3=PeakFlowBestOf3_3;
-       p4=PeakFlowBestOf3_4; p5=PeakFlowBestOf3_5;	p6=PeakFlowBestOf3_6;	
-       p7=PeakFlowBestOf3_7; p8=PeakFlowBestOf3_8;	!p9=PeakFlowBestOf3_9;	
+                    Bage=AgeAtWaveOne-70;   !Centered at Age 70
+                  Bagesq=(AgeatWaveOne-70)**2;
+                  Dage=deathage;
+                  !female=sex;         !0=Male
+                  Educ=Educyrs-7;     ! Centered at 7 years
+                  SEP=DEMO23;
+                  time1=wave_1;
+                  time2=wave_2;
+                  time3=wave_3;
+                  time4=wave_4;
+                  time5=wave_5;
+                  time6=wave_6;
+                  time7=wave_7;
+                  time8=wave_8;
+                  time9=wave_9;
+                  !Marstat;
+                  Height=Ht_1-172;
+                  !Weight
+                  !BMI
+                  SmokHist=SmokEver_1;
+                  !Alcohol;
+                  !CompExp;
+                  !PhysAct;
+                  !BP;
+                  DepSymp = GDSScore_1;
+                  Cardio = cvd;
+                  Diab=DMever;
+                  !MorbInd;
 
-               	c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
-                           c6=Blockraw_6;	c7=Blockraw_7;	c8=Blockraw_8;	
-                           !c9=Blockraw_9;	
+                  AgeAtWave_1Educyrs=Bage*Educ;
 
+          ANALYSIS: TYPE = RANDOM;
+           ESTIMATOR=MLF;
+           miterations=1000;
+       h1convergence = 0.00001;
+           COVERAGE = .001;
 
-                  Bage=AgeAtWaveOne-70;   !Centered at Age 70
-                Bagesq=(AgeatWaveOne-70)**2;
-                Dage=deathage;
-                !female=sex;         !0=Male
-                Educ=Educyrs-7;     ! Centered at 7 years
-                SEP=DEMO23;
-                time1=wave_1;
-                time2=wave_2;
-                time3=wave_3;
-                time4=wave_4;
-                time5=wave_5;
-                time6=wave_6;
-                time7=wave_7;
-                time8=wave_8;
-                time9=wave_9;
-                !Marstat;
-                Height=Ht_1-172;
-                !Weight
-                !BMI
-                SmokHist=SmokEver_1;
-                !Alcohol;
-                !CompExp;
-                !PhysAct;
-                !BP;
-                DepSymp = GDSScore_1;
-                Cardio = cvd;
-                Diab=DMever;
-                !MorbInd;
 
-                AgeAtWave_1Educyrs=Bage*Educ;
+          MODEL:
+          ip sp | p1-p8 AT time1-time8;
+          ic sc | c1 - c8 AT time1-time8;
+          ip sp ic sc WITH ip sp ic sc;
+          ip sp ic sc ON Bage educ height smokhist cardio diab DepSymp;
+          !ip sp ic sc ON Bage educ height smokhist cardio diab depsymp;
+          c1-c8 (res_c);
+          p1-p8 (res_p);
+          p1-p8 with c1-c8(res_cov);
 
-        ANALYSIS: TYPE = RANDOM;
-         ESTIMATOR=MLF;
-         miterations=1000;
-     h1convergence = 0.00001;
-         COVERAGE = .001;
+          ! ic sc qc| c1-c9 AT time1-time9;
+           !ic sc qc ON Bage educ;
+           !c1-c9 (res_c);
 
+                 ! ip sp ic sc ON Bage;
 
-        MODEL:
-        ip sp | p1-p8 AT time1-time8;
-        ic sc | c1 - c8 AT time1-time8;
-        ip sp ic sc ON Bage educ height smokhist cardio diab DepSymp;
-        !ip sp ic sc ON Bage educ height smokhist cardio diab depsymp;
-        c1-c8 (res_c);
-        p1-p8 (res_p);
 
-        ! ic sc qc| c1-c9 AT time1-time9;
-         !ic sc qc ON Bage educ;
-         !c1-c9 (res_c);
 
-               ! ip sp ic sc ON Bage;
+        !ip sp ON Bage;
 
+                !p1-p9 (res_p);
 
 
-      !ip sp ON Bage;
+                 ! p1-p5 pwith c1-c5(res_cov);
+                  !Paired covariances constrained to be equal across time
 
-              !p1-p9 (res_p);
+          OUTPUT: sampstat
+          !sampstat Cinterval;
 
 
-               ! p1-p5 pwith c1-c5(res_cov);
-                !Paired covariances constrained to be equal across time
-
-        OUTPUT: sampstat
-        !sampstat Cinterval;
 
 
 
 
 *** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+            Grade_1	Grade_2	Grade_3	Grade_4	Grade_5	Grade_6	Grade_7	Grade_8	Grade_9	Grade_10	
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+            aMCI1_1	aMCI1_2	aMCI1_3	aMCI1_4	aMCI1_5	aMCI1_6	aMCI1_7	aMCI1_8	aMCI1_9	aMCI1_10	
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+            CVIndexArWave_6 CVIndexArWave_7	CVIndexArWave_8	CVIndexArWave_9	CVIndexArWave_10	
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+            Waist_1	Waist_2	Waist_3	Waist_4	Waist_5	Waist_6	Waist_7	Waist_8	Waist_9	Waist_10	
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+            EMail_1	EMail_2	EMail_3	EMail_4	EMail_5	EMail_6	EMail_7	EMail_8	EMail_9	EMail_10	
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+                 	c1=Blockraw_1;	c2=Blockraw_2;	c3=Blockraw_3;	c4=Blockraw_4;	c5=Blockraw_5;	
+*** WARNING
   Data set contains cases with missing on x-variables.
   These cases were not included in the analysis.
   Number of cases with missing on x-variables:  312
-   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+   7 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
 
 
 
@@ -816,130 +835,964 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
      DEPSYMP               1.681       1.479       0.000   22.22%       0.000      1.000      1.000
               72.000       2.440       2.556       7.000    2.78%       2.000      3.000
 
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN ILL-CONDITIONED
+     FISHER INFORMATION MATRIX.  CHANGE YOUR MODEL AND/OR STARTING VALUES.
 
-THE MODEL ESTIMATION TERMINATED NORMALLY
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO A NON-POSITIVE
+     DEFINITE FISHER INFORMATION MATRIX.  THIS MAY BE DUE TO THE STARTING VALUES
+     BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE CONDITION
+     NUMBER IS      -0.669D-16.
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES COULD NOT BE
+     COMPUTED.  THIS IS OFTEN DUE TO THE STARTING VALUES BUT MAY ALSO BE
+     AN INDICATION OF MODEL NONIDENTIFICATION.  CHANGE YOUR MODEL AND/OR
+     STARTING VALUES.  PROBLEM INVOLVING THE FOLLOWING PARAMETER:
+     Parameter 39, IC WITH IP
 
 
 
-MODEL FIT INFORMATION
-
-Number of Free Parameters                       44
-
-Loglikelihood
-
-          H0 Value                       -2530.914
-
-Information Criteria
-
-          Akaike (AIC)                    5149.829
-          Bayesian (BIC)                  5250.002
-          Sample-Size Adjusted BIC        5111.373
-            (n* = (n + 2) / 24)
 
 
 
 MODEL RESULTS
 
-                                                    Two-Tailed
-                    Estimate       S.E.  Est./S.E.    P-Value
+                    Estimate
 
  IP         ON
-    BAGE              -6.321      7.371     -0.858      0.391
-    EDUC               5.418      9.201      0.589      0.556
-    HEIGHT             3.625      4.479      0.809      0.418
-    SMOKHIST         -38.940    102.978     -0.378      0.705
-    CARDIO           -12.218     78.968     -0.155      0.877
-    DIAB              -8.290     74.991     -0.111      0.912
-    DEPSYMP          -10.634     24.452     -0.435      0.664
+    BAGE              -6.338
+    EDUC               5.426
+    HEIGHT             3.623
+    SMOKHIST         -39.059
+    CARDIO           -12.198
+    DIAB              -8.328
+    DEPSYMP          -10.676
 
  SP         ON
-    BAGE               0.957      1.845      0.519      0.604
-    EDUC               0.052      2.310      0.022      0.982
-    HEIGHT            -0.377      1.512     -0.250      0.803
-    SMOKHIST           4.073     16.717      0.244      0.808
-    CARDIO            -6.631     22.049     -0.301      0.764
-    DIAB               0.129     26.235      0.005      0.996
-    DEPSYMP           -0.165      7.698     -0.021      0.983
+    BAGE               0.967
+    EDUC               0.048
+    HEIGHT            -0.377
+    SMOKHIST           4.139
+    CARDIO            -6.647
+    DIAB               0.165
+    DEPSYMP           -0.142
 
  IC         ON
-    BAGE               0.275      0.517      0.531      0.596
-    EDUC               0.572      0.561      1.019      0.308
-    HEIGHT             0.058      0.252      0.230      0.818
-    SMOKHIST          -3.284      4.144     -0.792      0.428
-    CARDIO            -0.473      3.631     -0.130      0.896
-    DIAB              -4.298      5.651     -0.761      0.447
-    DEPSYMP            0.798      1.381      0.578      0.563
+    BAGE               0.275
+    EDUC               0.572
+    HEIGHT             0.058
+    SMOKHIST          -3.283
+    CARDIO            -0.473
+    DIAB              -4.298
+    DEPSYMP            0.798
 
  SC         ON
-    BAGE              -0.081      0.100     -0.807      0.420
-    EDUC              -0.080      0.099     -0.803      0.422
-    HEIGHT            -0.044      0.061     -0.723      0.470
-    SMOKHIST           0.329      0.910      0.361      0.718
-    CARDIO             0.299      1.519      0.197      0.844
-    DIAB              -0.566      1.228     -0.461      0.645
-    DEPSYMP            0.109      0.387      0.281      0.779
+    BAGE              -0.081
+    EDUC              -0.080
+    HEIGHT            -0.044
+    SMOKHIST           0.328
+    CARDIO             0.299
+    DIAB              -0.567
+    DEPSYMP            0.108
+
+ IP       WITH
+    SP              -897.359
+    IC              -146.349
+    SC                 4.034
 
  SP       WITH
-    IP              -890.639   1164.352     -0.765      0.444
+    IC                83.719
+    SC                -1.798
 
  IC       WITH
-    IP              -135.807    350.292     -0.388      0.698
-    SP                83.202     81.332      1.023      0.306
+    SC                -0.941
 
- SC       WITH
-    IP                 3.856     59.450      0.065      0.948
-    SP                -1.781     14.548     -0.122      0.903
-    IC                -0.938      3.915     -0.240      0.811
+ P1       WITH
+    C1                 9.240
+    C2                 9.240
+    C3                 9.240
+    C4                 9.240
+    C5                 9.240
+    C6                 9.240
+    C7                 9.240
+    C8                 9.240
+
+ P2       WITH
+    C1                 9.240
+    C2                 9.240
+    C3                 9.240
+    C4                 9.240
+    C5                 9.240
+    C6                 9.240
+    C7                 9.240
+    C8                 9.240
+
+ P3       WITH
+    C1                 9.240
+    C2                 9.240
+    C3                 9.240
+    C4                 9.240
+    C5                 9.240
+    C6                 9.240
+    C7                 9.240
+    C8                 9.240
+
+ P4       WITH
+    C1                 9.240
+    C2                 9.240
+    C3                 9.240
+    C4                 9.240
+    C5                 9.240
+    C6                 9.240
+    C7                 9.240
+    C8                 9.240
+
+ P5       WITH
+    C1                 9.240
+    C2                 9.240
+    C3                 9.240
+    C4                 9.240
+    C5                 9.240
+    C6                 9.240
+    C7                 9.240
+    C8                 9.240
+
+ P6       WITH
+    C1                 9.240
+    C2                 9.240
+    C3                 9.240
+    C4                 9.240
+    C5                 9.240
+    C6                 9.240
+    C7                 9.240
+    C8                 9.240
+
+ P7       WITH
+    C1                 9.240
+    C2                 9.240
+    C3                 9.240
+    C4                 9.240
+    C5                 9.240
+    C6                 9.240
+    C7                 9.240
+    C8                 9.240
+
+ P8       WITH
+    C1                 9.240
+    C2                 9.240
+    C3                 9.240
+    C4                 9.240
+    C5                 9.240
+    C6                 9.240
+    C7                 9.240
+    C8                 9.240
 
  Intercepts
-    P1                 0.000      0.000    999.000    999.000
-    P2                 0.000      0.000    999.000    999.000
-    P3                 0.000      0.000    999.000    999.000
-    P4                 0.000      0.000    999.000    999.000
-    P5                 0.000      0.000    999.000    999.000
-    P6                 0.000      0.000    999.000    999.000
-    P7                 0.000      0.000    999.000    999.000
-    P8                 0.000      0.000    999.000    999.000
-    C1                 0.000      0.000    999.000    999.000
-    C2                 0.000      0.000    999.000    999.000
-    C3                 0.000      0.000    999.000    999.000
-    C4                 0.000      0.000    999.000    999.000
-    C5                 0.000      0.000    999.000    999.000
-    C6                 0.000      0.000    999.000    999.000
-    C7                 0.000      0.000    999.000    999.000
-    C8                 0.000      0.000    999.000    999.000
-    IP               475.121    133.208      3.567      0.000
-    SP               -32.799     33.935     -0.967      0.334
-    IC                22.521      8.535      2.639      0.008
-    SC                 1.146      1.601      0.716      0.474
+    P1                 0.000
+    P2                 0.000
+    P3                 0.000
+    P4                 0.000
+    P5                 0.000
+    P6                 0.000
+    P7                 0.000
+    P8                 0.000
+    C1                 0.000
+    C2                 0.000
+    C3                 0.000
+    C4                 0.000
+    C5                 0.000
+    C6                 0.000
+    C7                 0.000
+    C8                 0.000
+    IP               475.387
+    SP               -32.957
+    IC                22.520
+    SC                 1.146
 
  Residual Variances
-    P1              4519.388    914.793      4.940      0.000
-    P2              4519.388    914.793      4.940      0.000
-    P3              4519.388    914.793      4.940      0.000
-    P4              4519.388    914.793      4.940      0.000
-    P5              4519.388    914.793      4.940      0.000
-    P6              4519.388    914.793      4.940      0.000
-    P7              4519.388    914.793      4.940      0.000
-    P8              4519.388    914.793      4.940      0.000
-    C1                23.710      3.288      7.211      0.000
-    C2                23.710      3.288      7.211      0.000
-    C3                23.710      3.288      7.211      0.000
-    C4                23.710      3.288      7.211      0.000
-    C5                23.710      3.288      7.211      0.000
-    C6                23.710      3.288      7.211      0.000
-    C7                23.710      3.288      7.211      0.000
-    C8                23.710      3.288      7.211      0.000
-    IP             12334.745   5392.883      2.287      0.022
-    SP               219.074    394.536      0.555      0.579
-    IC                41.294     22.982      1.797      0.072
-    SC                 0.036      0.735      0.048      0.961
+    P1              4527.165
+    P2              4527.165
+    P3              4527.165
+    P4              4527.165
+    P5              4527.165
+    P6              4527.165
+    P7              4527.165
+    P8              4527.165
+    C1                23.714
+    C2                23.714
+    C3                23.714
+    C4                23.714
+    C5                23.714
+    C6                23.714
+    C7                23.714
+    C8                23.714
+    IP             12360.251
+    SP               219.172
+    IC                41.305
+    SC                 0.035
 
 
-QUALITY OF NUMERICAL RESULTS
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
 
-     Condition Number for the Information Matrix              0.102E-06
-       (ratio of smallest to largest eigenvalue)
+     ip sp | p1-p8 AT time1-time8;
+     ic sc | c1-c8 AT time1-time8;
+
+     ip ON bage*-6.33754;
+     ip ON educ*5.42560;
+     ip ON height*3.62334;
+     ip ON smokhist*-39.05934;
+     ip ON cardio*-12.19784;
+     ip ON diab*-8.32764;
+     ip ON depsymp*-10.67578;
+     sp ON bage*0.96709;
+     sp ON educ*0.04796;
+     sp ON height*-0.37671;
+     sp ON smokhist*4.13904;
+     sp ON cardio*-6.64737;
+     sp ON diab*0.16501;
+     sp ON depsymp*-0.14223;
+     ic ON bage*0.27454;
+     ic ON educ*0.57153;
+     ic ON height*0.05781;
+     ic ON smokhist*-3.28291;
+     ic ON cardio*-0.47321;
+     ic ON diab*-4.29795;
+     ic ON depsymp*0.79827;
+     sc ON bage*-0.08071;
+     sc ON educ*-0.07976;
+     sc ON height*-0.04374;
+     sc ON smokhist*0.32823;
+     sc ON cardio*0.29852;
+     sc ON diab*-0.56658;
+     sc ON depsymp*0.10835;
+
+     p1 WITH c1*9.24042 (res_cov);
+     p1 WITH c2*9.24042 (res_cov);
+     p1 WITH c3*9.24042 (res_cov);
+     p1 WITH c4*9.24042 (res_cov);
+     p1 WITH c5*9.24042 (res_cov);
+     p1 WITH c6*9.24042 (res_cov);
+     p1 WITH c7*9.24042 (res_cov);
+     p1 WITH c8*9.24042 (res_cov);
+     p2 WITH c1*9.24042 (res_cov);
+     p2 WITH c2*9.24042 (res_cov);
+     p2 WITH c3*9.24042 (res_cov);
+     p2 WITH c4*9.24042 (res_cov);
+     p2 WITH c5*9.24042 (res_cov);
+     p2 WITH c6*9.24042 (res_cov);
+     p2 WITH c7*9.24042 (res_cov);
+     p2 WITH c8*9.24042 (res_cov);
+     p3 WITH c1*9.24042 (res_cov);
+     p3 WITH c2*9.24042 (res_cov);
+     p3 WITH c3*9.24042 (res_cov);
+     p3 WITH c4*9.24042 (res_cov);
+     p3 WITH c5*9.24042 (res_cov);
+     p3 WITH c6*9.24042 (res_cov);
+     p3 WITH c7*9.24042 (res_cov);
+     p3 WITH c8*9.24042 (res_cov);
+     p4 WITH c1*9.24042 (res_cov);
+     p4 WITH c2*9.24042 (res_cov);
+     p4 WITH c3*9.24042 (res_cov);
+     p4 WITH c4*9.24042 (res_cov);
+     p4 WITH c5*9.24042 (res_cov);
+     p4 WITH c6*9.24042 (res_cov);
+     p4 WITH c7*9.24042 (res_cov);
+     p4 WITH c8*9.24042 (res_cov);
+     p5 WITH c1*9.24042 (res_cov);
+     p5 WITH c2*9.24042 (res_cov);
+     p5 WITH c3*9.24042 (res_cov);
+     p5 WITH c4*9.24042 (res_cov);
+     p5 WITH c5*9.24042 (res_cov);
+     p5 WITH c6*9.24042 (res_cov);
+     p5 WITH c7*9.24042 (res_cov);
+     p5 WITH c8*9.24042 (res_cov);
+     p6 WITH c1*9.24042 (res_cov);
+     p6 WITH c2*9.24042 (res_cov);
+     p6 WITH c3*9.24042 (res_cov);
+     p6 WITH c4*9.24042 (res_cov);
+     p6 WITH c5*9.24042 (res_cov);
+     p6 WITH c6*9.24042 (res_cov);
+     p6 WITH c7*9.24042 (res_cov);
+     p6 WITH c8*9.24042 (res_cov);
+     p7 WITH c1*9.24042 (res_cov);
+     p7 WITH c2*9.24042 (res_cov);
+     p7 WITH c3*9.24042 (res_cov);
+     p7 WITH c4*9.24042 (res_cov);
+     p7 WITH c5*9.24042 (res_cov);
+     p7 WITH c6*9.24042 (res_cov);
+     p7 WITH c7*9.24042 (res_cov);
+     p7 WITH c8*9.24042 (res_cov);
+     p8 WITH c1*9.24042 (res_cov);
+     p8 WITH c2*9.24042 (res_cov);
+     p8 WITH c3*9.24042 (res_cov);
+     p8 WITH c4*9.24042 (res_cov);
+     p8 WITH c5*9.24042 (res_cov);
+     p8 WITH c6*9.24042 (res_cov);
+     p8 WITH c7*9.24042 (res_cov);
+     p8 WITH c8*9.24042 (res_cov);
+     ip WITH sp*-897.35907;
+     ip WITH ic*-146.34877;
+     ip WITH sc*4.03381;
+     sp WITH ic*83.71873;
+     sp WITH sc*-1.79754;
+     ic WITH sc*-0.94074;
+
+     [ p1@0 ];
+     [ p2@0 ];
+     [ p3@0 ];
+     [ p4@0 ];
+     [ p5@0 ];
+     [ p6@0 ];
+     [ p7@0 ];
+     [ p8@0 ];
+     [ c1@0 ];
+     [ c2@0 ];
+     [ c3@0 ];
+     [ c4@0 ];
+     [ c5@0 ];
+     [ c6@0 ];
+     [ c7@0 ];
+     [ c8@0 ];
+     [ ip*475.38721 ];
+     [ sp*-32.95672 ];
+     [ ic*22.51971 ];
+     [ sc*1.14591 ];
+
+     p1*4527.16504 (res_p);
+     p2*4527.16504 (res_p);
+     p3*4527.16504 (res_p);
+     p4*4527.16504 (res_p);
+     p5*4527.16504 (res_p);
+     p6*4527.16504 (res_p);
+     p7*4527.16504 (res_p);
+     p8*4527.16504 (res_p);
+     c1*23.71431 (res_c);
+     c2*23.71431 (res_c);
+     c3*23.71431 (res_c);
+     c4*23.71431 (res_c);
+     c5*23.71431 (res_c);
+     c6*23.71431 (res_c);
+     c7*23.71431 (res_c);
+     c8*23.71431 (res_c);
+     ip*12360.25098;
+     sp*219.17151;
+     ic*41.30544;
+     sc*0.03530;
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              P6            P7            P8            C1            C2
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              C3            C4            C5            C6            C7
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              C8            BAGE          EDUC          HEIGHT        DIAB
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              SMOKHIST      CARDIO        DEPSYMP
+              ________      ________      ________
+ 1                  0             0             0
+
+
+           LAMBDA
+              IP            SP            IC            SC            BAGE
+              ________      ________      ________      ________      ________
+ P1                 0             0             0             0             0
+ P2                 0             0             0             0             0
+ P3                 0             0             0             0             0
+ P4                 0             0             0             0             0
+ P5                 0             0             0             0             0
+ P6                 0             0             0             0             0
+ P7                 0             0             0             0             0
+ P8                 0             0             0             0             0
+ C1                 0             0             0             0             0
+ C2                 0             0             0             0             0
+ C3                 0             0             0             0             0
+ C4                 0             0             0             0             0
+ C5                 0             0             0             0             0
+ C6                 0             0             0             0             0
+ C7                 0             0             0             0             0
+ C8                 0             0             0             0             0
+ BAGE               0             0             0             0             0
+ EDUC               0             0             0             0             0
+ HEIGHT             0             0             0             0             0
+ DIAB               0             0             0             0             0
+ SMOKHIST           0             0             0             0             0
+ CARDIO             0             0             0             0             0
+ DEPSYMP            0             0             0             0             0
+
+
+           LAMBDA
+              EDUC          HEIGHT        DIAB          SMOKHIST      CARDIO
+              ________      ________      ________      ________      ________
+ P1                 0             0             0             0             0
+ P2                 0             0             0             0             0
+ P3                 0             0             0             0             0
+ P4                 0             0             0             0             0
+ P5                 0             0             0             0             0
+ P6                 0             0             0             0             0
+ P7                 0             0             0             0             0
+ P8                 0             0             0             0             0
+ C1                 0             0             0             0             0
+ C2                 0             0             0             0             0
+ C3                 0             0             0             0             0
+ C4                 0             0             0             0             0
+ C5                 0             0             0             0             0
+ C6                 0             0             0             0             0
+ C7                 0             0             0             0             0
+ C8                 0             0             0             0             0
+ BAGE               0             0             0             0             0
+ EDUC               0             0             0             0             0
+ HEIGHT             0             0             0             0             0
+ DIAB               0             0             0             0             0
+ SMOKHIST           0             0             0             0             0
+ CARDIO             0             0             0             0             0
+ DEPSYMP            0             0             0             0             0
+
+
+           LAMBDA
+              DEPSYMP
+              ________
+ P1                 0
+ P2                 0
+ P3                 0
+ P4                 0
+ P5                 0
+ P6                 0
+ P7                 0
+ P8                 0
+ C1                 0
+ C2                 0
+ C3                 0
+ C4                 0
+ C5                 0
+ C6                 0
+ C7                 0
+ C8                 0
+ BAGE               0
+ EDUC               0
+ HEIGHT             0
+ DIAB               0
+ SMOKHIST           0
+ CARDIO             0
+ DEPSYMP            0
+
+
+           THETA
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1                 1
+ P2                 0             1
+ P3                 0             0             1
+ P4                 0             0             0             1
+ P5                 0             0             0             0             1
+ P6                 0             0             0             0             0
+ P7                 0             0             0             0             0
+ P8                 0             0             0             0             0
+ C1                 2             2             2             2             2
+ C2                 2             2             2             2             2
+ C3                 2             2             2             2             2
+ C4                 2             2             2             2             2
+ C5                 2             2             2             2             2
+ C6                 2             2             2             2             2
+ C7                 2             2             2             2             2
+ C8                 2             2             2             2             2
+ BAGE               0             0             0             0             0
+ EDUC               0             0             0             0             0
+ HEIGHT             0             0             0             0             0
+ DIAB               0             0             0             0             0
+ SMOKHIST           0             0             0             0             0
+ CARDIO             0             0             0             0             0
+ DEPSYMP            0             0             0             0             0
+
+
+           THETA
+              P6            P7            P8            C1            C2
+              ________      ________      ________      ________      ________
+ P6                 1
+ P7                 0             1
+ P8                 0             0             1
+ C1                 2             2             2             3
+ C2                 2             2             2             0             3
+ C3                 2             2             2             0             0
+ C4                 2             2             2             0             0
+ C5                 2             2             2             0             0
+ C6                 2             2             2             0             0
+ C7                 2             2             2             0             0
+ C8                 2             2             2             0             0
+ BAGE               0             0             0             0             0
+ EDUC               0             0             0             0             0
+ HEIGHT             0             0             0             0             0
+ DIAB               0             0             0             0             0
+ SMOKHIST           0             0             0             0             0
+ CARDIO             0             0             0             0             0
+ DEPSYMP            0             0             0             0             0
+
+
+           THETA
+              C3            C4            C5            C6            C7
+              ________      ________      ________      ________      ________
+ C3                 3
+ C4                 0             3
+ C5                 0             0             3
+ C6                 0             0             0             3
+ C7                 0             0             0             0             3
+ C8                 0             0             0             0             0
+ BAGE               0             0             0             0             0
+ EDUC               0             0             0             0             0
+ HEIGHT             0             0             0             0             0
+ DIAB               0             0             0             0             0
+ SMOKHIST           0             0             0             0             0
+ CARDIO             0             0             0             0             0
+ DEPSYMP            0             0             0             0             0
+
+
+           THETA
+              C8            BAGE          EDUC          HEIGHT        DIAB
+              ________      ________      ________      ________      ________
+ C8                 3
+ BAGE               0             0
+ EDUC               0             0             0
+ HEIGHT             0             0             0             0
+ DIAB               0             0             0             0             0
+ SMOKHIST           0             0             0             0             0
+ CARDIO             0             0             0             0             0
+ DEPSYMP            0             0             0             0             0
+
+
+           THETA
+              SMOKHIST      CARDIO        DEPSYMP
+              ________      ________      ________
+ SMOKHIST           0
+ CARDIO             0             0
+ DEPSYMP            0             0             0
+
+
+           ALPHA
+              IP            SP            IC            SC            BAGE
+              ________      ________      ________      ________      ________
+ 1                  4             5             6             7             0
+
+
+           ALPHA
+              EDUC          HEIGHT        DIAB          SMOKHIST      CARDIO
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           ALPHA
+              DEPSYMP
+              ________
+ 1                  0
+
+
+           BETA
+              IP            SP            IC            SC            BAGE
+              ________      ________      ________      ________      ________
+ IP                 0             0             0             0             8
+ SP                 0             0             0             0            15
+ IC                 0             0             0             0            22
+ SC                 0             0             0             0            29
+ BAGE               0             0             0             0             0
+ EDUC               0             0             0             0             0
+ HEIGHT             0             0             0             0             0
+ DIAB               0             0             0             0             0
+ SMOKHIST           0             0             0             0             0
+ CARDIO             0             0             0             0             0
+ DEPSYMP            0             0             0             0             0
+
+
+           BETA
+              EDUC          HEIGHT        DIAB          SMOKHIST      CARDIO
+              ________      ________      ________      ________      ________
+ IP                 9            10            11            12            13
+ SP                16            17            18            19            20
+ IC                23            24            25            26            27
+ SC                30            31            32            33            34
+ BAGE               0             0             0             0             0
+ EDUC               0             0             0             0             0
+ HEIGHT             0             0             0             0             0
+ DIAB               0             0             0             0             0
+ SMOKHIST           0             0             0             0             0
+ CARDIO             0             0             0             0             0
+ DEPSYMP            0             0             0             0             0
+
+
+           BETA
+              DEPSYMP
+              ________
+ IP                14
+ SP                21
+ IC                28
+ SC                35
+ BAGE               0
+ EDUC               0
+ HEIGHT             0
+ DIAB               0
+ SMOKHIST           0
+ CARDIO             0
+ DEPSYMP            0
+
+
+           PSI
+              IP            SP            IC            SC            BAGE
+              ________      ________      ________      ________      ________
+ IP                36
+ SP                37            38
+ IC                39            40            41
+ SC                42            43            44            45
+ BAGE               0             0             0             0             0
+ EDUC               0             0             0             0             0
+ HEIGHT             0             0             0             0             0
+ DIAB               0             0             0             0             0
+ SMOKHIST           0             0             0             0             0
+ CARDIO             0             0             0             0             0
+ DEPSYMP            0             0             0             0             0
+
+
+           PSI
+              EDUC          HEIGHT        DIAB          SMOKHIST      CARDIO
+              ________      ________      ________      ________      ________
+ EDUC               0
+ HEIGHT             0             0
+ DIAB               0             0             0
+ SMOKHIST           0             0             0             0
+ CARDIO             0             0             0             0             0
+ DEPSYMP            0             0             0             0             0
+
+
+           PSI
+              DEPSYMP
+              ________
+ DEPSYMP            0
+
+
+     STARTING VALUES
+
+
+           NU
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              P6            P7            P8            C1            C2
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              C3            C4            C5            C6            C7
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              C8            BAGE          EDUC          HEIGHT        DIAB
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              SMOKHIST      CARDIO        DEPSYMP
+              ________      ________      ________
+ 1              0.000         0.000         0.000
+
+
+           LAMBDA
+              IP            SP            IC            SC            BAGE
+              ________      ________      ________      ________      ________
+ P1             0.000         0.000         0.000         0.000         0.000
+ P2             0.000         0.000         0.000         0.000         0.000
+ P3             0.000         0.000         0.000         0.000         0.000
+ P4             0.000         0.000         0.000         0.000         0.000
+ P5             0.000         0.000         0.000         0.000         0.000
+ P6             0.000         0.000         0.000         0.000         0.000
+ P7             0.000         0.000         0.000         0.000         0.000
+ P8             0.000         0.000         0.000         0.000         0.000
+ C1             0.000         0.000         0.000         0.000         0.000
+ C2             0.000         0.000         0.000         0.000         0.000
+ C3             0.000         0.000         0.000         0.000         0.000
+ C4             0.000         0.000         0.000         0.000         0.000
+ C5             0.000         0.000         0.000         0.000         0.000
+ C6             0.000         0.000         0.000         0.000         0.000
+ C7             0.000         0.000         0.000         0.000         0.000
+ C8             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         1.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ HEIGHT         0.000         0.000         0.000         0.000         0.000
+ DIAB           0.000         0.000         0.000         0.000         0.000
+ SMOKHIST       0.000         0.000         0.000         0.000         0.000
+ CARDIO         0.000         0.000         0.000         0.000         0.000
+ DEPSYMP        0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              EDUC          HEIGHT        DIAB          SMOKHIST      CARDIO
+              ________      ________      ________      ________      ________
+ P1             0.000         0.000         0.000         0.000         0.000
+ P2             0.000         0.000         0.000         0.000         0.000
+ P3             0.000         0.000         0.000         0.000         0.000
+ P4             0.000         0.000         0.000         0.000         0.000
+ P5             0.000         0.000         0.000         0.000         0.000
+ P6             0.000         0.000         0.000         0.000         0.000
+ P7             0.000         0.000         0.000         0.000         0.000
+ P8             0.000         0.000         0.000         0.000         0.000
+ C1             0.000         0.000         0.000         0.000         0.000
+ C2             0.000         0.000         0.000         0.000         0.000
+ C3             0.000         0.000         0.000         0.000         0.000
+ C4             0.000         0.000         0.000         0.000         0.000
+ C5             0.000         0.000         0.000         0.000         0.000
+ C6             0.000         0.000         0.000         0.000         0.000
+ C7             0.000         0.000         0.000         0.000         0.000
+ C8             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+ EDUC           1.000         0.000         0.000         0.000         0.000
+ HEIGHT         0.000         1.000         0.000         0.000         0.000
+ DIAB           0.000         0.000         1.000         0.000         0.000
+ SMOKHIST       0.000         0.000         0.000         1.000         0.000
+ CARDIO         0.000         0.000         0.000         0.000         1.000
+ DEPSYMP        0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              DEPSYMP
+              ________
+ P1             0.000
+ P2             0.000
+ P3             0.000
+ P4             0.000
+ P5             0.000
+ P6             0.000
+ P7             0.000
+ P8             0.000
+ C1             0.000
+ C2             0.000
+ C3             0.000
+ C4             0.000
+ C5             0.000
+ C6             0.000
+ C7             0.000
+ C8             0.000
+ BAGE           0.000
+ EDUC           0.000
+ HEIGHT         0.000
+ DIAB           0.000
+ SMOKHIST       0.000
+ CARDIO         0.000
+ DEPSYMP        1.000
+
+
+           THETA
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1          7588.879
+ P2             0.000      8497.339
+ P3             0.000         0.000     11142.469
+ P4             0.000         0.000         0.000      6838.867
+ P5             0.000         0.000         0.000         0.000      6999.267
+ P6             0.000         0.000         0.000         0.000         0.000
+ P7             0.000         0.000         0.000         0.000         0.000
+ P8             0.000         0.000         0.000         0.000         0.000
+ C1             0.000         0.000         0.000         0.000         0.000
+ C2             0.000         0.000         0.000         0.000         0.000
+ C3             0.000         0.000         0.000         0.000         0.000
+ C4             0.000         0.000         0.000         0.000         0.000
+ C5             0.000         0.000         0.000         0.000         0.000
+ C6             0.000         0.000         0.000         0.000         0.000
+ C7             0.000         0.000         0.000         0.000         0.000
+ C8             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ HEIGHT         0.000         0.000         0.000         0.000         0.000
+ DIAB           0.000         0.000         0.000         0.000         0.000
+ SMOKHIST       0.000         0.000         0.000         0.000         0.000
+ CARDIO         0.000         0.000         0.000         0.000         0.000
+ DEPSYMP        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              P6            P7            P8            C1            C2
+              ________      ________      ________      ________      ________
+ P6          4383.787
+ P7             0.000      4634.500
+ P8             0.000         0.000      5000.000
+ C1             0.000         0.000         0.000        36.824
+ C2             0.000         0.000         0.000         0.000        40.321
+ C3             0.000         0.000         0.000         0.000         0.000
+ C4             0.000         0.000         0.000         0.000         0.000
+ C5             0.000         0.000         0.000         0.000         0.000
+ C6             0.000         0.000         0.000         0.000         0.000
+ C7             0.000         0.000         0.000         0.000         0.000
+ C8             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ HEIGHT         0.000         0.000         0.000         0.000         0.000
+ DIAB           0.000         0.000         0.000         0.000         0.000
+ SMOKHIST       0.000         0.000         0.000         0.000         0.000
+ CARDIO         0.000         0.000         0.000         0.000         0.000
+ DEPSYMP        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              C3            C4            C5            C6            C7
+              ________      ________      ________      ________      ________
+ C3            35.489
+ C4             0.000        44.957
+ C5             0.000         0.000        33.104
+ C6             0.000         0.000         0.000        36.219
+ C7             0.000         0.000         0.000         0.000        31.895
+ C8             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ HEIGHT         0.000         0.000         0.000         0.000         0.000
+ DIAB           0.000         0.000         0.000         0.000         0.000
+ SMOKHIST       0.000         0.000         0.000         0.000         0.000
+ CARDIO         0.000         0.000         0.000         0.000         0.000
+ DEPSYMP        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              C8            BAGE          EDUC          HEIGHT        DIAB
+              ________      ________      ________      ________      ________
+ C8            29.620
+ BAGE           0.000         0.000
+ EDUC           0.000         0.000         0.000
+ HEIGHT         0.000         0.000         0.000         0.000
+ DIAB           0.000         0.000         0.000         0.000         0.000
+ SMOKHIST       0.000         0.000         0.000         0.000         0.000
+ CARDIO         0.000         0.000         0.000         0.000         0.000
+ DEPSYMP        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              SMOKHIST      CARDIO        DEPSYMP
+              ________      ________      ________
+ SMOKHIST       0.000
+ CARDIO         0.000         0.000
+ DEPSYMP        0.000         0.000         0.000
+
+
+           ALPHA
+              IP            SP            IC            SC            BAGE
+              ________      ________      ________      ________      ________
+ 1            426.411       -20.521        27.164         0.191         0.000
+
+
+           ALPHA
+              EDUC          HEIGHT        DIAB          SMOKHIST      CARDIO
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              DEPSYMP
+              ________
+ 1              0.000
+
+
+           BETA
+              IP            SP            IC            SC            BAGE
+              ________      ________      ________      ________      ________
+ IP             0.000         0.000         0.000         0.000         0.000
+ SP             0.000         0.000         0.000         0.000         0.000
+ IC             0.000         0.000         0.000         0.000         0.000
+ SC             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ HEIGHT         0.000         0.000         0.000         0.000         0.000
+ DIAB           0.000         0.000         0.000         0.000         0.000
+ SMOKHIST       0.000         0.000         0.000         0.000         0.000
+ CARDIO         0.000         0.000         0.000         0.000         0.000
+ DEPSYMP        0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              EDUC          HEIGHT        DIAB          SMOKHIST      CARDIO
+              ________      ________      ________      ________      ________
+ IP             0.000         0.000         0.000         0.000         0.000
+ SP             0.000         0.000         0.000         0.000         0.000
+ IC             0.000         0.000         0.000         0.000         0.000
+ SC             0.000         0.000         0.000         0.000         0.000
+ BAGE           0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ HEIGHT         0.000         0.000         0.000         0.000         0.000
+ DIAB           0.000         0.000         0.000         0.000         0.000
+ SMOKHIST       0.000         0.000         0.000         0.000         0.000
+ CARDIO         0.000         0.000         0.000         0.000         0.000
+ DEPSYMP        0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              DEPSYMP
+              ________
+ IP             0.000
+ SP             0.000
+ IC             0.000
+ SC             0.000
+ BAGE           0.000
+ EDUC           0.000
+ HEIGHT         0.000
+ DIAB           0.000
+ SMOKHIST       0.000
+ CARDIO         0.000
+ DEPSYMP        0.000
+
+
+           PSI
+              IP            SP            IC            SC            BAGE
+              ________      ________      ________      ________      ________
+ IP         17986.604
+ SP             0.000      1321.793
+ IC             0.000         0.000       106.260
+ SC             0.000         0.000         0.000        22.028
+ BAGE           0.000         0.000         0.000         0.000        13.279
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ HEIGHT         0.000         0.000         0.000         0.000         0.000
+ DIAB           0.000         0.000         0.000         0.000         0.000
+ SMOKHIST       0.000         0.000         0.000         0.000         0.000
+ CARDIO         0.000         0.000         0.000         0.000         0.000
+ DEPSYMP        0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              EDUC          HEIGHT        DIAB          SMOKHIST      CARDIO
+              ________      ________      ________      ________      ________
+ EDUC           5.749
+ HEIGHT         0.000        26.292
+ DIAB           0.000         0.000         0.090
+ SMOKHIST       0.000         0.000         0.000         0.117
+ CARDIO         0.000         0.000         0.000         0.000         0.079
+ DEPSYMP        0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              DEPSYMP
+              ________
+ DEPSYMP        1.220
 
 
 DIAGRAM INFORMATION
@@ -948,11 +1801,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\b1_male_full_pulmonary_b
+    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\output files\new models
 
-     Beginning Time:  15:10:01
-        Ending Time:  15:10:15
-       Elapsed Time:  00:00:14
+     Beginning Time:  16:47:50
+        Ending Time:  16:48:08
+       Elapsed Time:  00:00:18
 
 
 

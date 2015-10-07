@@ -4,20 +4,20 @@ Table 1a. Studies and Outcomes
 
 | STUDIES & outcomes  |   |   |   |   |   |   |  
 |---|---|---|---|---|---|---| 
-|ELSA   | grip | NA | fev  |    |   |   | 
-|HRS    | grip  | gait  |   | pek  |   |   | 
-|OCTO   | grip  | gait  |   | pek  |   |   | 
+|ELSA   | grip | gait | fev  |    |   |   | 
+|HRS    | grip  | gait |   | pef  |   |   | 
+|OCTO   | grip  | gait  |   | pef  |   |   | 
 |RADC   | grip  | gait  | fev  |   |   |   | 
-
+|LASA  | grip  | gait  |   |  pef |   |   | 
 
 Table 1b.  
 
-| outcomes & STUDIES  |   |   |   |   |
-|---|---|---|---|---|
-|grip   | ELSA | HRS | OCTO | RADC |
-|gait   |   | HRS | OCTO | RADC | 
+| outcomes & STUDIES  |   |   |   |   |   |
+|---|---|---|---|---|---|
+|grip   | ELSA | HRS | OCTO | RADC | LASA |
+|gait   | ELSA  | HRS | OCTO | RADC | LASA |
 |fev   |  ELSA |  |  | RADC |
-|pek   |   | HRS | OCTO |  |
+|pef   |   | HRS | OCTO |  | LASA |
 
 
 If we consider all possible pairings of physical outcomes and match them to the availability of the variables in the study we'll get table 2. 
@@ -26,11 +26,11 @@ Table 2a.  Studies and Pairs
 
 | STUDIES & pairs  |   |   |   |   |   |   |  
 |---|---|---|---|---|---|---| 
-|ELSA   |   |grip_fev  |   |   |   | |  
-|HRS    | grip_gait  |  | grip_pek  |   |gait_pek   | | 
-|OCTO   | grip_gait  |  | grip_pek  |   |gait_pek   | | 
+|ELSA   | grip_gait  |grip_fev  |   |gait_fev   |   | |  
+|HRS    | grip_gait  |  | grip_pef  |   |gait_pef   | | 
+|OCTO   | grip_gait  |  | grip_pef  |   |gait_pef   | | 
 |RADC   | grip_gait  |grip_fev  |   |gait_fev   |   | | 
-
+|LASA   | grip_gait  |  | grip_pef   |   |gait_pef | | 
 
 Table 2b. 
 

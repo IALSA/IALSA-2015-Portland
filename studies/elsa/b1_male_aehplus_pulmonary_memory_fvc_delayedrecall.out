@@ -1,6 +1,6 @@
 Mplus VERSION 7.2
 MUTHEN & MUTHEN
-06/11/2015   1:45 AM
+08/12/2015   2:46 PM
 
 INPUT INSTRUCTIONS
 
@@ -87,7 +87,7 @@ INPUT INSTRUCTIONS
   Define:
 
          Bage=bagey-80;   !Centered at Age 80
-          Height=htval-1.60;
+          Height=htval-1.72;
           SmokHist=hesmk-1;
 
           if (edqual eq 7) then Educn=1;
@@ -290,7 +290,7 @@ SAMPLE STATISTICS
            Means
               EDUCHE        EDUCF         EDUCO         HEI2          SMOKE1
               ________      ________      ________      ________      ________
- 1              0.145         0.047         0.078       171.022         0.270
+ 1              0.145         0.047         0.078       170.902         0.270
 
 
            Means
@@ -526,9 +526,9 @@ MODEL RESULTS
     C2                 0.000      0.000    999.000    999.000
     C4                 0.000      0.000    999.000    999.000
     C6                 0.000      0.000    999.000    999.000
-    IP                -4.958      0.570     -8.705      0.000
-    SP                -0.062      0.083     -0.747      0.455
-    IC                 1.446      1.209      1.196      0.232
+    IP                -4.952      0.569     -8.701      0.000
+    SP                -0.062      0.083     -0.748      0.454
+    IC                 1.448      1.208      1.198      0.231
     SC                -0.218      0.173     -1.257      0.209
 
  Residual Variances
@@ -546,7 +546,7 @@ MODEL RESULTS
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.601E-08
+     Condition Number for the Information Matrix              0.603E-08
        (ratio of smallest to largest eigenvalue)
 
 
@@ -558,9 +558,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\annie robitaille\dropbox\elsa_portland\biv delayed recall and fvc\b1_male_aehplus_pulmo
 
-     Beginning Time:  01:45:09
-        Ending Time:  01:47:25
-       Elapsed Time:  00:02:16
+     Beginning Time:  14:46:15
+        Ending Time:  14:48:29
+       Elapsed Time:  00:02:14
 
 
 

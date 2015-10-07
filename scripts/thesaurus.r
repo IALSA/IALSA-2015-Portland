@@ -1,12 +1,10 @@
 ## The script demonstrates and explains the use of main functions in the this repository
-
 getwd()
 pathFile <- "./studies/b1_female_ae_muscle_fluency_grip_bostonnamingTest.out"
 
 
 # strsplit()
 # Split the Elements of a Character Vector
-
 b <- strsplit(pathFile,"_")
 b
 c <- strsplit(pathFile,"_|.out")

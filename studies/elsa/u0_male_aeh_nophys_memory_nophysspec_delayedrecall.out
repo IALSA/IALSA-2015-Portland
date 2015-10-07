@@ -1,6 +1,6 @@
 Mplus VERSION 7.2
 MUTHEN & MUTHEN
-06/09/2015   2:29 PM
+08/28/2015   4:08 PM
 
 INPUT INSTRUCTIONS
 
@@ -84,7 +84,7 @@ INPUT INSTRUCTIONS
   Define:
 
          Bage=bagey-80;   !Centered at Age 80
-          Height=htval-1.60;
+          Height=htval-1.72;
 
           if (edqual eq 7) then Educn=1;
           if (edqual NE 7) then Educn=0;
@@ -264,7 +264,7 @@ SAMPLE STATISTICS
            Means
               EDUCHE        EDUCF         EDUCO         HEI2
               ________      ________      ________      ________
- 1              0.145         0.047         0.078       171.036
+ 1              0.145         0.047         0.078       170.916
 
 
            Covariances
@@ -399,7 +399,7 @@ MODEL RESULTS
     C4                 0.000      0.000    999.000    999.000
     C5                 0.000      0.000    999.000    999.000
     C6                 0.000      0.000    999.000    999.000
-    IC                 0.042      0.776      0.054      0.957
+    IC                 0.044      0.775      0.057      0.955
 
  Residual Variances
     C1                 1.878      0.037     50.810      0.000
@@ -413,7 +413,7 @@ MODEL RESULTS
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.484E-07
+     Condition Number for the Information Matrix              0.486E-07
        (ratio of smallest to largest eigenvalue)
 
 
@@ -425,9 +425,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\annie robitaille\dropbox\elsa_portland\delayedrecall\u0_male_aeh_nophys_memory_nophyssp
 
-     Beginning Time:  14:29:46
-        Ending Time:  14:30:05
-       Elapsed Time:  00:00:19
+     Beginning Time:  16:08:54
+        Ending Time:  16:09:16
+       Elapsed Time:  00:00:22
 
 
 
