@@ -1,12 +1,12 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-10/07/2015   7:56 AM
+10/07/2015   4:55 PM
 
 INPUT INSTRUCTIONS
 
     TITLE: Grip Strengh, Peak Flow, Fully Conditional, Male
 
-    DATA:  File = "C:\Users\wuche\Dropbox\Research\IALSA\Physical_Project\Physical.dat";
+    DATA:  File = "C:\Users\wuche\Dropbox\Research\IALSA\Physical_Project\Physical_new.dat";
 
     VARIABLE:
        NAMES are
@@ -120,7 +120,7 @@ Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
 Input data file(s)
-  C:\Users\wuche\Dropbox\Research\IALSA\Physical_Project\Physical.dat
+  C:\Users\wuche\Dropbox\Research\IALSA\Physical_Project\Physical_new.dat
 Input data format  FREE
 
 
@@ -436,8 +436,8 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\wuche\dropbox\research\ialsa\physical_project\output\b1_male_aehplus_grip_pef.dgm
 
-     Beginning Time:  07:56:05
-        Ending Time:  07:56:09
+     Beginning Time:  16:55:05
+        Ending Time:  16:55:09
        Elapsed Time:  00:00:04
 
 
