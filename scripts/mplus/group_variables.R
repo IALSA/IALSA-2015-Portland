@@ -61,6 +61,57 @@ pc_SIGMA <- c("pc_SIGMA_est", "pc_SIGMA_se", "pc_SIGMA_wald", "pc_SIGMA_pval")
  # intercept of process 2 (C) regressed on Age at baseline
  c_GAMMA_01 <-  c("c_GAMMA_01_est", "c_GAMMA_01_se", "c_GAMMA_01_wald","c_GAMMA_01_pval")
 
+
+ # intercept of process 1 (P) regressed on EDUCATION at baseline
+ p_GAMMA_02 <- c("p_GAMMA_02_est", "p_GAMMA_02_se", "p_GAMMA_02_wald","p_GAMMA_02_pval")
+ # slope of process 1 (P) regressed on EDUCATION at baseline
+ p_GAMMA_12 <-  c("p_GAMMA_12_est", "p_GAMMA_12_se", "p_GAMMA_12_wald","p_GAMMA_12_pval")
+ # slope of process 2 (C) regressed on EDUCATION at baseline
+ c_GAMMA_12 <- c("c_GAMMA_12_est", "c_GAMMA_12_se", "c_GAMMA_12_wald","c_GAMMA_12_pval")
+ # intercept of process 2 (C) regressed on EDUCATION at baseline
+ c_GAMMA_02 <- c("c_GAMMA_02_est", "c_GAMMA_02_se", "c_GAMMA_02_wald","c_GAMMA_02_pval")
+
+
+  # intercept of process 1 (P) regressed on HEIGHT at baseline
+ p_GAMMA_03 <-  c("p_GAMMA_03_est", "p_GAMMA_03_se", "p_GAMMA_03_wald","p_GAMMA_03_pval")
+ # slope of process 1 (P) regressed on HEIGHT at baseline
+ p_GAMMA_13 <-  c("p_GAMMA_13_est", "p_GAMMA_13_se", "p_GAMMA_13_wald","p_GAMMA_13_pval")
+    # slope of process 2 (C) regressed on HEIGHT at baseline
+ c_GAMMA_13 <-  c("c_GAMMA_13_est", "c_GAMMA_13_se", "c_GAMMA_13_wald","c_GAMMA_13_pval")
+ # intercept of process 2 (C) regressed on HEIGHT at baseline
+ c_GAMMA_03 <-  c("c_GAMMA_03_est", "c_GAMMA_03_se", "c_GAMMA_03_wald","c_GAMMA_03_pval")
+
+
+  # intercept of process 1 (P) regressed on SMOKING at baseline
+ p_GAMMA_04 <-  c("p_GAMMA_04_est", "p_GAMMA_04_se", "p_GAMMA_04_wald","p_GAMMA_04_pval")
+ # slope of process 1 (P) regressed on SMOKING at baseline
+ p_GAMMA_14 <-  c("p_GAMMA_14_est", "p_GAMMA_14_se", "p_GAMMA_14_wald","p_GAMMA_14_pval")
+    # slope of process 2 (C) regressed on SMOKING at baseline
+ c_GAMMA_14 <-  c("c_GAMMA_14_est", "c_GAMMA_14_se", "c_GAMMA_14_wald","c_GAMMA_14_pval")
+ # intercept of process 2 (C) regressed on SMOKING at baseline
+ c_GAMMA_04 <-  c("c_GAMMA_04_est", "c_GAMMA_04_se", "c_GAMMA_04_wald","c_GAMMA_04_pval")
+
+
+  # intercept of process 1 (P) regressed on CARDIO at baseline
+ p_GAMMA_05 <-  c("p_GAMMA_05_est", "p_GAMMA_05_se", "p_GAMMA_05_wald","p_GAMMA_05_pval")
+ # slope of process 1 (P) regressed on CARDIO at baseline
+ p_GAMMA_15 <-  c("p_GAMMA_15_est", "p_GAMMA_15_se", "p_GAMMA_15_wald","p_GAMMA_15_pval")
+    # slope of process 2 (C) regressed on CARDIO at baseline
+ c_GAMMA_15 <-  c("c_GAMMA_15_est", "c_GAMMA_15_se", "c_GAMMA_15_wald","c_GAMMA_15_pval")
+ # intercept of process 2 (C) regressed on CARDIO at baseline
+ c_GAMMA_05 <-  c("c_GAMMA_05_est", "c_GAMMA_05_se", "c_GAMMA_05_wald","c_GAMMA_05_pval")
+
+
+ # intercept of process 1 (P) regressed on DIABETES at baseline
+ p_GAMMA_06 <-  c("p_GAMMA_06_est", "p_GAMMA_06_se", "p_GAMMA_06_wald","p_GAMMA_06_pval")
+ # slope of process 1 (P) regressed on DIABETES at baseline
+ p_GAMMA_16 <-  c("p_GAMMA_16_est", "p_GAMMA_16_se", "p_GAMMA_16_wald","p_GAMMA_16_pval")
+    # slope of process 2 (C) regressed on DIABETES at baseline
+ c_GAMMA_16 <-  c("c_GAMMA_16_est", "c_GAMMA_16_se", "c_GAMMA_16_wald","c_GAMMA_16_pval")
+ # intercept of process 2 (C) regressed on DIABETES at baseline
+ c_GAMMA_06 <-  c("c_GAMMA_06_est", "c_GAMMA_06_se", "c_GAMMA_06_wald","c_GAMMA_06_pval")
+
+
 # correlation b/w physical INTERCEPT  and cognitive INTERCEPT
  R_IPIC <- c("R_IPIC_est", "R_IPIC_se","R_IPIC_wald", "R_IPIC_pval")
 # correlation b/w physical SLOPE  and cognitive SLOPE
@@ -72,8 +123,14 @@ selected_results <- c( admin, model_fit,
    pc_TAU_00, pc_TAU_11, pc_TAU_01, pc_TAU_10, pc_SIGMA,
    pp_TAU_00, pp_TAU_11, pp_TAU_01, p_SIGMA,
    cc_TAU_00, cc_TAU_11, cc_TAU_10, c_SIGMA,
-   p_GAMMA_00 ,p_GAMMA_10  ,c_GAMMA_00  ,c_GAMMA_10  ,R_IPIC  ,R_SPSC  ,R_RES_PC,
+   p_GAMMA_00 ,p_GAMMA_10, c_GAMMA_00, c_GAMMA_10  ,R_IPIC  ,R_SPSC  ,R_RES_PC,
    p_GAMMA_01, p_GAMMA_11, c_GAMMA_01, c_GAMMA_11,
+   p_GAMMA_02, p_GAMMA_12, c_GAMMA_02, c_GAMMA_12,
+   p_GAMMA_03, p_GAMMA_13, c_GAMMA_03, c_GAMMA_13,
+   p_GAMMA_04, p_GAMMA_14, c_GAMMA_04, c_GAMMA_14,
+   p_GAMMA_05, p_GAMMA_15, c_GAMMA_05, c_GAMMA_15,
+   p_GAMMA_06, p_GAMMA_16, c_GAMMA_06, c_GAMMA_16,
+
    # covariance coverage value
    "trust_all", "mistrust"
  )
