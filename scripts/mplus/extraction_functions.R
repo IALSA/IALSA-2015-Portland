@@ -10,21 +10,21 @@
 # library(MplusAutomation)
 
 # establish home directory
-pathRoot <- getwd()
+# pathRoot <- getwd()
 # point to  the folder with datasets containing model results
 # folder <- "outputs/pairs"
-folder <- "outputs/pairs/grip_numbercomp"
-pathFolder <- file.path(pathRoot,folder)
+# folder <- "outputs/pairs/grip_numbercomp"
+# pathFolder <- file.path(pathRoot,folder)
 
 # load object that lists paths to model outputs (*.out)
-out_list_all <- out_list_all_plus[["path"]]
+
 
 # ## @knitr load_raw_data
 # ds0 <- readRDS("./data/derived/unshared/ds0.rds") # raw MAP data
 # ds <- ds0
 # str(ds)
 
-collect_model_results <- function(folder){
+collect_model_results <- function(list_object){
   # folder <- "/outputs/pairs"/fev_mmse"
   # folder <- "/outputs/pairs/fev_categories"
   # folder <- pathFolder
@@ -32,6 +32,7 @@ collect_model_results <- function(folder){
   # get_folder <- file.path(pathRoot,folder)
   # out_list_all <- list.files(get_folder, full.names=T, recursive=T, pattern="out$")
   # out_list_all
+  out_list_all <- list_object[["path"]]
 
 
   ## @knitr setGlobals
@@ -79,7 +80,7 @@ collect_model_results <- function(folder){
 #       selector <- a[[1]] %in% c("studies")
 #       element_number <- c(1:length(selector))[selector]
 #       msum$study_name[i] <- a[[1]][element_number+1]
-      msum$study_name[i] <- out_list_all_plus[["study"]][[i]]
+      msum$study_name[i] <- list_object[["study"]][[i]]
     }
     return(msum)
   }
@@ -178,7 +179,7 @@ collect_model_results <- function(folder){
 
       ## obtain location of 'studies' to then be able to select the following element, the study name.
       selector <- which(strsplit(out_list[i], '/')[[1]]=='GitHub')
-      results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][selector+1]
+      results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][selector+3]
       results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
       # results[i, c("physical_construct","cognitive_construct")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
       results[i, "physical_measure"] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]
@@ -324,7 +325,26 @@ collect_model_results <- function(folder){
       (test <- test[ ,c("est", "se","est_se", "pval")])
       if(dim(test)[1]!=0) {results[i, cc_TAU_11] <- test}
 
-    }# close has_converged
+      # Correlation between random intercepts - R_IPIC
+      (test <- model[grep("New.Additional.Parameters", model$paramHeader),])
+      (test <- test[test$param=='R_IPIC', ])
+      (test <- test[ ,c("est", "se","est_se", "pval")])
+      if(dim(test)[1]!=0) {results[i, R_IPIC] <- test}
+
+      # Correlation between random slopes - R_SPSC
+      (test <- model[grep("New.Additional.Parameters", model$paramHeader),])
+      (test <- test[test$param=='R_SPSC', ])
+      (test <- test[ ,c("est", "se","est_se", "pval")])
+      if(dim(test)[1]!=0) {results[i, R_SPSC] <- test}
+
+      # Correlation between residuals - R_RES_PC
+      (test <- model[grep("New.Additional.Parameters", model$paramHeader),])
+      (test <- test[test$param=='R_RES_PC', ])
+      (test <- test[ ,c("est", "se","est_se", "pval")])
+      if(dim(test)[1]!=0) {results[i, R_RES_PC] <- test}
+
+
+          }# close has_converged
         }
       }
     } # close for loop
@@ -468,11 +488,11 @@ collect_model_results <- function(folder){
   }# close get_results_fixed
   results <- get_results_fixed()
 
-
+  return(results)
   ######################## Export results dataset ############################
-  destination <- get_folder
-  write.csv(results, paste0(destination,".csv") , row.names=F)
-  saveRDS(results, paste0(destination,".rds") )
+#   destination <- get_folder
+#   write.csv(results, paste0(destination,".csv") , row.names=F)
+#   saveRDS(results, paste0(destination,".rds") )
 }
 
 

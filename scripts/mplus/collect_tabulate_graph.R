@@ -12,6 +12,10 @@ pathDir <- getwd() # establish home directory
 pathStudies <- file.path(pathDir,"studies")
 list.files(pathStudies) # inspect participating studies
 
+# @knitr load_sources
+source("./scripts/mplus/extraction_functions.R")
+
+
 ## @knitr setGlobals
 # studies <- c("eas", "elsa")
 # out_list_all_plus <- list.files(pathStudies, full.names=T, recursive=T, pattern="out$")
@@ -47,6 +51,6 @@ out_list_all_plus[["study"]] <- study_name
 names(out_list_all_plus)
 
 # @knitr
-
+ds <- collect_model_results(out_list_all_plus)
 
 
