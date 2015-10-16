@@ -16,6 +16,8 @@ pathRoot <- getwd()
 folder <- "outputs/pairs/grip_numbercomp"
 pathFolder <- file.path(pathRoot,folder)
 
+# load object that lists paths to model outputs (*.out)
+out_list_all <- out_list_all_plus[["path"]]
 
 # ## @knitr load_raw_data
 # ds0 <- readRDS("./data/derived/unshared/ds0.rds") # raw MAP data
@@ -26,9 +28,10 @@ collect_model_results <- function(folder){
   # folder <- "/outputs/pairs"/fev_mmse"
   # folder <- "/outputs/pairs/fev_categories"
   # folder <- pathFolder
-  get_folder <- file.path(pathRoot,folder)
-  out_list_all <- list.files(get_folder, full.names=T, recursive=T, pattern="out$")
-  out_list_all
+
+  # get_folder <- file.path(pathRoot,folder)
+  # out_list_all <- list.files(get_folder, full.names=T, recursive=T, pattern="out$")
+  # out_list_all
 
 
   ## @knitr setGlobals
@@ -72,10 +75,11 @@ collect_model_results <- function(folder){
       msum[i, existing_descriptors] <- ith_msum[names(ith_msum) %in% msum_names]
       msum$filePath[i] <- out_list[i]
 
-      a <- strsplit(msum$filePath[i], split="/")
-      selector <- a[[1]] %in% c("studies")
-      element_number <- c(1:length(selector))[selector]
-      msum$study_name[i] <- a[[1]][element_number+1]
+#       a <- strsplit(msum$filePath[i], split="/")
+#       selector <- a[[1]] %in% c("studies")
+#       element_number <- c(1:length(selector))[selector]
+#       msum$study_name[i] <- a[[1]][element_number+1]
+      msum$study_name[i] <- out_list_all_plus[["study"]][[i]]
     }
     return(msum)
   }
@@ -131,7 +135,7 @@ collect_model_results <- function(folder){
 
     # Create data frame to populated from model output files
     results=data.frame(matrix(NA, ncol=length(selected_results), nrow=length(mpar)))
-    names(results) <-  selected_results
+    names(results) <-  selected_results # from ./scripts/mplus/group_variables.R
     selected_results
     return(results)
   } # close results_to_populate
