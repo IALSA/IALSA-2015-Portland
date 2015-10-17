@@ -1,5 +1,6 @@
 Study_Name contained the following measures, as described by the study's documentation. [text](http://)
 
+# Measures
 
 ##Grip
 
@@ -10,6 +11,24 @@ Study_Name contained the following measures, as described by the study's documen
 ##Movement
 
 **Timed Up and Go** -  Time Up and Go was measured in seconds from standing up out of a chair, walk three meters, go back and sit again. Available at all three waves. 
+
+#Covariates  
+
+##HAUPT 
+
+##SECOND
+
+##OTHERS
+
+##T1APEC
+
+##SMOKER
+
+##FORMER
+
+
+
+
 
 
 
