@@ -9,38 +9,11 @@
 # library(tidyr)
 # library(MplusAutomation)
 
-# establish home directory
-# pathRoot <- getwd()
-# point to  the folder with datasets containing model results
-# folder <- "outputs/pairs"
-# folder <- "outputs/pairs/grip_numbercomp"
-# pathFolder <- file.path(pathRoot,folder)
 
-# load object that lists paths to model outputs (*.out)
-
-
-# ## @knitr load_raw_data
-# ds0 <- readRDS("./data/derived/unshared/ds0.rds") # raw MAP data
-# ds <- ds0
-# str(ds)
-
-collect_model_results <- function(list_object){
-  # folder <- "/outputs/pairs"/fev_mmse"
-  # folder <- "/outputs/pairs/fev_categories"
-  # folder <- pathFolder
-
-  # get_folder <- file.path(pathRoot,folder)
-  # out_list_all <- list.files(get_folder, full.names=T, recursive=T, pattern="out$")
-  # out_list_all
   out_list_all <- list_object[["path"]]
-
-
-  ## @knitr setGlobals
-  # groups columns in the rusults dataset by individual parameters
-  #e.g pc_TAU_00 <- c("pc_TAU_00_est", "pc_TAU_00_se", "pc_TAU_00_wald","pc_TAU_00_pval")
   source("./scripts/mplus/group_variables.R")
 
-  ##### Summary ###############################################################
+# @knitr summary --------------------------------------------------------------
   # a dataset with model summaries
   get_msum <- function(){
     # pathStudy <- file.path(pathStudies, study) # folder with output files
@@ -86,7 +59,7 @@ collect_model_results <- function(list_object){
   }
   msum <- get_msum()
 
-  ########## Parameters #######################################################
+# @knitr paramters --------------------------------------------------------------
   # a list of datasets containing estimated coefficients
   get_mpar <- function(){
     out_list <- out_list_all
@@ -118,7 +91,7 @@ collect_model_results <- function(list_object){
   mpar <- get_mpar()
 
 
-  ############### Empty Results ###############################################
+# @knitr empty_results --------------------------------------------------------------
   # create empty dataset "results"
   results_to_populate <- function(study){
     # populate a dataset with data from msum and mpar
@@ -143,7 +116,7 @@ collect_model_results <- function(list_object){
   results <- results_to_populate()
 
 
-  ############### Basic Results ###############################################
+# @knitr basic_results --------------------------------------------------------------
   # extract the basic indicators about the model
   # results <- data.frame()
   # results=data.frame(matrix(NA, ncol=100, nrow=length(mpar)))
@@ -227,9 +200,10 @@ collect_model_results <- function(list_object){
     return(results)
   } # close get_results_basic
   results <- get_results_basic()
+  get_results_basic()
 
   # i <- 1
-  #################### Random Effects #########################################
+# @knitr random_effects --------------------------------------------------------------
   get_results_random <- function(study){
     out_list <- out_list_all
     selected_models <- seq_along(mpar)
@@ -352,7 +326,7 @@ collect_model_results <- function(list_object){
   }# close get_results_random
   results <- get_results_random()
 
-  ######################### Residuals #########################################
+# @knitr residuals --------------------------------------------------------------
   get_results_residual <- function(study){
     out_list <- out_list_all
     selected_models <- seq_along(mpar)
@@ -411,7 +385,7 @@ collect_model_results <- function(list_object){
   }# close get_results_residual
   results <- get_results_residual()
 
-  ######################### Fixed Effects ####################################
+# @knitr fixed_effects -------------------------------------------------------------
   get_results_fixed <- function(study){
     out_list <- out_list_all
     selected_models <- seq_along(mpar)
@@ -436,30 +410,69 @@ collect_model_results <- function(list_object){
 
         if(has_converged) {
 
+
         ## intercept
-        int <- model[grep("Intercepts", model$paramHeader),]
-
-        ## average initial status of physical - p_GAMMA_00
-        test <- int[int$param=='IP',c('est', 'se', "est_se", 'pval')]
+        (int <- model[grep("Intercepts", model$paramHeader),])
+        ## average initial status of process 1 (P) - p_GAMMA_00
+        (test <- int[int$param=='IP',c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_00] <- test}
-
-        ## average rate of change of physical - p_GAMMA_10
-        test <- int[int$param=='SP',c('est', 'se', "est_se", 'pval')]
+        ## average rate of change of process 1 (P) - p_GAMMA_10
+        (test <- int[int$param=='SP',c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_10] <- test}
-
-        ## average initial status of cognitive - c_GAMMA_00
-        test <- int[int$param=='IC',c('est', 'se', "est_se", 'pval')]
+        ## average rate of change of process 2 (C) - c_GAMMA_10
+        (test <- int[int$param=='SC',c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_10] <- test}
+        ## average initial status of process 2 (C) - c_GAMMA_00
+        (test <- int[int$param=='IC',c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, c_GAMMA_00] <- test}
 
-        ## average rate of change of cognitive - c_GAMMA_10
-        test <- int[int$param=='SC',c('est', 'se', "est_se", 'pval')]
-        if(dim(test)[1]!=0) {results[i, c_GAMMA_10] <- test}
 
-        ## intercept of process 1 (P) regressed on Age at baseline
+        ## Level-2 predictors / Covariates
+        ## intercept of process 1 (P) regressed on AGE at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
         (test <- test[test$param=="BAGE",])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_01] <- test}
+
+        ## intercept of process 1 (P) regressed on EDUCATION at baseline
+        (test <- model[grep("IP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("EDUC","EDUCATION"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_02] <- test}
+
+        ## intercept of process 1 (P) regressed on HEIGHT at baseline
+        (test <- model[grep("IP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("HEIGHT","HEIGHTC"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_03] <- test}
+
+        ## intercept of process 1 (P) regressed on SMOKING at baseline
+        (test <- model[grep("IP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
+
+        ## intercept of process 1 (P) regressed on SMOKING at baseline
+        (test <- model[grep("IP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
+
+        ## intercept of process 1 (P) regressed on DIABETES at baseline
+        (test <- model[grep("IP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("DIABETES","DIAB"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
+
+        ## intercept of process 1 (P) regressed on CARDIO at baseline
+        (test <- model[grep("IP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("CARDIO","CARDIO"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
+
+
+
+
 
         ## slope of process 1 (P) regressed on Age at baseline
         (test <- model[grep("SP.ON", model$paramHeader),])
@@ -488,14 +501,27 @@ collect_model_results <- function(list_object){
   }# close get_results_fixed
   results <- get_results_fixed()
 
+
+
+# @knitr define_collection_function --------------------------------------------------------------
+collect_model_results <- function(list_object){
+  out_list_all <- list_object[["path"]]
+  #e.g pc_TAU_00 <- c("pc_TAU_00_est", "pc_TAU_00_se", "pc_TAU_00_wald","pc_TAU_00_pval")
+  source("./scripts/mplus/group_variables.R")
+  msum <- get_msum()
+  mpar <- get_mpar()
+  results <- results_to_populate()
+  results <- get_results_basic()
+  results <- get_results_random()
+  results <- get_results_residual()
+  results <- get_results_fixed()
   return(results)
-  ######################## Export results dataset ############################
-#   destination <- get_folder
-#   write.csv(results, paste0(destination,".csv") , row.names=F)
-#   saveRDS(results, paste0(destination,".rds") )
-}
 
 
+
+
+
+# @knitr define_general_collection_function --------------------------------------------------------------
 collect_all_results <- function(allFolder){
 ## make scripts from the prototype and run it (run_models=TRUE)
 # pathFolder <- allFolder # where outputs are
@@ -512,6 +538,13 @@ pair_names <- basename(directories)
   }
 
 }
+
+  # @knitr dummy --------------------------------------------------------------
+  ######################## Export results dataset ############################
+#   destination <- get_folder
+#   write.csv(results, paste0(destination,".csv") , row.names=F)
+#   saveRDS(results, paste0(destination,".rds") )
+# }
 
 
 
