@@ -10,8 +10,8 @@
 # library(MplusAutomation)
 
 
-  out_list_all <- list_object[["path"]]
-  source("./scripts/mplus/group_variables.R")
+#   out_list_all <- list_object[["path"]]
+#   source("./scripts/mplus/group_variables.R")
 
 # @knitr summary --------------------------------------------------------------
   # a dataset with model summaries
@@ -57,7 +57,7 @@
     }
     return(msum)
   }
-  msum <- get_msum()
+  # msum <- get_msum()
 
 # @knitr paramters --------------------------------------------------------------
   # a list of datasets containing estimated coefficients
@@ -88,7 +88,7 @@
     }
     return(mpar)
   }
-  mpar <- get_mpar()
+  # mpar <- get_mpar()
 
 
 # @knitr empty_results --------------------------------------------------------------
@@ -113,7 +113,7 @@
     selected_results
     return(results)
   } # close results_to_populate
-  results <- results_to_populate()
+  # results <- results_to_populate()
 
 
 # @knitr basic_results --------------------------------------------------------------
@@ -199,8 +199,8 @@
     }
     return(results)
   } # close get_results_basic
-  results <- get_results_basic()
-  get_results_basic()
+  # results <- get_results_basic()
+  # get_results_basic()
 
   # i <- 1
 # @knitr random_effects --------------------------------------------------------------
@@ -324,7 +324,7 @@
     } # close for loop
     return(results)
   }# close get_results_random
-  results <- get_results_random()
+  # results <- get_results_random()
 
 # @knitr residuals --------------------------------------------------------------
   get_results_residual <- function(study){
@@ -383,7 +383,7 @@
     } # close for loop
     return(results)
   }# close get_results_residual
-  results <- get_results_residual()
+  # results <- get_results_residual()
 
 # @knitr fixed_effects -------------------------------------------------------------
   get_results_fixed <- function(study){
@@ -428,6 +428,8 @@
 
 
         ## Level-2 predictors / Covariates
+
+## Level-2 predictors of the INTERCEPT of process 1 (P)
         ## intercept of process 1 (P) regressed on AGE at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
         (test <- test[test$param=="BAGE",])
@@ -452,45 +454,137 @@
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
 
-        ## intercept of process 1 (P) regressed on SMOKING at baseline
+        ## intercept of process 1 (P) regressed on CARDIO at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST"),])
+        (test <- test[test$param %in% c("CARDIO","CARDIO"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_05] <- test}
 
         ## intercept of process 1 (P) regressed on DIABETES at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
         (test <- test[test$param %in% c("DIABETES","DIAB"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
-
-        ## intercept of process 1 (P) regressed on CARDIO at baseline
-        (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("CARDIO","CARDIO"),])
-        (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_06] <- test}
 
 
 
-
-
-        ## slope of process 1 (P) regressed on Age at baseline
+## Level-2 predictors of the SLOPE of process 1 (P)
+        ## slope of process 1 (P) regressed on AGE at baseline
         (test <- model[grep("SP.ON", model$paramHeader),])
         (test <- test[test$param=="BAGE",])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, p_GAMMA_11] <- test}
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_01] <- test}
 
-        ## intercept of process 2 (C) regressed on Age at baseline
+        ## intercept of process 1 (P) regressed on EDUCATION at baseline
+        (test <- model[grep("SP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("EDUC","EDUCATION"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_02] <- test}
+
+        ## intercept of process 1 (P) regressed on HEIGHT at baseline
+        (test <- model[grep("SP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("HEIGHT","HEIGHTC"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_03] <- test}
+
+        ## intercept of process 1 (P) regressed on SMOKING at baseline
+        (test <- model[grep("SP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
+
+        ## intercept of process 1 (P) regressed on CARDIO at baseline
+        (test <- model[grep("SP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("CARDIO","CARDIO"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_05] <- test}
+
+        ## intercept of process 1 (P) regressed on DIABETES at baseline
+        (test <- model[grep("SP.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("DIABETES","DIAB"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_06] <- test}
+
+
+
+
+
+## Level-2 predictors of the intercept of process 2 (C)
+        ## intercept of process 2 (C) regressed on AGE at baseline
         (test <- model[grep("IC.ON", model$paramHeader),])
         (test <- test[test$param=="BAGE",])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, c_GAMMA_01] <- test}
 
-        ## slope of process 1 (P) regressed on Age at baseline
+        ## intercept of process 2 (C) regressed on EDUCATION at baseline
+        (test <- model[grep("IC.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("EDUC","EDUCATION"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_02] <- test}
+
+        ## intercept of process 2 (C) regressed on HEIGHT at baseline
+        (test <- model[grep("IC.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("HEIGHT","HEIGHTC"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_03] <- test}
+
+        ## intercept of process 2 (C) regressed on SMOKING at baseline
+        (test <- model[grep("IC.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_04] <- test}
+
+        ## intercept of process 2 (C) regressed on CARDIO at baseline
+        (test <- model[grep("IC.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("CARDIO","CARDIO"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_05] <- test}
+
+        ## intercept of process 2 (C) regressed on DIABETES at baseline
+        (test <- model[grep("IC.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("DIABETES","DIAB"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_06] <- test}
+
+
+
+## Level-2 predictors of the slope of process 2 (C)
+        ## slope of process 2 (C) regressed on AGE at baseline
         (test <- model[grep("SC.ON", model$paramHeader),])
         (test <- test[test$param=="BAGE",])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, c_GAMMA_11] <- test}
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_01] <- test}
+
+        ## intercept of process 2 (C) regressed on EDUCATION at baseline
+        (test <- model[grep("SC.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("EDUC","EDUCATION"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_02] <- test}
+
+        ## intercept of process 2 (C) regressed on HEIGHT at baseline
+        (test <- model[grep("SC.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("HEIGHT","HEIGHTC"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_03] <- test}
+
+        ## intercept of process 2 (C) regressed on SMOKING at baseline
+        (test <- model[grep("SC.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_04] <- test}
+
+        ## intercept of process 2 (C) regressed on CARDIO at baseline
+        (test <- model[grep("SC.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("CARDIO","CARDIO"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_05] <- test}
+
+        ## intercept of process 2 (C) regressed on DIABETES at baseline
+        (test <- model[grep("SC.ON", model$paramHeader),])
+        (test <- test[test$param %in% c("DIABETES","DIAB"),])
+        (test <- test[c('est', 'se', "est_se", 'pval')])
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_06] <- test}
+
 
 
       }# close has_converged
@@ -499,7 +593,7 @@
     } # close for loop
     return(results)
   }# close get_results_fixed
-  results <- get_results_fixed()
+  # results <- get_results_fixed()
 
 
 
@@ -511,13 +605,13 @@ collect_model_results <- function(list_object){
   msum <- get_msum()
   mpar <- get_mpar()
   results <- results_to_populate()
-  results <- get_results_basic()
-  results <- get_results_random()
-  results <- get_results_residual()
-  results <- get_results_fixed()
+  get_results_basic()
+  get_results_random()
+  get_results_residual()
+  get_results_fixed()
   return(results)
 
-
+}#close collect_model_results
 
 
 
