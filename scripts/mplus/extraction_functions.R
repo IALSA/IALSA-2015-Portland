@@ -15,7 +15,7 @@
 
 # @knitr summary --------------------------------------------------------------
   # a dataset with model summaries
-  get_msum <- function(){
+  get_msum <- function(list_object){
     # pathStudy <- file.path(pathStudies, study) # folder with output files
     # out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
     ## Model descriptors we would like to have:
@@ -35,7 +35,7 @@
 
     # list paths to the models in a given study
   #   study_selector <- out_list_all[["study"]] %in% study
-    out_list <- out_list_all
+    out_list <- list_object[["path"]]
 
     # cycle through all model output files in this study
     for(i in seq_along(out_list)){
@@ -57,12 +57,12 @@
     }
     return(msum)
   }
-  # msum <- get_msum()
+  # msum <- get_msum(list_object)
 
 # @knitr paramters --------------------------------------------------------------
   # a list of datasets containing estimated coefficients
-  get_mpar <- function(){
-    out_list <- out_list_all
+  get_mpar <- function(list_object){
+    out_list <- list_object[["path"]]
     # Create list object to populated from model output files
     mpar <- list()
     # cycle through all model output files
@@ -88,40 +88,26 @@
     }
     return(mpar)
   }
-  # mpar <- get_mpar()
+  # mpar <- get_mpar(list_object)
 
 
 # @knitr empty_results --------------------------------------------------------------
   # create empty dataset "results"
-  results_to_populate <- function(study){
-    # populate a dataset with data from msum and mpar
-  #   pathStudy <- file.path(pathStudies, study) # folder with output files
-  #   out_list <- list.files(pathStudy, full.names=T, recursive=T, pattern="out$")
-    # mpar <- get_mpar(study)
-
-    # list paths to the models in a given study
-    # study_selector <- out_list_all[["study"]] %in% study
-    out_list <- out_list_all#[["path"]][study_selector]
-
-    # What model estimation results we should keep?
-
-
-
+  results_to_populate <- function(list_object){
+    out_list <- list_object[["path"]]
     # Create data frame to populated from model output files
     results=data.frame(matrix(NA, ncol=length(selected_results), nrow=length(mpar)))
     names(results) <-  selected_results # from ./scripts/mplus/group_variables.R
     selected_results
     return(results)
   } # close results_to_populate
-  # results <- results_to_populate()
+  # results <- results_to_populate(list_object)
 
 
 # @knitr basic_results --------------------------------------------------------------
   # extract the basic indicators about the model
-  # results <- data.frame()
-  # results=data.frame(matrix(NA, ncol=100, nrow=length(mpar)))
-  get_results_basic <- function(study){
-    out_list <- out_list_all
+  get_results_basic <- function(list_object){
+    out_list <- list_object[["path"]]
     selected_models <- seq_along(mpar)
     for(i in selected_models){
     # for(i in 1:10){
@@ -142,8 +128,7 @@
             results[i,"Error"]  <- "Zero variance"
           }
         else{
-#
-#
+
       ## Populate with header info
       results[i, 'software'] <- mplus_output[1]
       results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
@@ -174,7 +159,7 @@
       ## Check for model convergence
       conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
       has_converged <- (conv==1L)
-      results[i, 'converged'] <- conv
+      results[i, 'converged'] <- (conv==1L)
       results[i, 'has_converged'] <- has_converged
       results[i,"covar_covered"] <- length(grep("THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT", mplus_output))
 
@@ -199,13 +184,13 @@
     }
     return(results)
   } # close get_results_basic
-  # results <- get_results_basic()
-  # get_results_basic()
+  # results <- get_results_basic(list_object)
+
 
   # i <- 1
 # @knitr random_effects --------------------------------------------------------------
-  get_results_random <- function(study){
-    out_list <- out_list_all
+  get_results_random <- function(list_object){
+    out_list <- list_object[["path"]]
     selected_models <- seq_along(mpar)
     for(i in selected_models){
       # get a text output to work with
@@ -324,11 +309,11 @@
     } # close for loop
     return(results)
   }# close get_results_random
-  # results <- get_results_random()
+  # results <- get_results_random(list_object)
 
 # @knitr residuals --------------------------------------------------------------
-  get_results_residual <- function(study){
-    out_list <- out_list_all
+  get_results_residual <- function(list_object){
+    out_list <- list_object[["path"]]
     selected_models <- seq_along(mpar)
     for(i in selected_models){
       # get a text output to work with
@@ -383,11 +368,11 @@
     } # close for loop
     return(results)
   }# close get_results_residual
-  # results <- get_results_residual()
+  # results <- get_results_residual(list_object)
 
 # @knitr fixed_effects -------------------------------------------------------------
-  get_results_fixed <- function(study){
-    out_list <- out_list_all
+  get_results_fixed <- function(list_object){
+    out_list <- list_object[["path"]]
     selected_models <- seq_along(mpar)
     for(i in selected_models){
       # get a text output to work with
@@ -593,25 +578,25 @@
     } # close for loop
     return(results)
   }# close get_results_fixed
-  # results <- get_results_fixed()
+  # results <- get_results_fixed(list_object)
 
 
 
 # @knitr define_collection_function --------------------------------------------------------------
-collect_model_results <- function(list_object){
-  out_list_all <- list_object[["path"]]
+# collect_model_results <- function(list_object){
+  # out_list_all <- list_object[["path"]]
   #e.g pc_TAU_00 <- c("pc_TAU_00_est", "pc_TAU_00_se", "pc_TAU_00_wald","pc_TAU_00_pval")
   source("./scripts/mplus/group_variables.R")
-  msum <- get_msum()
-  mpar <- get_mpar()
-  results <- results_to_populate()
-  get_results_basic()
-  get_results_random()
-  get_results_residual()
-  get_results_fixed()
-  return(results)
+  msum <- get_msum(list_object)
+  mpar <- get_mpar(list_object)
+  results <- results_to_populate(list_object)
+  results <- get_results_basic(list_object)
+  results <- get_results_random(list_object)
+  results <- get_results_residual(list_object)
+  results <- get_results_fixed(list_object)
+  # return(results)
 
-}#close collect_model_results
+# }#close collect_model_results
 
 
 
