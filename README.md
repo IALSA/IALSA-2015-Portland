@@ -11,6 +11,8 @@
   [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
 
 ##News
+ - [Reminder](./projects/physical/reminder_160915.md) has been sent to those who did not yet provided Table 1, measure descriptions, or PxP models.   
+ - [Description of measures](./studies/measures.md) have been added. Still many missing item documentations.
  - Announcing [Physical Track](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/announce.md)
  - [A Collaborative Modeling Framework for Multi-Study Coordinated Analyses](http://htmlpreview.github.io/?https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/talks/2015_presentations/22_July/A%20Collaborative%20Modeling%20Framework%20for%20Multi-Study%20Coordinated%20Analyses.html#/), *Wellcome Trust Conference*, July 22, 2015  
  - [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)  
@@ -72,10 +74,9 @@ The agenda and outcomes of each teleconference following the Portland workshop
 
 
 ## Participants
-
 | Study | Contact |
 | :---- | :------ |
-| [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html) | [Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu) |
+| [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html) | [measures](./EAS/measures.md |
 | [ELSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/elsa.html) | [Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |
 | [HABC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/habc.html) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |
 | [ILSE](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/ilse.html) | [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de) |
@@ -124,6 +125,9 @@ Any model counted in the above graph can be specified with a form nested within 
 The **covariance structure** will be given as
 [![general_model_specification](./libs/images/specification_covariance_structure.png)](./reports/model_specification/README.md)  
 For  details see [model specification](./reports/model_specification/README.md).  
+
+
+
   
 # Table of Contents
  - [news](#news)

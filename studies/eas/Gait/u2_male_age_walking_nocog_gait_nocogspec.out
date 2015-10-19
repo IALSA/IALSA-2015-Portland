@@ -1,12 +1,9 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
 09/15/2015  10:11 AM
-
 INPUT INSTRUCTIONS
-
   TITLE:
    u2, Gait, age, male
-
   DATA:
     File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
   VARIABLE:
@@ -241,67 +238,42 @@ INPUT INSTRUCTIONS
        !sp WITH ic (c_spic);
        !sp WITH sc (c_spsc);
        !ic WITH SC (C_ICSC);
-
        ip sp  qp  ON Bage; !educ; ! height; !smokhist cardio diab; !DepSymp;
         !c1-c9 (res_c);
          p1-p8 (res_p);
          ! p1-p9 pwith c1-c9(res_cov);
-
   !  MODEL CONSTRAINT:
-
            ! NEW r_ipic; !assigns labels to new parameters;
             !NEW r_spsc;
             !NEW r_res_pc;
-
            ! r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
             !r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
             !r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
-
     OUTPUT: sampstat Cinterval;
-
-
-
-
-
 *** WARNING
   Data set contains cases with missing on all variables except
   x-variables.  These cases were not included in the analysis.
   Number of cases with missing on all variables except x-variables:  224
    1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
-
-
-
-
 u2, Gait, age, male
-
 SUMMARY OF ANALYSIS
-
 Number of groups                                                 1
 Number of observations                                         160
-
 Number of dependent variables                                    8
 Number of independent variables                                  1
 Number of continuous latent variables                            3
-
 Observed dependent variables
-
   Continuous
    P1          P2          P3          P4          P5          P6
    P7          P8
-
 Observed independent variables
    BAGE
-
 Continuous latent variables
    IP          SP          QP
-
 Variables with special functions
-
   Time scores
    TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
    TIME7       TIME8
-
-
 Estimator                                                      MLF
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -316,25 +288,14 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-04
 Optimization algorithm                                         EMA
-
 Input data file(s)
   C:\Users\Andrea Zammit\Desktop\EASMaster.csv
 Input data format  FREE
-
-
 SUMMARY OF DATA
-
      Number of missing data patterns            52
-
-
 COVARIANCE COVERAGE OF DATA
-
 Minimum covariance coverage value   0.001
-
-
      PROPORTION OF DATA PRESENT
-
-
            Covariance Coverage
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -347,8 +308,6 @@ Minimum covariance coverage value   0.001
  P7             0.094         0.106         0.087         0.100         0.106
  P8             0.044         0.044         0.056         0.056         0.062
  BAGE           0.731         0.625         0.500         0.431         0.287
-
-
            Covariance Coverage
               P6            P7            P8            BAGE
               ________      ________      ________      ________
@@ -356,26 +315,16 @@ Minimum covariance coverage value   0.001
  P7             0.113         0.131
  P8             0.062         0.062         0.069
  BAGE           0.231         0.131         0.069         1.000
-
-
 SAMPLE STATISTICS
-
-
      ESTIMATED SAMPLE STATISTICS
-
-
            Means
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
  1             98.095        97.453        93.645        88.129        87.323
-
-
            Means
               P6            P7            P8            BAGE
               ________      ________      ________      ________
  1             84.254        77.423        83.199         7.713
-
-
            Covariances
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -388,8 +337,6 @@ SAMPLE STATISTICS
  P7           483.321       496.508       553.404       536.550       580.949
  P8           268.444       229.640       345.314       468.313       291.554
  BAGE         -28.547       -26.570       -38.827       -46.139       -38.831
-
-
            Covariances
               P6            P7            P8            BAGE
               ________      ________      ________      ________
@@ -397,8 +344,6 @@ SAMPLE STATISTICS
  P7           604.101       759.351
  P8           261.701       477.928       766.530
  BAGE         -50.114       -25.887       -25.463        25.497
-
-
            Correlations
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -411,8 +356,6 @@ SAMPLE STATISTICS
  P7             0.813         0.883         0.883         0.830         0.890
  P8             0.450         0.406         0.549         0.721         0.444
  BAGE          -0.262        -0.258        -0.338        -0.390        -0.325
-
-
            Correlations
               P6            P7            P8            BAGE
               ________      ________      ________      ________
@@ -420,19 +363,11 @@ SAMPLE STATISTICS
  P7             0.872         1.000
  P8             0.376         0.626         1.000
  BAGE          -0.395        -0.186        -0.182         1.000
-
-
      MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -2387.794
-
-
 UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
-
      UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
          Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
         Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
-
      P1                   99.379      -0.412      25.200    0.85%      80.200     95.800     99.800
              117.000     470.675       0.262     148.000    0.85%     109.700    117.700
      P2                  100.426      -0.104      51.500    1.00%      86.000     97.300    100.500
@@ -451,50 +386,30 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
               11.000     417.127       0.558     128.100    9.09%     105.000    108.800
      BAGE                  7.713       0.445      -0.779    0.62%       2.860      5.767      7.132
              160.000      25.497      -0.664      21.209    0.62%       8.609     12.335
-
-
 THE MODEL ESTIMATION TERMINATED NORMALLY
-
-
-
 MODEL FIT INFORMATION
-
 Number of Free Parameters                       13
-
 Loglikelihood
-
           H0 Value                       -1945.451
-
 Information Criteria
-
           Akaike (AIC)                    3916.902
           Bayesian (BIC)                  3956.879
           Sample-Size Adjusted BIC        3915.726
             (n* = (n + 2) / 24)
-
-
-
 MODEL RESULTS
-
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
-
  IP         ON
     BAGE              -0.844      0.488     -1.730      0.084
-
  SP         ON
     BAGE              -0.254      0.265     -0.959      0.338
-
  QP         ON
     BAGE               0.021      0.037      0.581      0.561
-
  IP       WITH
     SP               -47.928     47.530     -1.008      0.313
     QP                 7.605      6.057      1.256      0.209
-
  SP       WITH
     QP                -2.594      2.663     -0.974      0.330
-
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
@@ -507,7 +422,6 @@ MODEL RESULTS
     IP               107.590      4.646     23.158      0.000
     SP                -0.225      2.419     -0.093      0.926
     QP                -0.293      0.314     -0.934      0.350
-
  Residual Variances
     P1                77.443      7.443     10.405      0.000
     P2                77.443      7.443     10.405      0.000
@@ -520,82 +434,6 @@ MODEL RESULTS
     IP               418.346    103.747      4.032      0.000
     SP                22.572     22.192      1.017      0.309
     QP                 0.316      0.323      0.977      0.329
-
-
 QUALITY OF NUMERICAL RESULTS
-
      Condition Number for the Information Matrix              0.190E-05
        (ratio of smallest to largest eigenvalue)
-
-
-CONFIDENCE INTERVALS OF MODEL RESULTS
-
-                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
-
- IP       ON
-    BAGE            -2.101      -1.801      -1.647      -0.844      -0.042       0.112       0.413
-
- SP       ON
-    BAGE            -0.936      -0.773      -0.689      -0.254       0.182       0.265       0.428
-
- QP       ON
-    BAGE            -0.073      -0.051      -0.039       0.021       0.082       0.093       0.116
-
- IP       WITH
-    SP            -170.356    -141.087    -126.115     -47.928      30.259      45.231      74.500
-    QP              -7.995      -4.265      -2.358       7.605      17.568      19.476      23.206
-
- SP       WITH
-    QP              -9.452      -7.812      -6.974      -2.594       1.786       2.625       4.265
-
- Intercepts
-    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P7               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P8               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    IP              95.623      98.484      99.948     107.590     115.233     116.696     119.557
-    SP              -6.456      -4.966      -4.204      -0.225       3.755       4.517       6.006
-    QP              -1.102      -0.909      -0.810      -0.293       0.223       0.322       0.515
-
- Residual Variances
-    P1              58.273      62.856      65.200      77.443      89.686      92.030      96.614
-    P2              58.273      62.856      65.200      77.443      89.686      92.030      96.614
-    P3              58.273      62.856      65.200      77.443      89.686      92.030      96.614
-    P4              58.273      62.856      65.200      77.443      89.686      92.030      96.614
-    P5              58.273      62.856      65.200      77.443      89.686      92.030      96.614
-    P6              58.273      62.856      65.200      77.443      89.686      92.030      96.614
-    P7              58.273      62.856      65.200      77.443      89.686      92.030      96.614
-    P8              58.273      62.856      65.200      77.443      89.686      92.030      96.614
-    IP             151.116     215.003     247.683     418.346     589.010     621.690     685.577
-    SP             -34.590     -20.924     -13.934      22.572      59.078      66.069      79.735
-    QP              -0.517      -0.318      -0.216       0.316       0.848       0.950       1.149
-
-
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\gait\u2_male_age_walking
-
-     Beginning Time:  10:11:41
-        Ending Time:  10:11:42
-       Elapsed Time:  00:00:01
-
-
-
-MUTHEN & MUTHEN
-3463 Stoner Ave.
-Los Angeles, CA  90066
-
-Tel: (310) 391-9971
-Fax: (310) 391-8971
-Web: www.StatModel.com
-Support: Support@StatModel.com
-
-Copyright (c) 1998-2014 Muthen & Muthen

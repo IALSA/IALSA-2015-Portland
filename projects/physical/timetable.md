@@ -4,9 +4,9 @@ Aug 17 |10 | Analytic strategy. Estimation blueprint. Contact contributors |  | 
 24     |9 |Roadmap.   |  |  |  |
 31     |8 |  |  |  |  |  
 Sep 07 |7 |  |Outputs submitted  |  |  |  
-14     |6 |  |Extraction ready  |  |  |  
+14     |6 |Extracting PxP models  |Extraction ready  |  |  |  
 21     |5 |  |  |Outputs submitted  |  |  
-28     |4 |  |  | |  |  
+28     |4 |  |  | Extraction scripts ready |  |  
 Oct 05 |3 |  |Analytics Ready  |  |  |  
 12     |2 |  |Draft Ready  |Analytics Ready  |  |  
 19     |1 |  |  |Draft Ready  |  |  

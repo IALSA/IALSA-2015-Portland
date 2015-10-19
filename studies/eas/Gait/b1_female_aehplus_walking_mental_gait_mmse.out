@@ -1,12 +1,9 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
 09/15/2015   2:27 PM
-
 INPUT INSTRUCTIONS
-
   TITLE:
    B1, mmse, Gait, , aeh plus, Fully Conditional, female
-
   DATA:
     File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
   VARIABLE:
@@ -192,7 +189,6 @@ INPUT INSTRUCTIONS
                TSCORES =   time1 time2 time3 time4 time5 time6 time7 time8; !time9;
               USEOBSERVATIONS are DemEver EQ 0 and sex EQ 0;
   DEFINE:
-
   p1=Velocity_1; p2=Velocity_2; p3=Velocity_3; p4=Velocity_4; p5=Velocity_5;
   p6=Velocity_6; p7=Velocity_7; p8=Velocity_8;
   c1=MMS_1;	c2=MMS_2;	c3=MMS_3;	c4=MMS_4;	c5=MMS_5;	c6=MMS_6;	
@@ -239,68 +235,43 @@ INPUT INSTRUCTIONS
        sp WITH ic (c_spic);
        sp WITH sc (c_spsc);
        ic WITH SC (C_ICSC);
-
        ip sp  ic sc  ON Bage educ height smokhist cardio diab; !DepSymp;
         c1-c8 (res_c);
          p1-p8 (res_p);
           p1-p8 pwith c1-c8(res_cov);
-
     MODEL CONSTRAINT:
-
             NEW r_ipic; !assigns labels to new parameters;
             NEW r_spsc;
             NEW r_res_pc;
-
             r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
             r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
             r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
-
     OUTPUT: sampstat Cinterval;
-
-
-
-
-
 *** WARNING
   Data set contains cases with missing on x-variables.
   These cases were not included in the analysis.
   Number of cases with missing on x-variables:  312
    1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
-
-
-
-
 B1, mmse, Gait, , aeh plus, Fully Conditional, female
-
 SUMMARY OF ANALYSIS
-
 Number of groups                                                 1
 Number of observations                                          72
-
 Number of dependent variables                                   16
 Number of independent variables                                  6
 Number of continuous latent variables                            4
-
 Observed dependent variables
-
   Continuous
    P1          P2          P3          P4          P5          P6
    P7          P8          C1          C2          C3          C4
    C5          C6          C7          C8
-
 Observed independent variables
    BAGE        EDUC        HEIGHT      DIAB        SMOKHIST    CARDIO
-
 Continuous latent variables
    IP          SP          IC          SC
-
 Variables with special functions
-
   Time scores
    TIME1       TIME2       TIME3       TIME4       TIME5       TIME6
    TIME7       TIME8
-
-
 Estimator                                                      MLF
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -315,25 +286,14 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-04
 Optimization algorithm                                         EMA
-
 Input data file(s)
   C:\Users\Andrea Zammit\Desktop\EASMaster.csv
 Input data format  FREE
-
-
 SUMMARY OF DATA
-
      Number of missing data patterns            39
-
-
 COVARIANCE COVERAGE OF DATA
-
 Minimum covariance coverage value   0.001
-
-
      PROPORTION OF DATA PRESENT
-
-
            Covariance Coverage
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -359,8 +319,6 @@ Minimum covariance coverage value   0.001
  DIAB           0.847         0.694         0.486         0.403         0.181
  SMOKHIST       0.847         0.694         0.486         0.403         0.181
  CARDIO         0.847         0.694         0.486         0.403         0.181
-
-
            Covariance Coverage
               P6            P7            P8            C1            C2
               ________      ________      ________      ________      ________
@@ -381,8 +339,6 @@ Minimum covariance coverage value   0.001
  DIAB           0.153         0.111         0.028         1.000         1.000
  SMOKHIST       0.153         0.111         0.028         1.000         1.000
  CARDIO         0.153         0.111         0.028         1.000         1.000
-
-
            Covariance Coverage
               C3            C4            C5            C6            C7
               ________      ________      ________      ________      ________
@@ -398,8 +354,6 @@ Minimum covariance coverage value   0.001
  DIAB           0.847         0.667         0.528         0.431         0.306
  SMOKHIST       0.847         0.667         0.528         0.431         0.306
  CARDIO         0.847         0.667         0.528         0.431         0.306
-
-
            Covariance Coverage
               C8            BAGE          EDUC          HEIGHT        DIAB
               ________      ________      ________      ________      ________
@@ -410,51 +364,33 @@ Minimum covariance coverage value   0.001
  DIAB           0.167         1.000         1.000         1.000         1.000
  SMOKHIST       0.167         1.000         1.000         1.000         1.000
  CARDIO         0.167         1.000         1.000         1.000         1.000
-
-
            Covariance Coverage
               SMOKHIST      CARDIO
               ________      ________
  SMOKHIST       1.000
  CARDIO         1.000         1.000
-
-
 SAMPLE STATISTICS
-
-
      ESTIMATED SAMPLE STATISTICS
-
-
            Means
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
  1            102.574        99.193        96.065        86.226        96.679
-
-
            Means
               P6            P7            P8            C1            C2
               ________      ________      ________      ________      ________
  1             85.867        91.377       117.976        26.885        27.034
-
-
            Means
               C3            C4            C5            C6            C7
               ________      ________      ________      ________      ________
  1             26.992        26.880        26.729        26.861        26.076
-
-
            Means
               C8            BAGE          EDUC          HEIGHT        DIAB
               ________      ________      ________      ________      ________
  1             27.170         7.964         7.875        12.667         0.236
-
-
            Means
               SMOKHIST      CARDIO
               ________      ________
  1              0.625         0.153
-
-
            Covariances
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -480,8 +416,6 @@ SAMPLE STATISTICS
  DIAB          -0.673        -0.837        -2.020        -1.387        -1.822
  SMOKHIST       0.150         0.808         1.225         2.362        -0.221
  CARDIO        -0.584         0.176         0.575        -0.373         2.738
-
-
            Covariances
               P6            P7            P8            C1            C2
               ________      ________      ________      ________      ________
@@ -502,8 +436,6 @@ SAMPLE STATISTICS
  DIAB          -2.834        -1.912        -0.093        -0.075         0.049
  SMOKHIST      -0.460         0.066        -0.029        -0.139         0.026
  CARDIO         0.106         0.153        -0.207        -0.059         0.018
-
-
            Covariances
               C3            C4            C5            C6            C7
               ________      ________      ________      ________      ________
@@ -519,8 +451,6 @@ SAMPLE STATISTICS
  DIAB          -0.002         0.036        -0.043         0.047        -0.062
  SMOKHIST       0.048        -0.051        -0.062        -0.034         0.132
  CARDIO         0.070         0.106         0.028         0.010        -0.124
-
-
            Covariances
               C8            BAGE          EDUC          HEIGHT        DIAB
               ________      ________      ________      ________      ________
@@ -531,15 +461,11 @@ SAMPLE STATISTICS
  DIAB           0.038        -0.023        -0.012         0.204         0.180
  SMOKHIST       0.100        -0.529        -0.408         0.292         0.019
  CARDIO        -0.176         0.083        -0.050        -0.157         0.006
-
-
            Covariances
               SMOKHIST      CARDIO
               ________      ________
  SMOKHIST       0.234
  CARDIO         0.030         0.157
-
-
            Correlations
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
@@ -565,8 +491,6 @@ SAMPLE STATISTICS
  DIAB          -0.087        -0.114        -0.256        -0.153        -0.215
  SMOKHIST       0.017         0.097         0.136         0.228        -0.023
  CARDIO        -0.080         0.026         0.078        -0.044         0.347
-
-
            Correlations
               P6            P7            P8            C1            C2
               ________      ________      ________      ________      ________
@@ -587,8 +511,6 @@ SAMPLE STATISTICS
  DIAB          -0.452        -0.324        -0.050        -0.154         0.120
  SMOKHIST      -0.064         0.010        -0.014        -0.250         0.056
  CARDIO         0.018         0.028        -0.120        -0.128         0.048
-
-
            Correlations
               C3            C4            C5            C6            C7
               ________      ________      ________      ________      ________
@@ -604,8 +526,6 @@ SAMPLE STATISTICS
  DIAB          -0.005         0.058        -0.080         0.066        -0.080
  SMOKHIST       0.097        -0.073        -0.100        -0.042         0.149
  CARDIO         0.171         0.183         0.055         0.015        -0.172
-
-
            Correlations
               C8            BAGE          EDUC          HEIGHT        DIAB
               ________      ________      ________      ________      ________
@@ -616,26 +536,16 @@ SAMPLE STATISTICS
  DIAB           0.077        -0.011        -0.008         0.066         1.000
  SMOKHIST       0.176        -0.212        -0.249         0.083         0.093
  CARDIO        -0.379         0.041        -0.037        -0.055         0.033
-
-
            Correlations
               SMOKHIST      CARDIO
               ________      ________
  SMOKHIST       1.000
  CARDIO         0.154         1.000
-
-
      MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -1563.748
-
-
 UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
-
      UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
-
          Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
         Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
-
      P1                  102.762      -0.035      68.000    1.64%      84.800     97.300    102.000
               61.000     319.968      -0.825     141.300    1.64%     110.300    118.000
      P2                  100.780      -0.161      57.400    2.00%      87.400     98.000    102.550
@@ -680,34 +590,19 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
               72.000       0.234      -1.733       1.000   62.50%       1.000      1.000
      CARDIO                0.153       2.575       0.000   86.11%       0.000      0.000      0.000
               72.000       0.157       6.167       2.000    1.39%       0.000      0.000
-
-
 THE MODEL ESTIMATION TERMINATED NORMALLY
-
-
-
 MODEL FIT INFORMATION
-
 Number of Free Parameters                       41
-
 Loglikelihood
-
           H0 Value                       -1313.993
-
 Information Criteria
-
           Akaike (AIC)                    2709.986
           Bayesian (BIC)                  2803.329
           Sample-Size Adjusted BIC        2674.152
             (n* = (n + 2) / 24)
-
-
-
 MODEL RESULTS
-
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
-
  IP         ON
     BAGE              -0.461      0.561     -0.821      0.412
     EDUC               0.670      0.955      0.701      0.483
@@ -715,7 +610,6 @@ MODEL RESULTS
     SMOKHIST          -1.544      6.505     -0.237      0.812
     CARDIO            -4.145     10.796     -0.384      0.701
     DIAB              -4.759      8.319     -0.572      0.567
-
  SP         ON
     BAGE              -0.108      0.192     -0.563      0.574
     EDUC              -0.267      0.308     -0.866      0.386
@@ -723,7 +617,6 @@ MODEL RESULTS
     SMOKHIST           0.932      2.400      0.388      0.698
     CARDIO             1.280      3.710      0.345      0.730
     DIAB               0.162      3.172      0.051      0.959
-
  IC         ON
     BAGE              -0.001      0.040     -0.026      0.979
     EDUC               0.059      0.060      0.998      0.318
@@ -731,7 +624,6 @@ MODEL RESULTS
     SMOKHIST          -0.221      0.406     -0.544      0.586
     CARDIO             0.063      0.632      0.100      0.920
     DIAB              -0.090      0.455     -0.199      0.843
-
  SC         ON
     BAGE              -0.003      0.015     -0.195      0.845
     EDUC               0.003      0.018      0.162      0.871
@@ -739,43 +631,31 @@ MODEL RESULTS
     SMOKHIST           0.064      0.124      0.512      0.608
     CARDIO            -0.031      0.331     -0.092      0.926
     DIAB               0.029      0.142      0.201      0.841
-
  IP       WITH
     SP                -0.792     19.939     -0.040      0.968
     IC                 2.126      5.142      0.413      0.679
     SC                 0.258      1.016      0.254      0.800
-
  SP       WITH
     IC                -0.010      1.111     -0.009      0.993
     SC                 0.012      0.251      0.047      0.963
-
  IC       WITH
     SC                 0.036      0.066      0.550      0.582
-
  P1       WITH
     C1                 0.222      1.160      0.191      0.849
-
  P2       WITH
     C2                 0.222      1.160      0.191      0.849
-
  P3       WITH
     C3                 0.222      1.160      0.191      0.849
-
  P4       WITH
     C4                 0.222      1.160      0.191      0.849
-
  P5       WITH
     C5                 0.222      1.160      0.191      0.849
-
  P6       WITH
     C6                 0.222      1.160      0.191      0.849
-
  P7       WITH
     C7                 0.222      1.160      0.191      0.849
-
  P8       WITH
     C8                 0.222      1.160      0.191      0.849
-
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
@@ -797,7 +677,6 @@ MODEL RESULTS
     SP                -1.644      5.959     -0.276      0.783
     IC                26.678      0.878     30.377      0.000
     SC                -0.057      0.294     -0.195      0.845
-
  Residual Variances
     P1                73.970     20.682      3.576      0.000
     P2                73.970     20.682      3.576      0.000
@@ -819,162 +698,10 @@ MODEL RESULTS
     SP                 1.219      5.634      0.216      0.829
     IC                 0.300      0.296      1.012      0.312
     SC                 0.006      0.019      0.313      0.754
-
 New/Additional Parameters
     R_IPIC             0.265      0.629      0.421      0.674
     R_SPSC             0.138      3.050      0.045      0.964
     R_RES_PC           0.032      0.165      0.191      0.849
-
-
 QUALITY OF NUMERICAL RESULTS
-
      Condition Number for the Information Matrix              0.924E-07
        (ratio of smallest to largest eigenvalue)
-
-
-CONFIDENCE INTERVALS OF MODEL RESULTS
-
-                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
-
- IP       ON
-    BAGE            -1.907      -1.561      -1.385      -0.461       0.462       0.639       0.985
-    EDUC            -1.791      -1.203      -0.902       0.670       2.242       2.543       3.131
-    HEIGHT          -1.071      -0.793      -0.651       0.090       0.831       0.973       1.251
-    SMOKHIST       -18.300     -14.294     -12.245      -1.544       9.157      11.206      15.212
-    CARDIO         -31.953     -25.305     -21.904      -4.145      13.615      17.016      23.664
-    DIAB           -26.186     -21.063     -18.443      -4.759       8.926      11.546      16.669
-
- SP       ON
-    BAGE            -0.603      -0.484      -0.424      -0.108       0.208       0.268       0.387
-    EDUC            -1.061      -0.871      -0.774      -0.267       0.240       0.337       0.527
-    HEIGHT          -0.486      -0.363      -0.300       0.028       0.357       0.420       0.543
-    SMOKHIST        -5.251      -3.773      -3.017       0.932       4.881       5.637       7.115
-    CARDIO          -8.276      -5.991      -4.822       1.280       7.383       8.552      10.837
-    DIAB            -8.008      -6.055      -5.056       0.162       5.379       6.378       8.331
-
- IC       ON
-    BAGE            -0.104      -0.079      -0.067      -0.001       0.065       0.077       0.102
-    EDUC            -0.094      -0.057      -0.039       0.059       0.157       0.176       0.213
-    HEIGHT          -0.089      -0.068      -0.056       0.002       0.060       0.072       0.094
-    SMOKHIST        -1.267      -1.017      -0.889      -0.221       0.447       0.575       0.825
-    CARDIO          -1.566      -1.176      -0.977       0.063       1.103       1.303       1.692
-    DIAB            -1.263      -0.982      -0.839      -0.090       0.658       0.802       1.082
-
- SC       ON
-    BAGE            -0.041      -0.032      -0.027      -0.003       0.022       0.026       0.035
-    EDUC            -0.044      -0.032      -0.027       0.003       0.033       0.038       0.049
-    HEIGHT          -0.033      -0.025      -0.021      -0.001       0.019       0.023       0.031
-    SMOKHIST        -0.256      -0.179      -0.140       0.064       0.267       0.306       0.383
-    CARDIO          -0.883      -0.679      -0.575      -0.031       0.514       0.618       0.822
-    DIAB            -0.338      -0.250      -0.205       0.029       0.262       0.307       0.395
-
- IP       WITH
-    SP             -52.150     -39.872     -33.592      -0.792      32.007      38.287      50.565
-    IC             -11.119      -7.953      -6.333       2.126      10.584      12.204      15.370
-    SC              -2.359      -1.733      -1.413       0.258       1.929       2.248       2.874
-
- SP       WITH
-    IC              -2.873      -2.189      -1.839      -0.010       1.818       2.168       2.852
-    SC              -0.634      -0.479      -0.400       0.012       0.424       0.503       0.657
-
- IC       WITH
-    SC              -0.134      -0.093      -0.073       0.036       0.146       0.166       0.207
-
- P1       WITH
-    C1              -2.767      -2.053      -1.687       0.222       2.130       2.496       3.210
-
- P2       WITH
-    C2              -2.767      -2.053      -1.687       0.222       2.130       2.496       3.210
-
- P3       WITH
-    C3              -2.767      -2.053      -1.687       0.222       2.130       2.496       3.210
-
- P4       WITH
-    C4              -2.767      -2.053      -1.687       0.222       2.130       2.496       3.210
-
- P5       WITH
-    C5              -2.767      -2.053      -1.687       0.222       2.130       2.496       3.210
-
- P6       WITH
-    C6              -2.767      -2.053      -1.687       0.222       2.130       2.496       3.210
-
- P7       WITH
-    C7              -2.767      -2.053      -1.687       0.222       2.130       2.496       3.210
-
- P8       WITH
-    C8              -2.767      -2.053      -1.687       0.222       2.130       2.496       3.210
-
- Intercepts
-    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P7               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    P8               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C7               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    C8               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    IP              72.335      80.317      84.401     105.724     127.048     131.131     139.114
-    SP             -16.992     -13.323     -11.446      -1.644       8.158      10.035      13.705
-    IC              24.416      24.957      25.234      26.678      28.123      28.400      28.940
-    SC              -0.816      -0.635      -0.542      -0.057       0.427       0.520       0.701
-
- Residual Variances
-    P1              20.696      33.433      39.948      73.970     107.993     114.508     127.244
-    P2              20.696      33.433      39.948      73.970     107.993     114.508     127.244
-    P3              20.696      33.433      39.948      73.970     107.993     114.508     127.244
-    P4              20.696      33.433      39.948      73.970     107.993     114.508     127.244
-    P5              20.696      33.433      39.948      73.970     107.993     114.508     127.244
-    P6              20.696      33.433      39.948      73.970     107.993     114.508     127.244
-    P7              20.696      33.433      39.948      73.970     107.993     114.508     127.244
-    P8              20.696      33.433      39.948      73.970     107.993     114.508     127.244
-    C1               0.457       0.507       0.533       0.666       0.800       0.826       0.876
-    C2               0.457       0.507       0.533       0.666       0.800       0.826       0.876
-    C3               0.457       0.507       0.533       0.666       0.800       0.826       0.876
-    C4               0.457       0.507       0.533       0.666       0.800       0.826       0.876
-    C5               0.457       0.507       0.533       0.666       0.800       0.826       0.876
-    C6               0.457       0.507       0.533       0.666       0.800       0.826       0.876
-    C7               0.457       0.507       0.533       0.666       0.800       0.826       0.876
-    C8               0.457       0.507       0.533       0.666       0.800       0.826       0.876
-    IP             -83.965     -12.639      23.846     214.378     404.911     441.396     512.721
-    SP             -13.292      -9.823      -8.049       1.219      10.486      12.260      15.729
-    IC              -0.463      -0.281      -0.188       0.300       0.787       0.881       1.063
-    SC              -0.043      -0.031      -0.025       0.006       0.037       0.043       0.055
-
-New/Additional Parameters
-    R_IPIC          -1.356      -0.969      -0.770       0.265       1.301       1.499       1.886
-    R_SPSC          -7.719      -5.841      -4.880       0.138       5.155       6.116       7.994
-    R_RES_PC        -0.395      -0.293      -0.241       0.032       0.304       0.356       0.458
-
-
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\gait\b1_female_aehplus_w
-
-     Beginning Time:  14:27:11
-        Ending Time:  14:27:16
-       Elapsed Time:  00:00:05
-
-
-
-MUTHEN & MUTHEN
-3463 Stoner Ave.
-Los Angeles, CA  90066
-
-Tel: (310) 391-9971
-Fax: (310) 391-8971
-Web: www.StatModel.com
-Support: Support@StatModel.com
-
-Copyright (c) 1998-2014 Muthen & Muthen
