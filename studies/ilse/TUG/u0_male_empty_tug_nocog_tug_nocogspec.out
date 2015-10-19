@@ -1,25 +1,26 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-06/30/2015  11:01 AM
+10/19/2015   2:33 PM
 
 INPUT INSTRUCTIONS
 
    TITLE: TUG, Empty Model, Male
 
-  DATA:  File = C:\Users\Besitzer\Desktop\ilse 03.03.dat;
+
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 19.10.dat;
 
   VARIABLE: Names are
-   T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center t1beer t1wine
-   t1k t1pc t1vf t1sa t1spf t2dss t2bd
-      t2fs t2fsb t2beer t2wine t2k t2pc t2vf t2sa t2spf t3dss t3bd
-      t3k t3pc t3vf t3sa t3spf t2age t3age
-      T1TUG t1height t1weight T2TUG t2height t2weight T3TUG t3height
-      t3weight time1 time2r time3r time3
-      time2 T1HAVIR1 T1HAVIL1 T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2
-      T2HAVIL1 T2HAVIL2 T3HAVIR1x T3HAVIR2x
-      T3HAVIL1x T3HAVIL2x t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH
-      Educ element Haupt second others Smoker
-      Former;
+  T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center
+  t1beer t1wine t1k t1pc t1vf
+      t1sa t1spf t2dss t2bd t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc t3vf
+      t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3height t3weight
+      time1 time2r time3r time3 time2 T1HAVIR1 T1HAVIL1
+      T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2 T2HAVIL1
+      T2HAVIL2 T3HAVIR1x T3HAVIR2x T3HAVIL1x T3HAVIL2x
+      t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH Educ element
+      Haupt second others Smoker Educnew heartdis;
 
            MISSING are ALL(-9999);
            USEVAR are  time1 time2 time3
@@ -93,7 +94,7 @@ Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
 Input data file(s)
-  C:\Users\Besitzer\Desktop\ilse 03.03.dat
+  C:\Users\Besitzer\Desktop\ilse 19.10.dat
 Input data format  FREE
 
 
@@ -114,8 +115,8 @@ Minimum covariance coverage value   0.100
               P1            P2            P3
               ________      ________      ________
  P1             0.514
- P2             0.453         0.939
- P3             0.220         0.469         0.478
+ P2             0.449         0.935
+ P3             0.220         0.461         0.473
 
 
 SAMPLE STATISTICS
@@ -127,26 +128,26 @@ SAMPLE STATISTICS
            Means
               P1            P2            P3
               ________      ________      ________
- 1              5.596         5.929         8.142
+ 1              5.567         5.700         7.898
 
 
            Covariances
               P1            P2            P3
               ________      ________      ________
- P1             1.684
- P2             0.149        15.138
- P3             1.981        -0.272         6.618
+ P1             1.509
+ P2             0.472         2.380
+ P3             0.850         0.212         2.562
 
 
            Correlations
               P1            P2            P3
               ________      ________      ________
  P1             1.000
- P2             0.030         1.000
- P3             0.593        -0.027         1.000
+ P2             0.249         1.000
+ P3             0.432         0.086         1.000
 
 
-     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -1115.130
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -838.687
 
 
 THE MODEL ESTIMATION TERMINATED NORMALLY
@@ -159,15 +160,15 @@ Number of Free Parameters                        3
 
 Loglikelihood
 
-          H0 Value                       -1224.493
-          H0 Scaling Correction Factor     28.3324
+          H0 Value                        -933.295
+          H0 Scaling Correction Factor      1.5250
             for MLR
 
 Information Criteria
 
-          Akaike (AIC)                    2454.986
-          Bayesian (BIC)                  2465.490
-          Sample-Size Adjusted BIC        2455.980
+          Akaike (AIC)                    1872.590
+          Bayesian (BIC)                  1883.094
+          Sample-Size Adjusted BIC        1873.584
             (n* = (n + 2) / 24)
 
 
@@ -178,7 +179,7 @@ MODEL RESULTS
                     Estimate       S.E.  Est./S.E.    P-Value
 
  Means
-    IP                 6.329      0.140     45.229      0.000
+    IP                 6.166      0.077     79.720      0.000
 
  Intercepts
     P1                 0.000      0.000    999.000    999.000
@@ -186,17 +187,17 @@ MODEL RESULTS
     P3                 0.000      0.000    999.000    999.000
 
  Variances
-    IP                 0.152      0.433      0.350      0.726
+    IP                 0.042      0.213      0.197      0.844
 
  Residual Variances
-    P1                10.242      5.843      1.753      0.080
-    P2                10.242      5.843      1.753      0.080
-    P3                10.242      5.843      1.753      0.080
+    P1                 3.043      0.277     10.981      0.000
+    P2                 3.043      0.277     10.981      0.000
+    P3                 3.043      0.277     10.981      0.000
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.393E-04
+     Condition Number for the Information Matrix              0.109E-01
        (ratio of smallest to largest eigenvalue)
 
 
@@ -208,9 +209,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\tug\u0_male_empty_t
 
-     Beginning Time:  11:01:15
-        Ending Time:  11:01:16
-       Elapsed Time:  00:00:01
+     Beginning Time:  14:33:30
+        Ending Time:  14:33:32
+       Elapsed Time:  00:00:02
 
 
 

@@ -1,25 +1,26 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-06/30/2015  11:01 AM
+10/19/2015   2:33 PM
 
 INPUT INSTRUCTIONS
 
    TITLE: TUG, Empty Model, Female
 
-  DATA:  File = C:\Users\Besitzer\Desktop\ilse 03.03.dat;
+
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 19.10.dat;
 
   VARIABLE: Names are
-   T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center t1beer t1wine
-   t1k t1pc t1vf t1sa t1spf t2dss t2bd
-      t2fs t2fsb t2beer t2wine t2k t2pc t2vf t2sa t2spf t3dss t3bd
-      t3k t3pc t3vf t3sa t3spf t2age t3age
-      T1TUG t1height t1weight T2TUG t2height t2weight T3TUG t3height
-      t3weight time1 time2r time3r time3
-      time2 T1HAVIR1 T1HAVIL1 T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2
-      T2HAVIL1 T2HAVIL2 T3HAVIR1x T3HAVIR2x
-      T3HAVIL1x T3HAVIL2x t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH
-      Educ element Haupt second others Smoker
-      Former;
+  T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center
+  t1beer t1wine t1k t1pc t1vf
+      t1sa t1spf t2dss t2bd t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc t3vf
+      t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3height t3weight
+      time1 time2r time3r time3 time2 T1HAVIR1 T1HAVIL1
+      T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2 T2HAVIL1
+      T2HAVIL2 T3HAVIR1x T3HAVIR2x T3HAVIL1x T3HAVIL2x
+      t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH Educ element
+      Haupt second others Smoker Educnew heartdis;
 
            MISSING are ALL(-9999);
            USEVAR are  time1 time2 time3
@@ -93,7 +94,7 @@ Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
 Input data file(s)
-  C:\Users\Besitzer\Desktop\ilse 03.03.dat
+  C:\Users\Besitzer\Desktop\ilse 19.10.dat
 Input data format  FREE
 
 
@@ -208,8 +209,8 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\tug\u0_female_empty
 
-     Beginning Time:  11:01:26
-        Ending Time:  11:01:27
+     Beginning Time:  14:33:52
+        Ending Time:  14:33:53
        Elapsed Time:  00:00:01
 
 

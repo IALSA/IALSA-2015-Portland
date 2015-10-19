@@ -1,0 +1,51 @@
+TITLE: M5 TUG, Block Design, Age Conditional, Female
+
+DATA:  File = C:\Users\Besitzer\Desktop\ilse 19.10.dat;
+
+VARIABLE: Names are 
+T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center 
+t1beer t1wine t1k t1pc t1vf 
+    t1sa t1spf t2dss t2bd t2fs t2fsb t2beer t2wine 
+    t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc t3vf 
+    t3sa t3spf t2age t3age T1TUG t1height t1weight 
+    T2TUG t2height t2weight T3TUG t3height t3weight 
+    time1 time2r time3r time3 time2 T1HAVIR1 T1HAVIL1 
+    T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2 T2HAVIL1 
+    T2HAVIL2 T3HAVIR1x T3HAVIR2x T3HAVIL1x T3HAVIL2x 
+    t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH Educ element 
+    Haupt second others Smoker Educnew heartdis;
+
+       MISSING are ALL(-9999); 
+       USEVAR are  time1 time2 time3 
+                   p1 p2 p3 
+                   c1 c2 c3 
+                   Bage;
+       TSCORES =   time1 time2 time3;
+
+       USEOBSERVATIONS are sex EQ 1;
+
+Define: p1=t1tug; p2=t2tug; p3=t3tug;
+        c1=t1bd; c2=t2bd; c3=t3bd; 
+        Bage=t1age-70;  
+        Bagesq=(t1age-70)**2; 
+        
+
+
+ANALYSIS: TYPE = RANDOM;
+ALGORITHM=EM;
+ MCONVERGENCE = .01;
+ Estimator=MLF;
+ 
+MODEL:  ip sp | p1-p3 AT time1-time3;
+        ic sc | c1-c3 AT time1-time3;
+
+
+        ip sp ic sc ON Bage;
+
+        p1-p3 ;
+        c1-c3 (res_c);
+        
+        p1-p3 pwith c1-c3(res_cov); 
+        !Paired covariances constrained to be equal across time
+
+OUTPUT: sampstat;  

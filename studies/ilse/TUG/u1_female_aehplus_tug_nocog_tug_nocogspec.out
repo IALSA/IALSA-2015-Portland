@@ -1,29 +1,30 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-06/30/2015  11:00 AM
+10/19/2015   2:32 PM
 
 INPUT INSTRUCTIONS
 
    TITLE: TUG, AEHplus Model, Female
 
-  DATA:  File = C:\Users\Besitzer\Desktop\ilse 03.03.dat;
+
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 19.10.dat;
 
   VARIABLE: Names are
-   T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center t1beer t1wine
-   t1k t1pc t1vf t1sa t1spf t2dss t2bd
-      t2fs t2fsb t2beer t2wine t2k t2pc t2vf t2sa t2spf t3dss t3bd
-      t3k t3pc t3vf t3sa t3spf t2age t3age
-      T1TUG t1height t1weight T2TUG t2height t2weight T3TUG t3height
-      t3weight time1 time2r time3r time3
-      time2 T1HAVIR1 T1HAVIL1 T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2
-      T2HAVIL1 T2HAVIL2 T3HAVIR1x T3HAVIR2x
-      T3HAVIL1x T3HAVIL2x t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH
-      Educ element Haupt second others Smoker
-      Former;
+  T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center
+  t1beer t1wine t1k t1pc t1vf
+      t1sa t1spf t2dss t2bd t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc t3vf
+      t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3height t3weight
+      time1 time2r time3r time3 time2 T1HAVIR1 T1HAVIL1
+      T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2 T2HAVIL1
+      T2HAVIL2 T3HAVIR1x T3HAVIR2x T3HAVIL1x T3HAVIL2x
+      t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH Educ element
+      Haupt second others Smoker Educnew heartdis;
 
            MISSING are ALL(-9999);
-           USEVAR are  time1 time2 time3 Haupt Second others
-                       Smoker Former T1APEC
+           USEVAR are  time1 time2 time3 Educnew
+                       Smoker heartdis
                        p1 p2 p3
                        Bage height;
            TSCORES =   time1 time2 time3;
@@ -43,7 +44,7 @@ INPUT INSTRUCTIONS
   MODEL:    ip sp | p1-p3 AT time1-time3;
 
 
-          ip sp ON Bage height Haupt Second others Smoker Former T1APEC;
+          ip sp ON Bage height Educnew Smoker heartdis;
 
 
           p1-p3 (res_p);
@@ -72,7 +73,7 @@ Number of groups                                                 1
 Number of observations                                         214
 
 Number of dependent variables                                    3
-Number of independent variables                                  8
+Number of independent variables                                  5
 Number of continuous latent variables                            2
 
 Observed dependent variables
@@ -81,8 +82,7 @@ Observed dependent variables
    P1          P2          P3
 
 Observed independent variables
-   HAUPT       SECOND      OTHERS      SMOKER      FORMER      T1APEC
-   BAGE        HEIGHT
+   EDUCNEW     SMOKER      HEARTDIS    BAGE        HEIGHT
 
 Continuous latent variables
    IP          SP
@@ -109,7 +109,7 @@ Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
 Input data file(s)
-  C:\Users\Besitzer\Desktop\ilse 03.03.dat
+  C:\Users\Besitzer\Desktop\ilse 19.10.dat
 Input data format  FREE
 
 
@@ -127,36 +127,24 @@ Minimum covariance coverage value   0.100
 
 
            Covariance Coverage
-              P1            P2            P3            HAUPT         SECOND
+              P1            P2            P3            EDUCNEW       SMOKER
               ________      ________      ________      ________      ________
  P1             0.486
  P2             0.421         0.930
  P3             0.234         0.472         0.481
- HAUPT          0.486         0.930         0.481         1.000
- SECOND         0.486         0.930         0.481         1.000         1.000
- OTHERS         0.486         0.930         0.481         1.000         1.000
+ EDUCNEW        0.486         0.930         0.481         1.000
  SMOKER         0.486         0.930         0.481         1.000         1.000
- FORMER         0.486         0.930         0.481         1.000         1.000
- T1APEC         0.486         0.930         0.481         1.000         1.000
+ HEARTDIS       0.486         0.930         0.481         1.000         1.000
  BAGE           0.486         0.930         0.481         1.000         1.000
  HEIGHT         0.486         0.930         0.481         1.000         1.000
 
 
            Covariance Coverage
-              OTHERS        SMOKER        FORMER        T1APEC        BAGE
-              ________      ________      ________      ________      ________
- OTHERS         1.000
- SMOKER         1.000         1.000
- FORMER         1.000         1.000         1.000
- T1APEC         1.000         1.000         1.000         1.000
- BAGE           1.000         1.000         1.000         1.000         1.000
- HEIGHT         1.000         1.000         1.000         1.000         1.000
-
-
-           Covariance Coverage
-              HEIGHT
-              ________
- HEIGHT         1.000
+              HEARTDIS      BAGE          HEIGHT
+              ________      ________      ________
+ HEARTDIS       1.000
+ BAGE           1.000         1.000
+ HEIGHT         1.000         1.000         1.000
 
 
 SAMPLE STATISTICS
@@ -166,90 +154,60 @@ SAMPLE STATISTICS
 
 
            Means
-              P1            P2            P3            HAUPT         SECOND
+              P1            P2            P3            EDUCNEW       SMOKER
               ________      ________      ________      ________      ________
- 1              6.167         6.450         8.375         0.762         0.028
+ 1              6.114         6.458         8.333         0.350         0.360
 
 
            Means
-              OTHERS        SMOKER        FORMER        T1APEC        BAGE
-              ________      ________      ________      ________      ________
- 1              0.140         0.201         0.159         0.271        -7.032
-
-
-           Means
-              HEIGHT
-              ________
- 1              2.065
+              HEARTDIS      BAGE          HEIGHT
+              ________      ________      ________
+ 1              0.271        -7.032         2.065
 
 
            Covariances
-              P1            P2            P3            HAUPT         SECOND
+              P1            P2            P3            EDUCNEW       SMOKER
               ________      ________      ________      ________      ________
- P1             1.771
- P2             1.597         3.945
- P3             0.827         1.007         2.398
- HAUPT          0.011        -0.035         0.027         0.182
- SECOND         0.001         0.062         0.114        -0.021         0.027
- OTHERS        -0.015        -0.026        -0.072        -0.107        -0.004
- SMOKER        -0.037        -0.089         0.046        -0.013        -0.001
- FORMER         0.066         0.028         0.047         0.010        -0.004
- T1APEC         0.146         0.118         0.017         0.009        -0.003
- BAGE          -0.070        -0.203        -0.073        -0.008        -0.003
- HEIGHT         0.264        -0.469         0.660        -0.171         0.017
+ P1             1.682
+ P2             1.506         3.950
+ P3             0.666         0.895         2.185
+ EDUCNEW       -0.090        -0.092         0.021         0.228
+ SMOKER         0.017        -0.058         0.111         0.019         0.230
+ HEARTDIS       0.130         0.118         0.038        -0.025         0.015
+ BAGE          -0.054        -0.202        -0.034        -0.006         0.048
+ HEIGHT         0.179        -0.409         0.323         0.440         0.360
 
 
            Covariances
-              OTHERS        SMOKER        FORMER        T1APEC        BAGE
-              ________      ________      ________      ________      ________
- OTHERS         0.121
- SMOKER         0.005         0.161
- FORMER         0.001        -0.032         0.134
- T1APEC        -0.001         0.016        -0.001         0.198
- BAGE          -0.029         0.043         0.004         0.011         0.837
- HEIGHT         0.084         0.323         0.036        -0.223         0.142
-
-
-           Covariances
-              HEIGHT
-              ________
- HEIGHT        40.585
+              HEARTDIS      BAGE          HEIGHT
+              ________      ________      ________
+ HEARTDIS       0.198
+ BAGE           0.011         0.837
+ HEIGHT        -0.223         0.142        40.585
 
 
            Correlations
-              P1            P2            P3            HAUPT         SECOND
+              P1            P2            P3            EDUCNEW       SMOKER
               ________      ________      ________      ________      ________
  P1             1.000
- P2             0.604         1.000
- P3             0.401         0.327         1.000
- HAUPT          0.020        -0.041         0.041         1.000
- SECOND         0.007         0.190         0.447        -0.304         1.000
- OTHERS        -0.033        -0.038        -0.133        -0.722        -0.069
- SMOKER        -0.069        -0.112         0.073        -0.075        -0.015
- FORMER         0.135         0.039         0.084         0.063        -0.074
- T1APEC         0.247         0.134         0.025         0.045        -0.040
- BAGE          -0.057        -0.112        -0.052        -0.022        -0.022
- HEIGHT         0.031        -0.037         0.067        -0.063         0.016
+ P2             0.584         1.000
+ P3             0.347         0.305         1.000
+ EDUCNEW       -0.145        -0.096         0.030         1.000
+ SMOKER         0.028        -0.061         0.157         0.082         1.000
+ HEARTDIS       0.226         0.133         0.058        -0.117         0.069
+ BAGE          -0.046        -0.111        -0.025        -0.015         0.109
+ HEIGHT         0.022        -0.032         0.034         0.145         0.118
 
 
            Correlations
-              OTHERS        SMOKER        FORMER        T1APEC        BAGE
-              ________      ________      ________      ________      ________
- OTHERS         1.000
- SMOKER         0.033         1.000
- FORMER         0.009        -0.218         1.000
- T1APEC        -0.004         0.088        -0.006         1.000
- BAGE          -0.091         0.118         0.013         0.028         1.000
- HEIGHT         0.038         0.127         0.016        -0.079         0.024
+              HEARTDIS      BAGE          HEIGHT
+              ________      ________      ________
+ HEARTDIS       1.000
+ BAGE           0.028         1.000
+ HEIGHT        -0.079         0.024         1.000
 
 
-           Correlations
-              HEIGHT
-              ________
- HEIGHT         1.000
-
-
-     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -2027.249
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -2144.270
 
 
 THE MODEL ESTIMATION TERMINATED NORMALLY
@@ -258,17 +216,17 @@ THE MODEL ESTIMATION TERMINATED NORMALLY
 
 MODEL FIT INFORMATION
 
-Number of Free Parameters                       22
+Number of Free Parameters                       16
 
 Loglikelihood
 
-          H0 Value                        -760.573
+          H0 Value                        -773.616
 
 Information Criteria
 
-          Akaike (AIC)                    1565.146
-          Bayesian (BIC)                  1639.197
-          Sample-Size Adjusted BIC        1569.485
+          Akaike (AIC)                    1579.232
+          Bayesian (BIC)                  1633.088
+          Sample-Size Adjusted BIC        1582.388
             (n* = (n + 2) / 24)
 
 
@@ -279,46 +237,40 @@ MODEL RESULTS
                     Estimate       S.E.  Est./S.E.    P-Value
 
  IP         ON
-    BAGE              -0.169      0.200     -0.842      0.400
-    HEIGHT             0.003      0.026      0.132      0.895
-    HAUPT             -0.571      0.655     -0.872      0.383
-    SECOND             0.090      0.917      0.099      0.921
-    OTHERS            -0.670      0.780     -0.859      0.390
-    SMOKER            -0.502      0.607     -0.828      0.408
-    FORMER             0.127      0.384      0.332      0.740
-    T1APEC             0.834      0.382      2.185      0.029
+    BAGE              -0.156      0.201     -0.775      0.438
+    HEIGHT             0.008      0.025      0.321      0.748
+    EDUCNEW           -0.474      0.347     -1.364      0.173
+    SMOKER            -0.228      0.350     -0.652      0.515
+    HEARTDIS           0.668      0.382      1.749      0.080
 
  SP         ON
-    BAGE               0.004      0.021      0.175      0.861
-    HEIGHT             0.001      0.003      0.276      0.783
-    HAUPT              0.112      0.106      1.064      0.287
-    SECOND             0.437      0.153      2.856      0.004
-    OTHERS             0.076      0.122      0.621      0.534
-    SMOKER             0.064      0.065      0.987      0.324
-    FORMER             0.031      0.063      0.500      0.617
-    T1APEC            -0.063      0.046     -1.368      0.171
+    BAGE               0.002      0.023      0.106      0.915
+    HEIGHT             0.000      0.003     -0.160      0.873
+    EDUCNEW            0.044      0.050      0.884      0.377
+    SMOKER             0.047      0.044      1.056      0.291
+    HEARTDIS          -0.045      0.048     -0.940      0.347
 
  SP       WITH
-    IP                -0.056      0.067     -0.831      0.406
+    IP                -0.031      0.062     -0.492      0.623
 
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
     P3                 0.000      0.000    999.000    999.000
-    IP                 5.033      1.506      3.342      0.001
-    SP                 0.122      0.183      0.668      0.504
+    IP                 4.806      1.466      3.278      0.001
+    SP                 0.202      0.171      1.180      0.238
 
  Residual Variances
-    P1                 1.620      0.258      6.291      0.000
-    P2                 1.620      0.258      6.291      0.000
-    P3                 1.620      0.258      6.291      0.000
-    IP                 1.546      0.600      2.578      0.010
-    SP                 0.002      0.009      0.264      0.792
+    P1                 1.767      0.260      6.783      0.000
+    P2                 1.767      0.260      6.783      0.000
+    P3                 1.767      0.260      6.783      0.000
+    IP                 1.347      0.549      2.454      0.014
+    SP                 0.001      0.009      0.154      0.877
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.359E-04
+     Condition Number for the Information Matrix              0.672E-04
        (ratio of smallest to largest eigenvalue)
 
 
@@ -330,9 +282,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\tug\u1_female_aehpl
 
-     Beginning Time:  11:00:32
-        Ending Time:  11:00:34
-       Elapsed Time:  00:00:02
+     Beginning Time:  14:32:29
+        Ending Time:  14:32:33
+       Elapsed Time:  00:00:04
 
 
 

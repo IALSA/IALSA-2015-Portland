@@ -1,28 +1,28 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-06/30/2015  11:00 AM
+10/19/2015   2:30 PM
 
 INPUT INSTRUCTIONS
 
    TITLE: TUG, Empty Model, Male
 
-  DATA:  File = C:\Users\Besitzer\Desktop\ilse 03.03.dat;
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 19.10.dat;
 
   VARIABLE: Names are
-   T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center t1beer t1wine
-   t1k t1pc t1vf t1sa t1spf t2dss t2bd
-      t2fs t2fsb t2beer t2wine t2k t2pc t2vf t2sa t2spf t3dss t3bd
-      t3k t3pc t3vf t3sa t3spf t2age t3age
-      T1TUG t1height t1weight T2TUG t2height t2weight T3TUG t3height
-      t3weight time1 time2r time3r time3
-      time2 T1HAVIR1 T1HAVIL1 T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2
-      T2HAVIL1 T2HAVIL2 T3HAVIR1x T3HAVIR2x
-      T3HAVIL1x T3HAVIL2x t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH
-      Educ element Haupt second others Smoker
-      Former;
+  T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center
+  t1beer t1wine t1k t1pc t1vf
+      t1sa t1spf t2dss t2bd t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc t3vf
+      t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3height t3weight
+      time1 time2r time3r time3 time2 T1HAVIR1 T1HAVIL1
+      T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2 T2HAVIL1
+      T2HAVIL2 T3HAVIR1x T3HAVIR2x T3HAVIL1x T3HAVIL2x
+      t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH Educ element
+      Haupt second others Smoker Educnew heartdis;
 
            MISSING are ALL(-9999);
-           USEVAR are  time1 time2 time3 Haupt Second others
+           USEVAR are  time1 time2 time3 Educnew
                        p1 p2 p3
                        Bage height;
            TSCORES =   time1 time2 time3;
@@ -42,7 +42,7 @@ INPUT INSTRUCTIONS
   MODEL:    ip sp | p1-p3 AT time1-time3;
 
 
-          ip sp ON Bage height Haupt Second others;
+          ip sp ON Bage height Educnew;
 
 
           p1-p3 (res_p);
@@ -71,7 +71,7 @@ Number of groups                                                 1
 Number of observations                                         238
 
 Number of dependent variables                                    3
-Number of independent variables                                  5
+Number of independent variables                                  3
 Number of continuous latent variables                            2
 
 Observed dependent variables
@@ -80,7 +80,7 @@ Observed dependent variables
    P1          P2          P3
 
 Observed independent variables
-   HAUPT       SECOND      OTHERS      BAGE        HEIGHT
+   EDUCNEW     BAGE        HEIGHT
 
 Continuous latent variables
    IP          SP
@@ -107,7 +107,7 @@ Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
 Input data file(s)
-  C:\Users\Besitzer\Desktop\ilse 03.03.dat
+  C:\Users\Besitzer\Desktop\ilse 19.10.dat
 Input data format  FREE
 
 
@@ -125,24 +125,20 @@ Minimum covariance coverage value   0.100
 
 
            Covariance Coverage
-              P1            P2            P3            HAUPT         SECOND
+              P1            P2            P3            EDUCNEW       BAGE
               ________      ________      ________      ________      ________
  P1             0.504
- P2             0.445         0.941
- P3             0.223         0.479         0.487
- HAUPT          0.504         0.941         0.487         1.000
- SECOND         0.504         0.941         0.487         1.000         1.000
- OTHERS         0.504         0.941         0.487         1.000         1.000
- BAGE           0.504         0.941         0.487         1.000         1.000
- HEIGHT         0.504         0.941         0.487         1.000         1.000
+ P2             0.441         0.937
+ P3             0.223         0.471         0.483
+ EDUCNEW        0.504         0.937         0.483         1.000
+ BAGE           0.504         0.937         0.483         1.000         1.000
+ HEIGHT         0.504         0.937         0.483         1.000         1.000
 
 
            Covariance Coverage
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- OTHERS         1.000
- BAGE           1.000         1.000
- HEIGHT         1.000         1.000         1.000
+              HEIGHT
+              ________
+ HEIGHT         1.000
 
 
 SAMPLE STATISTICS
@@ -152,60 +148,52 @@ SAMPLE STATISTICS
 
 
            Means
-              P1            P2            P3            HAUPT         SECOND
+              P1            P2            P3            EDUCNEW       BAGE
               ________      ________      ________      ________      ________
- 1              5.620         5.913         8.172         0.672         0.021
+ 1              5.585         5.677         7.909         0.408        -7.040
 
 
            Means
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- 1              0.239        -7.040         2.155
+              HEIGHT
+              ________
+ 1              2.155
 
 
            Covariances
-              P1            P2            P3            HAUPT         SECOND
+              P1            P2            P3            EDUCNEW       BAGE
               ________      ________      ________      ________      ________
- P1             1.766
- P2             0.113        15.448
- P3             2.100        -0.311         6.681
- HAUPT          0.103         0.114         0.050         0.220
- SECOND         0.013         0.006         0.005        -0.014         0.021
- OTHERS        -0.105        -0.097        -0.064        -0.161        -0.005
- BAGE           0.051        -0.010        -0.030        -0.028        -0.001
- HEIGHT        -1.382        -0.025        -2.553        -0.718         0.089
+ P1             1.555
+ P2             0.448         2.338
+ P3             0.865         0.217         2.582
+ EDUCNEW       -0.056        -0.049        -0.029         0.241
+ BAGE           0.075        -0.058         0.087        -0.032         0.853
+ HEIGHT        -1.001        -1.737        -0.738         0.951        -0.387
 
 
            Covariances
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- OTHERS         0.182
- BAGE          -0.008         0.853
- HEIGHT         0.896        -0.387        44.707
+              HEIGHT
+              ________
+ HEIGHT        44.707
 
 
            Correlations
-              P1            P2            P3            HAUPT         SECOND
+              P1            P2            P3            EDUCNEW       BAGE
               ________      ________      ________      ________      ________
  P1             1.000
- P2             0.022         1.000
- P3             0.611        -0.031         1.000
- HAUPT          0.165         0.062         0.042         1.000
- SECOND         0.070         0.011         0.015        -0.210         1.000
- OTHERS        -0.185        -0.058        -0.058        -0.804        -0.082
- BAGE           0.041        -0.003        -0.012        -0.066        -0.004
- HEIGHT        -0.156        -0.001        -0.148        -0.229         0.093
+ P2             0.235         1.000
+ P3             0.432         0.088         1.000
+ EDUCNEW       -0.092        -0.065        -0.036         1.000
+ BAGE           0.065        -0.041         0.059        -0.071         1.000
+ HEIGHT        -0.120        -0.170        -0.069         0.290        -0.063
 
 
            Correlations
-              OTHERS        BAGE          HEIGHT
-              ________      ________      ________
- OTHERS         1.000
- BAGE          -0.020         1.000
- HEIGHT         0.314        -0.063         1.000
+              HEIGHT
+              ________
+ HEIGHT         1.000
 
 
-     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -2190.331
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -2078.156
 
 
 THE MODEL ESTIMATION TERMINATED NORMALLY
@@ -214,17 +202,17 @@ THE MODEL ESTIMATION TERMINATED NORMALLY
 
 MODEL FIT INFORMATION
 
-Number of Free Parameters                       16
+Number of Free Parameters                       12
 
 Loglikelihood
 
-          H0 Value                       -1173.324
+          H0 Value                        -834.205
 
 Information Criteria
 
-          Akaike (AIC)                    2378.648
-          Bayesian (BIC)                  2434.204
-          Sample-Size Adjusted BIC        2383.489
+          Akaike (AIC)                    1692.409
+          Bayesian (BIC)                  1734.076
+          Sample-Size Adjusted BIC        1696.040
             (n* = (n + 2) / 24)
 
 
@@ -235,40 +223,36 @@ MODEL RESULTS
                     Estimate       S.E.  Est./S.E.    P-Value
 
  IP         ON
-    BAGE               0.051      0.572      0.089      0.929
-    HEIGHT             0.009      0.091      0.098      0.922
-    HAUPT              0.192      2.035      0.094      0.925
-    SECOND             0.771      4.411      0.175      0.861
-    OTHERS            -0.445      2.310     -0.193      0.847
+    BAGE              -0.020      0.144     -0.135      0.892
+    HEIGHT            -0.027      0.020     -1.347      0.178
+    EDUCNEW           -0.223      0.244     -0.914      0.361
 
  SP         ON
-    BAGE              -0.008      0.095     -0.089      0.929
-    HEIGHT            -0.004      0.013     -0.293      0.770
-    HAUPT              0.055      0.433      0.128      0.898
-    SECOND            -0.037      1.452     -0.026      0.979
-    OTHERS             0.084      0.461      0.183      0.855
+    BAGE               0.004      0.022      0.198      0.843
+    HEIGHT             0.001      0.003      0.256      0.798
+    EDUCNEW            0.023      0.039      0.598      0.550
 
  SP       WITH
-    IP                -0.006      0.352     -0.017      0.987
+    IP                -0.004      0.049     -0.089      0.929
 
  Intercepts
     P1                 0.000      0.000    999.000    999.000
     P2                 0.000      0.000    999.000    999.000
     P3                 0.000      0.000    999.000    999.000
-    IP                 5.530      4.092      1.351      0.177
-    SP                 0.121      0.730      0.165      0.869
+    IP                 5.145      1.016      5.064      0.000
+    SP                 0.238      0.163      1.460      0.144
 
  Residual Variances
-    P1                 9.482      1.990      4.765      0.000
-    P2                 9.482      1.990      4.765      0.000
-    P3                 9.482      1.990      4.765      0.000
-    IP                 0.153      3.403      0.045      0.964
-    SP                 0.001      0.046      0.032      0.975
+    P1                 1.930      0.233      8.293      0.000
+    P2                 1.930      0.233      8.293      0.000
+    P3                 1.930      0.233      8.293      0.000
+    IP                 0.247      0.413      0.597      0.551
+    SP                 0.003      0.007      0.435      0.663
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.176E-05
+     Condition Number for the Information Matrix              0.430E-04
        (ratio of smallest to largest eigenvalue)
 
 
@@ -280,9 +264,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\tug\u1_male_aeh_tug
 
-     Beginning Time:  11:00:43
-        Ending Time:  11:00:44
-       Elapsed Time:  00:00:01
+     Beginning Time:  14:30:44
+        Ending Time:  14:30:53
+       Elapsed Time:  00:00:09
 
 
 
