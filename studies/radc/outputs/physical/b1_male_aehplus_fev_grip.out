@@ -1,6 +1,6 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-09/29/2015   9:48 AM
+10/20/2015  12:38 AM
 
 INPUT INSTRUCTIONS
 
@@ -8,7 +8,7 @@ INPUT INSTRUCTIONS
 
   Data:
   	File is
-  C:\Users\Cassandra\Desktop\RADC Portland Workshop\brown\radcMAP_wide.dat;
+  radcMAPclean_wide.dat;
   Variable:
   	Names are
   projid study_x scaled_to_x agreeableness conscientiousness extraversion
@@ -393,12 +393,8 @@ INPUT INSTRUCTIONS
 *** WARNING
   Data set contains cases with missing on x-variables.
   These cases were not included in the analysis.
-  Number of cases with missing on x-variables:  25
-*** WARNING
-  Data set contains cases with missing on all variables except
-  x-variables.  These cases were not included in the analysis.
-  Number of cases with missing on all variables except x-variables:  16
-   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+  Number of cases with missing on x-variables:  10
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
 
 
 
@@ -447,7 +443,7 @@ Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
 Input data file(s)
-  C:\Users\Cassandra\Desktop\RADC Portland Workshop\brown\radcMAP_wide.dat
+  radcMAPclean_wide.dat
 Input data format  FREE
 
 
@@ -939,11 +935,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\cassandra\desktop\radc portland workshop\brown\physical x physical\b1_male_aehplus_fev_
+    c:\users\cassandra\desktop\radc portland workshop\brown\physical x physical\cleaned data models\
 
-     Beginning Time:  09:48:57
-        Ending Time:  09:49:08
-       Elapsed Time:  00:00:11
+     Beginning Time:  00:38:48
+        Ending Time:  00:38:58
+       Elapsed Time:  00:00:10
 
 
 
