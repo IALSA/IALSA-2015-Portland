@@ -97,21 +97,21 @@ na.replace<-function(radc){
 radc2<-na.replace(radc)
 radc2[1:20]
 
-
+## select only MAP project data
+radcMAP <- radc2[radc2$study.x=="MAP",]
+length(radcMAP$projid)
+table(radcMAP$msex)
 
 ## filter out individuals who develop dementia
-radc2<-dplyr::filter(radc2, dementia.00!=1, dementia.01!=1, dementia.02!=1, dementia.03!=1,
+radcMAP<-dplyr::filter(radcMAP, dementia.00!=1, dementia.01!=1, dementia.02!=1, dementia.03!=1,
             dementia.04!=1, dementia.05!=1, dementia.06!=1, dementia.07!=1, dementia.08!=1,
             dementia.09!=1, dementia.10!=1, dementia.11!=1, dementia.12!=1, dementia.13!=1,
             dementia.14!=1, dementia.15!=1, dementia.16!=1, dementia.17!=1, dementia.18!=1,
             dementia.19!=1, dementia.20!=1)
 
 ##Test the filter worked.
-length(radc2[,1])
-
-## select only MAP project data
-radcMAP <- radc2[radc2$study.x=="MAP",]
-length(radcMAP$projid)
+length(radcMAP[,1])
+table(radcMAP$msex)
 
 ##Filter out individuals with no data other than baseline
 radcMAP<-radcMAP[radcMAP$T0!=-9999,]
@@ -327,6 +327,8 @@ radcMAPcl$nogrip<-ifelse(is.na(gripavg.00) & is.na(gripavg.01) & is.na(gripavg.0
 table(radcMAPcl$nogrip)
 which(radcMAPcl$nogrip=="missing")
 
+#This participant projid 6152191 completed only wave 6 of physical data and thus needs to be
+#excluded when 5 or less waves are analyized.
 radcMAPcl<-radcMAPcl[-c(74),]
 
 table(radcMAPcl$msex)
