@@ -117,6 +117,28 @@ length(radcMAP$projid)
 radcMAP<-radcMAP[radcMAP$T0!=-9999,]
 length(radcMAP$projid)
 
+##print out descriptive stats for all the selected variable groups
+summary(demo)
+summary(cognitive)
+summary(physical)
+which(radcMAP$gripavg.00==0)
+which(radcMAP$gripavg.01==0)
+which(radcMAP$gripavg.02==0)
+which(radcMAP$gripavg.04==0)
+which(radcMAP$fev.12==0)
+which(radcMAP$fev.00==0)
+
+# replacing out of range values with NA
+radcMAP$gripavg.00[radcMAP$gripavg.00==0]<- -9999
+summary(radcMAP$gripavg.00)
+radcMAP$gripavg.01[radcMAP$gripavg.01==0]<- -9999
+radcMAP$gripavg.02[radcMAP$gripavg.02==0]<- -9999
+radcMAP$gripavg.04[radcMAP$gripavg.04==0]<- -9999
+
+radcMAP$fev.00[radcMAP$fev.00==0]<--9999
+radcMAP$fev.12[radcMAP$fev.12==0]<--9999
+
+
 ##create three variables that identify those without physical data at any wave.
 radcMAP$nofev<-ifelse(fev.00==-9999 & fev.01==-9999 & fev.02==-9999 & fev.03==-9999 & fev.04==-9999 &
                       fev.05==-9999 & fev.06==-9999 & fev.07==-9999 & fev.08==-9999 & fev.09==-9999 &
@@ -148,15 +170,14 @@ table(radcMAP$nophys)
 radcMAP$physclean<-ifelse(radcMAP$nophys>0, c("delete"), c("keep"))
 
 table(radcMAP$physclean)
+
 #filter out individuals without sufficient physical data
 radcMAPc<-radcMAP[radcMAP$physclean=="keep",]
-
-
 
 length(radcMAPc$projid)
 
 which(radcMAPc$smoking==-9999)
-which(radcMAPc$catflu.02==0)
+
 
 ##checking frequencies for men and women
 table(radcMAPc$msex)
@@ -280,16 +301,41 @@ which(radcMAPc$gripavg.00==0)
 which(radcMAPc$gripavg.01==0)
 which(radcMAPc$gripavg.02==0)
 which(radcMAPc$gripavg.04==0)
+which(radcMAPc$fev.12==0)
+which(radcMAPc$fev.00==0)
+radcMAPc[823,1]
 
-# replacing out of range values
-radcMAPc$gripavg.00[radcMAP$gripavg.00==0]<-"-9999"
 
-#getting the means and standard deviations of all variables
-as.data.frame( t(sapply(cognitive, function(cl) list(means=mean(cl,na.rm=TRUE),
-                                               sds=sd(cl,na.rm=TRUE)))))
+summary(physical)
+#identify rows with missing covariates
+which(is.na(radcMAPc$dm_cum.00))
+which(is.na(radcMAPc$heart_cum.00))
+which(is.na(radcMAPc$educ))
+which(is.na(radcMAPc$age_bl))
+which(is.na(radcMAPc$htm.00))
+which(is.na(radcMAPc$smoking))
+
+#removing rows with missing covariates
+radcMAPcl<- radcMAPc[-c(32,36,78,142,196,266,336,339,342,359,407,527,614,736,748,941,943,1222),]
+#checking
+length(radcMAPcl$projid)
+table(radcMAPcl$msex)
+
+#investigating why missing
+##attach(radcMAPcl)
+radcMAPcl$nogrip<-ifelse(is.na(gripavg.00) & is.na(gripavg.01) & is.na(gripavg.02) & is.na(gripavg.03) & is.na(gripavg.04), c("missing"), c("somedata"))
+table(radcMAPcl$nogrip)
+which(radcMAPcl$nogrip=="missing")
+
+radcMAPcl<-radcMAPcl[-c(74),]
+
+table(radcMAPcl$msex)
+##radcMAPcl$nofev<-ifelse(is.na(fev.00) & is.na(fev.01) & is.na(fev.02) & is.na(fev.03) & is.na(fev.04), c("missing"), c("somedata"))
+##table(radcMAPcl$nofev)
+##which(radcMAPcl$nofev=="missing")
 
 ## write out the data to a .dat file
-write.table(radcMAPc, file="radcMAPclean_wide.dat", na='-9999', row.names=F, col.names=F)
+write.table(radcMAPcl, file=paste0(pathFile,"/studies/radc/unshared/radcMAPclean_wide.dat"), na='-9999', row.names=F, col.names=F)
 
 
 ### write radcMAP to long
