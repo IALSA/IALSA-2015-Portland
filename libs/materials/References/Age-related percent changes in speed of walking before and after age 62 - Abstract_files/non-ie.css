@@ -1,7 +1,0 @@
-@charset utf-8;
-
-@media screen {
-    ul#epmc_mainNav li.plus a {
-        padding-left: 60px;
-    }
-} /* @media screen */
