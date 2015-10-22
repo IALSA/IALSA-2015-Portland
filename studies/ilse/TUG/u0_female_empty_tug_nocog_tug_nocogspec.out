@@ -1,6 +1,6 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-10/19/2015   2:33 PM
+10/22/2015   1:03 PM
 
 INPUT INSTRUCTIONS
 
@@ -40,6 +40,12 @@ INPUT INSTRUCTIONS
     MODEL:  ip | p1-p3 AT time1-time3;
 
             p1-p3 (res_p);
+
+  SAVEDATA:
+
+  FILE IS   LASAfSlopes;
+
+  SAVE = FSCORES;
 
     OUTPUT: sampstat;
 
@@ -201,6 +207,55 @@ QUALITY OF NUMERICAL RESULTS
        (ratio of smallest to largest eigenvalue)
 
 
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IP            IP_SE
+              ________      ________
+ 1              6.804         0.703
+
+
+           Covariances
+              IP            IP_SE
+              ________      ________
+ IP             0.225
+ IP_SE         -0.002         0.002
+
+
+           Correlations
+              IP            IP_SE
+              ________      ________
+ IP             1.000
+ IP_SE         -0.086         1.000
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    LASAfSlopes
+
+  Order and format of variables
+
+    P1             F10.3
+    P2             F10.3
+    P3             F10.3
+    TIME1          F10.3
+    TIME2          F10.3
+    TIME3          F10.3
+    IP             F10.3
+    IP_SE          F10.3
+
+  Save file format
+    8F10.3
+
+  Save file record length    10000
+
+
 DIAGRAM INFORMATION
 
   Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
@@ -209,8 +264,8 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\tug\u0_female_empty
 
-     Beginning Time:  14:33:52
-        Ending Time:  14:33:53
+     Beginning Time:  13:03:38
+        Ending Time:  13:03:39
        Elapsed Time:  00:00:01
 
 

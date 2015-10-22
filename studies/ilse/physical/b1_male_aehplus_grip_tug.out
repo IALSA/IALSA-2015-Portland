@@ -1,6 +1,6 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-10/19/2015   2:24 PM
+10/22/2015  12:50 PM
 
 INPUT INSTRUCTIONS
 
@@ -71,6 +71,12 @@ INPUT INSTRUCTIONS
             r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
             r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
             r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+  SAVEDATA:
+
+  FILE IS   LASAfSlopes;
+
+  SAVE = FSCORES;
 
     OUTPUT: sampstat Cinterval;
 
@@ -469,6 +475,103 @@ CONFIDENCE INTERVALS OF MODEL RESULTS
     R_RES_PC        -0.536      -0.474      -0.442      -0.276      -0.109      -0.077      -0.015
 
 
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ 1             86.650         9.307        -1.760         0.662         5.152
+
+
+           Means
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ 1              0.463         0.223         0.050
+
+
+           Covariances
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP           299.393
+ IP_SE         -2.719         0.958
+ SP           -19.262         0.176         1.324
+ SP_SE         -0.154         0.055         0.010         0.003
+ IC             1.304        -0.012        -0.017        -0.001         0.149
+ IC_SE         -0.169         0.010         0.011         0.001        -0.001
+ SC            -0.835         0.007         0.052         0.000        -0.007
+ SC_SE         -0.011         0.002         0.001         0.000         0.000
+
+
+           Covariances
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          0.000
+ SC             0.000         0.003
+ SC_SE          0.000         0.000         0.000
+
+
+           Correlations
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             1.000
+ IP_SE         -0.161         1.000
+ SP            -0.968         0.157         1.000
+ SP_SE         -0.158         0.994         0.155         1.000
+ IC             0.195        -0.032        -0.039        -0.028         1.000
+ IC_SE         -0.474         0.475         0.466         0.445        -0.099
+ SC            -0.875         0.133         0.824         0.132        -0.352
+ SC_SE         -0.260         0.902         0.262         0.926        -0.004
+
+
+           Correlations
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          1.000
+ SC             0.409         1.000
+ SC_SE          0.608         0.207         1.000
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    LASAfSlopes
+
+  Order and format of variables
+
+    P1             F10.3
+    P2             F10.3
+    P3             F10.3
+    C1             F10.3
+    C2             F10.3
+    C3             F10.3
+    EDUCNEW        F10.3
+    HEARTDIS       F10.3
+    SMOKER         F10.3
+    BAGE           F10.3
+    HEIGHT         F10.3
+    TIME1          F10.3
+    TIME2          F10.3
+    TIME3          F10.3
+    IP             F10.3
+    IP_SE          F10.3
+    SP             F10.3
+    SP_SE          F10.3
+    IC             F10.3
+    IC_SE          F10.3
+    SC             F10.3
+    SC_SE          F10.3
+
+  Save file format
+    22F10.3
+
+  Save file record length    10000
+
+
 DIAGRAM INFORMATION
 
   Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
@@ -477,9 +580,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\physical\b1_male_ae
 
-     Beginning Time:  14:24:56
-        Ending Time:  14:25:17
-       Elapsed Time:  00:00:21
+     Beginning Time:  12:50:16
+        Ending Time:  12:50:25
+       Elapsed Time:  00:00:09
 
 
 

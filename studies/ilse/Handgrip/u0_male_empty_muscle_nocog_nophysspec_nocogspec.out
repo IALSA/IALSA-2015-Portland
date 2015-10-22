@@ -1,11 +1,10 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
-10/22/2015   1:03 PM
+10/22/2015   1:07 PM
 
 INPUT INSTRUCTIONS
 
-   TITLE: TUG, Empty Model, Male
-
+   TITLE: Handgrip, Empty Model, Male
 
   DATA:  File = C:\Users\Besitzer\Desktop\ilse 19.10.dat;
 
@@ -29,7 +28,7 @@ INPUT INSTRUCTIONS
 
            USEOBSERVATIONS are sex EQ 0;
 
-    Define: p1=t1tug; p2=t2tug; p3=t3tug;
+    Define: p1=t1hg; p2=t2hg; p3=t3hg;
 
             Bage=t1age-70;   !Centered at Age 70
             Bagesq=(t1age-70)**2;
@@ -51,20 +50,16 @@ INPUT INSTRUCTIONS
 
 
 
-*** WARNING
-  Data set contains cases with missing on all variables.
-  These cases were not included in the analysis.
-  Number of cases with missing on all variables:  15
-   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+INPUT READING TERMINATED NORMALLY
 
 
 
-TUG, Empty Model, Male
+Handgrip, Empty Model, Male
 
 SUMMARY OF ANALYSIS
 
 Number of groups                                                 1
-Number of observations                                         245
+Number of observations                                         260
 
 Number of dependent variables                                    3
 Number of independent variables                                  0
@@ -120,9 +115,9 @@ Minimum covariance coverage value   0.100
            Covariance Coverage
               P1            P2            P3
               ________      ________      ________
- P1             0.514
- P2             0.449         0.935
- P3             0.220         0.461         0.473
+ P1             0.962
+ P2             0.854         0.888
+ P3             0.304         0.312         0.315
 
 
 SAMPLE STATISTICS
@@ -134,26 +129,26 @@ SAMPLE STATISTICS
            Means
               P1            P2            P3
               ________      ________      ________
- 1              5.567         5.700         7.898
+ 1             85.800        82.105        63.194
 
 
            Covariances
               P1            P2            P3
               ________      ________      ________
- P1             1.509
- P2             0.472         2.380
- P3             0.850         0.212         2.562
+ P1           650.493
+ P2           237.330       295.805
+ P3           145.139       158.758       174.781
 
 
            Correlations
               P1            P2            P3
               ________      ________      ________
  P1             1.000
- P2             0.249         1.000
- P3             0.432         0.086         1.000
+ P2             0.541         1.000
+ P3             0.430         0.698         1.000
 
 
-     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -838.687
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -2411.613
 
 
 THE MODEL ESTIMATION TERMINATED NORMALLY
@@ -166,15 +161,15 @@ Number of Free Parameters                        3
 
 Loglikelihood
 
-          H0 Value                        -933.295
-          H0 Scaling Correction Factor      1.5250
+          H0 Value                       -2514.185
+          H0 Scaling Correction Factor      0.9541
             for MLR
 
 Information Criteria
 
-          Akaike (AIC)                    1872.590
-          Bayesian (BIC)                  1883.094
-          Sample-Size Adjusted BIC        1873.584
+          Akaike (AIC)                    5034.371
+          Bayesian (BIC)                  5045.053
+          Sample-Size Adjusted BIC        5035.542
             (n* = (n + 2) / 24)
 
 
@@ -185,7 +180,7 @@ MODEL RESULTS
                     Estimate       S.E.  Est./S.E.    P-Value
 
  Means
-    IP                 6.166      0.077     79.720      0.000
+    IP                81.600      1.156     70.576      0.000
 
  Intercepts
     P1                 0.000      0.000    999.000    999.000
@@ -193,17 +188,17 @@ MODEL RESULTS
     P3                 0.000      0.000    999.000    999.000
 
  Variances
-    IP                 0.042      0.213      0.197      0.844
+    IP               205.431     28.094      7.312      0.000
 
  Residual Variances
-    P1                 3.043      0.277     10.981      0.000
-    P2                 3.043      0.277     10.981      0.000
-    P3                 3.043      0.277     10.981      0.000
+    P1               290.819     24.165     12.035      0.000
+    P2               290.819     24.165     12.035      0.000
+    P3               290.819     24.165     12.035      0.000
 
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.109E-01
+     Condition Number for the Information Matrix              0.525E-02
        (ratio of smallest to largest eigenvalue)
 
 
@@ -216,21 +211,21 @@ SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
            Means
               IP            IP_SE
               ________      ________
- 1              6.166         0.202
+ 1             81.600         9.131
 
 
            Covariances
               IP            IP_SE
               ________      ________
- IP             0.001
- IP_SE          0.000         0.000
+ IP           120.961
+ IP_SE          0.553         0.788
 
 
            Correlations
               IP            IP_SE
               ________      ________
  IP             1.000
- IP_SE          0.015         1.000
+ IP_SE          0.057         1.000
 
 
 SAVEDATA INFORMATION
@@ -262,11 +257,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\tug\u0_male_empty_t
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\handgrip\u0_male_em
 
-     Beginning Time:  13:03:14
-        Ending Time:  13:03:17
-       Elapsed Time:  00:00:03
+     Beginning Time:  13:07:53
+        Ending Time:  13:07:54
+       Elapsed Time:  00:00:01
 
 
 
