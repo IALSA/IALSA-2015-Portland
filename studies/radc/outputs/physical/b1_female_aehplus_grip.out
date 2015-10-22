@@ -1,11 +1,14 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-09/14/2015   4:57 PM
+10/21/2015   8:38 PM
+
 INPUT INSTRUCTIONS
-  TITLE: B1 Pulmonary Function X Grip
+
+  TITLE: Pulmonary Function X Grip
+
   Data:
   	File is
-  C:\Users\Cassandra\Desktop\RADC Portland Workshop\brown\radcMAP_wide.dat;
+  radcMAPclean_wide.dat;
   Variable:
   	Names are
   projid study_x scaled_to_x agreeableness conscientiousness extraversion
@@ -294,9 +297,12 @@ INPUT INSTRUCTIONS
   wtkg_03 wtkg_04 wtkg_05 wtkg_06 wtkg_07 wtkg_08 wtkg_09 wtkg_10 wtkg_11 wtkg_12
   wtkg_13 wtkg_14 wtkg_15 wtkg_16 wtkg_17 wtkg_18 wtkg_19 wtkg_20 T0 T1 T2 T3 T4
   T5 T6 T7 T8 T9 T10 T11 T12 T13 T14 T15 T16 T17 T18 T19 T20;
+
+
            Missing are all (-9999);
-           USEVAR are educ time1-time5 p1-p5 c1-c5 Bage;
-           TSCORES =  time1-time5;
+           USEVAR are  educ time1-time5 p1-p5 c1-c5 Bage height smokhist diab;
+           TSCORES =   time1-time5;
+
            USEOBSERVATIONS are
               dementia_00 NE 1 and dementia_01 NE 1 and dementia_02 NE 1 and
               dementia_03 NE 1 and dementia_04 NE 1 and dementia_05 NE 1 and
@@ -305,82 +311,136 @@ INPUT INSTRUCTIONS
               dementia_12 NE 1 and dementia_13 NE 1 and dementia_14 NE 1 and
               dementia_15 NE 1 and dementia_16 NE 1 and dementia_17 NE 1 and
               dementia_18 NE 1 and dementia_19 NE 1 and dementia_20 NE 1 and
-              msex EQ 0;
-    Define: p1=gait_speed_00; p2=gait_speed_01; p3=gait_speed_02; p4=gait_speed_03;
-     p5=gait_speed_04;
-            c1=gripavg_00; c2=gripavg_01; c3=gripavg_02;
+              msex EQ 0 and projid NE 50100220;
+
+    Define: p1=fev_00; p2=fev_01; p3=fev_02; p4=fev_03; p5=fev_04;
+             c1=gripavg_00; c2=gripavg_01; c3=gripavg_02;
             c4=gripavg_03; c5=gripavg_04;
+
             time1=T0; time2 =T1; time3=T2; time4=T3; time5=T4;
+
             Bage=age_bl-70;   !Age centered at 70 baseline
             !Dage=age_death;
             !Sex=msex;         !0=female
             Educ=educ-7;     ! Centered at 15 years
             !SEP=SESgrp; couldn't find
             !Marstat;
-            !Height=htm_00-1.60;
+            Height=htm_00-1.60;
             !Weight
             !BMI
-            !SmokHist=smoking;
+            SmokHist=smoking;
             !Alcohol;
             !CompExp;
             !PhysAct;
             !BP;
             !DepSymp;
-            !Cardio;
-            !Diab;
+            Cardio=heart_cum_00;
+            Diab=dm_cum_00;
             !MorbInd;
+
+
+
           !BageEduc=Bage*Educ;
+
+
   ANALYSIS: TYPE = RANDOM;
             COVERAGE=.05;
-  MODEL:  Bage;
-          educ;
-          ip sp | p1-p5 AT time1-time5;
+
+  MODEL:  !Bage;
+          !educ;
+          !height;
+          !smokhist;
+          !diab;
+          !ip sp | p1-p5 AT time1-time5;
           ic sc | c1-c5 AT time1-time5;
-          ip(v_ip);
-          sp(v_sp);
+
+
           ic(v_ic);
           sc(v_sc);
-          ip WITH sp(c_ipsp);
-          ip WITH ic(c_ipic);
-          ip WITH sc(c_ipsc);
-          sp WITH ic(c_spic);
-          sp WITH sc(c_spsc);
+          !ip WITH sp(c_ipsp);
+          !ip WITH ic(c_ipic);
+          !ip WITH sc(c_ipsc);
+          !sp WITH ic(c_spic);
+          !sp WITH sc(c_spsc);
           ic WITH sc(c_icsc);
-          ip sp ic sc ON Bage educ;
-          p1-p5 (res_p);
+
+
+         ic sc ON Bage educ height smokhist diab;
+
           c1-c5 (res_c);
-          p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across tim
+
+          !p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across ti
+
+
   MODEL CONSTRAINT:
-  MODEL CONSTRAINT:
-          NEW r_ipic;
-          NEW r_spsc;
-          NEW r_res_pc;
-          r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
-          r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
-          r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+          !NEW r_ipic;
+          !NEW r_spsc;
+          !NEW r_res_pc;
+
+          !r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
+          !r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
+          !r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
   OUTPUT: sampstat Cinterval;
+
+
+
+
+
 *** WARNING
   Input line exceeded 90 characters. Some input may be truncated.
-          p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across time
-   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
-B1 Pulmonary Function X Grip
+          !p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across tim
+*** WARNING in MODEL command
+  Variable is uncorrelated with all other variables:  P1
+*** WARNING in MODEL command
+  Variable is uncorrelated with all other variables:  P2
+*** WARNING in MODEL command
+  Variable is uncorrelated with all other variables:  P3
+*** WARNING in MODEL command
+  Variable is uncorrelated with all other variables:  P4
+*** WARNING in MODEL command
+  Variable is uncorrelated with all other variables:  P5
+*** WARNING in MODEL command
+  At least one variable is uncorrelated with all other variables in the model.
+  Check that this is what is intended.
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  1
+   8 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Pulmonary Function X Grip
+
 SUMMARY OF ANALYSIS
+
 Number of groups                                                 1
-Number of observations                                        1011
+Number of observations                                         930
+
 Number of dependent variables                                   10
-Number of independent variables                                  2
-Number of continuous latent variables                            4
+Number of independent variables                                  5
+Number of continuous latent variables                            2
+
 Observed dependent variables
+
   Continuous
    P1          P2          P3          P4          P5          C1
    C2          C3          C4          C5
+
 Observed independent variables
-   EDUC        BAGE
+   EDUC        BAGE        HEIGHT      SMOKHIST    DIAB
+
 Continuous latent variables
-   IP          SP          IC          SC
+   IC          SC
+
 Variables with special functions
+
   Time scores
    TIME1       TIME2       TIME3       TIME4       TIME5
+
+
 Estimator                                                      MLR
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
@@ -395,235 +455,386 @@ Maximum number of steepest descent iterations                   20
 Maximum number of iterations for H1                           2000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
+
 Input data file(s)
-  C:\Users\Cassandra\Desktop\RADC Portland Workshop\brown\radcMAP_wide.dat
+  radcMAPclean_wide.dat
 Input data format  FREE
+
+
 SUMMARY OF DATA
-     Number of missing data patterns           161
+
+     Number of missing data patterns            55
+
+
 COVARIANCE COVERAGE OF DATA
+
 Minimum covariance coverage value   0.050
+
+
      PROPORTION OF DATA PRESENT
+
+
            Covariance Coverage
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
- P1             0.859
- P2             0.633         0.682
- P3             0.526         0.509         0.570
- P4             0.491         0.440         0.422         0.495
- P5             0.409         0.393         0.347         0.357         0.410
- C1             0.762         0.596         0.489         0.422         0.346
- C2             0.548         0.522         0.426         0.374         0.305
- C3             0.446         0.416         0.420         0.341         0.281
- C4             0.382         0.332         0.313         0.333         0.262
- C5             0.270         0.256         0.221         0.236         0.242
- EDUC           0.859         0.682         0.570         0.495         0.410
- BAGE           0.859         0.682         0.570         0.495         0.410
+ P1             0.903
+ P2             0.629         0.639
+ P3             0.499         0.449         0.514
+ P4             0.337         0.292         0.300         0.360
+ P5             0.218         0.170         0.174         0.185         0.288
+ C1             0.902         0.637         0.504         0.341         0.218
+ C2             0.638         0.638         0.458         0.299         0.180
+ C3             0.506         0.456         0.512         0.310         0.185
+ C4             0.343         0.298         0.305         0.360         0.239
+ C5             0.225         0.177         0.182         0.191         0.285
+ EDUC           0.903         0.639         0.514         0.360         0.288
+ BAGE           0.903         0.639         0.514         0.360         0.288
+ HEIGHT         0.903         0.639         0.514         0.360         0.288
+ SMOKHIST       0.903         0.639         0.514         0.360         0.288
+ DIAB           0.903         0.639         0.514         0.360         0.288
+
+
            Covariance Coverage
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
- C1             0.851
- C2             0.602         0.610
- C3             0.477         0.433         0.498
- C4             0.322         0.285         0.294         0.395
- C5             0.210         0.174         0.181         0.229         0.276
- EDUC           0.851         0.610         0.498         0.395         0.276
- BAGE           0.851         0.610         0.498         0.395         0.276
+ C1             0.916
+ C2             0.646         0.655
+ C3             0.513         0.466         0.535
+ C4             0.347         0.305         0.316         0.424
+ C5             0.225         0.187         0.195         0.246         0.295
+ EDUC           0.916         0.655         0.535         0.424         0.295
+ BAGE           0.916         0.655         0.535         0.424         0.295
+ HEIGHT         0.916         0.655         0.535         0.424         0.295
+ SMOKHIST       0.916         0.655         0.535         0.424         0.295
+ DIAB           0.916         0.655         0.535         0.424         0.295
+
+
            Covariance Coverage
-              EDUC          BAGE
-              ________      ________
- EDUC           0.999
- BAGE           0.998         0.999
+              EDUC          BAGE          HEIGHT        SMOKHIST      DIAB
+              ________      ________      ________      ________      ________
+ EDUC           1.000
+ BAGE           1.000         1.000
+ HEIGHT         1.000         1.000         1.000
+ SMOKHIST       1.000         1.000         1.000         1.000
+ DIAB           1.000         1.000         1.000         1.000         1.000
+
+
 SAMPLE STATISTICS
+
+
      ESTIMATED SAMPLE STATISTICS
+
+
            Means
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
- 1              0.631         0.627         0.591         0.580         0.578
+ 1              1.527         1.485         1.474         1.427         1.388
+
+
            Means
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
- 1             41.555        40.169        39.664        38.040        36.717
+ 1             41.720        40.496        39.996        38.374        37.156
+
+
            Means
-              EDUC          BAGE
-              ________      ________
- 1              7.335         8.665
+              EDUC          BAGE          HEIGHT        SMOKHIST      DIAB
+              ________      ________      ________      ________      ________
+ 1              7.313         8.487        -0.001         0.435         0.115
+
+
            Covariances
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
- P1             0.044
- P2             0.023         0.045
- P3             0.024         0.026         0.042
- P4             0.022         0.024         0.025         0.041
- P5             0.023         0.027         0.026         0.029         0.048
- C1             0.708         0.947         0.988         0.998         1.032
- C2             0.859         1.045         1.135         1.080         1.085
- C3             0.805         0.982         1.099         0.926         1.048
- C4             0.802         1.011         1.169         0.942         1.118
- C5             0.783         1.006         1.063         0.816         1.032
- EDUC           0.134         0.140         0.111         0.060         0.082
- BAGE          -0.430        -0.438        -0.566        -0.493        -0.643
+ P1             0.198
+ P2             0.168         0.189
+ P3             0.173         0.162         0.184
+ P4             0.159         0.165         0.150         0.201
+ P5             0.172         0.167         0.163         0.171         0.194
+ C1             1.953         1.878         1.880         1.803         1.956
+ C2             1.945         1.945         1.916         1.937         2.014
+ C3             2.005         1.969         1.959         1.878         2.048
+ C4             1.910         1.956         1.941         1.895         2.021
+ C5             2.073         1.907         1.911         2.031         2.088
+ EDUC           0.214         0.213         0.212         0.180         0.212
+ BAGE          -1.574        -1.597        -1.541        -1.204        -1.519
+ HEIGHT         0.012         0.012         0.011         0.009         0.012
+ SMOKHIST      -0.013        -0.012        -0.013        -0.007        -0.021
+ DIAB           0.003         0.001         0.000         0.003        -0.002
+
+
            Covariances
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
- C1           153.940
- C2           133.802       157.217
- C3           128.439       130.472       145.592
- C4           129.735       129.779       131.342       152.202
- C5           134.424       130.013       129.723       140.934       161.619
- EDUC           5.791         5.511         4.055         3.711         3.846
- BAGE         -41.933       -42.087       -44.544       -45.603       -45.548
+ C1           154.177
+ C2           133.431       155.705
+ C3           127.416       128.379       143.110
+ C4           129.903       130.416       130.890       151.876
+ C5           133.008       128.742       127.654       137.995       156.289
+ EDUC           5.909         5.196         4.064         3.680         3.773
+ BAGE         -42.125       -42.842       -45.243       -45.715       -44.809
+ HEIGHT         0.299         0.295         0.291         0.260         0.283
+ SMOKHIST       0.507         0.445         0.495         0.575         0.604
+ DIAB           0.106         0.108        -0.034         0.062         0.128
+
+
            Covariances
-              EDUC          BAGE
-              ________      ________
- EDUC           9.629
- BAGE          -1.096        63.201
+              EDUC          BAGE          HEIGHT        SMOKHIST      DIAB
+              ________      ________      ________      ________      ________
+ EDUC           9.656
+ BAGE          -1.097        61.882
+ HEIGHT         0.037        -0.106         0.006
+ SMOKHIST      -0.033        -0.488         0.002         0.302
+ DIAB          -0.166        -0.258         0.000        -0.006         0.102
+
+
            Correlations
               P1            P2            P3            P4            P5
               ________      ________      ________      ________      ________
  P1             1.000
- P2             0.509         1.000
- P3             0.568         0.598         1.000
- P4             0.510         0.562         0.616         1.000
- P5             0.491         0.570         0.592         0.662         1.000
- C1             0.273         0.359         0.390         0.399         0.380
- C2             0.327         0.392         0.444         0.428         0.395
- C3             0.319         0.383         0.447         0.381         0.396
- C4             0.310         0.386         0.464         0.379         0.413
- C5             0.294         0.373         0.410         0.318         0.370
- EDUC           0.207         0.212         0.175         0.097         0.121
- BAGE          -0.258        -0.259        -0.349        -0.307        -0.369
+ P2             0.866         1.000
+ P3             0.905         0.866         1.000
+ P4             0.796         0.845         0.778         1.000
+ P5             0.876         0.871         0.863         0.864         1.000
+ C1             0.353         0.348         0.353         0.324         0.357
+ C2             0.350         0.358         0.358         0.346         0.366
+ C3             0.377         0.378         0.381         0.350         0.388
+ C4             0.348         0.365         0.367         0.343         0.372
+ C5             0.373         0.351         0.356         0.362         0.379
+ EDUC           0.155         0.157         0.159         0.129         0.155
+ BAGE          -0.450        -0.467        -0.456        -0.341        -0.438
+ HEIGHT         0.358         0.354         0.353         0.278         0.348
+ SMOKHIST      -0.055        -0.050        -0.054        -0.029        -0.085
+ DIAB           0.021         0.004         0.001         0.018        -0.011
+
+
            Correlations
               C1            C2            C3            C4            C5
               ________      ________      ________      ________      ________
  C1             1.000
- C2             0.860         1.000
- C3             0.858         0.862         1.000
- C4             0.848         0.839         0.882         1.000
- C5             0.852         0.816         0.846         0.899         1.000
- EDUC           0.150         0.142         0.108         0.097         0.098
- BAGE          -0.425        -0.422        -0.464        -0.465        -0.451
+ C2             0.861         1.000
+ C3             0.858         0.860         1.000
+ C4             0.849         0.848         0.888         1.000
+ C5             0.857         0.825         0.854         0.896         1.000
+ EDUC           0.153         0.134         0.109         0.096         0.097
+ BAGE          -0.431        -0.436        -0.481        -0.472        -0.456
+ HEIGHT         0.321         0.314         0.323         0.280         0.302
+ SMOKHIST       0.074         0.065         0.075         0.085         0.088
+ DIAB           0.027         0.027        -0.009         0.016         0.032
+
+
            Correlations
-              EDUC          BAGE
-              ________      ________
+              EDUC          BAGE          HEIGHT        SMOKHIST      DIAB
+              ________      ________      ________      ________      ________
  EDUC           1.000
- BAGE          -0.044         1.000
-     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -13969.121
+ BAGE          -0.045         1.000
+ HEIGHT         0.159        -0.179         1.000
+ SMOKHIST      -0.019        -0.113         0.044         1.000
+ DIAB          -0.168        -0.103         0.004        -0.034         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -14397.936
+
+
 UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+
      UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
          Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
         Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
-     P1                    0.638       0.580       0.125    0.12%       0.460      0.581      0.617
-             868.000       0.044       0.662       1.573    0.12%       0.677      0.813
-     P2                    0.645       0.595       0.140    0.14%       0.464      0.567      0.610
-             690.000       0.044       0.685       1.682    0.14%       0.687      0.813
-     P3                    0.620       0.518       0.145    0.17%       0.443      0.548      0.610
-             576.000       0.040       0.502       1.524    0.17%       0.650      0.799
-     P4                    0.617       0.322       0.075    0.20%       0.443      0.548      0.610
-             500.000       0.039       0.218       1.434    0.20%       0.659      0.787
-     P5                    0.628       0.332       0.135    0.24%       0.443      0.561      0.610
-             415.000       0.047       0.087       1.355    0.24%       0.668      0.813
-     C1                   41.234       0.305       5.250    0.12%      30.500     38.000     41.000
-             860.000     154.056       0.428      97.750    0.12%      43.500     50.750
-     C2                   39.813       0.155       0.000    0.16%      29.750     36.500     39.750
-             617.000     146.923       0.363      85.000    0.16%      42.250     49.750
-     C3                   39.924       0.091       0.000    0.20%      29.500     36.750     39.750
-             503.000     134.693      -0.206      72.500    0.20%      42.500     50.250
-     C4                   38.681       0.167       6.000    0.25%      28.750     35.000     38.500
-             399.000     131.151      -0.039      73.750    0.25%      41.250     47.750
-     C5                   38.333       0.331       0.000    0.36%      28.333     35.250     38.000
-             279.000     148.188       0.546      76.250    0.36%      40.250     47.500
-     EDUC                  7.335      -0.192      -7.000    0.10%       5.000      6.000      7.000
-            1010.000       9.629       1.317      18.000    0.10%       8.000     10.000
-     BAGE                  8.665      -0.451     -16.653    0.10%       1.849      7.552      9.669
-            1010.000      63.201       0.014      28.708    0.10%      11.380     15.410
+
+     P1                    1.524       0.214       0.355    0.12%       1.145      1.395      1.510
+             840.000       0.202       0.114       3.135    0.12%       1.625      1.895
+     P2                    1.481       0.223       0.370    0.17%       1.110      1.350      1.470
+             594.000       0.190       0.021       3.075    0.17%       1.580      1.855
+     P3                    1.483       0.195       0.350    0.21%       1.130      1.365      1.475
+             478.000       0.174       0.252       3.035    0.21%       1.570      1.830
+     P4                    1.428       1.042       0.345    0.30%       1.090      1.310      1.420
+             335.000       0.186       6.448       4.430    0.30%       1.525      1.705
+     P5                    1.410       0.150       0.210    0.37%       1.060      1.295      1.415
+             268.000       0.168       0.198       2.710    0.37%       1.510      1.725
+     C1                   41.263       0.301       5.250    0.12%      30.500     38.000     41.000
+             852.000     154.795       0.418      97.750    0.12%      43.500     51.000
+     C2                   39.938       0.192       8.250    0.16%      29.750     37.000     40.000
+             609.000     145.514       0.265      85.000    0.16%      42.500     49.750
+     C3                   40.046       0.155      11.500    0.20%      29.750     36.750     39.875
+             498.000     132.151      -0.380      72.500    0.20%      42.500     50.250
+     C4                   38.830       0.178       6.000    0.25%      29.000     35.250     38.750
+             394.000     130.036      -0.066      73.750    0.25%      41.500     48.000
+     C5                   38.662       0.445      10.500    0.36%      28.500     35.500     38.250
+             274.000     141.883       0.396      76.250    0.36%      40.500     47.500
+     EDUC                  7.313      -0.276      -7.000    0.11%       5.000      6.000      7.000
+             930.000       9.656       1.317      17.000    0.32%       8.000     10.000
+     BAGE                  8.487      -0.475     -16.653    0.11%       1.726      7.476      9.503
+             930.000      61.882       0.010      28.708    0.11%      11.128     15.106
+     HEIGHT               -0.001       0.355      -0.381    0.11%      -0.051     -0.025      0.000
+             930.000       0.006       4.331       0.432    0.22%       0.026      0.051
+     SMOKHIST              0.435       0.763       0.000   59.25%       0.000      0.000      0.000
+             930.000       0.302      -0.503       2.000    2.80%       1.000      1.000
+     DIAB                  0.115       2.413       0.000   88.49%       0.000      0.000      0.000
+             930.000       0.102       3.822       1.000   11.51%       0.000      0.000
+
+
 THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
 MODEL FIT INFORMATION
-Number of Free Parameters                       30
+
+Number of Free Parameters                       26
+
 Loglikelihood
-          H0 Value                      -14023.240
-          H0 Scaling Correction Factor      1.1882
+
+          H0 Value                      -10342.505
+          H0 Scaling Correction Factor      1.2363
             for MLR
+
 Information Criteria
-          Akaike (AIC)                   28106.480
-          Bayesian (BIC)                 28254.041
-          Sample-Size Adjusted BIC       28158.758
+
+          Akaike (AIC)                   20737.010
+          Bayesian (BIC)                 20862.724
+          Sample-Size Adjusted BIC       20780.151
             (n* = (n + 2) / 24)
+
+
+
 MODEL RESULTS
+
                                                     Two-Tailed
                     Estimate       S.E.  Est./S.E.    P-Value
- IP         ON
-    BAGE              -0.006      0.001     -7.759      0.000
-    EDUC               0.014      0.002      6.943      0.000
- SP         ON
-    BAGE              -0.001      0.000     -2.989      0.003
-    EDUC              -0.002      0.001     -2.825      0.005
+
  IC         ON
-    BAGE              -0.655      0.050    -13.088      0.000
-    EDUC               0.531      0.129      4.109      0.000
+    BAGE              -0.608      0.049    -12.298      0.000
+    EDUC               0.392      0.130      3.015      0.003
+    HEIGHT            39.001      4.201      9.284      0.000
+    SMOKHIST           0.426      0.677      0.629      0.529
+    DIAB               0.021      1.233      0.017      0.986
+
  SC         ON
-    BAGE              -0.019      0.012     -1.594      0.111
-    EDUC              -0.075      0.032     -2.321      0.020
- IP       WITH
-    SP                -0.001      0.001     -1.605      0.108
-    IC                 0.464      0.074      6.280      0.000
-    SC                 0.023      0.020      1.112      0.266
- SP       WITH
-    IC                 0.060      0.025      2.436      0.015
-    SC                -0.011      0.007     -1.562      0.118
+    BAGE              -0.019      0.012     -1.610      0.107
+    EDUC              -0.079      0.032     -2.445      0.014
+    HEIGHT            -1.278      1.169     -1.093      0.274
+    SMOKHIST           0.039      0.170      0.229      0.819
+    DIAB              -0.320      0.287     -1.114      0.265
+
  IC       WITH
-    SC                -1.731      1.106     -1.565      0.118
- P1       WITH
-    C1                -0.006      0.018     -0.322      0.747
- P2       WITH
-    C2                -0.006      0.018     -0.322      0.747
- P3       WITH
-    C3                -0.006      0.018     -0.322      0.747
- P4       WITH
-    C4                -0.006      0.018     -0.322      0.747
- P5       WITH
-    C5                -0.006      0.018     -0.322      0.747
- BAGE     WITH
-    EDUC              -1.096      0.782     -1.401      0.161
+    SC                -1.549      1.082     -1.432      0.152
+
  Means
-    EDUC               7.335      0.098     75.099      0.000
-    BAGE               8.665      0.250     34.638      0.000
+    P1                 1.524      0.015     98.386      0.000
+    P2                 1.481      0.018     82.783      0.000
+    P3                 1.483      0.019     77.756      0.000
+    P4                 1.428      0.024     60.599      0.000
+    P5                 1.410      0.025     56.353      0.000
+
  Intercepts
-    P1                 0.000      0.000    999.000    999.000
-    P2                 0.000      0.000    999.000    999.000
-    P3                 0.000      0.000    999.000    999.000
-    P4                 0.000      0.000    999.000    999.000
-    P5                 0.000      0.000    999.000    999.000
     C1                 0.000      0.000    999.000    999.000
     C2                 0.000      0.000    999.000    999.000
     C3                 0.000      0.000    999.000    999.000
     C4                 0.000      0.000    999.000    999.000
     C5                 0.000      0.000    999.000    999.000
-    IP                 0.587      0.017     33.687      0.000
-    SP                 0.006      0.006      0.940      0.347
-    IC                43.333      1.174     36.902      0.000
-    SC                -0.439      0.302     -1.454      0.146
+    IC                43.856      1.257     34.882      0.000
+    SC                -0.322      0.313     -1.030      0.303
+
  Variances
-    EDUC               9.629      0.552     17.449      0.000
-    BAGE              63.201      2.822     22.392      0.000
+    P1                 0.202      0.010     19.936      0.000
+    P2                 0.190      0.011     17.143      0.000
+    P3                 0.174      0.012     14.570      0.000
+    P4                 0.186      0.030      6.297      0.000
+    P5                 0.168      0.015     11.041      0.000
+
  Residual Variances
-    P1                 0.018      0.001     20.079      0.000
-    P2                 0.018      0.001     20.079      0.000
-    P3                 0.018      0.001     20.079      0.000
-    P4                 0.018      0.001     20.079      0.000
-    P5                 0.018      0.001     20.079      0.000
-    C1                19.960      1.098     18.181      0.000
-    C2                19.960      1.098     18.181      0.000
-    C3                19.960      1.098     18.181      0.000
-    C4                19.960      1.098     18.181      0.000
-    C5                19.960      1.098     18.181      0.000
-    IP                 0.021      0.002     11.651      0.000
-    SP                 0.001      0.000      3.185      0.001
-    IC               104.219      6.412     16.254      0.000
-    SC                 0.814      0.335      2.432      0.015
-New/Additional Parameters
-    R_IPIC             0.316      0.047      6.760      0.000
-    R_SPSC            -0.500      0.300     -1.664      0.096
-    R_RES_PC          -0.010      0.030     -0.322      0.748
+    C1                19.668      1.067     18.430      0.000
+    C2                19.668      1.067     18.430      0.000
+    C3                19.668      1.067     18.430      0.000
+    C4                19.668      1.067     18.430      0.000
+    C5                19.668      1.067     18.430      0.000
+    IC                94.412      5.939     15.897      0.000
+    SC                 0.726      0.327      2.218      0.027
+
+
 QUALITY OF NUMERICAL RESULTS
-     Condition Number for the Information Matrix              0.338E-09
+
+     Condition Number for the Information Matrix              0.247E-04
        (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IC       ON
+    BAGE            -0.736      -0.705      -0.690      -0.608      -0.527      -0.511      -0.481
+    EDUC             0.057       0.137       0.178       0.392       0.606       0.647       0.727
+    HEIGHT          28.180      30.767      32.091      39.001      45.911      47.235      49.822
+    SMOKHIST        -1.318      -0.901      -0.688       0.426       1.540       1.753       2.170
+    DIAB            -3.154      -2.395      -2.006       0.021       2.049       2.438       3.197
+
+ SC       ON
+    BAGE            -0.050      -0.043      -0.039      -0.019       0.000       0.004       0.012
+    EDUC            -0.163      -0.143      -0.133      -0.079      -0.026      -0.016       0.004
+    HEIGHT          -4.288      -3.568      -3.200      -1.278       0.645       1.013       1.733
+    SMOKHIST        -0.399      -0.294      -0.241       0.039       0.319       0.372       0.477
+    DIAB            -1.060      -0.884      -0.793      -0.320       0.152       0.243       0.420
+
+ IC       WITH
+    SC              -4.336      -3.670      -3.329      -1.549       0.231       0.572       1.238
+
+ Means
+    P1               1.485       1.494       1.499       1.524       1.550       1.555       1.564
+    P2               1.435       1.446       1.452       1.481       1.511       1.516       1.528
+    P3               1.434       1.445       1.451       1.483       1.514       1.520       1.532
+    P4               1.368       1.382       1.390       1.428       1.467       1.474       1.489
+    P5               1.345       1.361       1.369       1.410       1.451       1.459       1.474
+
+ Intercepts
+    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IC              40.618      41.392      41.788      43.856      45.925      46.321      47.095
+    SC              -1.128      -0.935      -0.837      -0.322       0.192       0.291       0.484
+
+ Variances
+    P1               0.176       0.182       0.185       0.202       0.218       0.221       0.228
+    P2               0.162       0.168       0.172       0.190       0.208       0.212       0.219
+    P3               0.143       0.150       0.154       0.174       0.193       0.197       0.205
+    P4               0.110       0.128       0.137       0.186       0.235       0.244       0.262
+    P5               0.129       0.138       0.143       0.168       0.193       0.198       0.207
+
+ Residual Variances
+    C1              16.919      17.576      17.913      19.668      21.424      21.760      22.417
+    C2              16.919      17.576      17.913      19.668      21.424      21.760      22.417
+    C3              16.919      17.576      17.913      19.668      21.424      21.760      22.417
+    C4              16.919      17.576      17.913      19.668      21.424      21.760      22.417
+    C5              16.919      17.576      17.913      19.668      21.424      21.760      22.417
+    IC              79.115      82.772      84.643      94.412     104.182     106.053     109.710
+    SC              -0.117       0.085       0.188       0.726       1.265       1.368       1.570
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\cassandra\desktop\radc portland workshop\brown\physical x physical\cleaned data models\
+
+     Beginning Time:  20:38:06
+        Ending Time:  20:38:18
+       Elapsed Time:  00:00:12
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen

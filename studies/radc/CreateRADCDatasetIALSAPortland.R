@@ -154,29 +154,29 @@ radcMAPc<-radcMAP[radcMAP$physclean=="keep",]
 
 
 length(radcMAPc$projid)
+
+which(radcMAPc$smoking==-9999)
+which(radcMAPc$catflu.02==0)
+
 ##checking frequencies for men and women
 table(radcMAPc$msex)
 summary(radcMAP$educ)
 summary(radcMAP$age_bl)
 
-# replacing out of range values
-table(radcMAP$cts_catflu.07)
-table(radcMAP$cts_catflu.09)
-radcMAP$cts_catflu.07[radcMAP$cts_catflu.07>75]<-"-9999"
 
 ##Recode missing -9999 to NA for descriptive stats calculation
-radcMAP[radcMAP==-9999]<-NA
+radcMAPc[radcMAPc==-9999]<-NA
 
 #create a list objects of variable groupings
 ##demographics
-demo <- select(radcMAP, age_bl, age_death, educ, msex, race, spanish, q3smo_bl, q4smo_bl,
+demo <- select(radcMAPc, age_bl, age_death, educ, msex, race, spanish, q3smo_bl, q4smo_bl,
               smoking, married, married2, age_at_visit.00, age_at_visit.01, age_at_visit.02,
               age_at_visit.03, age_at_visit.04, age_at_visit.05, age_at_visit.06,
               age_at_visit.07, age_at_visit.08, age_at_visit.09, age_at_visit.10,
               age_at_visit.11, age_at_visit.12, age_at_visit.13, age_at_visit.14,
               age_at_visit.15, age_at_visit.16, age_at_visit.17)
 
-cognitive <- select(radcMAP, cts_bname.00, cts_bname.01, cts_bname.02, cts_bname.03,
+cognitive <- select(radcMAPc, cts_bname.00, cts_bname.01, cts_bname.02, cts_bname.03,
                     cts_bname.04, cts_bname.05, cts_bname.06, cts_bname.07, cts_bname.08,
                     cts_bname.09, cts_bname.10, cts_bname.11, cts_bname.12, cts_bname.13,
                     cts_bname.14, cts_bname.15, cts_bname.16, cts_bname.17, cts_catflu.00,
@@ -246,7 +246,7 @@ cognitive <- select(radcMAP, cts_bname.00, cts_bname.01, cts_bname.02, cts_bname
                     cts_wliii.12,  cts_wliii.13,  cts_wliii.14,  cts_wliii.15, cts_wliii.16,
                     cts_wliii.17)
 
-physical <- select(radcMAP, dm_cum.00,  dm_cum.01,  dm_cum.02,  dm_cum.03,  dm_cum.04,  dm_cum.05,
+physical <- select(radcMAPc, dm_cum.00,  dm_cum.01,  dm_cum.02,  dm_cum.03,  dm_cum.04,  dm_cum.05,
                    dm_cum.06,  dm_cum.07,  dm_cum.08,  dm_cum.09,  dm_cum.10,  dm_cum.11,
                    dm_cum.12,  dm_cum.13,  dm_cum.14,  dm_cum.15,  dm_cum.16,  dm_cum.17,
                    fev.00,  fev.01,  fev.02,  fev.03,  fev.04,  fev.05,
@@ -276,6 +276,13 @@ dementia <- select(radcMAP, dementia.00,  dementia.01,
 summary(demo)
 summary(cognitive)
 summary(physical)
+which(radcMAPc$gripavg.00==0)
+which(radcMAPc$gripavg.01==0)
+which(radcMAPc$gripavg.02==0)
+which(radcMAPc$gripavg.04==0)
+
+# replacing out of range values
+radcMAPc$gripavg.00[radcMAP$gripavg.00==0]<-"-9999"
 
 #getting the means and standard deviations of all variables
 as.data.frame( t(sapply(cognitive, function(cl) list(means=mean(cl,na.rm=TRUE),
