@@ -1,16 +1,15 @@
-rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
-cat("\f") # clear console
+options(width=160)
+rm(list=ls())
+cat("\f")
 
-@knitr load_sources ---------------------------------------
-
-
-
-# @knitr load_packages
+# @knitr load_packages ----------------------------------------------------------------------
 library(dplyr) # for data manipulation
 library(ggplot2) # for graphing
 library(scales) #for formating values in graphs
-library(HistData)
-library(testit, quietly=TRUE) #For asserts
+
+# @knitr set_paths  ----------------------------------------------------------------------
+
+
 
 # @knitr load_custom ---------------------------------------
 source("./scripts/graphs/main_theme.R")
@@ -21,15 +20,19 @@ source("./scripts/graphs/main_theme.R")
 
 
 # @knitr load_data ---------------------------------------
-
+results <- readRDS("./projects/physical/outputs/physical.rds")
 
 
 # @knitr tweak_data ---------------------------------------
+ds <- results[results$model_type=="aehplus",]
+ds <- ds[!(ds$study_name=="nuage"),]
 
-
+table(ds$study_name, ds$subgroup)
 
 # @kntir basic_table ---------------------------------------
 
+d <- ds[ds$study_name=="radc",c("study_name","subgroup", "physical_measure", "cognitive_measure")]
+d
 
 # @knitr basic_graph ---------------------------------------
 
