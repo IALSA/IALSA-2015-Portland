@@ -29,10 +29,10 @@ lasa <- list.files(file.path(pathStudies,"lasa/physical"),full.names=T, recursiv
 # g <- list.files(file.path(pathStudies,"nas/physical"),full.names=T, recursive=T, pattern="out$")
 nuage <- list.files(file.path(pathStudies,"nuage/physical"),full.names=T, recursive=T, pattern="out$")
 octo <- list.files(file.path(pathStudies,"octo/physical"),full.names=T, recursive=T, pattern="out$")
-radc <- list.files(file.path(pathStudies,"radc/outputs/physical"),full.names=T, recursive=T, pattern="out$")
+radc <- list.files(file.path(pathStudies,"radc/physical"),full.names=T, recursive=T, pattern="out$")
 # k <- list.files(file.path(pathStudies,"satsa/physical"),full.names=T, recursive=T, pattern="out$")
 # model_path <- c(a,b, d, e, f, h, i, j)
-model_path <- c(eas,   hrs,    lasa, h, i, j)
+model_path <- c(eas,   hrs,    lasa, nuage, octo, radc)
 # i <- length(out_list_all_plus)
 # i
 
