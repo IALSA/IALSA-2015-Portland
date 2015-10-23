@@ -32,12 +32,12 @@
 
 ```
       
-       gait grip pef
-  fev     2    2   0
-  gait    0    6   0
-  grip    2    0   2
-  pef     2    0   0
-  pek     4    4   0
+       fev gait grip pef
+  fev    0    2    2   0
+  gait   2    0    8   0
+  grip   2    2    0   2
+  pef    0    2    0   0
+  pek    0    4    4   0
 ```
 
 

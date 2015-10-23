@@ -47,10 +47,11 @@ pc_SIGMA <- c("pc_SIGMA_est", "pc_SIGMA_se", "pc_SIGMA_wald", "pc_SIGMA_pval")
  p_GAMMA_00 <- c("p_GAMMA_00_est", "p_GAMMA_00_se", "p_GAMMA_00_wald","p_GAMMA_00_pval")
 # physical slope / average rate of change of physical outcome
  p_GAMMA_10 <- c("p_GAMMA_10_est", "p_GAMMA_10_se", "p_GAMMA_10_wald","p_GAMMA_10_pval")
-# cognitive intercept /  average initial status of cognitive outcome
- c_GAMMA_00 <- c("c_GAMMA_00_est", "c_GAMMA_00_se", "c_GAMMA_00_wald", "c_GAMMA_00_pval")
 # cognitive slope / average rate of change of cognitive outcome
  c_GAMMA_10 <- c("c_GAMMA_10_est", "c_GAMMA_10_se","c_GAMMA_10_wald", "c_GAMMA_10_pval")
+ # cognitive intercept /  average initial status of cognitive outcome
+ c_GAMMA_00 <- c("c_GAMMA_00_est", "c_GAMMA_00_se", "c_GAMMA_00_wald", "c_GAMMA_00_pval")
+
 
  # intercept of process 1 (P) regressed on Age at baseline
  p_GAMMA_01 <-  c("p_GAMMA_01_est", "p_GAMMA_01_se", "p_GAMMA_01_wald","p_GAMMA_01_pval")
