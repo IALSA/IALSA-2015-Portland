@@ -31,7 +31,7 @@ ds$subgroup <- factor(ds$subgroup, levels=c('male','female'), labels=c("Men","Wo
 
 ds <- ds[ ,c(stem,R_SPSC,R_IPIC,R_RES_PC)]
 # ds <- ds[ ,c(stem,R_SPSC, R_IPIC)]
-head(ds)
+# head(ds)
 # View(ds)
 
 # @kntir basic_table ---------------------------------------

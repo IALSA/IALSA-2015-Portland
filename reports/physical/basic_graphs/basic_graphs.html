@@ -93,27 +93,6 @@ img {
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. -->
 <!-- Load the datasets.   -->
 <!-- Tweak the datasets.   -->
-<pre><code>  study_name subgroup model_type physical_measure cognitive_measure subject_count wave_count parameter_count R_SPSC_est
-1        hrs    Women    aehplus             grip              gait           286          3              41      0.120
-2        hrs    Women    aehplus             grip               pef           286          3              41     -0.523
-3        hrs    Women    aehplus              pef              gait           286          3              41      0.578
-4        hrs      Men    aehplus             grip              gait           238          3              41      0.070
-5        hrs      Men    aehplus             grip               pef           238          3              41     -0.262
-6        hrs      Men    aehplus              pef              gait           238          3              41      0.816
-  R_SPSC_se R_SPSC_wald R_SPSC_pval R_IPIC_est R_IPIC_se R_IPIC_wald R_IPIC_pval R_RES_PC_est R_RES_PC_se R_RES_PC_wald
-1     0.987       0.122       0.903      0.203     0.132       1.531       0.126        0.019       0.052         0.357
-2     1.109      -0.471       0.638      0.288     0.087       3.306       0.001        0.083       0.067         1.234
-3     1.189       0.486       0.627      0.287     0.113       2.551       0.011        0.137       0.060         2.303
-4     0.667       0.105       0.917      0.155     0.113       1.373       0.170        0.050       0.067         0.754
-5     0.913      -0.287       0.774      0.115     0.077       1.500       0.134        0.122       0.068         1.781
-6     0.311       2.620       0.009      0.303     0.099       3.065       0.002        0.033       0.076         0.438
-  R_RES_PC_pval
-1         0.721
-2         0.217
-3         0.021
-4         0.451
-5         0.075
-6         0.662</code></pre>
 <pre><code>      
        gait grip pef
   fev     2    2   0
@@ -162,21 +141,6 @@ img {
 }
 # d &lt;- outcome_pair(data=ds,process1=&quot;fev&quot;,process2=&quot;gait&quot;)
 # d</code></pre>
-<pre class="r"><code>gender_colors &lt;- c(&quot;Men&quot;=&quot;#67a9cf&quot;, &quot;Women&quot;=&quot;#ef8a62&quot;)
-basic_graph_1 &lt;- function(data, process1, process2){
-  d &lt;- outcome_pair(data, process1=process1, process2=process2)
-
-  g &lt;- ggplot2::ggplot(d, aes(x=study_name, y=est, color=subgroup))+
-    geom_abline(intercept=0,slope=0, size=1, color=&quot;black&quot;, alpha=.5, linetype=&quot;dashed&quot;)+
-    scale_color_manual(values=gender_colors)+
-    main_theme +
-    geom_text(aes(label=display), size=4)+
-    facet_grid(term~.)+
-    theme(legend.position = 'top')+
-    labs(title=paste0(process1, &quot; &amp; &quot;, process2,&quot; : est (se) pval&quot;), y=paste0(&quot;Correlation value&quot;),
-         x=&quot;Study&quot;, color=&quot;Subset: &quot;)
-  g
-}</code></pre>
 <div id="fev-gait" class="section level2">
 <h2>Fev &amp; Gait</h2>
 <pre class="r"><code>g &lt;- basic_graph_1(data=d, process1 = &quot;fev&quot;, process2 = 'gait')

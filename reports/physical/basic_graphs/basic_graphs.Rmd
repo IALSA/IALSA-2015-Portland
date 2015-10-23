@@ -86,7 +86,7 @@ read_chunk("./reports/physical/basic_graphs/basic_graphs.R")
 ```
 
 
-```{r basic_graph_1, echo=TRUE, results='show', message=FALSE, fig.width=8, fig.height=11}
+```{r basic_graph_1, echo=FALSE, results='show', message=FALSE, fig.width=8, fig.height=11}
 ```
 
 ## Fev & Gait
