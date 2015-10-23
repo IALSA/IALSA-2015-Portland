@@ -6,9 +6,9 @@ cat("\f") # clear console
 # @knitr load_packages
 library(dplyr) # for data manipulation
 library(ggplot2) # for graphing
-library(ISLR) # book
 
-# @knitr load_sources --------------------------------------- 
+
+# @knitr load_sources ---------------------------------------
 source("https://raw.githubusercontent.com/andkov/psy532/master/scripts/graphs/main_theme.R")
 
 # @knitr declare_globals ---------------------------------------
