@@ -417,13 +417,13 @@
 ## Level-2 predictors of the INTERCEPT of process 1 (P)
         ## intercept of process 1 (P) regressed on AGE at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param=="BAGE",])
+        (test <- test[test$param %in% c("BAGE"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_01] <- test}
 
         ## intercept of process 1 (P) regressed on EDUCATION at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("EDUC","EDUCATION"),])
+        (test <- test[test$param %in% c("EDUC","EDUCATION","CEDUC"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_02] <- test}
 
@@ -435,19 +435,19 @@
 
         ## intercept of process 1 (P) regressed on SMOKING at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST"),])
+        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST","EVERSMOK"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
 
         ## intercept of process 1 (P) regressed on CARDIO at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("CARDIO","CARDIO"),])
+        (test <- test[test$param %in% c("CARDIO","CARDIO","CHD"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_05] <- test}
 
         ## intercept of process 1 (P) regressed on DIABETES at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("DIABETES","DIAB"),])
+        (test <- test[test$param %in% c("DIABETES","DIAB","DIABETE"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_06] <- test}
 
