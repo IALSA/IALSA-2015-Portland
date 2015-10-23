@@ -1,0 +1,6 @@
+![satsa1](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/physical/fscores_scatter/figure_rmd/satsa_1-1.png)
+![satsa2](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/physical/fscores_scatter/figure_rmd/satsa_2-1.png)
+![satsa3](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/physical/fscores_scatter/figure_rmd/satsa_3-1.png)
+![satsa4](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/physical/fscores_scatter/figure_rmd/satsa_4-1.png)
+![satsa5](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/physical/fscores_scatter/figure_rmd/satsa_5-1.png)
+![satsa6](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/physical/fscores_scatter/figure_rmd/satsa_6-1.png)
