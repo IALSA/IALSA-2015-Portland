@@ -1,0 +1,481 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+10/23/2015  10:31 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Handgrip, Timed Up and Go, _ , Male
+
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 19.10.dat;
+
+  VARIABLE: Names are
+  T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center
+  t1beer t1wine t1k t1pc t1vf
+      t1sa t1spf t2dss t2bd t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc t3vf
+      t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3height t3weight
+      time1 time2r time3r time3 time2 T1HAVIR1 T1HAVIL1
+      T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2 T2HAVIL1
+      T2HAVIL2 T3HAVIR1x T3HAVIR2x T3HAVIL1x T3HAVIL2x
+      t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH Educ element
+      Haupt second others Smoker Educnew heartdis;
+
+
+         MISSING are ALL(-9999);
+         USEVAR are time1 time2 time3
+                     p1 p2 p3 c1 c2 c3
+                     ;
+         TSCORES = time1 time2 time3;
+
+
+         USEOBSERVATIONS are sex EQ 0;
+
+  Define: p1=t1hg; p2=t2hg; p3=t3hg;
+          c1=t1tug; c2=t2tug; c3=t3tug;
+
+          Bage=t1age-70;   !Centered at Age 70
+          Bagesq=(t1age-70)**2;
+          height=t1height-172; !centered for male
+
+  ANALYSIS: TYPE = RANDOM; Estimator=MLF;
+
+  MODEL:  ip sp | p1-p3 AT time1-time3;
+          ic sc | c1-c3 AT time1-time3;
+
+       ip (v_ip);
+            sp (v_sp);
+            ic (v_ic);
+            sc (v_sc);
+            ip WITH sp (c_ipsp);
+            ip WITH ic (c_ipic);
+            ip WITH sc (c_ipsc);
+            sp WITH ic (c_spic);
+            sp WITH sc (c_spsc);
+            ic WITH sc (c_icsc);
+
+
+          p1-p3 (res_p);
+          c1-c3 (res_c);
+          p1-p3 pwith c1-c3(res_cov); !Paired covariances constrained to be equal
+
+    MODEL CONSTRAINT:
+
+            NEW r_ipic; !assigns labels to new parameters;
+            NEW r_spsc;
+            NEW r_res_pc;
+
+            r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
+            r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
+            r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+  SAVEDATA:
+
+  FILE IS   LASAfSlopes;
+
+  SAVE = FSCORES;
+
+    OUTPUT: sampstat Cinterval;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Handgrip, Timed Up and Go, _ , Male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         260
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          C1          C2          C3
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLF
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Besitzer\Desktop\ilse 19.10.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            18
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             0.962
+ P2             0.854         0.888
+ P3             0.304         0.312         0.315
+ C1             0.469         0.431         0.081         0.485
+ C2             0.842         0.873         0.312         0.423         0.881
+ C3             0.435         0.442         0.269         0.208         0.435
+
+
+           Covariance Coverage
+              C3
+              ________
+ C3             0.446
+
+     THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT.  THE MISSING
+     DATA EM ALGORITHM WILL NOT BE INITIATED.  CHECK YOUR DATA OR LOWER THE
+     COVARIANCE COVERAGE LIMIT.
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ 1             85.788        82.057        64.722         5.649         5.700
+
+
+           Means
+              C3
+              ________
+ 1              8.016
+
+
+           Covariances
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1           652.877
+ P2           237.768       294.658
+ P3           156.142       154.303       180.463
+ C1            -4.510        -4.788         0.776         1.515
+ C2            -0.357        -6.842         1.407         0.496         2.383
+ C3           -12.965        -8.774        -5.494         0.923         0.401
+
+
+           Covariances
+              C3
+              ________
+ C3             2.618
+
+
+           Correlations
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.542         1.000
+ P3             0.455         0.669         1.000
+ C1            -0.143        -0.227         0.047         1.000
+ C2            -0.009        -0.258         0.068         0.261         1.000
+ C3            -0.314        -0.316        -0.253         0.464         0.160
+
+
+           Correlations
+              C3
+              ________
+ C3             1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -3229.176
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       17
+
+Loglikelihood
+
+          H0 Value                       -3287.109
+
+Information Criteria
+
+          Akaike (AIC)                    6608.218
+          Bayesian (BIC)                  6668.750
+          Sample-Size Adjusted BIC        6614.853
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP       WITH
+    SP               -24.614      6.145     -4.005      0.000
+    IC                 1.787      3.264      0.547      0.584
+    SC                -1.130      0.560     -2.016      0.044
+
+ SP       WITH
+    IC                -0.020      0.460     -0.044      0.965
+    SC                 0.078      0.071      1.103      0.270
+
+ IC       WITH
+    SC                -0.008      0.045     -0.168      0.866
+
+ P1       WITH
+    C1                -5.300      1.858     -2.853      0.004
+
+ P2       WITH
+    C2                -5.300      1.858     -2.853      0.004
+
+ P3       WITH
+    C3                -5.300      1.858     -2.853      0.004
+
+ Means
+    IP                87.104      1.646     52.931      0.000
+    SP                -1.801      0.208     -8.642      0.000
+    IC                 5.175      0.139     37.324      0.000
+    SC                 0.222      0.023      9.833      0.000
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+
+ Variances
+    IP               386.271     53.139      7.269      0.000
+    SP                 1.695      0.918      1.845      0.065
+    IC                 0.367      0.399      0.920      0.358
+    SC                 0.005      0.007      0.742      0.458
+
+ Residual Variances
+    P1               173.823     15.714     11.062      0.000
+    P2               173.823     15.714     11.062      0.000
+    P3               173.823     15.714     11.062      0.000
+    C1                 1.820      0.239      7.621      0.000
+    C2                 1.820      0.239      7.621      0.000
+    C3                 1.820      0.239      7.621      0.000
+
+ New/Additional Parameters
+    R_IPIC             0.150      0.303      0.496      0.620
+    R_SPSC             0.851      1.099      0.774      0.439
+    R_RES_PC          -0.298      0.095     -3.125      0.002
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.980E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IP       WITH
+    SP             -40.443     -36.659     -34.723     -24.614     -14.505     -12.570      -8.786
+    IC              -6.620      -4.611      -3.582       1.787       7.156       8.184      10.194
+    SC              -2.573      -2.228      -2.052      -1.130      -0.208      -0.032       0.313
+
+ SP       WITH
+    IC              -1.205      -0.922      -0.777      -0.020       0.736       0.881       1.165
+    SC              -0.104      -0.061      -0.038       0.078       0.194       0.216       0.260
+
+ IC       WITH
+    SC              -0.123      -0.095      -0.081      -0.008       0.066       0.080       0.108
+
+ P1       WITH
+    C1             -10.085      -8.941      -8.356      -5.300      -2.244      -1.659      -0.515
+
+ P2       WITH
+    C2             -10.085      -8.941      -8.356      -5.300      -2.244      -1.659      -0.515
+
+ P3       WITH
+    C3             -10.085      -8.941      -8.356      -5.300      -2.244      -1.659      -0.515
+
+ Means
+    IP              82.865      83.878      84.397      87.104      89.811      90.329      91.342
+    SP              -2.337      -2.209      -2.144      -1.801      -1.458      -1.392      -1.264
+    IC               4.818       4.903       4.947       5.175       5.403       5.446       5.532
+    SC               0.164       0.177       0.184       0.222       0.259       0.266       0.280
+
+ Intercepts
+    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+
+ Variances
+    IP             249.395     282.118     298.857     386.271     473.685     490.424     523.147
+    SP              -0.671      -0.105       0.184       1.695       3.205       3.494       4.060
+    IC              -0.661      -0.415      -0.290       0.367       1.024       1.150       1.396
+    SC              -0.012      -0.008      -0.006       0.005       0.016       0.018       0.022
+
+ Residual Variances
+    P1             133.347     143.024     147.974     173.823     199.673     204.623     214.299
+    P2             133.347     143.024     147.974     173.823     199.673     204.623     214.299
+    P3             133.347     143.024     147.974     173.823     199.673     204.623     214.299
+    C1               1.205       1.352       1.427       1.820       2.213       2.288       2.435
+    C2               1.205       1.352       1.427       1.820       2.213       2.288       2.435
+    C3               1.205       1.352       1.427       1.820       2.213       2.288       2.435
+
+ New/Additional Parameters
+    R_IPIC          -0.629      -0.443      -0.348       0.150       0.648       0.743       0.929
+    R_SPSC          -1.981      -1.304      -0.957       0.851       2.660       3.006       3.683
+    R_RES_PC        -0.544      -0.485      -0.455      -0.298      -0.141      -0.111      -0.052
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ 1             87.104         9.397        -1.801         0.706         5.175
+
+
+           Means
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ 1              0.516         0.222         0.048
+
+
+           Covariances
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP           296.956
+ IP_SE         -2.907         1.012
+ SP           -18.686         0.182         1.192
+ SP_SE         -0.163         0.059         0.010         0.004
+ IC             1.752         0.000        -0.076         0.000         0.100
+ IC_SE         -0.229         0.014         0.015         0.001        -0.001
+ SC            -0.868         0.008         0.055         0.000        -0.004
+ SC_SE         -0.010         0.002         0.001         0.000         0.000
+
+
+           Covariances
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          0.001
+ SC             0.001         0.003
+ SC_SE          0.000         0.000         0.000
+
+
+           Correlations
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             1.000
+ IP_SE         -0.168         1.000
+ SP            -0.993         0.166         1.000
+ SP_SE         -0.158         0.982         0.156         1.000
+ IC             0.321         0.000        -0.220         0.019         1.000
+ IC_SE         -0.425         0.456         0.430         0.454        -0.086
+ SC            -0.986         0.158         0.995         0.145        -0.225
+ SC_SE         -0.239         0.890         0.240         0.948         0.012
+
+
+           Correlations
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          1.000
+ SC             0.424         1.000
+ SC_SE          0.617         0.225         1.000
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    LASAfSlopes
+
+  Order and format of variables
+
+    P1             F10.3
+    P2             F10.3
+    P3             F10.3
+    C1             F10.3
+    C2             F10.3
+    C3             F10.3
+    TIME1          F10.3
+    TIME2          F10.3
+    TIME3          F10.3
+    IP             F10.3
+    IP_SE          F10.3
+    SP             F10.3
+    SP_SE          F10.3
+    IC             F10.3
+    IC_SE          F10.3
+    SC             F10.3
+    SC_SE          F10.3
+
+  Save file format
+    17F10.3
+
+  Save file record length    10000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\physical\u1_male_em
+
+     Beginning Time:  10:31:06
+        Ending Time:  10:31:16
+       Elapsed Time:  00:00:10
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
