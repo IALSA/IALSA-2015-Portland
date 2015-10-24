@@ -1,10 +1,10 @@
 Go to the specific study   
--[EAS](/README.md#eas)  
--[HRS](/README.md#hrs)  
--[LASA](/README.md#lasa)  
--[OCTO](/README.md#octo)  
--[RADC](/README.md#radc)  
--[SATSA](/README.md#satsa)  
+-[EAS](/reports/physical/fscores_scatter/figure_rmd/README.md#eas)  
+-[HRS](/reports/physical/fscores_scatter/figure_rmd/README.md#hrs)  
+-[LASA](/reports/physical/fscores_scatter/figure_rmd/README.md#lasa)  
+-[OCTO](/reports/physical/fscores_scatter/figure_rmd/README.md#octo)  
+-[RADC](/reports/physical/fscores_scatter/figure_rmd/README.md#radc)  
+-[SATSA](/reports/physical/fscores_scatter/figure_rmd/README.md#satsa)  
 
 
 ##EAS             
