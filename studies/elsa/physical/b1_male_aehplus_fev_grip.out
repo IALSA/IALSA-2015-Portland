@@ -1,6 +1,6 @@
 Mplus VERSION 7.31
 MUTHEN & MUTHEN
-10/19/2015   6:13 PM
+10/23/2015  11:30 PM
 
 INPUT INSTRUCTIONS
 
@@ -86,7 +86,7 @@ INPUT INSTRUCTIONS
 
   Define:
 
-         Bage=bagey-80;   !Centered at Age 80
+         Bage=bagey-70;   !Centered at Age 80
           Height=htval-172;
           SmokHist=hesmk-1;
           grip = (mmgsd1 + mmgsd2 + mmgsd3 + mmgsn1 + mmgsn2 + mmgsn3)/6;
@@ -142,6 +142,14 @@ INPUT INSTRUCTIONS
   !        r_icsc = c_icsc/((v_ic**0.5)*(v_sc**0.5));
 
           r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+     SAVEDATA:
+  FILE IS   ELSAfSlopes_male_aehplus_fev_grip;
+  SAVE = FSCORES;
+  PLOT:
+   TYPE IS PLOT3;
+
+
 
   OUTPUT: sampstat Cinterval;
 
@@ -271,7 +279,7 @@ SAMPLE STATISTICS
            Means
               C6            BAGE          EDUC          HEI2          SMOKE1
               ________      ________      ________      ________      ________
- 1              2.452       -16.565         0.669         0.784         0.279
+ 1              2.452        -6.565         0.669         0.784         0.279
 
 
            Means
@@ -375,8 +383,8 @@ UNIVARIATE SAMPLE STATISTICS
             1891.000       0.664       0.440       6.680    0.05%       2.970      3.420
      C6                    2.661      -0.491       0.000    1.46%       2.033      2.512      2.722
             1512.000       0.633       0.817       4.890    0.07%       2.895      3.303
-     BAGE                -16.565       0.483     -30.000    2.07%     -25.000    -21.000    -17.000
-            3091.000      82.523      -0.638      10.000    0.10%     -15.000     -8.000
+     BAGE                 -6.565       0.483     -20.000    2.07%     -15.000    -11.000     -7.000
+            3091.000      82.523      -0.638      20.000    0.10%      -5.000      2.000
      EDUC                  0.669      -0.718       0.000   33.10%       0.000      1.000      1.000
             3091.000       0.221      -1.484       1.000   66.90%       1.000      1.000
      HEI2                  0.784       0.045     -20.500    0.03%      -5.200     -1.000      0.700
@@ -443,7 +451,7 @@ MODEL RESULTS
 
  SC         ON
     BAGE               0.000      0.000     -1.387      0.165
-    EDUC              -0.008      0.005     -1.671      0.095
+    EDUC              -0.008      0.005     -1.672      0.095
     HEI2               0.000      0.000     -0.192      0.848
     SMOKE1            -0.004      0.004     -0.828      0.408
     DIAB1             -0.022      0.009     -2.589      0.010
@@ -455,11 +463,11 @@ MODEL RESULTS
     SC                -0.027      0.020     -1.373      0.170
 
  SP       WITH
-    IC                -0.019      0.018     -1.066      0.286
+    IC                -0.019      0.018     -1.066      0.287
     SC                 0.003      0.002      1.493      0.136
 
  IC       WITH
-    SC                -0.011      0.005     -2.380      0.017
+    SC                -0.011      0.005     -2.379      0.017
 
  P2       WITH
     C2                 0.025      0.049      0.513      0.608
@@ -477,10 +485,10 @@ MODEL RESULTS
     C2                 0.000      0.000    999.000    999.000
     C4                 0.000      0.000    999.000    999.000
     C6                 0.000      0.000    999.000    999.000
-    IP                29.967      0.386     77.651      0.000
-    SP                -0.782      0.057    -13.821      0.000
-    IC                 2.072      0.041     50.062      0.000
-    SC                -0.032      0.006     -5.084      0.000
+    IP                34.267      0.311    110.113      0.000
+    SP                -0.652      0.043    -15.212      0.000
+    IC                 2.403      0.033     73.809      0.000
+    SC                -0.029      0.005     -5.979      0.000
 
  Residual Variances
     P2                18.413      0.959     19.197      0.000
@@ -489,7 +497,7 @@ MODEL RESULTS
     C2                 0.192      0.018     10.970      0.000
     C4                 0.192      0.018     10.970      0.000
     C6                 0.192      0.018     10.970      0.000
-    IP                39.846      2.975     13.396      0.000
+    IP                39.846      2.975     13.395      0.000
     SP                 0.054      0.045      1.193      0.233
     IC                 0.363      0.037      9.875      0.000
     SC                 0.001      0.001      1.707      0.088
@@ -502,7 +510,7 @@ New/Additional Parameters
 
 QUALITY OF NUMERICAL RESULTS
 
-     Condition Number for the Information Matrix              0.226E-06
+     Condition Number for the Information Matrix              0.296E-06
        (ratio of smallest to largest eigenvalue)
 
 
@@ -570,15 +578,15 @@ CONFIDENCE INTERVALS OF MODEL RESULTS
     C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
     C6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
-    IP              28.973      29.210      29.332      29.967      30.601      30.723      30.961
-    SP              -0.928      -0.893      -0.875      -0.782      -0.689      -0.671      -0.636
-    IC               1.965       1.991       2.004       2.072       2.140       2.153       2.179
-    SC              -0.049      -0.045      -0.043      -0.032      -0.022      -0.020      -0.016
+    IP              33.465      33.657      33.755      34.267      34.778      34.876      35.068
+    SP              -0.762      -0.736      -0.723      -0.652      -0.582      -0.568      -0.542
+    IC               2.319       2.339       2.349       2.403       2.457       2.467       2.487
+    SC              -0.041      -0.038      -0.037      -0.029      -0.021      -0.019      -0.016
 
  Residual Variances
-    P2              15.942      16.533      16.835      18.413      19.991      20.293      20.884
-    P4              15.942      16.533      16.835      18.413      19.991      20.293      20.884
-    P6              15.942      16.533      16.835      18.413      19.991      20.293      20.884
+    P2              15.943      16.533      16.835      18.413      19.991      20.293      20.884
+    P4              15.943      16.533      16.835      18.413      19.991      20.293      20.884
+    P6              15.943      16.533      16.835      18.413      19.991      20.293      20.884
     C2               0.147       0.158       0.163       0.192       0.221       0.227       0.237
     C4               0.147       0.158       0.163       0.192       0.221       0.227       0.237
     C6               0.147       0.158       0.163       0.192       0.221       0.227       0.237
@@ -593,6 +601,113 @@ New/Additional Parameters
     R_RES_PC        -0.054      -0.038      -0.029       0.013       0.056       0.065       0.081
 
 
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ 1             38.179         3.074        -0.629         0.220         2.826
+
+
+           Means
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ 1              0.345        -0.034         0.032
+
+
+           Covariances
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP            56.441
+ IP_SE         -0.718         0.209
+ SP             0.395        -0.012         0.031
+ SP_SE         -0.007         0.001         0.000         0.000
+ IC             3.076        -0.072         0.057        -0.001         0.495
+ IC_SE         -0.086         0.013        -0.001         0.000        -0.008
+ SC            -0.003         0.000         0.001         0.000        -0.004
+ SC_SE         -0.002         0.000         0.000         0.000         0.000
+
+
+           Covariances
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          0.003
+ SC             0.000         0.000
+ SC_SE          0.000         0.000         0.000
+
+
+           Correlations
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             1.000
+ IP_SE         -0.209         1.000
+ SP             0.298        -0.148         1.000
+ SP_SE         -0.254         0.784        -0.237         1.000
+ IC             0.582        -0.223         0.458        -0.269         1.000
+ IC_SE         -0.211         0.533        -0.149         0.513        -0.199
+ SC            -0.027         0.051         0.414         0.019        -0.413
+ SC_SE         -0.245         0.575        -0.231         0.834        -0.259
+
+
+           Correlations
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          1.000
+ SC             0.032         1.000
+ SC_SE          0.769         0.014         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores)
+  Scatterplots (sample values, estimated factor scores)
+  Latent variable distribution plots
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    ELSAfSlopes_male_aehplus_fev_grip
+
+  Order and format of variables
+
+    P2             F10.3
+    P4             F10.3
+    P6             F10.3
+    C2             F10.3
+    C4             F10.3
+    C6             F10.3
+    BAGE           F10.3
+    EDUC           F10.3
+    HEI2           F10.3
+    SMOKE1         F10.3
+    DIAB1          F10.3
+    CARDIO1        F10.3
+    TIME2          F10.3
+    TIME4          F10.3
+    TIME6          F10.3
+    IDAUNIQ        I7
+    IP             F10.3
+    IP_SE          F10.3
+    SP             F10.3
+    SP_SE          F10.3
+    IC             F10.3
+    IC_SE          F10.3
+    SC             F10.3
+    SC_SE          F10.3
+
+  Save file format
+    15F10.3 I7 8F10.3
+
+  Save file record length    10000
+
+
 DIAGRAM INFORMATION
 
   Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
@@ -601,9 +716,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\annie\dropbox\ialsa_cambridge\elsa-phy-phy\b1_male_aehplus_fev_grip.dgm
 
-     Beginning Time:  18:13:51
-        Ending Time:  18:14:13
-       Elapsed Time:  00:00:22
+     Beginning Time:  23:30:22
+        Ending Time:  23:30:43
+       Elapsed Time:  00:00:21
 
 
 
