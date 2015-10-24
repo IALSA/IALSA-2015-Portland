@@ -27,14 +27,63 @@
 
 
 ```
+ [1] "./studies/eas/physical/b1_female_aehplus_grip_gait.gh5"  
+ [2] "./studies/eas/physical/b1_female_aehplus_grip_pef.gh5"   
+ [3] "./studies/eas/physical/b1_female_aehplus_pef_gait.gh5"   
+ [4] "./studies/eas/physical/b1_male_aehplus_grip_gait.gh5"    
+ [5] "./studies/eas/physical/b1_male_aehplus_grip_pef.gh5"     
+ [6] "./studies/eas/physical/b1_male_aehplus_pef_gait.gh5"     
+ [7] "./studies/hrs/physical/b1_female_aehplus_grip_gait.gh5"  
+ [8] "./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5"   
+ [9] "./studies/hrs/physical/b1_female_aehplus_pef_gait.gh5"   
+[10] "./studies/hrs/physical/b1_male_aehplus_grip_gait.gh5"    
+[11] "./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5"     
+[12] "./studies/hrs/physical/b1_male_aehplus_pef_gait.gh5"     
+[13] "./studies/lasa/physical/b1_female_aehplus_gait_grip.gh5" 
+[14] "./studies/lasa/physical/b1_female_aehplus_pek_gait.gh5"  
+[15] "./studies/lasa/physical/b1_female_aehplus_pek_grip.gh5"  
+[16] "./studies/lasa/physical/b1_male_aehplus_gait_grip.gh5"   
+[17] "./studies/lasa/physical/b1_male_aehplus_pek_gait.gh5"    
+[18] "./studies/lasa/physical/b1_male_aehplus_pek_grip.gh5"    
+[19] "./studies/octo/physical/b1_female_aehplus_gait_grip.gh5" 
+[20] "./studies/octo/physical/b1_female_aehplus_pek_gait.gh5"  
+[21] "./studies/octo/physical/b1_female_aehplus_pek_grip.gh5"  
+[22] "./studies/octo/physical/b1_male_aehplus_gait_grip.gh5"   
+[23] "./studies/octo/physical/b1_male_aehplus_pek_gait.gh5"    
+[24] "./studies/octo/physical/b1_male_aehplus_pek_grip.gh5"    
+[25] "./studies/radc/physical/b1_female_aehplus_fev_gait.gh5"  
+[26] "./studies/radc/physical/b1_female_aehplus_fev_grip.gh5"  
+[27] "./studies/radc/physical/b1_female_aehplus_gait_grip.gh5" 
+[28] "./studies/radc/physical/b1_male_aehplus_fev_gait.gh5"    
+[29] "./studies/radc/physical/b1_male_aehplus_fev_grip.gh5"    
+[30] "./studies/radc/physical/b1_male_aehplus_gait_grip.gh5"   
+[31] "./studies/satsa/physical/b1_female_aehplus_gait_fev.gh5" 
+[32] "./studies/satsa/physical/b1_female_aehplus_gait_grip.gh5"
+[33] "./studies/satsa/physical/b1_female_aehplus_grip_fev.gh5" 
+[34] "./studies/satsa/physical/b1_male_aehplus_gait_fev.gh5"   
+[35] "./studies/satsa/physical/b1_male_aehplus_gait_grip.gh5"  
+[36] "./studies/satsa/physical/b1_male_aehplus_grip_fev.gh5"   
+```
+
+```
+[1] "paths"      "study"      "model_name" "subgroup"   "model_type" "process1"   "process2"  
+```
+
+
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+
+
+<!-- Load the datasets.   -->
+
+```
 
 Plot functions:
- - mplus.plot.histogram('./studies/satsa/physical/b1_male_aehplus_grip_fev.gh5',variable,bins)
- - mplus.plot.scatterplot('./studies/satsa/physical/b1_male_aehplus_grip_fev.gh5',xvar,yvar)
+ - mplus.plot.histogram('./studies/eas/physical/b1_male_aehplus_grip_pef.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/eas/physical/b1_male_aehplus_grip_pef.gh5',xvar,yvar)
 
 Plot data extraction functions:
- - mplus.list.variables('./studies/satsa/physical/b1_male_aehplus_grip_fev.gh5')
- - mplus.get.data('./studies/satsa/physical/b1_male_aehplus_grip_fev.gh5',variable)
+ - mplus.list.variables('./studies/eas/physical/b1_male_aehplus_grip_pef.gh5')
+ - mplus.get.data('./studies/eas/physical/b1_male_aehplus_grip_pef.gh5',variable)
 
 List of variable names to use in the following functions:
  - mplus.plot.histogram
@@ -47,42 +96,6 @@ Variables:
 ```
 Warning in if (index == 0) {: the condition has length > 1 and only the first element will be used
 ```
-
-```
-     id DIABETE EVERSMOK CHD   BAGE CEDUC HEIGHT       IP        SP        IC          SC wave time   outcome observed
-1     1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    1    0  physical      8.0
-301   1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    2    3  physical       NA
-601   1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    3    6  physical       NA
-901   1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    5   13  physical       NA
-1201  1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    6   16  physical       NA
-1501  1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    7   19  physical       NA
-1801  1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    1    0 cognitive      0.7
-2101  1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    2    3 cognitive       NA
-2401  1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    3    6 cognitive       NA
-2701  1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    5   13 cognitive       NA
-3001  1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    6   16 cognitive       NA
-3301  1       0        0   0 17.816     0     -8 22.32216 -1.292397 0.9320986 -0.05712793    7   19 cognitive       NA
-         age study_name subgroup model_type process1 process2
-1     87.816      satsa     male    aehplus     grip      fev
-301   90.816      satsa     male    aehplus     grip      fev
-601   93.816      satsa     male    aehplus     grip      fev
-901  100.816      satsa     male    aehplus     grip      fev
-1201 103.816      satsa     male    aehplus     grip      fev
-1501 106.816      satsa     male    aehplus     grip      fev
-1801  87.816      satsa     male    aehplus     grip      fev
-2101  90.816      satsa     male    aehplus     grip      fev
-2401  93.816      satsa     male    aehplus     grip      fev
-2701 100.816      satsa     male    aehplus     grip      fev
-3001 103.816      satsa     male    aehplus     grip      fev
-3301 106.816      satsa     male    aehplus     grip      fev
-```
-
-
-<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
-
-
-<!-- Load the datasets.   -->
-
 
 <!-- Tweak the datasets.   -->
 
@@ -100,9 +113,12 @@ g <- ggplot2::ggplot(dsL,aes_string(x=x, y=y, fill="BAGE"))+
   main_theme
 g
 }
-# proto_scatter(dsL,x="SP", y="SC")
+proto_scatter(dsL,x="SP", y="SC")
+```
 
+<img src="figure_rmd/basic_graph-1.png" title="" alt="" width="550px" />
 
+```r
 # d <- dsL %>% tidyr::gather_("term","value",c("IP","SP","SC","IC"))
 # d$age <- d[is.na(d$observed),"age"]
 # d %>% dplyr::filter(id==1) %>% dplyr::select(id, BAGE, wave, time, outcome, observed, age, term, value )
@@ -112,19 +128,21 @@ dsL %>% dplyr::filter(id==1) %>% dplyr::select(id, BAGE, wave, time, outcome, ob
 ```
 
 ```
-   id   BAGE wave time   outcome observed     age       IP        SP          SC        IC
-1   1 17.816    1    0  physical      8.0  87.816 22.32216 -1.292397 -0.05712793 0.9320986
-2   1 17.816    2    3  physical       NA  90.816 22.32216 -1.292397 -0.05712793 0.9320986
-3   1 17.816    3    6  physical       NA  93.816 22.32216 -1.292397 -0.05712793 0.9320986
-4   1 17.816    5   13  physical       NA 100.816 22.32216 -1.292397 -0.05712793 0.9320986
-5   1 17.816    6   16  physical       NA 103.816 22.32216 -1.292397 -0.05712793 0.9320986
-6   1 17.816    7   19  physical       NA 106.816 22.32216 -1.292397 -0.05712793 0.9320986
-7   1 17.816    1    0 cognitive      0.7  87.816 22.32216 -1.292397 -0.05712793 0.9320986
-8   1 17.816    2    3 cognitive       NA  90.816 22.32216 -1.292397 -0.05712793 0.9320986
-9   1 17.816    3    6 cognitive       NA  93.816 22.32216 -1.292397 -0.05712793 0.9320986
-10  1 17.816    5   13 cognitive       NA 100.816 22.32216 -1.292397 -0.05712793 0.9320986
-11  1 17.816    6   16 cognitive       NA 103.816 22.32216 -1.292397 -0.05712793 0.9320986
-12  1 17.816    7   19 cognitive       NA 106.816 22.32216 -1.292397 -0.05712793 0.9320986
+   id     BAGE wave time   outcome observed     age       IP       SP        SC       IC
+1   1 2.687201    1    1  physical      300 73.6872 380.4318 -34.5074 -1.765668 28.24879
+2   1 2.687201    2    2  physical       NA 74.6872 380.4318 -34.5074 -1.765668 28.24879
+3   1 2.687201    3   NA  physical       NA      NA 380.4318 -34.5074 -1.765668 28.24879
+4   1 2.687201    4   NA  physical       NA      NA 380.4318 -34.5074 -1.765668 28.24879
+5   1 2.687201    5   NA  physical       NA      NA 380.4318 -34.5074 -1.765668 28.24879
+6   1 2.687201    6   NA  physical       NA      NA 380.4318 -34.5074 -1.765668 28.24879
+7   1 2.687201    7   NA  physical       NA      NA 380.4318 -34.5074 -1.765668 28.24879
+8   1 2.687201    1    1 cognitive       23 73.6872 380.4318 -34.5074 -1.765668 28.24879
+9   1 2.687201    2    2 cognitive       NA 74.6872 380.4318 -34.5074 -1.765668 28.24879
+10  1 2.687201    3   NA cognitive       NA      NA 380.4318 -34.5074 -1.765668 28.24879
+11  1 2.687201    4   NA cognitive       NA      NA 380.4318 -34.5074 -1.765668 28.24879
+12  1 2.687201    5   NA cognitive       NA      NA 380.4318 -34.5074 -1.765668 28.24879
+13  1 2.687201    6   NA cognitive       NA      NA 380.4318 -34.5074 -1.765668 28.24879
+14  1 2.687201    7   NA cognitive       NA      NA 380.4318 -34.5074 -1.765668 28.24879
 ```
 
 ```r
@@ -134,20 +152,649 @@ dsL %>% dplyr::filter(id==1) %>% dplyr::select(id, BAGE, wave, time, outcome, ob
 
 
 
-
-## Satsa: 1
+```
+ [1] "./studies/eas/physical/b1_female_aehplus_grip_gait.gh5"  
+ [2] "./studies/eas/physical/b1_female_aehplus_grip_pef.gh5"   
+ [3] "./studies/eas/physical/b1_female_aehplus_pef_gait.gh5"   
+ [4] "./studies/eas/physical/b1_male_aehplus_grip_gait.gh5"    
+ [5] "./studies/eas/physical/b1_male_aehplus_grip_pef.gh5"     
+ [6] "./studies/eas/physical/b1_male_aehplus_pef_gait.gh5"     
+ [7] "./studies/hrs/physical/b1_female_aehplus_grip_gait.gh5"  
+ [8] "./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5"   
+ [9] "./studies/hrs/physical/b1_female_aehplus_pef_gait.gh5"   
+[10] "./studies/hrs/physical/b1_male_aehplus_grip_gait.gh5"    
+[11] "./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5"     
+[12] "./studies/hrs/physical/b1_male_aehplus_pef_gait.gh5"     
+[13] "./studies/lasa/physical/b1_female_aehplus_gait_grip.gh5" 
+[14] "./studies/lasa/physical/b1_female_aehplus_pek_gait.gh5"  
+[15] "./studies/lasa/physical/b1_female_aehplus_pek_grip.gh5"  
+[16] "./studies/lasa/physical/b1_male_aehplus_gait_grip.gh5"   
+[17] "./studies/lasa/physical/b1_male_aehplus_pek_gait.gh5"    
+[18] "./studies/lasa/physical/b1_male_aehplus_pek_grip.gh5"    
+[19] "./studies/octo/physical/b1_female_aehplus_gait_grip.gh5" 
+[20] "./studies/octo/physical/b1_female_aehplus_pek_gait.gh5"  
+[21] "./studies/octo/physical/b1_female_aehplus_pek_grip.gh5"  
+[22] "./studies/octo/physical/b1_male_aehplus_gait_grip.gh5"   
+[23] "./studies/octo/physical/b1_male_aehplus_pek_gait.gh5"    
+[24] "./studies/octo/physical/b1_male_aehplus_pek_grip.gh5"    
+[25] "./studies/radc/physical/b1_female_aehplus_fev_gait.gh5"  
+[26] "./studies/radc/physical/b1_female_aehplus_fev_grip.gh5"  
+[27] "./studies/radc/physical/b1_female_aehplus_gait_grip.gh5" 
+[28] "./studies/radc/physical/b1_male_aehplus_fev_gait.gh5"    
+[29] "./studies/radc/physical/b1_male_aehplus_fev_grip.gh5"    
+[30] "./studies/radc/physical/b1_male_aehplus_gait_grip.gh5"   
+[31] "./studies/satsa/physical/b1_female_aehplus_gait_fev.gh5" 
+[32] "./studies/satsa/physical/b1_female_aehplus_gait_grip.gh5"
+[33] "./studies/satsa/physical/b1_female_aehplus_grip_fev.gh5" 
+[34] "./studies/satsa/physical/b1_male_aehplus_gait_fev.gh5"   
+[35] "./studies/satsa/physical/b1_male_aehplus_gait_grip.gh5"  
+[36] "./studies/satsa/physical/b1_male_aehplus_grip_fev.gh5"   
+```
+#FEMALES
+# EAS
+## grip_pef
 
 ```r
-(gh5_file <- gh5_paths[1])
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "pef")
 ```
 
 ```
-[1] "./studies/satsa/physical/b1_female_aehplus_gait_fev.gh5"
+
+Plot functions:
+ - mplus.plot.histogram('./studies/eas/physical/b1_female_aehplus_grip_pef.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/eas/physical/b1_female_aehplus_grip_pef.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/eas/physical/b1_female_aehplus_grip_pef.gh5')
+ - mplus.get.data('./studies/eas/physical/b1_female_aehplus_grip_pef.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
 ```
 
 ```r
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/eas_female_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
+
+## pef_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pef",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/eas/physical/b1_female_aehplus_pef_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/eas/physical/b1_female_aehplus_pef_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/eas/physical/b1_female_aehplus_pef_gait.gh5')
+ - mplus.get.data('./studies/eas/physical/b1_female_aehplus_pef_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/eas_female_aehplus_pef_gait-1.png" title="" alt="" width="550px" />
+
+## grip_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/eas/physical/b1_female_aehplus_grip_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/eas/physical/b1_female_aehplus_grip_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/eas/physical/b1_female_aehplus_grip_gait.gh5')
+ - mplus.get.data('./studies/eas/physical/b1_female_aehplus_grip_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/eas_female_aehplus_grip_gait-1.png" title="" alt="" width="550px" />
+
+```r
+#### HRS ####
+```
+
+# HRS
+## grip_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/hrs/physical/b1_female_aehplus_grip_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/hrs/physical/b1_female_aehplus_grip_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/hrs/physical/b1_female_aehplus_grip_gait.gh5')
+ - mplus.get.data('./studies/hrs/physical/b1_female_aehplus_grip_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/hrs_female_aehplus_grip_gait-1.png" title="" alt="" width="550px" />
+
+## grip_pef
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "pef")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5')
+ - mplus.get.data('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/hrs_female_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
+
+## grip_pef
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "pef")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5')
+ - mplus.get.data('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/hrs_female_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
+
+
+# LASA
+## gait_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/lasa/physical/b1_female_aehplus_gait_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/lasa/physical/b1_female_aehplus_gait_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/lasa/physical/b1_female_aehplus_gait_grip.gh5')
+ - mplus.get.data('./studies/lasa/physical/b1_female_aehplus_gait_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/lasa_female_aehplus_gait_grip-1.png" title="" alt="" width="550px" />
+
+## pek_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/lasa/physical/b1_female_aehplus_pek_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/lasa/physical/b1_female_aehplus_pek_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/lasa/physical/b1_female_aehplus_pek_gait.gh5')
+ - mplus.get.data('./studies/lasa/physical/b1_female_aehplus_pek_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/lasa_female_aehplus_pek_gait-1.png" title="" alt="" width="550px" />
+
+## pek_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/lasa/physical/b1_female_aehplus_pek_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/lasa/physical/b1_female_aehplus_pek_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/lasa/physical/b1_female_aehplus_pek_grip.gh5')
+ - mplus.get.data('./studies/lasa/physical/b1_female_aehplus_pek_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/lasa_female_aehplus_pek_grip-1.png" title="" alt="" width="550px" />
+
+```r
+#### OCTO ####
+```
+
+
+
+# OCTO
+## gait_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/octo/physical/b1_female_aehplus_gait_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/octo/physical/b1_female_aehplus_gait_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/octo/physical/b1_female_aehplus_gait_grip.gh5')
+ - mplus.get.data('./studies/octo/physical/b1_female_aehplus_gait_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/octo_female_aehplus_gait_grip-1.png" title="" alt="" width="550px" />
+
+## pek_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/octo/physical/b1_female_aehplus_pek_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/octo/physical/b1_female_aehplus_pek_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/octo/physical/b1_female_aehplus_pek_gait.gh5')
+ - mplus.get.data('./studies/octo/physical/b1_female_aehplus_pek_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/octo_female_aehplus_pek_gait-1.png" title="" alt="" width="550px" />
+
+## pek_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/octo/physical/b1_female_aehplus_pek_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/octo/physical/b1_female_aehplus_pek_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/octo/physical/b1_female_aehplus_pek_grip.gh5')
+ - mplus.get.data('./studies/octo/physical/b1_female_aehplus_pek_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/octo_female_aehplus_pek_grip-1.png" title="" alt="" width="550px" />
+
+```r
+#### RADC ####
+```
+
+
+# RADC
+## fev_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "fev",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/radc/physical/b1_female_aehplus_fev_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/radc/physical/b1_female_aehplus_fev_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/radc/physical/b1_female_aehplus_fev_gait.gh5')
+ - mplus.get.data('./studies/radc/physical/b1_female_aehplus_fev_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/radc_female_aehplus_fev_gait-1.png" title="" alt="" width="550px" />
+
+## fev_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "fev",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/radc/physical/b1_female_aehplus_fev_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/radc/physical/b1_female_aehplus_fev_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/radc/physical/b1_female_aehplus_fev_grip.gh5')
+ - mplus.get.data('./studies/radc/physical/b1_female_aehplus_fev_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/radc_female_aehplus_fev_grip-1.png" title="" alt="" width="550px" />
+
+## gait_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/radc/physical/b1_female_aehplus_gait_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/radc/physical/b1_female_aehplus_gait_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/radc/physical/b1_female_aehplus_gait_grip.gh5')
+ - mplus.get.data('./studies/radc/physical/b1_female_aehplus_gait_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/radc_female_aehplus_gait_grip-1.png" title="" alt="" width="550px" />
+
+```r
+gh5_paths
+```
+
+```
+ [1] "./studies/eas/physical/b1_female_aehplus_grip_gait.gh5"  
+ [2] "./studies/eas/physical/b1_female_aehplus_grip_pef.gh5"   
+ [3] "./studies/eas/physical/b1_female_aehplus_pef_gait.gh5"   
+ [4] "./studies/eas/physical/b1_male_aehplus_grip_gait.gh5"    
+ [5] "./studies/eas/physical/b1_male_aehplus_grip_pef.gh5"     
+ [6] "./studies/eas/physical/b1_male_aehplus_pef_gait.gh5"     
+ [7] "./studies/hrs/physical/b1_female_aehplus_grip_gait.gh5"  
+ [8] "./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5"   
+ [9] "./studies/hrs/physical/b1_female_aehplus_pef_gait.gh5"   
+[10] "./studies/hrs/physical/b1_male_aehplus_grip_gait.gh5"    
+[11] "./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5"     
+[12] "./studies/hrs/physical/b1_male_aehplus_pef_gait.gh5"     
+[13] "./studies/lasa/physical/b1_female_aehplus_gait_grip.gh5" 
+[14] "./studies/lasa/physical/b1_female_aehplus_pek_gait.gh5"  
+[15] "./studies/lasa/physical/b1_female_aehplus_pek_grip.gh5"  
+[16] "./studies/lasa/physical/b1_male_aehplus_gait_grip.gh5"   
+[17] "./studies/lasa/physical/b1_male_aehplus_pek_gait.gh5"    
+[18] "./studies/lasa/physical/b1_male_aehplus_pek_grip.gh5"    
+[19] "./studies/octo/physical/b1_female_aehplus_gait_grip.gh5" 
+[20] "./studies/octo/physical/b1_female_aehplus_pek_gait.gh5"  
+[21] "./studies/octo/physical/b1_female_aehplus_pek_grip.gh5"  
+[22] "./studies/octo/physical/b1_male_aehplus_gait_grip.gh5"   
+[23] "./studies/octo/physical/b1_male_aehplus_pek_gait.gh5"    
+[24] "./studies/octo/physical/b1_male_aehplus_pek_grip.gh5"    
+[25] "./studies/radc/physical/b1_female_aehplus_fev_gait.gh5"  
+[26] "./studies/radc/physical/b1_female_aehplus_fev_grip.gh5"  
+[27] "./studies/radc/physical/b1_female_aehplus_gait_grip.gh5" 
+[28] "./studies/radc/physical/b1_male_aehplus_fev_gait.gh5"    
+[29] "./studies/radc/physical/b1_male_aehplus_fev_grip.gh5"    
+[30] "./studies/radc/physical/b1_male_aehplus_gait_grip.gh5"   
+[31] "./studies/satsa/physical/b1_female_aehplus_gait_fev.gh5" 
+[32] "./studies/satsa/physical/b1_female_aehplus_gait_grip.gh5"
+[33] "./studies/satsa/physical/b1_female_aehplus_grip_fev.gh5" 
+[34] "./studies/satsa/physical/b1_male_aehplus_gait_fev.gh5"   
+[35] "./studies/satsa/physical/b1_male_aehplus_gait_grip.gh5"  
+[36] "./studies/satsa/physical/b1_male_aehplus_grip_fev.gh5"   
+```
+
+```r
+#### SATSA ####
+```
+
+
+# SATSA
+## gait_fev
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "fev")
 ```
 
 ```
@@ -168,21 +815,21 @@ List of variable names to use in the following functions:
 Variables:
 ```
 
-<img src="figure_rmd/satsa_1-1.png" title="" alt="" width="550px" />
+```r
+fscore_scatter(dsL) # create scatterplot
+```
 
-## Satsa: 2
+<img src="figure_rmd/satsa_female_aehplus_gait_fev-1.png" title="" alt="" width="550px" />
+
+## gait_grip
 
 ```r
-(gh5_file <- gh5_paths[2])
-```
-
-```
-[1] "./studies/satsa/physical/b1_female_aehplus_gait_grip.gh5"
-```
-
-```r
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
 ```
 
 ```
@@ -203,21 +850,21 @@ List of variable names to use in the following functions:
 Variables:
 ```
 
-<img src="figure_rmd/satsa_2-1.png" title="" alt="" width="550px" />
+```r
+fscore_scatter(dsL) # create scatterplot
+```
 
-## Satsa: 3
+<img src="figure_rmd/satsa_female_aehplus_gait_grip-1.png" title="" alt="" width="550px" />
+
+## grip_fev
 
 ```r
-(gh5_file <- gh5_paths[3])
-```
-
-```
-[1] "./studies/satsa/physical/b1_female_aehplus_grip_fev.gh5"
-```
-
-```r
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "fev")
 ```
 
 ```
@@ -238,21 +885,622 @@ List of variable names to use in the following functions:
 Variables:
 ```
 
-<img src="figure_rmd/satsa_3-1.png" title="" alt="" width="550px" />
+```r
+fscore_scatter(dsL) # create scatterplot
+```
 
-## Satsa: 4
+<img src="figure_rmd/satsa_female_aehplus_grip_fev-1.png" title="" alt="" width="550px" />
 
 ```r
-(gh5_file <- gh5_paths[4])
+#### MALES ####
+#### EAS ####
+```
+
+#MALES
+# EAS
+## grip_pef
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "pef")
 ```
 
 ```
-[1] "./studies/satsa/physical/b1_male_aehplus_gait_fev.gh5"
+
+Plot functions:
+ - mplus.plot.histogram('./studies/eas/physical/b1_male_aehplus_grip_pef.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/eas/physical/b1_male_aehplus_grip_pef.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/eas/physical/b1_male_aehplus_grip_pef.gh5')
+ - mplus.get.data('./studies/eas/physical/b1_male_aehplus_grip_pef.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
 ```
 
 ```r
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/eas_male_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
+
+## pef_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pef",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/eas/physical/b1_male_aehplus_pef_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/eas/physical/b1_male_aehplus_pef_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/eas/physical/b1_male_aehplus_pef_gait.gh5')
+ - mplus.get.data('./studies/eas/physical/b1_male_aehplus_pef_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/eas_male_aehplus_pef_gait-1.png" title="" alt="" width="550px" />
+
+## grip_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/eas/physical/b1_male_aehplus_grip_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/eas/physical/b1_male_aehplus_grip_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/eas/physical/b1_male_aehplus_grip_gait.gh5')
+ - mplus.get.data('./studies/eas/physical/b1_male_aehplus_grip_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/eas_male_aehplus_grip_gait-1.png" title="" alt="" width="550px" />
+
+```r
+#### HRS ####
+```
+
+# HRS
+## grip_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/hrs/physical/b1_male_aehplus_grip_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/hrs/physical/b1_male_aehplus_grip_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/hrs/physical/b1_male_aehplus_grip_gait.gh5')
+ - mplus.get.data('./studies/hrs/physical/b1_male_aehplus_grip_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/hrs_male_aehplus_grip_gait-1.png" title="" alt="" width="550px" />
+
+## grip_pef
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "pef")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5')
+ - mplus.get.data('./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/hrs_male_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
+
+## grip_pef
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "pef")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5')
+ - mplus.get.data('./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/hrs_male_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
+
+
+# LASA
+## gait_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/lasa/physical/b1_male_aehplus_gait_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/lasa/physical/b1_male_aehplus_gait_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/lasa/physical/b1_male_aehplus_gait_grip.gh5')
+ - mplus.get.data('./studies/lasa/physical/b1_male_aehplus_gait_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/lasa_male_aehplus_gait_grip-1.png" title="" alt="" width="550px" />
+
+## pek_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/lasa/physical/b1_male_aehplus_pek_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/lasa/physical/b1_male_aehplus_pek_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/lasa/physical/b1_male_aehplus_pek_gait.gh5')
+ - mplus.get.data('./studies/lasa/physical/b1_male_aehplus_pek_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/lasa_male_aehplus_pek_gait-1.png" title="" alt="" width="550px" />
+
+## pek_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/lasa/physical/b1_male_aehplus_pek_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/lasa/physical/b1_male_aehplus_pek_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/lasa/physical/b1_male_aehplus_pek_grip.gh5')
+ - mplus.get.data('./studies/lasa/physical/b1_male_aehplus_pek_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/lasa_male_aehplus_pek_grip-1.png" title="" alt="" width="550px" />
+
+```r
+#### OCTO ####
+```
+
+
+
+# OCTO
+## gait_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/octo/physical/b1_male_aehplus_gait_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/octo/physical/b1_male_aehplus_gait_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/octo/physical/b1_male_aehplus_gait_grip.gh5')
+ - mplus.get.data('./studies/octo/physical/b1_male_aehplus_gait_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/octo_male_aehplus_gait_grip-1.png" title="" alt="" width="550px" />
+
+## pek_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/octo/physical/b1_male_aehplus_pek_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/octo/physical/b1_male_aehplus_pek_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/octo/physical/b1_male_aehplus_pek_gait.gh5')
+ - mplus.get.data('./studies/octo/physical/b1_male_aehplus_pek_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/octo_male_aehplus_pek_gait-1.png" title="" alt="" width="550px" />
+
+## pek_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/octo/physical/b1_male_aehplus_pek_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/octo/physical/b1_male_aehplus_pek_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/octo/physical/b1_male_aehplus_pek_grip.gh5')
+ - mplus.get.data('./studies/octo/physical/b1_male_aehplus_pek_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/octo_male_aehplus_pek_grip-1.png" title="" alt="" width="550px" />
+
+```r
+#### RADC ####
+```
+
+
+# RADC
+## fev_gait
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "fev",
+                    process2 = "gait")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/radc/physical/b1_male_aehplus_fev_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/radc/physical/b1_male_aehplus_fev_gait.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/radc/physical/b1_male_aehplus_fev_gait.gh5')
+ - mplus.get.data('./studies/radc/physical/b1_male_aehplus_fev_gait.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/radc_male_aehplus_fev_gait-1.png" title="" alt="" width="550px" />
+
+## fev_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "fev",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/radc/physical/b1_male_aehplus_fev_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/radc/physical/b1_male_aehplus_fev_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/radc/physical/b1_male_aehplus_fev_grip.gh5')
+ - mplus.get.data('./studies/radc/physical/b1_male_aehplus_fev_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/radc_male_aehplus_fev_grip-1.png" title="" alt="" width="550px" />
+
+## gait_grip
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('./studies/radc/physical/b1_male_aehplus_gait_grip.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/radc/physical/b1_male_aehplus_gait_grip.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('./studies/radc/physical/b1_male_aehplus_gait_grip.gh5')
+ - mplus.get.data('./studies/radc/physical/b1_male_aehplus_gait_grip.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/radc_male_aehplus_gait_grip-1.png" title="" alt="" width="550px" />
+
+```r
+gh5_paths
+```
+
+```
+ [1] "./studies/eas/physical/b1_female_aehplus_grip_gait.gh5"  
+ [2] "./studies/eas/physical/b1_female_aehplus_grip_pef.gh5"   
+ [3] "./studies/eas/physical/b1_female_aehplus_pef_gait.gh5"   
+ [4] "./studies/eas/physical/b1_male_aehplus_grip_gait.gh5"    
+ [5] "./studies/eas/physical/b1_male_aehplus_grip_pef.gh5"     
+ [6] "./studies/eas/physical/b1_male_aehplus_pef_gait.gh5"     
+ [7] "./studies/hrs/physical/b1_female_aehplus_grip_gait.gh5"  
+ [8] "./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5"   
+ [9] "./studies/hrs/physical/b1_female_aehplus_pef_gait.gh5"   
+[10] "./studies/hrs/physical/b1_male_aehplus_grip_gait.gh5"    
+[11] "./studies/hrs/physical/b1_male_aehplus_grip_pef.gh5"     
+[12] "./studies/hrs/physical/b1_male_aehplus_pef_gait.gh5"     
+[13] "./studies/lasa/physical/b1_female_aehplus_gait_grip.gh5" 
+[14] "./studies/lasa/physical/b1_female_aehplus_pek_gait.gh5"  
+[15] "./studies/lasa/physical/b1_female_aehplus_pek_grip.gh5"  
+[16] "./studies/lasa/physical/b1_male_aehplus_gait_grip.gh5"   
+[17] "./studies/lasa/physical/b1_male_aehplus_pek_gait.gh5"    
+[18] "./studies/lasa/physical/b1_male_aehplus_pek_grip.gh5"    
+[19] "./studies/octo/physical/b1_female_aehplus_gait_grip.gh5" 
+[20] "./studies/octo/physical/b1_female_aehplus_pek_gait.gh5"  
+[21] "./studies/octo/physical/b1_female_aehplus_pek_grip.gh5"  
+[22] "./studies/octo/physical/b1_male_aehplus_gait_grip.gh5"   
+[23] "./studies/octo/physical/b1_male_aehplus_pek_gait.gh5"    
+[24] "./studies/octo/physical/b1_male_aehplus_pek_grip.gh5"    
+[25] "./studies/radc/physical/b1_female_aehplus_fev_gait.gh5"  
+[26] "./studies/radc/physical/b1_female_aehplus_fev_grip.gh5"  
+[27] "./studies/radc/physical/b1_female_aehplus_gait_grip.gh5" 
+[28] "./studies/radc/physical/b1_male_aehplus_fev_gait.gh5"    
+[29] "./studies/radc/physical/b1_male_aehplus_fev_grip.gh5"    
+[30] "./studies/radc/physical/b1_male_aehplus_gait_grip.gh5"   
+[31] "./studies/satsa/physical/b1_female_aehplus_gait_fev.gh5" 
+[32] "./studies/satsa/physical/b1_female_aehplus_gait_grip.gh5"
+[33] "./studies/satsa/physical/b1_female_aehplus_grip_fev.gh5" 
+[34] "./studies/satsa/physical/b1_male_aehplus_gait_fev.gh5"   
+[35] "./studies/satsa/physical/b1_male_aehplus_gait_grip.gh5"  
+[36] "./studies/satsa/physical/b1_male_aehplus_grip_fev.gh5"   
+```
+
+```r
+#### SATSA ####
+```
+
+
+# SATSA
+## gait_fev
+
+```r
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "fev")
 ```
 
 ```
@@ -273,21 +1521,21 @@ List of variable names to use in the following functions:
 Variables:
 ```
 
-<img src="figure_rmd/satsa_4-1.png" title="" alt="" width="550px" />
+```r
+fscore_scatter(dsL) # create scatterplot
+```
 
-## Satsa: 5
+<img src="figure_rmd/satsa_male_aehplus_gait_fev-1.png" title="" alt="" width="550px" />
+
+## gait_grip
 
 ```r
-(gh5_file <- gh5_paths[5])
-```
-
-```
-[1] "./studies/satsa/physical/b1_male_aehplus_gait_grip.gh5"
-```
-
-```r
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
 ```
 
 ```
@@ -308,21 +1556,21 @@ List of variable names to use in the following functions:
 Variables:
 ```
 
-<img src="figure_rmd/satsa_5-1.png" title="" alt="" width="550px" />
+```r
+fscore_scatter(dsL) # create scatterplot
+```
 
-## Satsa: 6
+<img src="figure_rmd/satsa_male_aehplus_gait_grip-1.png" title="" alt="" width="550px" />
+
+## grip_fev
 
 ```r
-(gh5_file <- gh5_paths[6])
-```
-
-```
-[1] "./studies/satsa/physical/b1_male_aehplus_grip_fev.gh5"
-```
-
-```r
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "fev")
 ```
 
 ```
@@ -343,4 +1591,11 @@ List of variable names to use in the following functions:
 Variables:
 ```
 
-<img src="figure_rmd/satsa_6-1.png" title="" alt="" width="550px" />
+```r
+fscore_scatter(dsL) # create scatterplot
+```
+
+<img src="figure_rmd/satsa_male_aehplus_grip_fev-1.png" title="" alt="" width="550px" />
+
+
+
