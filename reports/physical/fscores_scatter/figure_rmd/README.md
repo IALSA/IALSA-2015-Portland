@@ -1,5 +1,5 @@
              
-![image]("./reports/physical/fscores_scatter/figure_rmd/eas_female_aehplus_grip_gait-1.png")  
+![image](eas_female_aehplus_grip_gait-1.png)  
 ![image]("./reports/physical/fscores_scatter/figure_rmd/eas_female_aehplus_grip_pef-1.png")   
 ![image]("./reports/physical/fscores_scatter/figure_rmd/eas_female_aehplus_pef_gait-1.png")   
 ![image]("./reports/physical/fscores_scatter/figure_rmd/eas_male_aehplus_grip_gait-1.png")    
