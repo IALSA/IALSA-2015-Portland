@@ -17,10 +17,10 @@ source("http://www.statmodel.com/mplus-R/mplus.R") # load custom functions
 # @knitr declare_globals ---------------------------------------
 
 
-# @knitr get_gh5_files -----
+# @knitr get_gh5_files -------------------------------------------
 
 # load the list object with file paths to the outputs and gh5
-out_list_all_plus <- readRDS("./projects/physical/outputs/out_list.rds")
+# out_list_all_plus <- readRDS("./projects/physical/outputs/out_list.rds")
 
 # define the location of the folders in each contributing study
 eas <- list.files(file.path("./studies/eas/physical"),full.names=T, recursive=T, pattern="gh5$")
@@ -38,22 +38,60 @@ satsa <- list.files(file.path("./studies/satsa/physical"),full.names=T, recursiv
 gh5_paths <- c(eas,   hrs, lasa, nuage, octo, radc, satsa)
 
 # select a .gh5 file for processing
-# load custom script to extract data from a .gh5 file
-source("./scripts/mplus/get_gh5.R")
+
+gh5_paths
+
+# ls_gh5 <- list(c("paths","study","subgroup","model_type","process1", "process2"))
+ls_gh5 <- list()
+ls_gh5[["paths"]] <- gh5_paths
+
+get_model_def <- function(file=gh5_file){
+
+  ## Add descriptive info
+  selector <- which(strsplit(gh5_file, '/')[[1]]=='studies')
+  (study_name <- strsplit(gh5_file, '/')[[1]][selector+1])
+  (model_name <- strsplit(gh5_file, '/')[[1]][5])
+  (subgroup <- strsplit(model_name, '_|.gh5')[[1]][2])
+  (model_type <- strsplit(model_name, '_|.gh5')[[1]][3])
+  (process1 <- strsplit(model_name, '_|.gh5')[[1]][4])
+  (process2 <- strsplit(model_name, '_|.gh5')[[1]][5])
+  md <- c(study_name, subgroup, model_type, process1, process2, model_name)
+  return(md)
+}
+# (model_def <- get_model_def(file=gh5_file))
+
+for(i in 1:length(ls_gh5[["paths"]])){
+  gh5_file <- gh5_paths[i]
+  (model_def <- get_model_def(file=gh5_file))
+  ls_gh5[["study"]][i] <- strsplit(gh5_paths[i], "/")[[1]][3]
+  model_name <- strsplit(gh5_paths[i], "/")[[1]][5]
+  ls_gh5[["model_name"]][i] <- model_name
+  ls_gh5[["subgroup"]][i] <- strsplit(model_name, '_|.gh5')[[1]][2]
+  ls_gh5[["model_type"]][i] <- strsplit(model_name, '_|.gh5')[[1]][3]
+  ls_gh5[["process1"]][i] <- strsplit(model_name, '_|.gh5')[[1]][4]
+  ls_gh5[["process2"]][i] <- strsplit(model_name, '_|.gh5')[[1]][5]
+}
+
+names(ls_gh5)
+source("./scripts/mplus/get_gh5.R") # load custom script to extract data from a .gh5 file
 
 # when selecting from the list object with model outputs
 # (all_gh5 <- gsub(".out",".gh5", out_list_all_plus[["path"]]) )
 # gh5_file <- all_gh5[34]
 
-gh5_file <- gh5_paths[6]
-# get graph-ready data
-dsL <- get_gh5_data(file=gh5_file)
-dsL[dsL$id==1,]
-
 # @knitr load_data ---------------------------------------
+dsL <- get_gh5_data(
+  file=ls_gh5 # list object containing paths to the gh5 files
+  ,study = "eas"
+  ,subgroup = "female"
+  ,model_type = "aehplus"
+  ,process1 = "grip"
+  ,process2 = "pef"
+  )
 
 
 # @knitr inspect_data ---------------------------------------
+head(dsL)
 
 # @knitr tweak_data ---------------------------------------
 
@@ -67,7 +105,7 @@ g <- ggplot2::ggplot(dsL,aes_string(x=x, y=y, fill="BAGE"))+
   main_theme
 g
 }
-# proto_scatter(dsL,x="SP", y="SC")
+proto_scatter(dsL,x="SP", y="SC")
 
 
 # d <- dsL %>% tidyr::gather_("term","value",c("IP","SP","SC","IC"))
@@ -83,10 +121,8 @@ dsL %>% dplyr::filter(id==1) %>% dplyr::select(id, BAGE, wave, time, outcome, ob
 # @knitr new_chunk ---------------------------------------
 
 # @knitr basic_graph_1 ---------------------------------------
-fscore_scatter <- function(file=gh5_file){
-
-dsL <- get_gh5_data(file=gh5_file)
-
+fscore_scatter <- function(data){
+dsL <- data
 dsL[dsL$id==1,]
 
 for(i in 1:nrow(dsL))
@@ -125,9 +161,9 @@ grid::grid.newpage()
 
 
 # @knitr satsa_1 ---------------------------------------
-(gh5_file <- gh5_paths[1])
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+dsL <- get_gh5_data(file=ls_gh5, study = "eas", subgroup = "female", model_type = "aehplus",
+                    process1 = "grip", process2 = "pef")
+fscore_scatter(dsL) # create scatterplot
 
 # @knitr satsa_2 ---------------------------------------
 (gh5_file <- gh5_paths[2])

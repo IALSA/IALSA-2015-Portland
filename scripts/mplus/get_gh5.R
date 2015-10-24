@@ -1,8 +1,24 @@
-get_gh5_data <- function(file=gh5_file){
 
+
+# get_gh5_data <- function(file=ls_gh5, study="eas", subgroup="female", model_type="aehplus",
+#                     process1="grip", process2="pef"){
+get_gh5_data <- function(file, study, subgroup, model_type, process1, process2){
+
+  #find the row that matches criteria
+  pull_model <- file[["study"]]==study & file[["subgroup"]]==subgroup &
+    file[["model_type"]]==model_type &
+    file[["process1"]]==process1 & file[["process2"]]==process2
+  #get the path
+  (gh5_file <- ls_gh5[["paths"]][pull_model])
+
+  (study_name <- get_model_def(file=gh5_file)[1])
+  (subgroup <- get_model_def(file=gh5_file)[2])
+  (model_type  <- get_model_def(file=gh5_file)[3])
+  (process1 <- get_model_def(file=gh5_file)[4])
+  (process2 <- get_model_def(file=gh5_file)[5])
 
   mplus.view.plots(gh5_file) # read in a .gh5 file
-  (gh5_variables<- mplus.list.variables(gh5_file)) # inspect variables in .gh5
+  gh5_variables<- mplus.list.variables(gh5_file) # inspect variables in .gh5
   # extract observed individual - level data from .gh5
   ds_obs <- as.data.frame(t(mplus.get.data(gh5_file,gh5_variables)))
   (names(ds_obs) <- gh5_variables)
@@ -46,14 +62,12 @@ get_gh5_data <- function(file=gh5_file){
   dsL$observed[dsL$observed==999] <- NA
   dsL$age <- dsL$BAGE + dsL$time + 70
   ## Add descriptive info
-  selector <- which(strsplit(gh5_file, '/')[[1]]=='studies')
-  dsL[,"study_name"] <- strsplit(gh5_file, '/')[[1]][selector+1]
 
-  model_name <- strsplit(gh5_file, '/')[[1]][5]
-  dsL[,'subgroup'] <- strsplit(model_name, '_|.gh5')[[1]][2]
-  dsL[,'model_type'] <- strsplit(model_name, '_|.gh5')[[1]][3]
-  dsL[,"process1"] <- strsplit(model_name, '_|.gh5')[[1]][4]
-  dsL[,"process2"] <- strsplit(model_name, '_|.gh5')[[1]][5]
+  dsL[,"study_name"] <- study_name
+  dsL[,'subgroup'] <- subgroup
+  dsL[,'model_type'] <- model_type
+  dsL[,"process1"] <- process1
+  dsL[,"process2"] <- process2
 
   head(dsL)
   dsL <- dsL[order(dsL$id), ] # sort for visual inspection
@@ -64,4 +78,10 @@ get_gh5_data <- function(file=gh5_file){
 
   return(dsL)
 }
-# get_gh5_data(file = gh5_file )
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study="eas",
+#                     subgroup="female",
+#                     model_type="aehplus",
+#                     process1="grip",
+#                     process2="pef")
+# head(dsL)
