@@ -1,9 +1,23 @@
+get_model_def <- function(file=gh5_file){
+
+  ## Add descriptive info
+  selector <- which(strsplit(gh5_file, '/')[[1]]=='studies')
+  (study_name <- strsplit(gh5_file, '/')[[1]][selector+1])
+  (model_name <- strsplit(gh5_file, '/')[[1]][5])
+  (subgroup <- strsplit(model_name, '_|.gh5')[[1]][2])
+  (model_type <- strsplit(model_name, '_|.gh5')[[1]][3])
+  (process1 <- strsplit(model_name, '_|.gh5')[[1]][4])
+  (process2 <- strsplit(model_name, '_|.gh5')[[1]][5])
+  md <- c(study_name, subgroup, model_type, process1, process2, model_name)
+  return(md)
+}
+# (model_def <- get_model_def(file=gh5_file))
 
 
 # get_gh5_data <- function(file=ls_gh5, study="eas", subgroup="female", model_type="aehplus",
 #                     process1="grip", process2="pef"){
 get_gh5_data <- function(file, study, subgroup, model_type, process1, process2){
-
+   # browser()
   #find the row that matches criteria
   pull_model <- file[["study"]]==study & file[["subgroup"]]==subgroup &
     file[["model_type"]]==model_type &
@@ -11,11 +25,19 @@ get_gh5_data <- function(file, study, subgroup, model_type, process1, process2){
   #get the path
   (gh5_file <- ls_gh5[["paths"]][pull_model])
 
-  (study_name <- get_model_def(file=gh5_file)[1])
-  (subgroup <- get_model_def(file=gh5_file)[2])
-  (model_type  <- get_model_def(file=gh5_file)[3])
-  (process1 <- get_model_def(file=gh5_file)[4])
-  (process2 <- get_model_def(file=gh5_file)[5])
+  selector <- which(strsplit(gh5_file, '/')[[1]]=='studies')
+  (study_name_check <- strsplit(gh5_file, '/')[[1]][selector+1])
+  (model_name <- strsplit(gh5_file, '/')[[1]][5])
+  (subgroup_check <- strsplit(model_name, '_|.gh5')[[1]][2])
+  (model_type_check <- strsplit(model_name, '_|.gh5')[[1]][3])
+  (process1_check <- strsplit(model_name, '_|.gh5')[[1]][4])
+  (process2_check <- strsplit(model_name, '_|.gh5')[[1]][5])
+
+  (test1 <- c(study, subgroup, model_type, process1, process2))
+  (test2 <- c(study_name_check, subgroup_check, model_type_check, process1_check, process2_check))
+  if(!all.equal(test1,test2)){
+    "No gh5 provided for this model configuration"
+  }else{
 
   mplus.view.plots(gh5_file) # read in a .gh5 file
   gh5_variables<- mplus.list.variables(gh5_file) # inspect variables in .gh5
@@ -63,25 +85,25 @@ get_gh5_data <- function(file, study, subgroup, model_type, process1, process2){
   dsL$age <- dsL$BAGE + dsL$time + 70
   ## Add descriptive info
 
-  dsL[,"study_name"] <- study_name
-  dsL[,'subgroup'] <- subgroup
-  dsL[,'model_type'] <- model_type
-  dsL[,"process1"] <- process1
-  dsL[,"process2"] <- process2
+  dsL[,"study_name"] <- study_name_check
+  dsL[,'subgroup'] <- subgroup_check
+  dsL[,'model_type'] <- model_type_check
+  dsL[,"process1"] <- process1_check
+  dsL[,"process2"] <- process2_check
 
   head(dsL)
   dsL <- dsL[order(dsL$id), ] # sort for visual inspection
   head(dsL)
   d <- dsL[dsL$id %in% c(1),]
   d
-
+} #close else
 
   return(dsL)
 }
 # dsL <- get_gh5_data(file=ls_gh5,
 #                     study="eas",
-#                     subgroup="female",
+#                     subgroup="male",
 #                     model_type="aehplus",
 #                     process1="grip",
-#                     process2="pef")
+#                     process2="gait")
 # head(dsL)

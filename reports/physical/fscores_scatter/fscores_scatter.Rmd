@@ -51,7 +51,7 @@ read_chunk("./reports/physical/fscores_scatter/fscores_scatter.R")
 
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
-```{r load_sources, echo=echoChunks, message=FALSE}
+```{r load_sources, echo=echoChunks, message=TRUE}
 ```
 
 
@@ -89,27 +89,173 @@ read_chunk("./reports/physical/fscores_scatter/fscores_scatter.R")
 
 ```{r basic_graph_1, echo=FALSE, results='show', message=FALSE, fig.width=8, fig.height=11}
 ```
-
-## Satsa: 1
-```{r satsa_1, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+#FEMALES
+# EAS
+## grip_pef
+```{r eas_female_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
 ```
 
-## Satsa: 2
-```{r satsa_2, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+## pef_gait
+```{r eas_female_aehplus_pef_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
 ```
 
-## Satsa: 3
-```{r satsa_3, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+## grip_gait
+```{r eas_female_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
 ```
 
-## Satsa: 4
-```{r satsa_4, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+# HRS
+## grip_gait
+```{r hrs_female_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
 ```
 
-## Satsa: 5
-```{r satsa_5, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+## grip_pef
+```{r hrs_female_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
 ```
 
-## Satsa: 6
-```{r satsa_6, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+## grip_pef
+```{r hrs_female_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
 ```
+
+
+# LASA
+## gait_grip
+```{r lasa_female_aehplus_gait_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## pek_gait
+```{r lasa_female_aehplus_pek_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## pek_grip
+```{r lasa_female_aehplus_pek_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+
+
+# OCTO
+## gait_grip
+```{r octo_female_aehplus_gait_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## pek_gait
+```{r octo_female_aehplus_pek_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## pek_grip
+```{r octo_female_aehplus_pek_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+
+# RADC
+## fev_gait
+```{r radc_female_aehplus_fev_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## fev_grip
+```{r radc_female_aehplus_fev_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## gait_grip
+```{r radc_female_aehplus_gait_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+
+# SATSA
+## gait_fev
+```{r satsa_female_aehplus_gait_fev, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## gait_grip
+```{r satsa_female_aehplus_gait_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## grip_fev
+```{r satsa_female_aehplus_grip_fev, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+#MALES
+# EAS
+## grip_pef
+```{r eas_male_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## pef_gait
+```{r eas_male_aehplus_pef_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## grip_gait
+```{r eas_male_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+# HRS
+## grip_gait
+```{r hrs_male_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## grip_pef
+```{r hrs_male_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## grip_pef
+```{r hrs_male_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+
+# LASA
+## gait_grip
+```{r lasa_male_aehplus_gait_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## pek_gait
+```{r lasa_male_aehplus_pek_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## pek_grip
+```{r lasa_male_aehplus_pek_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+
+
+# OCTO
+## gait_grip
+```{r octo_male_aehplus_gait_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## pek_gait
+```{r octo_male_aehplus_pek_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## pek_grip
+```{r octo_male_aehplus_pek_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+
+# RADC
+## fev_gait
+```{r radc_male_aehplus_fev_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## fev_grip
+```{r radc_male_aehplus_fev_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## gait_grip
+```{r radc_male_aehplus_gait_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+
+# SATSA
+## gait_fev
+```{r satsa_male_aehplus_gait_fev, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## gait_grip
+```{r satsa_male_aehplus_gait_grip, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+## grip_fev
+```{r satsa_male_aehplus_grip_fev, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+```
+
+
+

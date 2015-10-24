@@ -11,7 +11,7 @@ library(grid)
 
 # @knitr load_sources ---------------------------------------
 source("https://raw.githubusercontent.com/andkov/psy532/master/scripts/graphs/main_theme.R")
-source("./scripts/mplus/group_variables.R") # define objects with names of variables/columns
+# source("./scripts/mplus/group_variables.R") # define objects with names of variables/columns
 source("http://www.statmodel.com/mplus-R/mplus.R") # load custom functions
 
 # @knitr declare_globals ---------------------------------------
@@ -45,23 +45,11 @@ gh5_paths
 ls_gh5 <- list()
 ls_gh5[["paths"]] <- gh5_paths
 
-get_model_def <- function(file=gh5_file){
-
-  ## Add descriptive info
-  selector <- which(strsplit(gh5_file, '/')[[1]]=='studies')
-  (study_name <- strsplit(gh5_file, '/')[[1]][selector+1])
-  (model_name <- strsplit(gh5_file, '/')[[1]][5])
-  (subgroup <- strsplit(model_name, '_|.gh5')[[1]][2])
-  (model_type <- strsplit(model_name, '_|.gh5')[[1]][3])
-  (process1 <- strsplit(model_name, '_|.gh5')[[1]][4])
-  (process2 <- strsplit(model_name, '_|.gh5')[[1]][5])
-  md <- c(study_name, subgroup, model_type, process1, process2, model_name)
-  return(md)
-}
-# (model_def <- get_model_def(file=gh5_file))
+source("./scripts/mplus/get_gh5.R") # load custom script to extract data from a .gh5 file
 
 for(i in 1:length(ls_gh5[["paths"]])){
   gh5_file <- gh5_paths[i]
+
   (model_def <- get_model_def(file=gh5_file))
   ls_gh5[["study"]][i] <- strsplit(gh5_paths[i], "/")[[1]][3]
   model_name <- strsplit(gh5_paths[i], "/")[[1]][5]
@@ -73,7 +61,6 @@ for(i in 1:length(ls_gh5[["paths"]])){
 }
 
 names(ls_gh5)
-source("./scripts/mplus/get_gh5.R") # load custom script to extract data from a .gh5 file
 
 # when selecting from the list object with model outputs
 # (all_gh5 <- gsub(".out",".gh5", out_list_all_plus[["path"]]) )
@@ -83,7 +70,7 @@ source("./scripts/mplus/get_gh5.R") # load custom script to extract data from a 
 dsL <- get_gh5_data(
   file=ls_gh5 # list object containing paths to the gh5 files
   ,study = "eas"
-  ,subgroup = "female"
+  ,subgroup = "male"
   ,model_type = "aehplus"
   ,process1 = "grip"
   ,process2 = "pef"
@@ -147,7 +134,7 @@ grid::grid.newpage()
   )
   grid::pushViewport(grid::viewport(layout=layout))
   main_title <- paste0(toupper(dsL$study_name[1]),"  ", dsL$subgroup,"  ",  dsL$model_type,
-                       " ( ", dsL$process1[1], " - ", dsL$process2[2], " ) " )[1]
+                       " ( P: ", dsL$process1[1], "  C: ", dsL$process2[2], " ) " )[1]
   grid.text(main_title, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:2))
   print(a, vp=grid::viewport(layout.pos.col=1, layout.pos.row=2))
   print(b, vp=grid::viewport(layout.pos.col=2, layout.pos.row=2))
@@ -158,39 +145,351 @@ grid::grid.newpage()
   grid::popViewport(0)
 }
 # fscore_scatter(file=gh5_file)
+gh5_paths
 
+#### EAS ####
 
-# @knitr satsa_1 ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5, study = "eas", subgroup = "female", model_type = "aehplus",
-                    process1 = "grip", process2 = "pef")
+# @knitr eas_female_aehplus_grip_pef ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "pef")
 fscore_scatter(dsL) # create scatterplot
 
-# @knitr satsa_2 ---------------------------------------
-(gh5_file <- gh5_paths[2])
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+# @knitr eas_female_aehplus_pef_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pef",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
 
-# @knitr satsa_3 ---------------------------------------
-(gh5_file <- gh5_paths[3])
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+# @knitr eas_female_aehplus_grip_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
 
-# @knitr satsa_4 ---------------------------------------
-(gh5_file <- gh5_paths[4])
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+#### HRS ####
+# @knitr hrs_female_aehplus_grip_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
 
-# @knitr satsa_5 ---------------------------------------
-(gh5_file <- gh5_paths[5])
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+# @knitr hrs_female_aehplus_grip_pef ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "pef")
+fscore_scatter(dsL) # create scatterplot
 
-# @knitr satsa_6 ---------------------------------------
-(gh5_file <- gh5_paths[6])
-# dsL <- get_gh5_data(file=gh5_file) # get graph-ready data
-fscore_scatter(file=gh5_file) # create scatterplot
+# @knitr hrs_female_aehplus_pef_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pef",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+##### LASA ####
+# @knitr lasa_female_aehplus_gait_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr lasa_female_aehplus_pek_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr lasa_female_aehplus_pek_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+#### OCTO ####
+# @knitr octo_female_aehplus_gait_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr octo_female_aehplus_pek_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr octo_female_aehplus_pek_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+#### RADC ####
+# @knitr radc_female_aehplus_fev_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "fev",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr radc_female_aehplus_fev_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "fev",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr radc_female_aehplus_gait_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+gh5_paths
+
+#### SATSA ####
+
+# @knitr satsa_female_aehplus_gait_fev ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "fev")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr satsa_female_aehplus_gait_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr satsa_female_aehplus_grip_fev ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "fev")
+fscore_scatter(dsL) # create scatterplot
 
 
+#### MALES ####
+#### EAS ####
+
+# @knitr eas_male_aehplus_grip_pef ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "pef")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr eas_male_aehplus_pef_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pef",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr eas_male_aehplus_grip_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "eas",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+#### HRS ####
+# @knitr hrs_male_aehplus_grip_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr hrs_male_aehplus_grip_pef ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "pef")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr hrs_male_aehplus_pef_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "hrs",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pef",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+##### LASA ####
+# @knitr lasa_male_aehplus_gait_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr lasa_male_aehplus_pek_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr lasa_male_aehplus_pek_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "lasa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+#### OCTO ####
+# @knitr octo_male_aehplus_gait_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr octo_male_aehplus_pek_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr octo_male_aehplus_pek_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "octo",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "pek",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+#### RADC ####
+# @knitr radc_male_aehplus_fev_gait ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "fev",
+                    process2 = "gait")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr radc_male_aehplus_fev_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "fev",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr radc_male_aehplus_gait_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "radc",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+gh5_paths
+
+#### SATSA ####
+
+# @knitr satsa_male_aehplus_gait_fev ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "fev")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr satsa_male_aehplus_gait_grip ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "gait",
+                    process2 = "grip")
+fscore_scatter(dsL) # create scatterplot
+
+# @knitr satsa_male_aehplus_grip_fev ---------------------------------------
+dsL <- get_gh5_data(file=ls_gh5,
+                    study = "satsa",
+                    subgroup = "male",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "fev")
+fscore_scatter(dsL) # create scatterplot
 
 # @knitr reproduce ---------------------------------------
   rmarkdown::render(input = "./reports/physical/fscores_scatter/fscores_scatter.Rmd" ,
