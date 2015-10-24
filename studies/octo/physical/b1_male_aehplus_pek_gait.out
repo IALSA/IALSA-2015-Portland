@@ -1,6 +1,6 @@
 Mplus VERSION 7.31
 MUTHEN & MUTHEN
-10/16/2015   2:21 PM
+10/24/2015  12:24 AM
 
 INPUT INSTRUCTIONS
 
@@ -120,6 +120,14 @@ INPUT INSTRUCTIONS
   !        r_icsc = c_icsc/((v_ic**0.5)*(v_sc**0.5));
 
           r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+  SAVEDATA:
+  FILE IS OCTOfSlopes_male_aehplus_pek_gait;
+  SAVE = FSCORES;
+  PLOT:
+   TYPE IS PLOT3;
+
+
 
   OUTPUT: sampstat Cinterval;
 
@@ -670,6 +678,118 @@ New/Additional Parameters
     R_RES_PC        -0.247      -0.199      -0.174      -0.046       0.083       0.108       0.156
 
 
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ 1             10.721         1.280         0.305         0.239       405.892
+
+
+           Means
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ 1             41.260        -9.839         5.164
+
+
+           Covariances
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             4.148
+ IP_SE          0.071         0.038
+ SP             0.103         0.002         0.041
+ SP_SE          0.019         0.005         0.000         0.001
+ IC          -103.194        -1.840         6.546        -0.497      8667.226
+ IC_SE          5.272         1.724         0.017         0.245      -145.263
+ SC            -1.095         0.005        -0.538         0.001      -188.711
+ SC_SE          0.272         0.061         0.004         0.012        -6.654
+
+
+           Covariances
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE        175.634
+ SC             1.323        22.966
+ SC_SE          4.081         0.068         0.181
+
+
+           Correlations
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             1.000
+ IP_SE          0.178         1.000
+ SP             0.250         0.050         1.000
+ SP_SE          0.305         0.777         0.055         1.000
+ IC            -0.544        -0.101         0.347        -0.176         1.000
+ IC_SE          0.195         0.665         0.006         0.611        -0.118
+ SC            -0.112         0.005        -0.554         0.004        -0.423
+ SC_SE          0.314         0.731         0.044         0.959        -0.168
+
+
+           Correlations
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          1.000
+ SC             0.021         1.000
+ SC_SE          0.723         0.033         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores)
+  Scatterplots (sample values, estimated factor scores)
+  Latent variable distribution plots
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    OCTOfSlopes_male_aehplus_pek_gait
+
+  Order and format of variables
+
+    P1             F10.3
+    P2             F10.3
+    P3             F10.3
+    P4             F10.3
+    P5             F10.3
+    C1             F10.3
+    C2             F10.3
+    C3             F10.3
+    C4             F10.3
+    C5             F10.3
+    BAGE           F10.3
+    EDUC           F10.3
+    SMOKHIST       F10.3
+    HEIGHTC        F10.3
+    DIABETES       F10.3
+    CARDIO         F10.3
+    TIME1          F10.3
+    TIME2          F10.3
+    TIME3          F10.3
+    TIME4          F10.3
+    TIME5          F10.3
+    IP             F10.3
+    IP_SE          F10.3
+    SP             F10.3
+    SP_SE          F10.3
+    IC             F10.3
+    IC_SE          F10.3
+    SC             F10.3
+    SC_SE          F10.3
+
+  Save file format
+    29F10.3
+
+  Save file record length    10000
+
+
 DIAGRAM INFORMATION
 
   Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
@@ -678,9 +798,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\annie\dropbox\ialsa_cambridge\octo-phy-phy\b1_male_aehplus_pek_gait.dgm
 
-     Beginning Time:  14:21:33
-        Ending Time:  14:22:39
-       Elapsed Time:  00:01:06
+     Beginning Time:  00:24:07
+        Ending Time:  00:24:55
+       Elapsed Time:  00:00:48
 
 
 
