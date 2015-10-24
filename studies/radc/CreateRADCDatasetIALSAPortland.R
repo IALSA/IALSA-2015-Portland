@@ -117,10 +117,9 @@ table(radcMAP$msex)
 radcMAP<-radcMAP[radcMAP$T0!=-9999,]
 length(radcMAP$projid)
 
-##print out descriptive stats for all the selected variable groups
-summary(demo)
-summary(cognitive)
-summary(physical)
+##identify cases with implausable 0 values
+## waves to examine were originally identifed with scatterplots and descriptives
+
 which(radcMAP$gripavg.00==0)
 which(radcMAP$gripavg.01==0)
 which(radcMAP$gripavg.02==0)
@@ -128,9 +127,8 @@ which(radcMAP$gripavg.04==0)
 which(radcMAP$fev.12==0)
 which(radcMAP$fev.00==0)
 
-# replacing out of range values with NA
+# replacing out of range values with -9999
 radcMAP$gripavg.00[radcMAP$gripavg.00==0]<- -9999
-summary(radcMAP$gripavg.00)
 radcMAP$gripavg.01[radcMAP$gripavg.01==0]<- -9999
 radcMAP$gripavg.02[radcMAP$gripavg.02==0]<- -9999
 radcMAP$gripavg.04[radcMAP$gripavg.04==0]<- -9999
@@ -138,7 +136,7 @@ radcMAP$gripavg.04[radcMAP$gripavg.04==0]<- -9999
 radcMAP$fev.00[radcMAP$fev.00==0]<--9999
 radcMAP$fev.12[radcMAP$fev.12==0]<--9999
 
-
+attach(radcMAP)
 ##create three variables that identify those without physical data at any wave.
 radcMAP$nofev<-ifelse(fev.00==-9999 & fev.01==-9999 & fev.02==-9999 & fev.03==-9999 & fev.04==-9999 &
                       fev.05==-9999 & fev.06==-9999 & fev.07==-9999 & fev.08==-9999 & fev.09==-9999 &
@@ -174,10 +172,8 @@ table(radcMAP$physclean)
 #filter out individuals without sufficient physical data
 radcMAPc<-radcMAP[radcMAP$physclean=="keep",]
 
+#check
 length(radcMAPc$projid)
-
-which(radcMAPc$smoking==-9999)
-
 
 ##checking frequencies for men and women
 table(radcMAPc$msex)
@@ -188,16 +184,44 @@ summary(radcMAP$age_bl)
 ##Recode missing -9999 to NA for descriptive stats calculation
 radcMAPc[radcMAPc==-9999]<-NA
 
+
+#which(radcMAPc$gripavg.00==0)
+#which(radcMAPc$gripavg.01==0)
+#which(radcMAPc$gripavg.02==0)
+#which(radcMAPc$gripavg.04==0)
+#which(radcMAPc$fev.12==0)
+#which(radcMAPc$fev.00==0)
+#radcMAPc[823,1]
+
+
+#identify rows with missing covariates
+which(is.na(radcMAPcl$dm_cum.00))
+which(is.na(radcMAPcl$heart_cum.00))
+which(is.na(radcMAPcl$educ))
+which(is.na(radcMAPcl$age_bl))
+which(is.na(radcMAPcl$htm.00))
+which(is.na(radcMAPcl$smoking))
+
+#removing rows with missing covariates
+radcMAPcl<- radcMAPc[-c(32,36,78,142,196,266,336,339,342,359,407,527,614,736,748,941,943,1222),]
+
+#This participant projid 6152191 completed only wave 6 of physical data and thus needs to be
+#excluded when 5 or less waves are analyized.
+radcMAPcl<-radcMAPcl[-c(74),]
+#checking
+length(radcMAPcl$projid)
+table(radcMAPcl$msex)
+
 #create a list objects of variable groupings
 ##demographics
-demo <- select(radcMAPc, age_bl, age_death, educ, msex, race, spanish, q3smo_bl, q4smo_bl,
-              smoking, married, married2, age_at_visit.00, age_at_visit.01, age_at_visit.02,
-              age_at_visit.03, age_at_visit.04, age_at_visit.05, age_at_visit.06,
-              age_at_visit.07, age_at_visit.08, age_at_visit.09, age_at_visit.10,
-              age_at_visit.11, age_at_visit.12, age_at_visit.13, age_at_visit.14,
-              age_at_visit.15, age_at_visit.16, age_at_visit.17)
+demo <- select(radcMAPcl, age_bl, age_death, educ, msex, race, spanish, q3smo_bl, q4smo_bl,
+               smoking, married, married2, age_at_visit.00, age_at_visit.01, age_at_visit.02,
+               age_at_visit.03, age_at_visit.04, age_at_visit.05, age_at_visit.06,
+               age_at_visit.07, age_at_visit.08, age_at_visit.09, age_at_visit.10,
+               age_at_visit.11, age_at_visit.12, age_at_visit.13, age_at_visit.14,
+               age_at_visit.15, age_at_visit.16, age_at_visit.17)
 
-cognitive <- select(radcMAPc, cts_bname.00, cts_bname.01, cts_bname.02, cts_bname.03,
+cognitive <- select(radcMAPcl, cts_bname.00, cts_bname.01, cts_bname.02, cts_bname.03,
                     cts_bname.04, cts_bname.05, cts_bname.06, cts_bname.07, cts_bname.08,
                     cts_bname.09, cts_bname.10, cts_bname.11, cts_bname.12, cts_bname.13,
                     cts_bname.14, cts_bname.15, cts_bname.16, cts_bname.17, cts_catflu.00,
@@ -267,59 +291,60 @@ cognitive <- select(radcMAPc, cts_bname.00, cts_bname.01, cts_bname.02, cts_bnam
                     cts_wliii.12,  cts_wliii.13,  cts_wliii.14,  cts_wliii.15, cts_wliii.16,
                     cts_wliii.17)
 
-physical <- select(radcMAPc, dm_cum.00,  dm_cum.01,  dm_cum.02,  dm_cum.03,  dm_cum.04,  dm_cum.05,
+physical <- select(radcMAPcl, dm_cum.00,  dm_cum.01,  dm_cum.02,  dm_cum.03,  dm_cum.04,  dm_cum.05,
                    dm_cum.06,  dm_cum.07,  dm_cum.08,  dm_cum.09,  dm_cum.10,  dm_cum.11,
                    dm_cum.12,  dm_cum.13,  dm_cum.14,  dm_cum.15,  dm_cum.16,  dm_cum.17,
                    fev.00,  fev.01,  fev.02,  fev.03,  fev.04,  fev.05,
                    fev.06,  fev.07,  fev.08,  fev.09,  fev.10,  fev.11, fev.12,  fev.13,
                    fev.14,  fev.15,  fev.16,  fev.17, gait_speed.00,  gait_speed.01,
-                  gait_speed.02,  gait_speed.03,  gait_speed.04,  gait_speed.05,
-                  gait_speed.06,  gait_speed.07,  gait_speed.08,  gait_speed.09,
-                  gait_speed.10,  gait_speed.11,  gait_speed.12,  gait_speed.13,
-                  gait_speed.14,  gait_speed.15,  gait_speed.16,  gait_speed.17,
-                  gripavg.00, gripavg.01,  gripavg.02,  gripavg.03,  gripavg.04,  gripavg.05,
-                  gripavg.06, gripavg.07,  gripavg.08,  gripavg.09,  gripavg.10,  gripavg.11,
-                  gripavg.12, gripavg.13,  gripavg.14,  gripavg.15,  gripavg.16,  gripavg.17,
-                  heart_cum.00,heart_cum.01,  heart_cum.02,  heart_cum.03,  heart_cum.04,
-                  heart_cum.05, heart_cum.06,  heart_cum.07,  heart_cum.08,  heart_cum.09,
-                  heart_cum.10,  heart_cum.11,  heart_cum.12,  heart_cum.13, heart_cum.14,
-                  heart_cum.15,  heart_cum.16,  heart_cum.17, htm.00,  htm.01,  htm.02,
-                  htm.03,  htm.04,  htm.05, htm.06,  htm.07,  htm.08, htm.09,  htm.10,  htm.11,
-                  htm.12,  htm.13,  htm.14, htm.15,  htm.16,  htm.17)
+                   gait_speed.02,  gait_speed.03,  gait_speed.04,  gait_speed.05,
+                   gait_speed.06,  gait_speed.07,  gait_speed.08,  gait_speed.09,
+                   gait_speed.10,  gait_speed.11,  gait_speed.12,  gait_speed.13,
+                   gait_speed.14,  gait_speed.15,  gait_speed.16,  gait_speed.17,
+                   gripavg.00, gripavg.01,  gripavg.02,  gripavg.03,  gripavg.04,  gripavg.05,
+                   gripavg.06, gripavg.07,  gripavg.08,  gripavg.09,  gripavg.10,  gripavg.11,
+                   gripavg.12, gripavg.13,  gripavg.14,  gripavg.15,  gripavg.16,  gripavg.17,
+                   heart_cum.00,heart_cum.01,  heart_cum.02,  heart_cum.03,  heart_cum.04,
+                   heart_cum.05, heart_cum.06,  heart_cum.07,  heart_cum.08,  heart_cum.09,
+                   heart_cum.10,  heart_cum.11,  heart_cum.12,  heart_cum.13, heart_cum.14,
+                   heart_cum.15,  heart_cum.16,  heart_cum.17, htm.00,  htm.01,  htm.02,
+                   htm.03,  htm.04,  htm.05, htm.06,  htm.07,  htm.08, htm.09,  htm.10,  htm.11,
+                   htm.12,  htm.13,  htm.14, htm.15,  htm.16,  htm.17)
 
-dementia <- select(radcMAP, dementia.00,  dementia.01,
-  dementia.02,  dementia.03,  dementia.04,  dementia.05,  dementia.06,  dementia.07,
-  dementia.08,  dementia.09,  dementia.10,  dementia.11,  dementia.12,  dementia.13,
-  dementia.14,  dementia.15,  dementia.16,  dementia.17,  dementia.18,  dementia.19,
-  dementia.20)
+dementia <- select(radcMAPcl, dementia.00,  dementia.01,
+                   dementia.02,  dementia.03,  dementia.04,  dementia.05,  dementia.06,  dementia.07,
+                   dementia.08,  dementia.09,  dementia.10,  dementia.11,  dementia.12,  dementia.13,
+                   dementia.14,  dementia.15,  dementia.16,  dementia.17,  dementia.18,  dementia.19,
+                   dementia.20)
 
 ##print out descriptive stats for all the selected variable groups
+table(radcMAPcl$race)
+table(radcMAPcl$spanish)
 summary(demo)
 summary(cognitive)
 summary(physical)
-which(radcMAPc$gripavg.00==0)
-which(radcMAPc$gripavg.01==0)
-which(radcMAPc$gripavg.02==0)
-which(radcMAPc$gripavg.04==0)
-which(radcMAPc$fev.12==0)
-which(radcMAPc$fev.00==0)
-radcMAPc[823,1]
+mean(radcMAPcl$age_bl)
+sd(radcMAPcl$age_bl)
+sd(radcMAPcl$educ)
+mean(radcMAPcl$htm.00)
+sd(radcMAPcl$htm.00)
+mean(radcMAPcl$smoking)
+sd(radcMAPcl$smoking)
 
+mean(radcMAPcl$heart_cum.00)
+sd(radcMAPcl$heart_cum.00)
 
-summary(physical)
-#identify rows with missing covariates
-which(is.na(radcMAPc$dm_cum.00))
-which(is.na(radcMAPc$heart_cum.00))
-which(is.na(radcMAPc$educ))
-which(is.na(radcMAPc$age_bl))
-which(is.na(radcMAPc$htm.00))
-which(is.na(radcMAPc$smoking))
+mean(radcMAPcl$dm_cum.00)
+sd(radcMAPcl$dm_cum.00)
 
-#removing rows with missing covariates
-radcMAPcl<- radcMAPc[-c(32,36,78,142,196,266,336,339,342,359,407,527,614,736,748,941,943,1222),]
-#checking
-length(radcMAPcl$projid)
-table(radcMAPcl$msex)
+mean(radcMAPcl$fev.00, na.rm=TRUE)
+sd(radcMAPcl$fev.00, na.rm=TRUE)
+
+mean(radcMAPcl$gait_speed.00, na.rm=TRUE)
+sd(radcMAPcl$gait_speed.00, na.rm=TRUE)
+
+mean(radcMAPcl$gripavg.00, na.rm=TRUE)
+sd(radcMAPcl$gripavg.00, na.rm=TRUE)
 
 #investigating why missing
 ##attach(radcMAPcl)
@@ -327,9 +352,7 @@ radcMAPcl$nogrip<-ifelse(is.na(gripavg.00) & is.na(gripavg.01) & is.na(gripavg.0
 table(radcMAPcl$nogrip)
 which(radcMAPcl$nogrip=="missing")
 
-#This participant projid 6152191 completed only wave 6 of physical data and thus needs to be
-#excluded when 5 or less waves are analyized.
-radcMAPcl<-radcMAPcl[-c(74),]
+
 
 table(radcMAPcl$msex)
 ##radcMAPcl$nofev<-ifelse(is.na(fev.00) & is.na(fev.01) & is.na(fev.02) & is.na(fev.03) & is.na(fev.04), c("missing"), c("somedata"))

@@ -1,6 +1,6 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-10/21/2015  10:22 PM
+10/24/2015  11:51 AM
 
 INPUT INSTRUCTIONS
 
@@ -382,7 +382,14 @@ INPUT INSTRUCTIONS
 
   OUTPUT: sampstat Cinterval;
 
+  SAVEDATA:
 
+  FILE IS   RADCmfevgaitSlopes;
+
+  SAVE = FSCORES;
+
+  PLOT:
+   TYPE IS PLOT3;
 
 
 
@@ -924,6 +931,118 @@ New/Additional Parameters
     R_RES_PC        -0.125      -0.096      -0.082      -0.006       0.070       0.085       0.113
 
 
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ 1              2.167         0.155        -0.062         0.038         0.677
+
+
+           Means
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ 1              0.081        -0.018         0.017
+
+
+           Covariances
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             0.328
+ IP_SE         -0.002         0.003
+ SP            -0.004         0.000         0.001
+ SP_SE          0.000         0.000         0.000         0.000
+ IC             0.037        -0.001         0.000         0.000         0.017
+ IC_SE         -0.001         0.000         0.000         0.000        -0.001
+ SC             0.006         0.000         0.000         0.000         0.000
+ SC_SE          0.000         0.000         0.000         0.000         0.000
+
+
+           Covariances
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          0.000
+ SC             0.000         0.000
+ SC_SE          0.000         0.000         0.000
+
+
+           Correlations
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             1.000
+ IP_SE         -0.067         1.000
+ SP            -0.232        -0.024         1.000
+ SP_SE         -0.100         0.547        -0.031         1.000
+ IC             0.499        -0.143        -0.047        -0.299         1.000
+ IC_SE         -0.113         0.194         0.055         0.455        -0.366
+ SC             0.584         0.047        -0.030         0.053         0.079
+ SC_SE         -0.091         0.846        -0.028         0.673        -0.296
+
+
+           Correlations
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          1.000
+ SC             0.180         1.000
+ SC_SE          0.476         0.082         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores)
+  Scatterplots (sample values, estimated factor scores)
+  Latent variable distribution plots
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    RADCmfevgaitSlopes
+
+  Order and format of variables
+
+    P1             F10.3
+    P2             F10.3
+    P3             F10.3
+    P4             F10.3
+    P5             F10.3
+    C1             F10.3
+    C2             F10.3
+    C3             F10.3
+    C4             F10.3
+    C5             F10.3
+    EDUC           F10.3
+    BAGE           F10.3
+    HEIGHT         F10.3
+    SMOKHIST       F10.3
+    CARDIO         F10.3
+    DIAB           F10.3
+    TIME1          F10.3
+    TIME2          F10.3
+    TIME3          F10.3
+    TIME4          F10.3
+    TIME5          F10.3
+    IP             F10.3
+    IP_SE          F10.3
+    SP             F10.3
+    SP_SE          F10.3
+    IC             F10.3
+    IC_SE          F10.3
+    SC             F10.3
+    SC_SE          F10.3
+
+  Save file format
+    29F10.3
+
+  Save file record length    10000
+
+
 DIAGRAM INFORMATION
 
   Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
@@ -932,9 +1051,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\cassandra\desktop\radc portland workshop\brown\physical x physical\cleaned data models\
 
-     Beginning Time:  22:22:42
-        Ending Time:  22:22:53
-       Elapsed Time:  00:00:11
+     Beginning Time:  11:51:41
+        Ending Time:  11:51:53
+       Elapsed Time:  00:00:12
 
 
 
