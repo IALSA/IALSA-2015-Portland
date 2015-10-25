@@ -16,7 +16,8 @@ get_model_def <- function(file=gh5_file){
 
 # get_gh5_data <- function(file=ls_gh5, study="eas", subgroup="female", model_type="aehplus",
 #                     process1="grip", process2="pef"){
-get_gh5_data <- function(file, study, subgroup, model_type, process1, process2){
+# file=ls_gh5;study="eas";subgroup="female";model_type="aehplus"; process1="grip";process2="pef"
+get_gh5_data <- function(file, study, subgroup, model_type, process1, process2,age_center=70){
    # browser()
   #find the row that matches criteria
   pull_model <- file[["study"]]==study & file[["subgroup"]]==subgroup &
@@ -77,13 +78,29 @@ get_gh5_data <- function(file, study, subgroup, model_type, process1, process2){
   ds <- cbind(aL, bL, cL)
   head(ds)
 
-  dsL <- tidyr::gather_(ds,"outcome", "observed", c("physical", "cognitive"))
+  # Compute predictions from factor scores
+  ds$physical_fs <- ds$IP + (ds$SP * ds$time)
+  ds$cognitive_fs <- ds$IC + (ds$SC * ds$time);head(ds)
+
+  # dsL <- tidyr::gather_(ds,"outcome", "observed", c("physical_observed", "cognitive_observed","physical_fscores", "cognitive_fscores"));head(dsL)
+  d <- ds[ ,-which(names(ds) %in% c("physical_fs","cognitive_fs"))] # drop columns by name
+  dsL1 <- tidyr::gather_(d,"outcome", "observed", c("physical", "cognitive"));head(dsL1)
+  d <- ds[ ,-which(names(ds) %in% c("physical","cognitive"))]
+  dsL2 <- tidyr::gather_(d,"outcome", "fscores", c("physical_fs", "cognitive_fs")); head(dsL2)
+  dsL <- cbind(dsL1,fscores=dsL2[ ,"fscores"]);head(dsL)
+  dsL <- dsL[ ,-which(names(dsL) %in% c("id.1","id.2"))]
+
   head(dsL)
   #calculate running age
   dsL$time[dsL$time==999] <- NA
   dsL$observed[dsL$observed==999] <- NA
-  dsL$age <- dsL$BAGE + dsL$time + 70
+  dsL$fscores[dsL$fscores==999] <- NA
+  dsL$age <- dsL$BAGE + dsL$time + age_center
   ## Add descriptive info
+
+  for(i in 1:nrow(dsL) ){
+  dsL[i,"fscores"] <- ifelse(is.na(dsL[i,"observed"]),NA,dsL[i,"fscores"])
+  }
 
   dsL[,"study_name"] <- study_name_check
   dsL[,'subgroup'] <- subgroup_check
@@ -96,6 +113,7 @@ get_gh5_data <- function(file, study, subgroup, model_type, process1, process2){
   head(dsL)
   d <- dsL[dsL$id %in% c(1),]
   d
+
 } #close else
 
   return(dsL)
