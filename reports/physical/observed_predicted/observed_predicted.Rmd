@@ -32,7 +32,7 @@ opts_chunk$set(
   out.width = "550px",
   fig.path = 'figure_rmd/',     
   dev = "png",
-  dpi = 400
+  dpi = 300
   # fig.path = 'figure_pdf/',     
   # dev = "pdf"#,
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
@@ -41,7 +41,7 @@ echoChunks <- FALSE
 evalChunk <- TRUE
 options(width=120) #So the output is 50% wider than the default.
 fig.height = 8
-fig.width = 12
+fig.width = 16
 # connect to the file with the underlying R script  
 read_chunk("./reports/physical/observed_predicted/observed_predicted.R") 
 ```

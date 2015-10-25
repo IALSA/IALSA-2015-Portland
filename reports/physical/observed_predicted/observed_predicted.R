@@ -99,7 +99,7 @@ ymax <- ceiling( max( max(d$observed,na.rm = T)*1.05, max(d$fscores,na.rm = T)*1
 ymin <- floor( min( min(d$observed,na.rm = T)*.95, min(d$fscores,na.rm = T)*.95 ) )
 
 g <- ggplot2::ggplot(d,aes_string(x=x, y=y, fill=fill, group="id"))+
-  geom_smooth(method="lm", color=alpha("grey70",.2), na.rm=T, se=F) +
+  geom_smooth(method="lm", color=alpha("grey70",.6), na.rm=T, se=F) +
   geom_point(shape=21,size=3, alpha=.4)+
   geom_smooth(aes(group=subgroup),method="loess", color="blue", size=1, fill="gray80", alpha=.3, na.rm=T) +
   scale_y_continuous(limits=c(ymin, ymax))+
@@ -146,27 +146,28 @@ a1 <- proto_line(dsL,x="time", y="observed", outcome_name="physical", fill="wave
 legend_wave <- g_legend(a1)
 a1 <- a1 + labs(title=dsL$process1[1])+ theme(legend.position="none")
 b1 <- proto_line(dsL,x="time", y="fscores", outcome_name="physical", fill="wave") +
-  labs(title=dsL$process1[1])+ theme(legend.position="none") +
-  theme(legend.justification=c(1,1), legend.position=c(1,1), legend.direction="horizontal")
-# b1
-
+  labs(title=dsL$process1[1])+ theme(legend.position="none") + theme(legend.position="none")
 c1 <- proto_line(dsL,x="age", y="observed", outcome_name="physical", fill="BAGE")+ theme(legend.position="bottom")+
   scale_fill_gradient2(low="#7fbf7b", mid="#f7f7f7", high="#af8dc3", space="Lab")
 legend_age <- g_legend(c1)
 c1 <- c1 + scale_fill_gradient2(low="#7fbf7b", mid="#f7f7f7", high="#af8dc3", space="Lab")+
-  labs(title=dsL$process1[1])+ theme(legend.position="none")+
-  theme(legend.justification=c(0,1), legend.position=c(0,1), legend.direction="horizontal")
-# c1
-
+  labs(title=dsL$process1[1])+ theme(legend.position="none")
 d1 <- proto_line(dsL,x="age", y="fscores", outcome_name="physical", fill="BAGE")+
   scale_fill_gradient2(low="#7fbf7b", mid="#f7f7f7", high="#af8dc3", space="Lab")+labs(title=dsL$process1[1])+ theme(legend.position="none")
 
 a2 <- proto_line(dsL,x="time", y="observed", outcome_name="cognitive", fill="wave")+labs(title=dsL$process2[1]) + theme(legend.position="none")
-b2 <- proto_line(dsL,x="time", y="fscores", outcome_name="cognitive", fill="wave")+labs(title=dsL$process2[1]) + theme(legend.position="none")
+b2 <- proto_line(dsL,x="time", y="fscores", outcome_name="cognitive", fill="wave")+
+  labs(title=dsL$process2[1]) + guides(shape=guide_legend(override.aes=list(size=5)))+
+  theme(legend.justification=c(.6,-.1), legend.position=c(0,1),
+        legend.direction="horizontal", legend.background = element_rect(fill=NA,color=NA))
+b2
+
 c2 <- proto_line(dsL,x="age", y="observed", outcome_name="cognitive", fill="BAGE")+
   scale_fill_gradient2(low="#7fbf7b", mid="#f7f7f7", high="#af8dc3", space="Lab")+labs(title=dsL$process2[1])+ theme(legend.position="none")
 d2 <- proto_line(dsL,x="age", y="fscores", outcome_name="cognitive", fill="BAGE")+
-  scale_fill_gradient2(low="#7fbf7b", mid="#f7f7f7", high="#af8dc3", space="Lab")+labs(title=dsL$process2[1])+ theme(legend.position="none")
+  scale_fill_gradient2(low="#7fbf7b", mid="#f7f7f7", high="#af8dc3", space="Lab")+labs(title=dsL$process2[1])+
+  theme(legend.justification=c(.8,0), legend.position=c(0,1), legend.direction="horizontal", legend.background = element_rect(fill=NA,color=NA))
+# d2
 
 blankPlot <- ggplot()+geom_blank(aes(1,1)) +
   cowplot::theme_nothing()
@@ -199,206 +200,206 @@ grid::grid.newpage()
 gh5_paths
 
 #### EAS ####
-
-# @knitr eas_female_aehplus_grip_pef ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "eas",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "pef")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr eas_female_aehplus_pef_gait ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "eas",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "pef",
-                    process2 = "gait")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr eas_female_aehplus_grip_gait ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "eas",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "gait")
-observed_predicted(dsL) # create scatterplot
-
-#### HRS ####
-# @knitr hrs_female_aehplus_grip_gait ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "hrs",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "gait")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr hrs_female_aehplus_grip_pef ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "hrs",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "pef")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr hrs_female_aehplus_pef_gait ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "hrs",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "pef",
-                    process2 = "gait")
-observed_predicted(dsL) # create scatterplot
-
-##### LASA ####
-# @knitr lasa_female_aehplus_gait_grip ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "lasa",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "gait",
-                    process2 = "grip")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr lasa_female_aehplus_pek_gait ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "lasa",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "pek",
-                    process2 = "gait")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr lasa_female_aehplus_pek_grip ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "lasa",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "pek",
-                    process2 = "grip")
-observed_predicted(dsL) # create scatterplot
-
-#### OCTO ####
-# @knitr octo_female_aehplus_gait_grip ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "octo",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "gait",
-                    process2 = "grip")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr octo_female_aehplus_pek_gait ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "octo",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "pek",
-                    process2 = "gait")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr octo_female_aehplus_pek_grip ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "octo",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "pek",
-                    process2 = "grip")
-observed_predicted(dsL) # create scatterplot
-
-#### RADC ####
-# @knitr radc_female_aehplus_fev_gait ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "radc",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "fev",
-                    process2 = "gait")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr radc_female_aehplus_fev_grip ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "radc",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "fev",
-                    process2 = "grip")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr radc_female_aehplus_gait_grip ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "radc",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "gait",
-                    process2 = "grip")
-observed_predicted(dsL) # create scatterplot
-gh5_paths
-
-#### SATSA ####
-
-# @knitr satsa_female_aehplus_gait_fev ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "satsa",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "gait",
-                    process2 = "fev")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr satsa_female_aehplus_gait_grip ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "satsa",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "gait",
-                    process2 = "grip")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr satsa_female_aehplus_grip_fev ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "satsa",
-                    subgroup = "female",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "fev")
-observed_predicted(dsL) # create scatterplot
-
-
-#### MALES ####
-#### EAS ####
-
-# @knitr eas_male_aehplus_grip_pef ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "eas",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "pef")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr eas_male_aehplus_pef_gait ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "eas",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "pef",
-                    process2 = "gait")
-observed_predicted(dsL) # create scatterplot
-
-# @knitr eas_male_aehplus_grip_gait ---------------------------------------
-dsL <- get_gh5_data(file=ls_gh5,
-                    study = "eas",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "gait")
-observed_predicted(dsL) # create scatterplot
+#
+# # @knitr eas_female_aehplus_grip_pef ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "eas",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "grip",
+#                     process2 = "pef")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr eas_female_aehplus_pef_gait ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "eas",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "pef",
+#                     process2 = "gait")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr eas_female_aehplus_grip_gait ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "eas",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "grip",
+#                     process2 = "gait")
+# observed_predicted(dsL) # create scatterplot
+#
+# #### HRS ####
+# # @knitr hrs_female_aehplus_grip_gait ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "hrs",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "grip",
+#                     process2 = "gait")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr hrs_female_aehplus_grip_pef ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "hrs",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "grip",
+#                     process2 = "pef")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr hrs_female_aehplus_pef_gait ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "hrs",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "pef",
+#                     process2 = "gait")
+# observed_predicted(dsL) # create scatterplot
+#
+# ##### LASA ####
+# # @knitr lasa_female_aehplus_gait_grip ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "lasa",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "gait",
+#                     process2 = "grip")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr lasa_female_aehplus_pek_gait ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "lasa",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "pek",
+#                     process2 = "gait")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr lasa_female_aehplus_pek_grip ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "lasa",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "pek",
+#                     process2 = "grip")
+# observed_predicted(dsL) # create scatterplot
+#
+# #### OCTO ####
+# # @knitr octo_female_aehplus_gait_grip ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "octo",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "gait",
+#                     process2 = "grip")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr octo_female_aehplus_pek_gait ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "octo",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "pek",
+#                     process2 = "gait")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr octo_female_aehplus_pek_grip ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "octo",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "pek",
+#                     process2 = "grip")
+# observed_predicted(dsL) # create scatterplot
+#
+# #### RADC ####
+# # @knitr radc_female_aehplus_fev_gait ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "radc",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "fev",
+#                     process2 = "gait")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr radc_female_aehplus_fev_grip ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "radc",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "fev",
+#                     process2 = "grip")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr radc_female_aehplus_gait_grip ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "radc",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "gait",
+#                     process2 = "grip")
+# observed_predicted(dsL) # create scatterplot
+# gh5_paths
+#
+# #### SATSA ####
+#
+# # @knitr satsa_female_aehplus_gait_fev ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "satsa",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "gait",
+#                     process2 = "fev")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr satsa_female_aehplus_gait_grip ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "satsa",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "gait",
+#                     process2 = "grip")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr satsa_female_aehplus_grip_fev ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "satsa",
+#                     subgroup = "female",
+#                     model_type = "aehplus",
+#                     process1 = "grip",
+#                     process2 = "fev")
+# observed_predicted(dsL) # create scatterplot
+#
+#
+# #### MALES ####
+# #### EAS ####
+#
+# # @knitr eas_male_aehplus_grip_pef ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "eas",
+#                     subgroup = "male",
+#                     model_type = "aehplus",
+#                     process1 = "grip",
+#                     process2 = "pef")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr eas_male_aehplus_pef_gait ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "eas",
+#                     subgroup = "male",
+#                     model_type = "aehplus",
+#                     process1 = "pef",
+#                     process2 = "gait")
+# observed_predicted(dsL) # create scatterplot
+#
+# # @knitr eas_male_aehplus_grip_gait ---------------------------------------
+# dsL <- get_gh5_data(file=ls_gh5,
+#                     study = "eas",
+#                     subgroup = "male",
+#                     model_type = "aehplus",
+#                     process1 = "grip",
+#                     process2 = "gait")
+# observed_predicted(dsL) # create scatterplot
 
 #### HRS ####
 # @knitr hrs_male_aehplus_grip_gait ---------------------------------------
