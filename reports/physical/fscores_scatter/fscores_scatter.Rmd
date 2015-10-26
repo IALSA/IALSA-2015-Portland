@@ -112,8 +112,8 @@ read_chunk("./reports/physical/fscores_scatter/fscores_scatter.R")
 ```{r hrs_female_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
 ```
 
-## grip_pef
-```{r hrs_female_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
+## pef_gait
+```{r hrs_female_aehplus_pef_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
 ```
 
 

@@ -122,7 +122,7 @@ if(is.na(dsL[i,"observed"])){
 
 a <- proto_scatter(dsL,x="IP", y="IC" )
 b <- proto_scatter(dsL,x="IP", y="SP" )
-c <- proto_scatter(dsL,x="SC", y="IP" )
+c <- proto_scatter(dsL,x="SC", y="IC" )
 d <- proto_scatter(dsL,x="SC", y="SP" )
 
 vpLayout <- function(rowIndex, columnIndex) { return( viewport(layout.pos.row=rowIndex, layout.pos.col=columnIndex) ) }
