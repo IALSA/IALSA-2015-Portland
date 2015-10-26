@@ -1,10 +1,10 @@
 Mplus VERSION 7.31
 MUTHEN & MUTHEN
-10/24/2015  12:22 AM
+10/26/2015  11:40 AM
 
 INPUT INSTRUCTIONS
 
-  TITLE: b1 female aehplus gait grip
+  TITLE: b1 female aehplus grip gait
 
   DATA:  File = octomult_151015.dat;
 
@@ -122,7 +122,7 @@ INPUT INSTRUCTIONS
           r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
 
   SAVEDATA:
-  FILE IS   OCTOfSlopes_female_aehplus_gait_grip;
+  FILE IS   OCTOfSlopes_female_aehplus_grip_gait;
   SAVE = FSCORES;
   PLOT:
    TYPE IS PLOT3;
@@ -147,7 +147,7 @@ INPUT INSTRUCTIONS
 
 
 
-b1 female aehplus gait grip
+b1 female aehplus grip gait
 
 SUMMARY OF ANALYSIS
 
@@ -750,7 +750,7 @@ SAVEDATA INFORMATION
 
 
   Save file
-    OCTOfSlopes_female_aehplus_gait_grip
+    OCTOfSlopes_female_aehplus_grip_gait
 
   Order and format of variables
 
@@ -796,11 +796,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\annie\dropbox\ialsa_cambridge\octo-phy-phy\b1_female_aehplus_gait_grip.dgm
+    c:\users\annie\dropbox\ialsa_cambridge\octo-phy-phy\b1_female_aehplus_grip_gait.dgm
 
-     Beginning Time:  00:22:40
-        Ending Time:  00:22:55
-       Elapsed Time:  00:00:15
+     Beginning Time:  11:40:01
+        Ending Time:  11:40:18
+       Elapsed Time:  00:00:17
 
 
 

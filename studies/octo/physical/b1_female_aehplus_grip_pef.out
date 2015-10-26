@@ -1,10 +1,10 @@
 Mplus VERSION 7.31
 MUTHEN & MUTHEN
-10/24/2015  12:20 AM
+10/26/2015  11:41 AM
 
 INPUT INSTRUCTIONS
 
-  TITLE: b1 female aehplus pulmonary muscle pek grip
+  TITLE: b1 female aehplus grip pef
 
   DATA:  File = octomult_151015.dat;
 
@@ -122,7 +122,7 @@ INPUT INSTRUCTIONS
           r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
 
   SAVEDATA:
-  FILE IS   OCTOfSlopes_female_aehplus_pek_grip;
+  FILE IS   OCTOfSlopes_female_aehplus_grip_pef;
   SAVE = FSCORES;
   PLOT:
    TYPE IS PLOT3;
@@ -148,7 +148,7 @@ INPUT INSTRUCTIONS
 
 
 
-b1 female aehplus pulmonary muscle pek grip
+b1 female aehplus grip pef
 
 SUMMARY OF ANALYSIS
 
@@ -751,7 +751,7 @@ SAVEDATA INFORMATION
 
 
   Save file
-    OCTOfSlopes_female_aehplus_pek_grip
+    OCTOfSlopes_female_aehplus_grip_pef
 
   Order and format of variables
 
@@ -797,11 +797,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\annie\dropbox\ialsa_cambridge\octo-phy-phy\b1_female_aehplus_pek_grip.dgm
+    c:\users\annie\dropbox\ialsa_cambridge\octo-phy-phy\b1_female_aehplus_grip_pef.dgm
 
-     Beginning Time:  00:20:34
-        Ending Time:  00:20:46
-       Elapsed Time:  00:00:12
+     Beginning Time:  11:41:39
+        Ending Time:  11:41:52
+       Elapsed Time:  00:00:13
 
 
 
