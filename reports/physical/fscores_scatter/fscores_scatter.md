@@ -372,26 +372,26 @@ fscore_scatter(dsL) # create scatterplot
 
 <img src="figure_rmd/hrs_female_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
 
-## grip_pef
+## pef_gait
 
 ```r
 dsL <- get_gh5_data(file=ls_gh5,
                     study = "hrs",
                     subgroup = "female",
                     model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "pef")
+                    process1 = "pef",
+                    process2 = "gait")
 ```
 
 ```
 
 Plot functions:
- - mplus.plot.histogram('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5',variable,bins)
- - mplus.plot.scatterplot('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5',xvar,yvar)
+ - mplus.plot.histogram('./studies/hrs/physical/b1_female_aehplus_pef_gait.gh5',variable,bins)
+ - mplus.plot.scatterplot('./studies/hrs/physical/b1_female_aehplus_pef_gait.gh5',xvar,yvar)
 
 Plot data extraction functions:
- - mplus.list.variables('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5')
- - mplus.get.data('./studies/hrs/physical/b1_female_aehplus_grip_pef.gh5',variable)
+ - mplus.list.variables('./studies/hrs/physical/b1_female_aehplus_pef_gait.gh5')
+ - mplus.get.data('./studies/hrs/physical/b1_female_aehplus_pef_gait.gh5',variable)
 
 List of variable names to use in the following functions:
  - mplus.plot.histogram
@@ -405,7 +405,11 @@ Variables:
 fscore_scatter(dsL) # create scatterplot
 ```
 
-<img src="figure_rmd/hrs_female_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
+<img src="figure_rmd/hrs_female_aehplus_pef_gait-1.png" title="" alt="" width="550px" />
+
+```r
+##### LASA ####
+```
 
 
 # LASA
