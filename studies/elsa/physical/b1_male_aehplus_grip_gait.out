@@ -1,11 +1,11 @@
 Mplus VERSION 7.31
 MUTHEN & MUTHEN
-10/23/2015  11:32 PM
+10/26/2015  12:15 PM
 
 INPUT INSTRUCTIONS
 
 
-  TITLE: M6 Pulmonary Function, Gait, Grip, Fully Conditional, male
+  TITLE: b1 male aehplus grip gait
 
   DATA:  File = ELSA_Portland_New_nomiss_years.dat;
 
@@ -143,7 +143,7 @@ INPUT INSTRUCTIONS
           r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
 
   SAVEDATA:
-  FILE IS   ELSAfSlopes_male_aehplus_gait_grip;
+  FILE IS   ELSAfSlopes_male_aehplus_grip_gait;
   SAVE = FSCORES;
   PLOT:
    TYPE IS PLOT3;
@@ -164,7 +164,7 @@ INPUT INSTRUCTIONS
 
 
 
-M6 Pulmonary Function, Gait, Grip, Fully Conditional, male
+b1 male aehplus grip gait
 
 SUMMARY OF ANALYSIS
 
@@ -672,7 +672,7 @@ SAVEDATA INFORMATION
 
 
   Save file
-    ELSAfSlopes_male_aehplus_gait_grip
+    ELSAfSlopes_male_aehplus_grip_gait
 
   Order and format of variables
 
@@ -713,11 +713,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\annie\dropbox\ialsa_cambridge\elsa-phy-phy\b1_male_aehplus_gait_grip.dgm
+    c:\users\annie\dropbox\ialsa_cambridge\elsa-phy-phy\b1_male_aehplus_grip_gait.dgm
 
-     Beginning Time:  23:32:58
-        Ending Time:  23:34:13
-       Elapsed Time:  00:01:15
+     Beginning Time:  12:15:56
+        Ending Time:  12:17:15
+       Elapsed Time:  00:01:19
 
 
 
