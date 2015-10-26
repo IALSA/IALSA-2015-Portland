@@ -1,12 +1,12 @@
 Mplus VERSION 7.31
 MUTHEN & MUTHEN
-10/23/2015   9:59 PM
+10/26/2015  11:00 AM
 
 INPUT INSTRUCTIONS
 
 
 
-  TITLE: b1 male aehplus gait grip
+  TITLE: b1 male aehplus grip gait
 
   DATA:  File = LASAPhysicalCognitiveDescriptives_samesample.dat;
 
@@ -165,7 +165,7 @@ INPUT INSTRUCTIONS
           r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
 
   SAVEDATA:
-  FILE IS LASAfSlopes_male_aehplus_gait_grip;
+  FILE IS LASAfSlopes_male_aehplus_grip_gait;
   SAVE = FSCORES;
   PLOT:
    TYPE IS PLOT3;
@@ -185,7 +185,7 @@ INPUT INSTRUCTIONS
 
 
 
-b1 male aehplus gait grip
+b1 male aehplus grip gait
 
 SUMMARY OF ANALYSIS
 
@@ -796,7 +796,7 @@ SAVEDATA INFORMATION
 
 
   Save file
-    LASAfSlopes_male_aehplus_gait_grip
+    LASAfSlopes_male_aehplus_grip_gait
 
   Order and format of variables
 
@@ -842,11 +842,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\annie\dropbox\ialsa_cambridge\lasa phy-phy\b1_male_aehplus_gait_grip.dgm
+    c:\users\annie\dropbox\ialsa_cambridge\lasa phy-phy\b1_male_aehplus_grip_gait.dgm
 
-     Beginning Time:  21:59:58
-        Ending Time:  22:00:56
-       Elapsed Time:  00:00:58
+     Beginning Time:  11:00:00
+        Ending Time:  11:01:03
+       Elapsed Time:  00:01:03
 
 
 

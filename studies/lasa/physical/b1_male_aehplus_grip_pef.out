@@ -1,12 +1,12 @@
 Mplus VERSION 7.31
 MUTHEN & MUTHEN
-10/23/2015  10:36 PM
+10/26/2015  10:34 AM
 
 INPUT INSTRUCTIONS
 
 
 
-  TITLE: b1 male aehplus pek grip
+  TITLE: b1 male aehplus pef grip
 
   DATA:  File = LASAPhysicalCognitiveDescriptives_samesample.dat;
 
@@ -164,7 +164,7 @@ INPUT INSTRUCTIONS
 
 
   SAVEDATA:
-  FILE IS   LASAfSlopes_male_aehplus_pek_grip;
+  FILE IS   LASAfSlopes_male_aehplus_pef_grip;
   SAVE = FSCORES;
   PLOT:
    TYPE IS PLOT3;
@@ -184,7 +184,7 @@ INPUT INSTRUCTIONS
 
 
 
-b1 male aehplus pek grip
+b1 male aehplus pef grip
 
 SUMMARY OF ANALYSIS
 
@@ -727,7 +727,7 @@ SAVEDATA INFORMATION
 
 
   Save file
-    LASAfSlopes_male_aehplus_pek_grip
+    LASAfSlopes_male_aehplus_pef_grip
 
   Order and format of variables
 
@@ -770,11 +770,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    c:\users\annie\dropbox\ialsa_cambridge\lasa phy-phy\b1_male_aehplus_pek_grip.dgm
+    c:\users\annie\dropbox\ialsa_cambridge\lasa phy-phy\b1_male_aehplus_grip_pef.dgm
 
-     Beginning Time:  22:36:51
-        Ending Time:  22:38:27
-       Elapsed Time:  00:01:36
+     Beginning Time:  10:34:03
+        Ending Time:  10:35:38
+       Elapsed Time:  00:01:35
 
 
 
