@@ -28,25 +28,25 @@ This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
 ## Notes
 
-**Note 1**: The current report covers 34 models, with 6 unique studies.
+**Note 1**: The current report covers 54 models, with 9 unique studies.
 
 
 
-name                            male                 female
--------------  ---------------------  ---------------------
-int_age         -0.015(0.011),p=.182   -0.008(0.008),p=.307
-int_edu         -0.023(0.020),p=.256   -0.024(0.017),p=.159
-int_height      +0.284(0.897),p=.752   +1.400(0.863),p=.105
-slope_age                NA(NA),p=NA            NA(NA),p=NA
-slope_edu                NA(NA),p=NA            NA(NA),p=NA
-slope_height             NA(NA),p=NA            NA(NA),p=NA
+name           p_male                 c_male                 p_female               c_female             
+-------------  ---------------------  ---------------------  ---------------------  ---------------------
+int_age        -0.520(0.080),p=0      -0.005(0.002),p=.049   -0.266(0.038),p=0      -0.009(0.002),p=0    
+int_edu        +0.064(0.127),p=.615   +0.008(0.005),p=.085   -0.062(0.079),p=.433   +0.016(0.004),p=0    
+int_height     +25.429(6.701),p=0     +0.118(0.199),p=.553   +9.508(4.962),p=.055   +0.079(0.184),p=.668 
+slope_age      -0.014(0.011),p=.207   -0.001(0.001),p=.036   -0.008(0.008),p=.292   -0.001(0.000),p=.003 
+slope_edu      -0.020(0.020),p=.316   +0.001(0.001),p=.161   -0.024(0.017),p=.166   +0.001(0.001),p=.117 
+slope_height   +0.122(0.896),p=.892   -0.033(0.050),p=.51    +1.382(0.863),p=.109   -0.027(0.044),p=.545 
 
 # Session Information
 For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
 
 
 ```
-Report rendered by Will at 2015-10-27, 15:26 -0500
+Report rendered by Will at 2015-10-27, 16:06 -0500
 ```
 
 ```
