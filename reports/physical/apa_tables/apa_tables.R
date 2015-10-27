@@ -68,8 +68,11 @@ extract_fixed_gender <- function( d, in_gender ) {
 
   d_fixed <- d_fixed %>%
     dplyr::mutate(
-      p_pval_pretty   = ifelse(p_pval>.999, ".999", sub("^0(.\\d+)$", "\\1", p_pval)), #Remove leading zero from p-value.
-      c_pval_pretty   = ifelse(c_pval>.999, ".999", sub("^0(.\\d+)$", "\\1", c_pval)),
+      p_pval_pretty   = sprintf("%0.3f", p_pval), #Remove leading zero from p-value.
+      p_pval_pretty   = ifelse(p_pval>.999, ".999", sub("^0(.\\d+)$", "\\1", p_pval_pretty)), #Remove leading zero from p-value.
+      c_pval_pretty   = sprintf("%0.3f", c_pval), #Remove leading zero from p-value.
+      c_pval_pretty   = ifelse(c_pval>.999, ".999", sub("^0(.\\d+)$", "\\1", c_pval_pretty)),
+
       p_dense         = sprintf("%+0.3f(%0.3f),p=%s", p_est, p_se, p_pval_pretty), #Force est & se to have three decimals (eg, .1 turns into .100).
       c_dense         = sprintf("%+0.3f(%0.3f),p=%s", c_est, c_se, c_pval_pretty)
     ) %>%
@@ -119,7 +122,7 @@ for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") )
       in_cognitive_measure   = c_measure
     )
 
-    print(knitr::kable(ds_fixed, format = "markdown"))
+    print(knitr::kable(ds_fixed, format = "markdown", align = c("l","r","r","r","r")))
   }
 }
 
