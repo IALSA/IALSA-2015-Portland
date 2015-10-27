@@ -35,13 +35,13 @@ ds_tau_eav <- ds_wide[, c("run_id", tau_variables)] %>%
   )
 
 # @knitr assemble_table --------------------------------------------------------------
-# in_study_name          <- "hrs"
-# in_gender              <- "female"
-# in_model_type          <- "aehplus"
-# in_physical_measure    <- "grip"
-# in_cognitive_measure   <- "gait"
-# d <- ds_wide %>%
-#   dplyr::filter(study_name==in_study_name & subgroup==in_gender & model_type==in_model_type & physical_measure==in_physical_measure & cognitive_measure==in_cognitive_measure)
+in_study_name          <- "hrs"
+in_gender              <- "female"
+in_model_type          <- "aehplus"
+in_physical_measure    <- "grip"
+in_cognitive_measure   <- "gait"
+d <- ds_wide %>%
+  dplyr::filter(study_name==in_study_name & subgroup==in_gender & model_type==in_model_type & physical_measure==in_physical_measure & cognitive_measure==in_cognitive_measure)
 
 
 extract_fixed_gender <- function( d, in_gender ) {
@@ -52,26 +52,28 @@ extract_fixed_gender <- function( d, in_gender ) {
 
   d_fixed <- data.frame(
     name           = c("int_age",         "int_edu",         "int_height",      "slope_age",       "slope_edu",       "slope_height"),
-    est            = c(d$p_GAMMA_01_est , d$p_GAMMA_02_est , d$p_GAMMA_03_est , d$p_GAMMA_11_est , d$p_GAMMA_12_est , d$p_GAMMA_13_est ),
-    se             = c(d$p_GAMMA_01_se  , d$p_GAMMA_02_se  , d$p_GAMMA_03_se  , d$p_GAMMA_11_se  , d$p_GAMMA_12_se  , d$p_GAMMA_13_se  ),
-    wald           = c(d$p_GAMMA_01_wald, d$p_GAMMA_02_wald, d$p_GAMMA_03_wald, d$p_GAMMA_11_wald, d$p_GAMMA_12_wald, d$p_GAMMA_13_wald),
-    pval           = c(d$p_GAMMA_01_pval, d$p_GAMMA_02_pval, d$p_GAMMA_03_pval, d$p_GAMMA_11_pval, d$p_GAMMA_12_pval, d$p_GAMMA_13_pval),
+
+    p_est          = c(d$p_GAMMA_01_est , d$p_GAMMA_02_est , d$p_GAMMA_03_est , d$p_GAMMA_11_est , d$p_GAMMA_12_est , d$p_GAMMA_13_est ),
+    p_se           = c(d$p_GAMMA_01_se  , d$p_GAMMA_02_se  , d$p_GAMMA_03_se  , d$p_GAMMA_11_se  , d$p_GAMMA_12_se  , d$p_GAMMA_13_se  ),
+    p_wald         = c(d$p_GAMMA_01_wald, d$p_GAMMA_02_wald, d$p_GAMMA_03_wald, d$p_GAMMA_11_wald, d$p_GAMMA_12_wald, d$p_GAMMA_13_wald),
+    p_pval         = c(d$p_GAMMA_01_pval, d$p_GAMMA_02_pval, d$p_GAMMA_03_pval, d$p_GAMMA_11_pval, d$p_GAMMA_12_pval, d$p_GAMMA_13_pval),
+
+    c_est          = c(d$c_GAMMA_01_est , d$c_GAMMA_02_est , d$c_GAMMA_03_est , d$c_GAMMA_11_est , d$c_GAMMA_12_est , d$c_GAMMA_13_est ),
+    c_se           = c(d$c_GAMMA_01_se  , d$c_GAMMA_02_se  , d$c_GAMMA_03_se  , d$c_GAMMA_11_se  , d$c_GAMMA_12_se  , d$c_GAMMA_13_se  ),
+    c_wald         = c(d$c_GAMMA_01_wald, d$c_GAMMA_02_wald, d$c_GAMMA_03_wald, d$c_GAMMA_11_wald, d$c_GAMMA_12_wald, d$c_GAMMA_13_wald),
+    c_pval         = c(d$c_GAMMA_01_pval, d$c_GAMMA_02_pval, d$c_GAMMA_03_pval, d$c_GAMMA_11_pval, d$c_GAMMA_12_pval, d$c_GAMMA_13_pval),
 
     stringsAsFactors=FALSE
   )
 
   d_fixed <- d_fixed %>%
     dplyr::mutate(
-      pval_pretty   = ifelse(pval>.999, ".999", sub("^0(.\\d+)$", "\\1", pval)), #Remove leading zero from p-value.
-      dense         = sprintf("%+0.3f(%0.3f),p=%s", est, se, pval_pretty) #Force est & se to have three decimals (eg, .1 turns into .100).
+      p_pval_pretty   = ifelse(p_pval>.999, ".999", sub("^0(.\\d+)$", "\\1", p_pval)), #Remove leading zero from p-value.
+      c_pval_pretty   = ifelse(c_pval>.999, ".999", sub("^0(.\\d+)$", "\\1", c_pval)),
+      p_dense         = sprintf("%+0.3f(%0.3f),p=%s", p_est, p_se, p_pval_pretty), #Force est & se to have three decimals (eg, .1 turns into .100).
+      c_dense         = sprintf("%+0.3f(%0.3f),p=%s", c_est, c_se, c_pval_pretty)
     ) %>%
-    dplyr::select(
-      -est,
-      -se,
-      -wald,
-      -pval,
-      -pval_pretty
-    )
+    dplyr::select( name, p_dense, c_dense )
 
   return( d_fixed )
 }
@@ -81,10 +83,10 @@ extract_fixed <- function( d, in_study_name, in_physical_measure, in_cognitive_m
   testit::assert("Only two rows should exist.", nrow(d)==2L)
 
   ds_fixed_male <- extract_fixed_gender(d, in_gender = "male") %>%
-    dplyr::rename_("male" = "dense")
+    dplyr::rename_("p_male" = "p_dense", "c_male" = "c_dense")
 
   ds_fixed_female <- extract_fixed_gender(d, in_gender = "female") %>%
-    dplyr::rename_("female" = "dense")
+    dplyr::rename_("p_female" = "p_dense", "c_female" = "c_dense")
 
   ds_fixed <- ds_fixed_male %>%
     dplyr::full_join(ds_fixed_female, by="name")
@@ -100,4 +102,4 @@ ds_fixed <-  extract_fixed(
   in_cognitive_measure   = "gait"
 )
 
-knitr::kable(ds_fixed, align=c("l", "r", "r"))
+knitr::kable(ds_fixed)
