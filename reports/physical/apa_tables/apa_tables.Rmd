@@ -1,11 +1,12 @@
 ---
-title: APA Tables
+title: APA Tables for IALSA's 2015 Portland Workshop
 output:
   html_document:
     keep_md: yes
+    toc: 2
 ---
 
-This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
+This report covers a subset of the models run in the IALSA workshop in Portland in February 2015.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of three directories.-->
 ```{r, echo=F, message=F} 
@@ -58,12 +59,12 @@ read_chunk("./reports/physical/apa_tables/apa_tables.R") #This allows knitr to c
 ```{r tweak_data, echo=echoChunks, results='show', message=FALSE}
 ```
 
-## Notes
+# Notes
+1. The current report covers `r nrow(ds_wide)` models, with `r length(unique(ds_wide$study_name))` unique studies.
+2. The SATSA tables are temporarily excluded because the RDS has duplicate entries for some of their models.  (This is something Andrey can fix.) 
 
-**Note 1**: The current report covers `r nrow(ds_wide)` models, with `r length(unique(ds_wide$study_name))` unique studies.
 
-
-```{r assemble_table, echo=echoChunks, results='show', message=FALSE}
+```{r loop_through_studies, echo=echoChunks, results='asis', message=FALSE}
 ```
 
 # Session Information

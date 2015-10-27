@@ -34,14 +34,14 @@ ds_tau_eav <- ds_wide[, c("run_id", tau_variables)] %>%
     quantity  = gsub(regex, "\\4", parameter)
   )
 
-# @knitr assemble_table --------------------------------------------------------------
-in_study_name          <- "hrs"
-in_gender              <- "female"
-in_model_type          <- "aehplus"
-in_physical_measure    <- "grip"
-in_cognitive_measure   <- "gait"
-d <- ds_wide %>%
-  dplyr::filter(study_name==in_study_name & subgroup==in_gender & model_type==in_model_type & physical_measure==in_physical_measure & cognitive_measure==in_cognitive_measure)
+# @knitr loop_through_studies --------------------------------------------------------------
+# in_study_name          <- "hrs"
+# in_gender              <- "female"
+# in_model_type          <- "aehplus"
+# in_physical_measure    <- "grip"
+# in_cognitive_measure   <- "gait"
+# d <- ds_wide %>%
+#   dplyr::filter(study_name==in_study_name & subgroup==in_gender & model_type==in_model_type & physical_measure==in_physical_measure & cognitive_measure==in_cognitive_measure)
 
 
 extract_fixed_gender <- function( d, in_gender ) {
@@ -78,6 +78,7 @@ extract_fixed_gender <- function( d, in_gender ) {
   return( d_fixed )
 }
 extract_fixed <- function( d, in_study_name, in_physical_measure, in_cognitive_measure, in_model_type="aehplus" ) {
+  # browser()
   d <- d %>%
     dplyr::filter(study_name==in_study_name & model_type==in_model_type & physical_measure==in_physical_measure & cognitive_measure==in_cognitive_measure)
   testit::assert("Only two rows should exist.", nrow(d)==2L)
@@ -95,11 +96,38 @@ extract_fixed <- function( d, in_study_name, in_physical_measure, in_cognitive_m
 
 }
 
-ds_fixed <-  extract_fixed(
-  ds_wide,
-  in_study_name          = "hrs",
-  in_physical_measure    = "grip",
-  in_cognitive_measure   = "gait"
-)
+# studies <- sort(unique(ds_wide$study_name))
+# for( study in sort(unique(ds_wide$study_name)) ) {
+# for( study in "satsa" ) {
+for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") ) {
+  cat("\n\n# Study:", study, "\n\n")
+  ds_study <- ds_wide %>%
+    dplyr::filter(study_name==study) %>%
+    dplyr::group_by(physical_measure, cognitive_measure) %>%
+    dplyr::summarize() %>%
+    dplyr::ungroup()
 
-knitr::kable(ds_fixed)
+  for( model_index in seq_len(nrow(ds_study)) ) {
+    p_measure <- ds_study[model_index, ]$physical_measure
+    c_measure <- ds_study[model_index, ]$cognitive_measure
+    cat("\n\n### ", p_measure, "vs", c_measure, "\n\n")
+
+    ds_fixed <-  extract_fixed(
+      ds_wide,
+      in_study_name          = study,
+      in_physical_measure    = p_measure,
+      in_cognitive_measure   = c_measure
+    )
+
+    print(knitr::kable(ds_fixed, format = "markdown"))
+  }
+}
+
+# ds_fixed <-  extract_fixed(
+#   ds_wide,
+#   in_study_name          = "hrs",
+#   in_physical_measure    = "grip",
+#   in_cognitive_measure   = "gait"
+# )
+#
+# knitr::kable(ds_fixed)
