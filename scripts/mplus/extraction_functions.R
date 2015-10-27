@@ -1,16 +1,16 @@
 # ## This script
 # options(width=160)
 # rm(list=ls())
-# cat("\f")
-#
-# ## @knitr load_packages
-# library(dplyr)
-# library(ggplot2)
-# library(tidyr)
+cat("\f")
+
+## @knitr load_packages
+library(dplyr)
+library(ggplot2)
+library(tidyr)
 # library(MplusAutomation)
 
 
-#   out_list_all <- list_object[["path"]]
+#   out_list_all <- model_list[["path_out"]]
 #   source("./scripts/mplus/group_variables.R")
 
 # @knitr summary --------------------------------------------------------------
@@ -35,7 +35,7 @@
 
     # list paths to the models in a given study
   #   study_selector <- out_list_all[["study"]] %in% study
-    out_list <- list_object[["path"]]
+    out_list <- model_list[["path_out"]]
 
     # cycle through all model output files in this study
     for(i in seq_along(out_list)){
@@ -53,7 +53,7 @@
 #       selector <- a[[1]] %in% c("studies")
 #       element_number <- c(1:length(selector))[selector]
 #       msum$study_name[i] <- a[[1]][element_number+1]
-      msum$study_name[i] <- list_object[["study"]][[i]]
+      msum$study_name[i] <- list_object[["study_name"]][i]
     }
     return(msum)
   }
@@ -62,7 +62,7 @@
 # @knitr paramters --------------------------------------------------------------
   # a list of datasets containing estimated coefficients
   get_mpar <- function(list_object){
-    out_list <- list_object[["path"]]
+    out_list <- model_list[["path_out"]]
     # Create list object to populated from model output files
     mpar <- list()
     # cycle through all model output files
@@ -90,11 +90,10 @@
   }
   # mpar <- get_mpar(list_object)
 
-
 # @knitr empty_results --------------------------------------------------------------
   # create empty dataset "results"
   results_to_populate <- function(list_object){
-    out_list <- list_object[["path"]]
+    out_list <- model_list[["path_out"]]
     # Create data frame to populated from model output files
     results=data.frame(matrix(NA, ncol=length(selected_results), nrow=length(mpar)))
     names(results) <-  selected_results # from ./scripts/mplus/group_variables.R
@@ -103,94 +102,95 @@
   } # close results_to_populate
   # results <- results_to_populate(list_object)
 
-
 # @knitr basic_results --------------------------------------------------------------
-  # extract the basic indicators about the model
-  get_results_basic <- function(list_object){
-    out_list <- list_object[["path"]]
-    selected_models <- seq_along(mpar)
-    for(i in selected_models){
-    # for(i in 1:10){
-      # get a text output to work with
-      out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
-      message("Getting model ", i, ", ",out_file)
-      mplus_output <- scan(out_list[i], what='character', sep='\n')
-      model <- mpar[[i]]
-      # testing for specific errors
-      no_observations <- length(grep("One or more variables in the data set have no non-missing values", mplus_output))
-      variance_zero <- length(grep("One or more variables have a variance of zero", mplus_output))
-      # If there are no specific error, then go get the parameter solution
-      if(no_observations){
-        results[i, "Error"]  <- "No observations"
-      }else{
+# extract the basic indicators about the model
+get_results_basic <- function(list_object){
+  out_list <- model_list[["path_out"]]
+  selected_models <- seq_along(mpar)
+  for(i in selected_models){
+  # for(i in 1:10){
+    # get a text output to work with
+    out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
+    message("Getting model ", i, ", ",out_file)
+    mplus_output <- scan(out_list[i], what='character', sep='\n')
+    model <- mpar[[i]]
+    # testing for specific errors
+    no_observations <- length(grep("One or more variables in the data set have no non-missing values", mplus_output))
+    variance_zero <- length(grep("One or more variables have a variance of zero", mplus_output))
+    # If there are no specific error, then go get the parameter solution
+    if(no_observations){
+      results[i, "Error"]  <- "No observations"
+    }else{
 
-          if(variance_zero){
-            results[i,"Error"]  <- "Zero variance"
+        if(variance_zero){
+          results[i,"Error"]  <- "Zero variance"
+        }
+      else{
+
+    ## Populate with header info
+    results[i, 'software'] <- mplus_output[1]
+    results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
+    results[i, c('date', 'time')] <- strsplit(mplus_output[3], '  ')[[1]]
+    results[i,"data_file"] <- strsplit(mplus_output[grep("File", mplus_output, ignore.case=TRUE)], 'IS| is |=|;')[[1]][2]
+
+    ## obtain location of 'studies' to then be able to select the following element, the study name.
+    selector <- which(strsplit(out_list[i], '/')[[1]]=='GitHub')
+    results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][selector+3]
+    results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
+    # results[i, c("physical_construct","cognitive_construct")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
+    results[i, "physical_measure"] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]
+    results[i, "cognitive_measure"] <- strsplit(msum$Filename[i], '_|.out')[[1]][5]
+
+    #Basic info
+    results[i, 'subject_count'] <- msum[i, 'Observations']
+    results[i, 'parameter_count'] <- msum[i, 'Parameters']
+    wc <- model[model$paramHeader=='Intercepts', 'param']
+    results[i, 'wave_count'] <- max(as.numeric(gsub("[^0-9]", '', wc)), na.rm=T)
+    results[i, 'output_file'] <- msum[i, 'Filename']
+
+    results[i, c('LL')] <-  msum[i,c('LL')]
+    results[i, c('aic')] <-  msum[i,c('AIC')]
+    results[i, c('bic')] <-  msum[i,c('BIC')]
+    results[i, c('adj_bic')] <-  msum[i,c('aBIC')]
+    results[i, c('aaic')] <-  msum[i,c('AICC')]
+    ## Computed values
+    ## Check for model convergence
+    conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
+    has_converged <- (conv==1L)
+    results[i, 'converged'] <- (conv==1L)
+    results[i, 'has_converged'] <- has_converged
+    results[i,"covar_covered"] <- length(grep("THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT", mplus_output))
+
+    line_found <- grep("TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE", mplus_output)
+    results[i,"trust_all"] <- !length(line_found)==1L
+
+    line_found <- grep("PROBLEM INVOLVING THE FOLLOWING PARAMETER:", mplus_output)
+    # a <- paste(mplus_output, collapse ="\n")
+    # mplus_output[615:620]
+    snippet <- mplus_output[line_found+1]
+    # a <- gsub("(?m).+Parameter (\\d{2}), (R_RES_PC).*", "\\1 - \\2", snippet, perl=TRUE)
+    # gsub("(?m).+Parameter (\\d{2}), ([\\w_]+).*", "\\2", snippet, perl=TRUE)
+    # mplus_output[807:812]
+    # results[i,"trust_params"] <- as.character(" ")
+    # results[i,"mistrust"] <- gsub("(?m).+Parameter (\\d{2}), ([\\w_]+).*", "\\2", snippet, perl=TRUE)
+          if(length(snippet)>0){
+            results[i,"mistrust"] <- snippet
           }
-        else{
 
-      ## Populate with header info
-      results[i, 'software'] <- mplus_output[1]
-      results[i,"version"] <- "0.1" #msum[i,"Mplus.version"]
-      results[i, c('date', 'time')] <- strsplit(mplus_output[3], '  ')[[1]]
-      results[i,"data_file"] <- strsplit(mplus_output[grep("File", mplus_output, ignore.case=TRUE)], 'IS| is |=|;')[[1]][2]
-
-      ## obtain location of 'studies' to then be able to select the following element, the study name.
-      selector <- which(strsplit(out_list[i], '/')[[1]]=='GitHub')
-      results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][selector+3]
-      results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
-      # results[i, c("physical_construct","cognitive_construct")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
-      results[i, "physical_measure"] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]
-      results[i, "cognitive_measure"] <- strsplit(msum$Filename[i], '_|.out')[[1]][5]
-
-      ## #################### Basic info ######################
-      results[i, 'subject_count'] <- msum[i, 'Observations']
-      results[i, 'parameter_count'] <- msum[i, 'Parameters']
-      wc <- model[model$paramHeader=='Intercepts', 'param']
-      results[i, 'wave_count'] <- max(as.numeric(gsub("[^0-9]", '', wc)), na.rm=T)
-      results[i, 'output_file'] <- msum[i, 'Filename']
-
-      results[i, c('LL')] <-  msum[i,c('LL')]
-      results[i, c('aic')] <-  msum[i,c('AIC')]
-      results[i, c('bic')] <-  msum[i,c('BIC')]
-      results[i, c('adj_bic')] <-  msum[i,c('aBIC')]
-      results[i, c('aaic')] <-  msum[i,c('AICC')]
-      ## Computed values
-      ## Check for model convergence
-      conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
-      has_converged <- (conv==1L)
-      results[i, 'converged'] <- (conv==1L)
-      results[i, 'has_converged'] <- has_converged
-      results[i,"covar_covered"] <- length(grep("THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT", mplus_output))
-
-      line_found <- grep("TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE", mplus_output)
-      results[i,"trust_all"] <- !length(line_found)==1L
-
-      line_found <- grep("PROBLEM INVOLVING THE FOLLOWING PARAMETER:", mplus_output)
-      # a <- paste(mplus_output, collapse ="\n")
-      # mplus_output[615:620]
-      snippet <- mplus_output[line_found+1]
-      # a <- gsub("(?m).+Parameter (\\d{2}), (R_RES_PC).*", "\\1 - \\2", snippet, perl=TRUE)
-      # gsub("(?m).+Parameter (\\d{2}), ([\\w_]+).*", "\\2", snippet, perl=TRUE)
-      # mplus_output[807:812]
-      # results[i,"trust_params"] <- as.character(" ")
-      # results[i,"mistrust"] <- gsub("(?m).+Parameter (\\d{2}), ([\\w_]+).*", "\\2", snippet, perl=TRUE)
-            if(length(snippet)>0){
-              results[i,"mistrust"] <- snippet
-            }
-
-          }
-      }
+        }
     }
-    return(results)
-  } # close get_results_basic
-  # results <- get_results_basic(list_object)
+  }
+  return(results)
+} # close get_results_basic
+# results <- get_results_basic(list_object)
+
 
 
   # i <- 1
+
 # @knitr random_effects --------------------------------------------------------------
   get_results_random <- function(list_object){
-    out_list <- list_object[["path"]]
+    out_list <- model_list[["path_out"]]
     selected_models <- seq_along(mpar)
     for(i in selected_models){
       # get a text output to work with
@@ -313,7 +313,7 @@
 
 # @knitr residuals --------------------------------------------------------------
   get_results_residual <- function(list_object){
-    out_list <- list_object[["path"]]
+    out_list <- model_list[["path_out"]]
     selected_models <- seq_along(mpar)
     for(i in selected_models){
       # get a text output to work with
@@ -372,13 +372,14 @@
 
 # @knitr fixed_effects -------------------------------------------------------------
   get_results_fixed <- function(list_object){
-    out_list <- list_object[["path"]]
+    out_list <- model_list[["path_out"]]
     selected_models <- seq_along(mpar)
+    # i <- 1
     for(i in selected_models){
       # get a text output to work with
-      out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)
+      (out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1))
       message("Getting model ", i, ", ",out_file)
-      mplus_output <- scan(out_list[i], what='character', sep='\n')
+      (mplus_output <- scan(out_list[i], what='character', sep='\n'))
       model <- mpar[[i]]
       # testing for specific errors
       no_observations <- length(grep("One or more variables in the data set have no non-missing values", mplus_output))
@@ -414,8 +415,9 @@
 
         ## Level-2 predictors / Covariates
 
-## Level-2 predictors of the INTERCEPT of process 1 (P)
-        ## intercept of process 1 (P) regressed on AGE at baseline
+        # @knitr predicting_INTERCEPT_of_process_1_P --------------------
+
+        # intercept of process 1 (P) regressed on AGE at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
         (test <- test[test$param %in% c("BAGE"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
@@ -423,78 +425,78 @@
 
         ## intercept of process 1 (P) regressed on EDUCATION at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("EDUC","EDUCATION","CEDUC"),])
+        (test <- test[test$param %in% c("EDUC","EDUCATION","CEDUC", "EDUCNEW"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_02] <- test}
 
         ## intercept of process 1 (P) regressed on HEIGHT at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("HEIGHT","HEIGHTC"),])
+        (test <- test[test$param %in% c("HEIGHT","HEIGHTC","HEI2"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_03] <- test}
 
         ## intercept of process 1 (P) regressed on SMOKING at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST","EVERSMOK"),])
+        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST","EVERSMOK","SMOKER","SMOKE1"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
 
         ## intercept of process 1 (P) regressed on CARDIO at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("CARDIO","CARDIO","CHD"),])
+        (test <- test[test$param %in% c("CARDIO","CARDIO","CHD","HEARTDIS","CARDIO1"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_05] <- test}
 
         ## intercept of process 1 (P) regressed on DIABETES at baseline
         (test <- model[grep("IP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("DIABETES","DIAB","DIABETE"),])
+        (test <- test[test$param %in% c("DIABETES","DIAB","DIABETE","DIAB1","DIABETE"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, p_GAMMA_06] <- test}
 
 
+        # @knitr predicting_SLOPE_of_process_1_P ------
 
-## Level-2 predictors of the SLOPE of process 1 (P)
         ## slope of process 1 (P) regressed on AGE at baseline
         (test <- model[grep("SP.ON", model$paramHeader),])
         (test <- test[test$param=="BAGE",])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, p_GAMMA_01] <- test}
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_11] <- test}
 
         ## intercept of process 1 (P) regressed on EDUCATION at baseline
         (test <- model[grep("SP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("EDUC","EDUCATION"),])
+        (test <- test[test$param %in% c("EDUC","EDUCATION", "EDUCNEW"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, p_GAMMA_02] <- test}
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_12] <- test}
 
         ## intercept of process 1 (P) regressed on HEIGHT at baseline
         (test <- model[grep("SP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("HEIGHT","HEIGHTC"),])
+        (test <- test[test$param %in% c("HEIGHT","HEIGHTC","HEI2"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, p_GAMMA_03] <- test}
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_13] <- test}
 
         ## intercept of process 1 (P) regressed on SMOKING at baseline
         (test <- model[grep("SP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST"),])
+        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST","SMOKER","SMOKE1"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, p_GAMMA_04] <- test}
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_14] <- test}
 
         ## intercept of process 1 (P) regressed on CARDIO at baseline
         (test <- model[grep("SP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("CARDIO","CARDIO"),])
+        (test <- test[test$param %in% c("CARDIO","CARDIO","HEARTDIS","CARDIO1"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, p_GAMMA_05] <- test}
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_15] <- test}
 
         ## intercept of process 1 (P) regressed on DIABETES at baseline
         (test <- model[grep("SP.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("DIABETES","DIAB"),])
+        (test <- test[test$param %in% c("DIABETES","DIAB","DIAB1","DIABETE"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, p_GAMMA_06] <- test}
+        if(dim(test)[1]!=0) {results[i, p_GAMMA_16] <- test}
 
 
 
 
+        # @knitr predicting_INTERCEPT_of_process_2_C --------------------
 
-## Level-2 predictors of the intercept of process 2 (C)
         ## intercept of process 2 (C) regressed on AGE at baseline
         (test <- model[grep("IC.ON", model$paramHeader),])
         (test <- test[test$param=="BAGE",])
@@ -503,72 +505,73 @@
 
         ## intercept of process 2 (C) regressed on EDUCATION at baseline
         (test <- model[grep("IC.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("EDUC","EDUCATION"),])
+        (test <- test[test$param %in% c("EDUC","EDUCATION", "EDUCNEW"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, c_GAMMA_02] <- test}
 
         ## intercept of process 2 (C) regressed on HEIGHT at baseline
         (test <- model[grep("IC.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("HEIGHT","HEIGHTC"),])
+        (test <- test[test$param %in% c("HEIGHT","HEIGHTC","HEI2"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, c_GAMMA_03] <- test}
 
         ## intercept of process 2 (C) regressed on SMOKING at baseline
         (test <- model[grep("IC.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST"),])
+        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST","SMOKER","SMOKE1"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, c_GAMMA_04] <- test}
 
         ## intercept of process 2 (C) regressed on CARDIO at baseline
         (test <- model[grep("IC.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("CARDIO","CARDIO"),])
+        (test <- test[test$param %in% c("CARDIO","CARDIO","HEARTDIS","CARDIO1"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, c_GAMMA_05] <- test}
 
         ## intercept of process 2 (C) regressed on DIABETES at baseline
         (test <- model[grep("IC.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("DIABETES","DIAB"),])
+        (test <- test[test$param %in% c("DIABETES","DIAB","DIAB1","DIABETE"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
         if(dim(test)[1]!=0) {results[i, c_GAMMA_06] <- test}
 
 
 
-## Level-2 predictors of the slope of process 2 (C)
+        # @knitr predicting_SLOPE_of_process_2_P ------
+
         ## slope of process 2 (C) regressed on AGE at baseline
         (test <- model[grep("SC.ON", model$paramHeader),])
         (test <- test[test$param=="BAGE",])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, c_GAMMA_01] <- test}
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_11] <- test}
 
         ## intercept of process 2 (C) regressed on EDUCATION at baseline
         (test <- model[grep("SC.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("EDUC","EDUCATION"),])
+        (test <- test[test$param %in% c("EDUC","EDUCATION", "EDUCNEW"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, c_GAMMA_02] <- test}
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_12] <- test}
 
         ## intercept of process 2 (C) regressed on HEIGHT at baseline
         (test <- model[grep("SC.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("HEIGHT","HEIGHTC"),])
+        (test <- test[test$param %in% c("HEIGHT","HEIGHTC","HEI2"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, c_GAMMA_03] <- test}
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_13] <- test}
 
         ## intercept of process 2 (C) regressed on SMOKING at baseline
         (test <- model[grep("SC.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST"),])
+        (test <- test[test$param %in% c("SMOKHIST","SMOKHIST","SMOKER","SMOKE1"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, c_GAMMA_04] <- test}
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_14] <- test}
 
         ## intercept of process 2 (C) regressed on CARDIO at baseline
         (test <- model[grep("SC.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("CARDIO","CARDIO"),])
+        (test <- test[test$param %in% c("CARDIO","CARDIO","HEARTDIS","CARDIO1"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, c_GAMMA_05] <- test}
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_15] <- test}
 
         ## intercept of process 2 (C) regressed on DIABETES at baseline
         (test <- model[grep("SC.ON", model$paramHeader),])
-        (test <- test[test$param %in% c("DIABETES","DIAB"),])
+        (test <- test[test$param %in% c("DIABETES","DIAB","DIAB1","DIABETE"),])
         (test <- test[c('est', 'se', "est_se", 'pval')])
-        if(dim(test)[1]!=0) {results[i, c_GAMMA_06] <- test}
+        if(dim(test)[1]!=0) {results[i, c_GAMMA_16] <- test}
 
 
 
@@ -584,16 +587,16 @@
 
 # @knitr define_collection_function --------------------------------------------------------------
 # collect_model_results <- function(list_object){
-  # out_list_all <- list_object[["path"]]
+  # out_list_all <- model_list[["path_out"]]
   #e.g pc_TAU_00 <- c("pc_TAU_00_est", "pc_TAU_00_se", "pc_TAU_00_wald","pc_TAU_00_pval")
   source("./scripts/mplus/group_variables.R")
-  msum <- get_msum(list_object)
-  mpar <- get_mpar(list_object)
-  results <- results_to_populate(list_object)
-  results <- get_results_basic(list_object)
-  results <- get_results_random(list_object)
-  results <- get_results_residual(list_object)
-  results <- get_results_fixed(list_object)
+  msum <- get_msum(model_list)
+  mpar <- get_mpar(model_list)
+  results <- results_to_populate(model_list)
+  results <- get_results_basic(model_list)
+  results <- get_results_random(model_list)
+  results <- get_results_residual(model_list)
+  results <- get_results_fixed(model_list)
   # return(results)
 
 # }#close collect_model_results
@@ -601,22 +604,22 @@
 
 
 # @knitr define_general_collection_function --------------------------------------------------------------
-collect_all_results <- function(allFolder){
-## make scripts from the prototype and run it (run_models=TRUE)
-# pathFolder <- allFolder # where outputs are
-out_list_all <- list.files(pathFolder, full.names=T, recursive=T, pattern="out$")
-
-directories <- gsub(pattern, "\\1", dto_paths, perl=T)
-
-pair_names <- basename(directories)
-
-
-
-  for(i in allFolder){
-    collect_model_results(folder=allFolder)
-  }
-
-}
+# collect_all_results <- function(allFolder){
+# ## make scripts from the prototype and run it (run_models=TRUE)
+# # pathFolder <- allFolder # where outputs are
+# out_list_all <- list.files(pathFolder, full.names=T, recursive=T, pattern="out$")
+#
+# directories <- gsub(pattern, "\\1", dto_paths, perl=T)
+#
+# pair_names <- basename(directories)
+#
+#
+#
+#   for(i in allFolder){
+#     collect_model_results(folder=allFolder)
+#   }
+#
+# }
 
   # @knitr dummy --------------------------------------------------------------
   ######################## Export results dataset ############################
