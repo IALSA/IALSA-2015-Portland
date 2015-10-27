@@ -2,6 +2,19 @@
 getwd()
 pathFile <- "./studies/b1_female_ae_muscle_fluency_grip_bostonnamingTest.out"
 
+# @knitr rooting_file_paths -----------------------------------
+# given a character string with a file's address path
+example_string <- "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/satsa/physical/copy_27_Oct/b1_male_aehplus_grip_fev.out"
+# split the path into bits separated by the slash "/" sign
+(a <- strsplit(example_string, split="/"))
+# create a dummy logical vector searching for the word "studies"
+(selector <- a[[1]] %in% c("studies"))
+# count in  what position "TRUE" occurs
+(position_number <- c(1:length(selector))[selector])
+# take first element to the right (+1) of where you found "studies"
+(study_name[i] <- a[[1]][position_number+1])
+
+
 
 # strsplit()
 # Split the Elements of a Character Vector
