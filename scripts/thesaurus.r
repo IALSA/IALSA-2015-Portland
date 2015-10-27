@@ -14,6 +14,11 @@ example_string <- "C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studi
 # take first element to the right (+1) of where you found "studies"
 (study_name[i] <- a[[1]][position_number+1])
 
+## Alternative
+subparts <- strsplit(ds$model_name,"_") # break up each  model_name, store in a list
+subpart_count <- sapply(subparts, length) # count compents in each element of the list
+is_valid <- (subpart_count==desired_subpart_count) # create logical vector
+
 
 
 # strsplit()
