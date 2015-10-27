@@ -34,3 +34,65 @@ ds_tau_eav <- ds_wide[, c("run_id", tau_variables)] %>%
     quantity  = gsub(regex, "\\4", parameter)
   )
 
+# @knitr assemble_table --------------------------------------------------------------
+
+# in_study_name          <- "hrs"
+# in_gender              <- "female"
+# in_model_type          <- "aehplus"
+# in_physical_measure    <- "grip"
+# in_cognitive_measure   <- "gait"
+
+extract_fixed <- function( d, in_study_name,in_gender, in_physical_measure, in_cognitive_measure, in_model_type="aehplus" ) {
+  d <- ds_wide %>%
+    dplyr::filter(study_name==in_study_name & subgroup==in_gender & model_type==in_model_type & physical_measure==in_physical_measure & cognitive_measure==in_cognitive_measure)
+  testit::assert("Only one row should be passed.", nrow(d)==1L)
+
+  d_fixed <- data.frame(
+    name           = c("int_age",         "int_edu",         "int_height",     "slope_age",        "slope_edu",       "slope_height"),
+    est            = c(d$p_GAMMA_01_est , d$p_GAMMA_02_est , d$p_GAMMA_03_est , d$p_GAMMA_11_est , d$p_GAMMA_12_est , d$p_GAMMA_13_est ),
+    se             = c(d$p_GAMMA_01_se  , d$p_GAMMA_02_se  , d$p_GAMMA_03_se  , d$p_GAMMA_11_se  , d$p_GAMMA_12_se  , d$p_GAMMA_13_se  ),
+    wald           = c(d$p_GAMMA_01_wald, d$p_GAMMA_02_wald, d$p_GAMMA_03_wald, d$p_GAMMA_11_wald, d$p_GAMMA_12_wald, d$p_GAMMA_13_wald),
+    pval           = c(d$p_GAMMA_01_pval, d$p_GAMMA_02_pval, d$p_GAMMA_03_pval, d$p_GAMMA_11_pval, d$p_GAMMA_12_pval, d$p_GAMMA_13_pval),
+
+    stringsAsFactors=FALSE
+  )
+
+  d_fixed <- d_fixed %>%
+    dplyr::mutate(
+      pval_pretty   = ifelse(pval>.999, ".999", sub("^0(.\\d+)$", "\\1", pval)),
+      dense         = sprintf("%+0.3f(%0.3f),p=%s", est, se, pval_pretty)
+    ) %>%
+    dplyr::select(
+      -est,
+      -se,
+      -wald,
+      -pval,
+      -pval_pretty
+    )
+
+  return( d_fixed )
+}
+
+ds_fixed_male <- extract_fixed(
+  ds_wide,
+  in_study_name          = "hrs",
+  in_gender              = "male",
+  in_physical_measure    = "grip",
+  in_cognitive_measure   = "gait"
+  ) %>%
+  dplyr::rename_("male" = "dense")
+
+ds_fixed_female <- extract_fixed(
+  ds_wide,
+  in_study_name          = "hrs",
+  in_gender              = "female",
+  in_physical_measure    = "grip",
+  in_cognitive_measure   = "gait"
+  ) %>%
+  dplyr::rename_("female" = "dense")
+
+
+ds_fixed <- ds_fixed_male %>%
+  dplyr::full_join(ds_fixed_female, by="name")
+
+knitr::kable(ds_fixed, align=c("l", "r", "r"))
