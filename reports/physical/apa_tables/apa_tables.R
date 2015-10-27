@@ -73,8 +73,8 @@ extract_fixed_gender <- function( d, in_gender ) {
       c_pval_pretty   = sprintf("%0.3f", c_pval), #Remove leading zero from p-value.
       c_pval_pretty   = ifelse(c_pval>.999, ".999", sub("^0(.\\d+)$", "\\1", c_pval_pretty)),
 
-      p_dense         = sprintf("%+0.3f(%0.3f),p=%s", p_est, p_se, p_pval_pretty), #Force est & se to have three decimals (eg, .1 turns into .100).
-      c_dense         = sprintf("%+0.3f(%0.3f),p=%s", c_est, c_se, c_pval_pretty)
+      p_dense         = sprintf("%+0.3f(%0.3f),$p$=%s", p_est, p_se, p_pval_pretty), #Force est & se to have three decimals (eg, .1 turns into .100).
+      c_dense         = sprintf("%+0.3f(%0.3f),$p$=%s", c_est, c_se, c_pval_pretty) #The $p$ makes pandoc interpret as an equation
     ) %>%
     dplyr::select( name, p_dense, c_dense )
 
@@ -86,16 +86,48 @@ extract_fixed <- function( d, in_study_name, in_physical_measure, in_cognitive_m
     dplyr::filter(study_name==in_study_name & model_type==in_model_type & physical_measure==in_physical_measure & cognitive_measure==in_cognitive_measure)
   testit::assert("Only two rows should exist.", nrow(d)==2L)
 
-  ds_fixed_male <- extract_fixed_gender(d, in_gender = "male") %>%
+  d_fixed_male <- extract_fixed_gender(d, in_gender = "male") %>%
     dplyr::rename_("p_male" = "p_dense", "c_male" = "c_dense")
 
-  ds_fixed_female <- extract_fixed_gender(d, in_gender = "female") %>%
+  d_fixed_female <- extract_fixed_gender(d, in_gender = "female") %>%
     dplyr::rename_("p_female" = "p_dense", "c_female" = "c_dense")
 
-  ds_fixed <- ds_fixed_male %>%
-    dplyr::full_join(ds_fixed_female, by="name")
+  d_fixed <- d_fixed_male %>%
+    dplyr::full_join(d_fixed_female, by="name")
 
-  return( ds_fixed )
+  d_fixed_pretty <- d_fixed %>%
+    dplyr::mutate(
+      line       = sub("^(\\w+)_(\\w+)$", "\\1", name),
+      # line2      = sub("^(\\w+)_(\\w+)$", "\\1", name),
+      predictor  = sub("^(\\w+)_(\\w+)$", "\\2", name)
+    ) %>%
+    # dplyr::group_by(line2) %>%
+    # dplyr::summarize(
+    #   # line = c(line[1], rep("", times=n()-1))
+    # ) %>%
+    # dplyr::ungroup() %>%
+    dplyr::select( line, predictor, p_male, c_male, p_female, c_female)
+
+  predictor_count <- dplyr::n_distinct(d_fixed_pretty$predictor)
+  d_fixed_pretty$line <- c(
+    d_fixed_pretty$line[1],
+    rep("", times=predictor_count-1),
+    d_fixed_pretty$line[predictor_count+1],
+    rep("", times=predictor_count-1)
+  )
+
+  # aaa <- paste0("in_physical_measure", "male")
+  d_fixed_pretty <- plyr::rename(d_fixed_pretty, warn_duplicated=F, replace=c(
+    # dplyr::rename_(
+      "line"       = " ",
+      "predictor"  = " ",
+      "p_male"     =  paste0(in_physical_measure,  " for males"),
+      "c_male"     =  paste0(in_cognitive_measure, " for males"),
+      "p_female"   =  paste0(in_physical_measure,  " for females"),
+      "c_female"   =  paste0(in_cognitive_measure, " for females")
+    ))
+
+  return( d_fixed_pretty )
 
 }
 
@@ -122,7 +154,13 @@ for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") )
       in_cognitive_measure   = c_measure
     )
 
-    print(knitr::kable(ds_fixed, format = "markdown", align = c("l","r","r","r","r")))
+    table_caption <- paste0("Predictor's effect on measure, by gender, for the ", study, " study.")
+    print(knitr::kable(
+      ds_fixed,
+      format  = "markdown",
+      align   = c("l","l","r","r","r","r"),
+      caption = table_caption
+    ))
   }
 }
 
