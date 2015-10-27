@@ -1,6 +1,7 @@
 ---
 title: APA Tables for IALSA's 2015 Portland Workshop
 output:
+  #word_document
   html_document:
     keep_md: yes
     toc: 2
