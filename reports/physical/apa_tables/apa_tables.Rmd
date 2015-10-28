@@ -60,6 +60,8 @@ read_chunk("./reports/physical/apa_tables/apa_tables.R") #This allows knitr to c
 ```{r tweak_data, echo=echoChunks, results='show', message=FALSE}
 ```
 
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
+
 # Notes
 
 ### Details
@@ -72,6 +74,7 @@ read_chunk("./reports/physical/apa_tables/apa_tables.R") #This allows knitr to c
 ```{r loop_through_studies, echo=echoChunks, results='asis', message=FALSE}
 ```
 
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
 # Session Information
 For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
 

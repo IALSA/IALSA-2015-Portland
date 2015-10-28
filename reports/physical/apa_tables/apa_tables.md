@@ -26,6 +26,8 @@ This report covers a subset of the models run in the IALSA workshop in Portland 
 <!-- Tweak the datasets.   -->
 
 
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
+
 # Notes
 
 ### Details
@@ -34,6 +36,10 @@ This report covers a subset of the models run in the IALSA workshop in Portland 
 
 ### Unanswered Questions
 1. What does the random effects table need to include?  How should it be laid out?
+
+
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
+
 
 
 # **eas** study
@@ -181,6 +187,10 @@ date                                   2015-10-23                       2015-10-
 time                                      8:56 PM                          8:57 PM
 
 
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
+
+
+
 # **elsa** study
 
 
@@ -324,6 +334,10 @@ software                        Mplus VERSION 7.31                Mplus VERSION 
 version                                        0.1                               0.1
 date                                    2015-10-26                        2015-10-26
 time                                      12:15 PM                          12:06 PM
+
+
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
+
 
 
 # **hrs** study
@@ -471,6 +485,10 @@ date                                   2015-10-25                       2015-10-
 time                                      6:55 PM                          6:53 PM
 
 
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
+
+
+
 # **ilse** study
 
 
@@ -520,6 +538,10 @@ software                       Mplus VERSION 7.11               Mplus VERSION 7.
 version                                       0.1                              0.1
 date                                   2015-10-22                       2015-10-22
 time                                     12:50 PM                         12:48 PM
+
+
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
+
 
 
 # **lasa** study
@@ -667,6 +689,10 @@ date                                   2015-10-26                       2015-10-
 time                                     10:54 AM                         10:45 AM
 
 
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
+
+
+
 # **nuage** study
 
 
@@ -763,6 +789,10 @@ software                        Mplus VERSION 5.1                Mplus VERSION 5
 version                                       0.1                              0.1
 date                                   2015-09-01                       2015-09-01
 time                                     12:24 PM                         12:23 PM
+
+
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
+
 
 
 # **octo** study
@@ -910,6 +940,10 @@ date                                   2015-10-26                       2015-10-
 time                                     11:48 AM                         11:44 AM
 
 
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
+
+
+
 # **radc** study
 
 
@@ -1054,12 +1088,13 @@ version                                        0.1                              
 date                                    2015-10-21                        2015-10-21
 time                                      10:24 PM                          10:21 PM
 
+<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>
 # Session Information
 For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
 
 
 ```
-Report rendered by Will at 2015-10-27, 21:47 -0500
+Report rendered by Will at 2015-10-27, 22:22 -0500
 ```
 
 ```

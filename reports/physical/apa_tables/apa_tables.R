@@ -219,6 +219,7 @@ extract_model <- function( d, in_study_name, in_physical_measure, in_cognitive_m
 # for( study in sort(unique(ds_wide$study_name)) ) {
 # for( study in "satsa" ) {
 for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") ) {
+  cat('\n\n<hr style="height:8px;border-width:0;color:teal;background-color:teal"/>\n\n', sep="")
   cat("\n\n# **", study, "** study\n\n", sep="")
   ds_study <- ds_wide %>%
     dplyr::filter(study_name==study) %>%
