@@ -68,10 +68,10 @@ extract_fixed_gender <- function( d, in_gender ) {
 
   d_fixed <- d_fixed %>%
     dplyr::mutate(
-      p_pval_pretty   = sprintf("%0.3f", p_pval), #Remove leading zero from p-value.
-      p_pval_pretty   = ifelse(p_pval>.999, ".999", sub("^0(.\\d+)$", "\\1", p_pval_pretty)), #Remove leading zero from p-value.
-      c_pval_pretty   = sprintf("%0.3f", c_pval), #Remove leading zero from p-value.
-      c_pval_pretty   = ifelse(c_pval>.999, ".999", sub("^0(.\\d+)$", "\\1", c_pval_pretty)),
+      p_pval_pretty   = sprintf("%0.2f", p_pval), #Remove leading zero from p-value.
+      p_pval_pretty   = ifelse(p_pval>.99, ".99", sub("^0(.\\d+)$", "\\1", p_pval_pretty)), #Remove leading zero from p-value.
+      c_pval_pretty   = sprintf("%0.2f", c_pval), #Remove leading zero from p-value.
+      c_pval_pretty   = ifelse(c_pval>.99, ".99", sub("^0(.\\d+)$", "\\1", c_pval_pretty)),
 
       p_dense         = sprintf("%+0.3f(%0.3f),$p$=%s", p_est, p_se, p_pval_pretty), #Force est & se to have three decimals (eg, .1 turns into .100).
       c_dense         = sprintf("%+0.3f(%0.3f),$p$=%s", c_est, c_se, c_pval_pretty) #The $p$ makes pandoc interpret as an equation
@@ -81,7 +81,6 @@ extract_fixed_gender <- function( d, in_gender ) {
   return( d_fixed )
 }
 extract_fixed <- function( d, in_study_name, in_physical_measure, in_cognitive_measure, in_model_type="aehplus" ) {
-  # browser()
   d <- d %>%
     dplyr::filter(study_name==in_study_name & model_type==in_model_type & physical_measure==in_physical_measure & cognitive_measure==in_cognitive_measure)
   testit::assert("Only two rows should exist.", nrow(d)==2L)
@@ -128,14 +127,13 @@ extract_fixed <- function( d, in_study_name, in_physical_measure, in_cognitive_m
     ))
 
   return( d_fixed_pretty )
-
 }
 
 # studies <- sort(unique(ds_wide$study_name))
 # for( study in sort(unique(ds_wide$study_name)) ) {
 # for( study in "satsa" ) {
 for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") ) {
-  cat("\n\n# Study:", study, "\n\n")
+  cat("\n\n# **", study, "** study\n\n", sep="")
   ds_study <- ds_wide %>%
     dplyr::filter(study_name==study) %>%
     dplyr::group_by(physical_measure, cognitive_measure) %>%
@@ -145,7 +143,7 @@ for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") )
   for( model_index in seq_len(nrow(ds_study)) ) {
     p_measure <- ds_study[model_index, ]$physical_measure
     c_measure <- ds_study[model_index, ]$cognitive_measure
-    cat("\n\n### ", p_measure, "vs", c_measure, "\n\n")
+    cat("\n\n### ", p_measure, "*vs*", c_measure, "\n\n")
 
     ds_fixed <-  extract_fixed(
       ds_wide,
@@ -154,13 +152,15 @@ for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") )
       in_cognitive_measure   = c_measure
     )
 
-    table_caption <- paste0("Predictor's effect on measure, by gender, for the ", study, " study.")
     print(knitr::kable(
       ds_fixed,
-      format  = "markdown",
+      format  = "pandoc",
       align   = c("l","l","r","r","r","r"),
-      caption = table_caption
+      caption = paste0("Fixed effects for each predictor (as rows) on the measures [a] ", p_measure, " and [b] ", c_measure,", for the ", study, " study.")
     ))
+    # cat("\n\n")
+    # print(kable(head(mtcars), format = "pandoc", caption = "Title of the table"))
+
   }
 }
 

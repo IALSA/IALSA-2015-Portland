@@ -1,7 +1,7 @@
 ---
 title: APA Tables for IALSA's 2015 Portland Workshop
 output:
-  #word_document
+  # word_document
   html_document:
     keep_md: yes
     toc: 2
@@ -61,9 +61,13 @@ read_chunk("./reports/physical/apa_tables/apa_tables.R") #This allows knitr to c
 ```
 
 # Notes
+
+### Details
 1. The current report covers `r nrow(ds_wide)` models, with `r length(unique(ds_wide$study_name))` unique studies.
 2. The SATSA tables are temporarily excluded because the RDS has duplicate entries for some of their models.  (This is something Andrey can fix.) 
 
+### Unanswered Questions
+1. Are all the necessary random effects included?
 
 ```{r loop_through_studies, echo=echoChunks, results='asis', message=FALSE}
 ```
