@@ -251,6 +251,19 @@ for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") )
       in_cognitive_measure   = c_measure
     )
 
+    # t_fixed <- xtable::xtable(
+    #   ds_fixed,
+    #   # align   = c("cllrrrr"),
+    #   caption = paste0("Fixed effects for each predictor (as rows) on the measures [a] ", p_measure, " and [b] ", c_measure,", for the ", study, " study.")
+    # )
+    # xtable::align(t_fixed) <- "cll|rrrr"
+    # xtable::print.xtable(
+    #   t_fixed,
+    #   type  = "html",
+    #   floating=FALSE,
+    #   include.rownames = FALSE
+    # )
+
     print(knitr::kable(
       ds_fixed,
       format  = "pandoc",
@@ -269,8 +282,6 @@ for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") )
       align   = c("l","r","r"),
       caption = paste0("Model details for the measures [a] ", p_measure, " and [b] ", c_measure,", for the ", study, " study.")
     ))
-
-
   }
 }
 
