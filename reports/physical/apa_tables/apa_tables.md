@@ -64,6 +64,29 @@ tau_00    +26.838(16.359),$p$=.10   +25.144(5.300),$p$=.00
 tau_11      +0.727(1.200),$p$=.54    +0.227(0.235),$p$=.33
 
 
+Table: Model details for the measures [a] grip and [b] gait, for the eas study.
+
+name                                          male                            female
+------------------  ------------------------------  --------------------------------
+physical_measure                              grip                              grip
+cognitive_measure                             gait                              gait
+model_number                                    b1                                b1
+converged                                     TRUE                              TRUE
+subject_count                                   72                               147
+wave_count                                       7                                 7
+parameter_count                                 41                                41
+LL                                       -1553.147                         -2650.266
+aic                                       3188.293                          5382.533
+bic                                       3281.637                           5505.14
+adj_bic                                    3152.46                          5375.394
+aaic                                      3303.093                          5415.333
+output_file          b1_male_aehplus_grip_gait.out   b1_female_aehplus_grip_gait.out
+software                         Mplus VERSION 7.3                 Mplus VERSION 7.3
+version                                        0.1                               0.1
+date                                    2015-10-23                        2015-10-23
+time                                       8:58 PM                           8:59 PM
+
+
 ###  grip *vs* pef 
 
 
@@ -88,6 +111,29 @@ tau_00    +12172.062(6209.040),$p$=.05   +4698.589(1151.563),$p$=.00
 tau_11       +317.936(483.078),$p$=.51       +59.969(45.733),$p$=.19
 
 
+Table: Model details for the measures [a] grip and [b] pef, for the eas study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                             grip                             grip
+cognitive_measure                             pef                              pef
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                  72                              150
+wave_count                                      7                                7
+parameter_count                                41                               41
+LL                                      -2151.417                        -3582.644
+aic                                      4384.834                         7247.288
+bic                                      4478.177                         7370.724
+adj_bic                                      4349                         7240.967
+aaic                                     4499.634                 7279.17688888889
+output_file          b1_male_aehplus_grip_pef.out   b1_female_aehplus_grip_pef.out
+software                        Mplus VERSION 7.3                Mplus VERSION 7.3
+version                                       0.1                              0.1
+date                                   2015-10-23                       2015-10-23
+time                                      8:53 PM                          8:44 PM
+
+
 ###  pef *vs* gait 
 
 
@@ -110,6 +156,29 @@ name                              male                        female
 -------  -----------------------------  ----------------------------
 tau_00    +12233.078(6432.015),$p$=.06   +4732.247(1131.196),$p$=.00
 tau_11       +269.587(447.928),$p$=.55       +58.234(43.967),$p$=.18
+
+
+Table: Model details for the measures [a] pef and [b] gait, for the eas study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                              pef                              pef
+cognitive_measure                            gait                             gait
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                  72                              150
+wave_count                                      7                                7
+parameter_count                                41                               41
+LL                                      -2230.932                        -3904.164
+aic                                      4543.865                         7890.329
+bic                                      4637.208                         8013.765
+adj_bic                                  4508.031                         7884.008
+aaic                                     4658.665                 7922.21788888889
+output_file          b1_male_aehplus_pef_gait.out   b1_female_aehplus_pef_gait.out
+software                        Mplus VERSION 7.3                Mplus VERSION 7.3
+version                                       0.1                              0.1
+date                                   2015-10-23                       2015-10-23
+time                                      8:56 PM                          8:57 PM
 
 
 # **elsa** study
@@ -140,6 +209,29 @@ tau_00    +0.364(0.037),$p$=.00   +0.144(0.015),$p$=.00
 tau_11    +0.001(0.001),$p$=.07   +0.000(0.000),$p$=.42
 
 
+Table: Model details for the measures [a] fev and [b] gait, for the elsa study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                              fev                              fev
+cognitive_measure                            gait                             gait
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                3091                             3511
+wave_count                                      6                                6
+parameter_count                                41                               41
+LL                                      -5349.677                        -3368.305
+aic                                     10781.353                          6818.61
+bic                                      11028.84                          7071.32
+adj_bic                                 10898.566                         6941.043
+aaic                             10782.4825506724                 6819.60279331219
+output_file          b1_male_aehplus_fev_gait.out   b1_female_aehplus_fev_gait.out
+software                       Mplus VERSION 7.31               Mplus VERSION 7.31
+version                                       0.1                              0.1
+date                                   2015-10-26                       2015-10-26
+time                                     12:22 PM                         12:09 PM
+
+
 ###  grip *vs* fev 
 
 
@@ -164,6 +256,29 @@ tau_00    +39.846(2.975),$p$=.00   +18.642(1.211),$p$=.00
 tau_11     +0.054(0.045),$p$=.23    +0.030(0.018),$p$=.10
 
 
+Table: Model details for the measures [a] grip and [b] fev, for the elsa study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                             grip                             grip
+cognitive_measure                             fev                              fev
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                3091                             3511
+wave_count                                      6                                6
+parameter_count                                41                               41
+LL                                     -27840.232                       -26235.725
+aic                                     55762.465                        52553.449
+bic                                     56009.951                        52806.159
+adj_bic                                 55879.677                        52675.882
+aaic                             55763.5945506724                 52554.4417933122
+output_file          b1_male_aehplus_grip_fev.out   b1_female_aehplus_grip_fev.out
+software                       Mplus VERSION 7.31               Mplus VERSION 7.31
+version                                       0.1                              0.1
+date                                   2015-10-26                       2015-10-26
+time                                     12:18 PM                         12:13 PM
+
+
 ###  grip *vs* gait 
 
 
@@ -186,6 +301,29 @@ name                        male                   female
 -------  -----------------------  -----------------------
 tau_00    +40.496(2.987),$p$=.00   +18.788(1.153),$p$=.00
 tau_11     +0.070(0.046),$p$=.12    +0.034(0.016),$p$=.04
+
+
+Table: Model details for the measures [a] grip and [b] gait, for the elsa study.
+
+name                                          male                            female
+------------------  ------------------------------  --------------------------------
+physical_measure                              grip                              grip
+cognitive_measure                             gait                              gait
+model_number                                    b1                                b1
+converged                                     TRUE                              TRUE
+subject_count                                 3091                              3511
+wave_count                                       6                                 6
+parameter_count                                 41                                41
+LL                                      -21281.844                        -21130.653
+aic                                      42645.687                         42343.306
+bic                                      42893.173                         42596.016
+adj_bic                                    42762.9                         42465.739
+aaic                              42646.8165506724                  42344.2987933122
+output_file          b1_male_aehplus_grip_gait.out   b1_female_aehplus_grip_gait.out
+software                        Mplus VERSION 7.31                Mplus VERSION 7.31
+version                                        0.1                               0.1
+date                                    2015-10-26                        2015-10-26
+time                                      12:15 PM                          12:06 PM
 
 
 # **hrs** study
@@ -216,6 +354,29 @@ tau_00    +27.592(3.947),$p$=.00   +11.066(1.467),$p$=.00
 tau_11     +0.034(0.161),$p$=.83    +0.051(0.086),$p$=.55
 
 
+Table: Model details for the measures [a] grip and [b] gait, for the hrs study.
+
+name                                          male                            female
+------------------  ------------------------------  --------------------------------
+physical_measure                              grip                              grip
+cognitive_measure                             gait                              gait
+model_number                                    b1                                b1
+converged                                     TRUE                              TRUE
+subject_count                                  236                               285
+wave_count                                       3                                 3
+parameter_count                                 41                                41
+LL                                       -1935.631                         -1969.431
+aic                                       3953.262                          4020.861
+bic                                       4095.279                          4170.614
+adj_bic                                   3965.325                            4040.6
+aaic                              3971.01457731959                  4035.03383950617
+output_file          b1_male_aehplus_grip_gait.out   b1_female_aehplus_grip_gait.out
+software                   Mplus VERSION 7.2 (Mac)           Mplus VERSION 7.2 (Mac)
+version                                        0.1                               0.1
+date                                    2015-10-25                        2015-10-25
+time                                       6:54 PM                           6:32 PM
+
+
 ###  grip *vs* pef 
 
 
@@ -240,6 +401,29 @@ tau_00    +27.524(3.948),$p$=.00   +11.144(1.469),$p$=.00
 tau_11     +0.039(0.161),$p$=.81    +0.059(0.087),$p$=.49
 
 
+Table: Model details for the measures [a] grip and [b] pef, for the hrs study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                             grip                             grip
+cognitive_measure                             pef                              pef
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                 236                              285
+wave_count                                      3                                3
+parameter_count                                41                               41
+LL                                      -5908.212                        -6466.246
+aic                                     11898.424                        13014.492
+bic                                     12040.441                        13164.244
+adj_bic                                 11910.486                         13034.23
+aaic                             11916.1765773196                 13028.6648395062
+output_file          b1_male_aehplus_grip_pef.out   b1_female_aehplus_grip_pef.out
+software                  Mplus VERSION 7.2 (Mac)          Mplus VERSION 7.2 (Mac)
+version                                       0.1                              0.1
+date                                   2015-10-25                       2015-10-25
+time                                      6:54 PM                          6:52 PM
+
+
 ###  pef *vs* gait 
 
 
@@ -262,6 +446,29 @@ name                            male                       female
 -------  ---------------------------  ---------------------------
 tau_00    +7548.570(910.501),$p$=.00   +3091.998(396.555),$p$=.00
 tau_11       +32.795(34.454),$p$=.34       +8.317(15.767),$p$=.60
+
+
+Table: Model details for the measures [a] pef and [b] gait, for the hrs study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                              pef                              pef
+cognitive_measure                            gait                             gait
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                 236                              285
+wave_count                                      3                                3
+parameter_count                                41                               41
+LL                                      -3764.964                        -4186.764
+aic                                      7611.928                         8455.528
+bic                                      7753.945                          8605.28
+adj_bic                                  7623.991                         8475.267
+aaic                             7629.68057731959                 8469.70083950617
+output_file          b1_male_aehplus_pef_gait.out   b1_female_aehplus_pef_gait.out
+software                  Mplus VERSION 7.2 (Mac)          Mplus VERSION 7.2 (Mac)
+version                                       0.1                              0.1
+date                                   2015-10-25                       2015-10-25
+time                                      6:55 PM                          6:53 PM
 
 
 # **ilse** study
@@ -292,6 +499,29 @@ tau_00    +361.886(51.817),$p$=.00   +422.822(69.528),$p$=.00
 tau_11       +1.496(1.010),$p$=.14      +5.173(1.439),$p$=.00
 
 
+Table: Model details for the measures [a] grip and [b] tug, for the ilse study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                             grip                             grip
+cognitive_measure                             tug                              tug
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                 252                              224
+wave_count                                      3                                3
+parameter_count                                37                               37
+LL                                      -3179.273                        -2888.235
+aic                                      6432.546                          5850.47
+bic                                      6563.135                         5976.701
+adj_bic                                   6445.84                         5859.442
+aaic                             6445.68618691589                 5865.58827956989
+output_file          b1_male_aehplus_grip_tug.out   b1_female_aehplus_grip_tug.out
+software                       Mplus VERSION 7.11               Mplus VERSION 7.11
+version                                       0.1                              0.1
+date                                   2015-10-22                       2015-10-22
+time                                     12:50 PM                         12:48 PM
+
+
 # **lasa** study
 
 
@@ -320,6 +550,29 @@ tau_00    +39.067(5.082),$p$=.00   +15.757(3.111),$p$=.00
 tau_11     +0.063(0.092),$p$=.49    +0.006(0.024),$p$=.81
 
 
+Table: Model details for the measures [a] grip and [b] gait, for the lasa study.
+
+name                                          male                            female
+------------------  ------------------------------  --------------------------------
+physical_measure                              grip                              grip
+cognitive_measure                             gait                              gait
+model_number                                    b1                                b1
+converged                                     TRUE                              TRUE
+subject_count                                  800                               782
+wave_count                                       6                                 6
+parameter_count                                 41                                41
+LL                                      -14603.042                        -15403.331
+aic                                      29288.084                         30888.661
+bic                                      29480.153                         31079.797
+adj_bic                                  29349.955                         30949.602
+aaic                              29292.6275356201                  30893.3150540541
+output_file          b1_male_aehplus_grip_gait.out   b1_female_aehplus_grip_gait.out
+software                        Mplus VERSION 7.31                Mplus VERSION 7.31
+version                                        0.1                               0.1
+date                                    2015-10-26                        2015-10-26
+time                                      11:00 AM                          10:56 AM
+
+
 ###  grip *vs* pef 
 
 
@@ -344,6 +597,29 @@ tau_00    +38.434(3.247),$p$=.00   +14.764(3.174),$p$=.00
 tau_11     +0.010(0.002),$p$=.00    +0.002(0.027),$p$=.95
 
 
+Table: Model details for the measures [a] grip and [b] pef, for the lasa study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                             grip                             grip
+cognitive_measure                             pef                              pef
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                 800                              782
+wave_count                                      6                                6
+parameter_count                                41                               41
+LL                                     -17109.827                       -16836.943
+aic                                     34301.654                        33755.886
+bic                                     34493.723                        33947.022
+adj_bic                                 34363.525                        33816.827
+aaic                             34306.1975356201                 33760.5400540541
+output_file          b1_male_aehplus_grip_pef.out   b1_female_aehplus_grip_pef.out
+software                       Mplus VERSION 7.31               Mplus VERSION 7.31
+version                                       0.1                              0.1
+date                                   2015-10-26                       2015-10-26
+time                                     10:34 AM                         10:41 AM
+
+
 ###  pef *vs* gait 
 
 
@@ -366,6 +642,29 @@ name                            male                       female
 -------  ---------------------------  ---------------------------
 tau_00    +9154.709(603.180),$p$=.00   +3905.202(273.762),$p$=.00
 tau_11        +15.633(3.403),$p$=.00        +1.263(0.912),$p$=.17
+
+
+Table: Model details for the measures [a] pef and [b] gait, for the lasa study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                              pef                              pef
+cognitive_measure                            gait                             gait
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                 800                              782
+wave_count                                      6                                6
+parameter_count                                41                               41
+LL                                     -23890.244                        -24498.99
+aic                                     47862.489                         49079.98
+bic                                     48054.558                        49271.116
+adj_bic                                  47924.36                         49140.92
+aaic                             47867.0325356201                 49084.6340540541
+output_file          b1_male_aehplus_pef_gait.out   b1_female_aehplus_pef_gait.out
+software                       Mplus VERSION 7.31               Mplus VERSION 7.31
+version                                       0.1                              0.1
+date                                   2015-10-26                       2015-10-26
+time                                     10:54 AM                         10:45 AM
 
 
 # **nuage** study
@@ -396,6 +695,29 @@ tau_00    +201.080(13.545),$p$=.00   +176.110(10.891),$p$=.00
 tau_11       +1.842(0.882),$p$=.04      +2.674(0.883),$p$=.00
 
 
+Table: Model details for the measures [a] grip and [b] gait, for the nuage study.
+
+name                                          male                            female
+------------------  ------------------------------  --------------------------------
+physical_measure                              grip                              grip
+cognitive_measure                             gait                              gait
+model_number                                    b1                                b1
+converged                                     TRUE                              TRUE
+subject_count                                  847                               934
+wave_count                                       4                                 4
+parameter_count                                 45                                45
+LL                                      -14808.451                        -15587.387
+aic                                      29706.903                         31264.774
+bic                                      29920.279                          31482.55
+adj_bic                                  29777.373                         31339.634
+aaic                              29712.0715393258                  31269.4361621622
+output_file          b1_male_aehplus_grip_gait.out   b1_female_aehplus_grip_gait.out
+software                         Mplus VERSION 5.1                 Mplus VERSION 5.1
+version                                        0.1                               0.1
+date                                    2015-09-01                        2015-09-01
+time                                      12:27 PM                          12:28 PM
+
+
 ###  grip *vs* tug 
 
 
@@ -418,6 +740,29 @@ name                          male                     female
 -------  -------------------------  -------------------------
 tau_00    +201.231(13.568),$p$=.00   +176.038(10.891),$p$=.00
 tau_11       +1.811(0.883),$p$=.04      +2.696(0.885),$p$=.00
+
+
+Table: Model details for the measures [a] grip and [b] tug, for the nuage study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                             grip                             grip
+cognitive_measure                             tug                              tug
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                 847                              934
+wave_count                                      4                                4
+parameter_count                                45                               45
+LL                                     -16992.737                       -18531.496
+aic                                     34075.474                        37152.993
+bic                                     34288.851                        37370.769
+adj_bic                                 34145.945                        37227.853
+aaic                             34080.6425393258                 37157.6551621622
+output_file          b1_male_aehplus_grip_tug.out   b1_female_aehplus_grip_tug.out
+software                        Mplus VERSION 5.1                Mplus VERSION 5.1
+version                                       0.1                              0.1
+date                                   2015-09-01                       2015-09-01
+time                                     12:24 PM                         12:23 PM
 
 
 # **octo** study
@@ -448,6 +793,29 @@ tau_00    +4.475(0.681),$p$=.00   +3.195(0.434),$p$=.00
 tau_11    +0.045(0.024),$p$=.06   +0.018(0.009),$p$=.04
 
 
+Table: Model details for the measures [a] grip and [b] gait, for the octo study.
+
+name                                          male                            female
+------------------  ------------------------------  --------------------------------
+physical_measure                              grip                              grip
+cognitive_measure                             gait                              gait
+model_number                                    b1                                b1
+converged                                     TRUE                              TRUE
+subject_count                                  138                               270
+wave_count                                       5                                 5
+parameter_count                                 41                                41
+LL                                       -1835.356                         -4127.848
+aic                                       3752.711                          8337.696
+bic                                       3872.728                          8485.231
+adj_bic                                   3743.018                          8355.233
+aaic                                      3788.586                  8352.80126315789
+output_file          b1_male_aehplus_grip_gait.out   b1_female_aehplus_grip_gait.out
+software                        Mplus VERSION 7.31                Mplus VERSION 7.31
+version                                        0.1                               0.1
+date                                    2015-10-26                        2015-10-26
+time                                      11:46 AM                          11:40 AM
+
+
 ###  grip *vs* pef 
 
 
@@ -472,6 +840,29 @@ tau_00    +4.422(0.681),$p$=.00   +3.177(0.433),$p$=.00
 tau_11    +0.038(0.022),$p$=.08   +0.017(0.009),$p$=.05
 
 
+Table: Model details for the measures [a] grip and [b] pef, for the octo study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                             grip                             grip
+cognitive_measure                             pef                              pef
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                 138                              270
+wave_count                                      5                                5
+parameter_count                                41                               41
+LL                                      -2923.981                        -5668.556
+aic                                      5929.962                        11419.111
+bic                                      6049.979                        11566.647
+adj_bic                                  5920.269                        11436.649
+aaic                                     5965.837                 11434.2162631579
+output_file          b1_male_aehplus_grip_pef.out   b1_female_aehplus_grip_pef.out
+software                       Mplus VERSION 7.31               Mplus VERSION 7.31
+version                                       0.1                              0.1
+date                                   2015-10-26                       2015-10-26
+time                                     11:47 AM                         11:41 AM
+
+
 ###  pef *vs* gait 
 
 
@@ -494,6 +885,29 @@ name                             male                       female
 -------  ----------------------------  ---------------------------
 tau_00    +8329.506(1416.883),$p$=.00   +4215.375(488.817),$p$=.00
 tau_11        +36.142(20.555),$p$=.08      +39.570(68.786),$p$=.56
+
+
+Table: Model details for the measures [a] pef and [b] gait, for the octo study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                              pef                              pef
+cognitive_measure                            gait                             gait
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                 132                              263
+wave_count                                      5                                5
+parameter_count                                41                               41
+LL                                      -3030.664                        -6297.043
+aic                                      6143.328                        12676.086
+bic                                      6261.523                        12822.545
+adj_bic                                  6131.839                        12692.555
+aaic                             6181.59466666667                 12691.6697104072
+output_file          b1_male_aehplus_pef_gait.out   b1_female_aehplus_pef_gait.out
+software                       Mplus VERSION 7.31               Mplus VERSION 7.31
+version                                       0.1                              0.1
+date                                   2015-10-26                       2015-10-26
+time                                     11:48 AM                         11:44 AM
 
 
 # **radc** study
@@ -524,6 +938,29 @@ tau_00    +0.263(0.024),$p$=.00   +0.108(0.008),$p$=.00
 tau_11    +0.002(0.001),$p$=.23   +0.000(0.001),$p$=.52
 
 
+Table: Model details for the measures [a] fev and [b] gait, for the radc study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                              fev                              fev
+cognitive_measure                            gait                             gait
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                 309                              931
+wave_count                                      5                                5
+parameter_count                                41                               41
+LL                                        -30.871                          963.379
+aic                                       143.743                        -1844.758
+bic                                        296.81                        -1646.471
+adj_bic                                   166.774                        -1776.683
+aaic                             156.641876404494                -1840.88398425197
+output_file          b1_male_aehplus_fev_gait.out   b1_female_aehplus_fev_gait.out
+software                        Mplus VERSION 7.3                Mplus VERSION 7.3
+version                                       0.1                              0.1
+date                                   2015-10-21                       2015-10-21
+time                                     10:22 PM                         10:20 PM
+
+
 ###  fev *vs* grip 
 
 
@@ -546,6 +983,29 @@ name                       male                  female
 -------  ----------------------  ----------------------
 tau_00    +0.260(0.024),$p$=.00   +0.108(0.008),$p$=.00
 tau_11    +0.001(0.001),$p$=.29   +0.000(0.001),$p$=.53
+
+
+Table: Model details for the measures [a] fev and [b] grip, for the radc study.
+
+name                                         male                           female
+------------------  -----------------------------  -------------------------------
+physical_measure                              fev                              fev
+cognitive_measure                            grip                             grip
+model_number                                   b1                               b1
+converged                                    TRUE                             TRUE
+subject_count                                 309                              931
+wave_count                                      5                                5
+parameter_count                                41                               37
+LL                                       -3549.78                        -9002.371
+aic                                      7181.561                        18078.742
+bic                                      7334.628                        18257.684
+adj_bic                                  7204.592                        18140.175
+aaic                             7194.45987640449                 18081.8909361702
+output_file          b1_male_aehplus_fev_grip.out   b1_female_aehplus_fev_grip.out
+software                        Mplus VERSION 7.3                Mplus VERSION 7.3
+version                                       0.1                              0.1
+date                                   2015-10-21                       2015-10-21
+time                                     10:23 PM                         10:26 PM
 
 
 ###  gait *vs* grip 
@@ -571,12 +1031,35 @@ name                       male                  female
 tau_00    +0.019(0.003),$p$=.00   +0.020(0.002),$p$=.00
 tau_11    +0.000(0.000),$p$=.26   +0.001(0.000),$p$=.00
 
+
+Table: Model details for the measures [a] gait and [b] grip, for the radc study.
+
+name                                          male                            female
+------------------  ------------------------------  --------------------------------
+physical_measure                              gait                              gait
+cognitive_measure                             grip                              grip
+model_number                                    b1                                b1
+converged                                     TRUE                              TRUE
+subject_count                                  309                               931
+wave_count                                       5                                 5
+parameter_count                                 41                                41
+LL                                       -2966.364                         -7766.863
+aic                                       6014.729                         15615.726
+bic                                       6167.796                         15814.012
+adj_bic                                    6037.76                           15683.8
+aaic                              6027.62787640449                   15619.600015748
+output_file          b1_male_aehplus_gait_grip.out   b1_female_aehplus_gait_grip.out
+software                         Mplus VERSION 7.3                 Mplus VERSION 7.3
+version                                        0.1                               0.1
+date                                    2015-10-21                        2015-10-21
+time                                      10:24 PM                          10:21 PM
+
 # Session Information
 For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
 
 
 ```
-Report rendered by Will at 2015-10-27, 21:15 -0500
+Report rendered by Will at 2015-10-27, 21:47 -0500
 ```
 
 ```

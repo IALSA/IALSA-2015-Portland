@@ -171,6 +171,49 @@ extract_random <- function( d, in_study_name, in_physical_measure, in_cognitive_
   return( d_random )
 }
 
+extract_model_gender <- function( d, in_gender ) {
+  testit::assert("Only two rows should be passed.", nrow(d)==2L)
+  d <- d %>%
+    dplyr::filter(subgroup==in_gender) %>%
+    dplyr::mutate(
+      date   = as.character(as.Date(date, "%m/%d/%Y", origin=as.Date("1970-01-01")))
+    )
+  testit::assert("Only one row should be passed.", nrow(d)==1L)
+
+  d_model <- data.frame( name = c(
+    "physical_measure", "cognitive_measure", "model_number",
+    "converged", "subject_count", "wave_count", "parameter_count",
+    "LL", "aic", "bic", "adj_bic", "aaic",
+    "output_file", "software", "version", "date", "time"
+    ),
+    stringsAsFactors=FALSE
+  )
+  d_model$value <- as.character(d[, d_model$name])
+
+  # d_model <- d_model %>%
+  #   dplyr::mutate(
+  #     date   = paste(.$date, "aaa")
+  #   )
+
+  return( d_model )
+}
+extract_model <- function( d, in_study_name, in_physical_measure, in_cognitive_measure, in_model_type="aehplus" ) {
+  d <- d %>%
+    dplyr::filter(study_name==in_study_name & model_type==in_model_type & physical_measure==in_physical_measure & cognitive_measure==in_cognitive_measure)
+  testit::assert("Only two rows should exist.", nrow(d)==2L)
+
+  d_model_male <- extract_model_gender(d, in_gender = "male") %>%
+    dplyr::rename_("male" = "value")
+
+  d_model_female <- extract_model_gender(d, in_gender = "female") %>%
+    dplyr::rename_("female" = "value")
+
+  d_model <- d_model_male %>%
+    dplyr::full_join(d_model_female, by="name")
+
+  return( d_model )
+}
+
 
 
 # for( study in sort(unique(ds_wide$study_name)) ) {
@@ -200,6 +243,12 @@ for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") )
       in_physical_measure    = p_measure,
       in_cognitive_measure   = c_measure
     )
+    ds_model <- extract_model(
+      ds_wide,
+      in_study_name          = study,
+      in_physical_measure    = p_measure,
+      in_cognitive_measure   = c_measure
+    )
 
     print(knitr::kable(
       ds_fixed,
@@ -207,12 +256,17 @@ for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") )
       align   = c("l","l","r","r","r","r"),
       caption = paste0("Fixed effects for each predictor (as rows) on the measures [a] ", p_measure, " and [b] ", c_measure,", for the ", study, " study.")
     ))
-
     print(knitr::kable(
       ds_random,
       format  = "pandoc",
       align   = c("l","r","r"),
       caption = paste0("Random effects on the measure ", p_measure, ", for the ", study, " study.")
+    ))
+    print(knitr::kable(
+      ds_model,
+      format  = "pandoc",
+      align   = c("l","r","r"),
+      caption = paste0("Model details for the measures [a] ", p_measure, " and [b] ", c_measure,", for the ", study, " study.")
     ))
 
 
