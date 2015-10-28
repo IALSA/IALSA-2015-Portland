@@ -67,7 +67,7 @@ read_chunk("./reports/physical/apa_tables/apa_tables.R") #This allows knitr to c
 2. The SATSA tables are temporarily excluded because the RDS has duplicate entries for some of their models.  (This is something Andrey can fix.) 
 
 ### Unanswered Questions
-1. Are all the necessary random effects included?
+1. What does the random effects table need to include?  How should it be laid out?
 
 ```{r loop_through_studies, echo=echoChunks, results='asis', message=FALSE}
 ```

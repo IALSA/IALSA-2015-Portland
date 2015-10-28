@@ -115,9 +115,7 @@ extract_fixed <- function( d, in_study_name, in_physical_measure, in_cognitive_m
     rep("", times=predictor_count-1)
   )
 
-  # aaa <- paste0("in_physical_measure", "male")
-  d_fixed_pretty <- plyr::rename(d_fixed_pretty, warn_duplicated=F, replace=c(
-    # dplyr::rename_(
+  d_fixed_pretty <- plyr::rename(d_fixed_pretty, warn_duplicated=F, replace=c( # dplyr::rename_(
       "line"       = " ",
       "predictor"  = " ",
       "p_male"     =  paste0(in_physical_measure,  " for males"),
@@ -125,11 +123,56 @@ extract_fixed <- function( d, in_study_name, in_physical_measure, in_cognitive_m
       "p_female"   =  paste0(in_physical_measure,  " for females"),
       "c_female"   =  paste0(in_cognitive_measure, " for females")
     ))
-
   return( d_fixed_pretty )
 }
 
-# studies <- sort(unique(ds_wide$study_name))
+
+extract_random_gender <- function( d, in_gender ) {
+  testit::assert("Only two rows should be passed.", nrow(d)==2L)
+  d <- d %>%
+    dplyr::filter(subgroup==in_gender)
+  testit::assert("Only one row should be passed.", nrow(d)==1L)
+
+  d_random <- data.frame(
+    name         = c("tau_00",         "tau_11"        ),
+    est          = c(d$pp_TAU_00_est , d$pp_TAU_11_est ),
+    se           = c(d$pp_TAU_00_se  , d$pp_TAU_11_se  ),
+    wald         = c(d$pp_TAU_00_wald, d$pp_TAU_11_wald),
+    pval         = c(d$pp_TAU_00_pval, d$pp_TAU_11_pval),
+
+    stringsAsFactors=FALSE
+  )
+
+  d_random <- d_random %>%
+    dplyr::mutate(
+      pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
+      pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Remove leading zero from p-value.
+
+      dense         = sprintf("%+0.3f(%0.3f),$p$=%s", est, se, pval_pretty) #Force est & se to have three decimals (eg, .1 turns into .100).
+    ) %>%
+    dplyr::select( name, dense )
+
+  return( d_random )
+}
+extract_random <- function( d, in_study_name, in_physical_measure, in_cognitive_measure, in_model_type="aehplus" ) {
+  d <- d %>%
+    dplyr::filter(study_name==in_study_name & model_type==in_model_type & physical_measure==in_physical_measure & cognitive_measure==in_cognitive_measure)
+  testit::assert("Only two rows should exist.", nrow(d)==2L)
+
+  d_random_male <- extract_random_gender(d, in_gender = "male") %>%
+    dplyr::rename_("male" = "dense")
+
+  d_random_female <- extract_random_gender(d, in_gender = "female") %>%
+    dplyr::rename_("female" = "dense")
+
+  d_random <- d_random_male %>%
+    dplyr::full_join(d_random_female, by="name")
+
+  return( d_random )
+}
+
+
+
 # for( study in sort(unique(ds_wide$study_name)) ) {
 # for( study in "satsa" ) {
 for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") ) {
@@ -145,7 +188,13 @@ for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") )
     c_measure <- ds_study[model_index, ]$cognitive_measure
     cat("\n\n### ", p_measure, "*vs*", c_measure, "\n\n")
 
-    ds_fixed <-  extract_fixed(
+    ds_fixed <- extract_fixed(
+      ds_wide,
+      in_study_name          = study,
+      in_physical_measure    = p_measure,
+      in_cognitive_measure   = c_measure
+    )
+    ds_random <- extract_random(
       ds_wide,
       in_study_name          = study,
       in_physical_measure    = p_measure,
@@ -158,8 +207,14 @@ for( study in c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "radc") )
       align   = c("l","l","r","r","r","r"),
       caption = paste0("Fixed effects for each predictor (as rows) on the measures [a] ", p_measure, " and [b] ", c_measure,", for the ", study, " study.")
     ))
-    # cat("\n\n")
-    # print(kable(head(mtcars), format = "pandoc", caption = "Title of the table"))
+
+    print(knitr::kable(
+      ds_random,
+      format  = "pandoc",
+      align   = c("l","r","r"),
+      caption = paste0("Random effects on the measure ", p_measure, ", for the ", study, " study.")
+    ))
+
 
   }
 }
