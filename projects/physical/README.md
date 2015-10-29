@@ -15,9 +15,9 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 |study  | model | notes |    
 |---|---|---|    
 |EAS|   | |  
-|   |b1_SEX_aehplus_grip_pef | |   
-|   |b1_SEX_aehplus_grip_gait| |   
-|   |b1_SEX_aehplus_pef_gait| |   
+|   |b1_SEX_aehplus_grip_pef |file name and mplus DEFINE: do not match  |   
+|   |b1_SEX_aehplus_grip_gait|file name and mplus DEFINE: do not match |   
+|   |b1_SEX_aehplus_pef_gait|file name and mplus DEFINE: do not match  |   
 |ELSA|   | |   
 |   |b1_SEX_aehplus_grip_fev | |  
 |   |b1_SEX_aehplus_grip_gait | |  
