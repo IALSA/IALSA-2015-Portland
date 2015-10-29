@@ -27,13 +27,13 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 |   |b1_SEX_aehplus_grip_gait|age centered at 75, see  #73|  
 |   |b1_SEX_aehplus_pef_gait |age centered at 75, see  #73 |  
 |ILSE|   | |  
-|   |b1_SEX_aehplus_grip_tug |No diabetes in predictors|  
+|   |b1_SEX_aehplus_grip_tug |No diabetes in predictors, No .gh5 provided|  
 |LASA|   | |  
 |   |b1_SEX_aehplus_grip_pef | |  
 |   |b1_SEX_aehplus_grip_gait| |  
 |   |b1_SEX_aehplus_pef_gait | |  
 |NuAge|   | |  
-|   |b1_SEX_aehplus_grip_tug | |  
+|   |b1_SEX_aehplus_grip_tug | No .gh5 provided |  
 |OCTO|   | |  
 |   |b1_SEX_aehplus_grip_pef | |  
 |   |b1_SEX_aehplus_grip_gait| |  
