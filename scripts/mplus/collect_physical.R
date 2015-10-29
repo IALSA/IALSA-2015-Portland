@@ -40,7 +40,7 @@ satsa <- list.files(file.path(pathStudies,"satsa/physical"),full.names=T, recurs
 
 model_list <- list()
 model_list[["path_out"]] <- model_path_out
-model_list[["path_gh5"]] <- model_path_out
+model_list[["path_gh5"]] <- model_path_gh5
 
 study_name <- list()
 for(i in 1:length(model_list[["path_out"]])){
@@ -60,14 +60,14 @@ for(i in 1:length(model_list[["path_out"]])){
 }
 names(model_list)
 str(model_list)
-rm(list=setdiff(ls(), "model_list"))
+rm(list=setdiff(ls(), c("model_list")))
 
 # @knitr pass_outputs_through_extraction
 source("./scripts/mplus/extraction_functions.R")
 ds <- results
-destination <- "./projects/physical/outputs/physical"
-write.csv(results, paste0(destination,".csv") , row.names=F)
-saveRDS(results, paste0(destination,".rds") )
+
+write.csv(results,  "./projects/physical/outputs/physical.csv", row.names=F)
+saveRDS(results,    "./projects/physical/outputs/physical.rds")
 saveRDS(model_list, "./projects/physical/outputs/model_list.rds")
 
 

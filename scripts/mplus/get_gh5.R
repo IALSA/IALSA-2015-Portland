@@ -1,38 +1,52 @@
-get_model_def <- function(file=gh5_file){
 
-  ## Add descriptive info
-  selector <- which(strsplit(gh5_file, '/')[[1]]=='studies')
-  (study_name <- strsplit(gh5_file, '/')[[1]][selector+1])
-  (model_name <- strsplit(gh5_file, '/')[[1]][5])
-  (subgroup <- strsplit(model_name, '_|.gh5')[[1]][2])
-  (model_type <- strsplit(model_name, '_|.gh5')[[1]][3])
-  (process1 <- strsplit(model_name, '_|.gh5')[[1]][4])
-  (process2 <- strsplit(model_name, '_|.gh5')[[1]][5])
-  md <- c(study_name, subgroup, model_type, process1, process2, model_name)
-  return(md)
-}
+# gh5_file <- model_list[["path_out"]]
+
+
+# get_model_def <- function(file=gh5_file){
+#
+#   ## Add descriptive info
+#   selector <- which(strsplit(gh5_file, '/')[[1]]=='studies')
+#   (study_name <- strsplit(gh5_file, '/')[[1]][selector+1])
+#   (model_name <- strsplit(gh5_file, '/')[[1]][5])
+#   (subgroup <- strsplit(model_name, '_|.gh5')[[1]][2])
+#   (model_type <- strsplit(model_name, '_|.gh5')[[1]][3])
+#   (process1 <- strsplit(model_name, '_|.gh5')[[1]][4])
+#   (process2 <- strsplit(model_name, '_|.gh5')[[1]][5])
+#   md <- c(study_name, subgroup, model_type, process1, process2, model_name)
+#   return(md)
+# }
 # (model_def <- get_model_def(file=gh5_file))
 
 
-# get_gh5_data <- function(file=ls_gh5, study="eas", subgroup="female", model_type="aehplus",
-#                     process1="grip", process2="pef"){
-# file=ls_gh5;study="eas";subgroup="female";model_type="aehplus"; process1="grip";process2="pef"
-get_gh5_data <- function(file, study, subgroup, model_type, process1, process2,age_center=70){
+# get_gh5_data <- function(
+# file=model_list; study="eas"; subgroup="female"; model_type="aehplus"; process1="grip"; process2="gait"; age_center=70
+#
+# {
+# file=model_list;study="eas";subgroup="female";model_type="aehplus"; process1="grip";process2="pef";age_center=70
+get_gh5_data <- function(file, study, subgroup, model_type, process1, process2, age_center=70){
    # browser()
   #find the row that matches criteria
-  pull_model <- file[["study"]]==study & file[["subgroup"]]==subgroup &
+  pull_model <- file[["study_name"]]==study & file[["subgroup"]]==subgroup &
     file[["model_type"]]==model_type &
     file[["process1"]]==process1 & file[["process2"]]==process2
   #get the path
-  (gh5_file <- ls_gh5[["paths"]][pull_model])
+  (gh5_file <- model_list[["path_gh5"]][pull_model])
+  (results <- readRDS("./projects/physical/outputs/physical.rds"))
+  pull_model_results <- results[
+    results$study_name==study & results$subgroup==subgroup &
+    results$model_type==model_type &
+    results$physical_measure==process1 & results$cognitive_measure==process2
+    , ]
+  (results <- pull_model_results)
 
   selector <- which(strsplit(gh5_file, '/')[[1]]=='studies')
   (study_name_check <- strsplit(gh5_file, '/')[[1]][selector+1])
-  (model_name <- strsplit(gh5_file, '/')[[1]][5])
-  (subgroup_check <- strsplit(model_name, '_|.gh5')[[1]][2])
-  (model_type_check <- strsplit(model_name, '_|.gh5')[[1]][3])
-  (process1_check <- strsplit(model_name, '_|.gh5')[[1]][4])
-  (process2_check <- strsplit(model_name, '_|.gh5')[[1]][5])
+  (a <- strsplit(gh5_file, '/'))
+  (model_name <- a[[1]][length(a[[1]])])
+  (subgroup_check <- strsplit(model_name, '_|.gh5|.out')[[1]][2])
+  (model_type_check <- strsplit(model_name, '_|.gh5|.out')[[1]][3])
+  (process1_check <- strsplit(model_name, '_|.gh5|.out')[[1]][4])
+  (process2_check <- strsplit(model_name, '_|.gh5|.out')[[1]][5])
 
   (test1 <- c(study, subgroup, model_type, process1, process2))
   (test2 <- c(study_name_check, subgroup_check, model_type_check, process1_check, process2_check))
@@ -102,11 +116,19 @@ get_gh5_data <- function(file, study, subgroup, model_type, process1, process2,a
   dsL[i,"fscores"] <- ifelse(is.na(dsL[i,"observed"]),NA,dsL[i,"fscores"])
   }
 
+
+
+
   dsL[,"study_name"] <- study_name_check
   dsL[,'subgroup'] <- subgroup_check
   dsL[,'model_type'] <- model_type_check
   dsL[,"process1"] <- process1_check
   dsL[,"process2"] <- process2_check
+
+
+  # augment the dsL with the estimates from the .out file
+  dsL[,c(R_IPIC,R_SPSC)] <- results[,c(R_IPIC,R_SPSC)]
+
 
   head(dsL)
   dsL <- dsL[order(dsL$id), ] # sort for visual inspection
