@@ -39,8 +39,8 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 |   |b1_SEX_aehplus_grip_gait| |  
 |   |b1_SEX_aehplus_pef_gait | |  
 |RADC|   | |  
-|   |b1_SEX_aehplus_grip_fev | |  
-|   |b1_SEX_aehplus_grip_gait| |  
+|   |b1_SEX_aehplus_*fev_grip* | inconsistent naming, should be: *grip_fev* |  
+|   |b1_SEX_aehplus_*gait_grip*| inconsistent naming, should be: *grip_gait*|  
 |   |b1_SEX_aehplus_fev_gait | |  
 |SATSA|   | |  
 |   |b1_SEX_aehplus_grip_fev |  |  
