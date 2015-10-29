@@ -51,8 +51,8 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 
 | STUDY / outcome |  | |  | | |   
 |---|---|---|---|---|---|
-|   |grip|breath|breath|locomoto|locomoto|
 |   |grip|pef|fev|tug|gait|
+|   |grip|breath|breath|locomoto|locomoto|
 | EAS  |grip|pef|   |   |    |  
 | ELSA |grip|   |fev|   |    |  
 | HRS  |grip|pef|   |   |gait|  
