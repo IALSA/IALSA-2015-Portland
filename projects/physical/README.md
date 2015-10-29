@@ -53,15 +53,15 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 |---|---|---|---|---|---|
 |   |grip|pef|fev|tug|gait|
 |   |grip|breath|breath|locomoto|locomoto|
-| EAS  |grip|pef|   |   |    |  
-| ELSA |grip|   |fev|   |    |  
+| EAS  |grip|pef|   |   |gait|  
+| ELSA |grip|   |fev|   |gait|  
 | HRS  |grip|pef|   |   |gait|  
 | ILSE |grip|   |   |tug|    |  
 | LASA |grip|pef|   |   |gait|  
 | NUAGE|grip|   |   |tug|    |   
 | OCTO |grip|pef|   |   |gait| 
 | RADC |grip|   |fev|   |gait|  
-| SATSA|grip|pef|   |   |    |  
+| SATSA|grip|pef|   |   |gait|  
 	
 	
 	
@@ -69,12 +69,15 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 	
 | STUDY / domain  |grip  |breath | locomoto |   
 |---|---|---|---|
-| EAS   |grip   |pef|    |  
-| ELSA  |grip   |fev|    |  
-| HRS   |grip   |pef|gait|  
-| ILSE  |grip   |   |tug |  
-| LASA  |grip   |pef|gait|  
-| NUAGE |grip   |   |tug |  
-| OCTO  |grip   |pef|gait|  
-| RADC  |grip   |fev|gait|  
-| SATSA |grip   |pef|    | 
+| EAS  |grip|pef|gait|  
+| ELSA |grip|fev|gait|  
+| HRS  |grip|pef|gait|  
+| ILSE |grip|   |tug |
+| LASA |grip|pef|gait|  
+| NUAGE|grip|   |tug |
+| OCTO |grip|pef|gait| 
+| RADC |grip|fev|gait|  
+| SATSA|grip|pef|gait|  
+
+
+
