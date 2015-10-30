@@ -110,6 +110,16 @@ get_gh5_data <- function(file, study, subgroup, model_type, process1, process2, 
   dsL$observed[dsL$observed==999] <- NA
   dsL$fscores[dsL$fscores==999] <- NA
   dsL$age <- dsL$BAGE + dsL$time + age_center
+
+  # remove artificial observation that appears from data manipulations
+  for(i in 1:nrow(dsL))
+  if(is.na(dsL[i,"observed"])){
+    dsL[i,"IP"] <- NA
+    dsL[i,"SP"] <- NA
+    dsL[i,"SC"] <- NA
+    dsL[i,"IC"] <- NA
+  }
+
   ## Add descriptive info
 
   for(i in 1:nrow(dsL) ){
@@ -129,6 +139,11 @@ get_gh5_data <- function(file, study, subgroup, model_type, process1, process2, 
   # augment the dsL with the estimates from the .out file
   dsL[,c(R_IPIC,R_SPSC)] <- results[,c(R_IPIC,R_SPSC)]
 
+  # Rename
+  dsL <- plyr::rename( dsL,replace=c("IP"= paste0("i_",dsL$process1[1]) ) )
+  dsL <- plyr::rename(dsL,replace=c("SP"= paste0("s_",dsL$process1[1])))
+  dsL <- plyr::rename(dsL,replace=c("IC"= paste0("i_",dsL$process2[1])))
+  dsL <- plyr::rename(dsL,replace=c("SC"= paste0("s_",dsL$process2[1])))
 
   head(dsL)
   dsL <- dsL[order(dsL$id), ] # sort for visual inspection
