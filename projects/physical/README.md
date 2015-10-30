@@ -1,3 +1,31 @@
+##Scatters of Factor Scores
+The graphs could be viewed grouped by process pairs for [females](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd/by_process_pair.md) and [males](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd_male/by_process_pair_male.md). [Add an entry](https://github.com/IALSA/IALSA-2015-Portland/edit/master/projects/physical/README.md)
+
+###Grip-Pulmonary
+
+Table A. Numerical summary  
+* R :  correlation coefficient estimated by Mplus (R_IPIC, R_SPSC)  
+* R_pval : p-value associated with the R parameters  
+* TAU_pval : p-value associate with the variance estimate of the random term (TAU_00, TAU_11)  
+* r : correlation of the regression line (red) through the scatter of the factor scores  
+* structure : R (R_pval, TAU_pval) r    
+
+
+|STUDY|female     |female| male     | male |
+|-----|-----------|------|----------|------|  
+|     |intercept  |slope | intercept| slope|  
+|EAS  |.29 (.053; 0) .33;  |   |   |   |  
+|ELSA |   |   |   |   |  
+|HRS  |   |   |   |   |  
+|ILSE |   |   |   |   |  
+|LASA |   |   |   |   |  
+|NUAGE|   |   |   |   |  
+|OCTO |   |   |   |   |  
+|RADC |   |   |   |   |  
+|SATSA|   |   |   |   |   
+
+
+##Review  
 
 - [Announcement](./announce.md) of the physical track, initial instructions
 - [Catalog](./catalog.md) shows studies and outcomes
@@ -8,6 +36,7 @@
 
 
 #Overview
+
 At this moment the project includes 54 models from 9 studies. See the list of submitted models below.
 
 ##Submitted Models
@@ -80,24 +109,6 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 | SATSA|grip|pef|gait|  
 
 
-##Scatters of Factor Scores
-The graphs could be viewed grouped by process pairs for [females](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd/by_process_pair.md) and [males](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd_male/by_process_pair_male.md)
-
-###Grip-Pulmonary
-
-
-|STUDY|intercept  |slope | intercept| slope|    
-|-----|-----------|------|----------|------|  
-|     |female     |female| male     | male |  
-|EAS  |   |   |   |   |  
-|ELSA |   |   |   |   |  
-|HRS  |   |   |   |   |  
-|ILSE |   |   |   |   |  
-|LASA |   |   |   |   |  
-|NUAGE|   |   |   |   |  
-|OCTO |   |   |   |   |  
-|RADC |   |   |   |   |  
-|SATSA|   |   |   |   |   
 
 
 
