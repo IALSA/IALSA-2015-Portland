@@ -11,7 +11,7 @@
   [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
 
 ##News
- - Scatters of Factor Scores: graphs could be viewed grouped by process pairs for [females](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd/by_process_pair.md) and [males](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd_male/by_process_pair_male.md)
+ - Scatters of Factor Scores: graphs explained in the [issue #100](https://github.com/IALSA/IALSA-2015-Portland/issues/100)
  - 
  - [Reminder](./projects/physical/reminder_160915.md) has been sent to those who did not yet provided Table 1, measure descriptions, or PxP models.   
  - [Description of measures](./studies/measures.md) have been added. Still many missing item documentations.
