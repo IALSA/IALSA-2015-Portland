@@ -1,7 +1,7 @@
 Go to the specific process pair   
--[Grip-Gait](/reports/physical/scatter_matrix/figure_rmd_male/README.md#grip-gait)  
--[Grip-Pulmonary](/reports/physical/scatter_matrix/figure_rmd_male/README.md#grip-pulmonary)  
--[Pulmonary-Gait](/reports/physical/scatter_matrix/figure_rmd_male/README.md#pulmonary-gait)  
+-[Grip-Pulmonary](/reports/physical/scatter_matrix/figure_rmd_male/by_process_pair_male.md#grip-pulmonary)  
+-[Grip-Gait](/reports/physical/scatter_matrix/figure_rmd_male/by_process_pair_male.md#grip-gait)  
+-[Pulmonary-Gait](/reports/physical/scatter_matrix/figure_rmd_male/by_process_pair_male.md#pulmonary-gait)  
  
 
 
