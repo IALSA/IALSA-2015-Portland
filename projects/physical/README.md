@@ -3,11 +3,13 @@ The graphs could be viewed grouped by process pairs for [females](https://github
 
 ###Grip-Pulmonary
 
+Table A. Numerical summary
 
 |STUDY|intercept  |slope | intercept| slope|    
 |-----|-----------|------|----------|------|  
-|     |female     |female| male     | male |  
-|EAS  |   |   |   |   |  
+|     |female     |female| male     | male | 
+|legend | R (r_pval, tau_pval) r   |   |   |    
+|EAS  |.29 (.053; 0) .33;   |   |   |   |  
 |ELSA |   |   |   |   |  
 |HRS  |   |   |   |   |  
 |ILSE |   |   |   |   |  
