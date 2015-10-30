@@ -6,71 +6,25 @@ cat("\f") # clear console
 # @knitr load_packages
 library(dplyr) # for data manipulation
 library(ggplot2) # for graphing
-# library(MplusAutomation)
 library(grid)
 
 # @knitr load_sources ---------------------------------------
 source("https://raw.githubusercontent.com/andkov/psy532/master/scripts/graphs/main_theme.R")
-source("./scripts/mplus/group_variables.R") # define objects with names of variables/columns
-source("http://www.statmodel.com/mplus-R/mplus.R") # load custom functions
+source("http://www.statmodel.com/mplus-R/mplus.R") # to work with mplus output
+source("./scripts/mplus/group_variables.R") # to define objects with names of variables/columns
+source("./scripts/mplus/get_gh5.R") # to extract data from .gh5
 
 # @knitr declare_globals ---------------------------------------
 
 
-# @knitr get_gh5_files -------------------------------------------
-
-# load the list object with file paths to the outputs and gh5
-# out_list_all_plus <- readRDS("./projects/physical/outputs/out_list.rds")
-
-# # define the location of the folders in each contributing study
-# eas <- list.files(file.path("./studies/eas/physical"),full.names=T, recursive=T, pattern="gh5$")
-# elsa <- list.files(file.path("./studies/elsa/physical"),full.names=T, recursive=T, pattern="gh5$")
-# # habc <- list.files(file.path("./studies/habc/physical"),full.names=T, recursive=T, pattern="gh5$")
-# hrs <- list.files(file.path("./studies/hrs/physical"),full.names=T, recursive=T, pattern="gh5$")
-# ilse <- list.files(file.path("./studies/ilse/physical"),full.names=T, recursive=T, pattern="gh5$")
-# lasa <- list.files(file.path("./studies/lasa/physical"),full.names=T, recursive=T, pattern="gh5$")
-# # nas <- list.files(file.path("./studies/nas/physical"),full.names=T, recursive=T, pattern="gh5$")
-# nuage <- list.files(file.path("./studies/nuage/physical"),full.names=T, recursive=T, pattern="gh5$")
-# octo <- list.files(file.path("./studies/octo/physical"),full.names=T, recursive=T, pattern="gh5$")
-# radc <- list.files(file.path("./studies/radc/physical"),full.names=T, recursive=T, pattern="gh5$")
-# satsa <- list.files(file.path("./studies/satsa/physical"),full.names=T, recursive=T, pattern="gh5$")
-# # see what studies have provided .gh5 files
-# gh5_paths <- c(eas,   hrs, lasa, nuage, octo, radc, satsa)
-
-# select a .gh5 file for processing
-
-# gh5_paths
-model_list <- readRDS("./projects/physical/outputs/model_list.rds")
-# ls_gh5 <- list(c("paths","study","subgroup","model_type","process1", "process2"))
-# ls_gh5 <- list()
-# gh5_paths <-  model_list[["path_gh5"]]
-# ls_gh5[["paths"]] <- gh5_paths
-# # ls_gh5[["paths"]] <- model_list
-#
-# #load custom script to extract data from a .gh5 file
-source("./scripts/mplus/get_gh5.R")
-# #get_model_def <- function(file=gh5_file)
-# #get_gh5_data <- function(file, study, subgroup, model_type, process1, process2,age_center=70)
-# for(i in 1:length(ls_gh5[["paths"]])){
-#   gh5_file <- gh5_paths[i]
-#
-#   (model_def <- get_model_def(file=gh5_file))
-#   ls_gh5[["study"]][i] <- strsplit(gh5_paths[i], "/")[[1]][3]
-#   model_name <- strsplit(gh5_paths[i], "/")[[1]][5]
-#   ls_gh5[["model_name"]][i] <- model_name
-#   ls_gh5[["subgroup"]][i] <- strsplit(model_name, '_|.gh5')[[1]][2]
-#   ls_gh5[["model_type"]][i] <- strsplit(model_name, '_|.gh5')[[1]][3]
-#   ls_gh5[["process1"]][i] <- strsplit(model_name, '_|.gh5')[[1]][4]
-#   ls_gh5[["process2"]][i] <- strsplit(model_name, '_|.gh5')[[1]][5]
-# }
-#
-# names(ls_gh5)
-names(model_list)
-# when selecting from the list object with model outputs
-# (all_gh5 <- gsub(".out",".gh5", out_list_all_plus[["path"]]) )
-# gh5_file <- all_gh5[34]
 
 # @knitr load_data ---------------------------------------
+# load the data collected by ./scripts/mplus/collect_physical.R
+model_list <- readRDS("./projects/physical/outputs/model_list.rds")
+names(model_list) # how each model in the list is described
+model_list
+
+
 
 dsL <- get_gh5_data(
   file=model_list # list object containing paths to the gh5 files
@@ -90,8 +44,6 @@ head(dsL)
 # @kntir basic_table ---------------------------------------
 
 # @knitr basic_graph ---------------------------------------
-# display the empirical regression equation on the graph
-#http://stackoverflow.com/questions/7549694/ggplot2-adding-regression-line-equation-and-r2-on-graph
 proto_scatter <- function(dsL,x, y){
 g <- ggplot2::ggplot(dsL,aes_string(x=x, y=y, fill="BAGE"))+
   geom_point(shape=21,size=5, alpha=.1)+
@@ -179,7 +131,7 @@ grid::grid.newpage()
 }
 
 
-# sample_size <- 100
+# sample_size <- 100 # activate for testing and development
 (sample_size <- length(unique(dsL$id)))
 
 
