@@ -21,6 +21,7 @@ cat("\014")
 library(dplyr)
 
 #radcWide <- read.csv('dataset_285_basic03-2014.csv')
+setwd("C:/Users/Cassandra/Documents/GitHub/IALSA-2015-Portland")
 pathFile <- getwd()
 radcLong <- read.csv(paste0(pathFile,"/studies/radc/unshared/dataset_285_long03-2014.csv"))
 radcWide <- read.csv(paste0(pathFile,"/studies/radc/unshared/IALSA Cross sectional 02-2015.csv"))
