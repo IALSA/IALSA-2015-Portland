@@ -14,7 +14,7 @@ Table A. Numerical summary
 |STUDY|female     |female| male     | male |
 |-----|-----------|------|----------|------|  
 |     |intercept  |slope | intercept| slope|  
-|EAS  |.29 (.053; 0) .33;  |   |   |   |  
+|EAS  |seems ok |   |   |   |  
 |ELSA |   |   |   |   |  
 |HRS  |   |   |   |   |  
 |ILSE |   |   |   |   |  
