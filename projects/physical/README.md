@@ -84,18 +84,20 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 The graphs could be viewed grouped by process pairs for [females](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd/by_process_pair.md) and [males](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd_male/by_process_pair_male.md)
 
 ###Grip-Pulmonary
-| STUDY|female  |female | male| male|
-| STUDY|intercept  |slope | intercept| slope|
-|------|---|---|---|---|
-| EAS  |   |   |   |   |
-| ELSA |   |   |   |   |
-| HRS  |   |   |   |   |
-| ILSE |   |   |   |   |
-| LASA |   |   |   |   |
-| NUAGE|   |   |   |   |
-| OCTO |   |   |   |   |
-| RADC |   |   |   |   |
-| SATSA|   |   |   |   | 
+
+
+|STUDY|intercept  |slope | intercept| slope|    
+|-----|-----------|------|----------|------|  
+|     |female     |female| male     | male |  
+|EAS  |   |   |   |   |  
+|ELSA |   |   |   |   |  
+|HRS  |   |   |   |   |  
+|ILSE |   |   |   |   |  
+|LASA |   |   |   |   |  
+|NUAGE|   |   |   |   |  
+|OCTO |   |   |   |   |  
+|RADC |   |   |   |   |  
+|SATSA|   |   |   |   |   
 
 
 
