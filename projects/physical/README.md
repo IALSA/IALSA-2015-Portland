@@ -36,9 +36,9 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 |study  | model | notes |    
 |---|---|---|    
 |EAS|   | |  
-|   |b1_SEX_aehplus_grip_pef |file name and mplus DEFINE: do not match  |   
-|   |b1_SEX_aehplus_grip_gait|file name and mplus DEFINE: do not match |   
-|   |b1_SEX_aehplus_pef_gait|file name and mplus DEFINE: do not match  |   
+|   |b1_SEX_aehplus_grip_pef |  |   
+|   |b1_SEX_aehplus_grip_gait| |   
+|   |b1_SEX_aehplus_pef_gait|  |   
 |ELSA|   | |   
 |   |b1_SEX_aehplus_grip_fev | |  
 |   |b1_SEX_aehplus_grip_gait | |  
@@ -48,7 +48,7 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 |   |b1_SEX_aehplus_grip_gait|age centered at 75, see  #73|  
 |   |b1_SEX_aehplus_pef_gait |age centered at 75, see  #73 |  
 |ILSE|   | |  
-|   |b1_SEX_aehplus_grip_tug |No diabetes in predictors, No .gh5 provided|  
+|   |b1_SEX_aehplus_grip_tug |No diabetes in predictors|  
 |LASA|   | |  
 |   |b1_SEX_aehplus_grip_pef | |  
 |   |b1_SEX_aehplus_grip_gait| |  
