@@ -3,14 +3,6 @@ The graphs could be viewed grouped by process pairs for [females](https://github
 
 ###Grip-Pulmonary
 
-Table A. Numerical summary  
-* R :  correlation coefficient estimated by Mplus (R_IPIC, R_SPSC)  
-* R_pval : p-value associated with the R parameters  
-* TAU_pval : p-value associate with the variance estimate of the random term (TAU_00, TAU_11)  
-* r : correlation of the regression line (red) through the scatter of the factor scores  
-* structure : R (R_pval, TAU_pval) r    
-
-
 |STUDY|female     |female| male     | male |
 |-----|-----------|------|----------|------|  
 |     |intercept  |slope | intercept| slope|  
