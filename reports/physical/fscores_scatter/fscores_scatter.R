@@ -202,7 +202,6 @@ d <- dsL[dsL$id %in% sample(unique(dsL$id), sample_size), ]
 fscore_scatter(data=dsL) # create scatterplot
 
 
-
 #### HRS ####
 
 # @knitr hrs_female_aehplus_grip_pef ---------------------------------------
