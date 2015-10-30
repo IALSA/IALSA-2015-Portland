@@ -10,7 +10,7 @@
 #Overview
 At this moment the project includes 54 models from 9 studies. See the list of submitted models below.
 
-##Models
+##Submitted Models
 
 |study  | model | notes |    
 |---|---|---|    
