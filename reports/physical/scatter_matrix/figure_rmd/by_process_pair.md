@@ -1,9 +1,8 @@
 Go to the specific process pair   
--[Grip-Pulmonary](/reports/physical/scatter_matrix/figure_rmd/README.md#grip-pulmonary)  
--[Grip-Gait](/reports/physical/scatter_matrix/figure_rmd/README.md#grip-gait)  
--[Pulmonary-Gait](/reports/physical/scatter_matrix/figure_rmd/README.md#pulmonary-gait)  
+-[Grip-Pulmonary](/reports/physical/scatter_matrix/figure_rmd/by_process_pair.md#grip-pulmonary)  
+-[Grip-Gait](/reports/physical/scatter_matrix/figure_rmd/by_process_pair.md#grip-gait)  
+-[Pulmonary-Gait](/reports/physical/scatter_matrix/figure_rmd/by_process_pair.md#pulmonary-gait)  
  
-
 
 ##Grip-Pulmonary   
 ![image](eas_female_aehplus_grip_pef-1.png)  
