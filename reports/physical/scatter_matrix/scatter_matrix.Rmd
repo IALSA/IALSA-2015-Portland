@@ -1,0 +1,186 @@
+---
+title: "FScore Scatters"
+output:
+  html_document:
+    css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar.css
+    keep_md: yes
+    toc: yes
+---
+
+<!-- These two chunks should be added in the beginning of every .Rmd that you want to source an .R script -->
+<!--  The 1st mandatory chunck  -->
+<!--  Set the working directory to the repository's base directory -->
+```{r, echo=F, message=F} 
+#Don't combine this call with any other chunk 
+# cat("Working directory: ", getwd()) # check where you are
+  library(knitr)
+# Rmd is in "./reports/reportA/reportA.Rmd", but now the root is "./"
+  knitr::opts_knit$set(root.dir='../../../') 
+```
+
+<!--  The 2nd mandatory chunck  -->
+<!-- Set the report-wide options, and point to the external code file. -->
+```{r set_options, echo=F}
+# set options shared by all chunks
+opts_chunk$set(
+  results='show', 
+  message = TRUE,
+  comment = NA, 
+  tidy = FALSE,
+  fig.height = 4, 
+  fig.width = 8, 
+  out.width = "550px",
+  fig.path = 'figure_rmd/',     
+  dev = "png",
+  dpi = 400
+  # fig.path = 'figure_pdf/',     
+  # dev = "pdf"#,
+  # dev.args=list(pdf = list(colormodel = 'cmyk'))
+)
+echoChunks <- FALSE
+figwidth_Chunk <- 11
+figheight_Chunk <- 5.5
+options(width=120) #So the output is 50% wider than the default.
+# connect to the file with the underlying R script  
+read_chunk("./reports/physical/scatter_matrix/scatter_matrix.R") 
+```
+
+
+
+<!-- Load 'sourced' R files.  Suppress the output when loading packages. --> 
+```{r load_packages, echo=echoChunks, message=FALSE}
+```
+
+
+<!-- Load the sources.  Suppress the output when loading sources. --> 
+```{r load_sources, echo=echoChunks, message=TRUE}
+```
+
+
+<!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
+```{r declare_globals, echo=echoChunks, results='show', message=FALSE}
+```
+
+```{r get_gh5_files, echo=echoChunks, results='show', message=FALSE}
+```
+
+
+<!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 
+```{r, echo=echoChunks, message=FALSE}
+#Put code in here.  It doesn't call a chunk in the codebehind file.
+```
+
+<!-- Load the datasets.   -->
+```{r load_data, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Tweak the datasets.   -->
+```{r tweak_data, echo=echoChunks, results='show', message=FALSE}
+```
+
+<!-- Basic table view.   -->
+```{r basic_table, echo=TRUE, results='show', message=FALSE}
+```
+
+<!-- Basic graph view.   -->
+```{r basic_graph, echo=TRUE, results='show', message=FALSE}
+```
+
+```{r get_pair_data, echo=TRUE, results='show', message=FALSE}
+```
+
+```{r basic_graph_1, echo=FALSE, results='show', message=FALSE, fig.width=8, fig.height=11}
+```
+#FEMALES
+#EAS
+##grip_pef
+```{r eas_female_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##grip_gait
+```{r eas_female_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##pef_gait
+```{r eas_female_aehplus_pef_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+
+#ELSA
+## grip_fev
+```{r elsa_female_aehplus_grip_fev, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##grip_gait
+```{r elsa_female_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##fev_gait
+```{r elsa_female_aehplus_fev_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+
+
+#HRS
+##grip_pef
+```{r hrs_female_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##grip_gait
+```{r hrs_female_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##pef_gait
+```{r hrs_female_aehplus_pef_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+
+
+
+
+# EAS
+##grip_pef
+```{r lasa_female_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##grip_gait
+```{r lasa_female_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##pef_gait
+```{r lasa_female_aehplus_pef_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+
+
+
+# EAS
+##grip_pef
+```{r octo_female_aehplus_grip_pef, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##grip_gait
+```{r octo_female_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##pef_gait
+```{r octo_female_aehplus_pef_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+
+
+
+# EAS
+##grip_fev
+```{r radc_female_aehplus_grip_fev, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##grip_gait
+```{r radc_female_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##fev_gait
+```{r radc_female_aehplus_fev_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+
+
+# EAS
+##grip_fev
+```{r satsa_female_aehplus_grip_fev, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##grip_gait
+```{r satsa_female_aehplus_grip_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+##fev_gait
+```{r satsa_female_aehplus_fev_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+
+
+
+
+
+
+
