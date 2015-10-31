@@ -225,21 +225,15 @@ proto_scatter <- function( dsL, xName, yName ) {
   geom_smooth(aes_string(y=yName), method="lm",color="red", size=.4, se=F, na.rm=T, span=1)+
   scale_fill_gradient2(low="#7fbf7b", mid="#f7f7f7", high="#af8dc3", space="Lab")+
   theme(legend.position="none")+
+    coord_flip()+
   annotate("text", size=baseSize-6, label=eqn, x=-Inf, y=-Inf, hjust=0, vjust=0, parse=TRUE, color="red")+
   main_theme
 g
 
 }
-proto_scatter(dsL,xName="s_grip", yName="s_pef")
-```
+# proto_scatter(dsL,xName="s_grip", yName="s_pef")
 
-```
-Warning in loop_apply(n, do.ply): Removed 530 rows containing missing values (geom_point).
-```
 
-<img src="figure_rmd_male/basic_graph-1.png" title="" alt="" width="550px" />
-
-```r
 #inspect data for one individual
 # dsL %>% dplyr::filter(id==1) %>% dplyr::select(id, BAGE, wave, time, outcome, observed, age, IP, SP, SC, IC )
 ```
@@ -251,339 +245,27 @@ Warning in loop_apply(n, do.ply): Removed 530 rows containing missing values (ge
 #EAS
 ##grip_pef
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "eas",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "pef")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_grip_pef.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_grip_pef.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_grip_pef.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_grip_pef.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/eas_male_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
 ##grip_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "eas",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "gait")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_grip_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_grip_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_grip_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_grip_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/eas_male_aehplus_grip_gait-1.png" title="" alt="" width="550px" />
 ##pef_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "eas",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "pef",
-                    process2 = "gait")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_pef_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_pef_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_pef_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/eas/physical/b1_male_aehplus_pef_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/eas_male_aehplus_pef_gait-1.png" title="" alt="" width="550px" />
-
-```r
-#### ELSA ####
-```
 
 #ELSA
 ## grip_fev
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "elsa",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "fev")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_grip_fev.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_grip_fev.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_grip_fev.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_grip_fev.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/elsa_male_aehplus_grip_fev-1.png" title="" alt="" width="550px" />
 ##grip_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "elsa",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "gait")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_grip_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_grip_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_grip_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_grip_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/elsa_male_aehplus_grip_gait-1.png" title="" alt="" width="550px" />
 ##fev_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "elsa",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "fev",
-                    process2 = "gait")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_fev_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_fev_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_fev_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/elsa/physical/b1_male_aehplus_fev_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/elsa_male_aehplus_fev_gait-1.png" title="" alt="" width="550px" />
-
-```r
-#### HRS ####
-```
 
 
 #HRS
 ##grip_pef
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "hrs",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "pef",
-                    age_center = 75)
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_grip_pef.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_grip_pef.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_grip_pef.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_grip_pef.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/hrs_male_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
 ##grip_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "hrs",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "gait",
-                    age_center = 75)
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_grip_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_grip_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_grip_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_grip_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/hrs_male_aehplus_grip_gait-1.png" title="" alt="" width="550px" />
 ##pef_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "hrs",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "pef",
-                    process2 = "gait",
-                    age_center = 75)
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_pef_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_pef_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_pef_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/hrs/physical/b1_male_aehplus_pef_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/hrs_male_aehplus_pef_gait-1.png" title="" alt="" width="550px" />
-
-```r
-##### LASA ####
-```
 
 
 
@@ -591,226 +273,20 @@ int_slope(dsL) # create scatterplot
 # EAS
 ##grip_pef
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "lasa",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "pef")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_grip_pef.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_grip_pef.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_grip_pef.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_grip_pef.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/lasa_male_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
 ##grip_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "lasa",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "gait")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_grip_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_grip_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_grip_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_grip_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/lasa_male_aehplus_grip_gait-1.png" title="" alt="" width="550px" />
 ##pef_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "lasa",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "pef",
-                    process2 = "gait")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_pef_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_pef_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_pef_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/lasa/physical/b1_male_aehplus_pef_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/lasa_male_aehplus_pef_gait-1.png" title="" alt="" width="550px" />
-
-```r
-#### OCTO ####
-```
 
 
 
 # EAS
 ##grip_pef
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "octo",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "pef")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_grip_pef.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_grip_pef.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_grip_pef.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_grip_pef.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/octo_male_aehplus_grip_pef-1.png" title="" alt="" width="550px" />
 ##grip_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "octo",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "gait")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_grip_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_grip_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_grip_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_grip_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/octo_male_aehplus_grip_gait-1.png" title="" alt="" width="550px" />
 ##pef_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "octo",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "pef",
-                    process2 = "gait")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_pef_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_pef_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_pef_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/octo/physical/b1_male_aehplus_pef_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/octo_male_aehplus_pef_gait-1.png" title="" alt="" width="550px" />
-
-```r
-#### RADC ####
-```
 
 
 
@@ -885,83 +361,38 @@ int_slope(dsL) # create scatterplot
 ```
 
 <img src="figure_rmd_male/radc_male_aehplus_grip_gait-1.png" title="" alt="" width="550px" />
+
+```r
+# # @knitr radc_male_aehplus_fev_gait ---------------------------------------
+# dsL <- get_gh5_data(file=model_list,
+#                     study = "radc",
+#                     subgroup = "male",
+#                     model_type = "aehplus",
+#                     process1 = "fev",
+#                     process2 = "gait")
+# # dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
+# int_slope(dsL) # create scatterplot
+
+
+#### SATSA ####
+
+# # @knitr satsa_male_aehplus_grip_fev ---------------------------------------
+# dsL <- get_gh5_data(file=model_list,
+#                     study = "satsa",
+#                     subgroup = "male",
+#                     model_type = "aehplus",
+#                     process1 = "grip",
+#                     process2 = "fev")
+# # dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
+# int_slope(dsL) # create scatterplot
+```
 ##fev_gait
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "radc",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "fev",
-                    process2 = "gait")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/radc/physical/b1_male_aehplus_fev_gait.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/radc/physical/b1_male_aehplus_fev_gait.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/radc/physical/b1_male_aehplus_fev_gait.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/radc/physical/b1_male_aehplus_fev_gait.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/radc_male_aehplus_fev_gait-1.png" title="" alt="" width="550px" />
-
-```r
-#### SATSA ####
-```
 
 
 # EAS
 ##grip_fev
 
-```r
-dsL <- get_gh5_data(file=model_list,
-                    study = "satsa",
-                    subgroup = "male",
-                    model_type = "aehplus",
-                    process1 = "grip",
-                    process2 = "fev")
-```
-
-```
-
-Plot functions:
- - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/satsa/physical/b1_male_aehplus_grip_fev.gh5',variable,bins)
- - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/satsa/physical/b1_male_aehplus_grip_fev.gh5',xvar,yvar)
-
-Plot data extraction functions:
- - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/satsa/physical/b1_male_aehplus_grip_fev.gh5')
- - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/satsa/physical/b1_male_aehplus_grip_fev.gh5',variable)
-
-List of variable names to use in the following functions:
- - mplus.plot.histogram
- - mplus.plot.scatterplot
- - mplus.get.data
-
-Variables:
-```
-
-```r
-# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
-int_slope(dsL) # create scatterplot
-```
-
-<img src="figure_rmd_male/satsa_male_aehplus_grip_fev-1.png" title="" alt="" width="550px" />
 ##grip_gait
 
 ```r
