@@ -1,4 +1,4 @@
-## [Female](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd/by_process_pair.md#grip-pulmonary) subgroup. Grip is process 1; Pulmonary is process 2. 
+## [Female](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd/by_process_pair.md#grip-pulmonary) subgroup. Grip(p1)-(p2)Pulmonary. 
 
 |STUDY|intercept  |slope | scatter| lines | 
 |-----|-----------|------|----------|------|    
