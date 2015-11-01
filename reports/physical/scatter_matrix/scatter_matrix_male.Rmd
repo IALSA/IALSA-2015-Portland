@@ -114,6 +114,11 @@ read_chunk("./reports/physical/scatter_matrix/scatter_matrix_male.R")
 ```{r elsa_male_aehplus_fev_gait, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
 ```
 
+#ILSE
+##grip_tug
+```{r ilse_male_aehplus_grip_tug, echo=TRUE, results='show', message=FALSE, warning=FALSE, fig.width=figwidth_Chunk, fig.height=figheight_Chunk}
+```
+
 
 #HRS
 ##grip_pef

@@ -428,6 +428,47 @@ int_slope(dsL) # create scatterplot
 <img src="figure_rmd_female/elsa_female_aehplus_fev_gait-1.png" title="" alt="" width="550px" />
 
 ```r
+#### ILSE ####
+```
+
+#ILSE
+##grip_tug
+
+```r
+dsL <- get_gh5_data(file=model_list,
+                    study = "ilse",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "tug")
+```
+
+```
+
+Plot functions:
+ - mplus.plot.histogram('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/ilse/physical/b1_female_aehplus_grip_tug.gh5',variable,bins)
+ - mplus.plot.scatterplot('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/ilse/physical/b1_female_aehplus_grip_tug.gh5',xvar,yvar)
+
+Plot data extraction functions:
+ - mplus.list.variables('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/ilse/physical/b1_female_aehplus_grip_tug.gh5')
+ - mplus.get.data('C:/Users/koval_000/Documents/GitHub/IALSA-2015-Portland/studies/ilse/physical/b1_female_aehplus_grip_tug.gh5',variable)
+
+List of variable names to use in the following functions:
+ - mplus.plot.histogram
+ - mplus.plot.scatterplot
+ - mplus.get.data
+
+Variables:
+```
+
+```r
+# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
+int_slope(dsL) # create scatterplot
+```
+
+<img src="figure_rmd_female/ilse_female_aehplus_grip_tug-1.png" title="" alt="" width="550px" />
+
+```r
 #### HRS ####
 ```
 
@@ -549,7 +590,7 @@ int_slope(dsL) # create scatterplot
 
 
 
-# EAS
+# LASA
 ##grip_pef
 
 ```r
@@ -662,7 +703,7 @@ int_slope(dsL) # create scatterplot
 
 
 
-# EAS
+# OCTO
 ##grip_pef
 
 ```r
@@ -775,7 +816,7 @@ int_slope(dsL) # create scatterplot
 
 
 
-# EAS
+# RADC
 ##grip_fev
 
 ```r
@@ -887,7 +928,7 @@ int_slope(dsL) # create scatterplot
 ```
 
 
-# EAS
+# SATSA
 ##grip_fev
 
 ```r
