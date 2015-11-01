@@ -111,6 +111,17 @@ dsL <- get_gh5_data(file=model_list,
 # dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
 int_slope(dsL) # create scatterplot
 
+#### ILSE ####
+
+# @knitr ilse_female_aehplus_grip_tug ---------------------------------------
+dsL <- get_gh5_data(file=model_list,
+                    study = "ilse",
+                    subgroup = "female",
+                    model_type = "aehplus",
+                    process1 = "grip",
+                    process2 = "tug")
+# dsL <- dsL[dsL$id %in% sample(unique(dsL$id), 100), ]
+int_slope(dsL) # create scatterplot
 
 #### HRS ####
 
