@@ -58,10 +58,10 @@ MODEL:  ip sp | p1 p2 p3 p5 p6 p7 at time1 time2 time3 time5 time6 time7;
         
         ip sp ic sc ON Bage ceduc height diabete eversmoke chd;
 
-        p2-p7 (res_p);
-        c2-c7 (res_c);
+        p1-p7 (res_p);
+        c1-c7 (res_c);
         
-        p2 p3 p5 p6 p7 pwith c2 c3 c5 c6 c7(res_cov);
+        p1 p2 p3 p5 p6 p7 pwith c1 c2 c3 c5 c6 c7(res_cov);
         
         ip (v_ip); ! v - variance
         sp (v_sp); 
@@ -90,7 +90,7 @@ PLOT: Type is Plot1 Plot2 Plot3;
 
 SAVEDATA:
  
-        FILE IS   SATSASlopes_m_grip_symbol;  
+        FILE IS   SATSASlopes_f_grip_symbol;  
         SAVE = FSCORES;
 
 
