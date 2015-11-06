@@ -154,7 +154,7 @@ Dear colleagues,
 	OUTPUT: sampstat Cinterval;
     ```
 	Please make sure you copy the OUTPUT statement as well to request Cinterval.    
-	Here's the complete model specification in Mplus used in this [example](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/outputs/b1_female_aehplus_grip_pek.out). 
+	Here's the complete model specification in Mplus used in this [example](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/outputs/examples/b1_female_aehplus_grip_pek.out). 
 
 11. **Upload the output files**      
     In the folder of your study, create a folder called "physical",  for example  
