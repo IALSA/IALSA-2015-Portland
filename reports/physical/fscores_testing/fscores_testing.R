@@ -104,7 +104,11 @@ ds_basic <- ds[c(
 
   "pc_SIGMA_est","pc_SIGMA_se", "pc_SIGMA_pval",
   "R_RES_PC_est", "R_RES_PC_se","R_RES_PC_pval",
-  "pc_CORR_residual", "pc_CI95_residual_low","pc_CI95_residual_high"
+  "pc_CORR_residual", "pc_CI95_residual_low","pc_CI95_residual_high",
+
+                  "pp_TAU_00_est", "cc_TAU_00_est",
+                "pp_TAU_11_est", "cc_TAU_11_est"
+
 
 )]
 
