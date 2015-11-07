@@ -756,7 +756,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
