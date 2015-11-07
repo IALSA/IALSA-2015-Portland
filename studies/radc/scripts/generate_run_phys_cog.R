@@ -46,7 +46,7 @@ run_models_on <- TRUE # TRUE - run models, FALSE - only create script
 #Male models
 make_script_waves(
   prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/grip_numbercomp"
+  ,place_in = "studies/radc/outputs/physical_cognitive/grip"
   ,processP_name = "grip" # measure name
   ,processP = "gripavg" # Mplus variable
   ,processC_name = 'numbercomp'# measure name
@@ -82,14 +82,14 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/grip_bnt"
+  ,place_in = "studies/radc/outputs/physical_cognitive"
   ,processP_name = "grip" # measure name
   ,processP = "gripavg" # Mplus variable
   ,processC_name = 'bnt'# measure name
   ,processC = 'cts_bname'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -97,14 +97,14 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/grip_bnt"
+  ,place_in = "studies/radc/outputs/physical_cognitive"
   ,processP_name = "grip" # measure name
   ,processP = "gripavg" # Mplus variable
   ,processC_name = 'bnt'# measure name
   ,processC = 'cts_bname'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -120,8 +120,8 @@ make_script_waves(
   ,processC_name = 'bostonstorydelay'# measure name
   ,processC = 'cts_ebdr'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -135,8 +135,8 @@ make_script_waves(
   ,processC_name = 'bostonstorydelay'# measure name
   ,processC = 'cts_ebdr'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -153,8 +153,8 @@ make_script_waves(
   ,processC_name = 'bostonstoryimm'# measure name
   ,processC = 'cts_ebmt'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -168,8 +168,8 @@ make_script_waves(
   ,processC_name = 'bostonstoryimm'# measure name
   ,processC = 'cts_ebmt'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -189,7 +189,7 @@ make_script_waves(
   ,processC = 'cts_idea'# Mplus variable
   ,covariates = "aehplus"
   ,least_waves = "9"
-  ,most_waves = "12"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -203,8 +203,8 @@ make_script_waves(
   ,processC_name = 'complexidea'# measure name
   ,processC = 'cts_idea'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -221,8 +221,8 @@ make_script_waves(
   ,processC_name = 'digitordering'# measure name
   ,processC = 'cts_doperf'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -236,8 +236,8 @@ make_script_waves(
   ,processC_name = 'digitordering'# measure name
   ,processC = 'cts_doperf'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -254,8 +254,8 @@ make_script_waves(
   ,processC_name = 'digitsf'# measure name
   ,processC = 'cts_df'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -269,8 +269,8 @@ make_script_waves(
   ,processC_name = 'digitsf'# measure name
   ,processC = 'cts_df'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -287,8 +287,8 @@ make_script_waves(
   ,processC_name = 'digitsb'# measure name
   ,processC = 'cts_db'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -302,8 +302,8 @@ make_script_waves(
   ,processC_name = 'digitsb'# measure name
   ,processC = 'cts_db'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -320,8 +320,8 @@ make_script_waves(
   ,processC_name = 'lineorientation'# measure name
   ,processC = 'cts_lopair'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -335,8 +335,8 @@ make_script_waves(
   ,processC_name = 'lineorientation'# measure name
   ,processC = 'cts_lopair'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -353,8 +353,8 @@ make_script_waves(
   ,processC_name = 'lmdelayed'# measure name
   ,processC = 'cts_delay'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -368,8 +368,8 @@ make_script_waves(
   ,processC_name = 'lmdelayed'# measure name
   ,processC = 'cts_delay'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -387,8 +387,8 @@ make_script_waves(
   ,processC_name = 'lmimmed'# measure name
   ,processC = 'cts_story'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -402,8 +402,8 @@ make_script_waves(
   ,processC_name = 'lmimmed'# measure name
   ,processC = 'cts_story'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -420,8 +420,8 @@ make_script_waves(
   ,processC_name = 'matrices'# measure name
   ,processC = 'cts_pmat'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -435,8 +435,8 @@ make_script_waves(
   ,processC_name = 'matrices'# measure name
   ,processC = 'cts_pmat'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -453,8 +453,8 @@ make_script_waves(
   ,processC_name = 'wordlistimm'# measure name
   ,processC = 'cts_wli'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -468,8 +468,8 @@ make_script_waves(
   ,processC_name = 'wordlistimm'# measure name
   ,processC = 'cts_wli'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -485,8 +485,8 @@ make_script_waves(
   ,processC_name = 'wordlistdelayed'# measure name
   ,processC = 'cts_wlii'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -500,8 +500,8 @@ make_script_waves(
   ,processC_name = 'wordlistdelayed'# measure name
   ,processC = 'cts_wlii'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -517,8 +517,8 @@ make_script_waves(
   ,processC_name = 'wordlistrec'# measure name
   ,processC = 'cts_wliii'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -532,8 +532,8 @@ make_script_waves(
   ,processC_name = 'wordlistrec'# measure name
   ,processC = 'cts_wliii'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -549,8 +549,8 @@ make_script_waves(
   ,processC_name = 'categories'# measure name
   ,processC = 'cts_catflu'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -564,8 +564,8 @@ make_script_waves(
   ,processC_name = 'categories'# measure name
   ,processC = 'cts_catflu'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -582,8 +582,8 @@ make_script_waves(
   ,processC_name = 'digitsymbol'# measure name
   ,processC = 'cts_sdmt'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -597,8 +597,8 @@ make_script_waves(
   ,processC_name = 'digitsymbol'# measure name
   ,processC = 'cts_sdmt'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -615,8 +615,8 @@ make_script_waves(
   ,processC_name = 'mmse'# measure name
   ,processC = 'cts_mmse30'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -630,8 +630,8 @@ make_script_waves(
   ,processC_name = 'mmse'# measure name
   ,processC = 'cts_mmse30'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = FALSE
@@ -648,8 +648,8 @@ make_script_waves(
   ,processC_name = 'nart'# measure name
   ,processC = 'cts_read_nart'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -663,8 +663,8 @@ make_script_waves(
   ,processC_name = 'nart'# measure name
   ,processC = 'cts_read_nart'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "10"
+  ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
   ,run_models = TRUE
@@ -789,7 +789,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -824,7 +824,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -857,7 +857,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -890,7 +890,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -923,7 +923,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -956,7 +956,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -989,7 +989,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -1038,7 +1038,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
@@ -1089,12 +1089,12 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
   prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/physical_wordlistimm"
+  ,place_in = "studies/radc/outputs/physical_cognitive/fev_wordlistimm"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistimm'# measure name
@@ -1107,7 +1107,7 @@ make_script_waves(
   ,run_models = TRUE
 )
 
-#### Grip - word list delayed recall ####
+#### fev - word list delayed recall ####
 
 make_script_waves(
   prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
@@ -1121,7 +1121,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -1139,7 +1139,7 @@ make_script_waves(
   ,run_models = TRUE
 )
 
-#### Grip - word list recognition ####
+#### Fev - word list recognition ####
 
 make_script_waves(
   prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
@@ -1153,7 +1153,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -1171,7 +1171,7 @@ make_script_waves(
   ,run_models = TRUE
 )
 
-#### Grip - Categories ####
+#### FEV - Categories ####
 
 make_script_waves(
   prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
@@ -1185,7 +1185,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -1204,7 +1204,7 @@ make_script_waves(
 )
 
 
-#### Grip - Digit Symbol #####
+#### Fev - Digit Symbol #####
 
 make_script_waves(
   prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
@@ -1218,7 +1218,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -1237,7 +1237,7 @@ make_script_waves(
 )
 
 
-#### Grip - MMSE ####
+#### fev - MMSE ####
 
 make_script_waves(
   prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
@@ -1251,7 +1251,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
@@ -1284,7 +1284,7 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 make_script_waves(
