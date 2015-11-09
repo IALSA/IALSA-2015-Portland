@@ -388,6 +388,8 @@ DEFINE:
 ANALYSIS:
 TYPE = RANDOM;
 COVERAGE=.00;
+  H1ITERATIONS=5000;
+  MITERATIONS=2000;
 MODEL:
 !first-level equation
 	ip sp | p1-p10 AT time1-time10;

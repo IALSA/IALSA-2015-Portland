@@ -1,6 +1,6 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-11/06/2015   5:24 PM
+11/08/2015   3:45 PM
 
 INPUT INSTRUCTIONS
 
@@ -394,6 +394,9 @@ INPUT INSTRUCTIONS
   ANALYSIS:
   TYPE = RANDOM;
   COVERAGE=.00;
+  H1ITERATIONS=5000;
+   MITERATIONS=2000;
+
   MODEL:
   !first-level equation
   	ip sp | p1-p10 AT time1-time10;
@@ -472,14 +475,14 @@ Estimator                                                      MLR
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
 Convergence criterion                                    0.100D-05
-Maximum number of EM iterations                                500
+Maximum number of EM iterations                               2000
 Convergence criteria for the EM algorithm
   Loglikelihood change                                   0.100D-02
   Relative loglikelihood change                          0.100D-05
   Derivative                                             0.100D-03
 Minimum variance                                         0.100D-03
 Maximum number of steepest descent iterations                   20
-Maximum number of iterations for H1                           2000
+Maximum number of iterations for H1                           5000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
@@ -614,7 +617,269 @@ Minimum covariance coverage value   0.000
 
 SAMPLE STATISTICS
 
-     NO CONVERGENCE IN THE MISSING DATA ESTIMATION OF THE SAMPLE STATISTICS.
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1            216.225       211.899       198.191       195.067       199.463
+
+
+           Means
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ 1            197.346       195.157       177.291       173.417       174.197
+
+
+           Means
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1             24.447        24.093        23.907        23.993        22.919
+
+
+           Means
+              C6            C7            C8            C9            C10
+              ________      ________      ________      ________      ________
+ 1             22.656        22.189        22.153        21.158        19.786
+
+
+           Means
+              EDUC          BAGE          HEIGHT        SMOKHIST      DIAB
+              ________      ________      ________      ________      ________
+ 1              8.369        -0.321         0.025         0.550         0.197
+
+
+           Means
+              CARDIO
+              ________
+ 1              0.155
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1          4106.010
+ P2          3383.790      3432.807
+ P3          3309.872      3168.837      3999.275
+ P4          3488.434      3329.119      3308.154      4079.577
+ P5          3405.980      3290.006      3247.791      3598.885      3710.987
+ P6          3785.278      3437.618      3255.201      3425.202      3333.214
+ P7          2504.738      2593.358      2739.987      2922.138      2643.109
+ P8          3694.145      3320.380      3016.039      3887.463      3444.195
+ P9          3614.506      3175.388      3009.654      3445.709      3139.962
+ P10         3752.985      3335.959      3444.075      3497.658      3415.382
+ C1            92.440        95.224       108.027       102.078       114.151
+ C2           102.107        96.751        97.625       115.922       134.348
+ C3           111.379       103.567       110.332       121.071       125.480
+ C4            98.472        88.061       132.568       116.521       110.912
+ C5           172.209       151.941       158.516       145.065       163.914
+ C6           119.744       118.629       122.005       138.272       130.582
+ C7           133.885       121.972       125.910       118.496       128.763
+ C8            86.560        66.137        72.772       103.491        87.735
+ C9            99.459        88.289        80.600       109.649       120.159
+ C10          242.050       221.139       225.002       276.539       260.623
+ EDUC          52.394        53.252        57.450        43.239        63.407
+ BAGE        -147.237      -129.656      -102.160      -176.123      -163.533
+ HEIGHT         1.429         1.438         1.583         1.926         1.457
+ SMOKHIST      -4.876        -3.666         1.048        -2.514        -1.097
+ DIAB          -3.998        -3.209        -2.197        -1.435        -2.780
+ CARDIO        -2.090        -2.522        -1.905        -3.119        -3.704
+
+
+           Covariances
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6          4281.935
+ P7          2916.144      3527.767
+ P8          3610.414      2657.477      4613.432
+ P9          3870.022      3001.052      3552.968      4059.920
+ P10         3983.652      2965.871      3640.982      3935.271      4610.534
+ C1           141.904       175.090       117.776       137.566       117.170
+ C2           128.619       136.478       126.354       116.445       144.212
+ C3           153.135        87.450       121.253       162.250       148.365
+ C4           117.685       165.248       134.330       143.207       161.464
+ C5           214.580       235.239       144.801       218.423       197.243
+ C6           156.269       159.359       124.554       172.987       142.071
+ C7           192.894       132.052       129.325       194.581       183.430
+ C8           100.089        84.552       106.931       120.123       130.694
+ C9           120.259        92.058        94.146       129.425       140.023
+ C10          315.637       201.477       263.582       276.482       283.103
+ EDUC          46.273        24.444        32.384        56.204        54.455
+ BAGE        -164.056      -224.343      -117.628      -198.839      -185.694
+ HEIGHT         1.303         0.907         1.661         1.471         1.535
+ SMOKHIST      -3.124         1.070        -2.899        -5.446         1.364
+ DIAB           1.130        -1.949        -2.061        -2.187        -4.658
+ CARDIO        -2.871        -0.431        -8.134        -4.087        -3.748
+
+
+           Covariances
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1            57.988
+ C2            47.406        59.684
+ C3            43.493        46.003        59.891
+ C4            49.750        51.295        50.616        67.436
+ C5            41.520        42.014        42.673        47.756        63.229
+ C6            43.453        45.929        46.566        51.406        44.903
+ C7            43.301        44.364        52.095        53.102        50.024
+ C8            34.193        38.920        40.057        44.294        41.642
+ C9            41.548        44.402        42.146        46.379        41.313
+ C10           36.481        42.791        49.914        47.021        44.032
+ EDUC           8.800         7.804         6.127         5.639         5.733
+ BAGE          -9.451       -12.656       -11.201       -14.881       -16.125
+ HEIGHT         0.190         0.186         0.156         0.155         0.148
+ SMOKHIST       0.120         0.345        -0.003         0.610         0.434
+ DIAB           0.194         0.007         0.155         0.214        -0.161
+ CARDIO        -0.018        -0.023        -0.103        -0.026        -0.058
+
+
+           Covariances
+              C6            C7            C8            C9            C10
+              ________      ________      ________      ________      ________
+ C6            58.259
+ C7            50.268        63.315
+ C8            44.380        44.039        49.139
+ C9            46.449        47.206        42.048        59.200
+ C10           49.199        49.457        42.719        44.848        68.554
+ EDUC           7.393         5.700         4.939         7.007         6.831
+ BAGE         -13.935       -13.813        -6.078       -12.988       -18.926
+ HEIGHT         0.217         0.152         0.174         0.240         0.183
+ SMOKHIST      -0.031         0.173         0.374         0.423         0.538
+ DIAB           0.110         0.154        -0.091         0.005         0.561
+ CARDIO        -0.045        -0.383        -0.214        -0.056        -0.234
+
+
+           Covariances
+              EDUC          BAGE          HEIGHT        SMOKHIST      DIAB
+              ________      ________      ________      ________      ________
+ EDUC          14.291
+ BAGE           1.359        51.990
+ HEIGHT         0.094        -0.089         0.006
+ SMOKHIST      -0.242        -0.662         0.001         0.306
+ DIAB          -0.283        -0.163        -0.001        -0.005         0.158
+ CARDIO        -0.012         0.283         0.000         0.008        -0.005
+
+
+           Covariances
+              CARDIO
+              ________
+ CARDIO         0.131
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.901         1.000
+ P3             0.817         0.855         1.000
+ P4             0.852         0.890         0.819         1.000
+ P5             0.873         0.922         0.843         0.925         1.000
+ P6             0.903         0.897         0.787         0.820         0.836
+ P7             0.658         0.745         0.729         0.770         0.731
+ P8             0.849         0.834         0.702         0.896         0.832
+ P9             0.885         0.851         0.747         0.847         0.809
+ P10            0.863         0.839         0.802         0.806         0.826
+ C1             0.189         0.213         0.224         0.210         0.246
+ C2             0.206         0.214         0.200         0.235         0.285
+ C3             0.225         0.228         0.225         0.245         0.266
+ C4             0.187         0.183         0.255         0.222         0.222
+ C5             0.338         0.326         0.315         0.286         0.338
+ C6             0.245         0.265         0.253         0.284         0.281
+ C7             0.263         0.262         0.250         0.233         0.266
+ C8             0.193         0.161         0.164         0.231         0.205
+ C9             0.202         0.196         0.166         0.223         0.256
+ C10            0.456         0.456         0.430         0.523         0.517
+ EDUC           0.216         0.240         0.240         0.179         0.275
+ BAGE          -0.319        -0.307        -0.224        -0.382        -0.372
+ HEIGHT         0.287         0.316         0.322         0.388         0.308
+ SMOKHIST      -0.138        -0.113         0.030        -0.071        -0.033
+ DIAB          -0.157        -0.138        -0.087        -0.056        -0.115
+ CARDIO        -0.090        -0.119        -0.083        -0.135        -0.168
+
+
+           Correlations
+              P6            P7            P8            P9            P10
+              ________      ________      ________      ________      ________
+ P6             1.000
+ P7             0.750         1.000
+ P8             0.812         0.659         1.000
+ P9             0.928         0.793         0.821         1.000
+ P10            0.897         0.735         0.789         0.910         1.000
+ C1             0.285         0.387         0.228         0.284         0.227
+ C2             0.254         0.297         0.241         0.237         0.275
+ C3             0.302         0.190         0.231         0.329         0.282
+ C4             0.219         0.339         0.241         0.274         0.290
+ C5             0.412         0.498         0.268         0.431         0.365
+ C6             0.313         0.352         0.240         0.356         0.274
+ C7             0.370         0.279         0.239         0.384         0.339
+ C8             0.218         0.203         0.225         0.269         0.275
+ C9             0.239         0.201         0.180         0.264         0.268
+ C10            0.583         0.410         0.469         0.524         0.504
+ EDUC           0.187         0.109         0.126         0.233         0.212
+ BAGE          -0.348        -0.524        -0.240        -0.433        -0.379
+ HEIGHT         0.256         0.197         0.315         0.297         0.291
+ SMOKHIST      -0.086         0.033        -0.077        -0.155         0.036
+ DIAB           0.043        -0.082        -0.076        -0.086        -0.172
+ CARDIO        -0.121        -0.020        -0.331        -0.177        -0.152
+
+
+           Correlations
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.806         1.000
+ C3             0.738         0.769         1.000
+ C4             0.796         0.809         0.796         1.000
+ C5             0.686         0.684         0.693         0.731         1.000
+ C6             0.748         0.779         0.788         0.820         0.740
+ C7             0.715         0.722         0.846         0.813         0.791
+ C8             0.641         0.719         0.738         0.769         0.747
+ C9             0.709         0.747         0.708         0.734         0.675
+ C10            0.579         0.669         0.779         0.692         0.669
+ EDUC           0.306         0.267         0.209         0.182         0.191
+ BAGE          -0.172        -0.227        -0.201        -0.251        -0.281
+ HEIGHT         0.321         0.310         0.260         0.243         0.239
+ SMOKHIST       0.029         0.081        -0.001         0.134         0.099
+ DIAB           0.064         0.002         0.050         0.066        -0.051
+ CARDIO        -0.006        -0.008        -0.037        -0.009        -0.020
+
+
+           Correlations
+              C6            C7            C8            C9            C10
+              ________      ________      ________      ________      ________
+ C6             1.000
+ C7             0.828         1.000
+ C8             0.829         0.790         1.000
+ C9             0.791         0.771         0.780         1.000
+ C10            0.778         0.751         0.736         0.704         1.000
+ EDUC           0.256         0.189         0.186         0.241         0.218
+ BAGE          -0.253        -0.241        -0.120        -0.234        -0.317
+ HEIGHT         0.367         0.247         0.320         0.401         0.285
+ SMOKHIST      -0.007         0.039         0.096         0.100         0.118
+ DIAB           0.036         0.049        -0.033         0.002         0.170
+ CARDIO        -0.016        -0.133        -0.084        -0.020        -0.078
+
+
+           Correlations
+              EDUC          BAGE          HEIGHT        SMOKHIST      DIAB
+              ________      ________      ________      ________      ________
+ EDUC           1.000
+ BAGE           0.050         1.000
+ HEIGHT         0.321        -0.159         1.000
+ SMOKHIST      -0.116        -0.166         0.033         1.000
+ DIAB          -0.188        -0.057        -0.040        -0.023         1.000
+ CARDIO        -0.009         0.108         0.009         0.042        -0.033
+
+
+           Correlations
+              CARDIO
+              ________
+ CARDIO         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -11843.351
 
 
 UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
@@ -680,20 +945,6 @@ UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
 
 
 THE MODEL ESTIMATION TERMINATED NORMALLY
-
-     THE MISSING DATA EM ALGORITHM USED TO COMPUTE SAMPLE STATISTICS HAS NOT
-     CONVERGED WITH RESPECT TO THE PARAMETER ESTIMATES.  THIS MAY BE DUE TO
-     SPARSE DATA LEADING TO A SINGULAR COVARIANCE MATRIX ESTIMATE.  INCREASE
-     THE NUMBER OF EM ITERATIONS.
-
-     NOTE THAT THE NUMBER OF H1 PARAMETERS (MEANS, VARIANCES, AND
-     COVARIANCES) IS GREATER THAN THE NUMBER OF OBSERVATIONS.
-               NUMBER OF H1 PARAMETERS : 377
-               NUMBER OF OBSERVATIONS  : 309
-
-     THE H1 MODEL ESTIMATION DID NOT CONVERGE.  CHI-SQUARE TEST AND SAMPLE STATISTICS COULD NOT
-     BE COMPUTED.  INCREASE THE NUMBER OF H1ITERATIONS.
-
 
 
 
@@ -1063,9 +1314,17 @@ The following plots are available:
   Scatterplots (sample values, estimated factor scores)
   Latent variable distribution plots
 
-     Beginning Time:  17:24:52
-        Ending Time:  17:26:54
-       Elapsed Time:  00:02:02
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\ilife admin\documents\github\ialsa-2015-portland\studies\radc\outputs\physical_cognitiv
+
+     Beginning Time:  15:45:00
+        Ending Time:  15:45:29
+       Elapsed Time:  00:00:29
 
 
 

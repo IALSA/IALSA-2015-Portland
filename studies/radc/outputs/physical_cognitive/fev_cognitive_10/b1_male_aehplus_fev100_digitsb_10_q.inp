@@ -334,27 +334,27 @@ DEFINE:
 	p20=fev_19*100;
 	p21=fev_20*100;
 !assign variables to the process c
-	c1= cts_delay_00;
-	c2= cts_delay_01;
-	c3= cts_delay_02;
-	c4= cts_delay_03;
-	c5= cts_delay_04;
-	c6= cts_delay_05;
-	c7= cts_delay_06;
-	c8= cts_delay_07;
-	c9= cts_delay_08;
-	c10=cts_delay_09;
-	c11=cts_delay_10;
-	c12=cts_delay_11;
-	c13=cts_delay_12;
-	c14=cts_delay_13;
-	c15=cts_delay_14;
-	c16=cts_delay_15;
-	c17=cts_delay_16;
-	c18=cts_delay_17;
-	c19=cts_delay_18;
-	c20=cts_delay_19;
-	c21=cts_delay_20;
+	c1= cts_db_00;
+	c2= cts_db_01;
+	c3= cts_db_02;
+	c4= cts_db_03;
+	c5= cts_db_04;
+	c6= cts_db_05;
+	c7= cts_db_06;
+	c8= cts_db_07;
+	c9= cts_db_08;
+	c10=cts_db_09;
+	c11=cts_db_10;
+	c12=cts_db_11;
+	c13=cts_db_12;
+	c14=cts_db_13;
+	c15=cts_db_14;
+	c16=cts_db_15;
+	c17=cts_db_16;
+	c18=cts_db_17;
+	c19=cts_db_18;
+	c20=cts_db_19;
+	c21=cts_db_20;
 !assign variables to time points
 	time1= T0;
 	time2= T1;
@@ -388,12 +388,10 @@ DEFINE:
 ANALYSIS:
 TYPE = RANDOM;
 COVERAGE=.00;
-  H1ITERATIONS=5000;
-  MITERATIONS=2000;
 MODEL:
 !first-level equation
 	ip sp | p1-p10 AT time1-time10;
-	ic sc | c1-c10 AT time1-time10;
+	ic sc qc| c1-c10 AT time1-time10;
 !variance of the first-level terms
 	ip (v_ip);
 	sp (v_sp);
@@ -407,7 +405,7 @@ MODEL:
 	sp WITH sc (c_spsc);
 	ic WITH sc (c_icsc);
 !second-level equation
-	ip sp ic sc ON Bage educ height smokhist diab cardio;
+	ip sp ic sc qc ON Bage educ height smokhist diab cardio;
 !residual means
 	p1-p10 (res_p);
 	c1-c10 (res_c);
