@@ -1,6 +1,6 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-11/06/2015   9:00 PM
+11/09/2015   8:30 AM
 
 INPUT INSTRUCTIONS
 
@@ -394,6 +394,8 @@ INPUT INSTRUCTIONS
   ANALYSIS:
   TYPE = RANDOM;
   COVERAGE=.00;
+  H1ITERATIONS=5000;
+  MITERATIONS=2000;
   MODEL:
   !first-level equation
   	ip sp | p1-p11 AT time1-time11;
@@ -472,14 +474,14 @@ Estimator                                                      MLR
 Information matrix                                        OBSERVED
 Maximum number of iterations                                   100
 Convergence criterion                                    0.100D-05
-Maximum number of EM iterations                                500
+Maximum number of EM iterations                               2000
 Convergence criteria for the EM algorithm
   Loglikelihood change                                   0.100D-02
   Relative loglikelihood change                          0.100D-05
   Derivative                                             0.100D-03
 Minimum variance                                         0.100D-03
 Maximum number of steepest descent iterations                   20
-Maximum number of iterations for H1                           2000
+Maximum number of iterations for H1                           5000
 Convergence criterion for H1                             0.100D-03
 Optimization algorithm                                         EMA
 
@@ -1365,9 +1367,9 @@ The following plots are available:
   Scatterplots (sample values, estimated factor scores)
   Latent variable distribution plots
 
-     Beginning Time:  21:00:27
-        Ending Time:  21:00:49
-       Elapsed Time:  00:00:22
+     Beginning Time:  08:30:22
+        Ending Time:  08:30:49
+       Elapsed Time:  00:00:27
 
 
 
