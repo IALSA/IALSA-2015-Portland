@@ -6,7 +6,7 @@ cat("\f")
 library(dplyr)
 library(tidyr)
 library(ggplot2)
-
+library(MplusAutomation)
 
 pathRoot <- getwd()
 pathFolder <- file.path(pathRoot,"studies/radc/outputs/physical_cognitive")
@@ -1302,6 +1302,5 @@ make_script_waves(
   ,run_models = TRUE
 )
 
-
-
+MplusAutomation::runModels("C:/Users/iLife Admin/Documents/GitHub/IALSA-2015-Portland/studies/radc/outputs/physical_cognitive")
 
