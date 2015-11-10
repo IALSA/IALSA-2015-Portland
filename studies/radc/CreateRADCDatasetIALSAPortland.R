@@ -173,6 +173,12 @@ table(radcMAP$physclean)
 #filter out individuals without sufficient physical data
 radcMAPc<-radcMAP[radcMAP$physclean=="keep",]
 
+radcMAPc$nofev<-NULL
+radcMAPc$nogait<-NULL
+radcMAPc$nogrip<-NULL
+radcMAPc$nophys<-NULL
+radcMAPc$physclean<-NULL
+
 #check
 length(radcMAPc$projid)
 
@@ -196,12 +202,12 @@ radcMAPc[radcMAPc==-9999]<-NA
 
 
 #identify rows with missing covariates
-which(is.na(radcMAPcl$dm_cum.00))
-which(is.na(radcMAPcl$heart_cum.00))
-which(is.na(radcMAPcl$educ))
-which(is.na(radcMAPcl$age_bl))
-which(is.na(radcMAPcl$htm.00))
-which(is.na(radcMAPcl$smoking))
+which(is.na(radcMAPc$dm_cum.00))
+which(is.na(radcMAPc$heart_cum.00))
+which(is.na(radcMAPc$educ))
+which(is.na(radcMAPc$age_bl))
+which(is.na(radcMAPc$htm.00))
+which(is.na(radcMAPc$smoking))
 
 #removing rows with missing covariates
 radcMAPcl<- radcMAPc[-c(32,36,78,142,196,266,336,339,342,359,407,527,614,736,748,941,943,1222),]
@@ -360,8 +366,9 @@ table(radcMAPcl$msex)
 ##table(radcMAPcl$nofev)
 ##which(radcMAPcl$nofev=="missing")
 
+path<-"C:/Users/Cassandra/Desktop/RADC Portland Workshop/brown/Physical X Physical/Cleaned data models"
 ## write out the data to a .dat file
-write.table(radcMAPcl, file=paste0(pathFile,"/studies/radc/unshared/radcMAPclean_wide.dat"), na='-9999', row.names=F, col.names=F)
+write.table(radcMAPcl, file=paste0(pathFile,"/radcMAPclean_wide2.dat"), na='-9999', row.names=F, col.names=F)
 
 
 ### write radcMAP to long

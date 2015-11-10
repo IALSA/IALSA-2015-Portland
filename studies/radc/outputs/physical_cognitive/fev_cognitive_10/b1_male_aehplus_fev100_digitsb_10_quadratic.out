@@ -1,6 +1,6 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-11/08/2015   2:52 PM
+11/10/2015   1:39 AM
 
 INPUT INSTRUCTIONS
 
@@ -1977,17 +1977,9 @@ TECHNICAL 1 OUTPUT
  1              0.500         0.500         0.500
 
 
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    c:\users\cassandra\documents\github\ialsa-2015-portland\studies\radc\outputs\physical_cognitive\
-
-     Beginning Time:  14:52:50
-        Ending Time:  15:57:59
-       Elapsed Time:  01:05:09
+     Beginning Time:  01:39:47
+        Ending Time:  09:08:24
+       Elapsed Time:  07:28:37
 
 
 

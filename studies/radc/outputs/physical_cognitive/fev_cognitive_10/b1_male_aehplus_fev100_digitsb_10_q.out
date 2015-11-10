@@ -1,6 +1,6 @@
 Mplus VERSION 7.3
 MUTHEN & MUTHEN
-11/08/2015   4:15 PM
+11/10/2015   1:04 AM
 
 INPUT INSTRUCTIONS
 
@@ -1351,17 +1351,9 @@ The following plots are available:
   Scatterplots (sample values, estimated factor scores)
   Latent variable distribution plots
 
-DIAGRAM INFORMATION
-
-  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
-  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
-
-  Diagram output
-    c:\users\ilife admin\documents\github\ialsa-2015-portland\studies\radc\outputs\physical_cognitiv
-
-     Beginning Time:  16:15:17
-        Ending Time:  16:23:37
-       Elapsed Time:  00:08:20
+     Beginning Time:  01:04:51
+        Ending Time:  01:39:44
+       Elapsed Time:  00:34:53
 
 
 
