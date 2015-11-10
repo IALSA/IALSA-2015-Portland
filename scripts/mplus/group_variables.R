@@ -7,6 +7,11 @@ admin <- c("software",  "version", "date", "time",
   "physical_construct","cognitive_construct", "physical_measure", "cognitive_measure",
   "converged")
 
+model_id <- c("study_name","model_number","subgroup","model_type",
+              "physical_measure", "cognitive_measure", "has_converged",
+              "trust_all","mistrust", "covar_covered")
+
+
 model_fit <- c("subject_count", "wave_count", "datapoint_count", "parameter_count",
   "LL", "aic", "bic", "adj_bic", "aaic",
   "output_file", "data_file")
