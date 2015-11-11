@@ -1,9 +1,7 @@
 TITLE:
 Your new title
-
 DATA:
 File = radcMAPclean_wide.dat;
-
 VARIABLE:
 Names are
 	projid study_x scaled_to_x agreeableness conscientiousness extraversion
@@ -292,23 +290,19 @@ Names are
 	wtkg_03 wtkg_04 wtkg_05 wtkg_06 wtkg_07 wtkg_08 wtkg_09 wtkg_10 wtkg_11 wtkg_12
 	wtkg_13 wtkg_14 wtkg_15 wtkg_16 wtkg_17 wtkg_18 wtkg_19 wtkg_20 T0 T1 T2 T3 T4
 	T5 T6 T7 T8 T9 T10 T11 T12 T13 T14 T15 T16 T17 T18 T19 T20;
-
 Missing are all (-9999);
-
 USEVAR are
 !define the variables used in the analysis
-	Educ time1-timeXX
-	p1-pXX
-	c1-cXX
+	Educ time1-time10
+	p1-p10
+	c1-c10
 	Bage Height smokhist diab cardio;
-
 TSCORES are
 !define the time points
-	time1-timeXX;
-
+	time1-time10;
 USEOBSERVATIONS are
 !select a subset of observations
-	msex EQ XX and
+	msex EQ 0 and
 	dementia_00 NE 1 and dementia_01 NE 1 and dementia_02 NE 1 and
 	dementia_03 NE 1 and dementia_04 NE 1 and dementia_05 NE 1 and
 	dementia_06 NE 1 and dementia_07 NE 1 and dementia_08 NE 1 and
@@ -316,52 +310,51 @@ USEOBSERVATIONS are
 	dementia_12 NE 1 and dementia_13 NE 1 and dementia_14 NE 1 and
 	dementia_15 NE 1 and dementia_16 NE 1 and dementia_17 NE 1 and
 	dementia_18 NE 1 and dementia_19 NE 1 and dementia_20 NE 1;
-
 DEFINE:
 !assign variables to the process p
-	p1= processP_00*100;
-	p2= processP_01*100;
-	p3= processP_02*100;
-	p4= processP_03*100;
-	p5= processP_04*100;
-	p6= processP_05*100;
-	p7= processP_06*100;
-	p8= processP_07*100;
-	p9= processP_08*100;
-	p10=processP_09*100;
-	p11=processP_10*100;
-	p12=processP_11*100;
-	p13=processP_12*100;
-	p14=processP_13*100;
-	p15=processP_14*100;
-	p16=processP_15*100;
-	p17=processP_16*100;
-	p18=processP_17*100;
-	p19=processP_18*100;
-	p20=processP_19*100;
-	p21=processP_20*100;
+	p1= fev_00*100;
+	p2= fev_01*100;
+	p3= fev_02*100;
+	p4= fev_03*100;
+	p5= fev_04*100;
+	p6= fev_05*100;
+	p7= fev_06*100;
+	p8= fev_07*100;
+	p9= fev_08*100;
+	p10=fev_09*100;
+	p11=fev_10*100;
+	p12=fev_11*100;
+	p13=fev_12*100;
+	p14=fev_13*100;
+	p15=fev_14*100;
+	p16=fev_15*100;
+	p17=fev_16*100;
+	p18=fev_17*100;
+	p19=fev_18*100;
+	p20=fev_19*100;
+	p21=fev_20*100;
 !assign variables to the process c
-	c1= processC_00;
-	c2= processC_01;
-	c3= processC_02;
-	c4= processC_03;
-	c5= processC_04;
-	c6= processC_05;
-	c7= processC_06;
-	c8= processC_07;
-	c9= processC_08;
-	c10=processC_09;
-	c11=processC_10;
-	c12=processC_11;
-	c13=processC_12;
-	c14=processC_13;
-	c15=processC_14;
-	c16=processC_15;
-	c17=processC_16;
-	c18=processC_17;
-	c19=processC_18;
-	c20=processC_19;
-	c21=processC_20;
+	c1= cts_story_00;
+	c2= cts_story_01;
+	c3= cts_story_02;
+	c4= cts_story_03;
+	c5= cts_story_04;
+	c6= cts_story_05;
+	c7= cts_story_06;
+	c8= cts_story_07;
+	c9= cts_story_08;
+	c10=cts_story_09;
+	c11=cts_story_10;
+	c12=cts_story_11;
+	c13=cts_story_12;
+	c14=cts_story_13;
+	c15=cts_story_14;
+	c16=cts_story_15;
+	c17=cts_story_16;
+	c18=cts_story_17;
+	c19=cts_story_18;
+	c20=cts_story_19;
+	c21=cts_story_20;
 !assign variables to time points
 	time1= T0;
 	time2= T1;
@@ -387,23 +380,18 @@ DEFINE:
 !define the second-level terms
 	Bage=age_bl-80;
 	Educ=educ-7;
-	Height=htm_00-1.72;
+	Height=htm_00-1.60;
 	SmokHist=smoking;
 	Cardio=heart_cum_00;
 	Diab=dm_cum_00;
 		!BageEduc=Bage*Educ;
-
-
 ANALYSIS:
 TYPE = RANDOM;
 COVERAGE=.00;
-H1ITERATIONS=5000;
-MITERATIONS=2000;
-
 MODEL:
 !first-level equation
-	ip sp | p1-pXX AT time1-timeXX;
-	ic sc | c1-cXX AT time1-timeXX;
+	ip sp | p1-p10 AT time1-time10;
+	ic sc | c1-c10 AT time1-time10;
 !variance of the first-level terms
 	ip (v_ip);
 	sp (v_sp);
@@ -419,11 +407,10 @@ MODEL:
 !second-level equation
 	ip sp ic sc ON Bage educ height smokhist diab cardio;
 !residual means
-	p1-pXX (res_p);
-	c1-cXX (res_c);
+	p1-p10 (res_p);
+	c1-c10 (res_c);
 !Paired covariances constrained to be equal across t
-	p1-pXX pwith c1-cXX(res_cov);
-
+	p1-p10 pwith c1-c10(res_cov);
 MODEL CONSTRAINT:
 !assigns labels to new parameters;
 	NEW r_ipic;
@@ -433,6 +420,5 @@ MODEL CONSTRAINT:
 	r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
 	r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
 	r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
-
 OUTPUT: sampstat cinterval;
 PLOT: Type is Plot1 Plot2 Plot3;
