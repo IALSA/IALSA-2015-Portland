@@ -1,21 +1,3 @@
-##Scatters of Factor Scores
-The graphs could be viewed grouped by process pairs for [females](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd_female/by_process_pair.md) and [males](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd_male/by_process_pair.md). [Add an entry](https://github.com/IALSA/IALSA-2015-Portland/edit/master/projects/physical/README.md)
-
-###Grip-Pulmonary
- See [issue #101](https://github.com/IALSA/IALSA-2015-Portland/issues/101) that tracks the analysis of this pair
- 
-|STUDY|female     |female| male     | male |
-|-----|-----------|------|----------|------|  
-|     |intercept  |slope | intercept| slope|  
-|EAS  |seems ok |   |   |   |  
-|ELSA |   |   |   |   |  
-|HRS  |   |   |   |   |  
-|ILSE |   |   |   |   |  
-|LASA |   |   |   |   |  
-|NUAGE|   |   |   |   |  
-|OCTO |   |   |   |   |  
-|RADC |   |   |   |   |  
-|SATSA|   |   |   |   |   
 
 
 ##Review  
@@ -100,6 +82,25 @@ At this moment the project includes 54 models from 9 studies. See the list of su
 | OCTO |grip|pef|gait| 
 | RADC |grip|fev|gait|  
 | SATSA|grip|pef|gait|  
+
+##Scatters of Factor Scores
+The graphs could be viewed grouped by process pairs for [females](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd_female/by_process_pair.md) and [males](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/physical/scatter_matrix/figure_rmd_male/by_process_pair.md). [Add an entry](https://github.com/IALSA/IALSA-2015-Portland/edit/master/projects/physical/README.md)
+
+###Grip-Pulmonary
+ See [issue #101](https://github.com/IALSA/IALSA-2015-Portland/issues/101) that tracks the analysis of this pair
+ 
+|STUDY|female     |female| male     | male |
+|-----|-----------|------|----------|------|  
+|     |intercept  |slope | intercept| slope|  
+|EAS  |seems ok |   |   |   |  
+|ELSA |   |   |   |   |  
+|HRS  |   |   |   |   |  
+|ILSE |   |   |   |   |  
+|LASA |   |   |   |   |  
+|NUAGE|   |   |   |   |  
+|OCTO |   |   |   |   |  
+|RADC |   |   |   |   |  
+|SATSA|   |   |   |   |   
 
 
 
