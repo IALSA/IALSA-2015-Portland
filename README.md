@@ -1,6 +1,6 @@
 
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
-Quick links: [news](#news)  -  [projects](#projects)  -  [tools](#tools)  -  [log](#log)  -  [participants](#participants)  -  [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)[.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)  -  [GSA poster]()
+Quick links: [news](#news)  -  [projects](#projects)  -  [tools](#tools)  -  [log](#log)  -  [participants](#participants)  -  [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)  -  [GSA poster]()
 #Concurrent decline of body and mind  
 
 IALSA-2015-Portland workshop performs a **coordinated analysis with replication (CAR)** of concomitant decline of physical and cognitive functioning during later adulthood.  
@@ -115,4 +115,6 @@ The agenda and outcomes of each teleconference following the Portland workshop
 
 </br>  
 
-Quick links: [news](#news)  -  [projects](#projects)  -  [tools](#tools)  -  [log](#log)  -  [participants](#participants)  -  [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)[.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
+Quick links: [news](#news)  -  [projects](#projects)  -  [tools](#tools)  -  [log](#log)  -  [participants](#participants)  -  [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)
+
+[edit me](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
