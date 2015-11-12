@@ -1,18 +1,39 @@
 
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)  
+Quick links: [news](#news), [projects](#projects), [tools](#tools), [log](#log), [participants](#participants)  [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
 
-# Concurrent decline of body and mind  
- - [news](#news)
- - [projects](#projects)  
- - [tools](#tools)
- - [log](#log)
- - [participants](#participants)
-  [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
+#Concurrent decline of body and mind  
+
+IALSA-2015-Portland workshop performs a **coordinated analysis with replication (CAR)** of concomitant decline of physical and cognitive functioning during later adulthood.  
+ 
+Submitted models vary in respect to their:  
+ - ```study_name``` - (*e.g.* eas, satsa)  in which it was estimated  
+ - ```model_number```: (u0, u1, u2, b0, b1, b2) alphanumeric of model form (u,b) and shape (int0rcept, s1ope, qua2radic )   
+ - ```subgroup```: (female, male) subsets on which models are estimated    
+ - ```model_type```: (0, a, ae, aeh, aehplus, full), a.k.a. *CovSet*, *Predictor Set* 
+ - ```physical_measure``` - (*e.g.*  grip, gait, pek)    
+ - ```cognitive_measure``` - (*e.g.*  block, digits, animals)   
+
+*Currently, the model space includes linear models only (u1, b1), but other specification will be added as flexibility of reporting system increases*   
+The following fou4 graphs cross-tab the **counts** of submitted models with *Cognitive Measures*:   
+
+ [![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)  
+The numbers in the cells count models of that specification. Each color adds up to 100%. "univar" indicates univariate growth models fitting either cognitive or physical process. 
+ 
+Any model counted in the above graph can be specified with a form nested within the general **specification**:  
+[![general_model_specification](./libs/images/general_model_specification.png)](./reports/model_specification/README.md)  
+</br>
+The **covariance structure** will be given as
+[![general_model_specification](./libs/images/specification_covariance_structure.png)](./reports/model_specification/README.md)  
+For  details see [model specification](./reports/model_specification/README.md).  
+
+
+
 
 ##News
+ -  
  - Scatters of Factor Scores: graphs explained in the [issue #100](https://github.com/IALSA/IALSA-2015-Portland/issues/100)
- - 
  - [Reminder](./projects/physical/reminder_160915.md) has been sent to those who did not yet provided Table 1, measure descriptions, or PxP models.   
  - [Description of measures](./studies/measures.md) have been added. Still many missing item documentations.
  - Announcing [Physical Track](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/announce.md)
@@ -22,22 +43,8 @@
 
 
 
-##Projects
-
-Our current goals include publication of papers investigating the following fi5e associations:  
-
-- Association between changes in [**pulmonary**](./projects/pulmonary/README.md) function and changes in cognitive function
-- Association between changes in [**grip**](./projects/grip/README.md) strength and changes in cognitive function    
-- Association between changes in [**gait**](./projects/gait/README.md) and changes in cognitive function  
-- Associations between [**cognitive**](./projects/cognitive/README.md) variables, within and across domains  
-- Associations among rates of change in [**physical**](./projects/physical/README.md) capability variables 
-
-See [projects](./projects/README.md) page for a detailed overview of these five projects.
-
-
 ##Tools  
 Analytic tools available to the workshop participants include dynamic **reports** and interactive **apps**. Both reports and apps are regenerated with each new influx of model submissions.  
-
 
 ###Reports 
  - [Rename and collapse](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  gives account of how model filename elements (subgroup, model_type, cognitive_measure, etc.) are corrected, renamed, and reclassified. Incorporates the results of Teleconference 1 on Jun 12.    
@@ -55,25 +62,10 @@ Analytic tools available to the workshop participants include dynamic **reports*
 ###Apps  
  - [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)  
  - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
- -  [Bivariate ISR](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/bivariate_ISR) reviews correlations between intercepts (I), slopes (S), and residuals(R) for all models in one study using the same physical measure. 
+
+
 
  
-  
-
-
-##Log 
-
-The agenda and outcomes of each teleconference following the Portland workshop  
- - Announcing [Physical Track](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/announce.md)  
-
- - [Teleconference #3, 10-July-2015](./log.md)
-
- - [Teleconference #2, 26-June-2015](./log.md)
-
- - [Teleconference #1, 12-June-2015](./log.md#New) 
- 
-
-
 
 ## Participants
 | Study | Contact |
@@ -103,31 +95,29 @@ The current repository analyzes the results of the IALSA Analysis Workshop ([pdf
 
 The primary aim of the workshop was to examine associations between changes in physical functioning (i.e., grip strength, pulmonary function, chair stands, walking speed) and cognitive functioning (i.e., measures of speed, memory, reasoning, executive functioning) in multiple-study comparative framework. Bivariate growth processes were estimated to evaluate dynamic associations in change and variation within and across these domains and in relation to sample and individual differences in age, lifestyle, and health outcomes. The results from these analyses will extend recent systematic reviews and meta-analyses (e.g., [Clouston et al., 2012, Epidemiological Reviews](https://www.dropbox.com/s/vfe7u2ez5oxp3ev/Clouston_2013_Epidemiol%20Rev.pdf?dl=0) and will be submitted for publication as a set of independent brief reports, capped by a literature review/overview of analysis and completed with a research synthesis summary.
 
- 
-## About 
- IALSA-2015-Portland workshop performs a **coordinated analysis with replication (CAR)** of concomitant decline of physical and cognitive functioning during later adulthood.  
- 
-Submitted models vary in respect to their:  
- - ```study_name``` - (*e.g.* eas, satsa)  in which it was estimated  
- - ```model_number```: (u0, u1, u2, b0, b1, b2) alphanumeric of model form (u,b) and shape (int0rcept, s1ope, qua2radic )   
- - ```subgroup```: (female, male) subsets on which models are estimated    
- - ```model_type```: (0, a, ae, aeh, aehplus, full), a.k.a. *CovSet*, *Predictor Set* 
- - ```physical_measure``` - (*e.g.*  grip, gait, pek)    
- - ```cognitive_measure``` - (*e.g.*  block, digits, animals)   
+##Projects
 
-*Currently, the model space includes linear models only (u1, b1), but other specification will be added as flexibility of reporting system increases*   
-The following fou4 graphs cross-tab the **counts** of submitted models with *Cognitive Measures*:   
+Our current goals include publication of papers investigating the following fi5e associations:  
 
- [![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)  
-The numbers in the cells count models of that specification. Each color adds up to 100%. "univar" indicates univariate growth models fitting either cognitive or physical process. 
- 
-Any model counted in the above graph can be specified with a form nested within the general **specification**:  
-[![general_model_specification](./libs/images/general_model_specification.png)](./reports/model_specification/README.md)  
-</br>
-The **covariance structure** will be given as
-[![general_model_specification](./libs/images/specification_covariance_structure.png)](./reports/model_specification/README.md)  
-For  details see [model specification](./reports/model_specification/README.md).  
+- Association between changes in [**pulmonary**](./projects/pulmonary/README.md) function and changes in cognitive function
+- Association between changes in [**grip**](./projects/grip/README.md) strength and changes in cognitive function    
+- Association between changes in [**gait**](./projects/gait/README.md) and changes in cognitive function  
+- Associations between [**physical-cognitive**](./projects/physical-cognitive/README.md) variables, within and across domains  
+- Associations among rates of change in [**physical**](./projects/physical/README.md) capability variables 
 
+See [projects](./projects/README.md) page for a detailed overview of these five projects.
+
+
+##Log 
+
+The agenda and outcomes of each teleconference following the Portland workshop  
+ - Announcing [Physical Track](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/announce.md)  
+
+ - [Teleconference #3, 10-July-2015](./log.md)
+
+ - [Teleconference #2, 26-June-2015](./log.md)
+
+ - [Teleconference #1, 12-June-2015](./log.md#New) 
 
 
   
