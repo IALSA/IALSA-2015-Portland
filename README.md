@@ -1,13 +1,16 @@
 
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)  
-Quick links: [news](#news), [projects](#projects), [tools](#tools), [log](#log), [participants](#participants)  [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
+Quick links: [news](#news)  -  [projects](#projects)  -  [tools](#tools)  -  [log](#log)  -  [participants](#participants)  -  [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)[.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
 
 #Concurrent decline of body and mind  
 
 IALSA-2015-Portland workshop performs a **coordinated analysis with replication (CAR)** of concomitant decline of physical and cognitive functioning during later adulthood.  
- 
-Submitted models vary in respect to their:  
+
+The following fou4 graphs cross-tab the **counts** of submitted models with *Cognitive Measures*:   
+
+ [![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)  
+The numbers in the cells count models of that specification. Each color adds up to 100%. "univar" indicates univariate growth models fitting either cognitive or physical process. Submitted models vary in respect to their:  
  - ```study_name``` - (*e.g.* eas, satsa)  in which it was estimated  
  - ```model_number```: (u0, u1, u2, b0, b1, b2) alphanumeric of model form (u,b) and shape (int0rcept, s1ope, qua2radic )   
  - ```subgroup```: (female, male) subsets on which models are estimated    
@@ -15,11 +18,6 @@ Submitted models vary in respect to their:
  - ```physical_measure``` - (*e.g.*  grip, gait, pek)    
  - ```cognitive_measure``` - (*e.g.*  block, digits, animals)   
 
-*Currently, the model space includes linear models only (u1, b1), but other specification will be added as flexibility of reporting system increases*   
-The following fou4 graphs cross-tab the **counts** of submitted models with *Cognitive Measures*:   
-
- [![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)  
-The numbers in the cells count models of that specification. Each color adds up to 100%. "univar" indicates univariate growth models fitting either cognitive or physical process. 
  
 Any model counted in the above graph can be specified with a form nested within the general **specification**:  
 [![general_model_specification](./libs/images/general_model_specification.png)](./reports/model_specification/README.md)  
@@ -32,7 +30,7 @@ For  details see [model specification](./reports/model_specification/README.md).
 
 
 ##News
- -  
+ -  GSA poster presenting developments in the [**physical-cognitive**](./projects/physical-cognitive/README.md) track  
  - Scatters of Factor Scores: graphs explained in the [issue #100](https://github.com/IALSA/IALSA-2015-Portland/issues/100)
  - [Reminder](./projects/physical/reminder_160915.md) has been sent to those who did not yet provided Table 1, measure descriptions, or PxP models.   
  - [Description of measures](./studies/measures.md) have been added. Still many missing item documentations.
