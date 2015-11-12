@@ -1,4 +1,4 @@
-![gsa logo](../../libs/images/gsa_poster_logo.png)  
+[![gsa logo](../../libs/images/gsa_poster_logo.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/README.md)  
 
 ##Multivariate Change in Physical and Cognitive Functioning: Associations in Nine IALSA-Affiliated Longitudinal Studies
 
