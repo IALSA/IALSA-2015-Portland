@@ -1,4 +1,4 @@
-![gsa logo](../../master/libs/images/gsa_poster_logo.png)  
+![gsa logo](../../libs/images/gsa_poster_logo.png)  
 
 ##Multivariate Change in Physical and Cognitive Functioning: Associations in Nine IALSA-Affiliated Longitudinal Studies
 
@@ -52,4 +52,4 @@ Samples:  (Individuals with dementia excluded)
 * Slope-slope associations (S-S) were inconsistent, varying from zero to moderate or high. 
 * Within-person dynamics among time-specific variation (R-R) were mainly not statistically significant. 
 
-![gsa poster table](../../master/projects/physical-cognitive/images/gsa_poster_table.png)
+![gsa poster table](../../projects/physical-cognitive/images/gsa_poster_table.png)
