@@ -21,8 +21,8 @@ source("./reports/physical/scatter_matrix/graph_functions.R")
 
 # @knitr load_data ---------------------------------------
 # load the data collected by ./scripts/mplus/collect_physical.R
-results <- readRDS("./projects/physical/outputs/physical.rds")
-model_list <- readRDS("./projects/physical/outputs/model_list.rds")
+results <- readRDS("./projects/physical-cognitive/outputs/physical-cognitive.rds")
+model_list <- readRDS("./projects/physical-cognitive/outputs/model_list.rds")
 names(model_list) # how each model in the list is described
 # model_list
 
@@ -31,11 +31,11 @@ names(model_list) # how each model in the list is described
 # data for individual model
 dsL <- get_gh5_data(
   file=model_list # list object containing paths to the gh5 files
-  ,study = "radc"
-  ,subgroup = "male"
+  ,study = "hrs"
+  ,subgroup = "female"
   ,model_type = "aehplus"
-  ,process1 = "fev"
-  ,process2 = "gait"
+  ,process1 = "hand"
+  ,process2 = "immediaterecall"
   )
 
 #
@@ -112,7 +112,7 @@ ds_basic <- ds[c(
 
 )]
 
-write.csv(ds_basic,"./reports/physical/fscores_testing/compare_estimates.csv")
+write.csv(ds_basic,"./reports/physical-cognitive/fscores_testing/compare_estimates.csv")
 
 
 
