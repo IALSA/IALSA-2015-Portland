@@ -25,26 +25,27 @@ ds <- ds2 %>% dplyr::filter(model_number %in% c("u0","u2", "u1","b1"))
 # ds[,"pc_CORR_11"] <- round(ds[ ,"pc_CORR_11"], 3)
 # ds[,"pc_CORR_residual"] <- round(ds[ ,"pc_CORR_residual"], 3)
 
+# dsT <- ds[ , c("pc_TAU_00")]
 
 dsT <- ds[ , c(  "study_name", "model_number","subgroup" ,"model_type", "cognitive_construct",
   "physical_measure", "cognitive_measure",
-"pc_TAU_00", "pc_TAU_00_se", "pc_TAU_00_pval",
-"pc_TAU_11", "pc_TAU_11_se", "pc_TAU_11_pval",
-"pc_TAU_01", "pc_TAU_01_se", "pc_TAU_01_pval",
-"pc_TAU_10", "pc_TAU_10_se", "pc_TAU_10_pval",
-"pc_SIGMA",  "pc_SIGMA_se",  "pc_SIGMA_pval",
-"pp_TAU_00", "pp_TAU_00_se", "pp_TAU_00_pval",
-"pp_TAU_11", "pp_TAU_11_se", "pp_TAU_11_pval",
-"pp_TAU_01", "pp_TAU_01_se", "pp_TAU_01_pval",
-"p_SIGMA",   "p_SIGMA_se",   "p_SIGMA_pval",
-"cc_TAU_00", "cc_TAU_00_se", "cc_TAU_00_pval",
-"cc_TAU_11", "cc_TAU_11_se", "cc_TAU_11_pval",
-"cc_TAU_10", "cc_TAU_10_se", "cc_TAU_10_pval",
-"c_SIGMA",   "c_SIGMA_se",    "c_SIGMA_pval",
-"p_GAMMA_00", "p_GAMMA_00_se", "p_GAMMA_00_pval",
-"p_GAMMA_10", "p_GAMMA_10_se", "p_GAMMA_10_pval",
-"c_GAMMA_00", "c_GAMMA_00_se", "c_GAMMA_00_pval",
-"c_GAMMA_10", "c_GAMMA_10_se", "c_GAMMA_10_pval"
+"pc_TAU_00_est", "pc_TAU_00_se", "pc_TAU_00_pval",
+"pc_TAU_11_est", "pc_TAU_11_se", "pc_TAU_11_pval",
+"pc_TAU_01_est", "pc_TAU_01_se", "pc_TAU_01_pval",
+"pc_TAU_10_est", "pc_TAU_10_se", "pc_TAU_10_pval",
+"pc_SIGMA_est",  "pc_SIGMA_se",  "pc_SIGMA_pval",
+"pp_TAU_00_est", "pp_TAU_00_se", "pp_TAU_00_pval",
+"pp_TAU_11_est", "pp_TAU_11_se", "pp_TAU_11_pval",
+"pp_TAU_01_est", "pp_TAU_01_se", "pp_TAU_01_pval",
+"p_SIGMA_est",   "p_SIGMA_se",   "p_SIGMA_pval",
+"cc_TAU_00_est", "cc_TAU_00_se", "cc_TAU_00_pval",
+"cc_TAU_11_est", "cc_TAU_11_se", "cc_TAU_11_pval",
+"cc_TAU_10_est", "cc_TAU_10_se", "cc_TAU_10_pval",
+"c_SIGMA_est",   "c_SIGMA_se",    "c_SIGMA_pval",
+"p_GAMMA_00_est", "p_GAMMA_00_se", "p_GAMMA_00_pval",
+"p_GAMMA_10_est", "p_GAMMA_10_se", "p_GAMMA_10_pval",
+"c_GAMMA_00_est", "c_GAMMA_00_se", "c_GAMMA_00_pval",
+"c_GAMMA_10_est", "c_GAMMA_10_se", "c_GAMMA_10_pval"
 )]
 
 
