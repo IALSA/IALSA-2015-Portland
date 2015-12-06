@@ -69,7 +69,7 @@ source("./scripts/0a_collection_functions.R")
 study <- "elsa"
 source("./scripts/0a_collection_functions.R")
 
-study <- "habc" # not presently included
+study <- "habc"
 source("./scripts/0a_collection_functions.R")
 
 study <- "hrs" # not presently included
