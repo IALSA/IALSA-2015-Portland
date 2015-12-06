@@ -25,12 +25,10 @@ The **covariance structure** will be given as
 For  details see [model specification](./reports/model_specification/README.md).  
 
 
-
-
-##Tools  
+## Tools  
 Analytic tools available to the workshop participants include dynamic **reports** and interactive **apps**. Both reports and apps are regenerated with each new influx of model submissions.  
 
-###Reports 
+### Reports 
  - [Rename and collapse](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  gives account of how model filename elements (subgroup, model_type, cognitive_measure, etc.) are corrected, renamed, and reclassified. Incorporates the results of Teleconference 1 on Jun 12.    
  - [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/counts.html)  and  [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/essentials.html)  give basic tabled view of data in model space.   
  - Current status update for each study:
@@ -43,18 +41,14 @@ Analytic tools available to the workshop participants include dynamic **reports*
  - [reproduce](./scripts/utility/reproduce.R) script that re-generates all these reports.   
  - [scripts README](./scripts/README.md) overview scripts that replicates data preparation  
  
-###Apps  
+### Apps  
  - [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)  
  - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
-
-
-
- 
 
 ## Participants
 | Study | Contact |
 | :---- | :------ |
-| [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html) | [measures](./EAS/measures.md |
+| [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html) | [measures](./EAS/measures.md) |
 | [ELSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/elsa.html) | [Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |
 | [HABC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/habc.html) | [Chenkai Wu](mailto:chenkai.wu2010@gmail.com) |
 | [ILSE](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/ilse.html) | [Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de) |
@@ -64,14 +58,12 @@ Analytic tools available to the workshop participants include dynamic **reports*
 | [RADC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/radc.html) | [Cassandra Brown](mailto:clb@uvic.ca) |
 | [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html) | [Deborah Finkel](mailto:dfinkel@ius.edu) |
 
-
 ### Contact IALSA team
 
  - [Andrey Koval](mailto:andkov@uvic.ca)  
  - [Andrea Piccinin](mailto:piccinin@uvic.ca)   
  - [Graciela Muniz](mailto:gm299@cam.ac.uk)  
-
-
+ - [Will Beasley](mailto:wibeasley@hotmail.com)  
 
 ### Background
 
@@ -79,7 +71,7 @@ The current repository analyzes the results of the IALSA Analysis Workshop ([pdf
 
 The primary aim of the workshop was to examine associations between changes in physical functioning (i.e., grip strength, pulmonary function, chair stands, walking speed) and cognitive functioning (i.e., measures of speed, memory, reasoning, executive functioning) in multiple-study comparative framework. Bivariate growth processes were estimated to evaluate dynamic associations in change and variation within and across these domains and in relation to sample and individual differences in age, lifestyle, and health outcomes. The results from these analyses will extend recent systematic reviews and meta-analyses (e.g., [Clouston et al., 2012, Epidemiological Reviews](https://www.dropbox.com/s/vfe7u2ez5oxp3ev/Clouston_2013_Epidemiol%20Rev.pdf?dl=0) and will be submitted for publication as a set of independent brief reports, capped by a literature review/overview of analysis and completed with a research synthesis summary.
 
-##Projects
+## Projects
 
 Our current goals include publication of papers investigating the following fi5e associations:  
 
@@ -92,7 +84,7 @@ Our current goals include publication of papers investigating the following fi5e
 See [projects](./projects/README.md) page for a detailed overview of these five projects.
 
 
-##News
+## News
  -  GSA poster presenting developments in the [**physical-cognitive**](./projects/physical-cognitive/README.md) track  
  - Scatters of Factor Scores: graphs explained in the [issue #100](https://github.com/IALSA/IALSA-2015-Portland/issues/100)
  - [Reminder](./projects/physical/reminder_160915.md) has been sent to those who did not yet provided Table 1, measure descriptions, or PxP models.   
@@ -101,16 +93,12 @@ See [projects](./projects/README.md) page for a detailed overview of these five 
  - [A Collaborative Modeling Framework for Multi-Study Coordinated Analyses](http://htmlpreview.github.io/?https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/talks/2015_presentations/22_July/A%20Collaborative%20Modeling%20Framework%20for%20Multi-Study%20Coordinated%20Analyses.html#/), *Wellcome Trust Conference*, July 22, 2015  
 
 
-
-##Log 
+## Log 
 
 The agenda and outcomes of each teleconference following the Portland workshop  
  - Announcing [Physical Track](https://github.com/IALSA/IALSA-2015-Portland/blob/master/projects/physical/announce.md)  
-
  - [Teleconference #3, 10-July-2015](./log.md)
-
  - [Teleconference #2, 26-June-2015](./log.md)
-
  - [Teleconference #1, 12-June-2015](./log.md#New) 
 
 </br>  
