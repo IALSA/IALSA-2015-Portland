@@ -123,6 +123,11 @@ We set alpha to .05, intending to compute 95% confidence intervals.
 ```{r alpha_limit, echo=TRUE, results='hide', message=FALSE}
 ```
 
+```{r FisherZ, echo=TRUE, results='show', message=FALSE}
+```
+
+
+
 we compute confidence limits as
 \[\begin{array}{l}
 {\zeta _{low}} = {r} - {r_{(1 - \alpha /2)}}\sqrt {\frac{1}{{n - 3}}} \\

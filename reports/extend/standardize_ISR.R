@@ -6,16 +6,16 @@ library(knitr)
 library(testit, quietly=TRUE) #For asserts
 library(dplyr)
 
-## @knitr load_data
+## @knitr load_data -----
 ds <- readRDS('./data/shared/ds1.rds')
 
-## @knitr basic_view
+## @knitr basic_view -----
 keepvar <-  c("output_file", "subject_count","pc_TAU_00_est", "pc_TAU_11_est","pc_SIGMA_est", "p_GAMMA_00_est" )
 # ds <- ds[ds$study_name == "hrs", ]
 ds[1:10, keepvar]
 dim(ds) # rows and columns
 
-## @knitr standardize_coefficients
+## @knitr standardize_coefficients -----
 ds$pc_CORR_00 <- ds$pc_TAU_00_est / (sqrt(ds$pp_TAU_00_est)*sqrt(ds$cc_TAU_00_est))
 ds$pc_CORR_11 <-  ds$pc_TAU_11_est / (sqrt(ds$pp_TAU_11_est)*sqrt(ds$cc_TAU_11_est))
 ds$pc_CORR_residual <-  ds$pc_SIGMA_est / (sqrt(ds$p_SIGMA_est) * sqrt(ds$c_SIGMA_est))
@@ -35,18 +35,18 @@ summary(d)
 # ds[1:100, ]
 
 
-## @knitr bivariate_test
+## @knitr bivariate_test -----
 is_univariate <- grepl(pattern="^u\\d$", x=ds$model_number)
 is_bivariate <- grepl(pattern="^b\\d$", x=ds$model_number)
 testit::assert("The model number should match the univariate or bivariate pattern.", is_univariate | is_bivariate)
 ds$outcome_count <- ifelse(is_univariate, 1L, 2L)
 
 
-## @knitr alpha_limit
+## @knitr alpha_limit -----
 alpha <- 0.05
 z_alpha <- qnorm(1 - (alpha/2))
 
-## @knitr FisherZ
+## @knitr FisherZ -----
 ds$pc_CORR_00_z <- atanh(ds$pc_CORR_00)
 ds$pc_CORR_11_z <- atanh(ds$pc_CORR_11)
 ds$pc_CORR_residual_z <- atanh(ds$pc_CORR_residual)
@@ -69,7 +69,7 @@ d <-ds[1:100,c("output_file","pc_SIGMA_est", "pc_SIGMA_pval", "pc_CORR_residual"
 
 
 # CI for the z test statistic
-## @knitr confidence_limit
+## @knitr confidence_limit -----
 ds$pc_ZETA_00_low <- ds$pc_CORR_00_z - (z_alpha * sqrt( 1 / (ds$subject_count - 3)))
 ds$pc_ZETA_00_high <- ds$pc_CORR_00_z + (z_alpha * sqrt( 1 / (ds$subject_count - 3)))
 ds$pc_ZETA_11_low <- ds$pc_CORR_11_z - (z_alpha * sqrt( 1 / (ds$subject_count - 3)))
@@ -88,7 +88,7 @@ d <-ds[1:10,c("output_file","pc_SIGMA_est", "pc_SIGMA_pval", "pc_CORR_residual",
 
 
 
-## @knitr ci_correlation
+## @knitr ci_correlation -----
 ds$pc_CI95_00_low <- tanh(ds$pc_ZETA_00_low)
 ds$pc_CI95_00_high <-  tanh(ds$pc_ZETA_00_high)
 ds$pc_CI95_11_low <- tanh(ds$pc_ZETA_11_low)
@@ -137,7 +137,7 @@ table( ds$test_00,ds$study)
 table( ds$test_11,ds$study)
 table( ds$test_Res,ds$study)
 # View(d)
-## @knitr dummy
+## @knitr dummy -----
 # ## @knitr ci_intercept
 # ds$pc_ZETA_00_high <- ds$pc_CORR_00 + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
 # ds$pc_ZETA_00_low <- ds$pc_CORR_00 - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
@@ -146,13 +146,13 @@ table( ds$test_Res,ds$study)
 #
 #
 #
-# ## @knit ci_slope
+# ## @knit ci_slope -----
 # ds$pc_ZETA_11_high <- ds$pc_CORR_11 + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
 # ds$pc_ZETA_11_low <- ds$pc_CORR_11 - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
 # ds$pc_CI95_11_high <- tanh(ds$pc_ZETA_11_high)
 # ds$pc_CI95_11_low <- tanh(ds$pc_ZETA_11_low)
 #
-# ## @knit ci_residual
+# ## @knit ci_residual -----
 #
 # ds$pc_ZETA_residual_high <- ds$pc_CORR_residual + (limit * sqrt( 1 / (ds$subject_count - 3) ) )
 # ds$pc_ZETA_residual_low <- ds$pc_CORR_residual - (limit * sqrt( 1 / (ds$subject_count - 3) ) )
@@ -160,13 +160,14 @@ table( ds$test_Res,ds$study)
 # ds$pc_CI95_residual_low <- tanh(ds$pc_ZETA_residual_low)
 
 
-## @knitr dummy
+## @knitr dummy -----
 ## add uni/bi indicator
 # table(ds$model_number)
 ds$uni_bi <- stringr::str_sub(ds$model_number,1,1)
 
 
-## @knitr export_dataset
+## @knitr export_dataset -----
 saveRDS(ds,"./data/shared/ds2.rds")
 #
 # source("./scripts/make_pretty.r")
+
