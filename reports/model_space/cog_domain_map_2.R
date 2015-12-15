@@ -61,6 +61,7 @@ x_name_labels <- c("physical_measure"="Physical Measure",
 
 ## @knitr define_graph_functions
 
+head(dsb)
 
 domain_map <- function(ds, labels){
   # define the data
@@ -93,8 +94,8 @@ domain_map <- function(ds, labels){
                  legend.position="left")
   return(g)
 }
-
-a <- domain_map(dsb)
+domain_map(dsb)
+# a <- domain_map(dsb)
 
 # @knitr reproduce ---------------------------------------
 rmarkdown::render(input = "./reports/model_space/Cog-Domain-Map-2.Rmd" ,

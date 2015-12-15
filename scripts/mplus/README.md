@@ -28,3 +28,9 @@ This folder contains the most current (5-Dec-2015) version of extraction scripts
 ## `collect_all.R`
 - same as `collect_physical.R` but for all models in the collective
 
+# Reproduction workflow
+
+0. run `collect_all.R`. It creates an object `./data/shared/results_all.csv` storing all model resutls.  
+1. run `./reports/rename_collapse/Track_renaming.R`  to rename and correct mispelled values. Arrives at ds1.rds, reflecting all the renamings. 
+
+2. run `./reports/extend/standardize_ISR.R` to add custom computed confidence intervals for the correlation between correspodning random terms. Takes `ds1` and turns it into `ds2`, which is a analysis-ready.

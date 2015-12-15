@@ -15,7 +15,8 @@ library(testit, quietly=TRUE) #For asserts
 library(dplyr)
 
 ## @knitr load_data
-ds1 <- readRDS('./data/shared/ds0.rds')
+# ds1 <- readRDS('./data/shared/ds0.rds')
+ds1 <- read.csv('./data/shared/results_all.csv')
 # ds <- ds1 %>% dplyr::filter(study_name=="satsa")
 ds <- ds1 %>% dplyr::arrange_("cognitive_measure")
 # ds <- ds1[ds1$study_name=="eas",]
@@ -200,6 +201,7 @@ t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
 
 ## @knitr save_renamed_file
 saveRDS(ds,"./data/shared/ds1.rds") # save corrected dataset
+saveRDS(ds,"./data/shared/ds2.rds") # save corrected dataset
 
 
 
