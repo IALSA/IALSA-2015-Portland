@@ -116,8 +116,8 @@ img {
 <pre><code>58</code></pre>
 <p>models, using univariate and bivariate specifications:</p>
 <pre><code>
-b1 u0 u1 
-12 10 36 </code></pre>
+b1 u0 u1 u2 
+12 10 36  . </code></pre>
 <p>To remind you, <strong>model_number</strong> (<em>b1, u0, u1, u2</em>) refers to the model specification, as shown in the figure below. The first letter (<em>b</em> or <em>u</em>) indicates whether the models specifies a single outcome (<em>u</em> for <em>univariate</em>) or two outcomes (<em>b</em> for <em>bivariate</em>), while the number (e.g. u<em>0</em>, u<em>1</em>, u<em>2</em>) indicates the highest random term on the first level. </br></p>
 <p>The figure below (next section) shows the proper naming convention for the models you estimated in your study. Please use it to correct the names of some of your models. Our scripts rely on this naming convention for the key information about the model (most importantly, names of the constructs and measures). Therefore, it is of utmost importance that these rules are followed. <strong>If named incorrectly, models might not be used in the collective analysis</strong>.</p>
 <p>Some mistakes could be corrected automatically. Other, however, require <em>specifically</em> your attention. To illustrate, consider a cognitive construct <em>knowledge</em>. We’ve encountered entries <em>knowlegde</em>, <em>knowledg</em>, and <em>knwoledge</em>; it is obvious that these three spellings meant to say <em>knowledge</em>, and we program the script to correct it automatically. On the other hand, consider a physical construct <em>pulmonary</em>, which has two similarly spelled measures, <em>fev</em> and <em>fvc</em>. When we see a measure of <em>pulmonary</em> called <em>fevc</em>, we don’t know how to interpret it, it could be a misspelling of either one. This is where we need your help.</p>
@@ -169,37 +169,29 @@ b1 u0 u1
 <p>In this section, <strong>model specification (columns)</strong> are cross-tabulated with <strong>constructs or measures (rows)</strong>, displaying the number of valid models in each category.</p>
 <div id="physical-constructs" class="section level2">
 <h2>Physical constructs</h2>
-<pre><code>          
-           b1 u0 u1
-  chair    .  2  6 
-  flamingo .  2  6 
-  muscle   12 2  6 
-  tug      .  2  6 
-  Univar   .  .  6 
-  walking  .  2  6 </code></pre>
+<pre><code>&lt; table of extent 0 x 4 &gt;</code></pre>
 </div>
 <div id="physical-measures" class="section level2">
 <h2>Physical measures</h2>
-<pre><code>        
-         b1 u0 u1
-  grip   12 3  6 
-  tug    .  2  6 
-  univar .  5  24</code></pre>
+<pre><code>          
+           b1 u0 u1 u2
+  chair    .  2  6  . 
+  flamingo .  2  6  . 
+  muscle   12 2  6  . 
+  nophys   .  .  6  . 
+  tug      .  2  6  . 
+  walking  .  2  6  . </code></pre>
 </div>
 <div id="cognitive-constructs" class="section level2">
 <h2>Cognitive constructs</h2>
-<pre><code>        
-         b1 u0 u1
-  mental 12 .  6 
-  Univar .  10 30</code></pre>
+<pre><code>&lt; table of extent 0 x 4 &gt;</code></pre>
 </div>
 <div id="cognitive-measures" class="section level2">
 <h2>Cognitive measures</h2>
 <pre><code>        
-         b1 u0 u1
-  3ms    6  .  6 
-  mmse   6  .  . 
-  univar .  10 30</code></pre>
+         b1 u0 u1 u2
+  global 12 .  6  . 
+  univar .  10 30 . </code></pre>
 <p></br></br></br></p>
 </div>
 </div>
@@ -209,47 +201,34 @@ b1 u0 u1
 <div id="physical" class="section level2">
 <h2>Physical</h2>
 <p>Physical <strong>constructs</strong> (columns) by physical <strong>measures</strong> (rows) in BIVARIATE models</p>
-<pre><code>      
-       muscle
-  grip 12    </code></pre>
+<pre><code>&lt; table of extent 1 x 0 &gt;</code></pre>
 </div>
 <div id="cognitive" class="section level2">
 <h2>Cognitive</h2>
 <p>Cognitive <strong>constructs</strong> (columns) by cognitive <strong>measures</strong> (rows) in BIVARIATE models</p>
-<pre><code>      
-       mental
-  3ms  6     
-  mmse 6     </code></pre>
+<pre><code>&lt; table of extent 1 x 0 &gt;</code></pre>
 </div>
 <div id="constructs" class="section level2">
 <h2>Constructs</h2>
 <p>Number of models with the following <strong>physical constructs</strong> (columns) and <strong>cognitive constructs</strong> (rows)</p>
-<pre><code>        
-         muscle
-  mental 12    </code></pre>
+<pre><code>&lt; table of extent 0 x 0 &gt;</code></pre>
 </div>
 <div id="phys.constructs" class="section level2">
 <h2>Phys.Constructs</h2>
 <p>Number of models with the following <strong>physical constructs</strong> (columns) and <strong>cognitive measures</strong> (rows)</p>
-<pre><code>      
-       muscle
-  3ms  6     
-  mmse 6     </code></pre>
+<pre><code>&lt; table of extent 1 x 0 &gt;</code></pre>
 </div>
 <div id="cog.constructs" class="section level2">
 <h2>Cog.Constructs</h2>
 <p>Number of models with the following <strong>physical measure</strong> (columns) and <strong>cognitive constructs</strong> (rows)</p>
-<pre><code>        
-         grip
-  mental 12  </code></pre>
+<pre><code>&lt; table of extent 0 x 1 &gt;</code></pre>
 </div>
 <div id="measures" class="section level2">
 <h2>Measures</h2>
 <p>Number of models with the following <strong>physical measures</strong> (columns) and <strong>cognitive measures</strong> (rows)</p>
-<pre><code>      
-       grip
-  3ms  6   
-  mmse 6   </code></pre>
+<pre><code>        
+         muscle
+  global 12    </code></pre>
 <p></br></br></br></p>
 </div>
 </div>
@@ -259,24 +238,46 @@ b1 u0 u1
 <div id="physical-1" class="section level2">
 <h2>Physical</h2>
 <p>Physical constructs (columns) by physical measures (rows) in UNIVARIATE models</p>
-<pre><code>           chair flamingo muscle tug Univar walking
-                                                   
-u0 grip        .        .      2   .      .       1
-   tug         .        .      .   2      .       .
-   univar      2        2      .   .      .       1
-u1 grip        .        .      6   .      .       .
-   tug         .        .      .   6      .       .
-   univar      6        6      .   .      6       6</code></pre>
+<pre><code>            
+            
+b1 chair    
+   flamingo 
+   muscle   
+   nophys   
+   tug      
+   walking  
+u0 chair    
+   flamingo 
+   muscle   
+   nophys   
+   tug      
+   walking  
+u1 chair    
+   flamingo 
+   muscle   
+   nophys   
+   tug      
+   walking  
+u2 chair    
+   flamingo 
+   muscle   
+   nophys   
+   tug      
+   walking  </code></pre>
 </div>
 <div id="cognitive-1" class="section level2">
 <h2>Cognitive</h2>
 <p>Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models</p>
-<pre><code>           mental Univar
-                        
-u0 3ms         .      . 
-   univar      .      10
-u1 3ms         6      . 
-   univar      .      30</code></pre>
+<pre><code>          
+          
+b1 global 
+   univar 
+u0 global 
+   univar 
+u1 global 
+   univar 
+u2 global 
+   univar </code></pre>
 <p></br></br></br></p>
 </div>
 </div>
@@ -301,122 +302,122 @@ u1 3ms         6      .
 <tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">3ms</td>
-<td align="left">b1_female_aeh_muscle_global_grip_mmms.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">3ms</td>
-<td align="left">b1_female_aehplus_muscle_global_grip_mmms.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">female</td>
 <td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">3ms</td>
-<td align="left">b1_female_age_muscle_global_grip_mmms.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">3ms</td>
-<td align="left">b1_male_aeh_muscle_global_grip_mmms.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">aehplus</td>
-<td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">3ms</td>
-<td align="left">b1_male_aehplus_muscle_global_grip_mmms.out</td>
-</tr>
-<tr class="even">
-<td align="left">b1</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">3ms</td>
-<td align="left">b1_male_age_muscle_global_grip_mmms.out</td>
-</tr>
-<tr class="odd">
-<td align="left">b1</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">mmse</td>
+<td align="left">global</td>
 <td align="left">b1_female_a_muscle_global_grip_mmse.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">mmse</td>
+<td align="left">global</td>
+<td align="left">b1_female_aeh_muscle_global_grip_mmms.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">female</td>
+<td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">global</td>
 <td align="left">b1_female_aeh_muscle_global_grip_mmse.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">female</td>
+<td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">global</td>
+<td align="left">b1_female_aehplus_muscle_global_grip_mmms.out</td>
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">mmse</td>
+<td align="left">global</td>
 <td align="left">b1_female_aehplus_muscle_global_grip_mmse.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">global</td>
+<td align="left">b1_female_age_muscle_global_grip_mmms.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">mmse</td>
+<td align="left">global</td>
 <td align="left">b1_male_a_muscle_global_grip_mmse.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">global</td>
+<td align="left">b1_male_aeh_muscle_global_grip_mmms.out</td>
 </tr>
 <tr class="odd">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">mmse</td>
+<td align="left">global</td>
 <td align="left">b1_male_aeh_muscle_global_grip_mmse.out</td>
 </tr>
 <tr class="even">
 <td align="left">b1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">muscle</td>
-<td align="left">mental</td>
-<td align="left">grip</td>
-<td align="left">mmse</td>
+<td align="left">global</td>
+<td align="left">b1_male_aehplus_muscle_global_grip_mmms.out</td>
+</tr>
+<tr class="odd">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">global</td>
 <td align="left">b1_male_aehplus_muscle_global_grip_mmse.out</td>
+</tr>
+<tr class="even">
+<td align="left">b1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">global</td>
+<td align="left">b1_male_age_muscle_global_grip_mmms.out</td>
 </tr>
 </tbody>
 </table>
@@ -441,248 +442,88 @@ u1 3ms         6      .
 <td align="left">u1</td>
 <td align="left">female</td>
 <td align="left">aeh</td>
-<td align="left">Univar</td>
-<td align="left">mental</td>
-<td align="left">univar</td>
-<td align="left">3ms</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">nophys</td>
+<td align="left">global</td>
 <td align="left">u1_female_aeh_nophys_global_nophysspec_mmms.out</td>
 </tr>
 <tr class="even">
 <td align="left">u1</td>
 <td align="left">female</td>
 <td align="left">aehplus</td>
-<td align="left">Univar</td>
-<td align="left">mental</td>
-<td align="left">univar</td>
-<td align="left">3ms</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">nophys</td>
+<td align="left">global</td>
 <td align="left">u1_female_aehplus_nophys_global_nophysspec_mmms.out</td>
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
 <td align="left">female</td>
 <td align="left">a</td>
-<td align="left">Univar</td>
-<td align="left">mental</td>
-<td align="left">univar</td>
-<td align="left">3ms</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">nophys</td>
+<td align="left">global</td>
 <td align="left">u1_female_age_nophys_global_nophysspec_mmms.out</td>
 </tr>
 <tr class="even">
 <td align="left">u1</td>
 <td align="left">male</td>
 <td align="left">aeh</td>
-<td align="left">Univar</td>
-<td align="left">mental</td>
-<td align="left">univar</td>
-<td align="left">3ms</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">nophys</td>
+<td align="left">global</td>
 <td align="left">u1_male_aeh_nophys_global_nophysspec_mmms.out</td>
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
-<td align="left">Univar</td>
-<td align="left">mental</td>
-<td align="left">univar</td>
-<td align="left">3ms</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">nophys</td>
+<td align="left">global</td>
 <td align="left">u1_male_aehplus_nophys_global_nophysspec_mmms.out</td>
 </tr>
 <tr class="even">
 <td align="left">u1</td>
 <td align="left">male</td>
 <td align="left">a</td>
-<td align="left">Univar</td>
-<td align="left">mental</td>
-<td align="left">univar</td>
-<td align="left">3ms</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">nophys</td>
+<td align="left">global</td>
 <td align="left">u1_male_age_nophys_global_nophysspec_mmms.out</td>
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
 <td align="left">female</td>
 <td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">chair</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
 <td align="left">univar</td>
 <td align="left">u1_female_a_chair_nocog_nophysspec_nocogspec.out</td>
 </tr>
 <tr class="even">
 <td align="left">u1</td>
 <td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">chair</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_female_aeh_chair_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">chair</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_female_aehplus_chair_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">male</td>
 <td align="left">a</td>
-<td align="left">chair</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_male_a_chair_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">chair</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_male_aeh_chair_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">aehplus</td>
-<td align="left">chair</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_male_aehplus_chair_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">female</td>
-<td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">flamingo</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
 <td align="left">univar</td>
 <td align="left">u1_female_a_flamingo_nocog_nophysspec_nocogspec.out</td>
 </tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">flamingo</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_female_aeh_flamingo_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">flamingo</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_female_aehplus_flamingo_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">flamingo</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_male_a_flamingo_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">flamingo</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_male_aeh_flamingo_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">aehplus</td>
-<td align="left">flamingo</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_male_aehplus_flamingo_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">muscle</td>
-<td align="left">Univar</td>
-<td align="left">grip</td>
-<td align="left">univar</td>
-<td align="left">u1_female_aeh_muscle_nocog_grip_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">muscle</td>
-<td align="left">Univar</td>
-<td align="left">grip</td>
-<td align="left">univar</td>
-<td align="left">u1_female_aehplus_muscle_nocog_grip_nocogspec.out</td>
-</tr>
 <tr class="odd">
 <td align="left">u1</td>
 <td align="left">female</td>
 <td align="left">a</td>
-<td align="left">muscle</td>
-<td align="left">Univar</td>
-<td align="left">grip</td>
-<td align="left">univar</td>
-<td align="left">u1_female_age_muscle_nocog_grip_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">muscle</td>
-<td align="left">Univar</td>
-<td align="left">grip</td>
-<td align="left">univar</td>
-<td align="left">u1_male_aeh_muscle_nocog_grip_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">aehplus</td>
-<td align="left">muscle</td>
-<td align="left">Univar</td>
-<td align="left">grip</td>
-<td align="left">univar</td>
-<td align="left">u1_male_aehplus_muscle_nocog_grip_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">muscle</td>
-<td align="left">Univar</td>
-<td align="left">grip</td>
-<td align="left">univar</td>
-<td align="left">u1_male_age_muscle_nocog_grip_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">Univar</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">tug</td>
 <td align="left">univar</td>
 <td align="left">u1_female_a_tug_nocog_nophysspec_nocogspec.out</td>
@@ -690,9 +531,49 @@ u1 3ms         6      .
 <tr class="even">
 <td align="left">u1</td>
 <td align="left">female</td>
+<td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">walking</td>
+<td align="left">univar</td>
+<td align="left">u1_female_a_walking_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">female</td>
 <td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">Univar</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">chair</td>
+<td align="left">univar</td>
+<td align="left">u1_female_aeh_chair_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">flamingo</td>
+<td align="left">univar</td>
+<td align="left">u1_female_aeh_flamingo_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">univar</td>
+<td align="left">u1_female_aeh_muscle_nocog_grip_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">tug</td>
 <td align="left">univar</td>
 <td align="left">u1_female_aeh_tug_nocog_nophysspec_nocogspec.out</td>
@@ -700,19 +581,99 @@ u1 3ms         6      .
 <tr class="odd">
 <td align="left">u1</td>
 <td align="left">female</td>
+<td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">walking</td>
+<td align="left">univar</td>
+<td align="left">u1_female_aeh_walking_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">female</td>
 <td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">Univar</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">chair</td>
+<td align="left">univar</td>
+<td align="left">u1_female_aehplus_chair_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">flamingo</td>
+<td align="left">univar</td>
+<td align="left">u1_female_aehplus_flamingo_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">univar</td>
+<td align="left">u1_female_aehplus_muscle_nocog_grip_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">tug</td>
 <td align="left">univar</td>
 <td align="left">u1_female_aehplus_tug_nocog_nophysspec_nocogspec.out</td>
 </tr>
 <tr class="even">
 <td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">walking</td>
+<td align="left">univar</td>
+<td align="left">u1_female_aehplus_walking_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">female</td>
+<td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">univar</td>
+<td align="left">u1_female_age_muscle_nocog_grip_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
 <td align="left">male</td>
 <td align="left">a</td>
-<td align="left">tug</td>
-<td align="left">Univar</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">chair</td>
+<td align="left">univar</td>
+<td align="left">u1_male_a_chair_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">flamingo</td>
+<td align="left">univar</td>
+<td align="left">u1_male_a_flamingo_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">tug</td>
 <td align="left">univar</td>
 <td align="left">u1_male_a_tug_nocog_nophysspec_nocogspec.out</td>
@@ -720,9 +681,49 @@ u1 3ms         6      .
 <tr class="odd">
 <td align="left">u1</td>
 <td align="left">male</td>
+<td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">walking</td>
+<td align="left">univar</td>
+<td align="left">u1_male_a_walking_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
 <td align="left">aeh</td>
-<td align="left">tug</td>
-<td align="left">Univar</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">chair</td>
+<td align="left">univar</td>
+<td align="left">u1_male_aeh_chair_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">flamingo</td>
+<td align="left">univar</td>
+<td align="left">u1_male_aeh_flamingo_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">univar</td>
+<td align="left">u1_male_aeh_muscle_nocog_grip_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">tug</td>
 <td align="left">univar</td>
 <td align="left">u1_male_aeh_tug_nocog_nophysspec_nocogspec.out</td>
@@ -730,72 +731,72 @@ u1 3ms         6      .
 <tr class="even">
 <td align="left">u1</td>
 <td align="left">male</td>
+<td align="left">aeh</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">walking</td>
+<td align="left">univar</td>
+<td align="left">u1_male_aeh_walking_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
 <td align="left">aehplus</td>
-<td align="left">tug</td>
-<td align="left">Univar</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">chair</td>
+<td align="left">univar</td>
+<td align="left">u1_male_aehplus_chair_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">flamingo</td>
+<td align="left">univar</td>
+<td align="left">u1_male_aehplus_flamingo_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">univar</td>
+<td align="left">u1_male_aehplus_muscle_nocog_grip_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">tug</td>
 <td align="left">univar</td>
 <td align="left">u1_male_aehplus_tug_nocog_nophysspec_nocogspec.out</td>
 </tr>
 <tr class="odd">
 <td align="left">u1</td>
-<td align="left">female</td>
-<td align="left">a</td>
-<td align="left">walking</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_female_a_walking_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">female</td>
-<td align="left">aeh</td>
-<td align="left">walking</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_female_aeh_walking_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">female</td>
-<td align="left">aehplus</td>
-<td align="left">walking</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_female_aehplus_walking_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">a</td>
-<td align="left">walking</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_male_a_walking_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u1</td>
-<td align="left">male</td>
-<td align="left">aeh</td>
-<td align="left">walking</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u1_male_aeh_walking_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="even">
-<td align="left">u1</td>
 <td align="left">male</td>
 <td align="left">aehplus</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">walking</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
 <td align="left">univar</td>
 <td align="left">u1_male_aehplus_walking_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u1</td>
+<td align="left">male</td>
+<td align="left">a</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">univar</td>
+<td align="left">u1_male_age_muscle_nocog_grip_nocogspec.out</td>
 </tr>
 </tbody>
 </table>
@@ -820,89 +821,49 @@ u1 3ms         6      .
 <td align="left">u0</td>
 <td align="left">female</td>
 <td align="left">0</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">chair</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
 <td align="left">univar</td>
 <td align="left">u0_female_empty_chair_nocog_nophysspec_nocogspec.out</td>
 </tr>
 <tr class="even">
 <td align="left">u0</td>
-<td align="left">male</td>
-<td align="left">0</td>
-<td align="left">chair</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u0_male_empty_chair_nocog_nophysspec_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u0</td>
 <td align="left">female</td>
 <td align="left">0</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">flamingo</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
 <td align="left">univar</td>
 <td align="left">u0_female_empty_flamingo_nocog_nophysspec_nocogspec.out</td>
 </tr>
-<tr class="even">
-<td align="left">u0</td>
-<td align="left">male</td>
-<td align="left">0</td>
-<td align="left">flamingo</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
-<td align="left">univar</td>
-<td align="left">u0_male_empty_flamingo_nocog_nophysspec_nocogspec.out</td>
-</tr>
 <tr class="odd">
 <td align="left">u0</td>
 <td align="left">female</td>
 <td align="left">0</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">muscle</td>
-<td align="left">Univar</td>
-<td align="left">grip</td>
 <td align="left">univar</td>
 <td align="left">u0_female_empty_muscle_nocog_grip_nocogspec.out</td>
 </tr>
 <tr class="even">
 <td align="left">u0</td>
-<td align="left">male</td>
-<td align="left">0</td>
-<td align="left">muscle</td>
-<td align="left">Univar</td>
-<td align="left">grip</td>
-<td align="left">univar</td>
-<td align="left">u0_male_empty_muscle_nocog_grip_nocogspec.out</td>
-</tr>
-<tr class="odd">
-<td align="left">u0</td>
 <td align="left">female</td>
 <td align="left">0</td>
-<td align="left">tug</td>
-<td align="left">Univar</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">tug</td>
 <td align="left">univar</td>
 <td align="left">u0_female_empty_tug_nocog_nophysspec_nocogspec.out</td>
 </tr>
-<tr class="even">
-<td align="left">u0</td>
-<td align="left">male</td>
-<td align="left">0</td>
-<td align="left">tug</td>
-<td align="left">Univar</td>
-<td align="left">tug</td>
-<td align="left">univar</td>
-<td align="left">u0_male_empty_tug_nocog_nophysspec_nocogspec.out</td>
-</tr>
 <tr class="odd">
 <td align="left">u0</td>
 <td align="left">female</td>
 <td align="left">0</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">walking</td>
-<td align="left">Univar</td>
-<td align="left">univar</td>
 <td align="left">univar</td>
 <td align="left">u0_female_empty_walking_nocog_nophysspec_nocogspec.out</td>
 </tr>
@@ -910,9 +871,49 @@ u1 3ms         6      .
 <td align="left">u0</td>
 <td align="left">male</td>
 <td align="left">0</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">chair</td>
+<td align="left">univar</td>
+<td align="left">u0_male_empty_chair_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">flamingo</td>
+<td align="left">univar</td>
+<td align="left">u0_male_empty_flamingo_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">muscle</td>
+<td align="left">univar</td>
+<td align="left">u0_male_empty_muscle_nocog_grip_nocogspec.out</td>
+</tr>
+<tr class="odd">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">tug</td>
+<td align="left">univar</td>
+<td align="left">u0_male_empty_tug_nocog_nophysspec_nocogspec.out</td>
+</tr>
+<tr class="even">
+<td align="left">u0</td>
+<td align="left">male</td>
+<td align="left">0</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">walking</td>
-<td align="left">Univar</td>
-<td align="left">grip</td>
 <td align="left">univar</td>
 <td align="left">u0_male_empty_walking_nocog_grip_nocogspec.out</td>
 </tr>
@@ -923,8 +924,8 @@ u1 3ms         6      .
 <div id="session-information" class="section level1">
 <h1>Session Information</h1>
 <p>For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.</p>
-<pre><code>Report rendered by koval_000 at 2015-07-15, 19:40 -0700</code></pre>
-<pre><code>R version 3.2.0 (2015-04-16)
+<pre><code>Report rendered by koval_000 at 2015-12-15, 15:06 -0800</code></pre>
+<pre><code>R version 3.2.2 (2015-08-14)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 8 x64 (build 9200)
 
@@ -936,15 +937,16 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5         
-[6] knitr_1.10.5          MplusAutomation_0.6-3
+[1] RColorBrewer_1.1-2    scales_0.2.5          tidyr_0.2.0           ggplot2_1.0.1         IalsaSynthesis_0.1.8 
+[6] MplusAutomation_0.6-3 dplyr_0.4.1           testit_0.4            knitr_1.10.5         
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
- [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
-[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
-[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
-[25] evaluate_0.7     rmarkdown_0.7    gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    </code></pre>
+ [1] Rcpp_0.11.6      highr_0.5        formatR_1.2      plyr_1.8.3       tools_3.2.2      boot_1.3-17     
+ [7] digest_0.6.8     evaluate_0.7     gtable_0.1.2     lattice_0.20-33  texreg_1.35      DBI_0.3.1       
+[13] yaml_2.1.13      parallel_3.2.2   proto_0.3-10     coda_0.17-1      stringr_1.0.0    R6_2.0.1        
+[19] tcltk_3.2.2      gsubfn_0.6-6     rmarkdown_0.7    reshape2_1.4.1   magrittr_1.5     htmltools_0.2.6 
+[25] MASS_7.3-44      assertthat_0.1   xtable_1.7-4     colorspace_1.2-6 stringi_0.4-1    lazyeval_0.1.10 
+[31] munsell_0.4.2   </code></pre>
 </div>
 
 

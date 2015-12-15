@@ -42,14 +42,14 @@ Your study
 has provided us with the total number of 
 
 ```
-88
+0
 ```
 models, using univariate and bivariate specifications:
 
 ```
 
-b1 u0 u1 
-48 10 30 
+b1 u0 u1 u2 
+ .  .  .  . 
 ```
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
@@ -114,7 +114,7 @@ All your models were named properly
 After removing incorrectly named files, there are
 
 ```
-88
+0
 ```
 models, which output files contains all 7 components. We have corrected the obvious typos, but some names (of constructs and measures) require your attention. 
 
@@ -125,11 +125,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-         
-          b1 u0 u1
-  muscle  24 2  6 
-  Univar  .  6  18
-  walking 24 2  6 
+Empty category
 ```
 
 
@@ -137,22 +133,14 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-        
-         b1 u0 u1
-  gait   24 2  6 
-  grip   24 2  6 
-  univar .  6  18
+Empty category
 ```
 
 ## Cognitive constructs
 
 
 ```
-        
-         b1 u0 u1
-  mental 32 4  12
-  speed  16 2  6 
-  Univar .  4  12
+Empty category
 ```
 
 
@@ -160,12 +148,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-        
-         b1 u0 u1
-  3ms    16 2  6 
-  clock  16 2  6 
-  symbol 16 2  6 
-  univar .  4  12
+Empty category
 ```
 </br></br></br>
 
@@ -178,21 +161,14 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE models
 
 ```
-      
-       muscle walking
-  gait .      24     
-  grip 24     .      
+Empty category
 ```
 
 ## Cognitive 
 Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE models
 
 ```
-        
-         mental speed
-  3ms    16     .    
-  clock  16     .    
-  symbol .      16   
+Empty category
 ```
 
 
@@ -201,42 +177,28 @@ Number of models with the following **physical constructs** (columns) and  **cog
 
 
 ```
-        
-         muscle walking
-  mental 16     16     
-  speed  8      8      
+Empty category
 ```
 
 ## Phys.Constructs
 Number of models with the following  **physical constructs** (columns) and  **cognitive measures** (rows)
 
 ```
-        
-         muscle walking
-  3ms    8      8      
-  clock  8      8      
-  symbol 8      8      
+Empty category
 ```
 
 ## Cog.Constructs
 Number of models with the following  **physical measure** (columns) and  **cognitive constructs** (rows)
 
 ```
-        
-         gait grip
-  mental 16   16  
-  speed  8    8   
+Empty category
 ```
 
 ## Measures
 Number of models with the following  **physical measures** (columns) and  **cognitive measures** (rows)
 
 ```
-        
-         gait grip
-  3ms    8    8   
-  clock  8    8   
-  symbol 8    8   
+Empty category
 ```
 </br></br></br>
 
@@ -249,139 +211,24 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical constructs (columns) by physical measures (rows) in UNIVARIATE models
 
 ```
-           muscle Univar walking
-                                
-u0 gait        .      .       2 
-   grip        2      .       . 
-   univar      .      6       . 
-u1 gait        .      .       6 
-   grip        6      .       . 
-   univar      .      18      . 
+Empty category
 ```
 
 ## Cognitive
 Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models
 
 ```
-           mental speed Univar
-                              
-u0 3ms         2     .      . 
-   clock       2     .      . 
-   symbol      .     2      . 
-   univar      .     .      4 
-u1 3ms         6     .      . 
-   clock       6     .      . 
-   symbol      .     6      . 
-   univar      .     .      12
+Empty category
 ```
 </br></br></br>
 
 # List of models
-## b1
+## NA
+*No models of this specification were supplied from the study.*
 
 
-model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                            
---------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  -----------------------------------------------------
-b1              female   aeh                 muscle                   mental                    grip                   3ms                     b1_female_aeh_muscle_mental_hand_3ms.out             
-b1              female   aehplus             muscle                   mental                    grip                   3ms                     b1_female_aehplus_muscle_mental_hand_3ms.out         
-b1              female   a                   muscle                   mental                    grip                   3ms                     b1_female_age_muscle_mental_hand_3ms.out             
-b1              female   full                muscle                   mental                    grip                   3ms                     b1_female_full_muscle_mental_hand_3ms.out            
-b1              male     aeh                 muscle                   mental                    grip                   3ms                     b1_male_aeh_muscle_mental_hand_3ms.out               
-b1              male     aehplus             muscle                   mental                    grip                   3ms                     b1_male_aehplus_muscle_mental_hand_3ms.out           
-b1              male     a                   muscle                   mental                    grip                   3ms                     b1_male_age_muscle_mental_hand_3ms.out               
-b1              male     full                muscle                   mental                    grip                   3ms                     b1_male_full_muscle_mental_hand_3ms.out              
-b1              female   aeh                 walking                  mental                    gait                   3ms                     b1_female_aeh_walking_mental_gait_3ms.out            
-b1              female   aehplus             walking                  mental                    gait                   3ms                     b1_female_aehplus_walking_mental_gait_3ms.out        
-b1              female   a                   walking                  mental                    gait                   3ms                     b1_female_age_walking_mental_gait_3ms.out            
-b1              female   full                walking                  mental                    gait                   3ms                     b1_female_full_walking_mental_gait_3ms.out           
-b1              male     aeh                 walking                  mental                    gait                   3ms                     b1_male_aeh_walking_mental_gait_3ms.out              
-b1              male     aehplus             walking                  mental                    gait                   3ms                     b1_male_aehplus_walking_mental_gait_3ms.out          
-b1              male     a                   walking                  mental                    gait                   3ms                     b1_male_age_walking_mental_gait_3ms.out              
-b1              male     full                walking                  mental                    gait                   3ms                     b1_male_full_walking_mental_gait_3ms.out             
-b1              female   aeh                 muscle                   mental                    grip                   clock                   b1_female_aeh_muscle_mental_hand_clock.out           
-b1              female   aehplus             muscle                   mental                    grip                   clock                   b1_female_aehplus_muscle_mental_hand_clock.out       
-b1              female   a                   muscle                   mental                    grip                   clock                   b1_female_age_muscle_mental_hand_clock.out           
-b1              female   full                muscle                   mental                    grip                   clock                   b1_female_full_muscle_mental_hand_clock.out          
-b1              male     aeh                 muscle                   mental                    grip                   clock                   b1_male_aeh_muscle_mental_hand_clock.out             
-b1              male     aehplus             muscle                   mental                    grip                   clock                   b1_male_aehplus_muscle_mental_hand_clock.out         
-b1              male     a                   muscle                   mental                    grip                   clock                   b1_male_age_muscle_mental_hand_clock.out             
-b1              male     full                muscle                   mental                    grip                   clock                   b1_male_full_muscle_mental_hand_clock.out            
-b1              female   aeh                 walking                  mental                    gait                   clock                   b1_female_aeh_walking_mental_gait_clock.out          
-b1              female   aehplus             walking                  mental                    gait                   clock                   b1_female_aehplus_walking_mental_gait_clock.out      
-b1              female   a                   walking                  mental                    gait                   clock                   b1_female_age_walking_mental_gait_clock.out          
-b1              female   full                walking                  mental                    gait                   clock                   b1_female_full_walking_mental_gait_clock.out         
-b1              male     aeh                 walking                  mental                    gait                   clock                   b1_male_aeh_walking_mental_gait_clock.out            
-b1              male     aehplus             walking                  mental                    gait                   clock                   b1_male_aehplus_walking_mental_gait_clock.out        
-b1              male     a                   walking                  mental                    gait                   clock                   b1_male_age_walking_mental_gait_clock.out            
-b1              male     full                walking                  mental                    gait                   clock                   b1_male_full_walking_mental_gait_clock.out           
-b1              female   aeh                 muscle                   speed                     grip                   symbol                  b1_female_aeh_muscle_speed_hand_digitsymbol.out      
-b1              female   aehplus             muscle                   speed                     grip                   symbol                  b1_female_aehplus_muscle_speed_hand_digitsymbol.out  
-b1              female   a                   muscle                   speed                     grip                   symbol                  b1_female_age_muscle_speed_hand_digitsymbol.out      
-b1              female   full                muscle                   speed                     grip                   symbol                  b1_female_full_muscle_speed_hand_digitsymbol.out     
-b1              male     aeh                 muscle                   speed                     grip                   symbol                  b1_male_aeh_muscle_speed_hand_digitsymbol.out        
-b1              male     aehplus             muscle                   speed                     grip                   symbol                  b1_male_aehplus_muscle_speed_hand_digitsymbol.out    
-b1              male     a                   muscle                   speed                     grip                   symbol                  b1_male_age_muscle_speed_hand_digitsymbol.out        
-b1              male     full                muscle                   speed                     grip                   symbol                  b1_male_full_muscle_speed_hand_digitsymbol.out       
-b1              female   aeh                 walking                  speed                     gait                   symbol                  b1_female_aeh_walking_speed_gait_digitsymbol.out     
-b1              female   aehplus             walking                  speed                     gait                   symbol                  b1_female_aehplus_walking_speed_gait_digitsymbol.out 
-b1              female   a                   walking                  speed                     gait                   symbol                  b1_female_age_walking_speed_gait_digitsymbol.out     
-b1              female   full                walking                  speed                     gait                   symbol                  b1_female_full_walking_speed_gait_digitsymbol.out    
-b1              male     aeh                 walking                  speed                     gait                   symbol                  b1_male_aeh_walking_speed_gait_digitsymbol.out       
-b1              male     aehplus             walking                  speed                     gait                   symbol                  b1_male_aehplus_walking_speed_gait_digitsymbol.out   
-b1              male     a                   walking                  speed                     gait                   symbol                  b1_male_age_walking_speed_gait_digitsymbol.out       
-b1              male     full                walking                  speed                     gait                   symbol                  b1_male_full_walking_speed_gait_digitsymbol.out      
-
-## u1
-
-
-model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                 
---------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ----------------------------------------------------------
-u1              female   aeh                 Univar                   mental                    univar                 3ms                     u1_female_aeh_noPhys_mental_noPhysSpec_3ms.out            
-u1              female   aehplus             Univar                   mental                    univar                 3ms                     u1_female_aehplus_noPhys_mental_noPhysSpec_3ms.out        
-u1              female   a                   Univar                   mental                    univar                 3ms                     u1_female_age_noPhys_mental_noPhysSpec_3ms.out            
-u1              male     aeh                 Univar                   mental                    univar                 3ms                     u1_male_aeh_noPhys_mental_noPhysSpec_3ms.out              
-u1              male     aehplus             Univar                   mental                    univar                 3ms                     u1_male_aehplus_noPhys_mental_noPhysSpec_3ms.out          
-u1              male     a                   Univar                   mental                    univar                 3ms                     u1_male_age_noPhys_mental_noPhysSpec_3ms.out              
-u1              female   aeh                 Univar                   mental                    univar                 clock                   u1_female_aeh_noPhys_mental_noPhysSpec_clock.out          
-u1              female   aehplus             Univar                   mental                    univar                 clock                   u1_female_aehplus_noPhys_mental_noPhysSpec_clock.out      
-u1              female   a                   Univar                   mental                    univar                 clock                   u1_female_age_noPhys_mental_noPhysSpec_clock.out          
-u1              male     aeh                 Univar                   mental                    univar                 clock                   u1_male_aeh_noPhys_mental_noPhysSpec_clock.out            
-u1              male     aehplus             Univar                   mental                    univar                 clock                   u1_male_aehplus_noPhys_mental_noPhysSpec_clock.out        
-u1              male     a                   Univar                   mental                    univar                 clock                   u1_male_age_noPhys_mental_noPhysSpec_clock.out            
-u1              female   aeh                 Univar                   speed                     univar                 symbol                  u1_female_aeh_noPhys_speed_noPhysSpec_digitsymbol.out     
-u1              female   aehplus             Univar                   speed                     univar                 symbol                  u1_female_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out 
-u1              female   a                   Univar                   speed                     univar                 symbol                  u1_female_age_noPhys_speed_noPhysSpec_digitsymbol.out     
-u1              male     aeh                 Univar                   speed                     univar                 symbol                  u1_male_aeh_noPhys_speed_noPhysSpec_digitsymbol.out       
-u1              male     aehplus             Univar                   speed                     univar                 symbol                  u1_male_aehplus_noPhys_speed_noPhysSpec_digitsymbol.out   
-u1              male     a                   Univar                   speed                     univar                 symbol                  u1_male_age_noPhys_speed_noPhysSpec_digitsymbol.out       
-u1              female   aeh                 muscle                   Univar                    grip                   univar                  u1_female_aeh_muscle_noCog_hand_noCogSpec.out             
-u1              female   aehplus             muscle                   Univar                    grip                   univar                  u1_female_aehplus_muscle_noCog_hand_noCogSpec.out         
-u1              female   a                   muscle                   Univar                    grip                   univar                  u1_female_age_muscle_noCog_hand_noCogSpec.out             
-u1              male     aeh                 muscle                   Univar                    grip                   univar                  u1_male_aeh_muscle_noCog_hand_noCogSpec.out               
-u1              male     aehplus             muscle                   Univar                    grip                   univar                  u1_male_aehplus_muscle_noCog_hand_noCogSpec.out           
-u1              male     a                   muscle                   Univar                    grip                   univar                  u1_male_age_muscle_noCog_hand_noCogSpec.out               
-u1              female   aeh                 walking                  Univar                    gait                   univar                  u1_female_aeh_walking_noCog_gait_noCogSpec.out            
-u1              female   aehplus             walking                  Univar                    gait                   univar                  u1_female_aehplus_walking_noCog_gait_noCogSpec.out        
-u1              female   a                   walking                  Univar                    gait                   univar                  u1_female_age_walking_noCog_gait_noCogSpec.out            
-u1              male     aeh                 walking                  Univar                    gait                   univar                  u1_male_aeh_walking_noCog_gait_noCogSpec.out              
-u1              male     aehplus             walking                  Univar                    gait                   univar                  u1_male_aehplus_walking_noCog_gait_noCogSpec.out          
-u1              male     a                   walking                  Univar                    gait                   univar                  u1_male_age_walking_noCog_gait_noCogSpec.out              
-
-## u0
-
-
-model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                               
---------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------------------------------
-u0              female   0                   Univar                   mental                    univar                 3ms                     u0_female_empty_noPhys_mental_noPhysSpec_3ms.out        
-u0              male     0                   Univar                   mental                    univar                 3ms                     u0_male_empty_noPhys_mental_noPhysSpec_3ms.out          
-u0              female   0                   Univar                   mental                    univar                 clock                   u0_female_empty_noPhys_mental_noPhysSpec_clock.out      
-u0              male     0                   Univar                   mental                    univar                 clock                   u0_male_empty_noPhys_mental_noPhysSpec_clock.out        
-u0              female   0                   Univar                   speed                     univar                 symbol                  u0_female_empty_noPhys_speed_noPhysSpec_digitsymbol.out 
-u0              male     0                   Univar                   speed                     univar                 symbol                  u0_male_empty_noPhys_speed_noPhysSpec_digitsymbol.out   
-u0              female   0                   muscle                   Univar                    grip                   univar                  u0_female_empty_muscle_noCog_hand_noCogSpec.out         
-u0              male     0                   muscle                   Univar                    grip                   univar                  u0_male_empty_muscle_noCog_hand_noCogSpec.out           
-u0              female   0                   walking                  Univar                    gait                   univar                  u0_female_empty_walking_noCog_gait_noCogSpec.out        
-u0              male     0                   walking                  Univar                    gait                   univar                  u0_male_empty_walking_noCog_gait_noCogSpec.out          
+## 
+*No models of this specification were supplied from the study.*
 
 
 # Session Information
@@ -389,11 +236,11 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-15, 19:40 -0700
+Report rendered by koval_000 at 2015-12-15, 15:06 -0800
 ```
 
 ```
-R version 3.2.0 (2015-04-16)
+R version 3.2.2 (2015-08-14)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 8 x64 (build 9200)
 
@@ -405,13 +252,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5         
-[6] knitr_1.10.5          MplusAutomation_0.6-3
+[1] RColorBrewer_1.1-2    scales_0.2.5          tidyr_0.2.0           ggplot2_1.0.1         IalsaSynthesis_0.1.8 
+[6] MplusAutomation_0.6-3 dplyr_0.4.1           testit_0.4            knitr_1.10.5         
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
- [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
-[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
-[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
-[25] evaluate_0.7     rmarkdown_0.7    gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
+ [1] Rcpp_0.11.6      highr_0.5        formatR_1.2      plyr_1.8.3       tools_3.2.2      boot_1.3-17     
+ [7] digest_0.6.8     evaluate_0.7     gtable_0.1.2     lattice_0.20-33  texreg_1.35      DBI_0.3.1       
+[13] yaml_2.1.13      parallel_3.2.2   proto_0.3-10     coda_0.17-1      stringr_1.0.0    R6_2.0.1        
+[19] tcltk_3.2.2      gsubfn_0.6-6     rmarkdown_0.7    reshape2_1.4.1   magrittr_1.5     htmltools_0.2.6 
+[25] MASS_7.3-44      assertthat_0.1   xtable_1.7-4     colorspace_1.2-6 stringi_0.4-1    lazyeval_0.1.10 
+[31] munsell_0.4.2   
 ```

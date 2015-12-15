@@ -48,8 +48,8 @@ models, using univariate and bivariate specifications:
 
 ```
 
-b1 u0 u1 
-12 10 36 
+b1 u0 u1 u2 
+12 10 36  . 
 ```
 
 To remind you, **model_number** (*b1, u0, u1, u2*) refers to the model specification, as shown in the figure below.  The first letter (*b* or *u*) indicates whether the models specifies a single outcome (*u* for *univariate*) or two outcomes (*b* for *bivariate*), while the number (e.g. u*0*, u*1*, u*2*) indicates the highest random term on the first level. </br>
@@ -125,14 +125,7 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-          
-           b1 u0 u1
-  chair    .  2  6 
-  flamingo .  2  6 
-  muscle   12 2  6 
-  tug      .  2  6 
-  Univar   .  .  6 
-  walking  .  2  6 
+< table of extent 0 x 4 >
 ```
 
 
@@ -140,21 +133,21 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 
 ```
-        
-         b1 u0 u1
-  grip   12 3  6 
-  tug    .  2  6 
-  univar .  5  24
+          
+           b1 u0 u1 u2
+  chair    .  2  6  . 
+  flamingo .  2  6  . 
+  muscle   12 2  6  . 
+  nophys   .  .  6  . 
+  tug      .  2  6  . 
+  walking  .  2  6  . 
 ```
 
 ## Cognitive constructs
 
 
 ```
-        
-         b1 u0 u1
-  mental 12 .  6 
-  Univar .  10 30
+< table of extent 0 x 4 >
 ```
 
 
@@ -163,10 +156,9 @@ In this section, **model specification (columns)** are cross-tabulated with **co
 
 ```
         
-         b1 u0 u1
-  3ms    6  .  6 
-  mmse   6  .  . 
-  univar .  10 30
+         b1 u0 u1 u2
+  global 12 .  6  . 
+  univar .  10 30 . 
 ```
 </br></br></br>
 
@@ -179,19 +171,14 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical **constructs** (columns) by physical **measures** (rows) in BIVARIATE models
 
 ```
-      
-       muscle
-  grip 12    
+< table of extent 1 x 0 >
 ```
 
 ## Cognitive 
 Cognitive **constructs** (columns) by cognitive **measures** (rows) in BIVARIATE models
 
 ```
-      
-       mental
-  3ms  6     
-  mmse 6     
+< table of extent 1 x 0 >
 ```
 
 
@@ -200,38 +187,30 @@ Number of models with the following **physical constructs** (columns) and  **cog
 
 
 ```
-        
-         muscle
-  mental 12    
+< table of extent 0 x 0 >
 ```
 
 ## Phys.Constructs
 Number of models with the following  **physical constructs** (columns) and  **cognitive measures** (rows)
 
 ```
-      
-       muscle
-  3ms  6     
-  mmse 6     
+< table of extent 1 x 0 >
 ```
 
 ## Cog.Constructs
 Number of models with the following  **physical measure** (columns) and  **cognitive constructs** (rows)
 
 ```
-        
-         grip
-  mental 12  
+< table of extent 0 x 1 >
 ```
 
 ## Measures
 Number of models with the following  **physical measures** (columns) and  **cognitive measures** (rows)
 
 ```
-      
-       grip
-  3ms  6   
-  mmse 6   
+        
+         muscle
+  global 12    
 ```
 </br></br></br>
 
@@ -244,26 +223,48 @@ In this section, **constructs (columns)** are cross-tabulated with  **measures (
 Physical constructs (columns) by physical measures (rows) in UNIVARIATE models
 
 ```
-           chair flamingo muscle tug Univar walking
-                                                   
-u0 grip        .        .      2   .      .       1
-   tug         .        .      .   2      .       .
-   univar      2        2      .   .      .       1
-u1 grip        .        .      6   .      .       .
-   tug         .        .      .   6      .       .
-   univar      6        6      .   .      6       6
+            
+            
+b1 chair    
+   flamingo 
+   muscle   
+   nophys   
+   tug      
+   walking  
+u0 chair    
+   flamingo 
+   muscle   
+   nophys   
+   tug      
+   walking  
+u1 chair    
+   flamingo 
+   muscle   
+   nophys   
+   tug      
+   walking  
+u2 chair    
+   flamingo 
+   muscle   
+   nophys   
+   tug      
+   walking  
 ```
 
 ## Cognitive
 Cognitive constructs (columns) by cognitive measures (rows) in UNIVARIATE models
 
 ```
-           mental Univar
-                        
-u0 3ms         .      . 
-   univar      .      10
-u1 3ms         6      . 
-   univar      .      30
+          
+          
+b1 global 
+   univar 
+u0 global 
+   univar 
+u1 global 
+   univar 
+u2 global 
+   univar 
 ```
 </br></br></br>
 
@@ -273,76 +274,76 @@ u1 3ms         6      .
 
 model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                     
 --------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ----------------------------------------------
-b1              female   aeh                 muscle                   mental                    grip                   3ms                     b1_female_aeh_muscle_global_grip_mmms.out     
-b1              female   aehplus             muscle                   mental                    grip                   3ms                     b1_female_aehplus_muscle_global_grip_mmms.out 
-b1              female   a                   muscle                   mental                    grip                   3ms                     b1_female_age_muscle_global_grip_mmms.out     
-b1              male     aeh                 muscle                   mental                    grip                   3ms                     b1_male_aeh_muscle_global_grip_mmms.out       
-b1              male     aehplus             muscle                   mental                    grip                   3ms                     b1_male_aehplus_muscle_global_grip_mmms.out   
-b1              male     a                   muscle                   mental                    grip                   3ms                     b1_male_age_muscle_global_grip_mmms.out       
-b1              female   a                   muscle                   mental                    grip                   mmse                    b1_female_a_muscle_global_grip_mmse.out       
-b1              female   aeh                 muscle                   mental                    grip                   mmse                    b1_female_aeh_muscle_global_grip_mmse.out     
-b1              female   aehplus             muscle                   mental                    grip                   mmse                    b1_female_aehplus_muscle_global_grip_mmse.out 
-b1              male     a                   muscle                   mental                    grip                   mmse                    b1_male_a_muscle_global_grip_mmse.out         
-b1              male     aeh                 muscle                   mental                    grip                   mmse                    b1_male_aeh_muscle_global_grip_mmse.out       
-b1              male     aehplus             muscle                   mental                    grip                   mmse                    b1_male_aehplus_muscle_global_grip_mmse.out   
+b1              female   a                   NA                       NA                        muscle                 global                  b1_female_a_muscle_global_grip_mmse.out       
+b1              female   aeh                 NA                       NA                        muscle                 global                  b1_female_aeh_muscle_global_grip_mmms.out     
+b1              female   aeh                 NA                       NA                        muscle                 global                  b1_female_aeh_muscle_global_grip_mmse.out     
+b1              female   aehplus             NA                       NA                        muscle                 global                  b1_female_aehplus_muscle_global_grip_mmms.out 
+b1              female   aehplus             NA                       NA                        muscle                 global                  b1_female_aehplus_muscle_global_grip_mmse.out 
+b1              female   a                   NA                       NA                        muscle                 global                  b1_female_age_muscle_global_grip_mmms.out     
+b1              male     a                   NA                       NA                        muscle                 global                  b1_male_a_muscle_global_grip_mmse.out         
+b1              male     aeh                 NA                       NA                        muscle                 global                  b1_male_aeh_muscle_global_grip_mmms.out       
+b1              male     aeh                 NA                       NA                        muscle                 global                  b1_male_aeh_muscle_global_grip_mmse.out       
+b1              male     aehplus             NA                       NA                        muscle                 global                  b1_male_aehplus_muscle_global_grip_mmms.out   
+b1              male     aehplus             NA                       NA                        muscle                 global                  b1_male_aehplus_muscle_global_grip_mmse.out   
+b1              male     a                   NA                       NA                        muscle                 global                  b1_male_age_muscle_global_grip_mmms.out       
 
 ## u1
 
 
 model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                                 
 --------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  ----------------------------------------------------------
-u1              female   aeh                 Univar                   mental                    univar                 3ms                     u1_female_aeh_nophys_global_nophysspec_mmms.out           
-u1              female   aehplus             Univar                   mental                    univar                 3ms                     u1_female_aehplus_nophys_global_nophysspec_mmms.out       
-u1              female   a                   Univar                   mental                    univar                 3ms                     u1_female_age_nophys_global_nophysspec_mmms.out           
-u1              male     aeh                 Univar                   mental                    univar                 3ms                     u1_male_aeh_nophys_global_nophysspec_mmms.out             
-u1              male     aehplus             Univar                   mental                    univar                 3ms                     u1_male_aehplus_nophys_global_nophysspec_mmms.out         
-u1              male     a                   Univar                   mental                    univar                 3ms                     u1_male_age_nophys_global_nophysspec_mmms.out             
-u1              female   a                   chair                    Univar                    univar                 univar                  u1_female_a_chair_nocog_nophysspec_nocogspec.out          
-u1              female   aeh                 chair                    Univar                    univar                 univar                  u1_female_aeh_chair_nocog_nophysspec_nocogspec.out        
-u1              female   aehplus             chair                    Univar                    univar                 univar                  u1_female_aehplus_chair_nocog_nophysspec_nocogspec.out    
-u1              male     a                   chair                    Univar                    univar                 univar                  u1_male_a_chair_nocog_nophysspec_nocogspec.out            
-u1              male     aeh                 chair                    Univar                    univar                 univar                  u1_male_aeh_chair_nocog_nophysspec_nocogspec.out          
-u1              male     aehplus             chair                    Univar                    univar                 univar                  u1_male_aehplus_chair_nocog_nophysspec_nocogspec.out      
-u1              female   a                   flamingo                 Univar                    univar                 univar                  u1_female_a_flamingo_nocog_nophysspec_nocogspec.out       
-u1              female   aeh                 flamingo                 Univar                    univar                 univar                  u1_female_aeh_flamingo_nocog_nophysspec_nocogspec.out     
-u1              female   aehplus             flamingo                 Univar                    univar                 univar                  u1_female_aehplus_flamingo_nocog_nophysspec_nocogspec.out 
-u1              male     a                   flamingo                 Univar                    univar                 univar                  u1_male_a_flamingo_nocog_nophysspec_nocogspec.out         
-u1              male     aeh                 flamingo                 Univar                    univar                 univar                  u1_male_aeh_flamingo_nocog_nophysspec_nocogspec.out       
-u1              male     aehplus             flamingo                 Univar                    univar                 univar                  u1_male_aehplus_flamingo_nocog_nophysspec_nocogspec.out   
-u1              female   aeh                 muscle                   Univar                    grip                   univar                  u1_female_aeh_muscle_nocog_grip_nocogspec.out             
-u1              female   aehplus             muscle                   Univar                    grip                   univar                  u1_female_aehplus_muscle_nocog_grip_nocogspec.out         
-u1              female   a                   muscle                   Univar                    grip                   univar                  u1_female_age_muscle_nocog_grip_nocogspec.out             
-u1              male     aeh                 muscle                   Univar                    grip                   univar                  u1_male_aeh_muscle_nocog_grip_nocogspec.out               
-u1              male     aehplus             muscle                   Univar                    grip                   univar                  u1_male_aehplus_muscle_nocog_grip_nocogspec.out           
-u1              male     a                   muscle                   Univar                    grip                   univar                  u1_male_age_muscle_nocog_grip_nocogspec.out               
-u1              female   a                   tug                      Univar                    tug                    univar                  u1_female_a_tug_nocog_nophysspec_nocogspec.out            
-u1              female   aeh                 tug                      Univar                    tug                    univar                  u1_female_aeh_tug_nocog_nophysspec_nocogspec.out          
-u1              female   aehplus             tug                      Univar                    tug                    univar                  u1_female_aehplus_tug_nocog_nophysspec_nocogspec.out      
-u1              male     a                   tug                      Univar                    tug                    univar                  u1_male_a_tug_nocog_nophysspec_nocogspec.out              
-u1              male     aeh                 tug                      Univar                    tug                    univar                  u1_male_aeh_tug_nocog_nophysspec_nocogspec.out            
-u1              male     aehplus             tug                      Univar                    tug                    univar                  u1_male_aehplus_tug_nocog_nophysspec_nocogspec.out        
-u1              female   a                   walking                  Univar                    univar                 univar                  u1_female_a_walking_nocog_nophysspec_nocogspec.out        
-u1              female   aeh                 walking                  Univar                    univar                 univar                  u1_female_aeh_walking_nocog_nophysspec_nocogspec.out      
-u1              female   aehplus             walking                  Univar                    univar                 univar                  u1_female_aehplus_walking_nocog_nophysspec_nocogspec.out  
-u1              male     a                   walking                  Univar                    univar                 univar                  u1_male_a_walking_nocog_nophysspec_nocogspec.out          
-u1              male     aeh                 walking                  Univar                    univar                 univar                  u1_male_aeh_walking_nocog_nophysspec_nocogspec.out        
-u1              male     aehplus             walking                  Univar                    univar                 univar                  u1_male_aehplus_walking_nocog_nophysspec_nocogspec.out    
+u1              female   aeh                 NA                       NA                        nophys                 global                  u1_female_aeh_nophys_global_nophysspec_mmms.out           
+u1              female   aehplus             NA                       NA                        nophys                 global                  u1_female_aehplus_nophys_global_nophysspec_mmms.out       
+u1              female   a                   NA                       NA                        nophys                 global                  u1_female_age_nophys_global_nophysspec_mmms.out           
+u1              male     aeh                 NA                       NA                        nophys                 global                  u1_male_aeh_nophys_global_nophysspec_mmms.out             
+u1              male     aehplus             NA                       NA                        nophys                 global                  u1_male_aehplus_nophys_global_nophysspec_mmms.out         
+u1              male     a                   NA                       NA                        nophys                 global                  u1_male_age_nophys_global_nophysspec_mmms.out             
+u1              female   a                   NA                       NA                        chair                  univar                  u1_female_a_chair_nocog_nophysspec_nocogspec.out          
+u1              female   a                   NA                       NA                        flamingo               univar                  u1_female_a_flamingo_nocog_nophysspec_nocogspec.out       
+u1              female   a                   NA                       NA                        tug                    univar                  u1_female_a_tug_nocog_nophysspec_nocogspec.out            
+u1              female   a                   NA                       NA                        walking                univar                  u1_female_a_walking_nocog_nophysspec_nocogspec.out        
+u1              female   aeh                 NA                       NA                        chair                  univar                  u1_female_aeh_chair_nocog_nophysspec_nocogspec.out        
+u1              female   aeh                 NA                       NA                        flamingo               univar                  u1_female_aeh_flamingo_nocog_nophysspec_nocogspec.out     
+u1              female   aeh                 NA                       NA                        muscle                 univar                  u1_female_aeh_muscle_nocog_grip_nocogspec.out             
+u1              female   aeh                 NA                       NA                        tug                    univar                  u1_female_aeh_tug_nocog_nophysspec_nocogspec.out          
+u1              female   aeh                 NA                       NA                        walking                univar                  u1_female_aeh_walking_nocog_nophysspec_nocogspec.out      
+u1              female   aehplus             NA                       NA                        chair                  univar                  u1_female_aehplus_chair_nocog_nophysspec_nocogspec.out    
+u1              female   aehplus             NA                       NA                        flamingo               univar                  u1_female_aehplus_flamingo_nocog_nophysspec_nocogspec.out 
+u1              female   aehplus             NA                       NA                        muscle                 univar                  u1_female_aehplus_muscle_nocog_grip_nocogspec.out         
+u1              female   aehplus             NA                       NA                        tug                    univar                  u1_female_aehplus_tug_nocog_nophysspec_nocogspec.out      
+u1              female   aehplus             NA                       NA                        walking                univar                  u1_female_aehplus_walking_nocog_nophysspec_nocogspec.out  
+u1              female   a                   NA                       NA                        muscle                 univar                  u1_female_age_muscle_nocog_grip_nocogspec.out             
+u1              male     a                   NA                       NA                        chair                  univar                  u1_male_a_chair_nocog_nophysspec_nocogspec.out            
+u1              male     a                   NA                       NA                        flamingo               univar                  u1_male_a_flamingo_nocog_nophysspec_nocogspec.out         
+u1              male     a                   NA                       NA                        tug                    univar                  u1_male_a_tug_nocog_nophysspec_nocogspec.out              
+u1              male     a                   NA                       NA                        walking                univar                  u1_male_a_walking_nocog_nophysspec_nocogspec.out          
+u1              male     aeh                 NA                       NA                        chair                  univar                  u1_male_aeh_chair_nocog_nophysspec_nocogspec.out          
+u1              male     aeh                 NA                       NA                        flamingo               univar                  u1_male_aeh_flamingo_nocog_nophysspec_nocogspec.out       
+u1              male     aeh                 NA                       NA                        muscle                 univar                  u1_male_aeh_muscle_nocog_grip_nocogspec.out               
+u1              male     aeh                 NA                       NA                        tug                    univar                  u1_male_aeh_tug_nocog_nophysspec_nocogspec.out            
+u1              male     aeh                 NA                       NA                        walking                univar                  u1_male_aeh_walking_nocog_nophysspec_nocogspec.out        
+u1              male     aehplus             NA                       NA                        chair                  univar                  u1_male_aehplus_chair_nocog_nophysspec_nocogspec.out      
+u1              male     aehplus             NA                       NA                        flamingo               univar                  u1_male_aehplus_flamingo_nocog_nophysspec_nocogspec.out   
+u1              male     aehplus             NA                       NA                        muscle                 univar                  u1_male_aehplus_muscle_nocog_grip_nocogspec.out           
+u1              male     aehplus             NA                       NA                        tug                    univar                  u1_male_aehplus_tug_nocog_nophysspec_nocogspec.out        
+u1              male     aehplus             NA                       NA                        walking                univar                  u1_male_aehplus_walking_nocog_nophysspec_nocogspec.out    
+u1              male     a                   NA                       NA                        muscle                 univar                  u1_male_age_muscle_nocog_grip_nocogspec.out               
 
 ## u0
 
 
 model<br/>tag   sex      predictor<br/>set   physical<br/>construct   cognitive<br/>construct   physical<br/>measure   cognitive<br/>measure   file name                                               
 --------------  -------  ------------------  -----------------------  ------------------------  ---------------------  ----------------------  --------------------------------------------------------
-u0              female   0                   chair                    Univar                    univar                 univar                  u0_female_empty_chair_nocog_nophysspec_nocogspec.out    
-u0              male     0                   chair                    Univar                    univar                 univar                  u0_male_empty_chair_nocog_nophysspec_nocogspec.out      
-u0              female   0                   flamingo                 Univar                    univar                 univar                  u0_female_empty_flamingo_nocog_nophysspec_nocogspec.out 
-u0              male     0                   flamingo                 Univar                    univar                 univar                  u0_male_empty_flamingo_nocog_nophysspec_nocogspec.out   
-u0              female   0                   muscle                   Univar                    grip                   univar                  u0_female_empty_muscle_nocog_grip_nocogspec.out         
-u0              male     0                   muscle                   Univar                    grip                   univar                  u0_male_empty_muscle_nocog_grip_nocogspec.out           
-u0              female   0                   tug                      Univar                    tug                    univar                  u0_female_empty_tug_nocog_nophysspec_nocogspec.out      
-u0              male     0                   tug                      Univar                    tug                    univar                  u0_male_empty_tug_nocog_nophysspec_nocogspec.out        
-u0              female   0                   walking                  Univar                    univar                 univar                  u0_female_empty_walking_nocog_nophysspec_nocogspec.out  
-u0              male     0                   walking                  Univar                    grip                   univar                  u0_male_empty_walking_nocog_grip_nocogspec.out          
+u0              female   0                   NA                       NA                        chair                  univar                  u0_female_empty_chair_nocog_nophysspec_nocogspec.out    
+u0              female   0                   NA                       NA                        flamingo               univar                  u0_female_empty_flamingo_nocog_nophysspec_nocogspec.out 
+u0              female   0                   NA                       NA                        muscle                 univar                  u0_female_empty_muscle_nocog_grip_nocogspec.out         
+u0              female   0                   NA                       NA                        tug                    univar                  u0_female_empty_tug_nocog_nophysspec_nocogspec.out      
+u0              female   0                   NA                       NA                        walking                univar                  u0_female_empty_walking_nocog_nophysspec_nocogspec.out  
+u0              male     0                   NA                       NA                        chair                  univar                  u0_male_empty_chair_nocog_nophysspec_nocogspec.out      
+u0              male     0                   NA                       NA                        flamingo               univar                  u0_male_empty_flamingo_nocog_nophysspec_nocogspec.out   
+u0              male     0                   NA                       NA                        muscle                 univar                  u0_male_empty_muscle_nocog_grip_nocogspec.out           
+u0              male     0                   NA                       NA                        tug                    univar                  u0_male_empty_tug_nocog_nophysspec_nocogspec.out        
+u0              male     0                   NA                       NA                        walking                univar                  u0_male_empty_walking_nocog_grip_nocogspec.out          
 
 
 # Session Information
@@ -350,11 +351,11 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-15, 19:40 -0700
+Report rendered by koval_000 at 2015-12-15, 15:06 -0800
 ```
 
 ```
-R version 3.2.0 (2015-04-16)
+R version 3.2.2 (2015-08-14)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 8 x64 (build 9200)
 
@@ -366,13 +367,14 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] dplyr_0.4.1           testit_0.4            ggplot2_1.0.1         RColorBrewer_1.1-2    scales_0.2.5         
-[6] knitr_1.10.5          MplusAutomation_0.6-3
+[1] RColorBrewer_1.1-2    scales_0.2.5          tidyr_0.2.0           ggplot2_1.0.1         IalsaSynthesis_0.1.8 
+[6] MplusAutomation_0.6-3 dplyr_0.4.1           testit_0.4            knitr_1.10.5         
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
- [7] lattice_0.20-31  highr_0.5        stringr_1.0.0    plyr_1.8.2       tcltk_3.2.0      tools_3.2.0     
-[13] parallel_3.2.0   gtable_0.1.2     texreg_1.35      coda_0.17-1      DBI_0.3.1        htmltools_0.2.6 
-[19] yaml_2.1.13      lazyeval_0.1.10  assertthat_0.1   digest_0.6.8     formatR_1.2      reshape2_1.4.1  
-[25] evaluate_0.7     rmarkdown_0.7    gsubfn_0.6-6     stringi_0.4-1    boot_1.3-16      proto_0.3-10    
+ [1] Rcpp_0.11.6      highr_0.5        formatR_1.2      plyr_1.8.3       tools_3.2.2      boot_1.3-17     
+ [7] digest_0.6.8     evaluate_0.7     gtable_0.1.2     lattice_0.20-33  texreg_1.35      DBI_0.3.1       
+[13] yaml_2.1.13      parallel_3.2.2   proto_0.3-10     coda_0.17-1      stringr_1.0.0    R6_2.0.1        
+[19] tcltk_3.2.2      gsubfn_0.6-6     rmarkdown_0.7    reshape2_1.4.1   magrittr_1.5     htmltools_0.2.6 
+[25] MASS_7.3-44      assertthat_0.1   xtable_1.7-4     colorspace_1.2-6 stringi_0.4-1    lazyeval_0.1.10 
+[31] munsell_0.4.2   
 ```
