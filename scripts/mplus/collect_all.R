@@ -33,12 +33,12 @@ satsa <- list.files(file.path(pathStudies,"satsa"),full.names=T, recursive=T, pa
 # collect a vector with .out file paths
 
 # (model_path_out <- c(eas))
-# (model_path_out <- c(elsa))
+(model_path_out <- c(elsa))
 # (model_path_out <- c(hrs))
 # (model_path_out <- c(ilse))
 # (model_path_out <- c(lasa))
 # (model_path_out <- c(nuage))
-(model_path_out <- c(octo))
+# (model_path_out <- c(octo))
 # (model_path_out <- c(radc))
 # (model_path_out <- c(satsa))
 
@@ -79,12 +79,12 @@ source("./scripts/mplus/extraction_functions.R") # produces object "results"
 ds <- results
 
 # write.csv(results,  "./data/shared/results_all_eas.csv", row.names=F)
-# write.csv(results,  "./data/shared/results_all_elsa.csv", row.names=F)
+write.csv(results,  "./data/shared/results_all_elsa.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_hrs.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_ilse.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_lasa.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_nuage.csv", row.names=F)
-write.csv(results,  "./data/shared/results_all_octo.csv", row.names=F)
+# write.csv(results,  "./data/shared/results_all_octo.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_radc.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_satsa.csv", row.names=F)
 
