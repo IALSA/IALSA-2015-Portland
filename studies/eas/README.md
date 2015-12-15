@@ -1,13 +1,12 @@
-How to work with this GitHub folder
----
+Einstein Aging study
+===
 
-Use **unshared** folder to place your data and run your analyses. The content of the **unshared** folder will not be uploaded.
+* [description of measures]()  
+* [processed data](../../data/shared/results_all_eas.csv)  
+* [Table of Descriptives](../../studies/eas/descriptives/Table1_EAS_Descriptives_IALSA_Portland.docx)  
+* [ISR Report](../../studies/eas/descriptives/EAS_ISR_report.docx)
 
-Name your models to fit the common naming convention. This is a key step in organizing aggregation of model results across studies. 
-![logl](../../libs/images/model_naming_convention.png)
 
-After fitting the models , place the output files in the root folder of your study (eg. /octo, /radc, ect). Only the models that have legal names and that have been placed in the proper folder will be added to the pan-study analysis.
-
-## Please implement the corrections
-
-1. The instead of "wave_9", adhear to the example in the template: "time9". Please re-run your models with the proper naming convention
+![grip](../../studies/eas/descriptives/grip.jpeg)
+![pek](../../studies/eas/descriptives/Pek.jpeg)
+![grip](../../studies/eas/descriptives/velocity.jpeg)
