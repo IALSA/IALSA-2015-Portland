@@ -22,23 +22,23 @@ list.files(pathStudies) # inspect participating studies
 
 # @knitr list_paths_studies -------------------------------------------------------------------
 eas <- list.files(file.path(pathStudies,"eas/submitted_outputs"),full.names=T, recursive=T, pattern="out$")
-# elsa <- list.files(file.path(pathStudies,"elsa"),full.names=T, recursive=T, pattern="out$")
-# hrs <- list.files(file.path(pathStudies,"hrs"),full.names=T, recursive=T, pattern="out$")
-# ilse <- list.files(file.path(pathStudies,"ilse"),full.names=T, recursive=T, pattern="out$")
-# lasa <- list.files(file.path(pathStudies,"lasa"),full.names=T, recursive=T, pattern="out$")
-# nuage <- list.files(file.path(pathStudies,"nuage"),full.names=T, recursive=T, pattern="out$")
-# octo <- list.files(file.path(pathStudies,"octo"),full.names=T, recursive=T, pattern="out$")
-# radc <- list.files(file.path(pathStudies,"radc/outputs"),full.names=T, recursive=T, pattern="out$")
-# satsa <- list.files(file.path(pathStudies,"satsa"),full.names=T, recursive=T, pattern="out$")
-# # collect a vector with .out file paths
+elsa <- list.files(file.path(pathStudies,"elsa"),full.names=T, recursive=T, pattern="out$")
+hrs <- list.files(file.path(pathStudies,"hrs"),full.names=T, recursive=T, pattern="out$")
+ilse <- list.files(file.path(pathStudies,"ilse"),full.names=T, recursive=T, pattern="out$")
+lasa <- list.files(file.path(pathStudies,"lasa"),full.names=T, recursive=T, pattern="out$")
+nuage <- list.files(file.path(pathStudies,"nuage"),full.names=T, recursive=T, pattern="out$")
+octo <- list.files(file.path(pathStudies,"octo/submitted_outputs"),full.names=T, recursive=T, pattern="out$")
+radc <- list.files(file.path(pathStudies,"radc/outputs"),full.names=T, recursive=T, pattern="out$")
+satsa <- list.files(file.path(pathStudies,"satsa"),full.names=T, recursive=T, pattern="out$")
+# collect a vector with .out file paths
 
-(model_path_out <- c(eas))
+# (model_path_out <- c(eas))
 # (model_path_out <- c(elsa))
 # (model_path_out <- c(hrs))
 # (model_path_out <- c(ilse))
 # (model_path_out <- c(lasa))
 # (model_path_out <- c(nuage))
-# (model_path_out <- c(octo))
+(model_path_out <- c(octo))
 # (model_path_out <- c(radc))
 # (model_path_out <- c(satsa))
 
@@ -78,13 +78,13 @@ rm(list=setdiff(ls(), c("model_list")))
 source("./scripts/mplus/extraction_functions.R") # produces object "results"
 ds <- results
 
-write.csv(results,  "./data/shared/results_all_eas.csv", row.names=F)
+# write.csv(results,  "./data/shared/results_all_eas.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_elsa.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_hrs.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_ilse.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_lasa.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_nuage.csv", row.names=F)
-# write.csv(results,  "./data/shared/results_all_octo.csv", row.names=F)
+write.csv(results,  "./data/shared/results_all_octo.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_radc.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_satsa.csv", row.names=F)
 
