@@ -1,15 +1,14 @@
 
-source("./scripts/0_collect_studies.R")
-# results in individual .csv for each study with raw model results
-
-source("./scripts/0c_combine_model_outputs.R")
-# combines individual .csvs into one dataset containing results of all models
+source("./scripts/mplus/collect_all.R")
+# results in individual a single file containing raw extract from all submitted models
 
 source("./reports/rename_collapse/Track_renaming.R ")
 # corrects typos, renames, reclassifies filename elements
+# takes the resultant file from collect_all.R and produces ds1
 
 source("./reports/extend/standardize_ISR.R")
 # converts covariances into correlations and computes confidence intervals
+# takes ds1 and produces ds2
 
 
 
