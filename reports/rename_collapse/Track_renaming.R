@@ -1,6 +1,7 @@
 ## This script corrects irregularities in the naming of the output files
-
+cat("\f") # clear console
 rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
+
 
 #####################################
 ## @knitr load_sources
@@ -26,29 +27,29 @@ tail(ds[c("cognitive_construct","cognitive_measure","output_file")])
 nrow(ds)
 
 
-## @knitr remove_omissions
-desired_subpart_count <- 7L # necessary number of componets in legal filename
-ds$model_name <- gsub(pattern=".out",replacement="",ds$output_file) # remove .out ending
-subparts <- strsplit(ds$model_name,"_") # break up each  model_name, store in a list
-subpart_count <- sapply(subparts, length) # count compents in each element of the list
-is_valid <- (subpart_count==desired_subpart_count) # create logical vector
-length(ds$output_file[!is_valid]) # that many models with omitted elements in the name
-
-# Define what models have invalid names and print them
-if(sum(!is_valid)>0){ print(ds$output_file[!is_valid])}else{
-  cat("All your models were named properly")
-}
-ds <- ds[is_valid,] # keep only model the valid names
+## @knitr remove_omissions --------
+# desired_subpart_count <- 7L # necessary number of componets in legal filename
+# ds$model_name <- gsub(pattern=".out",replacement="",ds$output_file) # remove .out ending
+# subparts <- strsplit(ds$model_name,"_") # break up each  model_name, store in a list
+# subpart_count <- sapply(subparts, length) # count compents in each element of the list
+# is_valid <- (subpart_count==desired_subpart_count) # create logical vector
+# length(ds$output_file[!is_valid]) # that many models with omitted elements in the name
+#
+# # Define what models have invalid names and print them
+# if(sum(!is_valid)>0){ print(ds$output_file[!is_valid])}else{
+#   cat("All your models were named properly")
+# }
+# ds <- ds[is_valid,] # keep only model the valid names
 nrow(ds) # how many models we ended up with.
 
 ## @knitr make_all_lower
-ds$physical_construct <- tolower(stringr::str_trim(ds$physical_construct))
+# ds$physical_construct <- tolower(stringr::str_trim(ds$physical_construct))
 ds$physical_measure <- tolower(stringr::str_trim(ds$physical_measure))
-ds$cognitive_construct <- tolower(stringr::str_trim(ds$cognitive_construct))
+# ds$cognitive_construct <- tolower(stringr::str_trim(ds$cognitive_construct))
 ds$cognitive_measure <- tolower(stringr::str_trim(ds$cognitive_measure))
 
-
-
+names(ds)
+# t <- table(ds$physical_construct, ds$cognitive_construct);t[t==0]<-".";t
 
 ## @knitr spell_model_number
 t <- table(ds$model_number, ds$study_name);t[t==0]<-".";t
@@ -63,37 +64,35 @@ t <- table(ds$subgroup, ds$study_name);t[t==0]<-".";t
 t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
 
 ## @knitr correct_model_type
-# rename obvious typo
-ds[ds$model_type=="aheplus","model_type"] <- "aehplus"
-# rename values for consistency
+ds[ds$model_type %in% c("aheplus", "aeplus") ,"model_type"] <- "aehplus"
 ds[ds$model_type=="age","model_type"] <- "a" # rename for sorting/consistency purposes
 ds[ds$model_type=="empty","model_type"] <- "0"
-# inspect new names
 t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
 # we also remove "aeplus" for now, while Lewina is reruning models with data unadjusted for height
 ds <- ds %>% dplyr::filter(!(model_type %in% c("aeplus")))
+# ds <- ds[ds$model_type %in% c("aeplus","aheplus","age","empty"),]
 
 
 
 ## @knitr spell_physical_construct
-t <- table(ds$physical_construct, ds$study_name);t[t==0]<-".";t
+# t <- table(ds$physical_construct, ds$study_name);t[t==0]<-".";t
 
 ## @knitr correct_physical_construct
-# rename obvious typo
-ds[ds$physical_construct %in% c("pumonary"),"physical_construct"] <- "pulmonary"
-# Rename the absense of physical construct
-ds[ds$physical_construct %in% c("nophys", "nophysspec"),"physical_construct"] <- "Univar"
-# inspect new names
-t <- table(ds$physical_construct, ds$study_name);t[t==0]<-".";t
+# # rename obvious typo
+# ds[ds$physical_construct %in% c("pumonary"),"physical_construct"] <- "pulmonary"
+# # Rename the absense of physical construct
+# ds[ds$physical_construct %in% c("nophys", "nophysspec"),"physical_construct"] <- "Univar"
+# # inspect new names
+# t <- table(ds$physical_construct, ds$study_name);t[t==0]<-".";t
+#
 
 
-
-## @knitr spell_physical_measure
+## @knitr spell_physical_measure -------
 t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 
 ## @knitr correct_physical_measure
 # rename obvious type
-ds[ds$physical_measure %in% c("fevc", "fev1", "fvc") ,"physical_measure"] <- "fev"
+ds[ds$physical_measure %in% c("fevc", "fev1", "fvc", "fev100") ,"physical_measure"] <- "fev"
 ## iN ILSE, look up philipp about tug
 ds[(ds$physical_measure == "nophysspec" | ds$physical_measure == "nophyscog")  & ds$physical_construct == "tug","physical_measure"] <- "tug"
 t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
@@ -103,7 +102,9 @@ ds[ds$physical_measure %in% c("nophysspec","nophsyspec","nophyscog", "nophyspec"
 # collapse a category
 ds[ds$physical_measure == "hand","physical_measure"] <- "grip"
 # rename suspected misspelling
-ds[ds$physical_measure == "peak","physical_measure"] <- "pek"
+ds[ds$physical_measure %in% c("peak"),"physical_measure"] <- "pef"
+ds[ds$physical_measure %in% c("pumonary","pulomnary"),"physical_measure"] <- "pulmonary"
+t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 
 
 
@@ -115,19 +116,19 @@ t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 
 
 ## @knitr spell_cognitive_construct
-t <- table(ds$cognitive_construct, ds$study_name);t[t==0]<-".";t
+# t <- table(ds$cognitive_construct, ds$study_name);t[t==0]<-".";t
 
 ## @knitr correct_cognitive_construct
-# rename obvious typos
-ds[ds$cognitive_construct %in% c(" knowledge", "knoledge", "knowlegde"),"cognitive_construct"] <- "knowledge"
-# rename the absense of physical measure
-ds[ds$cognitive_construct %in% c("nocog", "nocogspec"),"cognitive_construct"] <- "Univar"
-# collape categories
-ds[ds$cognitive_construct == "memoryattention","cognitive_construct"] <- "memory"
-ds[ds$cognitive_construct %in% c("fluid","fluidreasoning"),"cognitive_construct"] <- "reasoning"
-ds[ds$cognitive_construct %in% c("verbalfluency"),"cognitive_construct"] <- "fluency"
-# inspect new names
-t <- table(ds$cognitive_construct, ds$study_name);t[t==0]<-".";t
+# # rename obvious typos
+# ds[ds$cognitive_construct %in% c(" knowledge", "knoledge", "knowlegde"),"cognitive_construct"] <- "knowledge"
+# # rename the absense of physical measure
+# ds[ds$cognitive_construct %in% c("nocog", "nocogspec"),"cognitive_construct"] <- "Univar"
+# # collape categories
+# ds[ds$cognitive_construct %in% c("memoryattention","cognitive_construct")] <- "memory"
+# ds[ds$cognitive_construct %in% c("fluid","fluidreasoning"),"cognitive_construct"] <- "reasoning"
+# ds[ds$cognitive_construct %in% c("verbalfluency"),"cognitive_construct"] <- "fluency"
+# # inspect new names
+# t <- table(ds$cognitive_construct, ds$study_name);t[t==0]<-".";t
 
 
 

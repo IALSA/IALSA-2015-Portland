@@ -21,19 +21,19 @@ list.files(pathStudies) # inspect participating studies
 
 
 # @knitr list_paths_studies -------------------------------------------------------------------
-eas <- list.files(file.path(pathStudies,"eas/submitted_outputs"),full.names=T, recursive=T, pattern="out$")
-elsa <- list.files(file.path(pathStudies,"elsa"),full.names=T, recursive=T, pattern="out$")
-hrs <- list.files(file.path(pathStudies,"hrs"),full.names=T, recursive=T, pattern="out$")
-ilse <- list.files(file.path(pathStudies,"ilse"),full.names=T, recursive=T, pattern="out$")
-lasa <- list.files(file.path(pathStudies,"lasa"),full.names=T, recursive=T, pattern="out$")
-nuage <- list.files(file.path(pathStudies,"nuage"),full.names=T, recursive=T, pattern="out$")
-octo <- list.files(file.path(pathStudies,"octo/submitted_outputs"),full.names=T, recursive=T, pattern="out$")
-radc <- list.files(file.path(pathStudies,"radc/outputs"),full.names=T, recursive=T, pattern="out$")
-satsa <- list.files(file.path(pathStudies,"satsa"),full.names=T, recursive=T, pattern="out$")
+eas <- list.files(file.path(pathStudies,"eas/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+elsa <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+hrs <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+ilse <- list.files(file.path(pathStudies,"ilse/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+lasa <- list.files(file.path(pathStudies,"lasa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+octo <- list.files(file.path(pathStudies,"octo/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+radc <- list.files(file.path(pathStudies,"radc/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 # collect a vector with .out file paths
 
-# (model_path_out <- c(eas))
-(model_path_out <- c(elsa))
+(model_path_out <- c(eas))
+# (model_path_out <- c(elsa))
 # (model_path_out <- c(hrs))
 # (model_path_out <- c(ilse))
 # (model_path_out <- c(lasa))
@@ -79,7 +79,7 @@ source("./scripts/mplus/extraction_functions.R") # produces object "results"
 ds <- results
 
 # write.csv(results,  "./data/shared/results_all_eas.csv", row.names=F)
-write.csv(results,  "./data/shared/results_all_elsa.csv", row.names=F)
+# write.csv(results,  "./data/shared/results_all_elsa.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_hrs.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_ilse.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_lasa.csv", row.names=F)
@@ -88,24 +88,24 @@ write.csv(results,  "./data/shared/results_all_elsa.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_radc.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_satsa.csv", row.names=F)
 
-# write.csv(results,  "./data/shared/results_all.csv", row.names=F)
+write.csv(results,  "./data/shared/results_all.csv", row.names=F)
 
 # @knitr alternative_assembly -----
 
 
 
-ra_eas <- read.csv("./data/shared/results_all_eas.csv")
-ra_elsa <- read.csv("./data/shared/results_all_elsa.csv")
-ra_hrs <- read.csv("./data/shared/results_all_hrs.csv")
-ra_ilse <- read.csv("./data/shared/results_all_ilse.csv")
-ra_lasa <- read.csv("./data/shared/results_all_lasa.csv")
-ra_nuage <- read.csv("./data/shared/results_all_nuage.csv")
-ra_octo <- read.csv("./data/shared/results_all_octo.csv")
-ra_radc <- read.csv("./data/shared/results_all_radc.csv")
-ra_satsa <- read.csv("./data/shared/results_all_satsa.csv")
+# ra_eas <- read.csv("./data/shared/results_all_eas.csv")
+# ra_elsa <- read.csv("./data/shared/results_all_elsa.csv")
+# ra_hrs <- read.csv("./data/shared/results_all_hrs.csv")
+# ra_ilse <- read.csv("./data/shared/results_all_ilse.csv")
+# ra_lasa <- read.csv("./data/shared/results_all_lasa.csv")
+# ra_nuage <- read.csv("./data/shared/results_all_nuage.csv")
+# ra_octo <- read.csv("./data/shared/results_all_octo.csv")
+# ra_radc <- read.csv("./data/shared/results_all_radc.csv")
+# ra_satsa <- read.csv("./data/shared/results_all_satsa.csv")
 
 
-ra <- rbind.data.frame(ra_elsa, ra_eas, ra_hrs, ra_ilse, ra_lasa, ra_nuage, ra_octo, ra_radc, ra_satsa)
+# ra <- rbind.data.frame(ra_elsa, ra_eas, ra_hrs, ra_ilse, ra_lasa, ra_nuage, ra_octo, ra_radc, ra_satsa)
 
 write.csv(ra,  "./data/shared/results_all.csv", row.names=F)
 
