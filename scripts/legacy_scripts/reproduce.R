@@ -1,5 +1,5 @@
 
-source("./scripts/mplus/collect_all.R")
+# source("./scripts/mplus/collect_all.R")
 # results in individual a single file containing raw extract from all submitted models
 
 source("./reports/rename_collapse/Track_renaming.R ")
