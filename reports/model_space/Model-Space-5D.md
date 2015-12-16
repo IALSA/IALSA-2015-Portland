@@ -35,9 +35,11 @@ This report establishes four key graphs that go into compiling the Model Catalog
 
 ```
     
-     eas elsa habc hrs ilse nas nuage octo radc satsa
-  b1 219 60   48   72  71   48  12    88   151  152  
-  u1 129 57   30   .   48   6   36    .    149  .    
+     eas elsa hrs ilse lasa nuage octo radc satsa
+  b1 371 18   76  47   18   12    206  302  162  
+  u0 .   .    .   .    .    .     .    .    .    
+  u1 20  .    .   6    .    36    .    149  .    
+  u2 .   .    .   .    .    .     .    .    .    
 ```
 
 
@@ -84,11 +86,11 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-07-16, 10:06 -0700
+Report rendered by koval_000 at 2015-12-15, 15:08 -0800
 ```
 
 ```
-R version 3.2.0 (2015-04-16)
+R version 3.2.2 (2015-08-14)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 Running under: Windows 8 x64 (build 9200)
 
@@ -100,13 +102,15 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] shiny_0.12.1       dplyr_0.4.1        testit_0.4         ggplot2_1.0.1      RColorBrewer_1.1-2 scales_0.2.5      
-[7] knitr_1.10.5      
+ [1] lattice_0.20-33       shiny_0.12.1          RColorBrewer_1.1-2    scales_0.2.5          tidyr_0.2.0          
+ [6] ggplot2_1.0.1         IalsaSynthesis_0.1.8  MplusAutomation_0.6-3 dplyr_0.4.1           testit_0.4           
+[11] knitr_1.10.5         
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-40      munsell_0.4.2    xtable_1.7-4     colorspace_1.2-6
- [7] R6_2.0.1         stringr_1.0.0    plyr_1.8.2       tools_3.2.0      parallel_3.2.0   gtable_0.1.2    
-[13] DBI_0.3.1        htmltools_0.2.6  lazyeval_0.1.10  yaml_2.1.13      digest_0.6.8     assertthat_0.1  
-[19] reshape2_1.4.1   formatR_1.2      mime_0.3         evaluate_0.7     rmarkdown_0.7    labeling_0.3    
-[25] stringi_0.4-1    httpuv_1.3.2     proto_0.3-10    
+ [1] Rcpp_0.11.6      highr_0.5        formatR_1.2      plyr_1.8.3       tools_3.2.2      boot_1.3-17     
+ [7] digest_0.6.8     evaluate_0.7     gtable_0.1.2     texreg_1.35      DBI_0.3.1        yaml_2.1.13     
+[13] parallel_3.2.2   proto_0.3-10     coda_0.17-1      stringr_1.0.0    R6_2.0.1         tcltk_3.2.2     
+[19] gsubfn_0.6-6     rmarkdown_0.7    reshape2_1.4.1   magrittr_1.5     htmltools_0.2.6  MASS_7.3-44     
+[25] assertthat_0.1   mime_0.3         xtable_1.7-4     colorspace_1.2-6 httpuv_1.3.2     labeling_0.3    
+[31] stringi_0.4-1    lazyeval_0.1.10  munsell_0.4.2   
 ```
