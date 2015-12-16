@@ -18,6 +18,11 @@ dim(ds) # rows and columns
 ## @knitr standardize_coefficients -----
 ds$pc_CORR_00 <- ds$pc_TAU_00_est / (sqrt(ds$pp_TAU_00_est)*sqrt(ds$cc_TAU_00_est))
 ds$pc_CORR_11 <-  ds$pc_TAU_11_est / (sqrt(ds$pp_TAU_11_est)*sqrt(ds$cc_TAU_11_est))
+
+# These next two lines inspect the source of the NaNs in tanh below.  Delete them once it's resolved: https://github.com/IALSA/IALSA-2015-Portland/commit/1fba0cfc63b6d7fd6b47ec699f84986c22041a5f.
+summary(ds[, c("pp_TAU_11_est", "pc_CORR_11")])
+head(ds[, c("pp_TAU_11_est", "pc_CORR_11")], 100)
+
 ds$pc_CORR_residual <-  ds$pc_SIGMA_est / (sqrt(ds$p_SIGMA_est) * sqrt(ds$c_SIGMA_est))
 
 # keepvar <- c("study_name","output_file", "pc_TAU_00", "pp_TAU_00", "cc_TAU_00",  "pc_CORR_00", "pc_CORR_11", "pc_CORR_residual")
