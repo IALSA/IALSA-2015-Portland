@@ -78,7 +78,7 @@ rm(list=setdiff(ls(), c("model_list")))
 source("./scripts/mplus/extraction_functions.R") # produces object "results"
 ds <- results
 
-# write.csv(results,  "./data/shared/results_all_eas.csv", row.names=F)
+write.csv(results,  "./data/shared/results_all_eas.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_elsa.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_hrs.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_ilse.csv", row.names=F)
@@ -88,7 +88,7 @@ ds <- results
 # write.csv(results,  "./data/shared/results_all_radc.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_satsa.csv", row.names=F)
 
-write.csv(results,  "./data/shared/results_all.csv", row.names=F)
+# write.csv(results,  "./data/shared/results_all.csv", row.names=F)
 
 # @knitr alternative_assembly -----
 
