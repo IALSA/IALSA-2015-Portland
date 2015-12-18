@@ -24,6 +24,9 @@ if(basename(getwd())=="dashboard"){
   source("./shiny/dashboard/scripts/multiplot_function.R")
 }
 
+ds <- dsb[ , c("study_name","model_number", "subgroup", "model_type",
+            "physical_construct", "cognitive_construct",
+            "physical_measure", "cognitive_measure", "converged","mistrust")]
 
 ## @knitr tweak_data
 ## trim to make more managable
@@ -94,7 +97,7 @@ domain_map <- function(ds, labels){
                  legend.position="left")
   return(g)
 }
-domain_map(dsb)
+domain_map(ds)
 # a <- domain_map(dsb)
 
 # @knitr reproduce ---------------------------------------
