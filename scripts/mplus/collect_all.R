@@ -32,7 +32,7 @@ radc <- list.files(file.path(pathStudies,"radc/physical-cognitive"),full.names=T
 satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 # collect a vector with .out file paths
 
-(model_path_out <- c(eas))
+# (model_path_out <- c(eas))
 # (model_path_out <- c(elsa))
 # (model_path_out <- c(hrs))
 # (model_path_out <- c(ilse))
@@ -42,7 +42,7 @@ satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive"),full.names
 # (model_path_out <- c(radc))
 # (model_path_out <- c(satsa))
 
-# (model_path_out <- c(eas, elsa, hrs, ilse, lasa, nuage, octo, radc, satsa))
+(model_path_out <- c(eas, elsa, hrs, ilse, lasa, nuage, octo, radc, satsa))
 # (model_path_out <- c(satsa))
 # # replace ".out" by ".gh5" and get a vector with .gh5 file paths
 (model_path_gh5 <-gsub(".out",".gh5", model_path_out) )
@@ -78,7 +78,7 @@ rm(list=setdiff(ls(), c("model_list")))
 source("./scripts/mplus/extraction_functions.R") # produces object "results"
 ds <- results
 
-write.csv(results,  "./data/shared/results_all_eas.csv", row.names=F)
+# write.csv(results,  "./data/shared/results_all_eas.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_elsa.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_hrs.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_ilse.csv", row.names=F)
@@ -88,7 +88,7 @@ write.csv(results,  "./data/shared/results_all_eas.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_radc.csv", row.names=F)
 # write.csv(results,  "./data/shared/results_all_satsa.csv", row.names=F)
 
-# write.csv(results,  "./data/shared/results_all.csv", row.names=F)
+write.csv(results,  "./data/shared/results_all.csv", row.names=F)
 
 # @knitr alternative_assembly -----
 
