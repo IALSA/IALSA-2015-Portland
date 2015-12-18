@@ -114,11 +114,11 @@ ds[ds$cognitive_measure %in% c("fas","verbalfluencytest"),"cognitive_measure"] <
 #
 ds[ds$cognitive_measure %in% c("digitsymbol","digitsymbolsubstitutiontest","digitsymboltotal"),"cognitive_measure"] <- "symbol"
 #
-ds[ds$cognitive_measure %in% c("digitbackward","digitspanbackward"),"cognitive_measure"] <- "digitsback"
+ds[ds$cognitive_measure %in% c("digitbackward","digitspanbackward"),"cognitive_measure"] <- "digitsbackward"
 #
-ds[ds$cognitive_measure %in% c("digitsforward","digitspanforward"),"cognitive_measure"] <- "digitsforward"
+ds[ds$cognitive_measure %in% c("digitforward","digitspanforward"),"cognitive_measure"] <- "digitsforward"
 #
-ds[ds$cognitive_measure %in% c("digitspantotal","disigtspantotal"),"cognitive_measure"] <- "digitspan"
+ds[ds$cognitive_measure %in% c("digitspantotal","disigtspantotal"),"cognitive_measure"] <- "digitsspan"
 #
 ds[ds$cognitive_measure %in% c("logicalmemorytotal"),"cognitive_measure"] <- "logicalmemory"
 
@@ -126,47 +126,83 @@ ds[ds$cognitive_measure %in% c("logicalmemorytotal"),"cognitive_measure"] <- "lo
 
 # ---- cognitive_construct -------------------------------------------
 # recategorize
-# KNOWLEDGE
+# KNOWLEDGE - green
+ds[ds$cognitive_measure %in% c("info"),"cognitive_construct"] <- "knowledge"
+ds[ds$cognitive_measure %in% c("nart"),"cognitive_construct"] <- "knowledge"
+ds[ds$cognitive_measure %in% c("synonyms"),"cognitive_construct"] <- "knowledge"
+ds[ds$cognitive_measure %in% c("waisgeneralknowledge", "waisgeneral"),"cognitive_construct"] <- "knowledge"
 ds[ds$cognitive_measure %in% c("waisvocab"),"cognitive_construct"] <- "knowledge"
-ds[ds$cognitive_measure %in% c("pastehere"),"cognitive_construct"] <- "knowledge"
+ds[ds$cognitive_measure %in% c("waisvocab"),"cognitive_construct"] <- "knowledge"
+ds[ds$cognitive_measure %in% c("knowledge"),"cognitive_construct"] <- "knowledge"
 
-# LANGUAGE
+
+# LANGUAGE - blueish green
 ds[ds$cognitive_measure %in% c("bnt"),"cognitive_construct"] <- "language"
-ds[ds$cognitive_measure %in% c("pastehere"),"cognitive_construct"] <- "language"
+ds[ds$cognitive_measure %in% c("language"),"cognitive_construct"] <- "language"
 
-# FLUENCY
-ds[ds$cognitive_measure %in% c("fluency"),"cognitive_construct"] <- "fluency"
+
+# FLUENCY - greenish blue
 ds[ds$cognitive_measure %in% c("categories"),"cognitive_construct"] <- "fluency"
-ds[ds$cognitive_measure %in% c("pastehere"),"cognitive_construct"] <- "fluency"
+ds[ds$cognitive_measure %in% c("fluency", "verbalfluency"),"cognitive_construct"] <- "fluency"
 
-# MEMORY
+
+
+# MEMORY - blue
+ds[ds$cognitive_measure %in% c("bostonstory"),"cognitive_construct"] <- "memory"
 ds[ds$cognitive_measure %in% c("delayedrecall"),"cognitive_construct"] <- "memory"
-ds[ds$cognitive_measure %in% c("digitforward"),"cognitive_construct"] <- "memory"
-ds[ds$cognitive_measure %in% c("delayedrecall"),"cognitive_construct"] <- "memory"
-ds[ds$cognitive_measure %in% c("delayedrecall"),"cognitive_construct"] <- "memory"
+ds[ds$cognitive_measure %in% c("digitsforward"),"cognitive_construct"] <- "memory"
+ds[ds$cognitive_measure %in% c("figurememory"),"cognitive_construct"] <- "memory"
+ds[ds$cognitive_measure %in% c("logicalmemory"),"cognitive_construct"] <- "memory"
+ds[ds$cognitive_measure %in% c("wordlistdelay"),"cognitive_construct"] <- "memory"
+ds[ds$cognitive_measure %in% c("wordlistimmed"),"cognitive_construct"] <- "memory"
+ds[ds$cognitive_measure %in% c("wordlistrecog"),"cognitive_construct"] <- "memory"
+ds[ds$cognitive_measure %in% c("mirrecall"),"cognitive_construct"] <- "memory"
+ds[ds$cognitive_measure %in% c("proserecall","prose"),"cognitive_construct"] <- "memory"
+ds[ds$cognitive_measure %in% c("memory"),"cognitive_construct"] <- "memory"
+
+# WORKING MEMORY - reddish-blue
+ds[ds$cognitive_measure %in% c("digitsbackward"),"cognitive_construct"] <- "workmemory"
+ds[ds$cognitive_measure %in% c("digitorder"),"cognitive_construct"] <- "workmemory"
+
+# EXECUTIVE FUNCTION - purple
+ds[ds$cognitive_measure %in% c("executive"),"cognitive_construct"] <- "executive"
+ds[ds$cognitive_measure %in% c("trailsb"),"cognitive_construct"] <- "executive"
+
+# VISUASPACIAL REASONING - bluish-red
+ds[ds$cognitive_measure %in% c("block"),"cognitive_construct"] <- "vsreasoning"
+ds[ds$cognitive_measure %in% c("figurelogic"),"cognitive_construct"] <- "vsreasoning"
+ds[ds$cognitive_measure %in% c("matrices"),"cognitive_construct"] <- "vsreasoning"
+ds[ds$cognitive_measure %in% c("rotations"),"cognitive_construct"] <- "vsreasoning"
+ds[ds$cognitive_measure %in% c("lpsspatialability","ipsspatialability"),"cognitive_construct"] <- "vsreasoning"
+ds[ds$cognitive_measure %in% c("waispicturecompletion"),"cognitive_construct"] <- "vsreasoning"
+ds[ds$cognitive_measure %in% c("line","lineorientation"),"cognitive_construct"] <- "vsreasoning"
+ds[ds$cognitive_measure %in% c("visuospatial"),"cognitive_construct"] <- "vsreasoning"
+ds[ds$cognitive_measure %in% c("reasoning"),"cognitive_construct"] <- "vsreasoning"
 
 
-# WORKING MEMORY
-ds[ds$cognitive_measure %in% c("pastehere"),"cognitive_construct"] <- "workmemory"
+# SPEED - orange
+ds[ds$cognitive_measure %in% c("symbol"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("figureid"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("numbercomp"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("patterncomp"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("psif"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("speed"),"cognitive_construct"] <- "speed"
 
-# EXECUTIVE FUNCTION
-ds[ds$cognitive_measure %in% c("pastehere"),"cognitive_construct"] <- "executive"
 
-# REASONING
-ds[ds$cognitive_measure %in% c("block"),"cognitive_construct"] <- "reasoning"
-ds[ds$cognitive_measure %in% c("figurelogic"),"cognitive_construct"] <- "reasoning"
-ds[ds$cognitive_measure %in% c("reasoning"),"cognitive_construct"] <- "reasoning"
+# MENTAL STATUS - grey
+ds[ds$cognitive_measure %in% c("3ms"),"cognitive_construct"] <- "mental"
+ds[ds$cognitive_measure %in% c("mmse"),"cognitive_construct"] <- "mental"
+ds[ds$cognitive_measure %in% c("clock"),"cognitive_construct"] <- "mental"
+ds[ds$cognitive_measure %in% c("serial7"),"cognitive_construct"] <- "mental"
+ds[ds$cognitive_measure %in% c("tics"),"cognitive_construct"] <- "mental"
+ds[ds$cognitive_measure %in% c("mental"),"cognitive_construct"] <- "mental"
 
-# VISUOSPATIAL
-ds[ds$cognitive_measure %in% c("pastehere"),"cognitive_construct"] <- "visuospacial"
 
-# SPEED
-ds[ds$cognitive_measure %in% c("pastehere"),"cognitive_construct"] <- "speed"
-ds[ds$cognitive_measure %in% c("pastehere"),"cognitive_construct"] <- "speed"
-
-# MENTAL STATUS
-ds[ds$cognitive_measure %in% c("pastehere"),"cognitive_construct"] <- "mental"
-ds[ds$cognitive_measure %in% c("pastehere"),"cognitive_construct"] <- "mental"
+d <- dplyr::group_by_(ds,"cognitive_construct", "cognitive_measure") %>%
+  dplyr::summarise(count = n())
+d
+dd <- d %>% dplyr::filter(is.na(cognitive_construct))
+dd
 
 
 # ds[ds$cognitive_measure %in% c("info"),"cognitive_construct"] <- "knowledge"
