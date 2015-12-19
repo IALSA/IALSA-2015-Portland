@@ -86,7 +86,7 @@ domain_colors <- c("knowledge"='chartreuse3', # green
                    "memory"="cornflowerblue", # blue
                    "workmemory"="blueviolet", # reddish-blue
                    "executive"="darkmagenta", # purple
-                   "vsreasoning"="darkred", # blueish-red
+                   "vsreasoning"="brown2", # blueish-red
                    "speed"="darkorange2", # organge
                    "mental"="azure3" # grey
 )
