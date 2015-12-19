@@ -12,29 +12,6 @@ library(lattice)
 library(grid)
 
 
-## @knitr load_data
-## if-else conditions for Shiny production
-## "b" in "dsb" is for BASIC
-
-if(basename(getwd())=="dashboard"){
-  dsb <- readRDS('../../data/shared/ds2.rds')
-  source("../../shiny/dashboard/scripts/multiplot_function.R")
-}else{
-  dsb <- readRDS('./data/shared/ds2.rds')
-  source("./shiny/dashboard/scripts/multiplot_function.R")
-}
-
-ds <- dsb[ , c("study_name","model_number", "subgroup", "model_type",
-            "physical_construct", "cognitive_construct",
-            "physical_measure", "cognitive_measure", "converged","mistrust")]
-
-## @knitr tweak_data
-## trim to make more managable
-# keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
-# ds <- dsb[ , keepvar]
-# dplyr::tbl_df(ds)
-
-
 ## @knitr define_themes
 ## define common graphical theme for all graphs
 baseSize <- 10
@@ -62,7 +39,52 @@ x_name_labels <- c("physical_measure"="Physical Measure",
                    "model_type"="Covariates",
                    "subgroup"="Subgroup")
 
-## @knitr define_graph_functions
+domain_colors <- c("knowledge"='coral3', # green
+                   "language"="aquamarine3", # blueish-green
+                   "fluency"="cadetblue", # greenish-blue # cyan4 , darkcyan
+                   "memory"="cornflowerblue", # blue
+                   "workmemory"="blueviolet", # reddish-blue
+                   "executive"="darkmagenta", # purple
+                   "vsreasoning"="darkred", # blueish-red
+                   "speed"="darkorange2", # organge
+                   "mental"="azure3" # grey
+)
+
+
+## @knitr load_data
+## if-else conditions for Shiny production
+## "b" in "dsb" is for BASIC
+
+if(basename(getwd())=="dashboard"){
+  dsb <- readRDS('../../data/shared/ds2.rds')
+  source("../../shiny/dashboard/scripts/multiplot_function.R")
+}else{
+  dsb <- readRDS('./data/shared/ds2.rds')
+  source("./shiny/dashboard/scripts/multiplot_function.R")
+}
+
+ds <- dsb[ , c("study_name","model_number", "subgroup", "model_type",
+            "physical_construct", "cognitive_construct",
+            "physical_measure", "cognitive_measure", "converged","mistrust")]
+
+ds$cognitive_construct <- ordered(ds$cognitive_construct, levels=c("knowledge","language","fluency",
+                                                                   "memory","workmemory","executive",
+                                                                   "vsreasoning","speed","mental"))
+str(ds$cognitive_construct)
+
+# ds[ds$physical_measure=="nophys"] <- NULL
+# ds[ds$cognitive_measure=="nocog"] <- NULL
+#
+
+## @knitr tweak_data
+## trim to make more managable
+# keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
+# ds <- dsb[ , keepvar]
+# dplyr::tbl_df(ds)
+
+
+
+# ------ define_graph_functions ----------------------
 
 head(dsb)
 
@@ -75,17 +97,28 @@ domain_map <- function(ds, labels){
   d$cog_meas <- stringr::str_sub(d$cognitive_measure,1,3)
   d$cog_measure_display <-paste0(stringr::str_sub(d$cognitive_measure,1,6),
                                  ", ",d$n)
+
+  # d <- d[order(d$cognitive_construct), ]
+  dd <- dplyr::select_(d, "cognitive_measure", "cognitive_construct") %>%
+    group_by_("cognitive_construct") %>%
+    dplyr::summarize(count=n())
+
+
   # d
   # str(d)
   #
-  g <- ggplot2::ggplot(d, aes_string(x="dummy", y="cognitive_measure", label="cog_measure_display", fill="cognitive_construct"))
+  g <- ggplot2::ggplot(d, aes_string(x="dummy",
+                                     y="cognitive_measure",
+                                     label="cog_measure_display",
+                                     fill="cognitive_construct"))
   g <- g + geom_tile()
   g <- g + geom_text(size = baseSize-7, hjust=.4)
   g <- g + facet_grid(. ~ study_name )
   # g <- g + coord_flip()
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
+  # g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(d$cognitive_measure))
   g <- g + scale_fill_discrete(name = "Domains")
-  # g <- g + scale_fill_gradient(low="white", high="salmon", na.value = "white")
+  g <- g + scale_fill_manual(values=domain_colors)
   g <- g + labs(title="Studies")
   g <- g + theme1
   g <- g + theme(axis.text.y =  element_text(size=baseSize-1),

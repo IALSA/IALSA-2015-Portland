@@ -22,6 +22,9 @@
 
 <!-- Load the datasets.   -->
 
+```
+ Ord.factor w/ 9 levels "knowledge"<"language"<..: 7 7 7 7 7 7 7 7 7 7 ...
+```
 
 <!-- Tweak the datasets.   -->
 
@@ -78,25 +81,6 @@ database
 The domain map above is the actual data provided by the model in the Portland modeling collective right now. The colors  represent various cognitive domains, as identified by the participants in the model names. The colors are meant to be categorical, the change in hue is coincidental with alphabetic name.
 
 
-## Cross counts with Physical Measures
-
-We can augment this map with the tile graph of the bivariate model counts: 
-
-
-## Objectives
-
-Now we have a better system for planning our project. Itemizing, we can distinguish the following objectives: 
-
-  1. Reduce the number of colors in the domain map 
-    a. Combine measures into domains  
-    b. remove domains due to few  
-  2. Reduce the number of rows  
-  3. Reduce the number of columns
-  4. Increase the value of numbers
-
-## Combine with other dimensions (Experimental)
-
-
 
 
 ## Session Information
@@ -104,7 +88,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-12-18, 05:02 -0800
+Report rendered by koval_000 at 2015-12-18, 16:01 -0800
 ```
 
 ```
