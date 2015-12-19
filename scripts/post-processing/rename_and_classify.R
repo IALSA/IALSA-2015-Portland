@@ -171,7 +171,7 @@ ds[ds$cognitive_measure %in% c("trailsb"),"cognitive_construct"] <- "executive"
 # VISUASPACIAL REASONING - bluish-red
 ds[ds$cognitive_measure %in% c("block"),"cognitive_construct"] <- "vsreasoning"
 ds[ds$cognitive_measure %in% c("figurelogic"),"cognitive_construct"] <- "vsreasoning"
-ds[ds$cognitive_measure %in% c("matrices"),"cognitive_construct"] <- "vsreasoning"
+ds[ds$cognitive_measure %in% c("matrices","raven"),"cognitive_construct"] <- "vsreasoning"
 ds[ds$cognitive_measure %in% c("rotations"),"cognitive_construct"] <- "vsreasoning"
 ds[ds$cognitive_measure %in% c("lpsspatialability","ipsspatialability"),"cognitive_construct"] <- "vsreasoning"
 ds[ds$cognitive_measure %in% c("waispicturecompletion"),"cognitive_construct"] <- "vsreasoning"
@@ -181,7 +181,7 @@ ds[ds$cognitive_measure %in% c("reasoning"),"cognitive_construct"] <- "vsreasoni
 
 
 # SPEED - orange
-ds[ds$cognitive_measure %in% c("symbol"),"cognitive_construct"] <- "speed"
+ds[ds$cognitive_measure %in% c("symbol","codingtask"),"cognitive_construct"] <- "speed"
 ds[ds$cognitive_measure %in% c("figureid"),"cognitive_construct"] <- "speed"
 ds[ds$cognitive_measure %in% c("numbercomp"),"cognitive_construct"] <- "speed"
 ds[ds$cognitive_measure %in% c("patterncomp"),"cognitive_construct"] <- "speed"
