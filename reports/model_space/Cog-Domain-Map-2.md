@@ -74,9 +74,9 @@ Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : fon
 database
 ```
 
-![](dev_cog_domain_map/define_graph_functions-1.png) 
+![](cog-domain-map-2/define_graph_functions-1.png) 
 
-![](dev_cog_domain_map/domain_map-1.png) 
+![](cog-domain-map-2/domain_map-1.png) 
 
 The domain map above is the actual data provided by the model in the Portland modeling collective right now. The colors  represent various cognitive domains, as identified by the participants in the model names. The colors are meant to be categorical, the change in hue is coincidental with alphabetic name.
 
@@ -88,7 +88,7 @@ For the sake of documentation and reproducibility, the current report was render
 
 
 ```
-Report rendered by koval_000 at 2015-12-18, 16:01 -0800
+Report rendered by koval_000 at 2015-12-19, 07:38 -0800
 ```
 
 ```
@@ -104,12 +104,12 @@ attached base packages:
 [1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] lattice_0.20-33 dplyr_0.4.1     ggplot2_1.0.1   shiny_0.12.1    knitr_1.10.5   
+[1] extrafont_0.17  testit_0.4      knitr_1.10.5    lattice_0.20-33 dplyr_0.4.1     ggplot2_1.0.1   shiny_0.12.1   
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.11.6      magrittr_1.5     MASS_7.3-44      munsell_0.4.2    colorspace_1.2-6 xtable_1.7-4    
- [7] R6_2.0.1         stringr_1.0.0    plyr_1.8.3       tools_3.2.2      parallel_3.2.2   gtable_0.1.2    
-[13] DBI_0.3.1        htmltools_0.2.6  lazyeval_0.1.10  assertthat_0.1   yaml_2.1.13      digest_0.6.8    
-[19] reshape2_1.4.1   formatR_1.2      evaluate_0.7     mime_0.3         rmarkdown_0.7    stringi_0.4-1   
-[25] scales_0.2.5     httpuv_1.3.2     proto_0.3-10    
+ [1] Rcpp_0.11.6      Rttf2pt1_1.3.3   magrittr_1.5     MASS_7.3-44      munsell_0.4.2    colorspace_1.2-6
+ [7] xtable_1.7-4     R6_2.0.1         stringr_1.0.0    plyr_1.8.3       tools_3.2.2      parallel_3.2.2  
+[13] gtable_0.1.2     DBI_0.3.1        extrafontdb_1.0  htmltools_0.2.6  yaml_2.1.13      lazyeval_0.1.10 
+[19] digest_0.6.8     assertthat_0.1   formatR_1.2      reshape2_1.4.1   evaluate_0.7     mime_0.3        
+[25] rmarkdown_0.7    stringi_0.4-1    scales_0.2.5     httpuv_1.3.2     proto_0.3-10    
 ```
