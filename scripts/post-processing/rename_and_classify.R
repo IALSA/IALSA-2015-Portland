@@ -121,6 +121,8 @@ ds[ds$cognitive_measure %in% c("digitforward","digitspanforward"),"cognitive_mea
 ds[ds$cognitive_measure %in% c("digitspantotal","disigtspantotal"),"cognitive_measure"] <- "digitsspan"
 #
 ds[ds$cognitive_measure %in% c("logicalmemorytotal"),"cognitive_measure"] <- "logicalmemory"
+#
+ds[ds$cognitive_measure %in% c("prose"),"cognitive_measure"] <- "proserecall"
 
 # ---- physical_construct -------------------------------------------
 
