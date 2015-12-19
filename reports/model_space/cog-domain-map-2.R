@@ -80,18 +80,27 @@ x_name_labels <- c("physical_measure"="Physical Measure",
                    "model_type"="Covariates",
                    "subgroup"="Subgroup")
 
-domain_colors <- c("knowledge"='chartreuse3', # green
-                   "language"="aquamarine3", # blueish-green
-                   "fluency"="cadetblue", # greenish-blue # cyan4 , darkcyan
-                   "memory"="cornflowerblue", # blue
-                   "workmemory"="blueviolet", # reddish-blue
-                   "executive"="darkmagenta", # purple
-                   "vsreasoning"="brown2", # blueish-red
-                   "speed"="darkorange2", # organge
-                   "mental"="azure3" # grey
+# domain_colors <- c("knowledge"='chartreuse3', # green
+#                    "language"="aquamarine3", # blueish-green
+#                    "fluency"="cadetblue", # greenish-blue # cyan4 , darkcyan
+#                    "memory"="cornflowerblue", # blue
+#                    "workmemory"="blueviolet", # reddish-blue
+#                    "executive"="darkmagenta", # purple
+#                    "vsreasoning"="brown2", # blueish-red
+#                    "speed"="darkorange2", # organge
+#                    "mental"="azure3" # grey
+# )
+
+domain_colors <- c("knowledge"='#a6cee3', # green
+                   "language"="#1f78b4", # blueish-green
+                   "fluency"="#b2df8a", # greenish-blue # cyan4 , darkcyan
+                   "memory"="#33a02c", # blue
+                   "workmemory"="#fb9a99", # reddish-blue
+                   "executive"="#e31a1c", # purple
+                   "vsreasoning"="#fdbf6f", # blueish-red
+                   "speed"="#ff7f00", # organge
+                   "mental"="#cab2d6" # grey
 )
-
-
 
 
 # ------ define_graph_functions ----------------------
