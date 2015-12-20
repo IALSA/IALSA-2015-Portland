@@ -79,7 +79,8 @@ t <- table(ds$physical_measure, ds$study_name);t[t==0]<-".";t
 
 ## @knitr spell_cognitive_measure
 t <- table(ds$cognitive_measure, ds$study_name);t[t==0]<-".";t
-
+d <- ds %>% dplyr::group_by_("cognitive_measure") %>% summarize(count=n())
+kable(d)
 ## @knitr correct_cognitive_measure
 # rename obvious typos
 ds[ds$cognitive_measure %in% c("wasivocab"),"cognitive_measure"] <- "waisvocab"
