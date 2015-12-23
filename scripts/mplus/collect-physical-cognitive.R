@@ -40,9 +40,9 @@ satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive"),full.names
 # (model_path_out <- c(nuage))
 # (model_path_out <- c(octo))
 # (model_path_out <- c(radc))
-# (model_path_out <- c(satsa))
+(model_path_out <- c(satsa))
 
-(model_path_out <- c(eas, elsa, hrs, ilse, lasa, nuage, octo, radc, satsa))
+# (model_path_out <- c(eas, elsa, hrs, ilse, lasa, nuage, octo, radc, satsa))
 # (model_path_out <- c(satsa))
 # # replace ".out" by ".gh5" and get a vector with .gh5 file paths
 (model_path_gh5 <-gsub(".out",".gh5", model_path_out) )
@@ -67,9 +67,18 @@ for(i in 1:length(model_list[["path_out"]])){
   (model_list[["model_number"]][[i]] <- b[1])
   (model_list[["subgroup"]][[i]] <- b[2])
   (model_list[["model_type"]][[i]] <- b[3])
-  (model_list[["process1"]][[i]] <- b[4])
-  (model_list[["process2"]][[i]] <- b[5])
-}
+
+  if(length(b)==7L){
+    (model_list[["process1"]][[i]] <- b[6])
+    (model_list[["process2"]][[i]] <- b[7])
+  }
+  if(length(b)==5L){
+    (model_list[["process1"]][[i]] <- b[4])
+    (model_list[["process2"]][[i]] <- b[5])
+  }
+
+} # close for loop
+
 names(model_list)
 str(model_list)
 rm(list=setdiff(ls(), c("model_list")))
@@ -78,37 +87,37 @@ rm(list=setdiff(ls(), c("model_list")))
 source("./scripts/mplus/extraction_functions.R") # produces object "results"
 ds <- results
 
-# write.csv(results,  "./data/shared/results_all_eas.csv", row.names=F)
-# write.csv(results,  "./data/shared/results_all_elsa.csv", row.names=F)
-# write.csv(results,  "./data/shared/results_all_hrs.csv", row.names=F)
-# write.csv(results,  "./data/shared/results_all_ilse.csv", row.names=F)
-# write.csv(results,  "./data/shared/results_all_lasa.csv", row.names=F)
-# write.csv(results,  "./data/shared/results_all_nuage.csv", row.names=F)
-# write.csv(results,  "./data/shared/results_all_octo.csv", row.names=F)
-# write.csv(results,  "./data/shared/results_all_radc.csv", row.names=F)
-# write.csv(results,  "./data/shared/results_all_satsa.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-eas.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-elsa.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-hrs.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-ilse.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-lasa.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-nuage.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-octo.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-radc.csv", row.names=F)
+write.csv(results,  "./data/shared/results-satsa.csv", row.names=F)
 
-write.csv(results,  "./data/shared/results_all.csv", row.names=F)
+# write.csv(results,  "./data/shared/results_all.csv", row.names=F)
 
 # @knitr alternative_assembly -----
 
 
 
-# ra_eas <- read.csv("./data/shared/results_all_eas.csv")
-# ra_elsa <- read.csv("./data/shared/results_all_elsa.csv")
-# ra_hrs <- read.csv("./data/shared/results_all_hrs.csv")
-# ra_ilse <- read.csv("./data/shared/results_all_ilse.csv")
-# ra_lasa <- read.csv("./data/shared/results_all_lasa.csv")
-# ra_nuage <- read.csv("./data/shared/results_all_nuage.csv")
-# ra_octo <- read.csv("./data/shared/results_all_octo.csv")
-# ra_radc <- read.csv("./data/shared/results_all_radc.csv")
-# ra_satsa <- read.csv("./data/shared/results_all_satsa.csv")
+# ra_eas <- read.csv("./data/shared/results-eas.csv")
+# ra_elsa <- read.csv("./data/shared/results-elsa.csv")
+# ra_hrs <- read.csv("./data/shared/results-hrs.csv")
+# ra_ilse <- read.csv("./data/shared/results-ilse.csv")
+# ra_lasa <- read.csv("./data/shared/results-lasa.csv")
+# ra_nuage <- read.csv("./data/shared/results-nuage.csv")
+# ra_octo <- read.csv("./data/shared/results-octo.csv")
+# ra_radc <- read.csv("./data/shared/results-radc.csv")
+# ra_satsa <- read.csv("./data/shared/results-satsa.csv")
 
 
 # ra <- rbind.data.frame(ra_elsa, ra_eas, ra_hrs, ra_ilse, ra_lasa, ra_nuage, ra_octo, ra_radc, ra_satsa)
 
-write.csv(ra,  "./data/shared/results_all.csv", row.names=F)
-
+# write.csv(ra,  "./data/shared/results_all.csv", row.names=F)
+#
 
 
 

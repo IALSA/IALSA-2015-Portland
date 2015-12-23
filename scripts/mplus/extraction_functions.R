@@ -138,8 +138,18 @@ get_results_basic <- function(list_object){
     results[i,"study_name"] <- strsplit(out_list[i], '/')[[1]][selector+3]
     results[i,c("model_number", 'subgroup',  'model_type')] <- strsplit(msum$Filename[i], '_')[[1]][1:3]
     # results[i, c("physical_construct","cognitive_construct")] <- strsplit(msum$Filename[i], '_|.out')[[1]][4:5]
-    results[i, "physical_measure"] <- strsplit(msum$Filename[i], '_|.out')[[1]][4]
-    results[i, "cognitive_measure"] <- strsplit(msum$Filename[i], '_|.out')[[1]][5]
+    # browser()
+    b <- strsplit(msum$Filename[i], '_|.out')[[1]]
+
+    if(length(b)==7L){
+      results[i, "physical_measure"] <- b[6]
+      results[i, "cognitive_measure"] <- b[7]
+    }
+    if(length(b)==5L){
+      results[i, "physical_measure"] <-b[4]
+      results[i, "cognitive_measure"] <- b[5]
+    }
+
 
     #Basic info
     results[i, 'subject_count'] <- msum[i, 'Observations']
