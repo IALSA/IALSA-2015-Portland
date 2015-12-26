@@ -40,9 +40,9 @@ satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive"),full.names
 # (model_path_out <- c(nuage))
 # (model_path_out <- c(octo))
 # (model_path_out <- c(radc))
-(model_path_out <- c(satsa))
+# (model_path_out <- c(satsa))
 
-# (model_path_out <- c(eas, elsa, hrs, ilse, lasa, nuage, octo, radc, satsa))
+(model_path_out <- c(eas, elsa, hrs, ilse, lasa, nuage, octo, radc, satsa))
 # (model_path_out <- c(satsa))
 # # replace ".out" by ".gh5" and get a vector with .gh5 file paths
 (model_path_gh5 <-gsub(".out",".gh5", model_path_out) )
@@ -95,9 +95,9 @@ ds <- results
 # write.csv(results,  "./data/shared/results-nuage.csv", row.names=F)
 # write.csv(results,  "./data/shared/results-octo.csv", row.names=F)
 # write.csv(results,  "./data/shared/results-radc.csv", row.names=F)
-write.csv(results,  "./data/shared/results-satsa.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-satsa.csv", row.names=F)
 
-# write.csv(results,  "./data/shared/results_all.csv", row.names=F)
+write.csv(results,  "./data/shared/results-physical-cognitive.csv", row.names=F)
 
 # @knitr alternative_assembly -----
 
