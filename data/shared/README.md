@@ -1,6 +1,6 @@
 [.](https://github.com/IALSA/IALSA-2015-Portland/edit/master/data/shared/README.md)   
 
-## Ontology
+## Data
 
 - ```ds0.rds``` contains raw model data as it was extracted from output files produced by Mplus. 
 
@@ -10,7 +10,16 @@
 - ```ds2.rds``` augements corrected data with specialty transformations (correlation, 95%CI)
 
 
-## Epistemology
+## Scripts
+
+- [`collect-physical-cognitive.R`]()   
+
+- [`extraction-functions.R`]()  
+
+- [`group-variable.R`]()  
+
+- [`get-gh5.R`]()  
+
 
 - [```0_collect_studies.R```](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0_collect_studies.R): ```model.out```  >>>  ```./study1...studyS/study_automation_results.csv```  
 Uses the functions defined in the script [0a_functions_that_collect.R](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0a_functions_that_collect.R) to extract model results from individual Mplus output files. Creates a ```.csv``` file for each study. 
