@@ -84,7 +84,7 @@ str(model_list)
 rm(list=setdiff(ls(), c("model_list")))
 
 # @knitr pass_outputs_through_extraction
-source("./scripts/mplus/extraction_functions.R") # produces object "results"
+source("./scripts/mplus/extraction-functions.R") # produces object "results"
 ds <- results
 
 # write.csv(results,  "./data/shared/results-eas.csv", row.names=F)
