@@ -12,13 +12,13 @@
 
 ## Scripts
 
-- [`collect-physical-cognitive.R`]()   
+- [`./scripts/collect-physical-cognitive.R`]()   directs to the location of the saved output files. Combines a roster of models from all studies. Source 'extraction-function.R'. Produces a dataframe with rows as individual models and columns as their properties extracted from the output files. Saves the file in `./data/shared/results-physical-cognitive.csv` 
 
-- [`extraction-functions.R`]()  
+- [`extraction-functions.R`]()  defines all the functions that reach into the text output and extracts the needed information (e.g. fit value, parameter estimates, etc). Sources `group-variables.R`. Applies the functions to the dataframe passed from a higher-order script ( e.g. `collect-physical-cognitive.R`)
 
-- [`group-variable.R`]()  
+- [`group-variable.R`]()  creates objects with names of the variables. Used in higher-order scripts, saving them space
 
-- [`get-gh5.R`]()  
+- [`get-gh5.R`]()  processes `*.gh5` files, if they are submitted along with the output. 
 
 
 - [```0_collect_studies.R```](https://github.com/IALSA/IALSA-2015-Portland/blob/master/scripts/0_collect_studies.R): ```model.out```  >>>  ```./study1...studyS/study_automation_results.csv```  
