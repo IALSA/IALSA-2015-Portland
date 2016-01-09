@@ -8,9 +8,9 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 # @knitr load_packages -----------------------------------------------------------
 library(ggplot2) #For graphing
 library(magrittr) #Pipes
-requireNamespace("knitr", quietly=TRUE)
-requireNamespace("dplyr", quietly=TRUE)
-requireNamespace("tidyr", quietly=TRUE)
+requireNamespace("knitr")
+requireNamespace("dplyr")
+requireNamespace("tidyr")
 
 # @knitr declare_globals ---------------------------------------------------------
 path_input <- "./projects/physical/outputs/physical.rds"
