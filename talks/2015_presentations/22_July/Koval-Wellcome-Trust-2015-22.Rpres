@@ -6,10 +6,11 @@
 
 A Collaborative Modeling Framework for Multi-Study Coordinated Analyses
 ========================================================
-Andriy Koval, University of Victoria
+- Andriy Koval, Andrea Piccinin, Scott Hofer (University of Victoria)
+- Graciela Muniz (University College London)
+- Will Beasley (University of Oklahoma)
 
 [IALSA network](http://ialsa.org)
-
 July-22-2015, *Wellcome Trust Conference*
 
 Portland Workshop
