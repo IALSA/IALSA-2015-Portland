@@ -1,4 +1,4 @@
-#Current Projects
+## Planned Projects
 
 Our current goals include publication of papers investigating the following fi5e associations:  
 
