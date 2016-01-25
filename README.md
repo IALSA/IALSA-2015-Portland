@@ -77,7 +77,7 @@ See [projects](./projects/README.md) page for a detailed overview of the project
 
 At the time a project shapes up it gets its own repository, which will eventually host the publication manuscript and all contingencies for reproducibility. Currently, the following repos are gearing toward producing manuscript for submission:  
 - [Portland-physical-cognitive](https://github.com/IALSA/Portland-physical-cognitive) repo follow the physical-cognitive track, evaluating the longitudinal models in which physical and cognitive outcomes form a bivariate linear structure. 
-- 
+ 
 
 
 ## News
