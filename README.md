@@ -73,15 +73,11 @@ The primary aim of the workshop was to examine associations between changes in p
 
 ## Projects
 
-Our current goals include publication of papers investigating the following fi5e associations:  
+See [projects](./projects/README.md) page for a detailed overview of the projects planned before the Portland conference. 
 
-- Association between changes in [**pulmonary**](./projects/pulmonary/README.md) function and changes in cognitive function
-- Association between changes in [**grip**](./projects/grip/README.md) strength and changes in cognitive function    
-- Association between changes in [**gait**](./projects/gait/README.md) and changes in cognitive function  
-- Associations between [**physical-cognitive**](./projects/physical-cognitive/README.md) variables, within and across domains  
-- Associations among rates of change in [**physical**](./projects/physical/README.md) capability variables 
-
-See [projects](./projects/README.md) page for a detailed overview of these five projects.
+At the time a project shapes up it gets its own repository, which will eventually host the publication manuscript and all contingencies for reproducibility. Currently, the following repos are gearing toward producing manuscript for submission:  
+- [Portland-physical-cognitive](https://github.com/IALSA/Portland-physical-cognitive) repo follow the physical-cognitive track, evaluating the longitudinal models in which physical and cognitive outcomes form a bivariate linear structure. 
+- 
 
 
 ## News
