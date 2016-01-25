@@ -37,4 +37,6 @@ Here we focus on bivariate associations among trajectories of the physical measu
 
 
 
-#Completed Projects
+##Manuscripts in Development
+- [Portland-physical-cognitive](https://github.com/IALSA/Portland-physical-cognitive) repo follow the physical-cognitive track, evaluating the longitudinal models in which physical and cognitive outcomes form a bivariate linear structure. 
+
