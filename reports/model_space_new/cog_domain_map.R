@@ -15,7 +15,7 @@ library(grid)
 ## if-else conditions for Shiny production
 ## "b" in "dsb" is for BASIC
 
-dsb <- read.csv("./data/shared/results_all.csv")
+dsb <- read.csv("./data/shared/results-physical-cognitive.csv")
 
 ds <- dsb[ , c("study_name","model_number", "subgroup", "model_type",
             "physical_construct", "cognitive_construct",
