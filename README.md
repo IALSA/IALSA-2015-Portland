@@ -37,7 +37,7 @@ Analytic tools available to the workshop participants include dynamic **reports*
  [NuAge](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nuage.html),  [OCTO-Twin](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/octo.html),
  [RADC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/radc.html),
  [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html)  
- - [model_space](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/README.md) is a series of reports that tries to understand how best to organize our models for the analysis, in which model (not individual) is the primary unit .   
+ - [model_space](https://raw.githubusercontent.com/IALSA/Portland-physical-cognitive/master/analysis/model_space/cog_domain_map/domain_map-1.png) graphing how the measures are mapped into domains. We need to understand how best to organize our models for the analysis, in which model (not individual) is the primary unit .    
  - [reproduce](./scripts/utility/reproduce.R) script that re-generates all these reports.   
  - [scripts README](./scripts/README.md) overview scripts that replicates data preparation  
  
