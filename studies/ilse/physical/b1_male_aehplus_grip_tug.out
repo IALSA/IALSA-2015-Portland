@@ -1,6 +1,10 @@
 Mplus VERSION 7.11
 MUTHEN & MUTHEN
+<<<<<<< HEAD
+10/30/2015   9:54 AM
+=======
 10/30/2015  11:55 AM
+>>>>>>> 69bc921a1a6acf93845d01e5fc93b14504a1a8d2
 
 INPUT INSTRUCTIONS
 
@@ -588,9 +592,15 @@ DIAGRAM INFORMATION
   Diagram output
     c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\physical\b1_male_ae
 
+<<<<<<< HEAD
+     Beginning Time:  09:54:40
+        Ending Time:  09:54:49
+       Elapsed Time:  00:00:09
+=======
      Beginning Time:  11:55:07
         Ending Time:  11:55:13
        Elapsed Time:  00:00:06
+>>>>>>> 69bc921a1a6acf93845d01e5fc93b14504a1a8d2
 
 
 
