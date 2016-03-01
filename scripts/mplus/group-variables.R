@@ -8,8 +8,9 @@ admin <- c("software",  "version", "date", "time",
   "converged")
 
 model_id <- c("study_name","model_number","subgroup","model_type",
-              "physical_measure", "cognitive_measure", "has_converged",
-              "trust_all","mistrust", "covar_covered")
+              "physical_measure", "cognitive_measure")
+
+errors <- c("has_converged","trust_all","mistrust", "covar_covered")
 
 
 model_fit <- c("subject_count", "wave_count", "datapoint_count", "parameter_count",
@@ -137,7 +138,7 @@ selected_results <- c( admin, model_fit,
    p_GAMMA_05, p_GAMMA_15, c_GAMMA_05, c_GAMMA_15,
    p_GAMMA_06, p_GAMMA_16, c_GAMMA_06, c_GAMMA_16,
 
-   # covariance coverage value
-   "trust_all", "mistrust"
+   # error log
+   errors
  )
 # close setGlobals
