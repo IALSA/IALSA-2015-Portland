@@ -7,10 +7,10 @@ Quick links: [news](#news)  -  [projects](#projects)  -  [tools](#tools)  -  [lo
 IALSA-2015-Portland workshop performs a **coordinated analysis with replication (CAR)** of decline in physical and cognitive functioning during later adulthood. The research agenda distinguishes the following foci:    
 * 1. [`physical-cognitive`](/projects/physical-cognitive) -  association between **physical** and **cognitive** decline.    
 * 2. [`physical-physical`](/projects/physical-physical) - Associations among rates of change in measures of **physical** functioning.   
-* 3. [`cognitive-cognitive`(/projects/cognitive-cognitive) - Associations among rates of change in measures of **cognitive** function.   
-* 4. [`physical-gait`(/projects/physical-gait) - Association between changes in measures of **gait** and changes in cognitive function. 
-* 5. [`physical-grip`(/projects/physical-grip) - Association between changes in **grip** function and changes in cognitive function. 
-* 6. [`physical-pulmonary`](/projects/physical-pulmonary) - Association between changes in **pulmonary** function and changes in cognitive function. 
+* 3. [`cognitive-cognitive`](/projects/cognitive-cognitive) - Associations among rates of change in measures of **cognitive** function.   
+* 4. [`gait-cognitive`](/projects/gait-cognitive) - Association between changes in measures of **gait** and changes in cognitive function. 
+* 5. [`grip-cognitive`](/projects/grip-cognitive) - Association between changes in **grip** function and changes in cognitive function. 
+* 6. [`pulmonary-cognitive`](/projects/pulmonary-cognitive) - Association between changes in **pulmonary** function and changes in cognitive function. 
 
 The following fou4 graphs cross-tab the **counts** of submitted models with *Cognitive Measures*:   
 
