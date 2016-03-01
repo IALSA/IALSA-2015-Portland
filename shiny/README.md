@@ -1,1 +1,0 @@
-### Documenting shiny apps of the project
