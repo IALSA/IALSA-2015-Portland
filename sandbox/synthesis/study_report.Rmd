@@ -1,13 +1,13 @@
 ---
-title: Bivariate Outcomes -- Study-Specific
+title: "Collected Outcomes -- Study-Specific"
 output:
   html_document:
+    css: css/sidebar.css
     keep_md: yes
     toc: yes
 ---
 
 
-This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
 ```{r, echo=F, message=F} 
@@ -68,22 +68,14 @@ read_chunk("./synthesis/model_synthesis.R") #This allows knitr to call chunks ta
 
 **Note 1**: The current report covers `r length(dto_paths)` studies: `r paste(study_names, collapse=", ")`.
 
-**Note 2**: The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
 
 # Study-Specific Tables
-One table is shown for each study, each representing zzz.
+Two tables are created for each study: one for univariate models, another for bivariate models
 
 ```{r study_tables, echo=echoChunks, message=TRUE, results='asis'}
 ```
 
 
-# Questions
-## Unanswered Questions
- 1. What does `VS` stand for?  How was it measured?
- 1. Where the cars at the Philly track measured with the same phluguerstometer and the Cleveland track?
- 
-## Answered Questions
- 1. The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
 
 # Session Information
 For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.

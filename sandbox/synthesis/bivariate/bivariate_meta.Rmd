@@ -13,7 +13,7 @@ This report covers the analyses used in the ZZZ project (Marcus Mark, PI).
 ```{r, echo=F, message=F} 
 # cat("Working directory: ", getwd())
   library(knitr)
-  opts_knit$set(root.dir='../../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+  opts_knit$set(root.dir='../../../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
