@@ -30,7 +30,7 @@ Any model counted in the above graph can be specified with a form nested within 
 </br>
 The **covariance structure** will be given as
 [![general_model_specification](./libs/images/specification_covariance_structure.png)](./reports/model_specification/README.md)  
-For  details see [model specification](./reports/model_specification/README.md).  
+For  details see [model specification](./reports/model-specification/README.md).  
 
 
 ## Tools  
