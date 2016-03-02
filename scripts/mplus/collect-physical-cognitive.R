@@ -21,7 +21,7 @@ list.files(pathStudies) # inspect participating studies
 
 
 # @knitr list_paths_studies -------------------------------------------------------------------
-eas <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=T, pattern="out$")
+eas <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=F, pattern="out$")
 elsa <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 hrs <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 ilse <- list.files(file.path(pathStudies,"ilse/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
@@ -32,7 +32,7 @@ radc <- list.files(file.path(pathStudies,"radc/physical-cognitive"),full.names=T
 satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 # collect a vector with .out file paths
 
-# (model_path_out <- c(eas))
+(model_path_out <- c(eas))
 # (model_path_out <- c(elsa))
 # (model_path_out <- c(hrs))
 # (model_path_out <- c(ilse))
@@ -42,7 +42,7 @@ satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive"),full.names
 # (model_path_out <- c(radc))
 # (model_path_out <- c(satsa))
 
-(model_path_out <- c(eas, elsa, hrs, ilse, lasa, nuage, octo, radc, satsa))
+# (model_path_out <- c(eas, elsa, hrs, ilse, lasa, nuage, octo, radc, satsa))
 # (model_path_out <- c(satsa))
 # # replace ".out" by ".gh5" and get a vector with .gh5 file paths
 (model_path_gh5 <-gsub(".out",".gh5", model_path_out) )
@@ -87,39 +87,39 @@ rm(list=setdiff(ls(), c("model_list")))
 # list_object <- model_list
 source("./scripts/mplus/group-variables.R")
 source("./scripts/mplus/extraction-functions.R") # produces object "results"
-collect_model_results(folder="./data/shared/results-physical-cognitive")
+collect_model_results(folder="./data/shared/results-physical-cognitive-eas")
 ds <- results
 
-# write.csv(results,  "./data/shared/results-eas.csv", row.names=F)
-# write.csv(results,  "./data/shared/results-elsa.csv", row.names=F)
-# write.csv(results,  "./data/shared/results-hrs.csv", row.names=F)
-# write.csv(results,  "./data/shared/results-ilse.csv", row.names=F)
-# write.csv(results,  "./data/shared/results-lasa.csv", row.names=F)
-# write.csv(results,  "./data/shared/results-nuage.csv", row.names=F)
-# write.csv(results,  "./data/shared/results-octo.csv", row.names=F)
-# write.csv(results,  "./data/shared/results-radc.csv", row.names=F)
-# write.csv(results,  "./data/shared/results-satsa.csv", row.names=F)
+write.csv(results,  "./data/shared/results-physical-cognitive-eas.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-physical-cognitive-elsa.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-physical-cognitive-hrs.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-physical-cognitive-ilse.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-physical-cognitive-lasa.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-physical-cognitive-nuage.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-physical-cognitive-octo.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-physical-cognitive-radc.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-physical-cognitive-satsa.csv", row.names=F)
 
-write.csv(results,  "./data/shared/results-physical-cognitive.csv", row.names=F)
+# write.csv(results,  "./data/shared/results-physical-cognitive.csv", row.names=F)
 
 # @knitr alternative_assembly -----
 
 
 
-# ra_eas <- read.csv("./data/shared/results-eas.csv")
-# ra_elsa <- read.csv("./data/shared/results-elsa.csv")
-# ra_hrs <- read.csv("./data/shared/results-hrs.csv")
-# ra_ilse <- read.csv("./data/shared/results-ilse.csv")
-# ra_lasa <- read.csv("./data/shared/results-lasa.csv")
-# ra_nuage <- read.csv("./data/shared/results-nuage.csv")
-# ra_octo <- read.csv("./data/shared/results-octo.csv")
-# ra_radc <- read.csv("./data/shared/results-radc.csv")
-# ra_satsa <- read.csv("./data/shared/results-satsa.csv")
+ra_eas <- read.csv("./data/shared/results-physical-cognitive-eas.csv")
+ra_elsa <- read.csv("./data/shared/results-physical-cognitive-elsa.csv")
+ra_hrs <- read.csv("./data/shared/results-physical-cognitive-hrs.csv")
+ra_ilse <- read.csv("./data/shared/results-physical-cognitive-ilse.csv")
+ra_lasa <- read.csv("./data/shared/results-physical-cognitive-lasa.csv")
+ra_nuage <- read.csv("./data/shared/results-physical-cognitive-nuage.csv")
+ra_octo <- read.csv("./data/shared/results-physical-cognitive-octo.csv")
+ra_radc <- read.csv("./data/shared/results-physical-cognitive-radc.csv")
+ra_satsa <- read.csv("./data/shared/results-physical-cognitive-satsa.csv")
 
 
-# ra <- rbind.data.frame(ra_elsa, ra_eas, ra_hrs, ra_ilse, ra_lasa, ra_nuage, ra_octo, ra_radc, ra_satsa)
+ra <- rbind.data.frame(ra_elsa, ra_eas, ra_hrs, ra_ilse, ra_lasa, ra_nuage, ra_octo, ra_radc, ra_satsa)
 
-# write.csv(ra,  "./data/shared/results_all.csv", row.names=F)
+write.csv(ra,  "./data/shared/results-physical-cognitive.csv", row.names=F)
 #
 
 
