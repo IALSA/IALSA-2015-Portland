@@ -2,20 +2,17 @@
 
 # @knitr setGlobals --------------------------------------------------------------
 
-admin <- c("software",  "version", "date", "time",
-  "study_name", "model_number", "subgroup", "model_type",
-  "physical_construct","cognitive_construct", "physical_measure", "cognitive_measure",
-  "converged")
+admin <- c("software","version", "date", "time", "output_file", "data_file")
+
 
 model_id <- c("study_name","model_number","subgroup","model_type",
               "physical_measure", "cognitive_measure")
 
+model_info <- c("subject_count", "wave_count", "datapoint_count", "parameter_count",
+  "LL", "aic", "bic", "adj_bic", "aaic" )
+
 errors <- c("has_converged","trust_all","mistrust", "covar_covered")
 
-
-model_fit <- c("subject_count", "wave_count", "datapoint_count", "parameter_count",
-  "LL", "aic", "bic", "adj_bic", "aaic",
-  "output_file", "data_file")
 
 # covariance btw physical intercept and cognitive intercept
 pc_TAU_00 <- c("pc_TAU_00_est", "pc_TAU_00_se", "pc_TAU_00_wald","pc_TAU_00_pval")
@@ -126,7 +123,7 @@ pc_SIGMA <- c("pc_SIGMA_est", "pc_SIGMA_se", "pc_SIGMA_wald", "pc_SIGMA_pval")
 # correlation b/w physical RESIDUAL and cogntive RESIDUAL
  R_RES_PC <- c("R_RES_PC_est", "R_RES_PC_se","R_RES_PC_wald",  "R_RES_PC_pval")
 
-selected_results <- c( admin, model_fit,
+selected_results <- c( admin, model_id, model_info,
    pc_TAU_00, pc_TAU_11, pc_TAU_01, pc_TAU_10, pc_SIGMA,
    pp_TAU_00, pp_TAU_11, pp_TAU_01, p_SIGMA,
    cc_TAU_00, cc_TAU_11, cc_TAU_10, c_SIGMA,
