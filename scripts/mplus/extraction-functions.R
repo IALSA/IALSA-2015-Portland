@@ -193,7 +193,7 @@ collect_model_results <- function(folder){
 
   # III.A. Random Effects
   # record the extracted values of the estimated random effects
-  get_results_random <- function(study){
+  get_results_random <- function(){
     selected_models <- seq_along(mpar)
     for(i in selected_models){
       model <- mpar[[i]] # load the extract of this model's estimates
@@ -367,10 +367,10 @@ collect_model_results <- function(folder){
   # IV.A. Export results
   destination <- folder # pass in the main function, show where to save
   write.csv(results, paste0(destination,".csv") , row.names=F)
-  saveRDS(results, paste0(destination,".rds") )
+  # saveRDS(results, paste0(destination,".rds") )
 }
 
-collect_model_results(folder="./data/shared/results-physical-cognitive-test")
+
 
 collect_all_results <- function(allFolder){
 ## make scripts from the prototype and run it (run_models=TRUE)

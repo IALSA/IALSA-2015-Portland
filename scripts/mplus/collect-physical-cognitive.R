@@ -21,7 +21,7 @@ list.files(pathStudies) # inspect participating studies
 
 
 # @knitr list_paths_studies -------------------------------------------------------------------
-eas <- list.files(file.path(pathStudies,"eas/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+eas <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=T, pattern="out$")
 elsa <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 hrs <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 ilse <- list.files(file.path(pathStudies,"ilse/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
@@ -68,7 +68,7 @@ for(i in 1:length(model_list[["path_out"]])){
   (model_list[["subgroup"]][[i]] <- b[2])
   (model_list[["model_type"]][[i]] <- b[3])
 
-  if(length(b)==7L){
+  if(length(b)==7L){ # if
     (model_list[["process1"]][[i]] <- b[6])
     (model_list[["process2"]][[i]] <- b[7])
   }
@@ -84,7 +84,10 @@ str(model_list)
 rm(list=setdiff(ls(), c("model_list")))
 
 # @knitr pass_outputs_through_extraction
+# list_object <- model_list
+source("./scripts/mplus/group-variables.R")
 source("./scripts/mplus/extraction-functions.R") # produces object "results"
+collect_model_results(folder="./data/shared/results-physical-cognitive")
 ds <- results
 
 # write.csv(results,  "./data/shared/results-eas.csv", row.names=F)
