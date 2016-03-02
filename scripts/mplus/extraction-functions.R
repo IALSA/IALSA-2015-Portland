@@ -273,7 +273,7 @@ collect_model_results <- function(folder){
 
   # III.B. Residuals
   # record the extracted values of the estimated random effects
-  get_results_residual <- function(study){
+  get_results_residual <- function(){
     selected_models <- seq_along(mpar)
     for(i in selected_models){
       model <- mpar[[i]] # load the extract of this model's estimates
@@ -311,7 +311,7 @@ collect_model_results <- function(folder){
 
   # III.C. Fixed Effects
   # record the extracted values of the estimated random effects
-  get_results_fixed <- function(study){
+  get_results_fixed <- function(){
     selected_models <- seq_along(mpar)
     for(i in selected_models){
       model <- mpar[[i]] # load the extract of this model's estimates
