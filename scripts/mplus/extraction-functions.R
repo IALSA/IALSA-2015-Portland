@@ -104,8 +104,7 @@ collect_model_results <- function(folder){
       }else{
         if(variance_zero){
           results[i,"Error"]  <- "Zero variance"
-          } # close if
-      else{
+        } else {
 
         ## Populate admin variables
         results[i, 'software'] <- mplus_output[1]
@@ -122,8 +121,7 @@ collect_model_results <- function(folder){
         if(length(subject_b)==7L){
           results[i, "physical_measure"] <- subject_b[6]
           results[i, "cognitive_measure"] <-subject_b[7]
-        }
-        if(length(subject_b)==5L){
+        } else if(length(subject_b)==5L){
           results[i, "physical_measure"] <-subject_b[4]
           results[i, "cognitive_measure"] <- subject_b[5]
         }
