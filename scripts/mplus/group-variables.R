@@ -2,7 +2,7 @@
 
 # @knitr setGlobals --------------------------------------------------------------
 
-admin <- c("software","version", "date", "time", "output_file", "data_file")
+admin <- c("software","version", "date", "time", "output_file", "data_file", "file_path")
 
 
 model_id <- c("study_name","model_number","subgroup","model_type",

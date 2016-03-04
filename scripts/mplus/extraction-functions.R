@@ -45,6 +45,11 @@ collect_model_results <- function(folder){
       element_number <- c(1:length(selector))[selector] # get its number
       msum$study_name[i] <- a[[1]][element_number+1] # move one step to the right
 
+      # add the file path to locate for debugging
+      (a <- strsplit(msum$filePath[i], split="/studies/")) # common folder
+      msum$file_path[i] <- a # move one step to the right
+
+
     } # close loop
   return(msum)
   } # close function
@@ -112,6 +117,7 @@ collect_model_results <- function(folder){
         results[i, c('date', 'time')] <- strsplit(mplus_output[3], '  ')[[1]]
         results[i,"data_file"] <- strsplit(mplus_output[grep("File", mplus_output, ignore.case=TRUE)], 'IS| is |=|;')[[1]][2]
         results[i, 'output_file'] <- msum[i, 'Filename']
+        results[i, "file_path"] <- msum[i,"file_path"]
 
         ## Populate model_id variables
         results[i,"study_name"] <- msum$study_name[i]

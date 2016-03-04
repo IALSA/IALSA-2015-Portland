@@ -56,7 +56,7 @@ write.csv(nl, file="./data-unshared/raw/map/nl_raw.csv")
 ds %>% dplyr::group_by_("study_name","model_number","subgroup","model_type","physical_measure", "cognitive_measure") %>%
   dplyr::mutate(counts = n()) %>% dplyr::ungroup() %>%
   dplyr::select_("study_name","model_number","subgroup","model_type",
-                      "physical_measure", "cognitive_measure", "counts", "output_file") %>%
+                      "physical_measure", "cognitive_measure", "counts", "file_path") %>%
   DT::datatable(class = 'cell-border stripe',
               caption = "spotting duplicates",
               filter = "top", options = list(pageLength = 6, autoWidth = TRUE))
