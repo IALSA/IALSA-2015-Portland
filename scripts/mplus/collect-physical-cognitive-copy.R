@@ -19,18 +19,36 @@ list.files(pathStudies) # inspect participating studies
 ## @knitr setGlobals
 
 
-
 # @knitr list_paths_studies -------------------------------------------------------------------
-eas <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=F, pattern="out$")
+eas <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=T, pattern="out$")
 elsa <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 hrs <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 ilse <- list.files(file.path(pathStudies,"ilse/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 lasa <- list.files(file.path(pathStudies,"lasa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 octo <- list.files(file.path(pathStudies,"octo/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-radc <- list.files(file.path(pathStudies,"radc/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+map <- list.files(file.path(pathStudies,"map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+
+eas <- list.files(file.path(pathStudies,"eas/physical"),full.names=T, recursive=T, pattern="out$")
+elsa <- list.files(file.path(pathStudies,"elsa/physical"),full.names=T, recursive=T, pattern="out$")
+hrs <- list.files(file.path(pathStudies,"hrs/physical"),full.names=T, recursive=T, pattern="out$")
+ilse <- list.files(file.path(pathStudies,"ilse/physical"),full.names=T, recursive=T, pattern="out$")
+lasa <- list.files(file.path(pathStudies,"lasa/physical"),full.names=T, recursive=T, pattern="out$")
+nuage <- list.files(file.path(pathStudies,"nuage/physical"),full.names=T, recursive=T, pattern="out$")
+octo <- list.files(file.path(pathStudies,"octo/physical"),full.names=T, recursive=T, pattern="out$")
+radc <- list.files(file.path(pathStudies,"radc/physical"),full.names=T, recursive=T, pattern="out$")
+satsa <- list.files(file.path(pathStudies,"satsa/physical"),full.names=T, recursive=T, pattern="out$")
+
 # collect a vector with .out file paths
+
+# studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
+# collect_studies_tracks <- function(study, track)
+
+
+
+
+
 
 (model_path_out <- c(eas))
 # (model_path_out <- c(elsa))
@@ -88,7 +106,7 @@ rm(list=setdiff(ls(), c("model_list")))
 source("./scripts/mplus/group-variables.R")
 source("./scripts/mplus/extraction-functions.R") # produces object "results"
 collect_model_results(folder="./data/shared/results-physical-cognitive-eas")
-ds <- results
+# ds <- results
 
 write.csv(results,  "./data/shared/results-physical-cognitive-eas.csv", row.names=F)
 # write.csv(results,  "./data/shared/results-physical-cognitive-elsa.csv", row.names=F)
