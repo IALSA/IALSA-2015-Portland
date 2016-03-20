@@ -28,7 +28,7 @@ pc_SIGMA <- c("pc_SIGMA_est", "pc_SIGMA_se", "pc_SIGMA_wald", "pc_SIGMA_pval")
 
 # variance of the physical intercept
  pp_TAU_00 <- c("pp_TAU_00_est", "pp_TAU_00_se","pp_TAU_00_wald", "pp_TAU_00_pval")
-# variance of the cognitive slope
+# variance of the physical slope
  pp_TAU_11 <- c("pp_TAU_11_est", "pp_TAU_11_se","pp_TAU_11_wald", "pp_TAU_11_pval")
 # covariance of physical intercept and physical slope
  pp_TAU_01 <- c("pp_TAU_01_est", "pp_TAU_01_se","pp_TAU_01_wald", "pp_TAU_01_pval")
