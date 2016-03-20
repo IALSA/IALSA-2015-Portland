@@ -90,16 +90,27 @@ ds$output_file[!is_valid]
 
 
 # ----- splitting-character-into-multiples ----------------------------
-#
+# http://stackoverflow.com/questions/7069076/split-column-at-delimiter-in-data-frame
 # given a data frame
-(ds <- data.frame(
-  v0           = c("a_b","a_c","d_w")
-))
-# split "v0" into two variables containing elements separated by "_"
+(ds <- data.frame(v0 = c("a_b_d","a_c_a","d_w"),stringsAsFactors = F))
+# GOAL: split "v0" into two variables containing elements separated by "_"
 
+# using do.call
 foo <- data.frame(do.call("rbind", strsplit(as.character(ds$v0),split = "_")))
 foo <- plyr::rename(foo, replace = c("X1" = "one", "X2" = "two"))
 foo
+
+# using tidyr::
+foo2 <- ds %>% tidyr::separate(col=v0, into = c("one","two","three"), sep = "_" ); foo2
+
+# using for loop
+foo3 <- ds
+for(i in seq_along(foo3$v0)){
+  subject <- strsplit(foo3[i,"v0"], split = "_")[[1]]
+  foo3[i,"one"] <- subject[1]
+  foo3[i,"two"] <- subject[2]
+  foo3[i,"three"] <- subject[3]
+}; foo3
 
 
 ## @knitr passing_variable_names
