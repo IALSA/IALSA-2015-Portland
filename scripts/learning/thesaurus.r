@@ -89,6 +89,17 @@ is_valid <- (subpart_count==desired_subpart_count) # create logical vector
 ds$output_file[!is_valid]
 
 
+# ----- splitting-character-into-multiples ----------------------------
+#
+# given a data frame
+(ds <- data.frame(
+  v0           = c("a_b","a_c","d_w")
+))
+# split "v0" into two variables containing elements separated by "_"
+
+foo <- data.frame(do.call("rbind", strsplit(as.character(ds$v0),split = "_")))
+foo <- plyr::rename(foo, replace = c("X1" = "one", "X2" = "two"))
+foo
 
 
 ## @knitr passing_variable_names
@@ -170,5 +181,7 @@ gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", a)
 ## @knitr sub_and_super_scripts_markdown
 # <sub>2</sub>
 # <sup>3</sup>
+
+
 
 
