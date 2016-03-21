@@ -151,12 +151,14 @@
 
   # II.B. Catching Errors
   # records all relevant errors and warnings about model estimation produced by Mplus
-  get_results_errors <- function(path, result){
+  get_results_errors <- function(path, mpar, result){
     mplus_output <- scan(path, what='character', sep='\n') # each line of output as a char value
-    model <- mpar$unstandardized          ## Check for model convergence
+    model <- mpar$unstandardized
+    if(!is.na(mpar)){
+
     conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
     has_converged <- (conv==1L)
-    result['converged'] <- conv
+    # result['converged'] <- conv
     result['has_converged'] <- has_converged
     result["covar_covered"] <- length(grep("THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT", mplus_output))
 
@@ -167,16 +169,17 @@
     snippet <- mplus_output[line_found+1]
     if(length(snippet)>0){ result["mistrust"] <- snippet}
 
+    } # close if
     return(result)
   } # close get_results_errors
   # results <- get_results_errors()
 
   # III.A. Random Effects
   # record the extracted values of the estimated random effects
-  get_results_random <- function(){
-    selected_models <- seq_along(mpar)
-    for(i in selected_models){
-      model <- mpar[[i]] # load the extract of this model's estimates
+  get_results_random <- function(path,mpar, result){
+    mplus_output <- scan(path, what='character', sep='\n') # each line of output as a char value
+    model <- mpar$unstandardized
+    if(!is.na(mpar)){
 
       ## covariante btw phys intercept and cog intercept - pc_TAU_00
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
@@ -184,7 +187,7 @@
       (test <- test[grep("^I", test$paramHeader),]) # paramHeader starting with I
       (test <- test[grep("^I", test$param),]) # pram starting with I
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0){results[i, pc_TAU_00] <- test}
+      if(dim(test)[1]!=0){result[pc_TAU_00] <- test}
 
       ## covariance btw phys slope and cog slope - pc_TAU_11
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
@@ -192,90 +195,91 @@
       (test <- test[grep("^S", test$paramHeader),]) # paramHeader starting with S
       (test <- test[grep("^S", test$param),]) # pram starting with S
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0) {results[i, pc_TAU_11] <- test}
+      if(dim(test)[1]!=0) {result[pc_TAU_11] <- test}
 
       ## covariance btw physical intercept and physical slope - pp_TAU_01
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^IP|^SP", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IP|^SP", test$paramHeader),])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-       if(dim(test)[1]!=0){results[i, pp_TAU_01] <- test}
+       if(dim(test)[1]!=0){result[pp_TAU_01] <- test}
 
       ## covariance btw physical intercept and cognitive slope - pc_TAU_01
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^IP|^SC", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IP|^SC", test$paramHeader),])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-       if(dim(test)[1]!=0){results[i, pc_TAU_01] <- test}
+       if(dim(test)[1]!=0){result[pc_TAU_01] <- test}
 
       ## covariance btw physical intercept and cognitive slope - pc_TAU_10
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^IC|^SP", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IC|^SP", test$paramHeader),])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-       if(dim(test)[1]!=0){results[i, pc_TAU_10] <- test}
+       if(dim(test)[1]!=0){result[pc_TAU_10] <- test}
 
       ## covariance btw cognitive slope and cognitive intercept - cc_TAU_10
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^IC|^SC", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IC|^SC", test$paramHeader),])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-       if(dim(test)[1]!=0){results[i, cc_TAU_10] <- test}
+       if(dim(test)[1]!=0){result[cc_TAU_10] <- test}
 
       ## Variance of random Physical Intercept - pp_TAU_00
       (test <- model[grep("Residual.Variances", model$paramHeader),])
       (test <- test[test$param=='IP', ])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0) {results[i, pp_TAU_00] <- test}
+      if(dim(test)[1]!=0) {result[pp_TAU_00] <- test}
 
       ## Variance of random Physical Slope - pp_TAU_11
       (test <- model[grep("Residual.Variances", model$paramHeader),])
       (test <- test[test$param=='SP', ])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0) {results[i, pp_TAU_11] <- test}
+      if(dim(test)[1]!=0) {result[pp_TAU_11] <- test}
 
       ## Variance of random Cognitive Intercept - cc_TAU_00
       (test <- model[grep("Residual.Variances", model$paramHeader),])
       (test <- test[test$param=='IC', ])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0) {results[i,cc_TAU_00] <- test}
+      if(dim(test)[1]!=0) {result[cc_TAU_00] <- test}
 
       ## Variance of random Cognitive Slope - cc_TAU_11
       (test <- model[grep("Residual.Variances", model$paramHeader),])
       (test <- test[test$param=='SC', ])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0) {results[i, cc_TAU_11] <- test}
+      if(dim(test)[1]!=0) {result[cc_TAU_11] <- test}
 
     } # close for loop
-    return(results)
+    return(result)
   }# close get_results_random
   # results <- get_results_random()
 
   # III.B. Residuals
   # record the extracted values of the estimated random effects
-  get_results_residual <- function(){
-    selected_models <- seq_along(mpar)
-    for(i in selected_models){
-      model <- mpar[[i]] # load the extract of this model's estimates
+  get_results_residual <- function(path, mpar, result){
+    mplus_output <- scan(path, what='character', sep='\n') # each line of output as a char value
+    model <- mpar$unstandardized
+    if(!is.na(mpar)){
 
       ## variance physical residual- p_SIGMA
       (test <- model[grep("^P", model$param), ])
       (test <- test[grep("^Residual.Variances", test$paramHeader), ])
       (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
-      if(dim(test)[1]!=0) {results[i, p_SIGMA] <- test}
+      if(dim(test)[1]!=0) {result[p_SIGMA] <- test}
 
       ## variance of cognitive residual - c_SIGMA
       (test <- model[grep("^C", model$param), ])
       (test <- test[grep("^Residual.Variances", test$paramHeader), ])
       (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
-      if(dim(test)[1]!=0) {results[i, c_SIGMA] <- test}
+      if(dim(test)[1]!=0) {result[c_SIGMA] <- test}
 
       ## covariance btw physical and cognitive residuals - pc_SIGMA
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[-grep("^I|S", test$param),]) # param starting NOT with I or S
       (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
-      if(dim(test)[1]!=0){results[i, pc_SIGMA] <- test}
+      if(dim(test)[1]!=0){results[pc_SIGMA] <- test}
 
+      # model_output <- paste0(scan(path, what='character',mult)
       #       ## Correlations b/w SLOPE physical and SLOPE cognitive
       #       results[i,R_SPSC] <- IalsaSynthesis::extract_named_wald("R_SPSC",mplus_output)
       #       ## Correlations b/w INTERCEPT physical and INTERCEPT cognitive

@@ -79,11 +79,11 @@ collect_results <- function(path){
   result <- data.frame(matrix(NA, ncol = length(selected_results)))
   names(result) <- selected_results
   result <- get_results_basic(path, mid, msum, mpar, result)
-  result <- get_results_errors(path, result)
-
+  result <- get_results_errors(path, mpar, result)
+  # result <- get_results_random(path, mpar, result)
   return(result)
 }
-collected <- collect_results(path=path_model_output)
+# collected <- collect_results(path=path_model_output)
 
 
 # apply the function above to multiple output from a list
@@ -98,6 +98,8 @@ for(i in seq_along(model_list)){
 }
 
 
+
+interect(a,b)
 ### NOTE to DO: attach attributes with descriptions to the variables of the result file
 write.csv(results,  "./data/shared/parsed-results.csv", row.names=F)
 #
