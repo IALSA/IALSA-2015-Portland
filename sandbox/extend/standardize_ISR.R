@@ -7,12 +7,13 @@ library(testit, quietly=TRUE) #For asserts
 library(dplyr)
 
 ## @knitr load_data -----
-ds <- readRDS('./data/shared/ds1.rds')
+# ds <- readRDS('./data/shared/ds1.rds')
+ds <- readRDS('./data/shared/parsed-results.rds')
 
 ## @knitr basic_view -----
 keepvar <-  c("output_file", "subject_count","pc_TAU_00_est", "pc_TAU_11_est","pc_SIGMA_est", "p_GAMMA_00_est" )
 # ds <- ds[ds$study_name == "hrs", ]
-ds[1:10, keepvar]
+# ds[1:10, keepvar]
 dim(ds) # rows and columns
 
 ## @knitr standardize_coefficients -----
@@ -52,9 +53,9 @@ alpha <- 0.05
 z_alpha <- qnorm(1 - (alpha/2))
 
 ## @knitr FisherZ -----
-ds$pc_CORR_00_z <- atanh(ds$pc_CORR_00)
-ds$pc_CORR_11_z <- atanh(ds$pc_CORR_11)
-ds$pc_CORR_residual_z <- atanh(ds$pc_CORR_residual)
+(ds$pc_CORR_00_z <- atanh(ds$pc_CORR_00))
+(ds$pc_CORR_11_z <- atanh(ds$pc_CORR_11))
+(ds$pc_CORR_residual_z <- atanh(ds$pc_CORR_residual))
 # ds[1:10,c("output_file","pc_TAU_00", "pp_TAU_00", "cc_TAU_00",  "pc_CORR_00", "pc_CORR_00_z" )]
 d <-ds[1:100,c("output_file","pc_SIGMA_est", "pc_SIGMA_pval", "pc_CORR_residual",
               "pc_CORR_residual_z" )]
@@ -138,9 +139,9 @@ d <-ds[1:100,c("output_file","pc_SIGMA_est", "pc_SIGMA_pval", "pc_CORR_residual"
 #   # dplyr::filter(model_number =="b1") %>%
 #   dplyr::select(output_file, pc_SIGMA)
 
-table( ds$test_00,ds$study)
-table( ds$test_11,ds$study)
-table( ds$test_Res,ds$study)
+table( ds$test_00,ds$study_name)
+table( ds$test_11,ds$study_name)
+table( ds$test_Res,ds$study_name)
 # View(d)
 ## @knitr dummy -----
 # ## @knitr ci_intercept
@@ -172,7 +173,8 @@ ds$uni_bi <- stringr::str_sub(ds$model_number,1,1)
 
 
 ## @knitr export_dataset -----
-saveRDS(ds,"./data/shared/ds2.rds")
+# saveRDS(ds,"./data/shared/ds2.rds")
+saveRDS(ds,"./data/shared/parsed-results.rds")
 #
 # source("./scripts/make_pretty.r")
 
