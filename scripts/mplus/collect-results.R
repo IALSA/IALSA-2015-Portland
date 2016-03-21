@@ -82,6 +82,7 @@ collect_results <- function(path){
   result <- get_results_basic(path, mid, msum, mpar, result)
   result <- get_results_errors(path, mpar, result)
   result <- get_results_random(path, mpar, result)
+  result <- get_results_residual(path, mpar, result)
   result <- get_results_fixed(path, mpar, result)
   return(result)
 }

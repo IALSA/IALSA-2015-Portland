@@ -277,18 +277,18 @@
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[-grep("^I|S", test$param),]) # param starting NOT with I or S
       (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
-      if(dim(test)[1]!=0){results[ab_SIGMA] <- test}
+      if(dim(test)[1]!=0){result[ab_SIGMA] <- test}
 
       model_output_char <- readr::read_file(path)
       ## Correlations b/w SLOPE physical and SLOPE cognitive
-      results[R_SASB] <- IalsaSynthesis::extract_named_wald("R_SPSC",model_output_char)
+      result[R_SASB] <- IalsaSynthesis::extract_named_wald("R_SPSC",model_output_char)
       ## Correlations b/w INTERCEPT physical and INTERCEPT cognitive
-      results[R_IAIB] <- IalsaSynthesis::extract_named_wald("R_IPIC",model_output_char)
+      result[R_IAIB] <- IalsaSynthesis::extract_named_wald("R_IPIC",model_output_char)
       ## Correlations b/w RESIDUAL physical and RESIDUAL cognitive
-      results[R_RES_AB] <- IalsaSynthesis::extract_named_wald("R_RES_PC",model_output_char)
+      result[R_RES_AB] <- IalsaSynthesis::extract_named_wald("R_RES_PC",model_output_char)
 
     } # close for loop
-    return(results)
+    return(result)
   }# close get_results_residual
   # results <- get_results_residual()
 
