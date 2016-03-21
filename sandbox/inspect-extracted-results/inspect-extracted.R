@@ -103,7 +103,8 @@ d <- dwide %>% dplyr::select_("study_name","model_number","subgroup","model_type
 
 # d <- dww[ , c(stem_vars,"index", core_vars_heads)]
 
-
+## NOTE: change "p_ | c_ " int "point estimate"
+## NOTE: change "pp_ | cc_ | pc_" into "variance
 
 # ---- basic-view --------------------------------------------------------------
 attr(d$p_GAMMA_00, "label") <- "intercept of (A)"

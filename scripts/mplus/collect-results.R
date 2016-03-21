@@ -117,11 +117,11 @@ names(results) <- selected_results
 # study <- "elsa" # bad
 # study <- "hrs" # bad
 # study <- "ilse" # bad
-# study <- "lasa"
+study <- "lasa"
 # study <- "map"
 # study <- "nuage"
 # study <- "octo"
-study <- "satsa"
+# study <- "satsa"
 
 for(i in seq_along(model_list)){
   # i <- 1
