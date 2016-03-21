@@ -151,43 +151,23 @@
 
   # II.B. Catching Errors
   # records all relevant errors and warnings about model estimation produced by Mplus
-  get_results_errors <- function(){
-    selected_models <- seq_along(mpar)
-    for(i in selected_models){
-      out_file <-  tail(strsplit(out_list[i],"/")[[1]], n=1)# grab an output file to work with
-      message("Getting model ", i, ", ",out_file)# view the file name
-      mplus_output <- scan(out_list[i], what='character', sep='\n') # each line of output as a char value
-      # testing for specific errors
-      no_observations <- length(grep("One or more variables in the data set have no non-missing values", mplus_output))
-      variance_zero <- length(grep("One or more variables have a variance of zero", mplus_output))
-      # If there are no specific error, then go get the parameter solution
-      if(no_observations){
-        results[i, "Error"]  <- "No observations"
-      }else{
-        if(variance_zero){
-          results[i,"Error"]  <- "Zero variance"
-        }
-        else{
+  get_results_errors <- function(path, result){
+    mplus_output <- scan(path, what='character', sep='\n') # each line of output as a char value
+    model <- mpar$unstandardized          ## Check for model convergence
+    conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
+    has_converged <- (conv==1L)
+    result['converged'] <- conv
+    result['has_converged'] <- has_converged
+    result["covar_covered"] <- length(grep("THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT", mplus_output))
 
-          ## Check for model convergence
-          conv <-  length(grep("THE MODEL ESTIMATION TERMINATED NORMALLY", mplus_output))
-          has_converged <- (conv==1L)
-          results[i, 'converged'] <- conv
-          results[i, 'has_converged'] <- has_converged
-          results[i,"covar_covered"] <- length(grep("THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT", mplus_output))
+    line_found <- grep("TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE", mplus_output)
+    result["trust_all"] <- !length(line_found)==1L
 
-          line_found <- grep("TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE", mplus_output)
-          results[i,"trust_all"] <- !length(line_found)==1L
+    line_found <- grep("PROBLEM INVOLVING THE FOLLOWING PARAMETER:", mplus_output)
+    snippet <- mplus_output[line_found+1]
+    if(length(snippet)>0){ result["mistrust"] <- snippet}
 
-          line_found <- grep("PROBLEM INVOLVING THE FOLLOWING PARAMETER:", mplus_output)
-          snippet <- mplus_output[line_found+1]
-          if(length(snippet)>0){
-            results[i,"mistrust"] <- snippet
-          }
-        } # close else
-      } # close else
-      } # close loop for selected_models
-    return(results)
+    return(result)
   } # close get_results_errors
   # results <- get_results_errors()
 

@@ -69,7 +69,7 @@ list_pp <-  list("eas" = eas,
 # studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
 path_model_output <- list_pc[["octo"]][1]
 
-# (path=path_model_output)
+(path=path_model_output)
 
 collect_results <- function(path){
   # extract model idendification
@@ -79,7 +79,8 @@ collect_results <- function(path){
   result <- data.frame(matrix(NA, ncol = length(selected_results)))
   names(result) <- selected_results
   result <- get_results_basic(path, mid, msum, mpar, result)
-  # result <- get_results_errors(path)
+  result <- get_results_errors(path, result)
+
   return(result)
 }
 collected <- collect_results(path=path_model_output)
