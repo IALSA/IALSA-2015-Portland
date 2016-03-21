@@ -6,7 +6,7 @@
   # out_list_all <- model_list$path_out
   # out_list <- out_list_all # temp. remove when function functions
   # the script `group-variables.R` creates objects with names of standard variables for easier handling
-  #e.g pc_TAU_00 <- c("pc_TAU_00_est", "pc_TAU_00_se", "pc_TAU_00_wald","pc_TAU_00_pval")
+  #e.g ab_TAU_00 <- c("ab_TAU_00_est", "ab_TAU_00_se", "ab_TAU_00_wald","ab_TAU_00_pval")
   # source("./scripts/mplus/group-variables.R")
 
   # I. EXTRACTION
@@ -36,12 +36,12 @@
 
     # extract physical_measure and cognitive_measure from the file path
     if(length(b)==7L){ # if
-      (mid$process_A <- b[6])
-      (mid$process_B <- b[7])
+      (mid$process_a <- b[6])
+      (mid$process_b <- b[7])
     }
     if(length(b)==5L){
-      (mid$process_A <- b[4])
-      (mid$process_B <- b[5])
+      (mid$process_a <- b[4])
+      (mid$process_b <- b[5])
     }
 
     # save the file path for accounting
@@ -90,12 +90,12 @@
       # If there are no specific error, then go get the parameter solution
       if(no_observations){
         message("One or more variables in the data set have no non-missing values")
-        mpar <- NA
+        mpar <- "One or more variables in the data set have no non-missing values"
       }else{
 
           if(variance_zero){
             message("One or more variables have a variance of zero")
-            mpar <- NA
+            mpar <- "One or more variables have a variance of zero"
           }else{
              mpar <- MplusAutomation::extractModelParameters(target=path, dropDimensions=T)
           }
@@ -127,8 +127,8 @@
       (result["model_number"] <- mid["model_number"])
       (result["subgroup"] <- mid["subgroup"])
       (result["model_type"] <- mid["model_type"])
-      (result["process_A"] <- mid["process_A"])
-      (result["process_B"] <- mid["process_B"])
+      (result["process_a"] <- mid["process_a"])
+      (result["process_b"] <- mid["process_b"])
 
 
       ## Populate model_info variables
@@ -147,7 +147,7 @@
     return(result)
   }  # close get_results_basic
   # results <- get_results_basic()
-  # results[i, p_GAMMA_00]
+  # results[i, a_GAMMA_00]
 
   # II.B. Catching Errors
   # records all relevant errors and warnings about model estimation produced by Mplus
@@ -181,73 +181,73 @@
     model <- mpar$unstandardized
     if(!is.na(mpar)){
 
-      ## covariante btw phys intercept and cog intercept - pc_TAU_00
+      ## covariante btw phys intercept and cog intercept - ab_TAU_00
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^I|S", test$param),]) # param starting with I or S
       (test <- test[grep("^I", test$paramHeader),]) # paramHeader starting with I
       (test <- test[grep("^I", test$param),]) # pram starting with I
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0){result[pc_TAU_00] <- test}
+      if(dim(test)[1]!=0){result[ab_TAU_00] <- test}
 
-      ## covariance btw phys slope and cog slope - pc_TAU_11
+      ## covariance btw phys slope and cog slope - ab_TAU_11
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^I|S", test$param),]) # param starting with I or S
       (test <- test[grep("^S", test$paramHeader),]) # paramHeader starting with S
       (test <- test[grep("^S", test$param),]) # pram starting with S
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0) {result[pc_TAU_11] <- test}
+      if(dim(test)[1]!=0) {result[ab_TAU_11] <- test}
 
-      ## covariance btw physical intercept and physical slope - pp_TAU_01
+      ## covariance btw physical intercept and physical slope - aa_TAU_01
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^IP|^SP", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IP|^SP", test$paramHeader),])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-       if(dim(test)[1]!=0){result[pp_TAU_01] <- test}
+       if(dim(test)[1]!=0){result[aa_TAU_01] <- test}
 
-      ## covariance btw physical intercept and cognitive slope - pc_TAU_01
+      ## covariance btw physical intercept and cognitive slope - ab_TAU_01
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^IP|^SC", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IP|^SC", test$paramHeader),])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-       if(dim(test)[1]!=0){result[pc_TAU_01] <- test}
+       if(dim(test)[1]!=0){result[ab_TAU_01] <- test}
 
-      ## covariance btw physical intercept and cognitive slope - pc_TAU_10
+      ## covariance btw physical intercept and cognitive slope - ab_TAU_10
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^IC|^SP", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IC|^SP", test$paramHeader),])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-       if(dim(test)[1]!=0){result[pc_TAU_10] <- test}
+       if(dim(test)[1]!=0){result[ab_TAU_10] <- test}
 
-      ## covariance btw cognitive slope and cognitive intercept - cc_TAU_10
+      ## covariance btw cognitive slope and cognitive intercept - bb_TAU_10
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[grep("^IC|^SC", test$param),]) # param starting NOT with I or S
       (test <- test[grep("^IC|^SC", test$paramHeader),])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-       if(dim(test)[1]!=0){result[cc_TAU_10] <- test}
+       if(dim(test)[1]!=0){result[bb_TAU_10] <- test}
 
-      ## Variance of random Physical Intercept - pp_TAU_00
+      ## Variance of random Physical Intercept - aa_TAU_00
       (test <- model[grep("Residual.Variances", model$paramHeader),])
       (test <- test[test$param=='IP', ])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0) {result[pp_TAU_00] <- test}
+      if(dim(test)[1]!=0) {result[aa_TAU_00] <- test}
 
-      ## Variance of random Physical Slope - pp_TAU_11
+      ## Variance of random Physical Slope - aa_TAU_11
       (test <- model[grep("Residual.Variances", model$paramHeader),])
       (test <- test[test$param=='SP', ])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0) {result[pp_TAU_11] <- test}
+      if(dim(test)[1]!=0) {result[aa_TAU_11] <- test}
 
-      ## Variance of random Cognitive Intercept - cc_TAU_00
+      ## Variance of random Cognitive Intercept - bb_TAU_00
       (test <- model[grep("Residual.Variances", model$paramHeader),])
       (test <- test[test$param=='IC', ])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0) {result[cc_TAU_00] <- test}
+      if(dim(test)[1]!=0) {result[bb_TAU_00] <- test}
 
-      ## Variance of random Cognitive Slope - cc_TAU_11
+      ## Variance of random Cognitive Slope - bb_TAU_11
       (test <- model[grep("Residual.Variances", model$paramHeader),])
       (test <- test[test$param=='SC', ])
       (test <- test[ ,c("est", "se","est_se", "pval")])
-      if(dim(test)[1]!=0) {result[cc_TAU_11] <- test}
+      if(dim(test)[1]!=0) {result[bb_TAU_11] <- test}
 
     } # close for loop
     return(result)
@@ -261,31 +261,31 @@
     model <- mpar$unstandardized
     if(!is.na(mpar)){
 
-      ## variance physical residual- p_SIGMA
+      ## variance physical residual- a_SIGMA
       (test <- model[grep("^P", model$param), ])
       (test <- test[grep("^Residual.Variances", test$paramHeader), ])
       (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
-      if(dim(test)[1]!=0) {result[p_SIGMA] <- test}
+      if(dim(test)[1]!=0) {result[a_SIGMA] <- test}
 
-      ## variance of cognitive residual - c_SIGMA
+      ## variance of cognitive residual - b_SIGMA
       (test <- model[grep("^C", model$param), ])
       (test <- test[grep("^Residual.Variances", test$paramHeader), ])
       (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
-      if(dim(test)[1]!=0) {result[c_SIGMA] <- test}
+      if(dim(test)[1]!=0) {result[b_SIGMA] <- test}
 
-      ## covariance btw physical and cognitive residuals - pc_SIGMA
+      ## covariance btw physical and cognitive residuals - ab_SIGMA
       (test <- model[grep(".WITH", model$paramHeader),]) # paramHeader containing .WITH
       (test <- test[-grep("^I|S", test$param),]) # param starting NOT with I or S
       (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
-      if(dim(test)[1]!=0){results[pc_SIGMA] <- test}
+      if(dim(test)[1]!=0){results[ab_SIGMA] <- test}
 
       model_output_char <- readr::read_file(path)
       ## Correlations b/w SLOPE physical and SLOPE cognitive
-      results[R_SPSC] <- IalsaSynthesis::extract_named_wald("R_SPSC",model_output_char)
+      results[R_SASB] <- IalsaSynthesis::extract_named_wald("R_SPSC",model_output_char)
       ## Correlations b/w INTERCEPT physical and INTERCEPT cognitive
-      results[R_IPIC] <- IalsaSynthesis::extract_named_wald("R_IPIC",model_output_char)
+      results[R_IAIB] <- IalsaSynthesis::extract_named_wald("R_IPIC",model_output_char)
       ## Correlations b/w RESIDUAL physical and RESIDUAL cognitive
-      results[R_RES_PC] <- IalsaSynthesis::extract_named_wald("R_RES_PC",model_output_char)
+      results[R_RES_AB] <- IalsaSynthesis::extract_named_wald("R_RES_PC",model_output_char)
 
     } # close for loop
     return(results)
@@ -302,45 +302,45 @@
       ## intercept
       (int <- model[grep("Intercepts", model$paramHeader),])
 
-      ## average initial status of physical - p_GAMMA_00
+      ## average initial status of physical - a_GAMMA_00
       (test <- int[int$param=='IP',c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {result[ p_GAMMA_00] <- test}
+      if(dim(test)[1]!=0) {result[ a_GAMMA_00] <- test}
 
-      ## average rate of change of physical - p_GAMMA_10
+      ## average rate of change of physical - a_GAMMA_10
       (test <- int[int$param=='SP',c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {result[p_GAMMA_10] <- test}
+      if(dim(test)[1]!=0) {result[a_GAMMA_10] <- test}
 
-      ## average initial status of cognitive - c_GAMMA_00
+      ## average initial status of cognitive - b_GAMMA_00
       test <- int[int$param=='IC',c('est', 'se', "est_se", 'pval')]
-      if(dim(test)[1]!=0) {result[c_GAMMA_00] <- test}
+      if(dim(test)[1]!=0) {result[b_GAMMA_00] <- test}
 
-      ## average rate of change of cognitive - c_GAMMA_10
+      ## average rate of change of cognitive - b_GAMMA_10
       test <- int[int$param=='SC',c('est', 'se', "est_se", 'pval')]
-      if(dim(test)[1]!=0) {result[c_GAMMA_10] <- test}
+      if(dim(test)[1]!=0) {result[b_GAMMA_10] <- test}
 
       ## intercept of process 1 (P) regressed on Age at baseline
       (test <- model[grep("IP.ON", model$paramHeader),])
       (test <- test[test$param=="BAGE",])
       (test <- test[c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {result[p_GAMMA_01] <- test}
+      if(dim(test)[1]!=0) {result[a_GAMMA_01] <- test}
 
       ## slope of process 1 (P) regressed on Age at baseline
       (test <- model[grep("SP.ON", model$paramHeader),])
       (test <- test[test$param=="BAGE",])
       (test <- test[c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {result[p_GAMMA_11] <- test}
+      if(dim(test)[1]!=0) {result[a_GAMMA_11] <- test}
 
       ## intercept of process 2 (C) regressed on Age at baseline
       (test <- model[grep("IC.ON", model$paramHeader),])
       (test <- test[test$param=="BAGE",])
       (test <- test[c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {result[c_GAMMA_01] <- test}
+      if(dim(test)[1]!=0) {result[b_GAMMA_01] <- test}
 
       ## slope of process 1 (P) regressed on Age at baseline
       (test <- model[grep("SC.ON", model$paramHeader),])
       (test <- test[test$param=="BAGE",])
       (test <- test[c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {result[c_GAMMA_11] <- test}
+      if(dim(test)[1]!=0) {result[b_GAMMA_11] <- test}
 
 
     } # close if
