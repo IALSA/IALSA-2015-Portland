@@ -62,6 +62,10 @@ read_chunk("./sandbox/inspect-extracted-results/inspect-extracted.R") #This allo
 ```
 
 
+```{r prep-for-basic-view, echo=echoChunks, results='hid', message=FALSE}
+```
+
+
 ```{r basic-view, echo=echoChunks, results='show', message=FALSE}
 ```
 
