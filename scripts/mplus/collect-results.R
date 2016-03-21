@@ -78,12 +78,11 @@ collect_results <- function(path){
   mpar <- get_mpar(path)
   result <- data.frame(matrix(NA, ncol = length(selected_results)))
   names(result) <- selected_results
-
-  result <- get_results_basic(path, mid, msum, mpar)
+  result <- get_results_basic(path, mid, msum, mpar, result)
   # result <- get_results_errors(path)
   return(result)
 }
-# collected <- collect_results(path=path_model_output)
+collected <- collect_results(path=path_model_output)
 
 
 # apply the function above to multiple output from a list

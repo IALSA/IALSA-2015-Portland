@@ -7,7 +7,7 @@
   # out_list <- out_list_all # temp. remove when function functions
   # the script `group-variables.R` creates objects with names of standard variables for easier handling
   #e.g pc_TAU_00 <- c("pc_TAU_00_est", "pc_TAU_00_se", "pc_TAU_00_wald","pc_TAU_00_pval")
-  source("./scripts/mplus/group-variables.R")
+  # source("./scripts/mplus/group-variables.R")
 
   # I. EXTRACTION
   #
@@ -110,7 +110,7 @@
 
   # II.A. Basic Results
   # extract the basic indicators about the model
-  get_results_basic <- function(path, mid, msum, mpar){
+  get_results_basic <- function(path, mid, msum, mpar, result){
     mplus_output <- scan(path, what='character', sep='\n') # each line of output as a char value
     model <- mpar$unstandardized
     if(!is.na(mpar)){
