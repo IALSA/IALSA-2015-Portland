@@ -6,7 +6,7 @@ admin <- c("software","version", "date", "time", "output_file", "data_file", "fi
 
 
 model_id <- c("study_name","model_number","subgroup","model_type",
-              "physical_measure", "cognitive_measure")
+              "process_A", "process_B")
 
 model_info <- c("subject_count", "wave_count", "datapoint_count", "parameter_count",
   "LL", "aic", "bic", "adj_bic", "aaic" )
