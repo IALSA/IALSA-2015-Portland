@@ -13,7 +13,7 @@
   #
   # I.A. Extrac model identification variables
   get_id <- function(path){
-    id_names <- c("study_name")
+    id_names <- model_id
     mid <- data.frame(matrix(ncol=length(id_names)))
     names(mid) <- id_names
 
@@ -279,13 +279,13 @@
       (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
       if(dim(test)[1]!=0){results[pc_SIGMA] <- test}
 
-      # model_output <- paste0(scan(path, what='character',mult)
-      #       ## Correlations b/w SLOPE physical and SLOPE cognitive
-      #       results[i,R_SPSC] <- IalsaSynthesis::extract_named_wald("R_SPSC",mplus_output)
-      #       ## Correlations b/w INTERCEPT physical and INTERCEPT cognitive
-      #       results[i,R_IPIC] <- IalsaSynthesis::extract_named_wald("R_IPIC",mplus_output)
-      #       ## Correlations b/w RESIDUAL physical and RESIDUAL cognitive
-      #       results[i,R_RES_PC] <- IalsaSynthesis::extract_named_wald("R_RES_PC",mplus_output)
+      model_output_char <- readr::read_file(path)
+      ## Correlations b/w SLOPE physical and SLOPE cognitive
+      results[R_SPSC] <- IalsaSynthesis::extract_named_wald("R_SPSC",model_output_char)
+      ## Correlations b/w INTERCEPT physical and INTERCEPT cognitive
+      results[R_IPIC] <- IalsaSynthesis::extract_named_wald("R_IPIC",model_output_char)
+      ## Correlations b/w RESIDUAL physical and RESIDUAL cognitive
+      results[R_RES_PC] <- IalsaSynthesis::extract_named_wald("R_RES_PC",model_output_char)
 
     } # close for loop
     return(results)
@@ -295,56 +295,56 @@
 
   # III.C. Fixed Effects
   # record the extracted values of the estimated random effects
-  get_results_fixed <- function(){
-    selected_models <- seq_along(mpar)
-    for(i in selected_models){
-      model <- mpar[[i]] # load the extract of this model's estimates
+  get_results_fixed <- function(path, mpar, result){
+    mplus_output <- scan(path, what='character', sep='\n') # each line of output as a char value
+    model <- mpar$unstandardized
+    if(!is.na(mpar)){
       ## intercept
       (int <- model[grep("Intercepts", model$paramHeader),])
 
       ## average initial status of physical - p_GAMMA_00
       (test <- int[int$param=='IP',c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {results[i, p_GAMMA_00] <- test}
+      if(dim(test)[1]!=0) {result[ p_GAMMA_00] <- test}
 
       ## average rate of change of physical - p_GAMMA_10
       (test <- int[int$param=='SP',c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {results[i, p_GAMMA_10] <- test}
+      if(dim(test)[1]!=0) {result[p_GAMMA_10] <- test}
 
       ## average initial status of cognitive - c_GAMMA_00
       test <- int[int$param=='IC',c('est', 'se', "est_se", 'pval')]
-      if(dim(test)[1]!=0) {results[i, c_GAMMA_00] <- test}
+      if(dim(test)[1]!=0) {result[c_GAMMA_00] <- test}
 
       ## average rate of change of cognitive - c_GAMMA_10
       test <- int[int$param=='SC',c('est', 'se', "est_se", 'pval')]
-      if(dim(test)[1]!=0) {results[i, c_GAMMA_10] <- test}
+      if(dim(test)[1]!=0) {result[c_GAMMA_10] <- test}
 
       ## intercept of process 1 (P) regressed on Age at baseline
       (test <- model[grep("IP.ON", model$paramHeader),])
       (test <- test[test$param=="BAGE",])
       (test <- test[c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {results[i, p_GAMMA_01] <- test}
+      if(dim(test)[1]!=0) {result[p_GAMMA_01] <- test}
 
       ## slope of process 1 (P) regressed on Age at baseline
       (test <- model[grep("SP.ON", model$paramHeader),])
       (test <- test[test$param=="BAGE",])
       (test <- test[c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {results[i, p_GAMMA_11] <- test}
+      if(dim(test)[1]!=0) {result[p_GAMMA_11] <- test}
 
       ## intercept of process 2 (C) regressed on Age at baseline
       (test <- model[grep("IC.ON", model$paramHeader),])
       (test <- test[test$param=="BAGE",])
       (test <- test[c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {results[i, c_GAMMA_01] <- test}
+      if(dim(test)[1]!=0) {result[c_GAMMA_01] <- test}
 
       ## slope of process 1 (P) regressed on Age at baseline
       (test <- model[grep("SC.ON", model$paramHeader),])
       (test <- test[test$param=="BAGE",])
       (test <- test[c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {results[i, c_GAMMA_11] <- test}
+      if(dim(test)[1]!=0) {result[c_GAMMA_11] <- test}
 
 
-    } # close for loop
-    return(results)
+    } # close if
+    return(result)
   }# close get_results_fixed
   # results <- get_results_fixed()
 

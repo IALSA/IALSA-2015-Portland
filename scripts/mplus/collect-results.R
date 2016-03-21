@@ -69,7 +69,7 @@ list_pp <-  list("eas" = eas,
 # studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
 path_model_output <- list_pc[["octo"]][1]
 
-(path=path_model_output)
+# (path=path_model_output)
 
 collect_results <- function(path){
   # extract model idendification
@@ -80,31 +80,64 @@ collect_results <- function(path){
   names(result) <- selected_results
   result <- get_results_basic(path, mid, msum, mpar, result)
   result <- get_results_errors(path, mpar, result)
-  # result <- get_results_random(path, mpar, result)
+  result <- get_results_random(path, mpar, result)
+  result <- get_results_fixed(path, mpar, result)
   return(result)
 }
 # collected <- collect_results(path=path_model_output)
 
 
 # apply the function above to multiple output from a list
-model_list <- list_pc[["octo"]][1:2]
+model_list_eas <- list_pc[["eas"]]
+model_list_elsa <- list_pc[["elsa"]]
+model_list_hrs <- list_pc[["hrs"]]
+model_list_ilse <- list_pc[["ilse"]]
+model_list_lasa <- list_pc[["lasa"]]
+model_list_nuage <- list_pc[["nuage"]]
+model_list_octo <- list_pc[["octo"]]
+model_list_map <- list_pc[["map"]]
+model_list_satsa <- list_pc[["satsa"]]
+
+# model_list <- plyr::ldply(list_pc, data.frame)
+# names(model_list) <- c("study_name","file_path")
+# model_list <- as.character(model_list$file_path)
+
+model_list <- list("eas" = model_list_eas,
+                   "elsa" = model_list_elsa,
+                   "hrs" = model_list_hrs ,
+                   "ilse" = model_list_ilse,
+                   "lasa" = model_list_lasa ,
+                   "map" = model_list_map ,
+                   "nuage" = model_list_nuage ,
+                   "octo" = model_list_octo ,
+                   "satsa" = model_list_satsa)
 results <- data.frame(matrix(NA, ncol = length(selected_results)))
 names(results) <- selected_results
+# study <- "eas"
+# study <- "elsa" # bad
+# study <- "hrs" # bad
+# study <- "ilse" # bad
+# study <- "lasa"
+# study <- "map"
+# study <- "nuage"
+# study <- "octo"
+study <- "satsa"
+
 for(i in seq_along(model_list)){
   # i <- 1
-  (collected <- collect_results(path=model_list[i]))
+  (collected <- collect_results(path=model_list[[study]][i]))
   (collected_names <- names(collected))
   results[i, collected_names] <- collected
 }
 
-
-
-interect(a,b)
 ### NOTE to DO: attach attributes with descriptions to the variables of the result file
-write.csv(results,  "./data/shared/parsed-results.csv", row.names=F)
+write.csv(results,  paste0("./data/shared/parsed-results-pc-",study,".csv"), row.names=F)
 #
 
-
+source("./sandbox/rename-classify/rename-classify.R")
+source("./sandbox/extend/standardize_ISR.R")
+rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted.Rmd" ,
+                  output_format="html_document", clean=TRUE)
 
 
 

@@ -123,7 +123,7 @@ pc_SIGMA <- c("pc_SIGMA_est", "pc_SIGMA_se", "pc_SIGMA_wald", "pc_SIGMA_pval")
 # correlation b/w physical RESIDUAL and cogntive RESIDUAL
  R_RES_PC <- c("R_RES_PC_est", "R_RES_PC_se","R_RES_PC_wald",  "R_RES_PC_pval")
 
-selected_results <- c( admin, model_id, model_info,
+selected_results <- c( admin, model_id, model_info, errors,
    pc_TAU_00, pc_TAU_11, pc_TAU_01, pc_TAU_10, pc_SIGMA,
    pp_TAU_00, pp_TAU_11, pp_TAU_01, p_SIGMA,
    cc_TAU_00, cc_TAU_11, cc_TAU_10, c_SIGMA,
@@ -133,9 +133,9 @@ selected_results <- c( admin, model_id, model_info,
    p_GAMMA_03, p_GAMMA_13, c_GAMMA_03, c_GAMMA_13,
    p_GAMMA_04, p_GAMMA_14, c_GAMMA_04, c_GAMMA_14,
    p_GAMMA_05, p_GAMMA_15, c_GAMMA_05, c_GAMMA_15,
-   p_GAMMA_06, p_GAMMA_16, c_GAMMA_06, c_GAMMA_16,
+   p_GAMMA_06, p_GAMMA_16, c_GAMMA_06, c_GAMMA_16
 
    # error log
-   errors
+
  )
 # close setGlobals
