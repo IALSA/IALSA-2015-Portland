@@ -16,6 +16,7 @@ list.files(pathStudies) # inspect participating studies
 
 source("./scripts/mplus/group-variables.R")
 source("./scripts/mplus/extraction-functions.R")
+source("./scripts/common-functions.R")
 ## @knitr setGlobals
 
 
@@ -101,8 +102,8 @@ model_list_satsa <- list_pc[["satsa"]]
 # model_list <- plyr::ldply(list_pc, data.frame)
 # names(model_list) <- c("study_name","file_path")
 # model_list <- as.character(model_list$file_path)
-
-model_list <- list("eas" = model_list_eas, #[1:2],
+# num_out <- 1
+model_list <- list("eas" = model_list_eas[1:2],
                    "elsa" = model_list_elsa[1:2],
                    "hrs" = model_list_hrs[1:2],
                    "ilse" = model_list_ilse[1:2],
@@ -111,10 +112,11 @@ model_list <- list("eas" = model_list_eas, #[1:2],
                    "nuage" = model_list_nuage[1:2] ,
                    "octo" = model_list_octo[1:2],
                    "satsa" = model_list_satsa[1:2]
-                   )
+)
 
 
 collect_study <- function(study, model_list, selected_results){
+
   # create a file to populated, helps organize model output
   results <- data.frame(matrix(NA, ncol = length(selected_results) ))
   names(results) <- selected_results
@@ -132,14 +134,14 @@ collect_study <- function(study, model_list, selected_results){
 }
 
 collect_study(study="eas", model_list, selected_results)
-collect_study(study="elsa", model_list, selected_results)
-collect_study(study="hrs", model_list, selected_results)
-collect_study(study="ilse", model_list, selected_results)
-collect_study(study="lasa", model_list, selected_results)
-collect_study(study="map", model_list, selected_results)
-collect_study(study="nuage", model_list, selected_results)
-collect_study(study="octo", model_list, selected_results)
-collect_study(study="satsa", model_list, selected_results)
+# collect_study(study="elsa", model_list, selected_results)
+# collect_study(study="hrs", model_list, selected_results)
+# collect_study(study="ilse", model_list, selected_results)
+# collect_study(study="lasa", model_list, selected_results)
+# collect_study(study="map", model_list, selected_results)
+# collect_study(study="nuage", model_list, selected_results)
+# collect_study(study="octo", model_list, selected_results)
+# collect_study(study="satsa", model_list, selected_results)
 
 # combine results files from each study
 (combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-", full.names =T) )
@@ -166,6 +168,8 @@ rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted
 #
 #
 
+results %>% dplyr::glimpse()
+results %>% dplyr::summarize
 
 
 
