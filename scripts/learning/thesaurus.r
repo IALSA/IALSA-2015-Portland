@@ -195,4 +195,6 @@ gsub("^(\\[+-])?(0)?(\\.\\d+)$", "\\1\\3", a)
 
 
 
+# ----- passing-character-vector-to-dplyr-calls --------------
+dlong <- dlong %>% dplyr::arrange_(.dots=stem_vars)
 
