@@ -102,11 +102,25 @@ for(i in seq_along(dlong$variable)){
   dlong[i,"variable"] <- gsub(pattern="_est|_se|_wald|_pval", replacement = "", x = dlong[i,"variable"])
 }
 # head(dlong)
-str(dlong); table(dlong$index, useNA = "always")
-# ds <- dlong[1:1000,]
+# str(dlong); table(dlong$index, useNA = "always")
+# ds <- dlong[1:2000,]
 dwide <- data.table::dcast(data.table::setDT(ds),
-  study_name + model_number + subgroup + model_type +
-    process_a + process_b + index ~ variable, value.var = "value")
+                           study_name + model_number + subgroup + model_type +
+                             process_a + process_b + index ~ variable, value.var = "value")
+# dwide %>% dplyr::slice(n=1)
+# (ds <- data.frame(
+#   id           = c(11,11, 22,22),
+#   variable_1 = c(NA, NA, NA, NA),
+#   variable_2 = c("est","pval", "est","pval"),
+#   value = c( NA, .4, .5, .6)
+# ))
+# dw <- data.table::dcast(data.table::setDT(ds), id + variable_1 ~ variable_2, value.var = "value")
+# dw
+
+
+# str(dwide)
+# ds <- as.data.frame(dwide)
+# ds %>% dplyr::select_("study_name", "model_type") %>% dplyr::slice(1)
 
 # # modify data object for reports
 # attr(dwide$p_GAMMA_00, "label") <- "intercept of (A) "

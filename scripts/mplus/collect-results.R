@@ -107,12 +107,12 @@ model_list_satsa <- list_pc[["satsa"]]
 model_list <- list("eas" = model_list_eas,
                    "elsa" = model_list_elsa, #[1:2],
                    "hrs" = model_list_hrs, #[1:2],
-                   "ilse" = model_list_ilse[1:2],
-                   "lasa" = model_list_lasa[1:2],
-                   "map" = model_list_map[1:2],
-                   "nuage" = model_list_nuage[1:2] ,
-                   "octo" = model_list_octo[1:2],
-                   "satsa" = model_list_satsa[1:2]
+                   "ilse" = model_list_ilse,#[1:2],
+                   "lasa" = model_list_lasa,#[1:2],
+                   "map" = model_list_map,#[1:2],
+                   "nuage" = model_list_nuage,#[1:2] ,
+                   "octo" = model_list_octo,#[1:2],
+                   "satsa" = model_list_satsa #[1:2]
 )
 
 
