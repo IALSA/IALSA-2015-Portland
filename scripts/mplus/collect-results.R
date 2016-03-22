@@ -21,7 +21,8 @@ source("./scripts/common-functions.R")
 
 
 # @knitr list_paths_studies -------------------------------------------------------------------
-
+# all this could be be in a dataframe: one row per output
+# model_id, track_name, specific_variables
 ## point to the folders with results for physical-cognitive track
 eas <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=T, pattern="out$")
 elsa <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
@@ -72,13 +73,15 @@ path_model_output <- list_pc[["eas"]][12]
 
 # (path=path_model_output)
 
-collect_results <- function(path){
+collect_result <- function(path){
   # extract model idendification
   mid <- get_id(path)
   msum <- get_msum(path)
   mpar <- get_mpar(path)
+
   result <- data.frame(matrix(NA, ncol = length(selected_results)))
   names(result) <- selected_results
+
   result <- get_results_basic(path, mid, msum, mpar, result)
   result <- get_results_errors(path, mpar, result)
   result <- get_results_random(path, mpar, result)
@@ -86,46 +89,32 @@ collect_results <- function(path){
   result <- get_results_fixed(path, mpar, result)
   return(result)
 }
-# collected <- collect_results(path=path_model_output)
-
-
-# apply the function above to multiple output from a list
-model_list_eas <- list_pc[["eas"]]
-model_list_elsa <- list_pc[["elsa"]]
-model_list_hrs <- list_pc[["hrs"]]
-model_list_ilse <- list_pc[["ilse"]]
-model_list_lasa <- list_pc[["lasa"]]
-model_list_nuage <- list_pc[["nuage"]]
-model_list_octo <- list_pc[["octo"]]
-model_list_map <- list_pc[["map"]]
-model_list_satsa <- list_pc[["satsa"]]
-
-# model_list <- plyr::ldply(list_pc, data.frame)
-# names(model_list) <- c("study_name","file_path")
-# model_list <- as.character(model_list$file_path)
-# num_out <- 1
-model_list <- list("eas" = model_list_eas,
-                   "elsa" = model_list_elsa, #[1:2],
-                   "hrs" = model_list_hrs, #[1:2],
-                   "ilse" = model_list_ilse,#[1:2],
-                   "lasa" = model_list_lasa,#[1:2],
-                   "map" = model_list_map,#[1:2],
-                   "nuage" = model_list_nuage,#[1:2] ,
-                   "octo" = model_list_octo,#[1:2],
-                   "satsa" = model_list_satsa #[1:2]
+# collected <- collect_result(path=path_model_output)
+# result %>% dplyr::glimpse()
+# consider making the following big rectangular object in long format: study_name, file_path
+model_output_file_path <- list(
+  "eas" = list_pc[["eas"]][1:10],
+  "elsa"  = list_pc[["elsa"]], #[1:2],
+  "hrs"   = list_pc[["hrs"]], #[1:2],
+  "ilse"  = list_pc[["ilse"]],#[1:2],
+  "lasa"  = list_pc[["lasa"]],#[1:2],
+  "map"   = list_pc[["map"]],#[1:2],
+  "nuage" = list_pc[["nuage"]],#[1:2] ,
+  "octo"  = list_pc[["octo"]],#[1:2],
+  "satsa" = list_pc[["satsa"]] #[1:2]
 )
 
 
-collect_study <- function(study, model_list, selected_results){
+collect_study <- function(study, selected_results){
 
   # create a file to populated, helps organize model output
   results <- data.frame(matrix(NA, ncol = length(selected_results) ))
   names(results) <- selected_results
   # browser()
   #
-  for(i in seq_along(model_list[[study]])){
-    # i <- 1
-    (collected <- collect_results(path=model_list[[study]][i]))
+  for(i in seq_along(model_output_file_path[[study]])){
+    # i <- 1; study = "eas"
+    (collected <- collect_result(path=model_output_file_path[[study]][i]))
     (collected_names <- names(collected))
     results[i, collected_names] <- collected
   }
@@ -134,23 +123,25 @@ collect_study <- function(study, model_list, selected_results){
   return(results)
 }
 
-# collect_study(study="eas", model_list, selected_results)
-# collect_study(study="elsa", model_list, selected_results)
-# collect_study(study="hrs", model_list, selected_results)
-# collect_study(study="ilse", model_list, selected_results)
-# collect_study(study="lasa", model_list, selected_results)
-# collect_study(study="map", model_list, selected_results)
-# collect_study(study="nuage", model_list, selected_results)
-# collect_study(study="octo", model_list, selected_results)
-# collect_study(study="satsa", model_list, selected_results)
+# collect_study(study="eas", model_output_file_path, selected_results)
+# collect_study(study="elsa", model_output_file_path, selected_results)
+# collect_study(study="hrs", model_output_file_path, selected_results)
+# collect_study(study="ilse", model_output_file_path, selected_results)
+# collect_study(study="lasa", model_output_file_path, selected_results)
+# collect_study(study="map", model_output_file_path, selected_results)
+# collect_study(study="nuage", model_output_file_path, selected_results)
+# collect_study(study="octo", model_output_file_path, selected_results)
+# collect_study(study="satsa", model_output_file_path, selected_results)
 
 # combine results files from each study
+# (combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-\\w+\\.csv$", full.names =T) )
 (combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-hrs", full.names =T) )
 dtos <- list()
 for(i in seq_along(combine_studies)){
   dtos[[i]] <- read.csv(combine_studies[i], header=T, stringsAsFactors = F)
 }
 results <- plyr::ldply(dtos, data.frame)
+# explore dplyr::bind_rows() for a better solution
 head(results[,c("study_name","ab_TAU_00_est")])
 
 ### NOTE to DO: attach attributes with descriptions to the variables of the `results` file

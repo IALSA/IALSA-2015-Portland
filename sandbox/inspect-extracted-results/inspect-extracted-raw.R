@@ -36,6 +36,7 @@ ds <- read.csv(path_input, header=T, stringsAsFactors = F) # 'ds' stands for 'da
 
 # ---- prep-for-basic-view --------------------------------------------------
 # subset variables
+# stem - what phase (I) writes to the catalog
 stem_vars <- c("study_name","model_number","subgroup","model_type","process_a", "process_b")
 core_vars <-  c(
   # covariance btw physical intercept and cognitive intercept
@@ -86,27 +87,26 @@ d <- ds[,subset_variables]
 # first melt with respect to the index type
 
 dlong <- data.table::melt(data = d, id.vars = stem_vars,  measure.vars = core_vars)
-dlong <- dlong %>% dplyr::arrange_("study_name","model_number","subgroup","model_type",
-                                   "process_a", "process_b")
-# head(dlong)
-dlong$variable <- as.character(dlong$variable)
-# dlong <- dlong %>% tidyr::separate(col = variable, into = c("process", "term", "components", "index"), sep ="_", remove = F)
-# set.seed(42)
-# (rs <- sample(seq_along(dlong$variable), 100))
-# (dlong <- dlong[rs, ])
-for(i in seq_along(dlong$variable)){
-  (subject <- strsplit(dlong[i,"variable"], split = "_")[[1]])
-  (last_element <- length(subject))
-  dlong[i,"index"]  <- subject[last_element]
-  # dlong[i,"variable"] <- gsub(pattern="_est$ | _se$ | _wald$ | _pval$", replacement = "", x = dw[i,"variable"])
-  dlong[i,"variable"] <- gsub(pattern="_est|_se|_wald|_pval", replacement = "", x = dlong[i,"variable"])
-}
+
+regex <- "^(\\w+?)_(est|se|wald|pval)$"
+dlong <- dlong %>%
+  dplyr::arrange_(.dots=stem_vars) %>%
+  dplyr::mutate(
+    variable = as.character(variable),
+    stem = sub(regex, "\\1", variable), # favor sub over gsub, b/c you do only one replacement
+    index = sub(regex, "\\2", variable)
+  )
+head(dlong)
+ds <- dlong[1:2000,]
+
+dw <- tidyr::separate(ds, col = tudy_name + model_number + subgroup + model_type +  process_a + process_b + index )
+
 # head(dlong)
 # str(dlong); table(dlong$index, useNA = "always")
-# ds <- dlong[1:2000,]
-dwide <- data.table::dcast(data.table::setDT(ds),
-                           study_name + model_number + subgroup + model_type +
-                             process_a + process_b + index ~ variable, value.var = "value")
+
+# dwide <- data.table::dcast(data.table::setDT(ds),
+#                            study_name + model_number + subgroup + model_type +
+#                              process_a + process_b + index ~ variable, value.var = "value")
 # dwide %>% dplyr::slice(n=1)
 # (ds <- data.frame(
 #   id           = c(11,11, 22,22),
