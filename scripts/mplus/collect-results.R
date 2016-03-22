@@ -144,6 +144,11 @@ results <- plyr::ldply(dtos, data.frame)
 # explore dplyr::bind_rows() for a better solution
 head(results[,c("study_name","ab_TAU_00_est")])
 
+#### REMOVE DUPLICATES BEFORE SAVING THE DATA FOR THE NEXT STEP
+a <- results %>% dplyr::group_by_(model_id) %>% mutate(count = n())
+a %>% dplyr::select_(.ods = stem) %>% dplyr::slice(n=5)
+
+
 ### NOTE to DO: attach attributes with descriptions to the variables of the `results` file
 write.csv(results,  paste0("./data/shared/parsed-results-raw.csv"), row.names=F)
 #
