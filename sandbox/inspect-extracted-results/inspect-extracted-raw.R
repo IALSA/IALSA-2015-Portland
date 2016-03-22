@@ -99,7 +99,10 @@ dlong <- dlong %>%
 head(dlong)
 ds <- dlong[1:2000,]
 
-dw <- tidyr::separate(ds, col = tudy_name + model_number + subgroup + model_type +  process_a + process_b + index )
+dw <- tidyr::separate(
+  ds,
+  col = tudy_name + model_number + subgroup + model_type +  process_a + process_b + index,
+  into = )
 
 # head(dlong)
 # str(dlong); table(dlong$index, useNA = "always")
