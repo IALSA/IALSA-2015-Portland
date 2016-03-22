@@ -83,26 +83,62 @@ core_vars_heads <- c("ab_TAU_00", "ab_TAU_11",
                      "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
                      "a_SIGMA", "ab_SIGMA", "b_SIGMA")
 subset_variables <- c(stem_vars, core_vars)
-d <- ds[,subset_variables]
+ds_long <- ds[,subset_variables]
 # first melt with respect to the index type
 
 dlong <- data.table::melt(data = d, id.vars = stem_vars,  measure.vars = core_vars)
 
 regex <- "^(\\w+?)_(est|se|wald|pval)$"
-dlong <- dlong %>%
+ds_long <- ds_long %>%
   dplyr::arrange_(.dots=stem_vars) %>%
   dplyr::mutate(
     variable = as.character(variable),
     stem = sub(regex, "\\1", variable), # favor sub over gsub, b/c you do only one replacement
     index = sub(regex, "\\2", variable)
   )
-head(dlong)
-ds <- dlong[1:2000,]
+head(ds_long)
 
-dw <- tidyr::separate(
-  ds,
-  col = tudy_name + model_number + subgroup + model_type +  process_a + process_b + index,
-  into = )
+# dput(colnames(ds_long))
+ds_distinct <- ds_long %>%
+  dplyr::distinct()
+
+ds_no_duplicates <- ds_long %>%
+  dplyr::group_by(
+    study_name, model_number, subgroup, model_type, process_a, process_b, variable, stem, index
+  ) %>%  #Lacks "value"
+  dplyr::summarize(
+    # value  = dplyr::first(value, na.rm=T)
+    value  = mean(value, na.rm=T)
+  ) %>%
+  dplyr::ungroup()
+
+coefficient_of_variation <- function(x)( sd(x)/mean(x) )
+
+ds_find_duplicates <- dlong %>%
+  dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
+  dplyr::group_by(
+    study_name, model_number, subgroup, model_type, process_a, process_b, variable, stem, index
+  ) %>%  #Lacks "value"
+  dplyr::filter(!is.na(value)) %>% #Drops from 56 rows to 8 rows.  !!Careful that you don't remove legit NAs (esp, in nonduplicated rows).
+  dplyr::summarize(
+    count      = n(),
+    values     = paste(value, collapse=";"),
+    value_cv   = coefficient_of_variation(value)
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(1<count) %>%
+  dplyr::filter(.001 < value_cv) #Drops from 8 to 0 rows.
+
+testit::assert("No meaningful duplicate rows should exist.", nrow(ds_find_duplicates)==0L)
+
+
+# ds <- ds_long[1:1000,]
+
+# dw <- ds_distinct %>%
+dwide <- ds_no_duplicates %>%
+  dplyr::select(-variable) %>%
+  tidyr::spread(key=stem, value=value) %>%
+  head(10)
 
 # head(dlong)
 # str(dlong); table(dlong$index, useNA = "always")
