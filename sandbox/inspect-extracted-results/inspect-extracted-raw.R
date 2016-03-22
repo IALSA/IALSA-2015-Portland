@@ -83,10 +83,10 @@ core_vars_heads <- c("ab_TAU_00", "ab_TAU_11",
                      "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
                      "a_SIGMA", "ab_SIGMA", "b_SIGMA")
 subset_variables <- c(stem_vars, core_vars)
-ds_long <- ds[,subset_variables]
+ds_long <-
 # first melt with respect to the index type
 
-dlong <- data.table::melt(data = d, id.vars = stem_vars,  measure.vars = core_vars)
+ds_long <- data.table::melt(data =ds[,subset_variables], id.vars = stem_vars,  measure.vars = core_vars)
 
 regex <- "^(\\w+?)_(est|se|wald|pval)$"
 ds_long <- ds_long %>%
