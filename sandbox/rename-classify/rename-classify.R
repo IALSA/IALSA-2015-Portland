@@ -17,20 +17,21 @@ requireNamespace("testit", quietly=TRUE)
 
 # ---- declare_globals ---------------------------------------------------------
 # path_input  <- "./data-phi-free/raw/results-physical-cognitive.csv"
-path_input <- paste0("./data/shared/parsed-results-pc-",study,".csv")
+# path_input <- paste0("./data/shared/parsed-results-pc-",study,".csv")
 # path_input  <- "./data/shared/parsed-results.csv"
+path_input <- "./data/shared/parsed-results-raw.csv"
 path_output <- "./data/shared/parsed-results.rds"
 figure_path <- './sandbox/rename-classify/stitched_output/'
 
 
 # ---- load_data ---------------------------------------------------------------
-ds0 <- read.csv(path_input, stringsAsFactors=FALSE)
-ds0 <- ds0[ds0$study_name==study,]
+ds0 <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
+# ds0 <- ds0[ds0$study_name==study,]
 
 # ---- tweak_data --------------------------------------------------------------
 colnames(ds0)
 
-ds <- ds0 %>% dplyr::arrange_("process_A")
+ds <- ds0 %>% dplyr::arrange_("process_a")
 
 
 # ---- spell_model_number ------------------------------------------------------
@@ -65,84 +66,84 @@ ds <- ds %>%
 t <- table(ds$model_type, ds$study_name); t[t==0]<-"."; t
 
 
-# ---- spell_process_A -------------------------------------------------
-t <- table(ds$process_A, ds$study_name); t[t==0]<-"."; t
+# ---- spell_process_a -------------------------------------------------
+t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
 
-# ---- correct_process_A ------------------------------------------------
+# ---- correct_process_a ------------------------------------------------
 # Read in the conversion table, and drop the `notes` variable.
-ds_process_A_key <- read.csv("./sandbox/rename-classify/physical-measure-entry-table.csv", stringsAsFactors = F) %>%
+ds_process_a_key <- read.csv("./sandbox/rename-classify/physical-measure-entry-table.csv", stringsAsFactors = F) %>%
   dplyr::select(-notes)
 
 # Join the model data frame to the conversion data frame.
 ds <- ds %>%
-  dplyr::left_join(ds_process_A_key, by=c("process_A"="entry"))
+  dplyr::left_join(ds_process_a_key, by=c("process_a"="entry"))
 
 # review what has been added by the map
 t <- table(ds[ ,"cell_label"], ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"row_label"],  ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"domain"],     ds[,"study_name"]);t[t==0]<-".";t
 
-t <- table(ds[ ,"process_A"], ds$cell_label);t[t==0]<-".";t # raw rows, new columns
+t <- table(ds[ ,"process_a"], ds$cell_label);t[t==0]<-".";t # raw rows, new columns
 
 # Remove the old variable, and rename the cleaned/condensed variable.
 ds <- ds %>%
-  dplyr::select(-process_A) %>%
-  dplyr::rename_("process_A"="cell_label") %>%
-  dplyr::rename_("process_A_pretty"="row_label") %>%
+  dplyr::select(-process_a) %>%
+  dplyr::rename_("process_a"="cell_label") %>%
+  dplyr::rename_("process_a_pretty"="row_label") %>%
   dplyr::rename_("phsycial_domain"="domain")
 
 
-t <- table(ds$process_A, ds$study_name); t[t==0]<-"."; t
+t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
 
 
 
 
 
-## @knitr spell_process_B
-t <- table(ds$process_B, ds$study_name);t[t==0]<-".";t
-d <- ds %>% dplyr::group_by_("process_B","study_name") %>% dplyr::summarize(count=n())
+## @knitr spell_process_b
+t <- table(ds$process_b, ds$study_name);t[t==0]<-".";t
+d <- ds %>% dplyr::group_by_("process_b","study_name") %>% dplyr::summarize(count=n())
 d <- d %>% dplyr::ungroup() %>% dplyr::arrange_("study_name")
 knitr::kable(d)
 
-# ---- correct_process_B ------------------------------------------------
+# ---- correct_process_b ------------------------------------------------
 # Read in the conversion table, and drop the `notes` variable.
-ds_process_B_key <- read.csv("./sandbox/rename-classify/cognitive-measure-entry-table.csv", stringsAsFactors = F) %>%
+ds_process_b_key <- read.csv("./sandbox/rename-classify/cognitive-measure-entry-table.csv", stringsAsFactors = F) %>%
   dplyr::select(-notes, -mplus_name, -study_name)
 
 # Join the model data frame to the conversion data frame.
 # ds <- ds %>%
 ds <- ds %>%
-  dplyr::left_join(ds_process_B_key, by=c("process_B"="entry"))
+  dplyr::left_join(ds_process_b_key, by=c("process_b"="entry"))
 
 t <- table(ds[ ,"cell_label"], ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"row_label"],  ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"domain"],     ds[,"study_name"]);t[t==0]<-".";t
 
 # the table below may be impractical
-t <- table(ds[,"process_B"], ds[,"cell_label"]);t[t==0]<-".";t # raw rows, new columns
+t <- table(ds[,"process_b"], ds[,"cell_label"]);t[t==0]<-".";t # raw rows, new columns
 
 # Remove the old variable, and rename the cleaned/condensed variable.
 ds <- ds %>%
-  dplyr::select(-process_B) %>%
-  dplyr::rename_("process_B"="cell_label") %>%
-  dplyr::rename_("process_B_pretty"="row_label") %>%
+  dplyr::select(-process_b) %>%
+  dplyr::rename_("process_b"="cell_label") %>%
+  dplyr::rename_("process_b_pretty"="row_label") %>%
   dplyr::rename_("cognitive_domain"="domain")
 
 
-# t <- table(ds$process_B, ds$study_name); t[t==0]<-"."; t
+# t <- table(ds$process_b, ds$study_name); t[t==0]<-"."; t
 
-# d <- ds %>% dplyr::filter(is.na(process_B)) # remove unidentified measures
+# d <- ds %>% dplyr::filter(is.na(process_b)) # remove unidentified measures
 # show unidentified measures only
-# t <- table(d$process_B, d$study_name); t[t==0]<-"."; t
+# t <- table(d$process_b, d$study_name); t[t==0]<-"."; t
 
 # ---- test_cog_measures ---------------------------------------
-t <- table(ds$process_B, ds$study_name);t[t==0]<-".";t
-d <- ds %>% dplyr::group_by_("process_B","study_name") %>% dplyr::summarize(count=n())
+t <- table(ds$process_b, ds$study_name);t[t==0]<-".";t
+d <- ds %>% dplyr::group_by_("process_b","study_name") %>% dplyr::summarize(count=n())
 d <- d %>% dplyr::ungroup() %>% dplyr::arrange_("study_name")
 knitr::kable(d)
 
 # ---- test_cog_domain -----------------------------------------
-t <- table(ds$process_B, ds$cognitive_domain);t[t==0]<-".";t
+t <- table(ds$process_b, ds$cognitive_domain);t[t==0]<-".";t
 
 
 # ---- export_ready_data ---------------------------------------

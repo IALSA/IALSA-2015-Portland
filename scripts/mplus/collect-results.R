@@ -90,7 +90,7 @@ collect_results <- function(path){
 
 
 # apply the function above to multiple output from a list
-model_list_eas <- list_pc[["eas"]]#[1:13]
+model_list_eas <- list_pc[["eas"]]
 model_list_elsa <- list_pc[["elsa"]]
 model_list_hrs <- list_pc[["hrs"]]
 model_list_ilse <- list_pc[["ilse"]]
@@ -104,9 +104,9 @@ model_list_satsa <- list_pc[["satsa"]]
 # names(model_list) <- c("study_name","file_path")
 # model_list <- as.character(model_list$file_path)
 # num_out <- 1
-model_list <- list("eas" = model_list_eas[1:2],
-                   "elsa" = model_list_elsa[1:2],
-                   "hrs" = model_list_hrs[1:2],
+model_list <- list("eas" = model_list_eas,
+                   "elsa" = model_list_elsa, #[1:2],
+                   "hrs" = model_list_hrs, #[1:2],
                    "ilse" = model_list_ilse[1:2],
                    "lasa" = model_list_lasa[1:2],
                    "map" = model_list_map[1:2],
@@ -134,7 +134,7 @@ collect_study <- function(study, model_list, selected_results){
   return(results)
 }
 
-collect_study(study="eas", model_list, selected_results)
+# collect_study(study="eas", model_list, selected_results)
 # collect_study(study="elsa", model_list, selected_results)
 # collect_study(study="hrs", model_list, selected_results)
 # collect_study(study="ilse", model_list, selected_results)
@@ -145,12 +145,13 @@ collect_study(study="eas", model_list, selected_results)
 # collect_study(study="satsa", model_list, selected_results)
 
 # combine results files from each study
-(combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-", full.names =T) )
+(combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-hrs", full.names =T) )
 dtos <- list()
 for(i in seq_along(combine_studies)){
   dtos[[i]] <- read.csv(combine_studies[i], header=T, stringsAsFactors = F)
 }
 results <- plyr::ldply(dtos, data.frame)
+head(results[,c("study_name","ab_TAU_00_est")])
 
 ### NOTE to DO: attach attributes with descriptions to the variables of the `results` file
 write.csv(results,  paste0("./data/shared/parsed-results-raw.csv"), row.names=F)
@@ -160,17 +161,16 @@ write.csv(results,  paste0("./data/shared/parsed-results-raw.csv"), row.names=F)
 rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
                   output_format="html_document", clean=TRUE)
 
-
-
 # source("./sandbox/rename-classify/rename-classify.R")
 # source("./sandbox/extend/standardize_ISR.R")
-# rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted.Rmd" ,
-#                   output_format="html_document", clean=TRUE)
+rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted.Rmd" ,
+                  output_format="html_document", clean=TRUE)
 #
 #
 
-results %>% dplyr::glimpse()
-results %>% dplyr::summarize
+# results %>% dplyr::glimpse()
+# results %>% mutate(count=n())
+# results %>% dplyr::summarize
 
 
 

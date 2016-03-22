@@ -22,7 +22,7 @@ requireNamespace("DT")
 options(show.signif.stars=F) #Turn off the annotations on p-values
 # path_input <- "./data/shared/parsed-results.csv"
 path_input <- "./data/shared/parsed-results-raw.csv"
-
+# path_input <- "./data/shared/parsed-results-raw.rds"
 
 # ---- load-data ---------------------------------------------------------------
 ds <- read.csv(path_input, header=T, stringsAsFactors = F) # 'ds' stands for 'datasets'
@@ -36,57 +36,58 @@ ds <- read.csv(path_input, header=T, stringsAsFactors = F) # 'ds' stands for 'da
 
 # ---- prep-for-basic-view --------------------------------------------------
 # subset variables
-stem_vars <- c("study_name","model_number","subgroup","model_type","process_A", "process_B")
+stem_vars <- c("study_name","model_number","subgroup","model_type","process_a", "process_b")
 core_vars <-  c(
   # covariance btw physical intercept and cognitive intercept
-  pc_TAU_00,
+  ab_TAU_00,
   # covariance btw physical slope and cognitive slope
-  pc_TAU_11,
+  ab_TAU_11,
 
   # physical intercept / average initial status of physical outcome
-  p_GAMMA_00,
+  a_GAMMA_00,
   # physical slope / average rate of change of physical outcome
-  p_GAMMA_10 ,
+  a_GAMMA_10 ,
   # cognitive slope / average rate of change of cognitive outcome
-  c_GAMMA_10 ,
+  b_GAMMA_10 ,
   # cognitive intercept /  average initial status of cognitive outcome
-  c_GAMMA_00 ,
+  b_GAMMA_00 ,
 
   # correlation b/w physical SLOPE  and cognitive SLOPE
-  R_SPSC ,
+  R_SASB ,
   # correlation b/w physical RESIDUAL and cogntive RESIDUAL
-  R_RES_PC ,
+  R_RES_AB ,
   # correlation b/w physical INTERCEPT  and cognitive INTERCEPT
-  R_IPIC,
+  R_IAIB,
 
   # variance of the physical intercept
-  pp_TAU_00 ,
+  aa_TAU_00 ,
   # variance of the physical slope
-  pp_TAU_11 ,
+  aa_TAU_11 ,
   # variance of the cognitive slope
-  cc_TAU_11 ,
+  bb_TAU_11 ,
   # variance of the cognitive intercept
-  cc_TAU_00,
+  bb_TAU_00,
+
   # variance of physical residual
-  p_SIGMA ,
+  a_SIGMA ,
   # covariance btw physcial residual and cogntive residual
-  pc_SIGMA,
+  ab_SIGMA,
   # variance of cognitive residual
-  c_SIGMA
+  b_SIGMA
 
 )
-core_vars_heads <- c("pc_TAU_00", "pc_TAU_11",
-                     "p_GAMMA_00", "p_GAMMA_10", "c_GAMMA_10", "c_GAMMA_00",
-                     "R_SPSC", "R_RES_PC", "R_IPIC",
-                     "pp_TAU_00", "pp_TAU_11", "cc_TAU_11","cc_TAU_00",
-                     "p_SIGMA", "pc_SIGMA", "c_SIGMA")
+core_vars_heads <- c("ab_TAU_00", "ab_TAU_11",
+                     "a_GAMMA_00", "a_GAMMA_10", "b_GAMMA_10", "b_GAMMA_00",
+                     "R_SASB", "R_RES_AB", "R_IAIB",
+                     "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
+                     "a_SIGMA", "ab_SIGMA", "b_SIGMA")
 subset_variables <- c(stem_vars, core_vars)
 d <- ds[,subset_variables]
 # first melt with respect to the index type
 
 dlong <- data.table::melt(data = d, id.vars = stem_vars,  measure.vars = core_vars)
 dlong <- dlong %>% dplyr::arrange_("study_name","model_number","subgroup","model_type",
-                                   "process_A", "process_B")
+                                   "process_a", "process_b")
 # head(dlong)
 dlong$variable <- as.character(dlong$variable)
 # dlong <- dlong %>% tidyr::separate(col = variable, into = c("process", "term", "components", "index"), sep ="_", remove = F)
@@ -101,9 +102,12 @@ for(i in seq_along(dlong$variable)){
   dlong[i,"variable"] <- gsub(pattern="_est|_se|_wald|_pval", replacement = "", x = dlong[i,"variable"])
 }
 # head(dlong)
-dwide <- data.table::dcast(data.table::setDT(dlong),  study_name + model_number + subgroup +
-                           model_type + process_A + process_B + index ~ variable,
-                         value.var = "value")
+str(dlong); table(dlong$index, useNA = "always")
+# ds <- dlong[1:1000,]
+dwide <- data.table::dcast(data.table::setDT(ds),
+  study_name + model_number + subgroup + model_type +
+    process_a + process_b + index ~ variable, value.var = "value")
+
 # # modify data object for reports
 # attr(dwide$p_GAMMA_00, "label") <- "intercept of (A) "
 # attr(dwide$p_GAMMA_10, "label") <- "slope of (A)"
@@ -123,8 +127,8 @@ dwide$study_name <- factor(dwide$study_name)
 dwide$model_number <- factor(dwide$model_number)
 dwide$subgroup <- factor(dwide$subgroup)
 dwide$model_type <- factor(dwide$model_type)
-dwide$process_A <- factor(dwide$process_A)
-# dwide$process_B <- factor(dwide$process_B)
+dwide$process_a <- factor(dwide$process_a)
+# dwide$process_b <- factor(dwide$process_b)
 dwide$index <- factor(dwide$index)
 
 
@@ -133,24 +137,13 @@ dwide$index <- factor(dwide$index)
 # names(dwide)
 
 d <- dwide %>% dplyr::select_("study_name","model_number","subgroup","model_type",
-                            "process_A", "process_B", "index",
-                            "pc_TAU_00","pc_TAU_11",
-                            "p_GAMMA_00", "p_GAMMA_10", "c_GAMMA_10", "c_GAMMA_00",
-                            "pp_TAU_00", "pp_TAU_11", "cc_TAU_11","cc_TAU_00",
-                            "p_SIGMA", "pc_SIGMA", "c_SIGMA")
-# d <- plyr::rename(d, replace = c(,
-#   # "pc_TAU_00" = "var (INTs)",
-#   # "pc_TAU_11" = "var (SLOPEs)",
-#   "p_GAMMA_00" = "intercept_A",
-#   "p_GAMMA_10" = "slope_A",
-#   "c_GAMMA_10" = "slope_B",
-#   "c_GAMMA_00" = "intercept_B",
-#   "pp_TAU_00" = "var_int_A",
-#   "pp_TAU_11" = "var_slp_A",
-#   "cc_TAU_11" = "var_slp_B",
-#   "cc_TAU_00" = "var_int_B"
-#
-# ))
+                            "process_a", "process_b", "index",
+                             "R_IAIB", "R_SASB",
+                            "a_GAMMA_00", "a_GAMMA_10", "b_GAMMA_10", "b_GAMMA_00",
+                            "ab_TAU_00","ab_TAU_11",
+                            "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
+                            "R_RES_AB", "a_SIGMA", "ab_SIGMA", "b_SIGMA")
+
 
 
 # d <- dww[ , c(stem_vars,"index", core_vars_heads)]

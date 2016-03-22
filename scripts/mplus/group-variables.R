@@ -128,10 +128,11 @@ selected_results <- c( admin, model_id, model_info, errors,
    aa_TAU_00, aa_TAU_11, aa_TAU_01, a_SIGMA,
    bb_TAU_00, bb_TAU_11, bb_TAU_10, b_SIGMA,
    a_GAMMA_00 ,a_GAMMA_10, b_GAMMA_00, b_GAMMA_10  ,R_IAIB, R_SASB  ,R_RES_AB,
-   a_GAMMA_01, a_GAMMA_11, b_GAMMA_01, b_GAMMA_11,
-   a_GAMMA_02, a_GAMMA_12, b_GAMMA_02, b_GAMMA_12,
-   a_GAMMA_03, a_GAMMA_13, b_GAMMA_03, b_GAMMA_13,
-   a_GAMMA_04, a_GAMMA_14, b_GAMMA_04, b_GAMMA_14,
-   a_GAMMA_05, a_GAMMA_15, b_GAMMA_05, b_GAMMA_15,
-   a_GAMMA_06, a_GAMMA_16, b_GAMMA_06, b_GAMMA_16)
+   a_GAMMA_01, a_GAMMA_11, b_GAMMA_01, b_GAMMA_11#,
+   # a_GAMMA_02, a_GAMMA_12, b_GAMMA_02, b_GAMMA_12,
+   # a_GAMMA_03, a_GAMMA_13, b_GAMMA_03, b_GAMMA_13,
+   # a_GAMMA_04, a_GAMMA_14, b_GAMMA_04, b_GAMMA_14,
+   # a_GAMMA_05, a_GAMMA_15, b_GAMMA_05, b_GAMMA_15,
+   # a_GAMMA_06, a_GAMMA_16, b_GAMMA_06, b_GAMMA_16
+   )
 
