@@ -1,0 +1,205 @@
+Mplus VERSION 5.21
+MUTHEN & MUTHEN
+02/24/2015  11:15 PM
+INPUT INSTRUCTIONS
+     TITLE: Pulmonary function, prose recall,  model 3: age, education, height, smoke, diabe
+                DATA:  File = C:\Users\novalis\Desktop\IALSA\octomult_12aug2010.dat;
+                              VARIABLE: Names are
+       Case PairID TwinID Zygosity Female Educyrs Educcat SESgrp Resgrp Smoke
+    SESChild SESChOth  HlthLif CogPrev LonelyE
+    Dead DeadAge YTDead TotDem DemEver DemType DemAge YTDem
+    time1 time2 time3 time4 time5
+    dedtime1 dedtime2 dedtime3 dedtime4 dedtime5 tvdead1 tvdead2 tvdead3 tvdead4 tvdead
+    demtime1 demtime2 demtime3 demtime4 demtime5 tvdem1 tvdem2 tvdem3 tvdem4 tvdem5
+    CompAge1-CompAge5 Marital1-Marital5 weight1-weight5 height1-height5 bmi1-bmi5
+    SRhlth1-SRhlth5 living1-living5
+    SR2hlth1-SR2hlth5 SROhlth1-SROhlth5 HlthPrv1-HlthPrv5 HlthTra1-HlthTra5
+    CogPres1-CogPres5 AGames1-AGames5 ACross1-ACross5
+    ALiter1-ALiter5 AWrite1-AWrite5 AStudy1-AStudy5 AOther1-AOther5
+    LonelyP1-LonelyP5 FrTalk1-FrTalk5 FrPart1-FrPart5
+    LackCo1-LackCo5 Abandon1-Abandon5 NumFr1-NumFr5 NumPref1-NumPref5 SeeChGr1-SeeChGr5
+    pek1-pek5 gripp1-gripp5 chr5tim1-chr5tim5 padl1-padl5 iadl1-iadl5
+    digspf1-digspf5 digspb1-digspb5 prose1-prose5 block1-block5 info1-info5
+    synnum1-synnum5 figure1-figure5 digsym1-digsym5 psif1-psif5
+    mirnam1-mirnam5 mirrcl1-mirrcl5 mirrcg1-mirrcg5 mircor1-mircor5 clock1-clock5
+    mmse1-mmse5 mismmse1-mismmse5 fmmse1-fmmse5
+    highBP1-highBP5 sbp1-sbp5 dbp1-dbp5 diab1-diab5;
+              MISSING are .; !specification of missing observations coded in data file
+             USEVAR are  time1 time2 time3 time4 time5
+                         p1 p2 p3 p4 p5
+                         c1 c2 c3 c4 c5
+                         Bage Educ heightc smokHist diabetes;
+             TSCORES =   time1 time2 time3 time4 time5;
+             CLUSTER = PairID;      !(when cluster: see subpopulation and Analysis)
+             SUBPOPULATION are DemEver EQ 0 and female EQ 0; ! (use USEOBSERVATIONS when no
+      Define: p1=pek1; p2=pek2; p3=pek3; p4=pek4; p5=pek5;
+              c1=prose1; c2=prose2; c3=prose3; c4=prose4; c5=prose5;
+              Bage=compage1-80;   !Centered at Age 80
+              Sex=female;         !0=Male
+              Educ=Educyrs-7;     ! Centered at 7 years
+              SEP=SESgrp;
+              Heightc=Height1-172; !(women = 160, men = 172)
+              SmokHist=Smoke;
+              Diabetes=diab1;
+      ANALYSIS: TYPE = RANDOM COMPLEX; !Type of analysis requested, when cluster=xomplex, ot
+      MODEL:  ip sp | p1-p5 AT time1-time5;
+              ic sc | c1-c5 AT time1-time5;
+              ip sp ic sc ON Bage Educ heightc smokhist diabetes;
+              p1-p5 (res_p);
+              c1-c5 (res_c);
+              p1-p5 pwith c1-c5(res_cov); !Paired covariances constrained to be equal across
+      OUTPUT: sampstat Cinterval;
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+     TITLE: Pulmonary function, prose recall,  model 3: age, education, height, smoke, dia
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+             SUBPOPULATION are DemEver EQ 0 and female EQ 0; ! (use USEOBSERVATIONS when n
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+      ANALYSIS: TYPE = RANDOM COMPLEX; !Type of analysis requested, when cluster=xomplex,
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  141
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  17
+   5 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+Pulmonary function, prose recall,  model 3: age, education, height, smoke, diabet
+SUMMARY OF ANALYSIS
+Number of groups                                                 1
+Number of observations                                         136
+Number of dependent variables                                   10
+Number of independent variables                                  5
+Number of continuous latent variables                            4
+Observed dependent variables
+  Continuous
+   P1          P2          P3          P4          P5          C1
+   C2          C3          C4          C5
+Observed independent variables
+   BAGE        EDUC        HEIGHTC     SMOKHIST    DIABETES
+Continuous latent variables
+   IP          SP          IC          SC
+Variables with special functions
+  Cluster variable      PAIRID
+  Weight variable       _WEIGHT
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Input data file(s)
+  C:\Users\novalis\Desktop\IALSA\octomult_12aug2010.dat
+Input data format  FREE
+SAMPLE STATISTICS
+     NO CONVERGENCE IN THE MISSING DATA ESTIMATION OF THE SAMPLE STATISTICS.
+THE MODEL ESTIMATION TERMINATED NORMALLY
+     THE MISSING DATA EM ALGORITHM USED TO COMPUTE SAMPLE STATISTICS HAS NOT
+     CONVERGED WITH RESPECT TO THE PARAMETER ESTIMATES.  THIS MAY BE DUE TO
+     SPARSE DATA LEADING TO A SINGULAR COVARIANCE MATRIX ESTIMATE.  INCREASE
+     THE NUMBER OF EM ITERATIONS.
+     THE H1 MODEL ESTIMATION DID NOT CONVERGE.  SAMPLE STATISTICS COULD NOT
+     BE COMPUTED.  INCREASE THE NUMBER OF H1ITERATIONS.
+TESTS OF MODEL FIT
+Loglikelihood
+          H0 Value                       -2875.443
+          H0 Scaling Correction Factor       0.998
+            for MLR
+Information Criteria
+          Number of Free Parameters             37
+          Akaike (AIC)                    5824.886
+          Bayesian (BIC)                  5932.654
+          Sample-Size Adjusted BIC        5815.606
+            (n* = (n + 2) / 24)
+MODEL RESULTS
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+ IP         ON
+    BAGE             -12.224      3.984     -3.068      0.002
+    EDUC               7.722      1.991      3.879      0.000
+    HEIGHTC            2.120      1.380      1.536      0.124
+    SMOKHIST         -18.359      9.427     -1.948      0.051
+    DIABETES          37.949     25.157      1.509      0.131
+ SP         ON
+    BAGE               0.347      0.906      0.383      0.702
+    EDUC              -0.468      0.627     -0.745      0.456
+    HEIGHTC            0.224      0.266      0.841      0.401
+    SMOKHIST          -1.458      1.598     -0.912      0.362
+    DIABETES          -4.817      3.885     -1.240      0.215
+ IC         ON
+    BAGE              -0.278      0.138     -2.010      0.044
+    EDUC               0.437      0.085      5.125      0.000
+    HEIGHTC            0.004      0.057      0.062      0.950
+    SMOKHIST          -0.394      0.360     -1.095      0.274
+    DIABETES           0.879      0.849      1.035      0.301
+ SC         ON
+    BAGE               0.001      0.041      0.016      0.987
+    EDUC              -0.005      0.012     -0.459      0.646
+    HEIGHTC            0.011      0.007      1.484      0.138
+    SMOKHIST          -0.054      0.054     -1.004      0.315
+    DIABETES          -0.199      0.197     -1.009      0.313
+ SP       WITH
+    IP              -227.373    154.236     -1.474      0.140
+ IC       WITH
+    IP                61.969     39.116      1.584      0.113
+    SP                -4.883      5.743     -0.850      0.395
+ SC       WITH
+    IP                 5.746      5.372      1.070      0.285
+    SP                -0.307      0.499     -0.615      0.538
+    IC                -0.016      0.174     -0.094      0.925
+ P1       WITH
+    C1                13.704     17.518      0.782      0.434
+ P2       WITH
+    C2                13.704     17.518      0.782      0.434
+ P3       WITH
+    C3                13.704     17.518      0.782      0.434
+ P4       WITH
+    C4                13.704     17.518      0.782      0.434
+ P5       WITH
+    C5                13.704     17.518      0.782      0.434
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    IP               459.555     21.723     21.156      0.000
+    SP                -6.726      3.589     -1.874      0.061
+    IC                10.815      0.787     13.737      0.000
+    SC                 0.011      0.120      0.087      0.930
+ Residual Variances
+    P1              3381.469    505.979      6.683      0.000
+    P2              3381.469    505.979      6.683      0.000
+    P3              3381.469    505.979      6.683      0.000
+    P4              3381.469    505.979      6.683      0.000
+    P5              3381.469    505.979      6.683      0.000
+    C1                 4.140      0.616      6.721      0.000
+    C2                 4.140      0.616      6.721      0.000
+    C3                 4.140      0.616      6.721      0.000
+    C4                 4.140      0.616      6.721      0.000
+    C5                 4.140      0.616      6.721      0.000
+    IP              8271.613   1367.246      6.050      0.000
+    SP                32.802     22.862      1.435      0.151
+    IC                10.047      1.753      5.733      0.000
+    SC                 0.010      0.014      0.727      0.467
+QUALITY OF NUMERICAL RESULTS
+     Condition Number for the Information Matrix              0.599E-05
+       (ratio of smallest to largest eigenvalue)
