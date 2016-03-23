@@ -36,89 +36,135 @@ ds <- readRDS(path_input)
 
 # ---- prep-for-basic-view --------------------------------------------------
 # subset variables
-stem_vars <- c("study_name","model_number","subgroup","model_type","process_A", "process_B")
+# stem - what phase (I) writes to the catalog
+stem_vars <- c("study_name","model_number","subgroup","model_type","process_a", "process_b")
 core_vars <-  c(
+  # covariance btw physical intercept and cognitive intercept
+  ab_TAU_00,
+  # covariance btw physical slope and cognitive slope
+  ab_TAU_11,
+
   # physical intercept / average initial status of physical outcome
-  p_GAMMA_00,
+  a_GAMMA_00,
   # physical slope / average rate of change of physical outcome
-  p_GAMMA_10 ,
+  a_GAMMA_10 ,
   # cognitive slope / average rate of change of cognitive outcome
-  c_GAMMA_10 ,
+  b_GAMMA_10 ,
   # cognitive intercept /  average initial status of cognitive outcome
-  c_GAMMA_00 ,
+  b_GAMMA_00 ,
 
   # correlation b/w physical SLOPE  and cognitive SLOPE
-  R_SPSC ,
+  R_SASB ,
   # correlation b/w physical RESIDUAL and cogntive RESIDUAL
-  R_RES_PC ,
+  R_RES_AB ,
   # correlation b/w physical INTERCEPT  and cognitive INTERCEPT
-  R_IPIC,
+  R_IAIB,
 
   # variance of the physical intercept
-  pp_TAU_00 ,
+  aa_TAU_00 ,
   # variance of the physical slope
-  pp_TAU_11 ,
+  aa_TAU_11 ,
   # variance of the cognitive slope
-  cc_TAU_11 ,
+  bb_TAU_11 ,
   # variance of the cognitive intercept
-  cc_TAU_00,
-  # covariance btw physical slope and cognitive slope
-  pc_TAU_11
+  bb_TAU_00,
+
+  # variance of physical residual
+  a_SIGMA ,
+  # covariance btw physcial residual and cogntive residual
+  ab_SIGMA,
+  # variance of cognitive residual
+  b_SIGMA
+
 )
-core_vars_heads <- c("p_GAMMA_00", "p_GAMMA_10", "c_GAMMA_10", "c_GAMMA_00",
-                     "R_SPSC", "R_RES_PC", "R_IPIC",
-                     "pp_TAU_00", "pp_TAU_11", "cc_TAU_11","cc_TAU_00", "pc_TAU_11")
+core_vars_heads <- c("ab_TAU_00", "ab_TAU_11",
+                     "a_GAMMA_00", "a_GAMMA_10", "b_GAMMA_10", "b_GAMMA_00",
+                     "R_SASB", "R_RES_AB", "R_IAIB",
+                     "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
+                     "a_SIGMA", "ab_SIGMA", "b_SIGMA")
 subset_variables <- c(stem_vars, core_vars)
-d <- ds[,subset_variables]
-# first melt with respect to the index type
 
-dlong <- data.table::melt(data = d, id.vars = stem_vars,  measure.vars = core_vars)
-dlong <- dlong %>% dplyr::arrange_("study_name","model_number","subgroup","model_type",
-                                   "process_A", "process_B")
-# head(dlong)
-dlong$variable <- as.character(dlong$variable)
-# dlong <- dlong %>% tidyr::separate(col = variable, into = c("process", "term", "components", "index"), sep ="_", remove = F)
-# set.seed(42)
-# (rs <- sample(seq_along(dlong$variable), 100))
-# (dlong <- dlong[rs, ])
-for(i in seq_along(dlong$variable)){
-  (subject <- strsplit(dlong[i,"variable"], split = "_")[[1]])
-  (last_element <- length(subject))
-  dlong[i,"index"]  <- subject[last_element]
-  # dlong[i,"variable"] <- gsub(pattern="_est$ | _se$ | _wald$ | _pval$", replacement = "", x = dw[i,"variable"])
-  dlong[i,"variable"] <- gsub(pattern="_est|_se|_wald|_pval", replacement = "", x = dlong[i,"variable"])
-}
-# head(dlong)
-dwide <- data.table::dcast(data.table::setDT(dlong),  study_name + model_number + subgroup +
-                           model_type + process_A + process_B + index ~ variable,
-                         value.var = "value")
-# dww <- as.data.frame(dww)
-# stem_vars
-# names(dwide)
-d <- dwide %>% dplyr::select_("study_name","model_number","subgroup","model_type",
-                            "process_A", "process_B", "index",
-                            "p_GAMMA_00", "p_GAMMA_10", "c_GAMMA_10", "c_GAMMA_00",
-                            "R_SPSC", "R_RES_PC", "R_IPIC",
-                            "pp_TAU_00", "pp_TAU_11", "cc_TAU_11","cc_TAU_00", "pc_TAU_11")
+#  melt with respect to the index type
+ds_long <- data.table::melt(data =ds[,subset_variables], id.vars = stem_vars,  measure.vars = core_vars)
 
-# d <- dww[ , c(stem_vars,"index", core_vars_heads)]
+regex <- "^(\\w+?)_(est|se|wald|pval)$"
+ds_long <- ds_long %>%
+  dplyr::arrange_(.dots=stem_vars) %>%
+  dplyr::mutate(
+    variable = as.character(variable),
+    stem = sub(regex, "\\1", variable), # favor sub over gsub, b/c you do only one replacement
+    index = sub(regex, "\\2", variable)
+  )
+# head(ds_long)
+
+# dput(colnames(ds_long))
+ds_distinct <- ds_long %>%
+  dplyr::distinct()
+
+ds_no_duplicates <- ds_long %>%
+  dplyr::group_by(
+    study_name, model_number, subgroup, model_type, process_a, process_b, variable, stem, index
+  ) %>%  #Lacks "value"
+  dplyr::summarize(
+    # value  = dplyr::first(value, na.rm=T)
+    value  = mean(value, na.rm=T)
+  ) %>%
+  dplyr::ungroup()
+
+coefficient_of_variation <- function(x)( sd(x)/mean(x) )
+
+ds_find_duplicates <- ds_long %>%
+  dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
+  dplyr::group_by(
+    study_name, model_number, subgroup, model_type, process_a, process_b, variable, stem, index
+  ) %>%  #Lacks "value"
+  dplyr::filter(!is.na(value)) %>% #Drops from 56 rows to 8 rows.  !!Careful that you don't remove legit NAs (esp, in nonduplicated rows).
+  dplyr::summarize(
+    count      = n(),
+    values     = paste(value, collapse=";"),
+    value_cv   = coefficient_of_variation(value)
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(1<count) %>%
+  dplyr::filter(.001 < value_cv) #Drops from 8 to 0 rows.
+
+testit::assert("No meaningful duplicate rows should exist.", nrow(ds_find_duplicates)==0L)
+
+
+# ds <- ds_long[1:1000,]
+
+# dw <- ds_distinct %>%
+ds_wide <- ds_no_duplicates %>%
+  dplyr::select(-variable) %>%
+  tidyr::spread(key=stem, value=value) %>%
+  dplyr::mutate(
+    study_name = factor(study_name),
+    model_number = factor(model_number),
+    subgroup = factor(subgroup),
+    model_type = factor(model_type),
+    process_a = factor(process_a),
+    process_b = factor(process_b),
+    index = factor(index)
+  )
+# head(ds_wide)
+# ds_wide %>% dplyr::glimpse()
+
+
 
 ## NOTE: change "p_ | c_ " int "point estimate"
 ## NOTE: change "pp_ | cc_ | pc_" into "variance
 
 # ---- basic-view --------------------------------------------------------------
-attr(d$p_GAMMA_00, "label") <- "intercept of (A)"
-attr(d$p_GAMMA_10, "label") <- "slope of (A)"
-attr(d$c_GAMMA_10, "label") <- "slope of (B)"
-attr(d$c_GAMMA_00, "label") <- "intercept of (B)"
-attr(d$R_SPSC, "label") <- "cor (SLOPES)"
-attr(d$R_RES_PC, "label") <- "cor (RESID)"
-attr(d$R_IPIC, "label") <- "cor (INT)"
-attr(d$pp_TAU_00, "label") <- "intercept of (A)"
-attr(d$pp_TAU_11, "label") <- "slope of (A)"
-attr(d$cc_TAU_11, "label") <- "slope of (B)"
-attr(d$cc_TAU_00, "label") <- "intercept of (B"
-attr(d$pc_TAU_11, "label") <- "cov (SLOPES)(AB)"
+# ---- basic-view --------------------------------------------------------------
+d <- ds_wide %>% dplyr::mutate(p_a = process_a, p_b = process_b)
+
+d <- d  %>% dplyr::select_("study_name","model_number","subgroup","model_type",
+                           "process_a", "process_b", "index",
+                           "R_IAIB", "R_SASB",
+                           "a_GAMMA_00", "a_GAMMA_10", "b_GAMMA_10", "b_GAMMA_00",
+                           "ab_TAU_00","ab_TAU_11", "p_a", "p_b",
+                           "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
+                           "R_RES_AB", "a_SIGMA", "ab_SIGMA", "b_SIGMA")
 
 d %>%  DT::datatable(class = 'cell-border stripe',
               caption = "spotting duplicates",
