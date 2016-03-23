@@ -26,11 +26,11 @@ source("./scripts/common-functions.R")
 ## point to the folders with results for physical-cognitive track
 eas <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=T, pattern="out$")
 elsa <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-hrs <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+hrs <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=F, pattern="out$")
 ilse <- list.files(file.path(pathStudies,"ilse/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 lasa <- list.files(file.path(pathStudies,"lasa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-octo <- list.files(file.path(pathStudies,"octo/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive"),full.names=T, recursive=F, pattern="out$")
+octo <- list.files(file.path(pathStudies,"octo/physical-cognitive/combined"),full.names=T, recursive=T, pattern="out$")
 map <- list.files(file.path(pathStudies,"map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 
@@ -123,19 +123,19 @@ collect_study <- function(study, selected_results){
   return(results)
 }
 
-# collect_study(study="eas", model_output_file_path, selected_results)
-# collect_study(study="elsa", model_output_file_path, selected_results)
-# collect_study(study="hrs", model_output_file_path, selected_results)
-# collect_study(study="ilse", model_output_file_path, selected_results)
-# collect_study(study="lasa", model_output_file_path, selected_results)
-# collect_study(study="map", model_output_file_path, selected_results)
-# collect_study(study="nuage", model_output_file_path, selected_results)
-# collect_study(study="octo", model_output_file_path, selected_results)
-# collect_study(study="satsa", model_output_file_path, selected_results)
+# collect_study(study="eas", selected_results)
+# collect_study(study="elsa", selected_results)
+# collect_study(study="hrs", selected_results)
+# collect_study(study="ilse", selected_results)
+# collect_study(study="lasa", selected_results)
+# collect_study(study="map", selected_results)
+# collect_study(study="nuage", selected_results)
+# collect_study(study="octo", selected_results)
+# collect_study(study="satsa", selected_results)
 
 # combine results files from each study
 # (combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-\\w+\\.csv$", full.names =T) )
-(combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-hrs", full.names =T) )
+(combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-elsa", full.names =T) )
 dtos <- list()
 for(i in seq_along(combine_studies)){
   dtos[[i]] <- read.csv(combine_studies[i], header=T, stringsAsFactors = F)
@@ -145,8 +145,8 @@ results <- plyr::ldply(dtos, data.frame)
 head(results[,c("study_name","ab_TAU_00_est")])
 
 #### REMOVE DUPLICATES BEFORE SAVING THE DATA FOR THE NEXT STEP
-a <- results %>% dplyr::group_by_(model_id) %>% mutate(count = n())
-a %>% dplyr::select_(.ods = stem) %>% dplyr::slice(n=5)
+# a <- results %>% dplyr::group_by_(model_id) %>% mutate(count = n())
+# a %>% dplyr::select_(.ods = stem) %>% dplyr::slice(n=5)
 
 
 ### NOTE to DO: attach attributes with descriptions to the variables of the `results` file
@@ -154,11 +154,11 @@ write.csv(results,  paste0("./data/shared/parsed-results-raw.csv"), row.names=F)
 #
 
 
-rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
-                  output_format="html_document", clean=TRUE)
+# rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
+#                   output_format="html_document", clean=TRUE)
 
-# source("./sandbox/rename-classify/rename-classify.R")
-# source("./sandbox/extend/standardize_ISR.R")
+source("./sandbox/rename-classify/rename-classify.R")
+source("./sandbox/extend/standardize_ISR.R")
 rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted.Rmd" ,
                   output_format="html_document", clean=TRUE)
 #
