@@ -30,9 +30,13 @@ ds0 <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
 
 # ---- tweak_data --------------------------------------------------------------
 colnames(ds0)
+ds <- ds0 %>% dplyr::arrange_("model_type", "process_a") %>%
+  dplyr::select_("study_name", "model_number","subgroup","model_type","process_a", "process_b")
 
-ds <- ds0 %>% dplyr::arrange_("process_a")
 
+# ----- load-rename-classify-mapping -------------------------------------
+ds_rules <- read.csv("./manipulation/rename-classify-rules.csv", stringsAsFactors = F) %>%
+  dplyr::select(-notes,-mplus_name)
 
 # ---- spell_model_number ------------------------------------------------------
 t <- table(ds$model_number, ds$study_name);t[t==0]<-".";t
@@ -43,26 +47,32 @@ t <- table(ds$subgroup, ds$study_name);t[t==0]<-".";t
 
 
 
-# ---- spell_model_type
+# ---- spell_model_type -------------------------------------------
 t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
 
 
 # ---- correct_model_type ------------------------------------------------------
-# Read in the conversion table, and drop the `notes` variable.
-ds_model_type_key <- read.csv("./manipulation/model-type-entry-table.csv", stringsAsFactors = F) %>%
-  dplyr::select(-notes)
-# Join the model data frame to the conversion data frame.
+# extract the specific renaming rule
+d_rule <- ds_rules %>%
+  dplyr::filter(category == "model_type") %>%
+  dplyr::select(entry_raw, entry_new)
+d_rule
+# join the model data frame to the conversion data frame.
 ds <- ds %>%
-  dplyr::left_join(ds_model_type_key, by=c("model_type"="entry"))
+  dplyr::left_join(d_rule, by=c("model_type"="entry_raw"))
+# verify
+t <- table(ds$entry_new, ds$study_name);t[t==0]<-".";t
+t <- table(ds$model_type, ds$entry_new);t[t==0]<-".";t # raw rows, new columns
 
-t <- table(ds$category_short, ds$study_name);t[t==0]<-".";t
-t <- table(ds$model_type, ds$category_short);t[t==0]<-".";t # raw rows, new columns
-
-# Remove the old variable, and rename the cleaned/condensed variable.
+# # Remove the old variable, and rename the cleaned/condensed variable.
+# ds <- ds %>%
+#   dplyr::select(-model_type) %>% # remove original entries
+#   dplyr::rename("model_type"="category_short") # replace by corrected entries
+head(ds)
+# Replace raw entries with new entries
 ds <- ds %>%
-  dplyr::select(-model_type) %>% # remove original entries
-  dplyr::rename_("model_type"="category_short") # replace by corrected entries
-
+  dplyr::mutate_("model_type"="entry_new") %>%
+  dplyr::select(-entry_new)
 t <- table(ds$model_type, ds$study_name); t[t==0]<-"."; t
 
 
@@ -70,41 +80,75 @@ t <- table(ds$model_type, ds$study_name); t[t==0]<-"."; t
 t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
 
 # ---- correct_process_a ------------------------------------------------
-# Read in the conversion table, and drop the `notes` variable.
-ds_process_a_key <- read.csv("./manipulation/physical-measure-entry-table.csv", stringsAsFactors = F) %>%
-  dplyr::select(-notes)
-
-# Join the model data frame to the conversion data frame.
+# extract the specific renaming rule
+d_rule <- ds_rules %>%
+  dplyr::filter(category == "physical") %>%
+  dplyr::select(entry_raw, entry_new,domain,label_abbr, label_full )
+d_rule
+# join the model data frame to the conversion data frame.
 ds <- ds %>%
-  dplyr::left_join(ds_process_a_key, by=c("process_a"="entry"))
-
-# review what has been added by the map
-t <- table(ds[ ,"cell_label"], ds[,"study_name"]);t[t==0]<-".";t
-t <- table(ds[ ,"row_label"],  ds[,"study_name"]);t[t==0]<-".";t
+  dplyr::left_join(d_rule, by=c("process_a"="entry_raw"))
+# verify
+t <- table(ds$entry_new, ds$study_name);t[t==0]<-".";t
+t <- table(ds$process_a, ds$entry_new);t[t==0]<-".";t # raw rows, new columns
+head(ds)
+t <- table(ds[ ,"entry_new"], ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"label_abbr"],  ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"label_full"],  ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"domain"],     ds[,"study_name"]);t[t==0]<-".";t
-
-t <- table(ds[ ,"process_a"], ds$cell_label);t[t==0]<-".";t # raw rows, new columns
-
 # Remove the old variable, and rename the cleaned/condensed variable.
 ds <- ds %>%
   dplyr::select(-process_a) %>%
-  dplyr::rename_("process_a"="cell_label") %>%
-  dplyr::rename_("process_a_pretty"="row_label") %>%
+  dplyr::rename_("process_a"="entry_new") %>%
+  dplyr::rename_("process_a_abbr"="label_abbr") %>%
+  dplyr::rename_("process_a_full"="label_full") %>%
   dplyr::rename_("process_a_domain"="domain")
+# verify
+t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
 
 
+
+# ---- spell_process_b -------------------------------------------------
+t <- table(ds$process_b, ds$study_name); t[t==0]<-"."; t
+d <- ds %>%
+  dplyr::group_by_("study_name","process_b") %>%
+  dplyr::summarize(count=n()) %>%
+  dplyr::ungroup() %>%
+  dplyr::arrange_("study_name")
+knitr::kable(d)
+
+# ---- correct_process_b ------------------------------------------------
+# extract the specific renaming rule
+d_rule <- ds_rules %>%
+  dplyr::filter(category == "cognitive") %>%
+  dplyr::select(entry_raw, entry_new,domain,label_abbr, label_full )
+d_rule
+# join the model data frame to the conversion data frame.
+ds <- ds %>%
+  dplyr::left_join(d_rule, by=c("process_a"="entry_raw"))
+# verify
+t <- table(ds$entry_new, ds$study_name);t[t==0]<-".";t
+t <- table(ds$process_a, ds$entry_new);t[t==0]<-".";t # raw rows, new columns
+head(ds)
+t <- table(ds[ ,"entry_new"], ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"label_abbr"],  ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"label_full"],  ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"domain"],     ds[,"study_name"]);t[t==0]<-".";t
+# Remove the old variable, and rename the cleaned/condensed variable.
+ds <- ds %>%
+  dplyr::select(-process_a) %>%
+  dplyr::rename_("process_a"="entry_new") %>%
+  dplyr::rename_("process_a_abbr"="label_abbr") %>%
+  dplyr::rename_("process_a_full"="label_full") %>%
+  dplyr::rename_("process_a_domain"="domain")
+# verify
 t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
 
 
 
 
-## @knitr spell_process_b
-t <- table(ds$process_b, ds$study_name);t[t==0]<-".";t
-d <- ds %>% dplyr::group_by_("process_b","study_name") %>% dplyr::summarize(count=n())
-d <- d %>% dplyr::ungroup() %>% dplyr::arrange_("study_name")
-knitr::kable(d)
 
-# ---- correct_process_b ------------------------------------------------
+
 # Read in the conversion table, and drop the `notes` variable.
 ds_process_b_key <- read.csv("./manipulation/cognitive-measure-entry-table.csv", stringsAsFactors = F) %>%
   dplyr::select(-notes, -mplus_name, -study_name)
