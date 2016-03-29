@@ -11,10 +11,15 @@ library(dplyr)
 library(lattice)
 library(grid)
 # ---- declare-globals -------------------------------------------------
-cog_domain_order <- c("knowledge","language","fluency",
-                      "memory","workmemory","executive f",
-                      "speed","mental status",
-                      "perception", "verbal reasoning")
+# cog_domain_order <- c("knowledge","language","fluency",
+#                       "memory","workmemory","executive f",
+#                       "speed","mental status",
+#                       "perception", "verbal reasoning")
+
+cog_domain_order <- c("memory","workmemory","fluency",
+                      "knowledge","language","perception",
+                      "mental status", "fluid reasoning",
+                      "speed", "executive f")
 
 # ----- load_data --------------------------------------------------
 ## if-else conditions for Shiny production

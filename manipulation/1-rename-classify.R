@@ -142,7 +142,7 @@ d <- d %>% dplyr::ungroup() %>% dplyr::arrange_("study_name")
 knitr::kable(d)
 
 # ---- test_cog_domain -----------------------------------------
-t <- table(ds$process_b, ds$cognitive_domain);t[t==0]<-".";t
+t <- table(ds$process_b, ds$process_b_domain);t[t==0]<-".";t
 
 
 # ---- export_ready_data ---------------------------------------
