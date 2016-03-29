@@ -1,19 +1,19 @@
 domain,row_label,cell_label,entry,notes
-pulmonary,fev,fev,fev,literal
+pulmonary,fev,fev,fev,literal (no recoding necessary)
 pulmonary,fev,fev,fev100,rescaled fev
 pulmonary,fev,fev,fevc,misspelled fev
 pulmonary,fev,fev,fev1,misspelled fev
 pulmonary,fev,fev,fvc,misspelled fev
-gait,gait,gait,gait,literal
-grip,grip,grip,grip,literal
+gait,gait,gait,gait,literal (no recoding necessary)
+grip,grip,grip,grip,literal (no recoding necessary)
 grip,grip,grip,hand,alternative to grip
-nophys,nophys,nophys,nophys,literal
+nophys,nophys,nophys,nophys,literal (no recoding necessary)
 nophys,nophys,nophys,univar,alternative to nophys
 nophys,nophys,nophys,nophysspec,alternative
-pulmonary,pef,pef,pef,literal
+pulmonary,pef,pef,pef,literal (no recoding necessary)
 pulmonary,pef,pef,pek,alternative to pef in Sweeden
 pulmonary,pef,pef,peak,alternative to pef
-pulmonary,pulmonary,pulmonary,pulmonary,literal
+pulmonary,pulmonary,pulmonary,pulmonary,literal (no recoding necessary)
 pulmonary,pulmonary,pulmonary,pumonary,misspelled pulmonary
 pulmonary,pulmonary,pulmonary,pulomnary,misspelled pulmonary
-gait,tug,tug,tug,literal
+gait,tug,tug,tug,literal (no recoding necessary)
