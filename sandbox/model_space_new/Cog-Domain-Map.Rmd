@@ -92,7 +92,7 @@ The domain map above is the actual data provided by the model in the Portland mo
 ## Prototype
 
 Andrea Piccinin suggested the followed  structure to investigate replication potential across studies and cognitive domains:
-![prototype](docs/Piccinin_Cognitive_Domains.PNG)  
+![prototype](./sandbox/model_space_new/docs/Piccinin_Cognitive_Domains.PNG)  
 
 
 
