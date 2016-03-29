@@ -90,11 +90,10 @@ ds <- ds %>%
   dplyr::select(-process_a) %>%
   dplyr::rename_("process_a"="cell_label") %>%
   dplyr::rename_("process_a_pretty"="row_label") %>%
-  dplyr::rename_("phsycial_domain"="domain")
+  dplyr::rename_("process_a_domain"="domain")
 
 
 t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
-
 
 
 
@@ -125,9 +124,9 @@ t <- table(ds[,"process_b"], ds[,"cell_label"]);t[t==0]<-".";t # raw rows, new c
 # Remove the old variable, and rename the cleaned/condensed variable.
 ds <- ds %>%
   dplyr::select(-process_b) %>%
-  dplyr::rename_("process_b"="cell_label") %>%
+  dplyr::rename_("process_b"="cell_label") %>% # cell_label in metadata become the name of process b
   dplyr::rename_("process_b_pretty"="row_label") %>%
-  dplyr::rename_("cognitive_domain"="domain")
+  dplyr::rename_("process_b_domain"="domain")
 
 
 # t <- table(ds$process_b, ds$study_name); t[t==0]<-"."; t

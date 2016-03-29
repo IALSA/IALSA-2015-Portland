@@ -10,36 +10,48 @@ library(ggplot2)
 library(dplyr)
 library(lattice)
 library(grid)
+# ---- declare-globals -------------------------------------------------
+cog_domain_order <- c("knowledge","language","fluency",
+                      "memory","workmemory","executive f",
+                      "speed","mental status",
+                      "perception", "verbal reasoning")
 
 # ----- load_data --------------------------------------------------
 ## if-else conditions for Shiny production
 ## "b" in "dsb" is for BASIC
 
-dsb <- readRDS("./data-phi-free/derived/results-physical-cognitive.rds")
+dsb <- readRDS("./data/shared/parsed-results.rds")
 
-ds <- dsb[ , c("study_name","model_number", "subgroup", "model_type",
-               # "physical_construct", "cognitive_construct",
-               "process_a", "process_b", "converged","mistrust")]
+# ds <- dsb[ , c("study_name","model_number", "subgroup", "model_type",
+               # "physical_construct", "cognitive_domain",
+               # "process_a", "process_b", "converged","mistrust")]
 
+dsb %>% dplyr::glimpse()
 # ----- tweak_data --------------------------------------------------
-cog_domain_order <- c("knowledge","language","fluency",
-                      "memory","workmemory","executive f",
-                      "visuospatial","speed","mental status",
 
-                      "perception", "verbal reasoning")
+ds <- dsb %>%
+  dplyr::rename_("physcial_domain"="phsycial_domain")%>%
+  dplyr::select_("study_name","model_number", "subgroup", "model_type",
+                 "physcial_domain", "cognitive_domain",
+                 "process_a", "process_b","mistrust") %>%
+  dplyr::mutate(
+    cognitive_domain = ordered(cognitive_domain, levels=cog_domain_order)
+  )
+ds %>% dplyr::glimpse()
 
-ds$cognitive_construct <- ordered(ds$cognitive_construct, levels=cog_domain_order)
+# str(ds$cognitive_domain)
 
-# str(ds$cognitive_construct)
+a <- ds %>%
+  dplyr::group_by_("cognitive_domain","process_b") %>%
+  dplyr::summarize(count=n()) %>%
+  dplyr::ungroup()
 
-a <- ds %>% dplyr::group_by_("cognitive_construct","process_b") %>% summarize(count=n())
-a$cognitive_construct <- ordered(a$cognitive_construct, levels=cog_domain_order)
 cog_measures_sorted_domain <- a$process_b
 
 # ds[ds$process_a=="nophys"] <- NULL
 # ds[ds$process_b=="nocog"] <- NULL
 ## trim to make more managable
-# keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","process_a","process_b", "output_file", "converged")
+# keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_domain","process_a","process_b", "output_file", "converged")
 # ds <- dsb[ , keepvar]
 # dplyr::tbl_df(ds)
 
@@ -106,15 +118,15 @@ domain_map <- function(ds, labels){
   # define the data
 
   d <- ds %>%
-    dplyr::count_(c("process_b", "cognitive_construct","study_name"))
+    dplyr::count_(c("process_b", "cognitive_domain","study_name"))
   d$dummy <- factor("dummy")
   d$cog_meas <- stringr::str_sub(d$process_b,1,3)
   d$cog_measure_display <-paste0(stringr::str_sub(d$process_b,1,6),
                                  ", ",d$n)
 
-  # d <- d[order(d$cognitive_construct), ]
-  dd <- dplyr::select_(d, "process_b", "cognitive_construct") %>%
-    group_by_("cognitive_construct") %>%
+  # d <- d[order(d$cognitive_domain), ]
+  dd <- dplyr::select_(d, "process_b", "cognitive_domain") %>%
+    group_by_("cognitive_domain") %>%
     dplyr::summarize(count=n())
 
 
@@ -124,7 +136,7 @@ domain_map <- function(ds, labels){
   g <- ggplot2::ggplot(d, aes_string(x="dummy",
                                      y="process_b",
                                      label="cog_measure_display",
-                                     fill="cognitive_construct"))
+                                     fill="cognitive_domain"))
   g <- g + geom_tile()
   g <- g + geom_text(size = baseSize-7, hjust=.4)
   g <- g + facet_grid(. ~ study_name )
