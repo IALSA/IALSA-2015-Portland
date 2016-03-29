@@ -71,7 +71,7 @@ theme1 <- ggplot2::theme_bw(base_size=baseSize) +
 #   ggplot2::theme(panel.grid.minor.y = element_blank())
 ggplot2::theme(strip.text.x = element_text(angle = 0, size=baseSize-3, color="black"))
 
-## @knitr declare_globals
+
 ## Define color palette and display labels
 x_name_colors <- c("process_a"="#e78ac3",
                    "study_name"="#8da0cb",
@@ -159,5 +159,5 @@ domain_map <- function(ds, labels){
 # a <- domain_map(dsb)
 
 #---- reproduce ---------------------------------------
-rmarkdown::render(input = "./reports/model_space_new/Cog-Domain-Map.Rmd" ,
+rmarkdown::render(input = "./sandbox/model_space_new/Cog-Domain-Map.Rmd" ,
                   output_format="html_document", clean=TRUE)

@@ -10,14 +10,14 @@ output:
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
 ```{r, echo=F, message=F} 
-# cat("Working directory: ", getwd())
+cat("Working directory: ", getwd())
   library(knitr)
   opts_knit$set(root.dir='../../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
 ```{r set_options, echo=F}
-# cat("Working directory: ", getwd())
+cat("Working directory: ", getwd())
 opts_chunk$set(
   results='show', 
   comment = NA, 
@@ -70,6 +70,20 @@ read_chunk("./sandbox/model_space_new/cog_domain_map.R") #This allows knitr to c
 ```
 
 ```{r domain_map, echo=echoChunks, results='show', message=FALSE, warning=FALSE, fig.width=15, fig.height=10, dpi=300}
+
+domain_colors <- c("knowledge"='coral3', # green
+                   "language"="aquamarine3", # blueish-green
+                   "fluency"="cadetblue", # greenish-blue # cyan4 , darkcyan
+                   "memory"="cornflowerblue", # blue
+                   "workmemory"="blueviolet", # reddish-blue
+                   "executive f"="darkmagenta", # purple
+                   "fluid reasoning"="darkred", # blueish-red
+                   "speed"="darkorange2", # organge
+                   "mental status"="azure3", # grey
+                   "perception" = "white"
+
+)
+
 domain_map(ds)
 ```
 
