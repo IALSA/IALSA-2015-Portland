@@ -31,7 +31,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./analysis/model_space/cog_domain_map.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./sandbox/model_space_new/cog_domain_map.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
@@ -43,7 +43,7 @@ read_chunk("./analysis/model_space/cog_domain_map.R") #This allows knitr to call
 ```
 
 <!-- Load any Global functions and variables declared in the R file.  Suppress the output. --> 
-```{r declare_globals, echo=echoChunks, results='show', message=FALSE, , warning=FALSE}
+```{r declare-globals, echo=echoChunks, results='show', message=FALSE, , warning=FALSE}
 ```
 
 <!-- Declare any global functions specific to a Rmd output.  Suppress the output. --> 

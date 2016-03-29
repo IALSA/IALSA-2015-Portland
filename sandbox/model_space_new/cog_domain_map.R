@@ -155,9 +155,9 @@ domain_map <- function(ds, labels){
                  legend.position="left")
   return(g)
 }
-domain_map(ds)
+# domain_map(ds)
 # a <- domain_map(dsb)
 
-# @knitr reproduce ---------------------------------------
-rmarkdown::render(input = "./reports/model_space/Cog-Domain-Map.Rmd" ,
+#---- reproduce ---------------------------------------
+rmarkdown::render(input = "./reports/model_space_new/Cog-Domain-Map.Rmd" ,
                   output_format="html_document", clean=TRUE)
