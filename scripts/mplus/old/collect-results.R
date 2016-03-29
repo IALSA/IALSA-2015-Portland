@@ -134,8 +134,8 @@ collect_study <- function(study, selected_results){
 # collect_study(study="satsa", selected_results)
 
 # combine results files from each study
-# (combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-\\w+\\.csv$", full.names =T) )
-(combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-elsa", full.names =T) )
+(combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-\\w+\\.csv$", full.names =T) )
+# (combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-elsa", full.names =T) )
 dtos <- list()
 for(i in seq_along(combine_studies)){
   dtos[[i]] <- read.csv(combine_studies[i], header=T, stringsAsFactors = F)
