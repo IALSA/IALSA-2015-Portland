@@ -1,4 +1,4 @@
-# knitr::stitch_rmd(script="./sandbox/rename-classify/rename-classify.R", output="./sandbox/rename-classify/rename-classify.md")
+# knitr::stitch_rmd(script="./manipulation/rename-classify.R", output="./manipulation/rename-classify.md")
 #These first few lines run only when the file is run in RStudio, !!NOT when an Rmd/Rnw file calls it!!
 # rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
 
@@ -21,7 +21,7 @@ requireNamespace("testit", quietly=TRUE)
 # path_input  <- "./data/shared/parsed-results.csv"
 path_input <- "./data/shared/parsed-results-raw.csv"
 path_output <- "./data/shared/parsed-results.rds"
-figure_path <- './sandbox/rename-classify/stitched_output/'
+figure_path <- './manipulation/stitched_output/'
 
 
 # ---- load_data ---------------------------------------------------------------
@@ -49,7 +49,7 @@ t <- table(ds$model_type, ds$study_name);t[t==0]<-".";t
 
 # ---- correct_model_type ------------------------------------------------------
 # Read in the conversion table, and drop the `notes` variable.
-ds_model_type_key <- read.csv("./sandbox/rename-classify/model-type-entry-table.csv", stringsAsFactors = F) %>%
+ds_model_type_key <- read.csv("./manipulation/model-type-entry-table.csv", stringsAsFactors = F) %>%
   dplyr::select(-notes)
 # Join the model data frame to the conversion data frame.
 ds <- ds %>%
@@ -71,7 +71,7 @@ t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
 
 # ---- correct_process_a ------------------------------------------------
 # Read in the conversion table, and drop the `notes` variable.
-ds_process_a_key <- read.csv("./sandbox/rename-classify/physical-measure-entry-table.csv", stringsAsFactors = F) %>%
+ds_process_a_key <- read.csv("./manipulation/physical-measure-entry-table.csv", stringsAsFactors = F) %>%
   dplyr::select(-notes)
 
 # Join the model data frame to the conversion data frame.
@@ -107,7 +107,7 @@ knitr::kable(d)
 
 # ---- correct_process_b ------------------------------------------------
 # Read in the conversion table, and drop the `notes` variable.
-ds_process_b_key <- read.csv("./sandbox/rename-classify/cognitive-measure-entry-table.csv", stringsAsFactors = F) %>%
+ds_process_b_key <- read.csv("./manipulation/cognitive-measure-entry-table.csv", stringsAsFactors = F) %>%
   dplyr::select(-notes, -mplus_name, -study_name)
 
 # Join the model data frame to the conversion data frame.

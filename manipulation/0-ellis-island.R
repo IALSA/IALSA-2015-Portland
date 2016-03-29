@@ -4,7 +4,7 @@
 # knitr::stitch_rmd(script="./manipulation/0-ellis-island.R", output="./manipulation/stitched-output/0-ellis-island.md")
 #These first few lines run only when the file is run in RStudio, !!NOT when an Rmd/Rnw file calls it!!
 rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
-cat("\f") # clear console 
+cat("\f") # clear console
 
 # ---- load-sources ------------------------------------------------------------
 # Call `base::source()` on any repo file that defines functions needed below.  Ideally, no real operations are performed.
@@ -83,10 +83,10 @@ collect_result <- function(path){
   mid <- get_id(path)
   msum <- get_msum(path)
   mpar <- get_mpar(path)
-  
+
   result <- data.frame(matrix(NA, ncol = length(selected_results)))
   names(result) <- selected_results
-  
+
   result <- get_results_basic(path, mid, msum, mpar, result)
   result <- get_results_errors(path, mpar, result)
   result <- get_results_random(path, mpar, result)
@@ -111,7 +111,7 @@ model_output_file_path <- list(
 # ---- dto ---------------------------------------------------------
 
 collect_study <- function(study, selected_results){
-  
+
   # create a file to populated, helps organize model output
   results <- data.frame(matrix(NA, ncol = length(selected_results) ))
   names(results) <- selected_results
@@ -123,7 +123,7 @@ collect_study <- function(study, selected_results){
     (collected_names <- names(collected))
     results[i, collected_names] <- collected
   }
-  
+
   write.csv(results,  paste0("./data/shared/parsed-results-pc-",study,".csv"), row.names=F)
   return(results)
 }
@@ -167,7 +167,7 @@ write.csv(results,  paste0("./data/shared/parsed-results-raw.csv"), row.names=F)
 
 source("./sandbox/rename-classify/rename-classify.R")
 source("./sandbox/extend/standardize_ISR.R")
-rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted.Rmd" ,
+rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
                   output_format="html_document", clean=TRUE)
 #
 #
@@ -202,9 +202,9 @@ names(dto)
 dto[["studyName"]]
 # 2nd element - file paths of the data files for each study
 dto[["filePath"]]
-# 3rd element - list objects with 
+# 3rd element - list objects with
 names(dto[["unitData"]])
-dplyr::tbl_df(dto[["unitData"]][["alsa"]]) 
+dplyr::tbl_df(dto[["unitData"]][["alsa"]])
 # 4th element - dataset with augmented names and labels for variables from all involved studies
 dplyr::tbl_df(dto[["metaData"]])
 
