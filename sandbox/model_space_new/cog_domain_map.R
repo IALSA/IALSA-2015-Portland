@@ -119,24 +119,17 @@ domain_colors <- c("knowledge"='coral3', # green
 # head(dsb)
 
 domain_map <- function(ds, labels){
-  # define the data
-
   d <- ds %>%
     dplyr::count_(c("process_b", "cognitive_domain","study_name"))
   d$dummy <- factor("dummy")
   d$cog_meas <- stringr::str_sub(d$process_b,1,3)
-  d$cog_measure_display <-paste0(stringr::str_sub(d$process_b,1,6),
-                                 ", ",d$n)
+  d$cog_measure_display <-paste0(stringr::str_sub(d$process_b,1,6), ", ",d$n)
 
   # d <- d[order(d$cognitive_domain), ]
   dd <- dplyr::select_(d, "process_b", "cognitive_domain") %>%
     group_by_("cognitive_domain") %>%
     dplyr::summarize(count=n())
 
-
-  # d
-  # str(d)
-  #
   g <- ggplot2::ggplot(d, aes_string(x="dummy",
                                      y="process_b",
                                      label="cog_measure_display",
@@ -146,21 +139,20 @@ domain_map <- function(ds, labels){
   g <- g + facet_grid(. ~ study_name )
   # g <- g + coord_flip()
   # g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$process_b)))
-  g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(cog_measures_sorted_domain))
-  # g <- g + scale_fill_discrete(name = "Domains")
-  g <- g + scale_fill_manual(values=domain_colors, name = "Domains")
-  g <- g + labs(title="Studies")
+  g <- g + scale_y_discrete(limits=rev(cog_measures_sorted_domain))
+  g <- g + scale_fill_manual(values=domain_colors)
   g <- g + theme1
-  g <- g + theme(axis.text.y =  element_text(size=baseSize-1),
-                 axis.text.x =  element_blank(),
-                 axis.title.x = element_blank(),
-                 axis.title.y = element_text("Cognitive measure"),
-                 # legend.title = element_blank(),
-                 legend.text =  element_text(),
-                 legend.position="left")
+  g <- g + theme(
+    axis.text.x =  element_blank(),
+    panel.grid.major.x  =  element_blank(),
+    # panel.grid.major.y  =  element_blank(),
+    #axis.text.y =  element_text(size=baseSize-1),
+    legend.position="left"
+  )
+  g <- g +labs(title=NULL, x=NULL, y="Cognitive measures", fill="Domains")
   return(g)
 }
-# domain_map(ds)
+domain_map(ds)
 # a <- domain_map(dsb)
 
 #---- reproduce ---------------------------------------
