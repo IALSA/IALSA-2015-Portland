@@ -15,31 +15,31 @@ library(grid)
 ## if-else conditions for Shiny production
 ## "b" in "dsb" is for BASIC
 
-dsb <- read.csv("./data/shared/results_all.csv")
+dsb <- readRDS("./data-phi-free/derived/results-physical-cognitive.rds")
 
 ds <- dsb[ , c("study_name","model_number", "subgroup", "model_type",
-            "physical_construct", "cognitive_construct",
-            "physical_measure", "cognitive_measure", "converged","mistrust")]
+               # "physical_construct", "cognitive_construct",
+               "process_a", "process_b", "converged","mistrust")]
 
+# ----- tweak_data --------------------------------------------------
 cog_domain_order <- c("knowledge","language","fluency",
-                      "memory","workmemory","executive",
-                      "vsreasoning","speed","mental")
+                      "memory","workmemory","executive f",
+                      "visuospatial","speed","mental status",
+
+                      "perception", "verbal reasoning")
 
 ds$cognitive_construct <- ordered(ds$cognitive_construct, levels=cog_domain_order)
 
-str(ds$cognitive_construct)
+# str(ds$cognitive_construct)
 
-a <- ds %>% dplyr::group_by_("cognitive_construct","cognitive_measure") %>% summarize(count=n())
+a <- ds %>% dplyr::group_by_("cognitive_construct","process_b") %>% summarize(count=n())
 a$cognitive_construct <- ordered(a$cognitive_construct, levels=cog_domain_order)
-cog_measures_sorted_domain <- a$cognitive_measure
+cog_measures_sorted_domain <- a$process_b
 
-# ds[ds$physical_measure=="nophys"] <- NULL
-# ds[ds$cognitive_measure=="nocog"] <- NULL
-#
-
-# ----- tweak_data --------------------------------------------------
+# ds[ds$process_a=="nophys"] <- NULL
+# ds[ds$process_b=="nocog"] <- NULL
 ## trim to make more managable
-# keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","physical_measure","cognitive_measure", "output_file", "converged")
+# keepvar <- c("model_number","study_name","subgroup", "model_type","physical_construct","cognitive_construct","process_a","process_b", "output_file", "converged")
 # ds <- dsb[ , keepvar]
 # dplyr::tbl_df(ds)
 
@@ -62,43 +62,58 @@ ggplot2::theme(strip.text.x = element_text(angle = 0, size=baseSize-3, color="bl
 
 ## @knitr declare_globals
 ## Define color palette and display labels
-x_name_colors <- c("physical_measure"="#e78ac3",
+x_name_colors <- c("process_a"="#e78ac3",
                    "study_name"="#8da0cb",
                    "model_type"="#fc8d62",
                    "subgroup"="#66c2a5")
-x_name_labels <- c("physical_measure"="Physical Measure",
+x_name_labels <- c("process_a"="Physical Measure",
                    "study_name"="Study",
                    "model_type"="Covariates",
                    "subgroup"="Subgroup")
+
+# domain_colors <- c("knowledge"='coral3', # green
+#                    "language"="aquamarine3", # blueish-green
+#                    "fluency"="cadetblue", # greenish-blue # cyan4 , darkcyan
+#                    "memory"="cornflowerblue", # blue
+#                    "workmemory"="blueviolet", # reddish-blue
+#                    "executive"="darkmagenta", # purple
+#                    "vsreasoning"="darkred", # blueish-red
+#                    "speed"="darkorange2", # organge
+#                    "mental"="azure3" # grey
+# )
 
 domain_colors <- c("knowledge"='coral3', # green
                    "language"="aquamarine3", # blueish-green
                    "fluency"="cadetblue", # greenish-blue # cyan4 , darkcyan
                    "memory"="cornflowerblue", # blue
                    "workmemory"="blueviolet", # reddish-blue
-                   "executive"="darkmagenta", # purple
-                   "vsreasoning"="darkred", # blueish-red
+                   "executive f"="darkmagenta", # purple
+                   "fluid reasoning"="darkred", # blueish-red
                    "speed"="darkorange2", # organge
-                   "mental"="azure3" # grey
+                   "mental status"="azure3", # grey
+                   "perception" = "white"
+
 )
+
+
 
 
 # ------ define_graph_functions ----------------------
 
-head(dsb)
+# head(dsb)
 
 domain_map <- function(ds, labels){
   # define the data
 
   d <- ds %>%
-    dplyr::count_(c("cognitive_measure", "cognitive_construct","study_name"))
+    dplyr::count_(c("process_b", "cognitive_construct","study_name"))
   d$dummy <- factor("dummy")
-  d$cog_meas <- stringr::str_sub(d$cognitive_measure,1,3)
-  d$cog_measure_display <-paste0(stringr::str_sub(d$cognitive_measure,1,6),
+  d$cog_meas <- stringr::str_sub(d$process_b,1,3)
+  d$cog_measure_display <-paste0(stringr::str_sub(d$process_b,1,6),
                                  ", ",d$n)
 
   # d <- d[order(d$cognitive_construct), ]
-  dd <- dplyr::select_(d, "cognitive_measure", "cognitive_construct") %>%
+  dd <- dplyr::select_(d, "process_b", "cognitive_construct") %>%
     group_by_("cognitive_construct") %>%
     dplyr::summarize(count=n())
 
@@ -107,17 +122,17 @@ domain_map <- function(ds, labels){
   # str(d)
   #
   g <- ggplot2::ggplot(d, aes_string(x="dummy",
-                                     y="cognitive_measure",
+                                     y="process_b",
                                      label="cog_measure_display",
                                      fill="cognitive_construct"))
   g <- g + geom_tile()
   g <- g + geom_text(size = baseSize-7, hjust=.4)
   g <- g + facet_grid(. ~ study_name )
   # g <- g + coord_flip()
-  # g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$cognitive_measure)))
+  # g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(unique(d$process_b)))
   g <- g + scale_y_discrete(name = "Cognitive measures", limits=rev(cog_measures_sorted_domain))
-  g <- g + scale_fill_discrete(name = "Domains")
-  g <- g + scale_fill_manual(values=domain_colors)
+  # g <- g + scale_fill_discrete(name = "Domains")
+  g <- g + scale_fill_manual(values=domain_colors, name = "Domains")
   g <- g + labs(title="Studies")
   g <- g + theme1
   g <- g + theme(axis.text.y =  element_text(size=baseSize-1),
