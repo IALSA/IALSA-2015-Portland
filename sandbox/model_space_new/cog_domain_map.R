@@ -30,12 +30,11 @@ dsb %>% dplyr::glimpse()
 # ----- tweak_data --------------------------------------------------
 
 ds <- dsb %>%
-  dplyr::rename_("physcial_domain"="phsycial_domain")%>%
   dplyr::select_("study_name","model_number", "subgroup", "model_type",
-                 "physcial_domain", "cognitive_domain",
+                 "process_a_domain", "process_b_domain",
                  "process_a", "process_b","mistrust") %>%
   dplyr::mutate(
-    cognitive_domain = ordered(cognitive_domain, levels=cog_domain_order)
+    cognitive_domain = ordered(process_b_domain, levels=cog_domain_order)
   )
 ds %>% dplyr::glimpse()
 
@@ -156,7 +155,7 @@ domain_map <- function(ds, labels){
                  legend.position="left")
   return(g)
 }
-# domain_map(ds)
+domain_map(ds)
 # a <- domain_map(dsb)
 
 # @knitr reproduce ---------------------------------------
