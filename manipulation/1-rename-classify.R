@@ -83,26 +83,19 @@ t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
 # extract the specific renaming rule
 d_rule <- ds_rules %>%
   dplyr::filter(category == "physical") %>%
-  dplyr::select(entry_raw, entry_new,domain,label_abbr, label_full )
+  dplyr::select(entry_raw, entry_new)
 d_rule
 # join the model data frame to the conversion data frame.
 ds <- ds %>%
   dplyr::left_join(d_rule, by=c("process_a"="entry_raw"))
 # verify
-t <- table(ds$entry_new, ds$study_name);t[t==0]<-".";t
-t <- table(ds$process_a, ds$entry_new);t[t==0]<-".";t # raw rows, new columns
+t <- table(ds$label_row, ds$study_name);t[t==0]<-".";t
 head(ds)
-t <- table(ds[ ,"entry_new"], ds[,"study_name"]);t[t==0]<-".";t
-t <- table(ds[ ,"label_abbr"],  ds[,"study_name"]);t[t==0]<-".";t
-t <- table(ds[ ,"label_full"],  ds[,"study_name"]);t[t==0]<-".";t
-t <- table(ds[ ,"domain"],     ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"entry_new"],  ds[,"study_name"]);t[t==0]<-".";t
 # Remove the old variable, and rename the cleaned/condensed variable.
 ds <- ds %>%
   dplyr::select(-process_a) %>%
-  dplyr::rename_("process_a"="entry_new") %>%
-  dplyr::rename_("process_a_abbr"="label_abbr") %>%
-  dplyr::rename_("process_a_full"="label_full") %>%
-  dplyr::rename_("process_a_domain"="domain")
+  dplyr::rename_("process_a"="entry_new") # name correction
 # verify
 t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
 
@@ -121,56 +114,27 @@ knitr::kable(d)
 # extract the specific renaming rule
 d_rule <- ds_rules %>%
   dplyr::filter(category == "cognitive") %>%
-  dplyr::select(entry_raw, entry_new,domain,label_abbr, label_full )
+  dplyr::select(entry_raw,entry_new,label_cell,label_row, domain )
 d_rule
 # join the model data frame to the conversion data frame.
 ds <- ds %>%
-  dplyr::left_join(d_rule, by=c("process_a"="entry_raw"))
+  dplyr::left_join(d_rule, by=c("process_b"="entry_raw"))
 # verify
 t <- table(ds$entry_new, ds$study_name);t[t==0]<-".";t
-t <- table(ds$process_a, ds$entry_new);t[t==0]<-".";t # raw rows, new columns
 head(ds)
 t <- table(ds[ ,"entry_new"], ds[,"study_name"]);t[t==0]<-".";t
-t <- table(ds[ ,"label_abbr"],  ds[,"study_name"]);t[t==0]<-".";t
-t <- table(ds[ ,"label_full"],  ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"label_cell"],  ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"label_row"],  ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"domain"],     ds[,"study_name"]);t[t==0]<-".";t
-# Remove the old variable, and rename the cleaned/condensed variable.
-ds <- ds %>%
-  dplyr::select(-process_a) %>%
-  dplyr::rename_("process_a"="entry_new") %>%
-  dplyr::rename_("process_a_abbr"="label_abbr") %>%
-  dplyr::rename_("process_a_full"="label_full") %>%
-  dplyr::rename_("process_a_domain"="domain")
-# verify
-t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
-
-
-
-
-
-
-# Read in the conversion table, and drop the `notes` variable.
-ds_process_b_key <- read.csv("./manipulation/cognitive-measure-entry-table.csv", stringsAsFactors = F) %>%
-  dplyr::select(-notes, -mplus_name, -study_name)
-
-# Join the model data frame to the conversion data frame.
-# ds <- ds %>%
-ds <- ds %>%
-  dplyr::left_join(ds_process_b_key, by=c("process_b"="entry"))
-
-t <- table(ds[ ,"cell_label"], ds[,"study_name"]);t[t==0]<-".";t
-t <- table(ds[ ,"row_label"],  ds[,"study_name"]);t[t==0]<-".";t
-t <- table(ds[ ,"domain"],     ds[,"study_name"]);t[t==0]<-".";t
-
-# the table below may be impractical
-t <- table(ds[,"process_b"], ds[,"cell_label"]);t[t==0]<-".";t # raw rows, new columns
-
 # Remove the old variable, and rename the cleaned/condensed variable.
 ds <- ds %>%
   dplyr::select(-process_b) %>%
-  dplyr::rename_("process_b"="cell_label") %>% # cell_label in metadata become the name of process b
-  dplyr::rename_("process_b_pretty"="row_label") %>%
+  dplyr::rename_("process_b"="entry_new") %>% # name correction
+  dplyr::rename_("process_b_cell"="label_cell") %>%
+  dplyr::rename_("process_b_row"="label_row") %>%
   dplyr::rename_("process_b_domain"="domain")
+# verify
+t <- table(ds$process_b_row, ds$study_name); t[t==0]<-"."; t
 
 
 # t <- table(ds$process_b, ds$study_name); t[t==0]<-"."; t
