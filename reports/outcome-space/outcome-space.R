@@ -100,19 +100,42 @@ x_name_labels <- c("process_a"="Physical Measure",
 #                    "mental"="azure3" # grey
 # )
 
-domain_colors_fill <- c(
-  "knowledge"        = 'coral3', # green
-  "language"         = "aquamarine3", # blueish-green
-  "fluency"          = "cadetblue", # greenish-blue # cyan4 , darkcyan
-  "memory"           = "cornflowerblue", # blue
-  "workmemory"       = "blueviolet", # reddish-blue
-  "executive f"      = "darkmagenta", # purple
-  "fluid reasoning"  = "darkred", # blueish-red
-  "speed"            = "darkorange2", # organge
-  "mental status"    = "azure3", # grey
-  "perception"       = "pink"
-)
+# domain_colors_fill <- c(
+#   "knowledge"        = 'coral3', # green
+#   "language"         = "aquamarine3", # blueish-green
+#   "fluency"          = "cadetblue", # greenish-blue # cyan4 , darkcyan
+#   "memory"           = "cornflowerblue", # blue
+#   "workmemory"       = "blueviolet", # reddish-blue
+#   "executive f"      = "darkmagenta", # purple
+#   "fluid reasoning"  = "darkred", # blueish-red
+#   "speed"            = "darkorange2", # organge
+#   "mental status"    = "azure3", # grey
+#   "perception"       = "pink"
+# )
 
+# domain_colors_fill <- c(
+#   "knowledge"        = '#a6cee3',
+#   "language"         = "#1f78b4",
+#   "fluency"          = "#b2df8a",
+#   "memory"           = "#33a02c",
+#   "workmemory"       = "#fb9a99",
+#   "executive f"      = "#e31a1c",
+#   "fluid reasoning"  = "#fdbf6f",
+#   "speed"            = "#ff7f00",
+#   "mental status"    = "#cab2d6",
+#   "perception"       = "#6a3d9a")
+
+domain_colors_fill <- c(
+  "knowledge"        = '#8dd3c7',
+  "language"         = "#ffffb3",
+  "fluency"          = "#bebada",
+  "memory"           = "#fb8072",
+  "workmemory"       = "#80b1d3",
+  "executive f"      = "#fdb462",
+  "fluid reasoning"  = "#b3de69",
+  "speed"            = "#fccde5",
+  "mental status"    = "#d9d9d9",
+  "perception"       = "#bc80bd")
 
 # sqrt(red*red*.241 + green*green*.691 + blue*blue*.068)
 #http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
