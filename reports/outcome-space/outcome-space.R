@@ -16,10 +16,18 @@ library(grid)
 #                       "speed","mental status",
 #                       "perception", "verbal reasoning")
 
-cog_domain_order <- c("memory","workmemory","fluency",
-                      "knowledge","language","perception",
-                      "mental status", "fluid reasoning",
-                      "speed", "executive f")
+cog_domain_order <- c(
+                      "knowledge",
+                      "language",
+                      "fluency",
+                      "memory",
+                      "workmemory",
+                      "executive f",
+                      "fluid reasoning",
+                      "speed",
+                      "mental status",
+                       "perception"
+                       )
 
 # ----- load_data --------------------------------------------------
 ## if-else conditions for Shiny production
@@ -36,8 +44,7 @@ dsb %>% dplyr::glimpse()
 
 ds <- dsb %>%
   dplyr::select_("study_name","model_number", "subgroup", "model_type",
-                 "process_a_domain", "process_b_domain",
-                 "process_a", "process_b","mistrust") %>%
+                 "process_a", "process_b", "process_b_cell", "process_b_row", "process_b_domain") %>%
   dplyr::mutate(
     cognitive_domain = ordered(process_b_domain, levels=cog_domain_order)
   )
@@ -45,12 +52,7 @@ ds %>% dplyr::glimpse()
 
 # str(ds$cognitive_domain)
 
-a <- ds %>%
-  dplyr::group_by_("cognitive_domain","process_b") %>%
-  dplyr::summarize(count=n()) %>%
-  dplyr::ungroup()
 
-cog_measures_sorted_domain <- a$process_b
 
 # ds[ds$process_a=="nophys"] <- NULL
 # ds[ds$process_b=="nocog"] <- NULL
@@ -108,7 +110,7 @@ domain_colors_fill <- c(
   "fluid reasoning"  = "darkred", # blueish-red
   "speed"            = "darkorange2", # organge
   "mental status"    = "azure3", # grey
-  "perception"       = "white"
+  "perception"       = "pink"
 )
 
 
@@ -127,21 +129,35 @@ names(domain_colors_text) <- names(domain_colors_fill)
 # ------ define_graph_functions ----------------------
 
 
-domain_map <- function(ds, labels){
-  d <- ds %>%
-    dplyr::count_(c("process_b", "cognitive_domain","study_name"))
-  d$dummy <- factor("dummy")
-  d$cog_meas <- stringr::str_sub(d$process_b,1,3)
-  d$cog_measure_display <-paste0(stringr::str_sub(d$process_b,1,6), ", ",d$n)
-
-  # d <- d[order(d$cognitive_domain), ]
-  dd <- dplyr::select_(d, "process_b", "cognitive_domain") %>%
-    group_by_("cognitive_domain") %>%
+domain_map <- function(ds){
+  a <- ds %>%
+    dplyr::group_by_("cognitive_domain","process_b_row") %>%
     dplyr::summarize(count=n()) %>%
     dplyr::ungroup()
 
+  cog_measures_sorted_domain <- a$process_b_row
+  cog_measures_sorted_domain <- cog_measures_sorted_domain[!is.na(cog_measures_sorted_domain)]
+
+  d <- ds %>%
+    # dplyr::count_(c("process_b", "cognitive_domain","study_name"))
+  dplyr::count_(c("process_b_cell","process_b_row", "cognitive_domain","study_name"))
+  # dplyr::count_(c("process_b_row", "cognitive_domain","study_name"))
+    # dplyr::count_(c("process_b_cell", "cognitive_domain","study_name"))
+
+  d$dummy <- factor("dummy")
+  # d$cog_measure_display <-paste0(stringr::str_sub(d$process_b,1,6), ", ",d$n)
+  # d$cog_measure_display <-paste0(stringr::str_sub(d$process_b_row,1,6), ", ",d$n)
+  d$cog_measure_display <-paste0(d$process_b_cell,", ",d$n)
+  # d$cog_measure_display <-d$process_b_cell
+
+  # d <- d[order(d$cognitive_domain), ]
+  # dd <- dplyr::select_(d, "process_b_cell","process_b_row", "cognitive_domain") %>%
+  #   group_by_("cognitive_domain") %>%
+  #   dplyr::summarize(count=n()) %>%
+  #   dplyr::ungroup()
+
   g <- ggplot2::ggplot(d, aes_string(x="dummy",
-                                     y="process_b",
+                                     y="process_b_row",
                                      label="cog_measure_display",
                                      fill="cognitive_domain",
                           color="cognitive_domain"))
@@ -164,9 +180,9 @@ domain_map <- function(ds, labels){
   g <- g + labs(title=NULL, x=NULL, y="Cognitive measures", fill="Domains")
   return(g)
 }
-domain_map(ds)
+# domain_map(ds)
 # a <- domain_map(dsb)
 
 #---- reproduce ---------------------------------------
-# rmarkdown::render(input = "./sandbox/model_space_new/Cog-Domain-Map.Rmd" ,
-#                   output_format="html_document", clean=TRUE)
+rmarkdown::render(input = "./reports/outcome-space/outcome-space.Rmd" ,
+                  output_format="html_document", clean=TRUE)

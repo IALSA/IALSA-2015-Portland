@@ -30,9 +30,9 @@ ds0 <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
 
 # ---- tweak_data --------------------------------------------------------------
 colnames(ds0)
-ds <- ds0 %>% dplyr::arrange_("model_type", "process_a") %>%
-  dplyr::select_("study_name", "model_number","subgroup","model_type","process_a", "process_b")
-
+# ds <- ds0 %>% dplyr::arrange_("model_type", "process_a") %>%
+  # dplyr::select_("study_name", "model_number","subgroup","model_type","process_a", "process_b")
+ds <- ds0
 
 # ----- load-rename-classify-mapping -------------------------------------
 ds_rules <- read.csv("./manipulation/rename-classify-rules.csv", stringsAsFactors = F) %>%

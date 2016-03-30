@@ -24,14 +24,14 @@ opts_chunk$set(
   tidy = FALSE,
   fig.width = 6.5, 
   fig.height = 4, 
-  fig.path = 'cog_domain_map/'
+  fig.path = 'figures_rmd/'
 )
 # dpi = 400,
 # out.width = "650px", #This affects only the markdown, not the underlying png file.  The height will be scaled appropriately.
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./sandbox/model_space_new/cog_domain_map.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./reports/outcome-space/outcome-space.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
