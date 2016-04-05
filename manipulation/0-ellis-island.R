@@ -18,6 +18,11 @@ library(magrittr) #Pipes
 library(MplusAutomation)
 library(IalsaSynthesis)
 
+# ---- declare-globals ---------------------------------------------------
+pathDir <- getwd() # establish home directory
+pathStudies <- file.path(pathDir,"studies")
+list.files(pathStudies) # inspect participating studies
+
 # Verify these packages are available on the machine, but their functions need to be qualified: http://r-pkgs.had.co.nz/namespace.html#search-path
 requireNamespace("ggplot2")
 requireNamespace("tidyr")
@@ -74,7 +79,7 @@ list_pp <-  list("eas" = eas,
 
 # ---- dto ---------------------------------------------------------
 # studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
-path_model_output <- list_pc[["eas"]][12]
+# path_model_output <- list_pc[["eas"]][12]
 
 # (path=path_model_output)
 # ---- dto ---------------------------------------------------------
@@ -98,7 +103,7 @@ collect_result <- function(path){
 # result %>% dplyr::glimpse()
 # consider making the following big rectangular object in long format: study_name, file_path
 model_output_file_path <- list(
-  "eas" = list_pc[["eas"]][1:10],
+  "eas"   = list_pc[["eas"]],
   "elsa"  = list_pc[["elsa"]], #[1:2],
   "hrs"   = list_pc[["hrs"]], #[1:2],
   "ilse"  = list_pc[["ilse"]],#[1:2],
