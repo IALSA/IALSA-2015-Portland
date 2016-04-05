@@ -167,15 +167,7 @@ write.csv(results,  paste0("./data/shared/parsed-results-raw.csv"), row.names=F)
 #
 
 
-# rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
-#                   output_format="html_document", clean=TRUE)
 
-source("./sandbox/rename-classify/rename-classify.R")
-source("./sandbox/extend/standardize_ISR.R")
-rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
-                  output_format="html_document", clean=TRUE)
-#
-#
 
 # results %>% dplyr::glimpse()
 # results %>% mutate(count=n())

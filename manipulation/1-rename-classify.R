@@ -89,7 +89,7 @@ d_rule
 ds <- ds %>%
   dplyr::left_join(d_rule, by=c("process_a"="entry_raw"))
 # verify
-t <- table(ds$label_row, ds$study_name);t[t==0]<-".";t
+t <- table(ds$entry_new, ds$study_name);t[t==0]<-".";t
 head(ds)
 t <- table(ds[ ,"entry_new"],  ds[,"study_name"]);t[t==0]<-".";t
 # Remove the old variable, and rename the cleaned/condensed variable.
