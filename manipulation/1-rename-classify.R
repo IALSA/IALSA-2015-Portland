@@ -136,7 +136,6 @@ ds <- ds %>%
 # verify
 t <- table(ds$process_b_row, ds$study_name); t[t==0]<-"."; t
 
-
 # t <- table(ds$process_b, ds$study_name); t[t==0]<-"."; t
 
 # d <- ds %>% dplyr::filter(is.na(process_b)) # remove unidentified measures

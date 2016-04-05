@@ -16,18 +16,56 @@ library(grid)
 #                       "speed","mental status",
 #                       "perception", "verbal reasoning")
 
+# original
+# cog_domain_order <- c(
+#                       "knowledge",
+#                       "language",
+#                       "fluency",
+#                       "memory",
+#                       "workmemory",
+#                       "executive f",
+#                       "fluid reasoning",
+#                       "speed",
+#                       "mental status",
+#                        "perception"
+#                        )
+
+# version A
+# cog_domain_order <- c(
+#   "fluency",
+#   "speed",
+#   "fluid reasoning",
+#
+#   "working memory",
+#   "short-term memory",
+#   "episodic memory",
+#   "semantic memory",
+#   "language",
+#
+#   "mental status",
+#   "executive f()",
+#   "perception"
+# )
+
 cog_domain_order <- c(
-                      "knowledge",
-                      "language",
-                      "fluency",
-                      "memory",
-                      "workmemory",
-                      "executive f",
-                      "fluid reasoning",
-                      "speed",
-                      "mental status",
-                       "perception"
-                       )
+  "perception",
+  "language",
+  "executive f()",
+  "mental status",
+
+
+  "fluid reasoning",
+  "speed",
+  "fluency",
+
+  "working memory",
+  "short-term memory",
+  "episodic memory",
+  "semantic memory"
+
+
+)
+
 
 # ----- load_data --------------------------------------------------
 ## if-else conditions for Shiny production
@@ -49,7 +87,7 @@ ds <- dsb %>%
     cognitive_domain = ordered(process_b_domain, levels=cog_domain_order)
   )
 ds %>% dplyr::glimpse()
-
+ds %>% dplyr::group_by(process_b_domain) %>% dplyr::summarize(n=n())
 # str(ds$cognitive_domain)
 
 
@@ -125,17 +163,68 @@ x_name_labels <- c("process_a"="Physical Measure",
 #   "mental status"    = "#cab2d6",
 #   "perception"       = "#6a3d9a")
 
+# domain_colors_fill <- c(
+#   "knowledge"        = '#8dd3c7',
+#   "language"         = "#ffffb3",
+#   "fluency"          = "#bebada",
+#   "memory"           = "#fb8072",
+#   "workmemory"       = "#80b1d3",
+#   "executive f"      = "#fdb462",
+#   "fluid reasoning"  = "#b3de69",
+#   "speed"            = "#fccde5",
+#   "mental status"    = "#d9d9d9",
+#   "perception"       = "#bc80bd")
+
+
+# domain_colors_fill <- c(
+# "speed" = "#ca0020", # dark red
+# "fluid reasoning"= "#e66101", # dark brown
+# "fluency"= "#fdb863", # light brown
+# "language"= "#f4a582", # light red
+#
+# "working memory"= "#92c5de", # light blue
+# "short-term memory"= "#b2abd2", # light violet
+# "episodic memory"= "#0571b0", # dark blue
+# "semantic memory"= "#5e3c99", # dart violet
+#
+# "mental status"= "#a6611a", # nazi brown
+# "executive f()"= "#018571", # aqua blue
+# "perception"= "#1a9641" # green
+# )
+
+# domain_colors_fill <- c(
+#   "speed" = "#ca0020", # dark red
+#   "fluid reasoning"= "#e66101", # dark brown
+#   "fluency"= "#fdb863", # light brown
+#   "language"= "#f4a582", # light red
+#
+  # "working memory"= "#92c5de", # light blue
+  # "short-term memory"= "#b2abd2", # light violet
+  # "episodic memory"= "#0571b0", # dark blue
+  # "semantic memory"= "#5e3c99", # dart violet
+#
+#   "mental status"= "#a6611a", # nazi brown
+#   "executive f()"= "#018571", # aqua blue
+#   "perception"= "#1a9641" # green
+# )
+
+
 domain_colors_fill <- c(
-  "knowledge"        = '#8dd3c7',
-  "language"         = "#ffffb3",
-  "fluency"          = "#bebada",
-  "memory"           = "#fb8072",
-  "workmemory"       = "#80b1d3",
-  "executive f"      = "#fdb462",
-  "fluid reasoning"  = "#b3de69",
-  "speed"            = "#fccde5",
-  "mental status"    = "#d9d9d9",
-  "perception"       = "#bc80bd")
+  "perception" = "#c7e9c0", # light green
+  "language" = "#8c6bb1", # mystic purple
+  "executive f()" = "#4d9221", # olive
+  "mental status"= "#525252", # grey
+
+  "fluid reasoning" = "#f4a582", # light red,
+  "speed" = "#e66101", # dark brown
+  "fluency" = "#fdb863", # light brown
+
+  "working memory"= "#92c5de", # light blue
+  "short-term memory"= "#b2abd2", # light violet
+  "episodic memory"= "#0571b0", # dark blue
+  "semantic memory"= "#5e3c99" # dart violet
+)
+
 
 # sqrt(red*red*.241 + green*green*.691 + blue*blue*.068)
 #http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
