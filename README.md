@@ -13,19 +13,11 @@ IALSA-2015-Portland workshop performs a **coordinated analysis with replication 
 * [`cognitive-cognitive`](/projects/cognitive-cognitive) - Associations among rates of change in measures of **cognitive** function.   
 
 
-The following fou4 graphs cross-tab the **counts** of submitted models with *Cognitive Measures*:   
+The following information display shows the available  statistical models in the collective, grouping them by cognitive domains (color), items tapping those domains (row labels), and specific tests (cell labels) and indicating the total number of models using this item (number after cell label). 
 
- [![model space 5D](./reports/model_space/figure_modelSpace5D/dashboard_tile_graph-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_space/Model-Space-5D.md)  
-The numbers in the cells count models of that specification. Each color adds up to 100%. "univar" indicates univariate growth models fitting either cognitive or physical process. Submitted models vary in respect to their:  
- - ```study_name``` - (*e.g.* eas, satsa)  in which it was estimated  
- - ```model_number```: (u0, u1, u2, b0, b1, b2) alphanumeric of model form (u,b) and shape (int0rcept, s1ope, qua2radic )   
- - ```subgroup```: (female, male) subsets on which models are estimated    
- - ```model_type```: (0, a, ae, aeh, aehplus, full), a.k.a. *CovSet*, *Predictor Set* 
- - ```physical_measure``` - (*e.g.*  grip, gait, fev)    
- - ```cognitive_measure``` - (*e.g.*  block, digits, animals)   
+ [![outcome space](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/outcome-space/figures_rmd/domain_map-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/outcome-space/outcome-space.md)  
 
- 
-Any model counted in the above graph can be specified with a form nested within the general **specification**:  
+Any model in the collective can be specified by a form nested within the general **specification**:  
 [![general_model_specification](./libs/images/general_model_specification.png)](./reports/model_specification/README.md)  
 </br>
 The **covariance structure** will be given as
