@@ -2,7 +2,7 @@
 ############## Developing the tile graph #######################
 
 # ---- load_sources -----------------------------------------------
-
+# source("./manipulation/1-rename-classify.R")
 
 # ---- load_packages -----------------------------------------------
 library(shiny)
@@ -47,23 +47,55 @@ library(grid)
 #   "perception"
 # )
 
+# cog_domain_order <- c(
+#   "perception",
+#   "language",
+#   "executive f()",
+#   "mental status",
+#
+#
+#   "fluid reasoning",
+#   "speed",
+#   "fluency",
+#
+#   "working memory",
+#   "short-term memory",
+#   "episodic memory",
+#   "semantic memory"
+# )
+
+# cog_domain_order <- c(
+#   "verbal comprehension",
+#   "executive function",
+#   "mental status",
+#
+#   "fluid reasoning",
+#   "perceptual speed",
+#   "perceptual orientation",
+#   "fluency",
+#
+#   "working memory",
+#   "short-term memory",
+#   "episodic memory",
+#   "semantic memory"
+# )
+
 cog_domain_order <- c(
-  "perception",
-  "language",
-  "executive f()",
-  "mental status",
+  "visual discrimination",
 
-
-  "fluid reasoning",
-  "speed",
+  "perceptual speed",
   "fluency",
+  "attention",
+  "fluid reasoning",
+
+  "mental status",
 
   "working memory",
   "short-term memory",
+  "semantic memory",
   "episodic memory",
-  "semantic memory"
 
-
+  "verbal comprehension"
 )
 
 
@@ -87,7 +119,8 @@ ds <- dsb %>%
     cognitive_domain = ordered(process_b_domain, levels=cog_domain_order)
   )
 ds %>% dplyr::glimpse()
-ds %>% dplyr::group_by(process_b_domain) %>% dplyr::summarize(n=n())
+ds %>% dplyr::group_by(cognitive_domain) %>% dplyr::summarize(n=n())
+# ds %>% dplyr::group_by(process_b_domain) %>% dplyr::summarize(n=n())
 # str(ds$cognitive_domain)
 
 
@@ -209,23 +242,55 @@ x_name_labels <- c("process_a"="Physical Measure",
 # )
 
 
+# domain_colors_fill <- c(
+#   "perception" = "#c7e9c0", # light green
+#   "language" = "#8c6bb1", # mystic purple
+#   "executive f()" = "#4d9221", # olive
+#   "mental status"= "#525252", # grey
+#
+#   "fluid reasoning" = "#f4a582", # light red,
+#   "speed" = "#e66101", # dark brown
+#   "fluency" = "#fdb863", # light brown
+#
+#   "working memory"= "#92c5de", # light blue
+#   "short-term memory"= "#b2abd2", # light violet
+#   "episodic memory"= "#0571b0", # dark blue
+#   "semantic memory"= "#5e3c99" # dart violet
+# )
+
+# domain_colors_fill <- c(
+#   "executive function" = "#4d9221", # olive
+#   "mental status"= "#525252", # grey
+#
+#   "fluid reasoning" = "#f4a582", # light red,
+#   "perceptual speed" = "#e66101", # dark brown
+#   "perceptual orientation" = "#ca0020", # dark red
+#   "fluency" = "#fdb863", # light brown
+#
+#   "working memory"= "#b2abd2", # light violet
+#   "short-term memory"= "#92c5de", # light blue
+#   "semantic memory"= "#5e3c99", # dart violet
+#   "episodic memory"= "#0571b0", # dark blue
+#   "verbal comprehension" = "#8c6bb1"  # mystic purple
+# )
+
 domain_colors_fill <- c(
-  "perception" = "#c7e9c0", # light green
-  "language" = "#8c6bb1", # mystic purple
-  "executive f()" = "#4d9221", # olive
+
+  "verbal comprehension" =  "#b2abd2", # light violet
+  "attention" = "#ca0020", # dark red
   "mental status"= "#525252", # grey
 
   "fluid reasoning" = "#f4a582", # light red,
-  "speed" = "#e66101", # dark brown
+  "visual discrimination" = "#4d9221", # olive
+  "perceptual speed" = "#e66101", # dark brown
   "fluency" = "#fdb863", # light brown
 
-  "working memory"= "#92c5de", # light blue
-  "short-term memory"= "#b2abd2", # light violet
-  "episodic memory"= "#0571b0", # dark blue
-  "semantic memory"= "#5e3c99" # dart violet
+  "working memory"= "#8c6bb1",  # mystic purple
+  "short-term memory"= "#92c5de", # light blue
+  "semantic memory"= "#5e3c99", # dart violet
+  "episodic memory"= "#0571b0" # dark blue
+
 )
-
-
 # sqrt(red*red*.241 + green*green*.691 + blue*blue*.068)
 #http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
 domain_colors_text <- as.data.frame(t(col2rgb(domain_colors_fill))) %>%
@@ -293,8 +358,14 @@ domain_map <- function(ds){
   return(g)
 }
 # domain_map(ds)
-# a <- domain_map(dsb)
+# a <- domain_map(ds)
+
+# ----- outcome-space-map ------------------------
+domain_map(ds)
 
 #---- reproduce ---------------------------------------
-rmarkdown::render(input = "./reports/outcome-space/outcome-space.Rmd" ,
-                  output_format="html_document", clean=TRUE)
+rmarkdown::render(
+  input = "./reports/outcome-space/outcome-space.Rmd" ,
+  output_format="html_document",
+  clean=TRUE
+)

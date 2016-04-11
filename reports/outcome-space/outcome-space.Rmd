@@ -69,22 +69,22 @@ read_chunk("./reports/outcome-space/outcome-space.R") #This allows knitr to call
 ```{r define_graph_functions, echo=echoChunks, results='hide', message=FALSE, }
 ```
 
-```{r domain_map, echo=echoChunks, results='show', message=FALSE, warning=FALSE, fig.width=15, fig.height=10, dpi=300}
+```{r outcome-space-map, echo=echoChunks, results='show', message=FALSE, warning=FALSE, fig.width=15, fig.height=10, dpi=300}
+# 
+# domain_colors <- c("knowledge"='coral3', # green
+#                    "language"="aquamarine3", # blueish-green
+#                    "fluency"="cadetblue", # greenish-blue # cyan4 , darkcyan
+#                    "memory"="cornflowerblue", # blue
+#                    "workmemory"="blueviolet", # reddish-blue
+#                    "executive f"="darkmagenta", # purple
+#                    "fluid reasoning"="darkred", # blueish-red
+#                    "speed"="darkorange2", # organge
+#                    "mental status"="azure3", # grey
+#                    "perception" = "white"
+# 
+# )
 
-domain_colors <- c("knowledge"='coral3', # green
-                   "language"="aquamarine3", # blueish-green
-                   "fluency"="cadetblue", # greenish-blue # cyan4 , darkcyan
-                   "memory"="cornflowerblue", # blue
-                   "workmemory"="blueviolet", # reddish-blue
-                   "executive f"="darkmagenta", # purple
-                   "fluid reasoning"="darkred", # blueish-red
-                   "speed"="darkorange2", # organge
-                   "mental status"="azure3", # grey
-                   "perception" = "white"
-
-)
-
-domain_map(ds)
+# domain_map(ds)
 ```
 
 The domain map above is the actual data provided by the model in the Portland modeling collective right now. The colors  represent various cognitive domains, as identified by the participants in the model names. The colors categorical.
