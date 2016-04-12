@@ -90,6 +90,7 @@ cog_domain_order <- c(
 
   "mental status",
 
+  "executive function",
   "working memory",
   "short-term memory",
   "semantic memory",
@@ -276,19 +277,24 @@ x_name_labels <- c("process_a"="Physical Measure",
 
 domain_colors_fill <- c(
 
-  "verbal comprehension" =  "#b2abd2", # light violet
+  "visual discrimination" = "#4d9221", # olive
+  "perceptual speed" = "#e66101", # dark brown
+  "fluency" = "#fdb863", # light brown
   "attention" = "#ca0020", # dark red
   "mental status"= "#525252", # grey
 
   "fluid reasoning" = "#f4a582", # light red,
-  "visual discrimination" = "#4d9221", # olive
-  "perceptual speed" = "#e66101", # dark brown
-  "fluency" = "#fdb863", # light brown
+
+
+  "mental status"= "#525252", # grey
+  "executive function" = "#018571", # aqua green
 
   "working memory"= "#8c6bb1",  # mystic purple
   "short-term memory"= "#92c5de", # light blue
   "semantic memory"= "#5e3c99", # dart violet
-  "episodic memory"= "#0571b0" # dark blue
+  "episodic memory"= "#0571b0", # dark blue
+  "verbal comprehension" =  "#b2abd2" # light violet
+
 
 )
 # sqrt(red*red*.241 + green*green*.691 + blue*blue*.068)

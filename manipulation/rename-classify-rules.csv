@@ -46,7 +46,7 @@ cognitive,workmemory,working memory,dsb,digit_b,digit span backward,digit_b,alte
 cognitive,workmemory,working memory,digitbackward,digit_b,digit span backward,digit_b,misselled digitsback,FALSE,,,
 cognitive,workmemory,working memory,digitorder,digit_o,digit ordering,digit_o,literal,FALSE,,,
 cognitive,workmemory,working memory,digitordering,digit_o,digit ordering,digit_o,alternative to digitorder,FALSE,,,
-cognitive,executive f,working memory,trailsb,trailsb,switching,trailsb,literal,FALSE,,,
+cognitive,executive f,executive function,trailsb,trailsb,switching,trailsb,literal,FALSE,,,
 cognitive,fluid reasoning,fluid reasoning,block,block,block design,block,literal,FALSE,,,
 cognitive,fluid reasoning,fluid reasoning,blockdesign,block,block design,block,alternative to block,FALSE,,,
 cognitive,fluid reasoning,fluid reasoning,waisblockdesign,block,block design,block,alternative to block,FALSE,,,
