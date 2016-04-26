@@ -15,7 +15,7 @@ IALSA-2015-Portland workshop performs a **coordinated analysis with replication 
 
 The following information display shows the available  statistical models in the collective, grouping them by cognitive domains (color), items tapping those domains (row labels), and specific tests (cell labels) and indicating the total number of models using this item (number after cell label). 
 
- [![outcome space](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/outcome-space/figures_rmd/domain_map-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/outcome-space/outcome-space.md)  
+ [![outcome space](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/outcome-space/figures_rmd/outcome-space-map-1.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/outcome-space/outcome-space.md)  
 
 Any model in the collective can be specified by a form nested within the general **specification**:  
 [![general_model_specification](./libs/images/general_model_specification.png)](./reports/model_specification/README.md)  
