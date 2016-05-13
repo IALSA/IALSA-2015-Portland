@@ -1,1 +1,1 @@
-### Documenting dynamic reports of the project
+the folder `./reports` contains stable reproducible displays of information in form of dynamic reports. 

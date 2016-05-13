@@ -9,19 +9,19 @@ library(grid)
 library(rpivotTable)
 # library(lattice)
 
-if(basename(getwd())=="dashboard"){
-  ds2 <- readRDS('../../data/shared/ds2.rds')
+if(basename(getwd())=="shiny-dashboard"){
+  ds2 <- readRDS('../../data/shared/parsed-results.rds')
   # source("../../shiny/bivariate_ISR/scripts/ISR_data_functions.R")
   # source("../../shiny/bivariate_ISR/scripts/ISR_graph_functions.R"
 } else {
-  ds2 <- readRDS('./data/shared/ds2.rds')
+  ds2 <- readRDS('./data/shared/parsed-results.rds')
   # source("./shiny/bivariate_ISR/scripts/ISR_data_functions.R")
   # source("./shiny/bivariate_ISR/scripts/ISR_graph_functions.R")
 }
 
 ############ PREP ############
 ## trim to make more managable
-
+names(ds2)
 keepvar <- c("study_name","model_number", "subgroup", "model_type",
   "physical_construct","physical_measure", "cognitive_construct","cognitive_measure",
   "converged", "output_file",
