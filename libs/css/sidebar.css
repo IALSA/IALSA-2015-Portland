@@ -9,8 +9,8 @@
 }
 
 
-body, td {
-   font-family: "Arial" , "sans-serif";
+body {
+   font-family: "Helvetica" , "sans-serif";
    background-color: white;
    font-size: 14px;
       max-width: 1200px;
@@ -19,4 +19,12 @@ body, td {
       line-height: 20px;
 }
 
-
+td {
+   font-family: "Courier New" , "monospace";
+   background-color: white;
+   font-size: 14px;
+      max-width: 1200px;
+      margin: auto;
+      margin-left:200px;
+      line-height: 20px;
+}
