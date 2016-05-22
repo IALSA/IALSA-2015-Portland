@@ -96,16 +96,45 @@ ds_find_duplicates <- ds_long %>%
 # testit::assert("No meaningful duplicate rows should exist.", nrow(ds_find_duplicates)==0L)
 rm(ds_find_duplicates)
 
+
+pattern_est <- c(
+  "a_00"  = "%0.1f",
+  "a_10"  = "%0.2f",
+  "b_00"  = "%0.1f",
+  "b_10"  = "%0.2f"
+)
+pattern_se <- c(
+  "a_00"  = "%0.1f",
+  "a_10"  = "%0.2f",
+  "b_00"  = "%0.2f",
+  "b_10"  = "%0.2f"
+)
+pattern_dense <- c(
+  "a_00"  = "%5s(%4s),$p$=%s",
+  "a_10"  = "%6s(%9s),$p$=%s",
+  "b_00"  = "%6s(%5s),$p$=%s",
+  "b_10"  = "%6s(%5s),$p$=%s"
+)
+# pattern_dense[[ds_spread_1$stem[1]]]
+
 # spread-to-stem ----
 ds_spread_1 <- ds_no_duplicates %>%
   dplyr::select(-gamma) %>%
   tidyr::spread(stat, value) %>%
   dplyr::mutate(
+    est_pretty     = sprintf(pattern_est[stem], est),
+    se_pretty     = sprintf(pattern_se[stem], se),
     pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
     pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Remove leading zero from p-value.
-    dense         = sprintf("%+0.3f(%0.3f),$p$=%s", est, se, pval_pretty) #Force est & se to have three decimals (eg, .1 turns into .100).
+    # pval_pretty   = ifelse(pval<.01, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Remove leading zero from p-value.
+    pattern       = pattern_dense[stem],
+    # pattern       = pattern_dense[["a_00"]],
+    dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty) #Force est & se to have three decimals (eg, .1 turns into .100).
+    # dense         = sprintf(pattern[[stem]], est, se, pval_pretty) #Force est & se to have three decimals (eg, .1 turns into .100).
   ) %>%
-  dplyr::select(-est, -se, -wald, -pval, -pval_pretty)
+  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern)
+
+# ds_spread_1
 
 # widen ----
 ds <- ds_spread_1 %>%
@@ -115,7 +144,9 @@ ds <- ds_spread_1 %>%
   tidyr::spread(stem, dense) %>%
   dplyr::arrange(study_name, process_a, process_b, subgroup, model_type)
 
-# ds$a_gamma_00
+# head(ds$a_gamma_00, 200)
+# head(as.data.frame(ds), 35)
+
 
 
 # ---- prettify ----------------------------------------------------------------
@@ -164,7 +195,7 @@ for( study in unique(ds$study_name) ) {
   ds_static_pretty %>%
     dplyr::filter(study_name==study) %>%
     dplyr::select(-study_name) %>%
-    knitr::kable(format="html") %>%
+    knitr::kable(format="html", align = "r") %>%
     print()
 
 }
