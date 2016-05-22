@@ -105,15 +105,15 @@ pattern_est <- c(
 )
 pattern_se <- c(
   "a_00"  = "%0.1f",
-  "a_10"  = "%0.2f",
-  "b_00"  = "%0.2f",
-  "b_10"  = "%0.2f"
+  "a_10"  = "%0.1f",
+  "b_00"  = "%0.1f",
+  "b_10"  = "%0.1f"
 )
 pattern_dense <- c(
-  "a_00"  = "%5s(%4s),$p$=%s",
-  "a_10"  = "%6s(%9s),$p$=%s",
-  "b_00"  = "%6s(%5s),$p$=%s",
-  "b_10"  = "%6s(%5s),$p$=%s"
+  "a_00"  = "%5s(%4s),%3s",
+  "a_10"  = "%6s(%4s),%3s",
+  "b_00"  = "%6s(%4s),%3s",
+  "b_10"  = "%6s(%4s),%3s"
 )
 # pattern_dense[[ds_spread_1$stem[1]]]
 
@@ -125,8 +125,9 @@ ds_spread_1 <- ds_no_duplicates %>%
     est_pretty     = sprintf(pattern_est[stem], est),
     se_pretty     = sprintf(pattern_se[stem], se),
     pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
-    pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Remove leading zero from p-value.
-    # pval_pretty   = ifelse(pval<.01, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Remove leading zero from p-value.
+    pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
+    pval_pretty   = sprintf("$p$=%s", pval_pretty),
+    pval_pretty   = ifelse(pval_pretty=="$p$=.00", "$p$<.01", pval_pretty),       #Cap p-value at .01
     pattern       = pattern_dense[stem],
     # pattern       = pattern_dense[["a_00"]],
     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty) #Force est & se to have three decimals (eg, .1 turns into .100).
@@ -134,7 +135,7 @@ ds_spread_1 <- ds_no_duplicates %>%
   ) %>%
   dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern)
 
-# ds_spread_1
+# ds_spread_1$dense
 
 # widen ----
 ds <- ds_spread_1 %>%
