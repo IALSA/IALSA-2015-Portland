@@ -116,7 +116,8 @@ ds <- ds_spread_1 %>%
 
 
 # ---- prettify ----------------------------------------------------------------
-ds_dynamic_pretty <- ds
+ds_dynamic_pretty <- ds %>%
+  dplyr::arrange(study_name, process_a, process_b, subgroup, model_type)
 # colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 
 
