@@ -19,6 +19,7 @@ path_input <- "./data/shared/parsed-results.rds"
 ds_full <- readRDS(path_input)
 
 rm(path_input)
+
 # ---- tweak-data --------------------------------------------------------------
 
 # simplify ----
@@ -120,6 +121,11 @@ ds <- ds_spread_1 %>%
 # ---- prettify ----------------------------------------------------------------
 ds_dynamic_pretty <- ds %>%
   dplyr::mutate(
+    study_name    = factor(study_name),
+    process_a     = factor(process_a),
+    process_b     = factor(process_b),
+    subgroup      = factor(subgroup),
+    model_type    = factor(model_type),
     a_gamma_00    = sub("\\$p\\$", "p", a_gamma_00),
     a_gamma_10    = sub("\\$p\\$", "p", a_gamma_10),
     b_gamma_00    = sub("\\$p\\$", "p", b_gamma_00),

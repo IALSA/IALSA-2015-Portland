@@ -13,8 +13,8 @@ This report contains a searchable table, followed by publication-ready tables.
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
 ```{r, echo=F, message=F} 
 # cat("Working directory: ", getwd())
-  library(knitr)
-  opts_knit$set(root.dir='../../')  #Don't combine this call with any other chunk -especially one that uses file paths.
+library(knitr)
+opts_knit$set(root.dir='../../')  #Don't combine this call with any other chunk -especially one that uses file paths.
 ```
 
 <!-- Set the report-wide options, and point to the external code file. -->
