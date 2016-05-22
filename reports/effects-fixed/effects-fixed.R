@@ -51,9 +51,8 @@ variables_part_4 <- sprintf(
 # elongate ----
 ds_long <- ds_full %>%
   dplyr::select_(.dots=c(variables_part_1, variables_part_4)) %>%
-  dplyr::filter(
-    !is.na(process_a) & !is.na(process_b)
-  ) %>%
+  dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
+  dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>%
   tidyr::gather_("gamma", "value", variables_part_4) %>%
   dplyr::mutate(
     stem      = gsub(regex_gamma, "\\1_\\2", gamma, perl=T),
@@ -114,6 +113,8 @@ ds <- ds_spread_1 %>%
   ) %>%
   tidyr::spread(stem, dense) %>%
   dplyr::arrange(study_name, process_a, process_b, subgroup, model_type)
+
+# ds$a_gamma_00
 
 
 # ---- prettify ----------------------------------------------------------------
