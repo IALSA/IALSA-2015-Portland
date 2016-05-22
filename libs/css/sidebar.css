@@ -26,6 +26,12 @@ td {
       max-width: 1200px;
       margin: auto;
       margin-left:200px;
-      line-height: 20px;
-      white-space: pre;   /* preserve white space inside tables */
+      /*line-height: 20px;*/
+
+}
+
+#static-tables td {
+  white-space: pre;   /* preserve white space inside tables */
+  border-collapse: separate;
+  border-spacing: 10px 5px;
 }
