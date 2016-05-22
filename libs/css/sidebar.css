@@ -27,4 +27,5 @@ td {
       margin: auto;
       margin-left:200px;
       line-height: 20px;
+      white-space: pre;   /* preserve white space inside tables */
 }
