@@ -3,6 +3,7 @@ title: APA Tables - Variation 2
 date: "Date: `r Sys.Date()`"
 output:
   html_document:
+    css: ~/uvic/IALSA-2015-Portland/libs/css/sidebar.css
     keep_md: yes
     toc: yes
 ---
