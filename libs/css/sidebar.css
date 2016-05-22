@@ -26,12 +26,17 @@ td {
       max-width: 1200px;
       margin: auto;
       margin-left:200px;
-      /*line-height: 20px;*/
-
 }
 
+#dynamic-table td {
+  white-space: nowrap;
+}
 #static-tables td {
   white-space: pre;   /* preserve white space inside tables */
-  border-collapse: separate;
-  border-spacing: 10px 5px;
+  line-height: 5px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 10px 0px;
 }

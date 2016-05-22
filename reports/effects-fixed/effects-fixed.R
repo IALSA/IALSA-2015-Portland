@@ -196,7 +196,10 @@ for( study in unique(ds$study_name) ) {
   ds_static_pretty %>%
     dplyr::filter(study_name==study) %>%
     dplyr::select(-study_name) %>%
-    knitr::kable(format="html", align = "r") %>%
+    knitr::kable(
+      format     = "html",
+      align      = c("l", "l", "r", "r", "r", "r")
+    ) %>%
     print()
 
 }
