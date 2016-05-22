@@ -5,4 +5,4 @@ Files in this directory manipulate/groom/munge project data.  The resulting "der
 
 #### Contentx
 
-consult [./manipulation/contents](./manipulation/contents.md) for description of scripts in this folder. 
+consult [./manipulation/contents](contents.md) for description of scripts in this folder. 
