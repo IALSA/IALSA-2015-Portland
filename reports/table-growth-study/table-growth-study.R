@@ -21,7 +21,7 @@ ds_full <- readRDS(path_input)
 rm(path_input)
 # ---- tweak-data --------------------------------------------------------------
 
-# ---- simplify --------------------------------------------------------------
+# simplify ----
 variables_part_1 <- c(
   "study_name",
   "process_a",
@@ -48,7 +48,7 @@ variables_part_4 <- sprintf(
   ds_order_gamma$stat
 )
 
-# ---- elongate ----------------------------------------------------------------
+# elongate ----
 ds_long <- ds_full %>%
   dplyr::select_(.dots=c(variables_part_1, variables_part_4)) %>%
   dplyr::filter(
@@ -65,7 +65,7 @@ ds_long <- ds_full %>%
 
 rm(ds_order_gamma, ds_full, variables_part_4) #variables_part_1
 
-# ---- remove-duplicates -------------------------------------------------------
+# remove-duplicates ----
 ds_no_duplicates <- ds_long %>%
   dplyr::group_by_(
     .dots=c(variables_part_1, "gamma", "stem", "stat") #Lacks "value"
@@ -96,7 +96,7 @@ ds_find_duplicates <- ds_long %>%
 # testit::assert("No meaningful duplicate rows should exist.", nrow(ds_find_duplicates)==0L)
 rm(ds_find_duplicates)
 
-# ---- spread-to-stem ----------------------------------------------------------
+# spread-to-stem ----
 ds_spread_1 <- ds_no_duplicates %>%
   dplyr::select(-gamma) %>%
   tidyr::spread(stat, value) %>%
@@ -107,7 +107,7 @@ ds_spread_1 <- ds_no_duplicates %>%
   ) %>%
   dplyr::select(-est, -se, -wald, -pval, -pval_pretty)
 
-# ---- widen -------------------------------------------------------------------
+# widen ----
 ds <- ds_spread_1 %>%
   dplyr::mutate(
     stem  = gsub("^(\\w)_(\\d{2})$", "\\1_gamma_\\2", stem)
