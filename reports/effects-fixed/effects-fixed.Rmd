@@ -1,5 +1,5 @@
 ---
-title: APA Tables - Variation 2
+title: Fixed Effects
 date: "Date: `r Sys.Date()`"
 output:
   html_document:
@@ -33,7 +33,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./reports/table-growth-study/table-growth-study.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./reports/effects-fixed/effects-fixed.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
