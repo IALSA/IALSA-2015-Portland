@@ -8,7 +8,7 @@ output:
     toc: yes
 ---
 
-This report generates publication-ready tables, as well as a dynamic/searchable table.
+This report contains a searchable table, followed by publication-ready tables.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
 ```{r, echo=F, message=F} 
@@ -64,14 +64,14 @@ read_chunk("./reports/table-growth-study/table-growth-study.R") #This allows kni
 # Summary
 
 ### Notes 
-1. The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
+1. All available models are contained in the dynamic table, while only the 'aehplus' models are shown in the static tables.
 
 ### Unanswered Questions
-1. What does `VS` stand for?  How was it measured?
-1. Where the cars at the Philly track measured with the same phluguerstometer and the Cleveland track?
- 
+
+1. How should we handle entries that are entirely missing?
+1. How should we handle entries containing null/NA results?
+
 ### Answered Questions
-1. The Seattle track's phluguerstometer was producing flaky negative values; it's measurements have been dropped.
 
 
 ```{r prettify, echo=echoChunks, message=TRUE}
@@ -83,7 +83,13 @@ read_chunk("./reports/table-growth-study/table-growth-study.R") #This allows kni
 ```
 
 # Static Tables
-```{r table-static, echo=echoChunks, message=TRUE, fig.width=7}
+The 'aehplus' model (with covariates *a*ge, *e*ducation, *h*ealth, and others) is shown for each combination of
+
+* study,
+* process, and
+* gender.
+
+```{r table-static, echo=echoChunks, message=TRUE, results='asis'}
 ```
 
 # Session Information

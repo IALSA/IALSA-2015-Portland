@@ -112,26 +112,36 @@ ds <- ds_spread_1 %>%
   dplyr::mutate(
     stem  = gsub("^(\\w)_(\\d{2})$", "\\1_gamma_\\2", stem)
   ) %>%
-  tidyr::spread(stem, dense)
+  tidyr::spread(stem, dense) %>%
+  dplyr::arrange(study_name, process_a, process_b, subgroup, model_type)
 
 
 # ---- prettify ----------------------------------------------------------------
 ds_dynamic_pretty <- ds %>%
-  dplyr::arrange(study_name, process_a, process_b, subgroup, model_type)
-# colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
+  dplyr::mutate(
+    a_gamma_00    = sub("\\$p\\$", "p", a_gamma_00),
+    a_gamma_10    = sub("\\$p\\$", "p", a_gamma_10),
+    b_gamma_00    = sub("\\$p\\$", "p", b_gamma_00),
+    b_gamma_10    = sub("\\$p\\$", "p", b_gamma_10)
+  )
+colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 
+ds_static_pretty <- ds %>%
+  dplyr::filter(model_type=="aehplus") %>%
+  dplyr::mutate(
+    process       = paste0(process_a, "--", process_b)#,
+    # table_header  = paste0(study_name, ": ", process)
+  ) %>%
+  dplyr::select(-model_type, -process_a, -process_b)
+
+ds_static_pretty <- ds_static_pretty %>%
+  dplyr::select_(.dots=c("study_name", "process", "subgroup", setdiff(colnames(ds_static_pretty), c("study_name", "process", "subgroup"))))
 
 # ---- verify-values -----------------------------------------------------------
 
 
 # ---- table-dynamic -----------------------------------------------------------
 ds_dynamic_pretty %>%
-  dplyr::mutate(
-    a_gamma_00    = sub("\\$p\\$", "p", a_gamma_00),
-    a_gamma_10    = sub("\\$p\\$", "p", a_gamma_10),
-    b_gamma_00    = sub("\\$p\\$", "p", b_gamma_00),
-    b_gamma_10    = sub("\\$p\\$", "p", b_gamma_10)
-  ) %>%
   DT::datatable(
     class     = 'cell-border stripe',
     caption   = "Growth Curve Model Solution -by Study",
@@ -141,3 +151,14 @@ ds_dynamic_pretty %>%
 
 
 # ---- table-static ------------------------------------------------------------
+
+for( study in unique(ds$study_name) ) {
+  cat("\n\n## ", study, "\n\n")
+  ds_static_pretty %>%
+    dplyr::filter(study_name==study) %>%
+    dplyr::select(-study_name) %>%
+    knitr::kable(format="markdown") %>%
+    print()
+
+}
+
