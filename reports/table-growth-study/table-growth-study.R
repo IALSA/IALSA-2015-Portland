@@ -36,7 +36,7 @@ regex_gamma <- "^([ab])_GAMMA_([01]{2})_(est|se|wald|pval)$"
 
 ds_order_gamma <- expand.grid(#tidyr::crossing(
   stat      = c("est", "se", "wald", "pval"),
-  term      = c("00", "01", "10", "11"),
+  term      = c("00", "10"), #c("00", "01", "10", "11"),
   process   = c("a", "b"),
   stringsAsFactors = FALSE
 )
@@ -48,25 +48,92 @@ variables_part_4 <- sprintf(
   ds_order_gamma$stat
 )
 
-ds <- ds_full %>%
-  dplyr::select_(.dots=c(variables_part_1, variables_part_4))
+# ---- elongate ----------------------------------------------------------------
+ds_long <- ds_full %>%
+  dplyr::select_(.dots=c(variables_part_1, variables_part_4)) %>%
+  dplyr::filter(
+    !is.na(process_a) & !is.na(process_b)
+  ) %>%
+  tidyr::gather_("gamma", "value", variables_part_4) %>%
+  dplyr::mutate(
+    stem      = gsub(regex_gamma, "\\1_\\2", gamma, perl=T),
+    stat      = gsub(regex_gamma, "\\3", gamma, perl=T)
+    # value     = ifelse(stem=="pval")
+  )
 
-rm(ds_order_gamma, ds_full, variables_part_1, variables_part_4)
+
+
+rm(ds_order_gamma, ds_full, variables_part_4) #variables_part_1
+
+# ---- remove-duplicates -------------------------------------------------------
+ds_no_duplicates <- ds_long %>%
+  dplyr::group_by_(
+    .dots=c(variables_part_1, "gamma", "stem", "stat") #Lacks "value"
+  ) %>%
+  dplyr::summarize(
+    # value  = dplyr::first(value, na.rm=T)
+    value  = mean(value, na.rm=T)
+  ) %>%
+  dplyr::ungroup()
+
+
+coefficient_of_variation <- function(x)( sd(x)/mean(x) )
+ds_find_duplicates <- ds_long %>%
+  dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
+  dplyr::group_by_(
+    .dots=c(variables_part_1, "gamma", "stem", "stat")
+  ) %>%  #Lacks "value"
+  dplyr::filter(!is.na(value)) %>% #Drops from 56 rows to 8 rows.  !!Careful that you don't remove legit NAs (esp, in nonduplicated rows).
+  dplyr::summarize(
+    count      = n(),
+    values     = paste(value, collapse=";"),
+    value_cv   = coefficient_of_variation(value)
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(1<count) %>%
+  dplyr::filter(.001 < value_cv) #Drops from 8 to 0 rows.
+
+# testit::assert("No meaningful duplicate rows should exist.", nrow(ds_find_duplicates)==0L)
+rm(ds_find_duplicates)
+
+# ---- spread-to-stem ----------------------------------------------------------
+ds_spread_1 <- ds_no_duplicates %>%
+  dplyr::select(-gamma) %>%
+  tidyr::spread(stat, value) %>%
+  dplyr::mutate(
+    pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
+    pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Remove leading zero from p-value.
+    dense         = sprintf("%+0.3f(%0.3f),$p$=%s", est, se, pval_pretty) #Force est & se to have three decimals (eg, .1 turns into .100).
+  ) %>%
+  dplyr::select(-est, -se, -wald, -pval, -pval_pretty)
+
+# ---- widen -------------------------------------------------------------------
+ds <- ds_spread_1 %>%
+  dplyr::mutate(
+    stem  = gsub("^(\\w)_(\\d{2})$", "\\1_gamma_\\2", stem)
+  ) %>%
+  tidyr::spread(stem, dense)
+
 
 # ---- prettify ----------------------------------------------------------------
 ds_dynamic_pretty <- ds
-colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
+# colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 
 
 # ---- verify-values -----------------------------------------------------------
 
 
 # ---- table-dynamic -----------------------------------------------------------
-
 ds_dynamic_pretty %>%
+  dplyr::mutate(
+    a_gamma_00    = sub("\\$p\\$", "p", a_gamma_00),
+    a_gamma_10    = sub("\\$p\\$", "p", a_gamma_10),
+    b_gamma_00    = sub("\\$p\\$", "p", b_gamma_00),
+    b_gamma_10    = sub("\\$p\\$", "p", b_gamma_10)
+  ) %>%
   DT::datatable(
     class     = 'cell-border stripe',
-    caption   = "Growth Curve Model Sollution -by Study",
+    caption   = "Growth Curve Model Solution -by Study",
     filter    = "top",
     options   = list(pageLength = 6, autoWidth = TRUE)
   )
