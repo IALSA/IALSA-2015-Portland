@@ -61,8 +61,6 @@ ds_long <- ds_full %>%
     # value     = ifelse(stem=="pval")
   )
 
-
-
 rm(ds_order_gamma, ds_full, variables_part_4) #variables_part_1
 
 # remove-duplicates ----
@@ -183,14 +181,12 @@ ds_static_pretty <- ds_static_pretty %>%
 ds_dynamic_pretty %>%
   DT::datatable(
     class     = 'cell-border stripe',
-    caption   = "Growth Curve Model Solution -by Study",
+    caption   = "Fixed Effects Growth Curve Model Solution",
     filter    = "top",
     options   = list(pageLength = 6, autoWidth = TRUE)
   )
 
-
 # ---- table-static ------------------------------------------------------------
-
 for( study in unique(ds$study_name) ) {
   cat("\n\n## ", study, "\n\n")
   ds_static_pretty %>%
@@ -201,6 +197,4 @@ for( study in unique(ds$study_name) ) {
       align      = c("l", "l", "r", "r", "r", "r")
     ) %>%
     print()
-
 }
-

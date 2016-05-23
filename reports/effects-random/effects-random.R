@@ -31,45 +31,54 @@ variables_part_1 <- c(
   "model_type"          # 0 , a, ae, aeh, aeh+, & full
 )
 
-# variables_part_4 <- grep(regex_gamma, colnames(ds_full), perl=T, value=T)
-regex_gamma <- "^([ab])_GAMMA_([01]{2})_(est|se|wald|pval)$"
+# variables_part_4 <- grep(regex_r, colnames(ds_full), perl=T, value=T)
+regex_r <- "^r_(i|s|r)_(est|se|wald|pval)$"
 
-grep("^R_", colnames(ds_full), value=T)
+grep(regex_r, colnames(ds_full), value=T)
 
-ds_order_gamma <- expand.grid(#tidyr::crossing(
+ds_order_r <- expand.grid(#tidyr::crossing(
   stat      = c("est", "se", "wald", "pval"),
-  term      = c("00", "10"), #c("00", "01", "10", "11"),
-  process   = c("a", "b"),
+  term      = c("i", "s", "r"),
   stringsAsFactors = FALSE
 )
 
 variables_part_4 <- sprintf(
-  "%s_GAMMA_%s_%s",
-  ds_order_gamma$process,
-  ds_order_gamma$term,
-  ds_order_gamma$stat
+  "r_%s_%s",
+  ds_order_r$term,
+  ds_order_r$stat
 )
 
 # elongate ----
 ds_long <- ds_full %>%
+  dplyr::rename_(
+     "r_i_est"             = "`R_IAIB_est`"
+     , "r_i_se"            = "`R_IAIB_se`"
+     , "r_i_wald"          = "`R_IAIB_wald`"
+     , "r_i_pval"          = "`R_IAIB_pval`"
+     , "r_s_est"           = "`R_SASB_est`"
+     , "r_s_se"            = "`R_SASB_se`"
+     , "r_s_wald"          = "`R_SASB_wald`"
+     , "r_s_pval"          = "`R_SASB_pval`"
+     , "r_r_est"           = "`R_RES_AB_est`"
+     , "r_r_se"            = "`R_RES_AB_se`"
+     , "r_r_wald"          = "`R_RES_AB_wald`"
+     , "r_r_pval"          = "`R_RES_AB_pval`"
+  ) %>%
   dplyr::select_(.dots=c(variables_part_1, variables_part_4)) %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
   dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>%
-  tidyr::gather_("gamma", "value", variables_part_4) %>%
+  tidyr::gather_("r", "value", variables_part_4) %>%
   dplyr::mutate(
-    stem      = gsub(regex_gamma, "\\1_\\2", gamma, perl=T),
-    stat      = gsub(regex_gamma, "\\3", gamma, perl=T)
-    # value     = ifelse(stem=="pval")
+    stem      = gsub(regex_r, "\\1", r, perl=T),
+    stat      = gsub(regex_r, "\\2", r, perl=T)
   )
 
-
-
-rm(ds_order_gamma, ds_full, variables_part_4) #variables_part_1
+rm(ds_order_r, ds_full, variables_part_4) #variables_part_1
 
 # remove-duplicates ----
 ds_no_duplicates <- ds_long %>%
   dplyr::group_by_(
-    .dots=c(variables_part_1, "gamma", "stem", "stat") #Lacks "value"
+    .dots=c(variables_part_1, "r", "stem", "stat") #Lacks "value"
   ) %>%
   dplyr::summarize(
     # value  = dplyr::first(value, na.rm=T)
@@ -82,7 +91,7 @@ coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 ds_find_duplicates <- ds_long %>%
   dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
   dplyr::group_by_(
-    .dots=c(variables_part_1, "gamma", "stem", "stat")
+    .dots=c(variables_part_1, "r", "stem", "stat")
   ) %>%  #Lacks "value"
   dplyr::filter(!is.na(value)) %>% #Drops from 56 rows to 8 rows.  !!Careful that you don't remove legit NAs (esp, in nonduplicated rows).
   dplyr::summarize(
@@ -99,31 +108,28 @@ rm(ds_find_duplicates)
 
 
 pattern_est <- c(
-  "a_00"  = "%0.1f",
-  "a_10"  = "%0.2f",
-  "b_00"  = "%0.1f",
-  "b_10"  = "%0.2f"
+  "i"    = "%0.2f",
+  "s"    = "%0.2f",
+  "r"    = "%0.2f"
 )
 pattern_se <- c(
-  "a_00"  = "%0.1f",
-  "a_10"  = "%0.2f",
-  "b_00"  = "%0.1f",
-  "b_10"  = "%0.2f"
+  "i"    = "%0.2f",
+  "s"    = "%0.2f",
+  "r"    = "%0.2f"
 )
 pattern_dense <- c(
-  "a_00"  = "%5s(%4s),%3s",
-  "a_10"  = "%6s(%4s),%3s",
-  "b_00"  = "%6s(%4s),%3s",
-  "b_10"  = "%6s(%4s),%3s"
+  "i"    = "%6s(%4s),%3s",
+  "s"    = "%6s(%4s),%3s",
+  "r"    = "%6s(%4s),%3s"
 )
 # pattern_dense[[ds_spread_1$stem[1]]]
 
 # spread-to-stem ----
 ds_spread_1 <- ds_no_duplicates %>%
-  dplyr::select(-gamma) %>%
+  dplyr::select(-r) %>%
   tidyr::spread(stat, value) %>%
   dplyr::mutate(
-    est_pretty     = sprintf(pattern_est[stem], est),
+    est_pretty    = sprintf(pattern_est[stem], est),
     se_pretty     = sprintf(pattern_se[stem], se),
     pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
     pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
@@ -141,9 +147,11 @@ ds_spread_1 <- ds_no_duplicates %>%
 # widen ----
 ds <- ds_spread_1 %>%
   dplyr::mutate(
-    stem  = gsub("^(\\w)_(\\d{2})$", "\\1_gamma_\\2", stem)
+    #stem  = gsub("^(\\w)_(\\d{2})$", "r_\\1_\\2", stem)
+    stem   = paste0("r_", stem)
   ) %>%
   tidyr::spread(stem, dense) %>%
+  dplyr::select(study_name, process_a, process_b, subgroup, model_type, r_i, r_s, r_r) %>%
   dplyr::arrange(study_name, process_a, process_b, subgroup, model_type)
 
 # head(ds$a_gamma_00, 200)
@@ -159,10 +167,9 @@ ds_dynamic_pretty <- ds %>%
     process_b     = factor(process_b),
     subgroup      = factor(subgroup),
     model_type    = factor(model_type),
-    a_gamma_00    = sub("\\$p\\$", "p", a_gamma_00),
-    a_gamma_10    = sub("\\$p\\$", "p", a_gamma_10),
-    b_gamma_00    = sub("\\$p\\$", "p", b_gamma_00),
-    b_gamma_10    = sub("\\$p\\$", "p", b_gamma_10)
+    r_i           = sub("\\$p\\$", "p", r_i),
+    r_s           = sub("\\$p\\$", "p", r_s),
+    r_r           = sub("\\$p\\$", "p", r_r)
   )
 colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 
@@ -184,14 +191,12 @@ ds_static_pretty <- ds_static_pretty %>%
 ds_dynamic_pretty %>%
   DT::datatable(
     class     = 'cell-border stripe',
-    caption   = "Growth Curve Model Solution -by Study",
+    caption   = "Random Effects Growth Curve Model Solution",
     filter    = "top",
     options   = list(pageLength = 6, autoWidth = TRUE)
   )
 
-
 # ---- table-static ------------------------------------------------------------
-
 for( study in unique(ds$study_name) ) {
   cat("\n\n## ", study, "\n\n")
   ds_static_pretty %>%
@@ -204,4 +209,3 @@ for( study in unique(ds$study_name) ) {
     print()
 
 }
-
