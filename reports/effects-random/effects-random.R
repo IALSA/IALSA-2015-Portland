@@ -10,6 +10,7 @@ requireNamespace("knitr")
 requireNamespace("dplyr")
 requireNamespace("tidyr")
 requireNamespace("DT")
+requireNamespace("scales")
 
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
@@ -40,7 +41,11 @@ ds_order_r <- expand.grid(#tidyr::crossing(
   stringsAsFactors = FALSE
 )
 
-variables_part_4 <- sprintf(
+variables_part_4a <- c(
+  "subject_count"
+)
+
+variables_part_4b <- sprintf(
   "r_%s_%s",
   ds_order_r$term,
   ds_order_r$stat
@@ -62,21 +67,21 @@ ds_long <- ds_full %>%
      , "r_r_wald"          = "`R_RES_AB_wald`"
      , "r_r_pval"          = "`R_RES_AB_pval`"
   ) %>%
-  dplyr::select_(.dots=c(variables_part_1, variables_part_4)) %>%
+  dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b)) %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
   dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>%
-  tidyr::gather_("r", "value", variables_part_4) %>%
+  tidyr::gather_("r", "value", variables_part_4b) %>%
   dplyr::mutate(
     stem      = gsub(regex_r, "\\1", r, perl=T),
     stat      = gsub(regex_r, "\\2", r, perl=T)
   )
 
-rm(ds_order_r, ds_full, variables_part_4) #variables_part_1
+rm(ds_order_r, ds_full, variables_part_4b) #variables_part_1
 
 # remove-duplicates ----
 ds_no_duplicates <- ds_long %>%
   dplyr::group_by_(
-    .dots=c(variables_part_1, "r", "stem", "stat") #Lacks "value"
+    .dots=c(variables_part_1, variables_part_4a, "r", "stem", "stat") #Lacks "value"
   ) %>%
   dplyr::summarize(
     # value  = dplyr::first(value, na.rm=T)
@@ -89,7 +94,7 @@ coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 ds_find_duplicates <- ds_long %>%
   dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
   dplyr::group_by_(
-    .dots=c(variables_part_1, "r", "stem", "stat")
+    .dots=c(variables_part_1, variables_part_4a,  "r", "stem", "stat")
   ) %>%  #Lacks "value"
   dplyr::filter(!is.na(value)) %>% #Drops from 56 rows to 8 rows.  !!Careful that you don't remove legit NAs (esp, in nonduplicated rows).
   dplyr::summarize(
@@ -102,7 +107,7 @@ ds_find_duplicates <- ds_long %>%
   dplyr::filter(.001 < value_cv) #Drops from 8 to 0 rows.
 
 # testit::assert("No meaningful duplicate rows should exist.", nrow(ds_find_duplicates)==0L)
-rm(ds_find_duplicates)
+rm(variables_part_1, variables_part_4a, ds_find_duplicates)
 
 
 pattern_est <- c(
@@ -127,6 +132,7 @@ ds_spread_1 <- ds_no_duplicates %>%
   dplyr::select(-r) %>%
   tidyr::spread(stat, value) %>%
   dplyr::mutate(
+    subject_count  = scales::comma(subject_count),
     est_pretty    = sprintf(pattern_est[stem], est),
     se_pretty     = sprintf(pattern_se[stem], se),
     pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
@@ -150,18 +156,14 @@ ds <- ds_spread_1 %>%
     stem   = paste0("r_", stem)
   ) %>%
   tidyr::spread(stem, dense) %>%
-  dplyr::select(study_name, process_a, process_b, subgroup, model_type, r_i, r_s, r_r) %>%
+  dplyr::select(study_name, process_a, process_b, subgroup, model_type, subject_count, r_i, r_s, r_r) %>%
   dplyr::arrange(study_name, process_a, process_b, subgroup, model_type) %>%
   dplyr::rename_(
+    "n"               = "subject_count",
     "r_intercept"     = "r_i",
     "r_slope"         = "r_s",
     "r_residual"      = "r_r"
   )
-
-# head(ds$a_gamma_00, 200)
-# head(as.data.frame(ds), 35)
-
-
 
 # ---- prettify ----------------------------------------------------------------
 ds_dynamic_pretty <- ds %>%
@@ -208,7 +210,7 @@ for( study in unique(ds$study_name) ) {
     dplyr::select(-study_name) %>%
     knitr::kable(
       format     = "html",
-      align      = c("l", "l", "r", "r", "r")
+      align      = c("l", "l", "r", "r", "r", "r")
     ) %>%
     print()
 
