@@ -6,6 +6,7 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 
 # ---- load-packages -----------------------------------------------------------
 library(magrittr) #Pipes
+library(ggplot2)
 requireNamespace("knitr")
 requireNamespace("dplyr")
 requireNamespace("tidyr")
@@ -128,9 +129,11 @@ pattern_dense <- c(
 # pattern_dense[[ds_spread_1$stem[1]]]
 
 # spread-to-stem ----
-ds_spread_1 <- ds_no_duplicates %>%
+ds_spread <- ds_no_duplicates %>%
   dplyr::select(-r) %>%
-  tidyr::spread(stat, value) %>%
+  tidyr::spread(stat, value)
+
+ds_spread_pretty <- ds_spread %>%
   dplyr::mutate(
     subject_count  = scales::comma(subject_count),
     est_pretty    = sprintf(pattern_est[stem], est),
@@ -149,7 +152,7 @@ ds_spread_1 <- ds_no_duplicates %>%
 # ds_spread_1$dense
 
 # widen ----
-ds <- ds_spread_1 %>%
+ds_wide_pretty <- ds_spread_pretty %>%
   dplyr::mutate(
     #stem  = gsub("^(\\w)_(\\d{2})$", "r_\\1_\\2", stem)
     stem   = paste0("r_", stem)
@@ -165,7 +168,7 @@ ds <- ds_spread_1 %>%
   )
 
 # ---- prettify ----------------------------------------------------------------
-ds_dynamic_pretty <- ds %>%
+ds_dynamic_pretty <- ds_wide_pretty %>%
   dplyr::mutate(
     study_name    = factor(study_name),
     process_a     = factor(process_a),
@@ -178,7 +181,7 @@ ds_dynamic_pretty <- ds %>%
   )
 colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 
-ds_static_pretty <- ds %>%
+ds_static_pretty <- ds_wide_pretty %>%
   dplyr::filter(model_type=="aehplus") %>%
   dplyr::mutate(
     process       = paste0(process_a, "--", process_b)#,
@@ -210,7 +213,7 @@ ds_dynamic_pretty %>%
   )
 
 # ---- table-static ------------------------------------------------------------
-for( study in unique(ds$study_name) ) {
+for( study in unique(ds_wide_pretty$study_name) ) {
   cat("\n\n## ", study, "\n\n")
   ds_static_pretty %>%
     dplyr::filter(study_name==study) %>%
@@ -220,5 +223,4 @@ for( study in unique(ds$study_name) ) {
       align      = c("l", "l", "r", "r", "r", "r")
     ) %>%
     print()
-
 }
