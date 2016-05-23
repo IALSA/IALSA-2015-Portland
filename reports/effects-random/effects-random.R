@@ -188,7 +188,15 @@ ds_static_pretty <- ds %>%
   dplyr::select(-model_type, -process_a, -process_b)
 
 ds_static_pretty <- ds_static_pretty %>%
-  dplyr::select_(.dots=c("study_name", "process", "subgroup", setdiff(colnames(ds_static_pretty), c("study_name", "process", "subgroup"))))
+  dplyr::select_(.dots=c("study_name", "process", "subgroup", setdiff(colnames(ds_static_pretty), c("study_name", "process", "subgroup")))) %>%
+  dplyr::rename_(
+    "Processes"        = "process",
+    "Gender"           = "subgroup",
+    "$n_{group}$"      = "n",
+    "$r_{int}$"        = "r_intercept",
+    "$r_{slopes}$"     = "r_slope",
+    "$r_{residuals}$"  = "r_residual"
+  )
 
 # ---- verify-values -----------------------------------------------------------
 
