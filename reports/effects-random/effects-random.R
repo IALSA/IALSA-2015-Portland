@@ -34,8 +34,6 @@ variables_part_1 <- c(
 # variables_part_4 <- grep(regex_r, colnames(ds_full), perl=T, value=T)
 regex_r <- "^r_(i|s|r)_(est|se|wald|pval)$"
 
-grep(regex_r, colnames(ds_full), value=T)
-
 ds_order_r <- expand.grid(#tidyr::crossing(
   stat      = c("est", "se", "wald", "pval"),
   term      = c("i", "s", "r"),
@@ -135,6 +133,7 @@ ds_spread_1 <- ds_no_duplicates %>%
     pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
     pval_pretty   = sprintf("$p$=%s", pval_pretty),
     pval_pretty   = ifelse(pval_pretty=="$p$=.00", "$p$<.01", pval_pretty),       #Cap p-value at .01
+    pval_pretty   = ifelse(pval_pretty=="$p$=NA" , "$p$= NA", pval_pretty),       #Pad NA with space
     pattern       = pattern_dense[stem],
     # pattern       = pattern_dense[["a_00"]],
     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty) #Force est & se to have three decimals (eg, .1 turns into .100).
@@ -152,7 +151,12 @@ ds <- ds_spread_1 %>%
   ) %>%
   tidyr::spread(stem, dense) %>%
   dplyr::select(study_name, process_a, process_b, subgroup, model_type, r_i, r_s, r_r) %>%
-  dplyr::arrange(study_name, process_a, process_b, subgroup, model_type)
+  dplyr::arrange(study_name, process_a, process_b, subgroup, model_type) %>%
+  dplyr::rename_(
+    "r_intercept"     = "r_i",
+    "r_slope"         = "r_s",
+    "r_residual"      = "r_r"
+  )
 
 # head(ds$a_gamma_00, 200)
 # head(as.data.frame(ds), 35)
@@ -167,9 +171,9 @@ ds_dynamic_pretty <- ds %>%
     process_b     = factor(process_b),
     subgroup      = factor(subgroup),
     model_type    = factor(model_type),
-    r_i           = sub("\\$p\\$", "p", r_i),
-    r_s           = sub("\\$p\\$", "p", r_s),
-    r_r           = sub("\\$p\\$", "p", r_r)
+    r_intercept   = sub("\\$p\\$", "p", r_intercept),
+    r_slope       = sub("\\$p\\$", "p", r_slope),
+    r_residual    = sub("\\$p\\$", "p", r_residual)
   )
 colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 
@@ -204,7 +208,7 @@ for( study in unique(ds$study_name) ) {
     dplyr::select(-study_name) %>%
     knitr::kable(
       format     = "html",
-      align      = c("l", "l", "r", "r", "r", "r")
+      align      = c("l", "l", "r", "r", "r")
     ) %>%
     print()
 
