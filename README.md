@@ -17,34 +17,21 @@ The following information display shows the available  statistical models in the
 
  [![outcome space](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/outcome-space/figures_rmd/outcome-space-map-1.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/outcome-space/figures_rmd/outcome-space-map-1.png)  
 
-Any model in the collective can be specified by a form nested within the general **specification**:  
+Any model in the collective can be specified by a form nested within the following general **specification**:  
 [![general_model_specification](./libs/images/general_model_specification.png)](./reports/model_specification/README.md)  
 </br>
-The **covariance structure** will be given as
+with **covariance structure** given as
 [![general_model_specification](./libs/images/specification_covariance_structure.png)](./reports/model_specification/README.md)  
 For  details see [model specification](./reports/model-specification/README.md).  
 
 
-## Tools  
-Analytic tools available to the workshop participants include dynamic **reports** and interactive **apps**. Both reports and apps are regenerated with each new influx of model submissions.  
-
-### Reports 
- - [Rename and collapse](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/rename_collapse/Track_renaming.md)  gives account of how model filename elements (subgroup, model_type, cognitive_measure, etc.) are corrected, renamed, and reclassified. Incorporates the results of Teleconference 1 on Jun 12.    
- - [Model Counts](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/counts.html)  and  [Model Essentials](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/basic/essentials.html)  give basic tabled view of data in model space.   
- - Current status update for each study:
- [EAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/eas.html), [ELSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/elsa.html), [HABC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/habc.html), 
- [ILSE](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/ilse.html), [NAS](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nas.html) , 
- [NuAge](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/nuage.html),  [OCTO-Twin](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/octo.html),
- [RADC](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/radc.html),
- [SATSA](http://htmlpreview.github.io/?https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/individual/satsa.html)  
- - [model_space](https://raw.githubusercontent.com/IALSA/Portland-physical-cognitive/master/analysis/model_space/cog_domain_map/domain_map-1.png) graphing how the measures are mapped into domains. We need to understand how best to organize our models for the analysis, in which model (not individual) is the primary unit .    
- - [reproduce](./scripts/utility/reproduce.R) script that re-generates all these reports.   
- - [scripts README](./scripts/README.md) overview scripts that replicates data preparation  
+## Results  
+-  Table 1 : Descriptives.  [EAS](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_EAS_Descriptives_IALSA_Portland.pdf) - ELSA - [HRS](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_HRS_Descriptives_IALSA_Portland.pdf) - [ILSE](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_ILSE_Descriptives_IALSA_Portland.pdf) - LASA - [NAS](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_NAS_Descriptives_IALSA_Portland.pdf) - [NuAge](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_NuAge_Descriptives_IALSA_Portland.pdf) - [MAP](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_RADC_Descriptives_IALSA_Portland.pdf) - [SATSA](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_SATSA_Descriptives_IALSA_Portland.pdf)  
+- Table 2 - [Random Effects](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/effects-random/effects-random.html) - correlations between intercepts, slopes, and residuals of bivariate growth models.
+- Table 3 - [Fixed Effects](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/effects-fixed/effects-fixed.html) - intercepts and slopes of growth models
+- [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
+- [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard) 
  
-### Apps  
- - [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)  
- - [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
-
 ## Participants
 | Study | Contact |
 | :---- | :------ |
@@ -71,14 +58,6 @@ The current repository analyzes the results of the IALSA Analysis Workshop ([pdf
 
 The primary aim of the workshop was to examine associations between changes in physical functioning (i.e., grip strength, pulmonary function, chair stands, walking speed) and cognitive functioning (i.e., measures of speed, memory, reasoning, executive functioning) in multiple-study comparative framework. Bivariate growth processes were estimated to evaluate dynamic associations in change and variation within and across these domains and in relation to sample and individual differences in age, lifestyle, and health outcomes. The results from these analyses will extend recent systematic reviews and meta-analyses (e.g., [Clouston et al., 2012, Epidemiological Reviews](https://www.dropbox.com/s/vfe7u2ez5oxp3ev/Clouston_2013_Epidemiol%20Rev.pdf?dl=0) and will be submitted for publication as a set of independent brief reports, capped by a literature review/overview of analysis and completed with a research synthesis summary.
 
-## Projects
-
-See [projects](./projects/README.md) page for a detailed overview of the projects planned before the Portland conference. 
-
-At the time a project shapes up it gets its own repository, which will eventually host the publication manuscript and all contingencies for reproducibility. Currently, the following repos are gearing toward producing manuscript for submission:  
-- [Portland-physical-cognitive](https://github.com/IALSA/Portland-physical-cognitive) repo follow the physical-cognitive track, evaluating the longitudinal models in which physical and cognitive outcomes form a bivariate linear structure. 
- 
-
 
 ## News
  -  GSA poster presenting developments in the [**physical-cognitive**](./projects/physical-cognitive/README.md) track  
@@ -102,3 +81,6 @@ The agenda and outcomes of each teleconference following the Portland workshop
 Quick links: [news](#news)  -  [projects](#projects)  -  [tools](#tools)  -  [log](#log)  -  [participants](#participants)  -  [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard)
 
 [edit me](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
+
+
+
