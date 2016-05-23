@@ -134,8 +134,8 @@ ds_spread_1 <- ds_no_duplicates %>%
     pval_pretty   = ifelse(pval_pretty=="$p$=.00", "$p$<.01", pval_pretty),       #Cap p-value at .01
     pattern       = pattern_dense[stem],
     # pattern       = pattern_dense[["a_00"]],
-    dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty) #Force est & se to have three decimals (eg, .1 turns into .100).
-    # dense         = sprintf(pattern[[stem]], est, se, pval_pretty) #Force est & se to have three decimals (eg, .1 turns into .100).
+    dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
+    dense         = ifelse(is.nan(est), "--,$p$=  ----", dense)
   ) %>%
   dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern)
 
@@ -181,7 +181,7 @@ ds_static_pretty <- ds_static_pretty %>%
   dplyr::rename_(
     "Processes"               = "process",
     "Gender"                  = "subgroup",
-    "$n_{group}$"             = "n",
+    "$n$"                     = "n",
     "$_a\\gamma_{00}$"        = "a_gamma_00",
     "$_a\\gamma_{10}$"        = "a_gamma_10",
     "$_b\\gamma_{00}$"        = "b_gamma_00",
