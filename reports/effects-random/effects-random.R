@@ -224,3 +224,29 @@ for( study in unique(ds_wide_pretty$study_name) ) {
     ) %>%
     print()
 }
+
+# ---- forest ------------------------------------------------------------------
+ds_graph <- ds_spread %>%
+  dplyr::filter(model_type=="aehplus") %>%
+  dplyr::filter(!is.na(est) & !is.na(se) & !is.na(subject_count)) %>%
+  dplyr::select(study_name, process_a, process_b, subgroup, subject_count, stem, est, se) %>%
+  dplyr::mutate(
+    stem    = factor(stem, levels=c("i", "s", "r"), labels=c("intercepts", "slopes", "residuals"))
+  )
+
+# table(ds_graph[, c("process_a", "process_b")])
+
+theme_report <- theme_light()
+
+forest <- function( d ) {
+  # d <- d
+
+  ggplot(d, aes(x=est, y=study_name, color=subgroup)) +
+    geom_point() +
+    facet_grid(.~stem, scales="free_x") +
+    theme_report +
+    theme(legend.position="none") +
+    labs(x=NULL, y=NULL)
+}
+
+forest(ds_graph[ds_graph$process_a=="gait" & ds_graph$process_b=="block", ])
