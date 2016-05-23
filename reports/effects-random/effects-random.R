@@ -121,9 +121,9 @@ pattern_se <- c(
   "r"    = "%0.2f"
 )
 pattern_dense <- c(
-  "i"    = "%6s(%4s),%3s",
-  "s"    = "%6s(%4s),%3s",
-  "r"    = "%6s(%4s),%3s"
+  "i"    = "%6s(%4s),%7s",
+  "s"    = "%6s(%4s),%7s",
+  "r"    = "%6s(%4s),%7s"
 )
 # pattern_dense[[ds_spread_1$stem[1]]]
 
