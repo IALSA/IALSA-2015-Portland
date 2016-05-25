@@ -67,6 +67,12 @@ ds_long <- ds_full %>%
      , "r_r_se"            = "`R_RES_AB_se`"
      , "r_r_wald"          = "`R_RES_AB_wald`"
      , "r_r_pval"          = "`R_RES_AB_pval`"
+     , "ab_ci95_i_low"     = "ab_CI95_00_low"
+     , "ab_ci95_i_high"    = "ab_CI95_00_high"
+     , "ab_ci95_s_low"     = "ab_CI95_11_low"
+     , "ab_ci95_s_high"    = "ab_CI95_11_high"
+     , "ab_ci95_r_low"     = "ab_CI95_residual_low"
+     , "ab_ci95_r_high"    = "ab_CI95_residual_high"
   ) %>%
   dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b)) %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
@@ -236,7 +242,19 @@ ds_graph <- ds_spread %>%
 
 # table(ds_graph[, c("process_a", "process_b")])
 
-theme_report <- theme_light()
+palette_gender_dark <- c("#af6ca8", "#5a8fc1") #duller than below. http://colrd.com/image-dna/42282/ & http://colrd.com/image-dna/42275/
+# palette_gender_dark <- c("#f25091", "#6718f4") #brighter than above. http://colrd.com/palette/42278/
+palette_gender_light <- adjustcolor(palette_gender_dark, alpha.f = .2)
+names(palette_gender_dark) <- c("female", "male")
+names(palette_gender_light) <- names(palette_gender_dark)
+
+theme_report <- theme_light() + #Adapted from https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/CommonCode/BookTheme.R
+  theme(axis.text            = element_text(colour="gray40")) +
+  theme(axis.title           = element_text(colour="gray40")) +
+  theme(panel.border         = element_rect(colour="gray80")) +
+  theme(axis.ticks           = element_line(colour="gray80")) +
+  theme(panel.grid.major.y   = element_blank()) +
+  theme(axis.ticks           = element_blank())
 
 forest <- function( d ) {
   # d <- d
