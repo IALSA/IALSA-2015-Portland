@@ -261,31 +261,41 @@ ds_graph_index <- tidyr::crossing(
   process_b     = sort(unique(ds_graph$process_b))
 )
 forest <- function( d ) {
-  ggplot(d, aes(x=study_name, y=est, ymin=ci95_lower, ymax=ci95_upper, color=subgroup, fill=subgroup)) +
-    geom_hline(aes(yintercept=0), color="gray70", size=1, na.rm=T) +
-    geom_linerange(size=4, alpha=.5, na.rm=T, position=position_dodge(width=.2)) +
-    geom_point(shape=21, size=6, position=position_dodge(width=.2)) +
+  ggplot(d, aes(y=study_name, x=est, xmin=ci95_lower, xmax=ci95_upper, color=subgroup, fill=subgroup)) +
+    geom_vline(aes(xintercept=0), color="gray70", size=1, na.rm=T) +
+    geom_errorbarh(aes(height=0), size=2, alpha=.4, na.rm=T) + # , position=position_dodge(width=.2)
+    geom_point(shape=21, size=3) +
     scale_color_manual(values=palette_gender_dark) +
     scale_fill_manual(values=palette_gender_light) +
-    coord_flip() +
-    # facet_wrap("stem", scales="free") +
-    facet_grid(.~stem, scales="free") +
+    facet_grid(process_b~stem, scales="free") +
     theme_report +
     theme(legend.position="none") +
-    labs(x=NULL, y="Correlation", title=paste("Correlation of", process_a, "&", process_b, "effects"))
+    theme(strip.text.y = element_text(angle=0)) +
+    labs(x=NULL, y="Correlation", title=paste("Correlation of", unique(d$process_a), "random effects"))
+    # labs(x=NULL, y="Correlation", title=paste("Correlation of random effects"))
+    # labs(x=NULL, y="Correlation", title=paste("Correlation of", process_a, "&", process_b, "effects"))
 
 }
-forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="letter", ])
+forest(ds_graph[ds_graph$process_a=="grip", ])
+# forest(ds_graph[ds_graph$process_a=="gait" & ds_graph$process_b=="block", ])
+# forest(ds_graph[ds_graph$process_a=="gait" & ds_graph$process_b=="symbol", ])
+# forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="symbol", ])
+# forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="letter", ])
 
 for( process_a in sort(unique(ds_graph$process_a)) ) {
+  d_graph <- ds_graph[ds_graph$process_a==process_a, ]
+  if( nrow(d_graph)==0L) next; # Halt the processing of the current iteration and advances the looping index
+
   cat("\n\n## Physical Variable: ", process_a, "\n")
-  for( process_b in sort(unique(ds_graph$process_b)) ) {
-    d_graph <- ds_graph[ds_graph$process_a==process_a & ds_graph$process_b==process_b, ]
-
-    if( nrow(d_graph)==0L) next; # Halt the processing of the current iteration and advances the looping index
-    # cat("\n\n### Cognitive Variable: ", process_b, "\n")
-
-    forest(d_graph) %>%
-       print()
-  }
+  forest(d_graph) %>%
+    print()
+  # for( process_b in sort(unique(ds_graph$process_b)) ) {
+  #   d_graph <- ds_graph[ds_graph$process_a==process_a & ds_graph$process_b==process_b, ]
+  #
+  #   if( nrow(d_graph)==0L) next; # Halt the processing of the current iteration and advances the looping index
+  #   # cat("\n\n### Cognitive Variable: ", process_b, "\n")
+  #
+  #   forest(d_graph) %>%
+  #      print()
+  # }
 }
