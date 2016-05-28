@@ -1,11 +1,11 @@
 ---
-title: Random Effects
-date: "Date: `r Sys.Date()`"
+title: "Random Effects"
 output:
   html_document:
     css: ~/uvic/IALSA-2015-Portland/libs/css/sidebar.css
     keep_md: yes
     toc: yes
+date: 'Date: `r Sys.Date()`'
 ---
 
 This report contains a searchable table, followed by publication-ready tables.
@@ -90,6 +90,12 @@ The 'aehplus' model (with covariates *a*ge, *e*ducation, *h*ealth, and others) i
 * gender.
 
 ```{r table-static, echo=echoChunks, message=TRUE, results='asis'}
+```
+
+# Forest Plots
+Forest plots of the 'aehplus' model are shown for each combination of physical & cognitive variable.
+
+```{r forest, echo=echoChunks, message=TRUE, results='asis', fig.height=2, fig.width=5}
 ```
 
 # Session Information

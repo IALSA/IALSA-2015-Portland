@@ -34,10 +34,10 @@ variables_part_1 <- c(
 )
 
 # variables_part_4 <- grep(regex_r, colnames(ds_full), perl=T, value=T)
-regex_r <- "^r_(i|s|r)_(est|se|wald|pval)$"
+regex_r <- "^r_(i|s|r)_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 
 ds_order_r <- expand.grid(#tidyr::crossing(
-  stat      = c("est", "se", "wald", "pval"),
+  stat      = c("est", "se", "wald", "pval", "ci95_lower", "ci95_upper"),
   term      = c("i", "s", "r"),
   stringsAsFactors = FALSE
 )
@@ -67,12 +67,12 @@ ds_long <- ds_full %>%
      , "r_r_se"            = "`R_RES_AB_se`"
      , "r_r_wald"          = "`R_RES_AB_wald`"
      , "r_r_pval"          = "`R_RES_AB_pval`"
-     , "ab_ci95_i_low"     = "ab_CI95_00_low"
-     , "ab_ci95_i_high"    = "ab_CI95_00_high"
-     , "ab_ci95_s_low"     = "ab_CI95_11_low"
-     , "ab_ci95_s_high"    = "ab_CI95_11_high"
-     , "ab_ci95_r_low"     = "ab_CI95_residual_low"
-     , "ab_ci95_r_high"    = "ab_CI95_residual_high"
+     , "r_i_ci95_lower"    = "ab_CI95_00_low"
+     , "r_i_ci95_upper"    = "ab_CI95_00_high"
+     , "r_s_ci95_lower"    = "ab_CI95_11_low"
+     , "r_s_ci95_upper"    = "ab_CI95_11_high"
+     , "r_r_ci95_lower"    = "ab_CI95_residual_low"
+     , "r_r_ci95_upper"    = "ab_CI95_residual_high"
   ) %>%
   dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b)) %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
@@ -141,7 +141,7 @@ ds_spread <- ds_no_duplicates %>%
 
 ds_spread_pretty <- ds_spread %>%
   dplyr::mutate(
-    subject_count  = scales::comma(subject_count),
+    subject_count = scales::comma(subject_count),
     est_pretty    = sprintf(pattern_est[stem], est),
     se_pretty     = sprintf(pattern_se[stem], se),
     pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
@@ -153,7 +153,7 @@ ds_spread_pretty <- ds_spread %>%
     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
     dense         = ifelse(is.nan(est), "--,$p$=  ----", dense)
   ) %>%
-  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern)
+  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern, -ci95_lower, -ci95_upper)
 
 # ds_spread_1$dense
 
@@ -235,7 +235,7 @@ for( study in unique(ds_wide_pretty$study_name) ) {
 ds_graph <- ds_spread %>%
   dplyr::filter(model_type=="aehplus") %>%
   dplyr::filter(!is.na(est) & !is.na(se) & !is.na(subject_count)) %>%
-  dplyr::select(study_name, process_a, process_b, subgroup, subject_count, stem, est, se) %>%
+  dplyr::select(study_name, process_a, process_b, subgroup, subject_count, stem, est, se, ci95_lower, ci95_upper) %>%
   dplyr::mutate(
     stem    = factor(stem, levels=c("i", "s", "r"), labels=c("intercepts", "slopes", "residuals"))
   )
@@ -256,15 +256,36 @@ theme_report <- theme_light() + #Adapted from https://github.com/OuhscBbmc/DeShe
   theme(panel.grid.major.y   = element_blank()) +
   theme(axis.ticks           = element_blank())
 
+ds_graph_index <- tidyr::crossing(
+  process_a     = sort(unique(ds_graph$process_a)),
+  process_b     = sort(unique(ds_graph$process_b))
+)
 forest <- function( d ) {
-  # d <- d
-
-  ggplot(d, aes(x=est, y=study_name, color=subgroup)) +
-    geom_point() +
-    facet_grid(.~stem, scales="free_x") +
+  ggplot(d, aes(x=study_name, y=est, ymin=ci95_lower, ymax=ci95_upper, color=subgroup, fill=subgroup)) +
+    geom_hline(aes(yintercept=0), color="gray70", size=1, na.rm=T) +
+    geom_linerange(size=4, alpha=.5, na.rm=T, position=position_dodge(width=.2)) +
+    geom_point(shape=21, size=6, position=position_dodge(width=.2)) +
+    scale_color_manual(values=palette_gender_dark) +
+    scale_fill_manual(values=palette_gender_light) +
+    coord_flip() +
+    # facet_wrap("stem", scales="free") +
+    facet_grid(.~stem, scales="free") +
     theme_report +
     theme(legend.position="none") +
-    labs(x=NULL, y=NULL)
-}
+    labs(x=NULL, y="Correlation", title=paste("Correlation of", process_a, "&", process_b, "effects"))
 
-forest(ds_graph[ds_graph$process_a=="gait" & ds_graph$process_b=="block", ])
+}
+forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="letter", ])
+
+for( process_a in sort(unique(ds_graph$process_a)) ) {
+  cat("\n\n## Physical Variable: ", process_a, "\n")
+  for( process_b in sort(unique(ds_graph$process_b)) ) {
+    d_graph <- ds_graph[ds_graph$process_a==process_a & ds_graph$process_b==process_b, ]
+
+    if( nrow(d_graph)==0L) next; # Halt the processing of the current iteration and advances the looping index
+    # cat("\n\n### Cognitive Variable: ", process_b, "\n")
+
+    forest(d_graph) %>%
+       print()
+  }
+}
