@@ -6,6 +6,7 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 
 # ---- load-packages -----------------------------------------------------------
 library(magrittr) #Pipes
+library(ggplot2)
 requireNamespace("knitr")
 requireNamespace("dplyr")
 requireNamespace("tidyr")
@@ -33,11 +34,11 @@ variables_part_1 <- c(
 )
 
 # variables_part_4 <- grep(regex_gamma, colnames(ds_full), perl=T, value=T)
-regex_gamma <- "^([ab])_GAMMA_([01]{2})_(est|se|wald|pval)$"
+regex_gamma <- "^([ab])_GAMMA_([01]{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 # regex_gamma <- "^([ab])_GAMMA_([0]{2})_(est)$"
 
 ds_order_gamma <- expand.grid(#tidyr::crossing(
-  stat      = c("est", "se", "wald", "pval"),
+  stat      = c("est", "se", "wald", "pval", "ci95_lower", "ci95_upper"),
   term      = c("00", "10"), #c("00", "01", "10", "11"),
   process   = c("a", "b"),
   stringsAsFactors = FALSE
@@ -55,7 +56,19 @@ variables_part_4b <- sprintf(
 )
 
 # elongate ----
+# OuhscMunge::column_rename_headstart(ds_full)
 ds_long <- ds_full %>%
+  dplyr::mutate(
+    a_GAMMA_00_ci95_lower = a_GAMMA_00_est - qt(subject_count - parameter_count, p=.95) * a_GAMMA_00_se,
+    a_GAMMA_00_ci95_upper = a_GAMMA_00_est + qt(subject_count - parameter_count, p=.95) * a_GAMMA_00_se,
+    a_GAMMA_10_ci95_lower = a_GAMMA_10_est - qt(subject_count - parameter_count, p=.95) * a_GAMMA_10_se,
+    a_GAMMA_10_ci95_upper = a_GAMMA_10_est + qt(subject_count - parameter_count, p=.95) * a_GAMMA_10_se,
+
+    b_GAMMA_00_ci95_lower = b_GAMMA_00_est - qt(subject_count - parameter_count, p=.95) * b_GAMMA_00_se,
+    b_GAMMA_00_ci95_upper = b_GAMMA_00_est + qt(subject_count - parameter_count, p=.95) * b_GAMMA_00_se,
+    b_GAMMA_10_ci95_lower = b_GAMMA_10_est - qt(subject_count - parameter_count, p=.95) * b_GAMMA_10_se,
+    b_GAMMA_10_ci95_upper = b_GAMMA_10_est + qt(subject_count - parameter_count, p=.95) * b_GAMMA_10_se
+  ) %>%
   dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b)) %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
   dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>%
@@ -121,9 +134,11 @@ pattern_dense <- c(
 # pattern_dense[[ds_spread_1$stem[1]]]
 
 # spread-to-stem ----
-ds_spread_1 <- ds_no_duplicates %>%
+ds_spread <- ds_no_duplicates %>%
   dplyr::select(-gamma) %>%
-  tidyr::spread(stat, value) %>%
+  tidyr::spread(stat, value)
+
+ds_spread_pretty <- ds_spread %>%
   dplyr::mutate(
     subject_count = scales::comma(subject_count),
     est_pretty    = sprintf(pattern_est[stem], est),
@@ -137,12 +152,12 @@ ds_spread_1 <- ds_no_duplicates %>%
     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
     dense         = ifelse(is.nan(est), "--,$p$=  ----", dense)
   ) %>%
-  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern)
-
+  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern) %>%
+  dplyr::select(-ci95_lower, -ci95_upper)
 # ds_spread_1$dense
 
 # widen ----
-ds <- ds_spread_1 %>%
+ds <- ds_spread_pretty %>%
   dplyr::mutate(
     stem  = gsub("^(\\w)_(\\d{2})$", "\\1_gamma_\\2", stem)
   ) %>%
@@ -211,4 +226,67 @@ for( study in unique(ds$study_name) ) {
       align      = c("l", "l", "r", "r", "r", "r", "r")
     ) %>%
     print()
+}
+
+# ---- forest ------------------------------------------------------------------
+ds_graph <- ds_spread %>%
+  dplyr::filter(model_type=="aehplus") %>%
+  dplyr::filter(!is.na(est) & !is.na(se) & !is.na(subject_count)) %>%
+  dplyr::select(study_name, process_a, process_b, subgroup, subject_count, stem, est, se, ci95_lower, ci95_upper) %>%
+  dplyr::mutate(
+    stem    = factor(stem, levels=c("a_00", "a_10", "b_00", "b_10"), labels=c("a_00", "a_10", "b_00", "b_10"))
+  )
+
+# table(ds_graph[, c("process_a", "process_b")])
+
+palette_gender_dark <- c("#af6ca8", "#5a8fc1") #duller than below. http://colrd.com/image-dna/42282/ & http://colrd.com/image-dna/42275/
+# palette_gender_dark <- c("#f25091", "#6718f4") #brighter than above. http://colrd.com/palette/42278/
+palette_gender_light <- adjustcolor(palette_gender_dark, alpha.f = .2)
+names(palette_gender_dark) <- c("female", "male")
+names(palette_gender_light) <- names(palette_gender_dark)
+
+theme_report <- theme_light() + #Adapted from https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/CommonCode/BookTheme.R
+  theme(axis.text            = element_text(colour="gray40")) +
+  theme(axis.title           = element_text(colour="gray40")) +
+  theme(panel.border         = element_rect(colour="gray80")) +
+  theme(axis.ticks           = element_line(colour="gray80")) +
+  theme(panel.grid.major.y   = element_blank()) +
+  theme(axis.ticks           = element_blank())
+
+ds_graph_index <- tidyr::crossing(
+  process_a     = sort(unique(ds_graph$process_a)),
+  process_b     = sort(unique(ds_graph$process_b))
+)
+
+forest <- function( d ) {
+  ggplot(d, aes(y=study_name, x=est, xmin=ci95_lower, xmax=ci95_upper, color=subgroup, fill=subgroup)) +
+    geom_vline(aes(xintercept=0), color="gray85", size=1, na.rm=T, linetype="42") +
+    geom_errorbarh(aes(height=0), size=2, alpha=.4, na.rm=T) + # , position=position_dodge(width=.2)
+    geom_point(shape=21, size=3) +
+    scale_color_manual(values=palette_gender_dark) +
+    scale_fill_manual(values=palette_gender_light) +
+    facet_grid(.~stem, scales="free") +
+    theme_report +
+    theme(legend.position="none") +
+    theme(strip.text.y = element_text(angle=0)) +
+    # labs(x=NULL, y="Correlation", title=paste("Correlation of random effects"))
+    labs(x=NULL, y="Correlation", title=paste("Correlation of", unique(d$process_a), "&", unique(d$process_b), "effects"))
+}
+forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="symbol", ])
+forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="word_im", ])
+
+# table(ds_graph[, c("process_a", "process_b")])
+
+for( process_a in sort(unique(ds_graph$process_a)) ) {
+  cat("\n\n## Physical Variable: ", process_a, "\n")
+
+  for( process_b in sort(unique(ds_graph$process_b)) ) {
+    d_graph <- ds_graph[ds_graph$process_a==process_a & ds_graph$process_b==process_b, ]
+
+    if( nrow(d_graph)==0L) next; # Halt the processing of the current iteration and advances the looping index
+    # cat("\n\n### Cognitive Variable: ", process_b, "\n")
+
+    forest(d_graph) %>%
+       print()
+  }
 }
