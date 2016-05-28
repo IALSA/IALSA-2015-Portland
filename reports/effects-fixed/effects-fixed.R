@@ -59,15 +59,21 @@ variables_part_4b <- sprintf(
 # OuhscMunge::column_rename_headstart(ds_full)
 ds_long <- ds_full %>%
   dplyr::mutate(
-    a_GAMMA_00_ci95_lower = a_GAMMA_00_est - qt(subject_count - parameter_count, p=.95) * a_GAMMA_00_se,
-    a_GAMMA_00_ci95_upper = a_GAMMA_00_est + qt(subject_count - parameter_count, p=.95) * a_GAMMA_00_se,
-    a_GAMMA_10_ci95_lower = a_GAMMA_10_est - qt(subject_count - parameter_count, p=.95) * a_GAMMA_10_se,
-    a_GAMMA_10_ci95_upper = a_GAMMA_10_est + qt(subject_count - parameter_count, p=.95) * a_GAMMA_10_se,
+    t_crit                = qt(subject_count - parameter_count, p=.975),
+    a_GAMMA_00_radius     = t_crit * a_GAMMA_00_se,
+    a_GAMMA_10_radius     = t_crit * a_GAMMA_10_se,
+    b_GAMMA_00_radius     = t_crit * b_GAMMA_00_se,
+    b_GAMMA_10_radius     = t_crit * b_GAMMA_10_se,
 
-    b_GAMMA_00_ci95_lower = b_GAMMA_00_est - qt(subject_count - parameter_count, p=.95) * b_GAMMA_00_se,
-    b_GAMMA_00_ci95_upper = b_GAMMA_00_est + qt(subject_count - parameter_count, p=.95) * b_GAMMA_00_se,
-    b_GAMMA_10_ci95_lower = b_GAMMA_10_est - qt(subject_count - parameter_count, p=.95) * b_GAMMA_10_se,
-    b_GAMMA_10_ci95_upper = b_GAMMA_10_est + qt(subject_count - parameter_count, p=.95) * b_GAMMA_10_se
+    a_GAMMA_00_ci95_lower = a_GAMMA_00_est - a_GAMMA_00_radius,
+    a_GAMMA_00_ci95_upper = a_GAMMA_00_est + a_GAMMA_00_radius,
+    a_GAMMA_10_ci95_lower = a_GAMMA_10_est - a_GAMMA_10_radius,
+    a_GAMMA_10_ci95_upper = a_GAMMA_10_est + a_GAMMA_10_radius,
+
+    b_GAMMA_00_ci95_lower = b_GAMMA_00_est - b_GAMMA_00_radius,
+    b_GAMMA_00_ci95_upper = b_GAMMA_00_est + b_GAMMA_00_radius,
+    b_GAMMA_10_ci95_lower = b_GAMMA_10_est - b_GAMMA_10_radius,
+    b_GAMMA_10_ci95_upper = b_GAMMA_10_est + b_GAMMA_10_radius
   ) %>%
   dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b)) %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
@@ -197,10 +203,10 @@ ds_static_pretty <- ds_static_pretty %>%
     "Processes"               = "process",
     "Gender"                  = "subgroup",
     "$n$"                     = "n",
-    "$_a\\gamma_{00}$"        = "a_gamma_00",
-    "$_a\\gamma_{10}$"        = "a_gamma_10",
-    "$_b\\gamma_{00}$"        = "b_gamma_00",
-    "$_b\\gamma_{10}$"        = "b_gamma_10"
+    "$\\gamma_{a,00}$"        = "a_gamma_00",
+    "$\\gamma_{a,10}$"        = "a_gamma_10",
+    "$\\gamma_{b,00}$"        = "b_gamma_00",
+    "$\\gamma_{b,10}$"        = "b_gamma_10"
   )
 
 # ---- verify-values -----------------------------------------------------------
@@ -234,8 +240,25 @@ ds_graph <- ds_spread %>%
   dplyr::filter(!is.na(est) & !is.na(se) & !is.na(subject_count)) %>%
   dplyr::select(study_name, process_a, process_b, subgroup, subject_count, stem, est, se, ci95_lower, ci95_upper) %>%
   dplyr::mutate(
-    stem    = factor(stem, levels=c("a_00", "a_10", "b_00", "b_10"), labels=c("a_00", "a_10", "b_00", "b_10"))
+    # stem    = factor(
+    #   stem#,
+    #   # levels = c("a_00", "a_10", "b_00", "b_10"),
+    #   # labels = c("a_00", "a_10", "b_00", "b_10")
+    #   # labels = c("gamma[a-OO]", "gamma[a-IO]", "gamma[b-OO]", "gamma[b-IO]")
+    #   # labels = c("2", "3", "4", "5")
+    # )
   )
+
+ds_graph$stem <- plyr::revalue(
+  ds_graph$stem,
+  c(
+    "a_00"  = "a,00",
+    "a_10"  = "a,10",
+    "b_00"  = "b,00",
+    "b_10"  = "b,10"
+  ))
+
+# "_a\\gamma_", "_a\\gamma_", "_b\\gamma_", "_b\\gamma_"
 
 # table(ds_graph[, c("process_a", "process_b")])
 
@@ -265,15 +288,16 @@ forest <- function( d ) {
     geom_point(shape=21, size=3) +
     scale_color_manual(values=palette_gender_dark) +
     scale_fill_manual(values=palette_gender_light) +
-    facet_grid(.~stem, scales="free") +
+    # facet_grid(.~stem, scales="free", labeller = label_parsed) +
+    # facet_grid(.~stem, scales="free", labeller = label_bquote(cols = gamma^.(strsplit(stem, split="_")[1]))) +
+    facet_grid(.~stem, scales="free", labeller = label_bquote(cols = gamma[.(stem)])) +
     theme_report +
     theme(legend.position="none") +
     theme(strip.text.y = element_text(angle=0)) +
-    # labs(x=NULL, y="Correlation", title=paste("Correlation of random effects"))
-    labs(x=NULL, y="Correlation", title=paste("Correlation of", unique(d$process_a), "&", unique(d$process_b), "effects"))
+    labs(x=NULL, y="Correlation", title=paste("Correlation of", unique(d$process_a), "&", unique(d$process_b), "fixed effects"))
 }
-forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="symbol", ])
-forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="word_im", ])
+# forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="symbol", ])
+# forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="word_im", ])
 
 # table(ds_graph[, c("process_a", "process_b")])
 

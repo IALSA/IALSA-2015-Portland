@@ -95,7 +95,7 @@ The 'aehplus' model (with covariates *a*ge, *e*ducation, *h*ealth, and others) i
 # Forest Plots
 Forest plots of the 'aehplus' model are shown for each combination of physical & cognitive variable.
 
-```{r forest, echo=echoChunks, message=TRUE, results='asis', fig.height=8, fig.width=8}
+```{r forest, echo=echoChunks, message=TRUE, results='asis', fig.height=2.5, fig.width=8}
 ```
 
 
