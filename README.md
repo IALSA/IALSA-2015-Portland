@@ -29,8 +29,8 @@ For  details see [model specification](./reports/model-specification/README.md).
 -  Table 1 : Descriptives.  [EAS](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_EAS_Descriptives_IALSA_Portland.pdf) - ELSA - [HRS](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_HRS_Descriptives_IALSA_Portland.pdf) - [ILSE](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_ILSE_Descriptives_IALSA_Portland.pdf) - LASA - [NAS](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_NAS_Descriptives_IALSA_Portland.pdf) - [NuAge](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_NuAge_Descriptives_IALSA_Portland.pdf) - [MAP](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_RADC_Descriptives_IALSA_Portland.pdf) - [SATSA](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_SATSA_Descriptives_IALSA_Portland.pdf)  
 - Table 2 - [Random Effects](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/effects-random/effects-random.html) - correlations between intercepts, slopes, and residuals of bivariate growth models.
 - Table 3 - [Fixed Effects](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/effects-fixed/effects-fixed.html) - intercepts and slopes of growth models
-- [pivot tables](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) for basic exploration in the space of the submitted models
-- [dashboard](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard) 
+- \[pivot tables\](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) (under construction) for basic exploration in the space of the submitted models
+- \[dashboard\](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard) (under construction)
  
 ## Participants
 | Study | Contact |
