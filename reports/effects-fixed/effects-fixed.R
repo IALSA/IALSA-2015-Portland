@@ -192,8 +192,7 @@ colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 ds_static_pretty <- ds %>%
   dplyr::filter(model_type=="aehplus") %>%
   dplyr::mutate(
-    process       = paste0(process_a, "--", process_b)#,
-    # table_header  = paste0(study_name, ": ", process)
+    process       = sprintf("%-*s vs %s", max(nchar(process_a)), process_a, process_b)
   ) %>%
   dplyr::select(-model_type, -process_a, -process_b)
 
@@ -262,19 +261,19 @@ ds_graph$stem <- plyr::revalue(
 
 # table(ds_graph[, c("process_a", "process_b")])
 
-palette_gender_dark <- c("#af6ca8", "#5a8fc1") #duller than below. http://colrd.com/image-dna/42282/ & http://colrd.com/image-dna/42275/
-# palette_gender_dark <- c("#f25091", "#6718f4") #brighter than above. http://colrd.com/palette/42278/
-palette_gender_light <- adjustcolor(palette_gender_dark, alpha.f = .2)
-names(palette_gender_dark) <- c("female", "male")
-names(palette_gender_light) <- names(palette_gender_dark)
+palette_gender_dark          <- c("#af6ca8", "#5a8fc1") #duller than below. http://colrd.com/image-dna/42282/ & http://colrd.com/image-dna/42275/
+palette_gender_light         <- adjustcolor(palette_gender_dark, alpha.f = .2)
+names(palette_gender_dark)   <- c("female", "male")
+names(palette_gender_light)  <- names(palette_gender_dark)
+shape_gender                 <- c("male"=24, "female"=25)
 
 theme_report <- theme_light() + #Adapted from https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/CommonCode/BookTheme.R
   theme(axis.text            = element_text(colour="gray40")) +
   theme(axis.title           = element_text(colour="gray40")) +
   theme(panel.border         = element_rect(colour="gray80")) +
-  theme(axis.ticks           = element_line(colour="gray80")) +
   theme(panel.grid.major.y   = element_blank()) +
-  theme(axis.ticks           = element_blank())
+  theme(axis.ticks           = element_blank()) +
+  theme(strip.text.x         = element_text(size = 14))
 
 ds_graph_index <- tidyr::crossing(
   process_a     = sort(unique(ds_graph$process_a)),
@@ -282,21 +281,22 @@ ds_graph_index <- tidyr::crossing(
 )
 
 forest <- function( d ) {
-  ggplot(d, aes(y=study_name, x=est, xmin=ci95_lower, xmax=ci95_upper, color=subgroup, fill=subgroup)) +
+  ggplot(d, aes(y=study_name, x=est, xmin=ci95_lower, xmax=ci95_upper, color=subgroup, fill=subgroup, shape=subgroup)) +
     geom_vline(aes(xintercept=0), color="gray85", size=1, na.rm=T, linetype="42") +
     geom_errorbarh(aes(height=0), size=2, alpha=.4, na.rm=T) + # , position=position_dodge(width=.2)
-    geom_point(shape=21, size=3) +
+    geom_point(size=3) +
     scale_color_manual(values=palette_gender_dark) +
     scale_fill_manual(values=palette_gender_light) +
+    scale_shape_manual(values=shape_gender) +
     # facet_grid(.~stem, scales="free", labeller = label_parsed) +
     # facet_grid(.~stem, scales="free", labeller = label_bquote(cols = gamma^.(strsplit(stem, split="_")[1]))) +
     facet_grid(.~stem, scales="free", labeller = label_bquote(cols = gamma[.(stem)])) +
     theme_report +
     theme(legend.position="none") +
     theme(strip.text.y = element_text(angle=0)) +
-    labs(x=NULL, y="Correlation", title=paste("Correlation of", unique(d$process_a), "&", unique(d$process_b), "fixed effects"))
+    labs(x=expression(hat(gamma)), y=NULL, title=paste0(unique(d$process_a), " vs. ", unique(d$process_b), ": Fixed Effects Correlations by Study and Gender"))
 }
-# forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="symbol", ])
+forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="symbol", ])
 # forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="word_im", ])
 
 # table(ds_graph[, c("process_a", "process_b")])

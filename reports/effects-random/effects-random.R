@@ -190,10 +190,11 @@ colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 ds_static_pretty <- ds_wide_pretty %>%
   dplyr::filter(model_type=="aehplus") %>%
   dplyr::mutate(
-    process       = paste0(process_a, "--", process_b)#,
+    process       = sprintf("%*s vs %s", max(nchar(process_a)), process_a, process_b)
     # table_header  = paste0(study_name, ": ", process)
   ) %>%
   dplyr::select(-model_type, -process_a, -process_b)
+# ds_static_pretty$process
 
 ds_static_pretty <- ds_static_pretty %>%
   dplyr::select_(.dots=c("study_name", "process", "subgroup", setdiff(colnames(ds_static_pretty), c("study_name", "process", "subgroup")))) %>%
@@ -201,7 +202,7 @@ ds_static_pretty <- ds_static_pretty %>%
     "Processes"        = "process",
     "Gender"           = "subgroup",
     "$n$"              = "n",
-    "$r_{int}$"        = "r_intercept",
+    "$r_{intercepts}$" = "r_intercept",
     "$r_{slopes}$"     = "r_slope",
     "$r_{residuals}$"  = "r_residual"
   )
@@ -237,41 +238,49 @@ ds_graph <- ds_spread %>%
   dplyr::filter(!is.na(est) & !is.na(se) & !is.na(subject_count)) %>%
   dplyr::select(study_name, process_a, process_b, subgroup, subject_count, stem, est, se, ci95_lower, ci95_upper) %>%
   dplyr::mutate(
-    stem    = factor(stem, levels=c("i", "s", "r"), labels=c("intercepts", "slopes", "residuals"))
+    stem    = factor(stem, levels=c("i", "s", "r"), labels=c("italic(r)[intercepts]", "italic(r)[slopes]", "italic(r)[residuals]"))
+    #stem    = factor(stem, levels=c("i", "s", "r"), labels=c("intercepts", "slopes", "residuals"))
   )
+
+
 
 # table(ds_graph[, c("process_a", "process_b")])
 
-palette_gender_dark <- c("#af6ca8", "#5a8fc1") #duller than below. http://colrd.com/image-dna/42282/ & http://colrd.com/image-dna/42275/
-# palette_gender_dark <- c("#f25091", "#6718f4") #brighter than above. http://colrd.com/palette/42278/
-palette_gender_light <- adjustcolor(palette_gender_dark, alpha.f = .2)
-names(palette_gender_dark) <- c("female", "male")
-names(palette_gender_light) <- names(palette_gender_dark)
+palette_gender_dark          <- c("#af6ca8", "#5a8fc1") #duller than below. http://colrd.com/image-dna/42282/ & http://colrd.com/image-dna/42275/
+# palette_gender_dark        <- c("#f25091", "#6718f4") #brighter than above. http://colrd.com/palette/42278/
+palette_gender_light         <- adjustcolor(palette_gender_dark, alpha.f = .2)
+names(palette_gender_dark)   <- c("female", "male")
+names(palette_gender_light)  <- names(palette_gender_dark)
+shape_gender                 <- c("male"=24, "female"=25)
 
 theme_report <- theme_light() + #Adapted from https://github.com/OuhscBbmc/DeSheaToothakerIntroStats/blob/master/CommonCode/BookTheme.R
   theme(axis.text            = element_text(colour="gray40")) +
   theme(axis.title           = element_text(colour="gray40")) +
   theme(panel.border         = element_rect(colour="gray80")) +
-  theme(axis.ticks           = element_line(colour="gray80")) +
   theme(panel.grid.major.y   = element_blank()) +
-  theme(axis.ticks           = element_blank())
+  theme(axis.ticks           = element_blank()) +
+  theme(strip.text.x         = element_text(size = 14))
 
 ds_graph_index <- tidyr::crossing(
   process_a     = sort(unique(ds_graph$process_a)),
   process_b     = sort(unique(ds_graph$process_b))
 )
 forest <- function( d ) {
-  ggplot(d, aes(y=study_name, x=est, xmin=ci95_lower, xmax=ci95_upper, color=subgroup, fill=subgroup)) +
-    geom_vline(aes(xintercept=0), color="gray70", size=1, na.rm=T) +
+  ggplot(d, aes(y=study_name, x=est, xmin=ci95_lower, xmax=ci95_upper, color=subgroup, fill=subgroup, shape=subgroup)) +
+    geom_vline(aes(xintercept=0), color="gray85", size=1, na.rm=T, linetype="42") +
     geom_errorbarh(aes(height=0), size=2, alpha=.4, na.rm=T) + # , position=position_dodge(width=.2)
-    geom_point(shape=21, size=3) +
+    geom_point(size=3) +
     scale_color_manual(values=palette_gender_dark) +
     scale_fill_manual(values=palette_gender_light) +
-    facet_grid(process_b~stem, scales="free") +
+    scale_shape_manual(values=shape_gender) +
+    coord_cartesian(xlim=c(-.5,1)) +
+    facet_grid(process_b~stem, scales="free", labeller = label_parsed) +
+    # facet_grid(process_b~stem, scales="free", labeller = label_bquote(cols = r[.(stem)])) +
+    # facet_grid(process_b~stem, scales="free") +
     theme_report +
     theme(legend.position="none") +
     theme(strip.text.y = element_text(angle=0)) +
-    labs(x=NULL, y="Correlation", title=paste("Correlation of", unique(d$process_a), "random effects"))
+    labs(x=expression(italic(r)), y=NULL, title=paste0(unique(d$process_a), ": Random Effects Correlations by Study and Gender"))
     # labs(x=NULL, y="Correlation", title=paste("Correlation of random effects"))
     # labs(x=NULL, y="Correlation", title=paste("Correlation of", process_a, "&", process_b, "effects"))
 

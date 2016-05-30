@@ -1,8 +1,6 @@
 ---
 title: "Random Effects"
 output:
-  word_document:
-    toc: yes
   html_document:
     css: ~/uvic/IALSA-2015-Portland/libs/css/sidebar.css
     keep_md: yes
