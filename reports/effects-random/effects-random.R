@@ -238,6 +238,7 @@ ds_graph <- ds_spread %>%
   dplyr::filter(!is.na(est) & !is.na(se) & !is.na(subject_count)) %>%
   dplyr::select(study_name, process_a, process_b, subgroup, subject_count, stem, est, se, ci95_lower, ci95_upper) %>%
   dplyr::mutate(
+    study_name = factor(study_name, levels=rev(unique(ds_spread$study_name))),
     stem    = factor(stem, levels=c("i", "s", "r"), labels=c("italic(r)[intercepts]", "italic(r)[slopes]", "italic(r)[residuals]"))
     #stem    = factor(stem, levels=c("i", "s", "r"), labels=c("intercepts", "slopes", "residuals"))
   )

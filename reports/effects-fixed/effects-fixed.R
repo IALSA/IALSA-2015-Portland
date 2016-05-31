@@ -239,6 +239,7 @@ ds_graph <- ds_spread %>%
   dplyr::filter(!is.na(est) & !is.na(se) & !is.na(subject_count)) %>%
   dplyr::select(study_name, process_a, process_b, subgroup, subject_count, stem, est, se, ci95_lower, ci95_upper) %>%
   dplyr::mutate(
+    study_name = factor(study_name, levels=rev(unique(ds_spread$study_name)))
     # stem    = factor(
     #   stem#,
     #   # levels = c("a_00", "a_10", "b_00", "b_10"),
@@ -285,6 +286,7 @@ forest <- function( d ) {
     geom_vline(aes(xintercept=0), color="gray85", size=1, na.rm=T, linetype="42") +
     geom_errorbarh(aes(height=0), size=2, alpha=.4, na.rm=T) + # , position=position_dodge(width=.2)
     geom_point(size=3) +
+    # scale_y_discrete(trans = "reverse") +
     scale_color_manual(values=palette_gender_dark) +
     scale_fill_manual(values=palette_gender_light) +
     scale_shape_manual(values=shape_gender) +
@@ -296,6 +298,24 @@ forest <- function( d ) {
     theme(strip.text.y = element_text(angle=0)) +
     labs(x=expression(hat(gamma)), y=NULL, title=paste0(unique(d$process_a), " vs. ", unique(d$process_b), ": Fixed Effects Correlations by Study and Gender"))
 }
+# forest <- function( d ) {
+#   ggplot(d, aes(x=study_name, y=est, ymin=ci95_lower, ymax=ci95_upper, color=subgroup, fill=subgroup, shape=subgroup)) +
+#     geom_hline(aes(yintercept=0), color="gray85", size=1, na.rm=T, linetype="42") +
+#     geom_errorbar(aes(width=0), size=2, alpha=.4, na.rm=T, position=position_dodge(width=.2)) +
+#     geom_point(size=3, position=position_dodge(width=.2)) +
+#     scale_color_manual(values=palette_gender_dark) +
+#     scale_fill_manual(values=palette_gender_light) +
+#     scale_shape_manual(values=shape_gender) +
+#     coord_flip() +
+#     # facet_grid(.~stem, scales="free", labeller = label_parsed) +
+#     facet_grid(.~stem, scales="free") +
+#     #facet_grid(.~stem, scales="free", labeller = label_bquote(cols = gamma[.(stem)])) +
+#     # facet_wrap(~stem, scales="free", labeller = label_bquote(cols = gamma[.(stem)])) +
+#     theme_report +
+#     theme(legend.position="none") +
+#     theme(strip.text.y = element_text(angle=0)) +
+#     labs(y=expression(hat(gamma)), x=NULL, title=paste0(unique(d$process_a), " vs. ", unique(d$process_b), ": Fixed Effects Correlations by Study and Gender"))
+# }
 forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="symbol", ])
 # forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="word_im", ])
 
