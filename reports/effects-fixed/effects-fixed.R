@@ -144,6 +144,10 @@ ds_spread <- ds_no_duplicates %>%
   dplyr::select(-gamma) %>%
   tidyr::spread(stat, value)
 
+# create a csv manhole
+readr::write_csv(ds_spread, "./data/shared/tables/effects-fixed.csv")
+
+
 ds_spread_pretty <- ds_spread %>%
   dplyr::mutate(
     subject_count = scales::comma(subject_count),
@@ -188,6 +192,10 @@ ds_dynamic_pretty <- ds %>%
     b_gamma_10    = sub("\\$p\\$", "p", b_gamma_10)
   )
 colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
+
+# create a csv manhole
+readr::write_csv(ds_dynamic_pretty, "./data/shared/tables/effects-fixed-pretty.csv")
+
 
 ds_static_pretty <- ds %>%
   dplyr::filter(model_type=="aehplus") %>%

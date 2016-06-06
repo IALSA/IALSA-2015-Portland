@@ -55,7 +55,7 @@ variables_part_4b <- sprintf(
 # elongate ----
 ds_long <- ds_full %>%
   dplyr::rename_(
-     "r_i_est"             = "`R_IAIB_est`"
+       "r_i_est"           = "`R_IAIB_est`"
      , "r_i_se"            = "`R_IAIB_se`"
      , "r_i_wald"          = "`R_IAIB_wald`"
      , "r_i_pval"          = "`R_IAIB_pval`"
@@ -139,6 +139,9 @@ ds_spread <- ds_no_duplicates %>%
   dplyr::select(-r) %>%
   tidyr::spread(stat, value)
 
+# create a csv manhole
+readr::write_csv(ds_spread, "./data/shared/tables/effects-random.csv")
+
 ds_spread_pretty <- ds_spread %>%
   dplyr::mutate(
     subject_count = scales::comma(subject_count),
@@ -196,6 +199,9 @@ ds_static_pretty <- ds_wide_pretty %>%
   dplyr::select(-model_type, -process_a, -process_b)
 # ds_static_pretty$process
 
+# creat a csv manhole
+readr::write_csv(ds_dynamic_pretty, "./data/shared/tables/effects-random-pretty.csv")
+
 ds_static_pretty <- ds_static_pretty %>%
   dplyr::select_(.dots=c("study_name", "process", "subgroup", setdiff(colnames(ds_static_pretty), c("study_name", "process", "subgroup")))) %>%
   dplyr::rename_(
@@ -206,6 +212,7 @@ ds_static_pretty <- ds_static_pretty %>%
     "$r_{slopes}$"     = "r_slope",
     "$r_{residuals}$"  = "r_residual"
   )
+
 
 # ---- verify-values -----------------------------------------------------------
 
