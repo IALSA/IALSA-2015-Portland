@@ -21,6 +21,7 @@ requireNamespace("testit", quietly=TRUE)
 # path_input  <- "./data/shared/parsed-results.csv"
 path_input <- "./data/shared/parsed-results-raw.csv"
 path_output <- "./data/shared/parsed-results.rds"
+path_output_csv <- "./data/shared/parsed-results-processed.csv"
 figure_path <- './manipulation/stitched_output/'
 
 
@@ -154,7 +155,7 @@ t <- table(ds$process_b, ds$process_b_domain);t[t==0]<-".";t
 
 # ---- export_ready_data ---------------------------------------
 saveRDS(ds, path_output)
-
+readr::write_csv(ds,path_output_csv)
 
 
 
