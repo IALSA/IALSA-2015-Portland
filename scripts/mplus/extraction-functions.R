@@ -382,6 +382,43 @@
       (test <- test[c('est', 'se', "est_se", 'pval')])
       if(dim(test)[1]!=0) {result[b_GAMMA_12] <- test}
 
+      ## GAMMA*3 = HEIGHT
+
+      height_eas <- c("HEIGHT")
+      height_elsa <- c("HEI2")
+      height_hrs <- height_eas
+      height_ilse <- height_eas
+      height_lasa <- c("HEIGHTC")
+      height_map <- height_eas
+      height_nuage <- height_eas
+      height_octo <- height_lasa
+      height_satsa <- height_eas
+      height_ <- unique(c(height_eas, height_elsa, height_hrs, height_ilse,
+                          height_lasa, height_map, height_nuage, height_octo,height_satsa))
+
+      ## intercept of process 1 (P) regressed on HEIGHT at baseline
+      (test <- model[grep("IP.ON", model$paramHeader),])
+      (test <- test[test$param %in% height_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[a_GAMMA_03] <- test}
+
+      ## slope of process 1 (P) regressed on HEIGHT at baseline
+      (test <- model[grep("SP.ON", model$paramHeader),])
+      (test <- test[test$param %in% height_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[a_GAMMA_13] <- test}
+
+      ## intercept of process 2 (C) regressed on HEIGHT at baseline
+      (test <- model[grep("IC.ON", model$paramHeader),])
+      (test <- test[test$param %in% height_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[b_GAMMA_03] <- test}
+
+      ## slope of process 1 (P) regressed on HEIGHT at baseline
+      (test <- model[grep("SC.ON", model$paramHeader),])
+      (test <- test[test$param %in% height_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[b_GAMMA_13] <- test}
 
     } # close if
     return(result)
