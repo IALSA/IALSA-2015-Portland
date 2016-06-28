@@ -81,7 +81,7 @@ list_pp[["elsa"]]
 
 # ---- dto ---------------------------------------------------------
 # studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
-# path_model_output <- list_pc[["eas"]][23]
+path_model_output <- list_pc[["eas"]][23]
 # path_model_output <- list_pc[["elsa"]][1]
 # path_model_output <- list_pc[["hrs"]][13]
 # path_model_output <- list_pc[["ilse"]][1]
@@ -92,9 +92,9 @@ list_pp[["elsa"]]
 # path_model_output <- list_pc[["satsa"]][50]
 
 # list_pc$satsa
-# (path=path_model_output)
+(path=path_model_output)
 # check the parameter output
-# get_mpar(path)$unstandardized %>% dplyr::slice(1:26)
+get_mpar(path)$unstandardized %>% dplyr::slice(1:26)
 # ---- dto ---------------------------------------------------------
 collect_result <- function(path){
   # extract model idendification
@@ -150,7 +150,7 @@ collect_study <- function(study, selected_results){
 }
 
 # ---- dto ---------------------------------------------------------
-# collect_study(study="eas", selected_results)
+collect_study(study="eas", selected_results)
 collect_study(study="elsa", selected_results)
 collect_study(study="hrs", selected_results)
 collect_study(study="ilse", selected_results)
