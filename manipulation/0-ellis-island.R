@@ -30,8 +30,6 @@ requireNamespace("dplyr") #Avoid attaching dplyr, b/c its function names conflic
 requireNamespace("testit") #For asserting conditions meet expected patterns.
 
 # ---- dto-1 ---------------------------------------------------------
-# all this could be be in a dataframe: one row per output
-# model_id, track_name, specific_variables
 ## point to the folders with results for physical-cognitive track
 eas <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=T, pattern="out$")
 elsa <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
@@ -52,9 +50,11 @@ list_pc <-  list("eas" = eas,
                  "octo" = octo,
                  "map" = map,
                  "satsa" = satsa)
-# list_pc[["elsa"]]
+# Now the object contains paths to files with model outputs
+list_pc[["ilse"]]
+
 # ---- dto ---------------------------------------------------------
-## point to the folders with results for physical-cognitive track
+## point to the folders with results for physical-physical track
 eas <- list.files(file.path(pathStudies,"eas/physical"),full.names=T, recursive=T, pattern="out$")
 elsa <- list.files(file.path(pathStudies,"elsa/physical"),full.names=T, recursive=T, pattern="out$")
 hrs <- list.files(file.path(pathStudies,"hrs/physical"),full.names=T, recursive=T, pattern="out$")
@@ -74,14 +74,27 @@ list_pp <-  list("eas" = eas,
                  "octo" = octo,
                  "map" = map,
                  "satsa" = satsa)
+# Now the object contains paths to files with model outputs
+list_pp[["elsa"]]
 
 # collect a vector with .out file paths
 
 # ---- dto ---------------------------------------------------------
 # studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
-# path_model_output <- list_pc[["eas"]][12]
+# path_model_output <- list_pc[["eas"]][23]
+# path_model_output <- list_pc[["elsa"]][1]
+# path_model_output <- list_pc[["hrs"]][13]
+# path_model_output <- list_pc[["ilse"]][1]
+# path_model_output <- list_pc[["lasa"]][1]
+# path_model_output <- list_pc[["map"]][116]
+# path_model_output <- list_pc[["nuage"]][10]
+# path_model_output <- list_pc[["octo"]][38]
+path_model_output <- list_pc[["satsa"]][50]
 
-# (path=path_model_output)
+# list_pc$eas
+(path=path_model_output)
+# check the parameter output
+get_mpar(path)$unstandardized %>% dplyr::slice(1:26)
 # ---- dto ---------------------------------------------------------
 collect_result <- function(path){
   # extract model idendification
@@ -100,8 +113,8 @@ collect_result <- function(path){
   return(result)
 }
 # collected <- collect_result(path=path_model_output)
+# collected[c(model_id,b_GAMMA_02)]
 # result %>% dplyr::glimpse()
-# consider making the following big rectangular object in long format: study_name, file_path
 model_output_file_path <- list(
   "eas"   = list_pc[["eas"]],
   "elsa"  = list_pc[["elsa"]], #[1:2],
@@ -154,7 +167,7 @@ for(i in seq_along(combine_studies)){
 }
 results <- plyr::ldply(dtos, data.frame)
 # explore dplyr::bind_rows() for a better solution
-head(results[,c("study_name","ab_TAU_00_est")])
+head(results[,c("study_name","a_GAMMA_12_est")])
 
 # ---- dto ---------------------------------------------------------
 #### REMOVE DUPLICATES BEFORE SAVING THE DATA FOR THE NEXT STEP

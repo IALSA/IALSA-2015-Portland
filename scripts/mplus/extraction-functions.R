@@ -304,7 +304,7 @@
 
       ## average initial status of physical - a_GAMMA_00
       (test <- int[int$param=='IP',c('est', 'se', "est_se", 'pval')])
-      if(dim(test)[1]!=0) {result[ a_GAMMA_00] <- test}
+      if(dim(test)[1]!=0) {result[a_GAMMA_00] <- test}
 
       ## average rate of change of physical - a_GAMMA_10
       (test <- int[int$param=='SP',c('est', 'se', "est_se", 'pval')])
@@ -317,6 +317,8 @@
       ## average rate of change of cognitive - b_GAMMA_10
       test <- int[int$param=='SC',c('est', 'se', "est_se", 'pval')]
       if(dim(test)[1]!=0) {result[b_GAMMA_10] <- test}
+
+      ## GAMMA*1 = AGE
 
       ## intercept of process 1 (P) regressed on Age at baseline
       (test <- model[grep("IP.ON", model$paramHeader),])
@@ -341,6 +343,44 @@
       (test <- test[test$param=="BAGE",])
       (test <- test[c('est', 'se', "est_se", 'pval')])
       if(dim(test)[1]!=0) {result[b_GAMMA_11] <- test}
+
+      ## GAMMA*2 = EDUCATION
+
+      edu_eas <- c("EDUC")
+      edu_elsa <- c("EDUC2")
+      edu_hrs <- edu_eas
+      edu_ilse <- c("EDUCNEW")
+      edu_lasa <- edu_eas
+      edu_map <- edu_eas
+      edu_nuage <- edu_eas
+      edu_octo <- edu_eas
+      edu_satsa <- c("CEDUC")
+      education_ <- unique(c(edu_eas, edu_elsa, edu_hrs, edu_ilse,
+                      edu_lasa, edu_map, edu_nuage, edu_octo,edu_satsa))
+
+      ## intercept of process 1 (P) regressed on EDUCATION at baseline
+      (test <- model[grep("IP.ON", model$paramHeader),])
+      (test <- test[test$param %in% education_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[a_GAMMA_02] <- test}
+
+      ## slope of process 1 (P) regressed on EDUCATION at baseline
+      (test <- model[grep("SP.ON", model$paramHeader),])
+      (test <- test[test$param %in% education_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[a_GAMMA_12] <- test}
+
+      ## intercept of process 2 (C) regressed on EDUCATION at baseline
+      (test <- model[grep("IC.ON", model$paramHeader),])
+      (test <- test[test$param %in% education_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[b_GAMMA_02] <- test}
+
+      ## slope of process 1 (P) regressed on EDUCATION at baseline
+      (test <- model[grep("SC.ON", model$paramHeader),])
+      (test <- test[test$param %in% education_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[b_GAMMA_12] <- test}
 
 
     } # close if

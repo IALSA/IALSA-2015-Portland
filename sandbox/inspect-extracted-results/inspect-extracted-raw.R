@@ -53,6 +53,16 @@ core_vars <-  c(
   # cognitive intercept /  average initial status of cognitive outcome
   b_GAMMA_00 ,
 
+  # physical intercept regressed on EDUCATION
+  a_GAMMA_02,
+  # physical slope regressed on EDUCATION
+  a_GAMMA_12,
+  # cognitive slope regressed on EDUCATION
+  b_GAMMA_12,
+  # cognitive intercept regressed on EDUCATION
+  b_GAMMA_02,
+
+
   # correlation b/w physical SLOPE  and cognitive SLOPE
   R_SASB ,
   # correlation b/w physical RESIDUAL and cogntive RESIDUAL
@@ -79,6 +89,7 @@ core_vars <-  c(
 )
 core_vars_heads <- c("ab_TAU_00", "ab_TAU_11",
                      "a_GAMMA_00", "a_GAMMA_10", "b_GAMMA_10", "b_GAMMA_00",
+                     "a_GAMMA_02", "a_GAMMA_12", "b_GAMMA_12", "b_GAMMA_02",
                      "R_SASB", "R_RES_AB", "R_IAIB",
                      "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
                      "a_SIGMA", "ab_SIGMA", "b_SIGMA")
@@ -159,11 +170,14 @@ d <- ds_wide %>% dplyr::mutate(p_a = process_a, p_b = process_b)
 
 d <- d  %>% dplyr::select_("study_name","model_number","subgroup","model_type",
                             "process_a", "process_b", "index",
-                             "R_IAIB", "R_SASB",
-                            "a_GAMMA_00", "a_GAMMA_10", "b_GAMMA_10", "b_GAMMA_00",
-                            "ab_TAU_00","ab_TAU_11", "p_a", "p_b",
-                            "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
-                            "R_RES_AB", "a_SIGMA", "ab_SIGMA", "b_SIGMA")
+                           "a_GAMMA_02", "a_GAMMA_12", "b_GAMMA_12", "b_GAMMA_02"
+
+                            #  "R_IAIB", "R_SASB",
+                            # "a_GAMMA_00", "a_GAMMA_10", "b_GAMMA_10", "b_GAMMA_00",
+                            # "ab_TAU_00","ab_TAU_11", "p_a", "p_b",
+                            # "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
+                            # "R_RES_AB", "a_SIGMA", "ab_SIGMA", "b_SIGMA"
+                           )
 
 d %>%  DT::datatable(class = 'cell-border stripe',
               caption = "spotting duplicates",
