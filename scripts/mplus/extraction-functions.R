@@ -346,15 +346,15 @@
 
       ## GAMMA*2 = EDUCATION
 
-      edu_eas <- c("EDUC")
-      edu_elsa <- c("EDUC2")
-      edu_hrs <- edu_eas
-      edu_ilse <- c("EDUCNEW")
-      edu_lasa <- edu_eas
-      edu_map <- edu_eas
-      edu_nuage <- edu_eas
-      edu_octo <- edu_eas
-      edu_satsa <- c("CEDUC")
+      edu_eas    <- c("EDUC")
+      edu_elsa   <- c("EDUC2")
+      edu_hrs    <- c("EDUC")
+      edu_ilse   <- c("EDUCNEW")
+      edu_lasa   <- c("EDUC")
+      edu_map    <- c("EDUC")
+      edu_nuage  <- c("EDUC")
+      edu_octo   <- c("EDUC")
+      edu_satsa  <- c("CEDUC")
       education_ <- unique(c(edu_eas, edu_elsa, edu_hrs, edu_ilse,
                       edu_lasa, edu_map, edu_nuage, edu_octo,edu_satsa))
 
@@ -384,15 +384,15 @@
 
       ## GAMMA*3 = HEIGHT
 
-      height_eas <- c("HEIGHT")
-      height_elsa <- c("HEI2")
-      height_hrs <- height_eas
-      height_ilse <- height_eas
-      height_lasa <- c("HEIGHTC")
-      height_map <- height_eas
-      height_nuage <- height_eas
-      height_octo <- height_lasa
-      height_satsa <- height_eas
+      height_eas   <- c("HEIGHT")
+      height_elsa  <- c("HEI2")
+      height_hrs   <- c("HEIGHT")
+      height_ilse  <- c("HEIGHT")
+      height_lasa  <- c("HEIGHTC")
+      height_map   <- c("HEIGHT")
+      height_nuage <- c("HEIGHT")
+      height_octo  <- c("HEIGHTC")
+      height_satsa <- c("HEIGHT")
       height_ <- unique(c(height_eas, height_elsa, height_hrs, height_ilse,
                           height_lasa, height_map, height_nuage, height_octo,height_satsa))
 
@@ -419,6 +419,122 @@
       (test <- test[test$param %in% height_,])
       (test <- test[c('est', 'se', "est_se", 'pval')])
       if(dim(test)[1]!=0) {result[b_GAMMA_13] <- test}
+
+
+      ## GAMMA*4 = SMOKING
+
+      height_eas   <- c("SMOKHIST")
+      height_elsa  <- c("SMOKE1")
+      height_hrs   <- c("SMOKE04")
+      height_ilse  <- c("SMOKER")
+      height_lasa  <- c("SMOKHIST")
+      height_map   <- c("SMOKHIST")
+      height_nuage <- c("SMOKHIST")
+      height_octo  <- c("SMOKHIST")
+      height_satsa <- c("EVERSMOKE")
+      height_ <- unique(c(height_eas, height_elsa, height_hrs, height_ilse,
+                          height_lasa, height_map, height_nuage, height_octo,height_satsa))
+
+      ## intercept of process 1 (P) regressed on SMOKING at baseline
+      (test <- model[grep("IP.ON", model$paramHeader),])
+      (test <- test[test$param %in% height_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[a_GAMMA_04] <- test}
+
+      ## slope of process 1 (P) regressed on SMOKING at baseline
+      (test <- model[grep("SP.ON", model$paramHeader),])
+      (test <- test[test$param %in% height_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[a_GAMMA_14] <- test}
+
+      ## intercept of process 2 (C) regressed on SMOKING at baseline
+      (test <- model[grep("IC.ON", model$paramHeader),])
+      (test <- test[test$param %in% height_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[b_GAMMA_04] <- test}
+
+      ## slope of process 1 (P) regressed on SMOKING at baseline
+      (test <- model[grep("SC.ON", model$paramHeader),])
+      (test <- test[test$param %in% height_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[b_GAMMA_14] <- test}
+
+
+      ## GAMMA*5 = CARDIO
+
+      cardio_eas   <- c("CARDIO")
+      cardio_elsa  <- c("CARDIO1")
+      cardio_hrs   <- c("CVD04")
+      cardio_ilse  <- c("HEARTDIS")
+      cardio_lasa  <- c("CARDIO")
+      cardio_map   <- c("CARDIO")
+      cardio_nuage <- c("CARDIO")
+      cardio_octo  <- c("CARDIO")
+      cardio_satsa <- c("CHD")
+      cardio_ <- unique(c(cardio_eas, cardio_elsa, cardio_hrs, cardio_ilse,
+                          cardio_lasa, cardio_map, cardio_nuage, cardio_octo, cardio_satsa))
+
+      ## intercept of process 1 (P) regressed on CARDIO at baseline
+      (test <- model[grep("IP.ON", model$paramHeader),])
+      (test <- test[test$param %in% cardio_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[a_GAMMA_05] <- test}
+
+      ## slope of process 1 (P) regressed on CARDIO at baseline
+      (test <- model[grep("SP.ON", model$paramHeader),])
+      (test <- test[test$param %in% cardio_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[a_GAMMA_15] <- test}
+
+      ## intercept of process 2 (C) regressed on CARDIO at baseline
+      (test <- model[grep("IC.ON", model$paramHeader),])
+      (test <- test[test$param %in% cardio_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[b_GAMMA_05] <- test}
+
+      ## slope of process 1 (P) regressed on CARDIO at baseline
+      (test <- model[grep("SC.ON", model$paramHeader),])
+      (test <- test[test$param %in% cardio_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[b_GAMMA_15] <- test}
+
+      ## GAMMA*6 = DIABETES
+
+      diabetes_eas   <- c("DIAB1")
+      diabetes_elsa  <- c("DIAB1")
+      diabetes_hrs   <- c("DIABETES04")
+      diabetes_ilse  <- NULL # DOES NOT CONTAIN DIABETES
+      diabetes_lasa  <- c("DIABETES")
+      diabetes_map   <- c("DIAB")
+      diabetes_nuage <- c("DIAB")
+      diabetes_octo  <- c("DIABETES")
+      diabetes_satsa <- c("DIABETE")
+      diabetes_ <- unique(c(diabetes_eas, diabetes_elsa, diabetes_hrs, diabetes_ilse,
+                            diabetes_lasa, diabetes_map, diabetes_nuage, diabetes_octo, diabetes_satsa))
+
+      ## intercept of process 1 (P) regressed on DIABETES at baseline
+      (test <- model[grep("IP.ON", model$paramHeader),])
+      (test <- test[test$param %in% diabetes_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[a_GAMMA_06] <- test}
+
+      ## slope of process 1 (P) regressed on DIABETES at baseline
+      (test <- model[grep("SP.ON", model$paramHeader),])
+      (test <- test[test$param %in% diabetes_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[a_GAMMA_16] <- test}
+
+      ## intercept of process 2 (C) regressed on DIABETES at baseline
+      (test <- model[grep("IC.ON", model$paramHeader),])
+      (test <- test[test$param %in% diabetes_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[b_GAMMA_06] <- test}
+
+      ## slope of process 1 (P) regressed on DIABETES at baseline
+      (test <- model[grep("SC.ON", model$paramHeader),])
+      (test <- test[test$param %in% diabetes_,])
+      (test <- test[c('est', 'se', "est_se", 'pval')])
+      if(dim(test)[1]!=0) {result[b_GAMMA_16] <- test}
 
     } # close if
     return(result)

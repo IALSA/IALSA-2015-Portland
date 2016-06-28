@@ -89,12 +89,12 @@ list_pp[["elsa"]]
 # path_model_output <- list_pc[["map"]][116]
 # path_model_output <- list_pc[["nuage"]][10]
 # path_model_output <- list_pc[["octo"]][38]
-path_model_output <- list_pc[["satsa"]][50]
+# path_model_output <- list_pc[["satsa"]][50]
 
-# list_pc$eas
-(path=path_model_output)
+# list_pc$satsa
+# (path=path_model_output)
 # check the parameter output
-get_mpar(path)$unstandardized %>% dplyr::slice(1:26)
+# get_mpar(path)$unstandardized %>% dplyr::slice(1:26)
 # ---- dto ---------------------------------------------------------
 collect_result <- function(path){
   # extract model idendification
@@ -113,8 +113,9 @@ collect_result <- function(path){
   return(result)
 }
 # collected <- collect_result(path=path_model_output)
-# collected[c(model_id,b_GAMMA_02)]
+# collected[c(model_id,b_GAMMA_04)]
 # result %>% dplyr::glimpse()
+
 model_output_file_path <- list(
   "eas"   = list_pc[["eas"]],
   "elsa"  = list_pc[["elsa"]], #[1:2],
@@ -126,6 +127,7 @@ model_output_file_path <- list(
   "octo"  = list_pc[["octo"]],#[1:2],
   "satsa" = list_pc[["satsa"]] #[1:2]
 )
+
 # ---- dto ---------------------------------------------------------
 
 collect_study <- function(study, selected_results){
@@ -136,6 +138,7 @@ collect_study <- function(study, selected_results){
   # browser()
   #
   for(i in seq_along(model_output_file_path[[study]])){
+  # for(i in 50:50){
     # i <- 1; study = "eas"
     (collected <- collect_result(path=model_output_file_path[[study]][i]))
     (collected_names <- names(collected))
@@ -148,14 +151,14 @@ collect_study <- function(study, selected_results){
 
 # ---- dto ---------------------------------------------------------
 # collect_study(study="eas", selected_results)
-# collect_study(study="elsa", selected_results)
-# collect_study(study="hrs", selected_results)
-# collect_study(study="ilse", selected_results)
-# collect_study(study="lasa", selected_results)
-# collect_study(study="map", selected_results)
-# collect_study(study="nuage", selected_results)
-# collect_study(study="octo", selected_results)
-# collect_study(study="satsa", selected_results)
+collect_study(study="elsa", selected_results)
+collect_study(study="hrs", selected_results)
+collect_study(study="ilse", selected_results)
+collect_study(study="lasa", selected_results)
+collect_study(study="map", selected_results)
+collect_study(study="nuage", selected_results)
+collect_study(study="octo", selected_results)
+collect_study(study="satsa", selected_results)
 
 # ---- dto ---------------------------------------------------------
 # combine results files from each study
@@ -167,7 +170,7 @@ for(i in seq_along(combine_studies)){
 }
 results <- plyr::ldply(dtos, data.frame)
 # explore dplyr::bind_rows() for a better solution
-head(results[,c("study_name","a_GAMMA_12_est")])
+head(results[,c("study_name","a_GAMMA_14_est")])
 
 # ---- dto ---------------------------------------------------------
 #### REMOVE DUPLICATES BEFORE SAVING THE DATA FOR THE NEXT STEP

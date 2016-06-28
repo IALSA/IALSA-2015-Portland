@@ -72,10 +72,14 @@ core_vars <-  c(
   b_GAMMA_12,
   # cognitive intercept regressed on EDUCATION
   b_GAMMA_02,
-
-
+  # HEIGHT
   a_GAMMA_03, a_GAMMA_13, b_GAMMA_03, b_GAMMA_13,
-
+  # SMOKING
+  a_GAMMA_04, a_GAMMA_14, b_GAMMA_04, b_GAMMA_14,
+  # CARDIO
+  a_GAMMA_05, a_GAMMA_15, b_GAMMA_05, b_GAMMA_15,
+  # DIABETES
+  a_GAMMA_06, a_GAMMA_16, b_GAMMA_06, b_GAMMA_16,
 
   # correlation b/w physical SLOPE  and cognitive SLOPE
   R_SASB ,
@@ -184,7 +188,7 @@ d <- ds_wide %>% dplyr::mutate(p_a = process_a, p_b = process_b)
 
 d <- d  %>% dplyr::select_("study_name","model_number","subgroup","model_type",
                             "process_a", "process_b", "index",
-                           "a_GAMMA_03", "a_GAMMA_13", "b_GAMMA_13", "b_GAMMA_03"
+                           "a_GAMMA_04", "a_GAMMA_14", "b_GAMMA_14", "b_GAMMA_04"
 
                             #  "R_IAIB", "R_SASB",
                             # "a_GAMMA_00", "a_GAMMA_10", "b_GAMMA_10", "b_GAMMA_00",
