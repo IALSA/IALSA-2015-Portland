@@ -31,7 +31,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./sandbox/inspect-extracted-results/inspect-extracted.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./reports/inspect-extracted-results/inspect-extracted.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 
