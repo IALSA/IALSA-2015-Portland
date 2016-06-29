@@ -233,7 +233,7 @@ rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
 # ---- table-dynamic-long ----------------------------------------
 ds_long %>%
   dplyr::filter(model_type=="aehplus" & subgroup=="female" & process_a=="gait") %>%
-  dplyr::select(-g, -model_type, -subgroup, -process_a) %>%
+  dplyr::select(-g, -model_type, -subgroup, -process_a, -parameter_count) %>%
   DT::datatable(
     class     = 'cell-border stripe',
     caption   = "Growth Curve Model Solution --Long Format",
