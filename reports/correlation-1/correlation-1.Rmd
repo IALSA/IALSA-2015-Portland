@@ -1,8 +1,8 @@
 ---
-title: "Random Effects"
+title: "Correlation Report #1"
 output:
   html_document:
-    css: ~/uvic/IALSA-2015-Portland/libs/css/sidebar.css
+    css: ./libs/css/sidebar.css
     keep_md: yes
     toc: yes
 date: 'Date: `r Sys.Date()`'
@@ -33,7 +33,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./reports/effects-random/effects-random.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./reports/correlation-1/correlation-1.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
