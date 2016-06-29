@@ -17,13 +17,6 @@ requireNamespace("scales")
 options(show.signif.stars=F) #Turn off the annotations on p-values
 path_input <- "./data/shared/parsed-results.rds"
 
-# ---- load-data ---------------------------------------------------------------
-ds_full <- readRDS(path_input)
-
-rm(path_input)
-
-# ---- tweak-data --------------------------------------------------------------
-
 # simplify ----
 variables_part_1 <- c(
   "study_name",
@@ -34,61 +27,168 @@ variables_part_1 <- c(
 )
 
 # variables_part_4 <- grep(regex_r, colnames(ds_full), perl=T, value=T)
-regex_r <- "^r_(i|s|r)_(est|se|wald|pval|ci95_lower|ci95_upper)$"
+regex_gamma <- "^(a|b)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 
-ds_order_r <- expand.grid(#tidyr::crossing(
-  stat      = c("est", "se", "wald", "pval", "ci95_lower", "ci95_upper"),
-  term      = c("i", "s", "r"),
-  stringsAsFactors = FALSE
+coefficients_possible <- c("01", "11", "02", "12", "03", "13", "04", "14", "05", "15", "06", "16")
+stats_possible        <- c("est", "se", "wald", "pval")
+ds_order_gamma <- tidyr::crossing(
+  process       = c("a", "b"),
+  ceofficient   = factor(coefficients_possible, levels=coefficients_possible),
+  stat          = factor(stats_possible       , levels=stats_possible)
 )
+
+#, "ci95_lower", "ci95_upper"),
 
 variables_part_4a <- c(
   "subject_count"
 )
 
+# ---- load-data ---------------------------------------------------------------
+ds_full <- readRDS(path_input)
+rm(path_input)
+
+# ---- tweak-data --------------------------------------------------------------
+# OuhscMunge::column_rename_headstart(ds_full)
 variables_part_4b <- sprintf(
-  "r_%s_%s",
-  ds_order_r$term,
-  ds_order_r$stat
+  "%s_gamma_%s_%s",
+  ds_order_gamma$process,
+  ds_order_gamma$ceofficient,
+  ds_order_gamma$stat
 )
 
 # elongate ----
 ds_long <- ds_full %>%
   dplyr::rename_(
-       "r_i_est"           = "`R_IAIB_est`"
-     , "r_i_se"            = "`R_IAIB_se`"
-     , "r_i_wald"          = "`R_IAIB_wald`"
-     , "r_i_pval"          = "`R_IAIB_pval`"
-     , "r_s_est"           = "`R_SASB_est`"
-     , "r_s_se"            = "`R_SASB_se`"
-     , "r_s_wald"          = "`R_SASB_wald`"
-     , "r_s_pval"          = "`R_SASB_pval`"
-     , "r_r_est"           = "`R_RES_AB_est`"
-     , "r_r_se"            = "`R_RES_AB_se`"
-     , "r_r_wald"          = "`R_RES_AB_wald`"
-     , "r_r_pval"          = "`R_RES_AB_pval`"
-     , "r_i_ci95_lower"    = "ab_CI95_00_low"
-     , "r_i_ci95_upper"    = "ab_CI95_00_high"
-     , "r_s_ci95_lower"    = "ab_CI95_11_low"
-     , "r_s_ci95_upper"    = "ab_CI95_11_high"
-     , "r_r_ci95_lower"    = "ab_CI95_residual_low"
-     , "r_r_ci95_upper"    = "ab_CI95_residual_high"
+    "study_name"                  = "`study_name`"
+    , "model_number"                = "`model_number`"
+    , "subgroup"                    = "`subgroup`"
+    , "model_type"                  = "`model_type`"
+    , "subject_count"               = "`subject_count`"
+    , "wave_count"                  = "`wave_count`"
+    , "datapoint_count"             = "`datapoint_count`"
+    , "parameter_count"             = "`parameter_count`"
+    , "ll"                          = "`LL`"
+    , "aic"                         = "`aic`"
+    , "bic"                         = "`bic`"
+    , "adj_bic"                     = "`adj_bic`"
+    , "aaic"                        = "`aaic`"
+    , "has_converged"               = "`has_converged`"
+    , "trust_all"                   = "`trust_all`"
+    , "mistrust"                    = "`mistrust`"
+    , "covar_covered"               = "`covar_covered`"
+    , "a_gamma_01_est"              = "`a_GAMMA_01_est`"
+    , "a_gamma_01_se"               = "`a_GAMMA_01_se`"
+    , "a_gamma_01_wald"             = "`a_GAMMA_01_wald`"
+    , "a_gamma_01_pval"             = "`a_GAMMA_01_pval`"
+    , "a_gamma_11_est"              = "`a_GAMMA_11_est`"
+    , "a_gamma_11_se"               = "`a_GAMMA_11_se`"
+    , "a_gamma_11_wald"             = "`a_GAMMA_11_wald`"
+    , "a_gamma_11_pval"             = "`a_GAMMA_11_pval`"
+    , "b_gamma_01_est"              = "`b_GAMMA_01_est`"
+    , "b_gamma_01_se"               = "`b_GAMMA_01_se`"
+    , "b_gamma_01_wald"             = "`b_GAMMA_01_wald`"
+    , "b_gamma_01_pval"             = "`b_GAMMA_01_pval`"
+    , "b_gamma_11_est"              = "`b_GAMMA_11_est`"
+    , "b_gamma_11_se"               = "`b_GAMMA_11_se`"
+    , "b_gamma_11_wald"             = "`b_GAMMA_11_wald`"
+    , "b_gamma_11_pval"             = "`b_GAMMA_11_pval`"
+    , "a_gamma_02_est"              = "`a_GAMMA_02_est`"
+    , "a_gamma_02_se"               = "`a_GAMMA_02_se`"
+    , "a_gamma_02_wald"             = "`a_GAMMA_02_wald`"
+    , "a_gamma_02_pval"             = "`a_GAMMA_02_pval`"
+    , "a_gamma_12_est"              = "`a_GAMMA_12_est`"
+    , "a_gamma_12_se"               = "`a_GAMMA_12_se`"
+    , "a_gamma_12_wald"             = "`a_GAMMA_12_wald`"
+    , "a_gamma_12_pval"             = "`a_GAMMA_12_pval`"
+    , "b_gamma_02_est"              = "`b_GAMMA_02_est`"
+    , "b_gamma_02_se"               = "`b_GAMMA_02_se`"
+    , "b_gamma_02_wald"             = "`b_GAMMA_02_wald`"
+    , "b_gamma_02_pval"             = "`b_GAMMA_02_pval`"
+    , "b_gamma_12_est"              = "`b_GAMMA_12_est`"
+    , "b_gamma_12_se"               = "`b_GAMMA_12_se`"
+    , "b_gamma_12_wald"             = "`b_GAMMA_12_wald`"
+    , "b_gamma_12_pval"             = "`b_GAMMA_12_pval`"
+    , "a_gamma_03_est"              = "`a_GAMMA_03_est`"
+    , "a_gamma_03_se"               = "`a_GAMMA_03_se`"
+    , "a_gamma_03_wald"             = "`a_GAMMA_03_wald`"
+    , "a_gamma_03_pval"             = "`a_GAMMA_03_pval`"
+    , "a_gamma_13_est"              = "`a_GAMMA_13_est`"
+    , "a_gamma_13_se"               = "`a_GAMMA_13_se`"
+    , "a_gamma_13_wald"             = "`a_GAMMA_13_wald`"
+    , "a_gamma_13_pval"             = "`a_GAMMA_13_pval`"
+    , "b_gamma_03_est"              = "`b_GAMMA_03_est`"
+    , "b_gamma_03_se"               = "`b_GAMMA_03_se`"
+    , "b_gamma_03_wald"             = "`b_GAMMA_03_wald`"
+    , "b_gamma_03_pval"             = "`b_GAMMA_03_pval`"
+    , "b_gamma_13_est"              = "`b_GAMMA_13_est`"
+    , "b_gamma_13_se"               = "`b_GAMMA_13_se`"
+    , "b_gamma_13_wald"             = "`b_GAMMA_13_wald`"
+    , "b_gamma_13_pval"             = "`b_GAMMA_13_pval`"
+    , "a_gamma_04_est"              = "`a_GAMMA_04_est`"
+    , "a_gamma_04_se"               = "`a_GAMMA_04_se`"
+    , "a_gamma_04_wald"             = "`a_GAMMA_04_wald`"
+    , "a_gamma_04_pval"             = "`a_GAMMA_04_pval`"
+    , "a_gamma_14_est"              = "`a_GAMMA_14_est`"
+    , "a_gamma_14_se"               = "`a_GAMMA_14_se`"
+    , "a_gamma_14_wald"             = "`a_GAMMA_14_wald`"
+    , "a_gamma_14_pval"             = "`a_GAMMA_14_pval`"
+    , "b_gamma_04_est"              = "`b_GAMMA_04_est`"
+    , "b_gamma_04_se"               = "`b_GAMMA_04_se`"
+    , "b_gamma_04_wald"             = "`b_GAMMA_04_wald`"
+    , "b_gamma_04_pval"             = "`b_GAMMA_04_pval`"
+    , "b_gamma_14_est"              = "`b_GAMMA_14_est`"
+    , "b_gamma_14_se"               = "`b_GAMMA_14_se`"
+    , "b_gamma_14_wald"             = "`b_GAMMA_14_wald`"
+    , "b_gamma_14_pval"             = "`b_GAMMA_14_pval`"
+    , "a_gamma_05_est"              = "`a_GAMMA_05_est`"
+    , "a_gamma_05_se"               = "`a_GAMMA_05_se`"
+    , "a_gamma_05_wald"             = "`a_GAMMA_05_wald`"
+    , "a_gamma_05_pval"             = "`a_GAMMA_05_pval`"
+    , "a_gamma_15_est"              = "`a_GAMMA_15_est`"
+    , "a_gamma_15_se"               = "`a_GAMMA_15_se`"
+    , "a_gamma_15_wald"             = "`a_GAMMA_15_wald`"
+    , "a_gamma_15_pval"             = "`a_GAMMA_15_pval`"
+    , "b_gamma_05_est"              = "`b_GAMMA_05_est`"
+    , "b_gamma_05_se"               = "`b_GAMMA_05_se`"
+    , "b_gamma_05_wald"             = "`b_GAMMA_05_wald`"
+    , "b_gamma_05_pval"             = "`b_GAMMA_05_pval`"
+    , "b_gamma_15_est"              = "`b_GAMMA_15_est`"
+    , "b_gamma_15_se"               = "`b_GAMMA_15_se`"
+    , "b_gamma_15_wald"             = "`b_GAMMA_15_wald`"
+    , "b_gamma_15_pval"             = "`b_GAMMA_15_pval`"
+    , "a_gamma_06_est"              = "`a_GAMMA_06_est`"
+    , "a_gamma_06_se"               = "`a_GAMMA_06_se`"
+    , "a_gamma_06_wald"             = "`a_GAMMA_06_wald`"
+    , "a_gamma_06_pval"             = "`a_GAMMA_06_pval`"
+    , "a_gamma_16_est"              = "`a_GAMMA_16_est`"
+    , "a_gamma_16_se"               = "`a_GAMMA_16_se`"
+    , "a_gamma_16_wald"             = "`a_GAMMA_16_wald`"
+    , "a_gamma_16_pval"             = "`a_GAMMA_16_pval`"
+    , "b_gamma_06_est"              = "`b_GAMMA_06_est`"
+    , "b_gamma_06_se"               = "`b_GAMMA_06_se`"
+    , "b_gamma_06_wald"             = "`b_GAMMA_06_wald`"
+    , "b_gamma_06_pval"             = "`b_GAMMA_06_pval`"
+    , "b_gamma_16_est"              = "`b_GAMMA_16_est`"
+    , "b_gamma_16_se"               = "`b_GAMMA_16_se`"
+    , "b_gamma_16_wald"             = "`b_GAMMA_16_wald`"
+    , "b_gamma_16_pval"             = "`b_GAMMA_16_pval`"
   ) %>%
   dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b)) %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
   dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>%
-  tidyr::gather_("r", "value", variables_part_4b) %>%
+  tidyr::gather_("g", "value", variables_part_4b) %>%
   dplyr::mutate(
-    stem      = gsub(regex_r, "\\1", r, perl=T),
-    stat      = gsub(regex_r, "\\2", r, perl=T)
+    process      = gsub(regex_gamma, "\\1", g, perl=T),
+    coefficient  = gsub(regex_gamma, "\\2", g, perl=T),
+    stat         = gsub(regex_gamma, "\\3", g, perl=T)
   )
-
-rm(ds_order_r, ds_full, variables_part_4b) #variables_part_1
+rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
 
 # remove-duplicates ----
 ds_no_duplicates <- ds_long %>%
   dplyr::group_by_(
-    .dots=c(variables_part_1, variables_part_4a, "r", "stem", "stat") #Lacks "value"
+    .dots=c(variables_part_1, variables_part_4a, "process", "coefficient", "stat") #Lacks "value"
+    # .dots=c(variables_part_1, variables_part_4a, "process", "breed", "species", "stat") #Lacks "value"
   ) %>%
   dplyr::summarize(
     # value  = dplyr::first(value, na.rm=T)
@@ -101,7 +201,8 @@ coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 ds_find_duplicates <- ds_long %>%
   dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
   dplyr::group_by_(
-    .dots=c(variables_part_1, variables_part_4a,  "r", "stem", "stat")
+    .dots=c(variables_part_1, variables_part_4a,  "process", "coefficient", "stat")
+    # .dots=c(variables_part_1, variables_part_4a,  "process", "breed", "species", "stat")
   ) %>%  #Lacks "value"
   dplyr::filter(!is.na(value)) %>% #Drops from 56 rows to 8 rows.  !!Careful that you don't remove legit NAs (esp, in nonduplicated rows).
   dplyr::summarize(
@@ -118,62 +219,69 @@ rm(variables_part_1, variables_part_4a, ds_find_duplicates)
 
 
 pattern_est <- c(
-  "i"    = "%0.2f",
-  "s"    = "%0.2f",
-  "r"    = "%0.2f"
+  "intercept"    = "%0.2f",
+  "slope"        = "%0.2f"
 )
 pattern_se <- c(
-  "i"    = "%0.2f",
-  "s"    = "%0.2f",
-  "r"    = "%0.2f"
+  "intercept"    = "%0.2f",
+  "slope"        = "%0.2f"
 )
 pattern_dense <- c(
-  "i"    = "%6s(%4s),%7s",
-  "s"    = "%6s(%4s),%7s",
-  "r"    = "%6s(%4s),%7s"
+  "intercept"    = "%6s(%4s),%7s",
+  "slope"        = "%6s(%4s),%7s"
 )
-# pattern_dense[[ds_spread_1$stem[1]]]
 
 # spread-to-stem ----
 ds_spread <- ds_no_duplicates %>%
-  dplyr::select(-r) %>%
-  tidyr::spread(stat, value)
+  # dplyr::select(-coefficient) %>%
+  tidyr::spread(stat, value) %>%
+  dplyr::mutate(
+    breed        = as.integer(gsub("^([01])(\\d)$", "\\1", coefficient)),
+    species      = as.integer(gsub("^([01])(\\d)$", "\\2", coefficient)),
+    breed        = ifelse(breed==0L, "intercept", ifelse(breed==1L, "slope", NA_character_))
+    # is_intercept = grepl("^0\\d$", coefficient),
+    # is_slope     = grepl("^1\\d$", coefficient),
+    # breed        = ifelse(is_intercept, "intercept", ifelse(is_slope, "slope", NA_character_))
+  ) #%>%
+# dplyr::select(-is_intercept, -is_slope)
+# testit::assert("A value should be from only an intercept or a slope, but not both.", all(xor(ds_long$is_intercept, ds_long$is_slope)))
+testit::assert("A value should be from only an intercept or a slope.", all(!is.na(ds_long$breed)))
+
 
 # create a csv manhole
-readr::write_csv(ds_spread, "./data/shared/tables/effects-random.csv")
+readr::write_csv(ds_spread, "./data/shared/tables/growth-curve-1.csv")
 
 ds_spread_pretty <- ds_spread %>%
   dplyr::mutate(
     subject_count = scales::comma(subject_count),
-    est_pretty    = sprintf(pattern_est[stem], est),
-    se_pretty     = sprintf(pattern_se[stem], se),
+    est_pretty    = sprintf(pattern_est[1], est),
+    se_pretty     = sprintf(pattern_se[1], se),
     pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
     pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
     pval_pretty   = sprintf("$p$=%s", pval_pretty),
     pval_pretty   = ifelse(pval_pretty=="$p$=.00", "$p$<.01", pval_pretty),       #Cap p-value at .01
     pval_pretty   = ifelse(pval_pretty=="$p$=NA" , "$p$= NA", pval_pretty),       #Pad NA with space
-    pattern       = pattern_dense[stem],
+    pattern       = pattern_dense[1],
     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
     dense         = ifelse(is.nan(est), "--,$p$=  ----", dense)
   ) %>%
-  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern, -ci95_lower, -ci95_upper)
+  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern) #, -ci95_lower, -ci95_upper)
+  # dplyr::select(-coefficient) %>%
+  # tidyr::spread(key=breed, value=dense)
 
-# ds_spread_1$dense
-
-# widen ----
+# # ds_spread_1$dense
+#
+# # widen ----
 ds_wide_pretty <- ds_spread_pretty %>%
-  dplyr::mutate(
-    #stem  = gsub("^(\\w)_(\\d{2})$", "r_\\1_\\2", stem)
-    stem   = paste0("r_", stem)
-  ) %>%
-  tidyr::spread(stem, dense) %>%
-  dplyr::select(study_name, process_a, process_b, subgroup, model_type, subject_count, r_i, r_s, r_r) %>%
+  dplyr::select(-coefficient) %>%
+  tidyr::spread(key=breed, value=dense) %>%
+  dplyr::select(study_name, process_a, process_b, subgroup, model_type, subject_count, intercept, slope) %>%
   dplyr::arrange(study_name, process_a, process_b, subgroup, model_type) %>%
   dplyr::rename_(
-    "n"               = "subject_count",
-    "r_intercept"     = "r_i",
-    "r_slope"         = "r_s",
-    "r_residual"      = "r_r"
+    "n"               = "subject_count"#,
+    # "r_intercept"     = "r_i",
+    # "r_slope"         = "r_s",
+    # "r_residual"      = "r_r"
   )
 
 # ---- prettify ----------------------------------------------------------------
@@ -184,9 +292,8 @@ ds_dynamic_pretty <- ds_wide_pretty %>%
     process_b     = factor(process_b),
     subgroup      = factor(subgroup),
     model_type    = factor(model_type),
-    r_intercept   = sub("\\$p\\$", "p", r_intercept),
-    r_slope       = sub("\\$p\\$", "p", r_slope),
-    r_residual    = sub("\\$p\\$", "p", r_residual)
+    intercept     = sub("\\$p\\$", "p", intercept),
+    slope         = sub("\\$p\\$", "p", slope)
   )
 colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 
@@ -199,18 +306,18 @@ ds_static_pretty <- ds_wide_pretty %>%
   dplyr::select(-model_type, -process_a, -process_b)
 # ds_static_pretty$process
 
-# creat a csv manhole
-readr::write_csv(ds_dynamic_pretty, "./data/shared/tables/effects-random-pretty.csv")
+# # creat a csv manhole
+readr::write_csv(ds_dynamic_pretty, "./data/shared/tables/growth-curve-1.csv")
 
 ds_static_pretty <- ds_static_pretty %>%
   dplyr::select_(.dots=c("study_name", "process", "subgroup", setdiff(colnames(ds_static_pretty), c("study_name", "process", "subgroup")))) %>%
   dplyr::rename_(
     "Processes"        = "process",
     "Gender"           = "subgroup",
-    "$n$"              = "n",
-    "$r_{intercepts}$" = "r_intercept",
-    "$r_{slopes}$"     = "r_slope",
-    "$r_{residuals}$"  = "r_residual"
+    "$n$"              = "n"#,
+    # "$r_{intercepts}$" = "r_intercept",
+    # "$r_{slopes}$"     = "r_slope",
+    # "$r_{residuals}$"  = "r_residual"
   )
 
 
@@ -234,7 +341,7 @@ for( study in unique(ds_wide_pretty$study_name) ) {
     dplyr::select(-study_name) %>%
     knitr::kable(
       format     = "html",
-      align      = c("l", "l", "r", "r", "r", "r")
+      align      = c("l", "l", "r", "r", "r")
     ) %>%
     print()
 }
@@ -243,17 +350,17 @@ for( study in unique(ds_wide_pretty$study_name) ) {
 ds_graph <- ds_spread %>%
   dplyr::filter(model_type=="aehplus") %>%
   dplyr::filter(!is.na(est) & !is.na(se) & !is.na(subject_count)) %>%
-  dplyr::select(study_name, process_a, process_b, subgroup, subject_count, stem, est, se, ci95_lower, ci95_upper) %>%
+  dplyr::select(study_name, process_a, process_b, subgroup, subject_count, breed, species, est, se) %>% #, ci95_lower, ci95_upper
   dplyr::mutate(
-    study_name = factor(study_name, levels=rev(unique(ds_spread$study_name))),
-    stem    = factor(stem, levels=c("i", "s", "r"), labels=c("italic(r)[intercepts]", "italic(r)[slopes]", "italic(r)[residuals]"))
+    study_name = factor(study_name, levels=rev(unique(ds_spread$study_name)))#,
+    # stem    = factor(stem, levels=c("i", "s", "r"), labels=c("italic(r)[intercepts]", "italic(r)[slopes]", "italic(r)[residuals]"))
     #stem    = factor(stem, levels=c("i", "s", "r"), labels=c("intercepts", "slopes", "residuals"))
   )
 
-
-
-# table(ds_graph[, c("process_a", "process_b")])
-
+#
+#
+# # table(ds_graph[, c("process_a", "process_b")])
+#
 palette_gender_dark          <- c("#af6ca8", "#5a8fc1") #duller than below. http://colrd.com/image-dna/42282/ & http://colrd.com/image-dna/42275/
 # palette_gender_dark        <- c("#f25091", "#6718f4") #brighter than above. http://colrd.com/palette/42278/
 palette_gender_light         <- adjustcolor(palette_gender_dark, alpha.f = .2)
@@ -274,15 +381,15 @@ ds_graph_index <- tidyr::crossing(
   process_b     = sort(unique(ds_graph$process_b))
 )
 forest <- function( d ) {
-  ggplot(d, aes(y=study_name, x=est, xmin=ci95_lower, xmax=ci95_upper, color=subgroup, fill=subgroup, shape=subgroup)) +
+  ggplot(d, aes(y=study_name, x=est, color=subgroup, fill=subgroup, shape=subgroup)) + #, xmin=ci95_lower, xmax=ci95_upper
     geom_vline(aes(xintercept=0), color="gray85", size=1, na.rm=T, linetype="42") +
-    geom_errorbarh(aes(height=0), size=2, alpha=.4, na.rm=T) + # , position=position_dodge(width=.2)
+    # geom_errorbarh(aes(height=0), size=2, alpha=.4, na.rm=T) + # , position=position_dodge(width=.2)
     geom_point(size=3) +
     scale_color_manual(values=palette_gender_dark) +
     scale_fill_manual(values=palette_gender_light) +
     scale_shape_manual(values=shape_gender) +
     coord_cartesian(xlim=c(-.5,1)) +
-    facet_grid(process_b~stem, scales="free", labeller = label_parsed) +
+    facet_grid(process_b~breed+species, scales="free", labeller = label_parsed) +
     # facet_grid(process_b~stem, scales="free", labeller = label_bquote(cols = r[.(stem)])) +
     # facet_grid(process_b~stem, scales="free") +
     theme_report +
