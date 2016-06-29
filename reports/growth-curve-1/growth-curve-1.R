@@ -215,9 +215,34 @@ ds_find_duplicates <- ds_long %>%
   dplyr::filter(.001 < value_cv) #Drops from 8 to 0 rows.
 
 # testit::assert("No meaningful duplicate rows should exist.", nrow(ds_find_duplicates)==0L)
-rm(variables_part_1, variables_part_4a, ds_find_duplicates)
+# rm(variables_part_1, variables_part_4a, ds_find_duplicates)
+
+# ---- collapse-within-process ----------------------------------------
+ds_collapsed_physical <- ds_no_duplicates %>%
+  dplyr::group_by_(.dots=c("study_name", "process_a", "subgroup", "model_type", variables_part_4a,  "coefficient", "stat")) %>%
+  dplyr::summarize(
+    value   = median(value, na.rm=T)
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::rename_("process" = "process_a")
+
+ds_collapsed_cognitive <- ds_no_duplicates %>%
+  dplyr::group_by_(.dots=c("study_name", "process_b", "subgroup", "model_type", "coefficient", "stat")) %>%
+  dplyr::summarize(
+    subject_count   = median(subject_count, na.rm=T),
+    value           = median(value, na.rm=T)
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::rename_("process" = "process_b")
+
+ds_collapsed <- ds_collapsed_physical %>%
+  dplyr::union(ds_collapsed_cognitive) %>%
+  dplyr::arrange(study_name, process, subgroup, model_type)
+
+rm(ds_collapsed_physical, ds_collapsed_cognitive)
 
 
+# ---- spread ------------------------------------------------------------------
 pattern_est <- c(
   "intercept"    = "%0.2f",
   "slope"        = "%0.2f"
@@ -232,7 +257,7 @@ pattern_dense <- c(
 )
 
 # spread-to-stem ----
-ds_spread <- ds_no_duplicates %>%
+ds_spread <- ds_collapsed %>%
   # dplyr::select(-coefficient) %>%
   tidyr::spread(stat, value) %>%
   dplyr::mutate(
@@ -245,8 +270,7 @@ ds_spread <- ds_no_duplicates %>%
   ) #%>%
 # dplyr::select(-is_intercept, -is_slope)
 # testit::assert("A value should be from only an intercept or a slope, but not both.", all(xor(ds_long$is_intercept, ds_long$is_slope)))
-testit::assert("A value should be from only an intercept or a slope.", all(!is.na(ds_long$breed)))
-
+testit::assert("A value should be from only an intercept or a slope.", all(!is.na(ds_spread$breed)))
 
 # create a csv manhole
 readr::write_csv(ds_spread, "./data/shared/tables/growth-curve-1.csv")
@@ -271,12 +295,12 @@ ds_spread_pretty <- ds_spread %>%
 
 # # ds_spread_1$dense
 #
-# # widen ----
+# widen ----
 ds_wide_pretty <- ds_spread_pretty %>%
   dplyr::select(-coefficient) %>%
   tidyr::spread(key=breed, value=dense) %>%
-  dplyr::select(study_name, process_a, process_b, subgroup, model_type, subject_count, intercept, slope) %>%
-  dplyr::arrange(study_name, process_a, process_b, subgroup, model_type) %>%
+  dplyr::select(study_name, process, subgroup, model_type, subject_count, intercept, slope) %>%
+  dplyr::arrange(study_name, process, subgroup, model_type) %>%
   dplyr::rename_(
     "n"               = "subject_count"#,
     # "r_intercept"     = "r_i",
@@ -288,8 +312,7 @@ ds_wide_pretty <- ds_spread_pretty %>%
 ds_dynamic_pretty <- ds_wide_pretty %>%
   dplyr::mutate(
     study_name    = factor(study_name),
-    process_a     = factor(process_a),
-    process_b     = factor(process_b),
+    process       = factor(process),
     subgroup      = factor(subgroup),
     model_type    = factor(model_type),
     intercept     = sub("\\$p\\$", "p", intercept),
@@ -299,11 +322,7 @@ colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 
 ds_static_pretty <- ds_wide_pretty %>%
   dplyr::filter(model_type=="aehplus") %>%
-  dplyr::mutate(
-    process       = sprintf("%*s vs %s", max(nchar(process_a)), process_a, process_b)
-    # table_header  = paste0(study_name, ": ", process)
-  ) %>%
-  dplyr::select(-model_type, -process_a, -process_b)
+  dplyr::select(-model_type)
 # ds_static_pretty$process
 
 # # creat a csv manhole
@@ -312,7 +331,7 @@ readr::write_csv(ds_dynamic_pretty, "./data/shared/tables/growth-curve-1.csv")
 ds_static_pretty <- ds_static_pretty %>%
   dplyr::select_(.dots=c("study_name", "process", "subgroup", setdiff(colnames(ds_static_pretty), c("study_name", "process", "subgroup")))) %>%
   dplyr::rename_(
-    "Processes"        = "process",
+    "Process"          = "process",
     "Gender"           = "subgroup",
     "$n$"              = "n"#,
     # "$r_{intercepts}$" = "r_intercept",
@@ -350,7 +369,7 @@ for( study in unique(ds_wide_pretty$study_name) ) {
 ds_graph <- ds_spread %>%
   dplyr::filter(model_type=="aehplus") %>%
   dplyr::filter(!is.na(est) & !is.na(se) & !is.na(subject_count)) %>%
-  dplyr::select(study_name, process_a, process_b, subgroup, subject_count, breed, species, est, se) %>% #, ci95_lower, ci95_upper
+  dplyr::select(study_name, process, subgroup, subject_count, breed, species, est, se) %>% #, ci95_lower, ci95_upper
   dplyr::mutate(
     study_name = factor(study_name, levels=rev(unique(ds_spread$study_name)))#,
     # stem    = factor(stem, levels=c("i", "s", "r"), labels=c("italic(r)[intercepts]", "italic(r)[slopes]", "italic(r)[residuals]"))
@@ -376,10 +395,10 @@ theme_report <- theme_light() + #Adapted from https://github.com/OuhscBbmc/DeShe
   theme(axis.ticks           = element_blank()) +
   theme(strip.text.x         = element_text(size = 14))
 
-ds_graph_index <- tidyr::crossing(
-  process_a     = sort(unique(ds_graph$process_a)),
-  process_b     = sort(unique(ds_graph$process_b))
-)
+# ds_graph_index <- tidyr::crossing(
+#   process_a     = sort(unique(ds_graph$process_a)),
+#   process_b     = sort(unique(ds_graph$process_b))
+# )
 forest <- function( d ) {
   ggplot(d, aes(y=study_name, x=est, color=subgroup, fill=subgroup, shape=subgroup)) + #, xmin=ci95_lower, xmax=ci95_upper
     geom_vline(aes(xintercept=0), color="gray85", size=1, na.rm=T, linetype="42") +
@@ -389,28 +408,28 @@ forest <- function( d ) {
     scale_fill_manual(values=palette_gender_light) +
     scale_shape_manual(values=shape_gender) +
     coord_cartesian(xlim=c(-.5,1)) +
-    facet_grid(process_b~breed+species, scales="free", labeller = label_parsed) +
+    facet_grid(breed+process~species, scales="free", labeller = label_parsed) +
     # facet_grid(process_b~stem, scales="free", labeller = label_bquote(cols = r[.(stem)])) +
     # facet_grid(process_b~stem, scales="free") +
     theme_report +
     theme(legend.position="none") +
     theme(strip.text.y = element_text(angle=0)) +
-    labs(x=expression(italic(r)), y=NULL, title=paste0(unique(d$process_a), ": Random Effects Correlations by Study and Gender"))
+    labs(x=expression(italic(r)), y=NULL, title=paste0(unique(d$process), ": Random Effects Correlations by Study and Gender"))
     # labs(x=NULL, y="Correlation", title=paste("Correlation of random effects"))
     # labs(x=NULL, y="Correlation", title=paste("Correlation of", process_a, "&", process_b, "effects"))
 
 }
-forest(ds_graph[ds_graph$process_a=="grip", ])
+# forest(ds_graph[ds_graph$process=="grip", ])
 # forest(ds_graph[ds_graph$process_a=="gait" & ds_graph$process_b=="block", ])
 # forest(ds_graph[ds_graph$process_a=="gait" & ds_graph$process_b=="symbol", ])
 # forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="symbol", ])
 # forest(ds_graph[ds_graph$process_a=="grip" & ds_graph$process_b=="letter", ])
 
-for( process_a in sort(unique(ds_graph$process_a)) ) {
-  d_graph <- ds_graph[ds_graph$process_a==process_a, ]
+for( process in sort(unique(ds_graph$process)) ) {
+  d_graph <- ds_graph[ds_graph$process==process, ]
   if( nrow(d_graph)==0L) next; # Halt the processing of the current iteration and advances the looping index
 
-  cat("\n\n## Physical Variable: ", process_a, "\n")
+  cat("\n\n## Process Variable: ", process, "\n")
   forest(d_graph) %>%
     print()
   # for( process_b in sort(unique(ds_graph$process_b)) ) {

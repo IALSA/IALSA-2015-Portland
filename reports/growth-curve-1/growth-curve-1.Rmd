@@ -74,6 +74,12 @@ read_chunk("./reports/growth-curve-1/growth-curve-1.R") #This allows knitr to ca
 ### Answered Questions
 
 
+```{r collapse-within-process, echo=echoChunks, message=TRUE}
+```
+
+```{r spread, echo=echoChunks, message=TRUE}
+```
+
 ```{r prettify, echo=echoChunks, message=TRUE}
 ```
 
