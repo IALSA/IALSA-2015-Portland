@@ -209,6 +209,21 @@ ds_long <- ds_full %>%
     process      = gsub(regex_gamma, "\\1", g, perl=T),
     coefficient  = gsub(regex_gamma, "\\2", g, perl=T),
     stat         = gsub(regex_gamma, "\\3", g, perl=T)
+    # t_crit                = qt(subject_count - parameter_count, p=.975),
+    # a_GAMMA_00_radius     = t_crit * a_GAMMA_00_se,
+    # a_GAMMA_10_radius     = t_crit * a_GAMMA_10_se,
+    # b_GAMMA_00_radius     = t_crit * b_GAMMA_00_se,
+    # b_GAMMA_10_radius     = t_crit * b_GAMMA_10_se,
+    #
+    # a_GAMMA_00_ci95_lower = a_GAMMA_00_est - a_GAMMA_00_radius,
+    # a_GAMMA_00_ci95_upper = a_GAMMA_00_est + a_GAMMA_00_radius,
+    # a_GAMMA_10_ci95_lower = a_GAMMA_10_est - a_GAMMA_10_radius,
+    # a_GAMMA_10_ci95_upper = a_GAMMA_10_est + a_GAMMA_10_radius,
+    #
+    # b_GAMMA_00_ci95_lower = b_GAMMA_00_est - b_GAMMA_00_radius,
+    # b_GAMMA_00_ci95_upper = b_GAMMA_00_est + b_GAMMA_00_radius,
+    # b_GAMMA_10_ci95_lower = b_GAMMA_10_est - b_GAMMA_10_radius,
+    # b_GAMMA_10_ci95_upper = b_GAMMA_10_est + b_GAMMA_10_radius
   )
 rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
 
