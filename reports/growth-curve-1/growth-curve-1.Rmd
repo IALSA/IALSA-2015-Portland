@@ -74,6 +74,12 @@ read_chunk("./reports/growth-curve-1/growth-curve-1.R") #This allows knitr to ca
 ### Answered Questions
 
 
+```{r table-dynamic-long, echo=echoChunks, message=TRUE}
+```
+
+```{r remove-duplicates, echo=echoChunks, message=TRUE}
+```
+
 ```{r collapse-within-process, echo=echoChunks, message=TRUE}
 ```
 
@@ -85,7 +91,7 @@ read_chunk("./reports/growth-curve-1/growth-curve-1.R") #This allows knitr to ca
 
 # Dynamic Table
 
-```{r table-dynamic, echo=echoChunks, message=TRUE}
+```{r table-dynamic-wide, echo=echoChunks, message=TRUE}
 ```
 
 # Static Tables

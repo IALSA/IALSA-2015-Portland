@@ -30,7 +30,7 @@ variables_part_1 <- c(
 regex_gamma <- "^(a|b)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 
 coefficients_possible <- c("00", "10", "01", "11", "02", "12", "03", "13", "04", "14", "05", "15", "06", "16")
-stats_possible        <- c("est", "se", "wald", "pval")
+stats_possible        <- c("est", "se", "wald", "pval")#, "ci95_lower", "ci95_upper")
 ds_order_gamma <- tidyr::crossing(
   process       = c("a", "b"),
   ceofficient   = factor(coefficients_possible, levels=coefficients_possible),
@@ -50,7 +50,8 @@ coefficient_key <- c(
 #, "ci95_lower", "ci95_upper"),
 
 variables_part_4a <- c(
-  "subject_count"
+  "subject_count",
+  "parameter_count"
 )
 
 # ---- load-data ---------------------------------------------------------------
@@ -201,7 +202,24 @@ ds_long <- ds_full %>%
     , "b_gamma_16_wald"             = "`b_GAMMA_16_wald`"
     , "b_gamma_16_pval"             = "`b_GAMMA_16_pval`"
   ) %>%
-  dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b)) %>%
+  # dplyr::mutate(
+  #   t_crit                = qt(subject_count - parameter_count, p=.975),
+  #   a_gamma_00_radius     = t_crit * a_gamma_00_se,
+  #   a_gamma_10_radius     = t_crit * a_gamma_10_se,
+  #   b_gamma_00_radius     = t_crit * b_gamma_00_se,
+  #   b_gamma_10_radius     = t_crit * b_gamma_10_se,
+  #
+  #   a_gamma_00_ci95_lower = a_gamma_00_est - a_gamma_00_radius,
+  #   a_gamma_00_ci95_upper = a_gamma_00_est + a_gamma_00_radius,
+  #   a_gamma_10_ci95_lower = a_gamma_10_est - a_gamma_10_radius,
+  #   a_gamma_10_ci95_upper = a_gamma_10_est + a_gamma_10_radius,
+  #
+  #   b_gamma_00_ci95_lower = b_gamma_00_est - b_gamma_00_radius,
+  #   b_gamma_00_ci95_upper = b_gamma_00_est + b_gamma_00_radius,
+  #   b_gamma_10_ci95_lower = b_gamma_10_est - b_gamma_10_radius,
+  #   b_gamma_10_ci95_upper = b_gamma_10_est + b_gamma_10_radius
+  # ) %>%
+  dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b))  %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
   dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>%
   tidyr::gather_("g", "value", variables_part_4b) %>%
@@ -209,28 +227,22 @@ ds_long <- ds_full %>%
     process      = gsub(regex_gamma, "\\1", g, perl=T),
     coefficient  = gsub(regex_gamma, "\\2", g, perl=T),
     stat         = gsub(regex_gamma, "\\3", g, perl=T)
-    # t_crit                = qt(subject_count - parameter_count, p=.975),
-    # a_GAMMA_00_radius     = t_crit * a_GAMMA_00_se,
-    # a_GAMMA_10_radius     = t_crit * a_GAMMA_10_se,
-    # b_GAMMA_00_radius     = t_crit * b_GAMMA_00_se,
-    # b_GAMMA_10_radius     = t_crit * b_GAMMA_10_se,
-    #
-    # a_GAMMA_00_ci95_lower = a_GAMMA_00_est - a_GAMMA_00_radius,
-    # a_GAMMA_00_ci95_upper = a_GAMMA_00_est + a_GAMMA_00_radius,
-    # a_GAMMA_10_ci95_lower = a_GAMMA_10_est - a_GAMMA_10_radius,
-    # a_GAMMA_10_ci95_upper = a_GAMMA_10_est + a_GAMMA_10_radius,
-    #
-    # b_GAMMA_00_ci95_lower = b_GAMMA_00_est - b_GAMMA_00_radius,
-    # b_GAMMA_00_ci95_upper = b_GAMMA_00_est + b_GAMMA_00_radius,
-    # b_GAMMA_10_ci95_lower = b_GAMMA_10_est - b_GAMMA_10_radius,
-    # b_GAMMA_10_ci95_upper = b_GAMMA_10_est + b_GAMMA_10_radius
   )
 rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
 
-# remove-duplicates ----
+# ---- table-dynamic-long ----------------------------------------
+ds_long %>%
+  DT::datatable(
+    class     = 'cell-border stripe',
+    caption   = "Growth Curve Model Solution --Long Format",
+    filter    = "top",
+    options   = list(pageLength = 6, autoWidth = TRUE)
+  )
+
+# ---- remove-duplicates ----------------------------------------
 ds_no_duplicates <- ds_long %>%
   dplyr::group_by_(
-    .dots=c(variables_part_1, variables_part_4a, "process_a", "process_b", "coefficient", "stat") #Lacks "value"
+    .dots=c(variables_part_1, variables_part_4a, "process", "process_a", "process_b", "coefficient", "stat") #Lacks "value"
     # .dots=c(variables_part_1, variables_part_4a, "process", "breed", "species", "stat") #Lacks "value"
   ) %>%
   dplyr::summarize(
@@ -244,7 +256,7 @@ coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 ds_find_duplicates <- ds_long %>%
   dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
   dplyr::group_by_(
-    .dots=c(variables_part_1, variables_part_4a,  "process_a", "process_b", "coefficient", "stat")
+    .dots=c(variables_part_1, variables_part_4a, "process", "process_a", "process_b", "coefficient", "stat")
     # .dots=c(variables_part_1, variables_part_4a,  "process", "breed", "species", "stat")
   ) %>%  #Lacks "value"
   dplyr::filter(!is.na(value)) %>% #Drops from 56 rows to 8 rows.  !!Careful that you don't remove legit NAs (esp, in nonduplicated rows).
@@ -262,18 +274,26 @@ ds_find_duplicates <- ds_long %>%
 
 # ---- collapse-within-process ----------------------------------------
 ds_collapsed_physical <- ds_no_duplicates %>%
+  dplyr::filter(process=="a") %>%
+  dplyr::select(-process) %>%
   dplyr::group_by_(.dots=c("study_name", "process_a", "subgroup", "model_type", "coefficient", "stat")) %>%
   dplyr::summarize(
     subject_count   = as.integer(median(subject_count, na.rm=T)),
-    value   = median(value, na.rm=T)
+    spread_lower    = min(value, na.rm=T),
+    spread_upper    = max(value, na.rm=T),
+    value           = median(value, na.rm=T)
   ) %>%
   dplyr::ungroup() %>%
   dplyr::rename_("process" = "process_a")
 
 ds_collapsed_cognitive <- ds_no_duplicates %>%
+  dplyr::filter(process=="b") %>%
+  dplyr::select(-process) %>%
   dplyr::group_by_(.dots=c("study_name", "process_b", "subgroup", "model_type", "coefficient", "stat")) %>%
   dplyr::summarize(
     subject_count   = as.integer(median(subject_count, na.rm=T)),
+    spread_lower    = min(value, na.rm=T),
+    spread_upper    = max(value, na.rm=T),
     value           = median(value, na.rm=T)
   ) %>%
   dplyr::ungroup() %>%
@@ -281,7 +301,7 @@ ds_collapsed_cognitive <- ds_no_duplicates %>%
 
 ds_collapsed <- ds_collapsed_physical %>%
   dplyr::union(ds_collapsed_cognitive) %>%
-  dplyr::arrange(study_name, process, subgroup, model_type)
+  dplyr::arrange(study_name, process, subgroup, model_type, coefficient, stat)
 
 rm(ds_collapsed_physical, ds_collapsed_cognitive)
 
@@ -302,7 +322,7 @@ pattern_dense <- c(
 
 # spread-to-stem ----
 ds_spread <- ds_collapsed %>%
-  # dplyr::select(-coefficient) %>%
+  dplyr::select(-spread_lower, -spread_upper) %>%
   tidyr::spread(key=stat, value=value) %>%
   dplyr::mutate(
     breed        = as.integer(gsub("^([01])(\\d)$", "\\1", coefficient)),
@@ -333,15 +353,12 @@ ds_spread_pretty <- ds_spread %>%
     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
     dense         = ifelse(is.na(est), "--,$p$=  ----", dense)                    #If the cell is bogus, don't bother displaying `NA` in the manuscript table.
   ) %>%
-  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern) %>% #, -ci95_lower, -ci95_upper)
+  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern) %>% #, -ci95_lower, -ci95_upper
   dplyr::mutate(
     species       = factor(species, levels=names(coefficient_key), labels=coefficient_key)
   )
-  # dplyr::select(-coefficient) %>%
-  # tidyr::spread(key=breed, value=dense)
 
-# # ds_spread_1$dense
-#
+
 # widen ----
 ds_wide_pretty <- ds_spread_pretty %>%  #Puts the dense columns for `intercept` and `slope` side-by-side
   dplyr::select(-coefficient) %>%
@@ -350,9 +367,6 @@ ds_wide_pretty <- ds_spread_pretty %>%  #Puts the dense columns for `intercept` 
   dplyr::arrange(study_name, process, subgroup, model_type) %>%
   dplyr::rename_(
     "n"               = "subject_count"
-    # "r_intercept"     = "r_i",
-    # "r_slope"         = "r_s",
-    # "r_residual"      = "r_r"
   )
 
 # ---- prettify ----------------------------------------------------------------
@@ -370,9 +384,7 @@ colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 ds_static_pretty <- ds_wide_pretty %>%
   dplyr::filter(model_type=="aehplus") %>%
   dplyr::select(-model_type)
-# ds_static_pretty$process
-
-# # creat a csv manhole
+# create a csv manhole
 readr::write_csv(ds_dynamic_pretty, "./data/shared/tables/growth-curve-1-dynamic.csv")
 
 ds_static_pretty <- ds_static_pretty %>%
@@ -383,15 +395,14 @@ ds_static_pretty <- ds_static_pretty %>%
     n_group            = n
   )
 
-
 # ---- verify-values -----------------------------------------------------------
 
 
-# ---- table-dynamic -----------------------------------------------------------
+# ---- table-dynamic-wide -----------------------------------------------------------
 ds_dynamic_pretty %>%
   DT::datatable(
     class     = 'cell-border stripe',
-    caption   = "Random Effects Growth Curve Model Solution",
+    caption   = "Growth Curve Model Solution --Wide Format",
     filter    = "top",
     options   = list(pageLength = 6, autoWidth = TRUE)
   )
@@ -402,23 +413,19 @@ for( study in unique(ds_wide_pretty$study_name) ) {
   ds_static_pretty %>%
     dplyr::filter(study_name==study) %>%
     dplyr::select(-study_name) %>%
-    # dplyr::group_by(Process, Gender, `$n$`) %>%
     dplyr::group_by(process_group, subgroup_group, n_group) %>%
     dplyr::mutate(
       k            = seq_len(n()),
-      process      = ifelse(k==1, process, ""),
-      subgroup       = ifelse(k==1, subgroup, ""),
-      n            = ifelse(k==1, n, "")
+      process      = ifelse(k==1, process , ""),
+      subgroup     = ifelse(k==1, subgroup, ""),
+      n            = ifelse(k==1, n       , "")
     ) %>%
     dplyr::ungroup() %>%
     dplyr::select(-process_group, -subgroup_group, -n_group, -k) %>%
     dplyr::rename_(
       "Process"          = "process",
       "Gender"           = "subgroup",
-      "$n$"              = "n"#,
-      # "$r_{intercepts}$" = "r_intercept",
-      # "$r_{slopes}$"     = "r_slope",
-      # "$r_{residuals}$"  = "r_residual"
+      "$n$"              = "n"
     ) %>%
     knitr::kable(
       format     = "html",
@@ -476,8 +483,8 @@ forest <- function( d ) {
     theme(legend.position="none") +
     theme(strip.text.y = element_text(angle=0)) +
     labs(x=expression(italic(gamma)), y=NULL, title=paste0(unique(d$process), ": Growth Model Coefficients by Study and Gender"))
-  # labs(x=NULL, y="Correlation", title=paste("Correlation of random effects"))
-  # labs(x=NULL, y="Correlation", title=paste("Correlation of", process_a, "&", process_b, "effects"))
+    # labs(x=NULL, y="Correlation", title=paste("Correlation of random effects"))
+    # labs(x=NULL, y="Correlation", title=paste("Correlation of", process_a, "&", process_b, "effects"))
 
 }
 # forest(ds_graph[ds_graph$process=="grip", ])
