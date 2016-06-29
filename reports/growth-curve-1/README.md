@@ -1,3 +1,17 @@
 The folder `./reports/growth-curve1` contains zzz 
 
-A growth model is conceptualized as zzz.
+A growth curve is conceptualized as a trajectory of a measure in time (process), quantified by components that define the multilevel line: intercept, slope, and covariate loadings. Within each study, a process can be paired with other processes in bivariate growth curve model. We are interested in understanding how a process (collection of parameters that build a line) varies across differnt statistical "contexts". The general shape of the line should be similar across contexts, so radically differnt solutions are alarming and require further investigation. 
+
+
+
+one table = one measure (bnt)
+one table = one subgroup (female)
+one table = one model_type (aehplus)
+one table = one index type (est), subsets Selector
+
+
+row = model (involving a measure of reference)
+column =  estimated values of model elements (e.g. a_GAMMA_01), (est)
+
+
+
