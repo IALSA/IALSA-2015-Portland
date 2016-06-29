@@ -115,13 +115,19 @@ b_GAMMA_16 <-  c("b_GAMMA_16_est", "b_GAMMA_16_se", "b_GAMMA_16_wald","b_GAMMA_1
 # intercept of process (B) regressed on DIABETES at baseline
 b_GAMMA_06 <-  c("b_GAMMA_06_est", "b_GAMMA_06_se", "b_GAMMA_06_wald","b_GAMMA_06_pval")
 
-
+# estimated
 # correlation b/w intercept of process (A)  and intercept of process (B)
 R_IAIB <- c("R_IAIB_est", "R_IAIB_se","R_IAIB_wald", "R_IAIB_pval")
 # correlation b/w slope of process (A)  and slope of process (B)
 R_SASB <- c("R_SASB_est", "R_SASB_se", "R_SASB_wald", "R_SASB_pval")
 # correlation b/w RESIDUAL of process (A) and RESIDUAL of process (B)
 R_RES_AB <- c("R_RES_AB_est", "R_RES_AB_se","R_RES_AB_wald",  "R_RES_AB_pval")
+
+
+# computed
+ab_CORR_00 <- c("ab_CORR_00","ab_CI95_00_high", "ab_CI95_00_low", "test_00" )
+ab_CORR_11 <- c("ab_CORR_11","ab_CI95_11_high", "ab_CI95_11_low", "test_11" )
+ab_CORR_residual <- c("ab_CORR_residual","ab_CI95_residual_high", "ab_CI95_residual_low", "test_Res" )
 
 selected_results <- c( admin, model_id, model_info, errors,
    ab_TAU_00, ab_TAU_11, ab_TAU_01, ab_TAU_10, ab_SIGMA,
@@ -136,4 +142,5 @@ selected_results <- c( admin, model_id, model_info, errors,
    a_GAMMA_05, a_GAMMA_15, b_GAMMA_05, b_GAMMA_15,
    a_GAMMA_06, a_GAMMA_16, b_GAMMA_06, b_GAMMA_16
    )
+
 

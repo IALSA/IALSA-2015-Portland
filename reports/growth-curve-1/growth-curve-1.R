@@ -232,6 +232,15 @@ rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
 
 # ---- table-dynamic-long ----------------------------------------
 ds_long %>%
+  dplyr::mutate(
+    study_name    = factor(study_name),
+    process_a      = factor(process_a),
+    process_b      = factor(process_b),
+    process        = factor(process),
+    subgroup       = factor(subgroup),
+    coefficient    = factor(coefficient),
+    stat           = factor(stat)
+  ) %>%
   dplyr::filter(model_type=="aehplus" & subgroup=="female" & process_a=="gait") %>%
   dplyr::select(-g, -model_type, -subgroup, -process_a, -parameter_count) %>%
   DT::datatable(
