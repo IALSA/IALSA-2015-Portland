@@ -16,6 +16,7 @@ requireNamespace("scales")
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
 path_input <- "./data/shared/parsed-results.rds"
+coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 
 # simplify ----
 variables_part_1 <- c(
@@ -262,8 +263,6 @@ ds_no_duplicates <- ds_long %>%
   ) %>%
   dplyr::ungroup()
 
-
-coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 ds_find_duplicates <- ds_long %>%
   dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
   dplyr::group_by_(
@@ -292,6 +291,10 @@ ds_collapsed_physical <- ds_no_duplicates %>%
     subject_count   = as.integer(median(subject_count, na.rm=T)),
     spread_lower    = min(value, na.rm=T),
     spread_upper    = max(value, na.rm=T),
+    cv              = round(coefficient_of_variation(value), 4),
+    spread_lower    = ifelse(!is.nan(spread_lower), spread_lower, NA_real_),
+    spread_upper    = ifelse(!is.nan(spread_upper), spread_upper, NA_real_),
+    cv              = ifelse(!is.nan(cv)          , cv          , NA_real_),
     value           = median(value, na.rm=T)
   ) %>%
   dplyr::ungroup() %>%
@@ -305,6 +308,10 @@ ds_collapsed_cognitive <- ds_no_duplicates %>%
     subject_count   = as.integer(median(subject_count, na.rm=T)),
     spread_lower    = min(value, na.rm=T),
     spread_upper    = max(value, na.rm=T),
+    cv              = round(coefficient_of_variation(value), 4),
+    spread_lower    = ifelse(!is.nan(spread_lower), spread_lower, NA_real_),
+    spread_upper    = ifelse(!is.nan(spread_upper), spread_upper, NA_real_),
+    cv              = ifelse(!is.nan(cv)          , cv          , NA_real_),
     value           = median(value, na.rm=T)
   ) %>%
   dplyr::ungroup() %>%
@@ -316,6 +323,25 @@ ds_collapsed <- ds_collapsed_physical %>%
 
 rm(ds_collapsed_physical, ds_collapsed_cognitive)
 
+
+# ---- table-dynamic-collapsed ----------------------------------------
+ds_collapsed %>%
+  dplyr::mutate(
+    study_name     = factor(study_name),
+    process        = factor(process),
+    subgroup       = factor(subgroup),
+    coefficient    = factor(coefficient),
+    stat           = factor(stat)
+  ) %>%
+  dplyr::filter(model_type=="aehplus" & subgroup=="female" ) %>%
+  dplyr::select(-model_type, -subgroup) %>%
+  dplyr::arrange(study_name, process, coefficient, stat) %>%
+  DT::datatable(
+    class     = 'cell-border stripe',
+    caption   = "Growth Curve Model Solution --Collapsed Format",
+    filter    = "top",
+    options   = list(pageLength = 8, autoWidth = TRUE)
+  )
 
 # ---- spread ------------------------------------------------------------------
 pattern_est <- c(
@@ -333,7 +359,7 @@ pattern_dense <- c(
 
 # spread-to-stem ----
 ds_spread <- ds_collapsed %>%
-  dplyr::select(-spread_lower, -spread_upper) %>%
+  dplyr::select(-spread_lower, -spread_upper, -cv) %>%
   tidyr::spread(key=stat, value=value) %>%
   dplyr::mutate(
     breed        = as.integer(gsub("^([01])(\\d)$", "\\1", coefficient)),

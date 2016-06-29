@@ -86,6 +86,15 @@ This table has a few filters on it already, so it won't clog your computer with 
 ```{r collapse-within-process, echo=echoChunks, message=TRUE}
 ```
 
+# Dynamic Table -Long (and collapsed and filtered)
+
+This table collapses the multiple process estimates down to one.  It's a middleman for the table discussed here: https://github.com/IALSA/IALSA-2015-Portland/issues/134
+
+This table has a few filters on it already, so it won't clog your computer with `r nrow(ds_collapsed)` rows.  It's only `model_type=="aehplus" & subgroup=="female"`.
+
+```{r table-dynamic-collapsed, echo=echoChunks, message=TRUE}
+```
+
 ```{r spread, echo=echoChunks, message=TRUE}
 ```
 
@@ -93,6 +102,8 @@ This table has a few filters on it already, so it won't clog your computer with 
 ```
 
 # Dynamic Table -Wide
+
+Intercept and slope have been condensed (so each cell has 'est', 'se', and 'pval') and placed side-by-side.
 
 ```{r table-dynamic-wide, echo=echoChunks, message=TRUE}
 ```
