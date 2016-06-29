@@ -5,5 +5,5 @@ The following scripts implement extraction (parsing) of model results and organi
 - (2) [`2-compute-bisr-ci.R`](./manipulation/2-transformations-compute-ci.R) - computes correlations (and confidence intervals) among intercepts, slopes, and residuals (optional, some models compute these parameters during estimation)
 
 
-#### Governer
 - [`manipulation-governor.R`](/manipulation/manipulation-governor.R) - executues the above scripts
+- all produced data objects are stored in [`./data/shared/`](https://github.com/IALSA/IALSA-2015-Portland/tree/master/data/shared), the README of the folder contain description of each object. 
