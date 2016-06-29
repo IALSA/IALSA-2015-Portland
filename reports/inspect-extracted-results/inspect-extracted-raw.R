@@ -189,6 +189,9 @@ d <- ds_wide %>% dplyr::mutate(p_a = process_a, p_b = process_b)
 d <- d  %>% dplyr::select_("study_name","model_number","subgroup","model_type",
                             "process_a", "process_b", "index",
                              "R_IAIB", "R_SASB",
+                            "ab_TAU_00","ab_TAU_11", "p_a", "p_b",
+                            "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
+                            "R_RES_AB", "a_SIGMA", "ab_SIGMA", "b_SIGMA",
                            "a_GAMMA_00", "a_GAMMA_10", "b_GAMMA_10", "b_GAMMA_00",
                            "a_GAMMA_01", "a_GAMMA_11", "b_GAMMA_11", "b_GAMMA_01",
                            "a_GAMMA_02", "a_GAMMA_12", "b_GAMMA_12", "b_GAMMA_02",
@@ -196,9 +199,6 @@ d <- d  %>% dplyr::select_("study_name","model_number","subgroup","model_type",
                            "a_GAMMA_04", "a_GAMMA_14", "b_GAMMA_14", "b_GAMMA_04",
                            "a_GAMMA_05", "a_GAMMA_15", "b_GAMMA_15", "b_GAMMA_05",
                            "a_GAMMA_06", "a_GAMMA_16", "b_GAMMA_16", "b_GAMMA_06"
-                            "ab_TAU_00","ab_TAU_11", "p_a", "p_b",
-                            "aa_TAU_00", "aa_TAU_11", "bb_TAU_11","bb_TAU_00",
-                            "R_RES_AB", "a_SIGMA", "ab_SIGMA", "b_SIGMA"
                            )
 
 d %>%  DT::datatable(class = 'cell-border stripe',
@@ -207,5 +207,5 @@ d %>%  DT::datatable(class = 'cell-border stripe',
 
 
 # ---- reproduce ---------------------------------------
-rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
+rmarkdown::render(input = "./reports/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
                   output_format="html_document", clean=TRUE)
