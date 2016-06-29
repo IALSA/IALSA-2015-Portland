@@ -18,14 +18,11 @@ IALSA-2015-Portland workshop performs a **coordinated analysis with replication 
 * Procedural map of coordinated analysis is described in recent [CPA poster](https://rawgit.com/IALSA/IALSA-2015-Portland/ad055bfff825d257cb4bcb83d51fc6dead53d227/pubs/2016-talks/2016-06-09-cpa/ppt/koval-etal-2016-06-10-cpa.pdf)
 -  Table 1 : Descriptives.  [EAS](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_EAS_Descriptives_IALSA_Portland.pdf) - ELSA - [HRS](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_HRS_Descriptives_IALSA_Portland.pdf) - [ILSE](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_ILSE_Descriptives_IALSA_Portland.pdf) - LASA - [NAS](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_NAS_Descriptives_IALSA_Portland.pdf) - [NuAge](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_NuAge_Descriptives_IALSA_Portland.pdf) - [MAP](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_RADC_Descriptives_IALSA_Portland.pdf) - [SATSA](https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_SATSA_Descriptives_IALSA_Portland.pdf)  
 - [Results Inspector](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/inspect-extracted-results/inspect-extracted-raw.html) - contains full model solutions. one row = one bivaraite model
-- Table 2 - [Correlations](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-1/correlation-1.html) - correlations between intercepts, slopes, and residuals of bivariate growth models. 
+- Table 2 - [Correlations](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-1/correlation-1.html) - correlations between intercepts, slopes, and residuals of bivariate growth models.
 - Table 3 - [Growth Curves](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/growth-curve-1/growth-curve-1.html) - intercepts and slopes of growth models
 - \[pivot tables\](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) (under construction) for basic exploration in the space of the submitted models
 - \[dashboard\](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard) (under construction)
 
-The following information display shows the available models submitted to the collective, grouping them by cognitive domains (color), items tapping those domains (row labels), and specific tests (cell labels) and indicating the total number of models using this item (number after cell label).
-
- [![outcome space](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/outcome-space/figures_rmd/outcome-space-map-1.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/outcome-space/figures_rmd/outcome-space-map-1.png)  
 
 Any model in the collective can be specified by a form nested within the following general **specification**:  
 [![general_model_specification](./libs/images/general_model_specification.png)](./reports/model_specification/README.md)  
@@ -33,6 +30,12 @@ Any model in the collective can be specified by a form nested within the followi
 with **covariance structure** given as
 [![general_model_specification](./libs/images/specification_covariance_structure.png)](./reports/model_specification/README.md)  
 For  details see [model specification](./reports/model-specification/README.md).  
+
+
+The following information display shows the available models submitted to the collective, grouping them by cognitive domains (color), items tapping those domains (row labels), and specific tests (cell labels) and indicating the total number of models using this item (number after cell label).
+
+ [![outcome space](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/outcome-space/figures_rmd/outcome-space-map-1.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/outcome-space/figures_rmd/outcome-space-map-1.png)  
+
 
 
 
