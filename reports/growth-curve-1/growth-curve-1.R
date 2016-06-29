@@ -29,7 +29,7 @@ variables_part_1 <- c(
 # variables_part_4 <- grep(regex_r, colnames(ds_full), perl=T, value=T)
 regex_gamma <- "^(a|b)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 
-coefficients_possible <- c("01", "11", "02", "12", "03", "13", "04", "14", "05", "15", "06", "16")
+coefficients_possible <- c("00", "10", "01", "11", "02", "12", "03", "13", "04", "14", "05", "15", "06", "16")
 stats_possible        <- c("est", "se", "wald", "pval")
 ds_order_gamma <- tidyr::crossing(
   process       = c("a", "b"),
@@ -38,6 +38,7 @@ ds_order_gamma <- tidyr::crossing(
 )
 
 coefficient_key <- c(
+  "0"  = "intercept",
   "1"  = "age",
   "2"  = "education",
   "3"  = "height",
@@ -85,6 +86,24 @@ ds_long <- ds_full %>%
     , "trust_all"                   = "`trust_all`"
     , "mistrust"                    = "`mistrust`"
     , "covar_covered"               = "`covar_covered`"
+    , "a_gamma_00_est"              = "`a_GAMMA_00_est`"
+    , "a_gamma_00_se"               = "`a_GAMMA_00_se`"
+    , "a_gamma_00_wald"             = "`a_GAMMA_00_wald`"
+    , "a_gamma_00_pval"             = "`a_GAMMA_00_pval`"
+    , "a_gamma_10_est"              = "`a_GAMMA_10_est`"
+    , "a_gamma_10_se"               = "`a_GAMMA_10_se`"
+    , "a_gamma_10_wald"             = "`a_GAMMA_10_wald`"
+    , "a_gamma_10_pval"             = "`a_GAMMA_10_pval`"
+    , "a_gamma_01_est"              = "`a_GAMMA_01_est`"
+    , "a_gamma_01_se"               = "`a_GAMMA_01_se`"
+    , "b_gamma_00_est"              = "`b_GAMMA_00_est`"
+    , "b_gamma_00_se"               = "`b_GAMMA_00_se`"
+    , "b_gamma_00_wald"             = "`b_GAMMA_00_wald`"
+    , "b_gamma_00_pval"             = "`b_GAMMA_00_pval`"
+    , "b_gamma_10_est"              = "`b_GAMMA_10_est`"
+    , "b_gamma_10_se"               = "`b_GAMMA_10_se`"
+    , "b_gamma_10_wald"             = "`b_GAMMA_10_wald`"
+    , "b_gamma_10_pval"             = "`b_GAMMA_10_pval`"
     , "a_gamma_01_est"              = "`a_GAMMA_01_est`"
     , "a_gamma_01_se"               = "`a_GAMMA_01_se`"
     , "a_gamma_01_wald"             = "`a_GAMMA_01_wald`"
@@ -196,7 +215,7 @@ rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
 # remove-duplicates ----
 ds_no_duplicates <- ds_long %>%
   dplyr::group_by_(
-    .dots=c(variables_part_1, variables_part_4a, "process", "coefficient", "stat") #Lacks "value"
+    .dots=c(variables_part_1, variables_part_4a, "process_a", "process_b", "coefficient", "stat") #Lacks "value"
     # .dots=c(variables_part_1, variables_part_4a, "process", "breed", "species", "stat") #Lacks "value"
   ) %>%
   dplyr::summarize(
@@ -210,7 +229,7 @@ coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 ds_find_duplicates <- ds_long %>%
   dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
   dplyr::group_by_(
-    .dots=c(variables_part_1, variables_part_4a,  "process", "coefficient", "stat")
+    .dots=c(variables_part_1, variables_part_4a,  "process_a", "process_b", "coefficient", "stat")
     # .dots=c(variables_part_1, variables_part_4a,  "process", "breed", "species", "stat")
   ) %>%  #Lacks "value"
   dplyr::filter(!is.na(value)) %>% #Drops from 56 rows to 8 rows.  !!Careful that you don't remove legit NAs (esp, in nonduplicated rows).
@@ -228,8 +247,9 @@ ds_find_duplicates <- ds_long %>%
 
 # ---- collapse-within-process ----------------------------------------
 ds_collapsed_physical <- ds_no_duplicates %>%
-  dplyr::group_by_(.dots=c("study_name", "process_a", "subgroup", "model_type", variables_part_4a,  "coefficient", "stat")) %>%
+  dplyr::group_by_(.dots=c("study_name", "process_a", "subgroup", "model_type", "coefficient", "stat")) %>%
   dplyr::summarize(
+    subject_count   = as.integer(median(subject_count, na.rm=T)),
     value   = median(value, na.rm=T)
   ) %>%
   dplyr::ungroup() %>%
@@ -268,7 +288,7 @@ pattern_dense <- c(
 # spread-to-stem ----
 ds_spread <- ds_collapsed %>%
   # dplyr::select(-coefficient) %>%
-  tidyr::spread(stat, value) %>%
+  tidyr::spread(key=stat, value=value) %>%
   dplyr::mutate(
     breed        = as.integer(gsub("^([01])(\\d)$", "\\1", coefficient)),
     species      = as.integer(gsub("^([01])(\\d)$", "\\2", coefficient)),
@@ -282,7 +302,7 @@ ds_spread <- ds_collapsed %>%
 testit::assert("A value should be from only an intercept or a slope.", all(!is.na(ds_spread$breed)))
 
 # create a csv manhole
-readr::write_csv(ds_spread, "./data/shared/tables/growth-curve-1.csv")
+readr::write_csv(ds_spread, "./data/shared/tables/growth-curve-1-spread.csv")
 
 ds_spread_pretty <- ds_spread %>%
   dplyr::mutate(
@@ -296,7 +316,7 @@ ds_spread_pretty <- ds_spread %>%
     pval_pretty   = ifelse(pval_pretty=="$p$=NA" , "$p$= NA", pval_pretty),       #Pad NA with space
     pattern       = pattern_dense[1],
     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
-    dense         = ifelse(is.nan(est), "--,$p$=  ----", dense)
+    dense         = ifelse(is.na(est), "--,$p$=  ----", dense)                    #If the cell is bogus, don't bother displaying `NA` in the manuscript table.
   ) %>%
   dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern) %>% #, -ci95_lower, -ci95_upper)
   dplyr::mutate(
@@ -308,7 +328,7 @@ ds_spread_pretty <- ds_spread %>%
 # # ds_spread_1$dense
 #
 # widen ----
-ds_wide_pretty <- ds_spread_pretty %>%
+ds_wide_pretty <- ds_spread_pretty %>%  #Puts the dense columns for `intercept` and `slope` side-by-side
   dplyr::select(-coefficient) %>%
   tidyr::spread(key=breed, value=dense) %>%
   dplyr::select(study_name, process, subgroup, model_type, subject_count, species, intercept, slope) %>%
@@ -338,17 +358,14 @@ ds_static_pretty <- ds_wide_pretty %>%
 # ds_static_pretty$process
 
 # # creat a csv manhole
-readr::write_csv(ds_dynamic_pretty, "./data/shared/tables/growth-curve-1.csv")
+readr::write_csv(ds_dynamic_pretty, "./data/shared/tables/growth-curve-1-dynamic.csv")
 
 ds_static_pretty <- ds_static_pretty %>%
   dplyr::select_(.dots=c("study_name", "process", "subgroup", setdiff(colnames(ds_static_pretty), c("study_name", "process", "subgroup")))) %>%
-  dplyr::rename_(
-    "Process"          = "process",
-    "Gender"           = "subgroup",
-    "$n$"              = "n"#,
-    # "$r_{intercepts}$" = "r_intercept",
-    # "$r_{slopes}$"     = "r_slope",
-    # "$r_{residuals}$"  = "r_residual"
+  dplyr::mutate(                        #These three variables are just so we can create blanks
+    process_group      = process,
+    subgroup_group     = subgroup,
+    n_group            = n
   )
 
 
@@ -370,9 +387,28 @@ for( study in unique(ds_wide_pretty$study_name) ) {
   ds_static_pretty %>%
     dplyr::filter(study_name==study) %>%
     dplyr::select(-study_name) %>%
+    # dplyr::group_by(Process, Gender, `$n$`) %>%
+    dplyr::group_by(process_group, subgroup_group, n_group) %>%
+    dplyr::mutate(
+      k            = seq_len(n()),
+      process      = ifelse(k==1, process, ""),
+      subgroup       = ifelse(k==1, subgroup, ""),
+      n            = ifelse(k==1, n, "")
+    ) %>%
+    dplyr::ungroup() %>%
+    dplyr::select(-process_group, -subgroup_group, -n_group, -k) %>%
+    dplyr::rename_(
+      "Process"          = "process",
+      "Gender"           = "subgroup",
+      "$n$"              = "n"#,
+      # "$r_{intercepts}$" = "r_intercept",
+      # "$r_{slopes}$"     = "r_slope",
+      # "$r_{residuals}$"  = "r_residual"
+    ) %>%
     knitr::kable(
       format     = "html",
-      align      = c("l", "l", "r", "l", "r", "r")
+      # format     = "markdown",
+      align      = c("l", "l", "r", "c", "r", "r")
     ) %>%
     print()
 }
@@ -384,7 +420,8 @@ ds_graph <- ds_spread %>%
   dplyr::select(study_name, process, subgroup, subject_count, breed, species, est, se) %>% #, ci95_lower, ci95_upper
   dplyr::mutate(
     study_name = factor(study_name, levels=rev(unique(ds_spread$study_name))),
-    species    = factor(species, levels=names(coefficient_key), labels=coefficient_key)
+    species    = factor(species, levels=names(coefficient_key), labels=coefficient_key),
+    breed      = paste(breed, "(level 1)")
     # stem    = factor(stem, levels=c("i", "s", "r"), labels=c("italic(r)[intercepts]", "italic(r)[slopes]", "italic(r)[residuals]"))
     #stem    = factor(stem, levels=c("i", "s", "r"), labels=c("intercepts", "slopes", "residuals"))
   )
@@ -417,15 +454,15 @@ forest <- function( d ) {
     scale_fill_manual(values=palette_gender_light) +
     scale_shape_manual(values=shape_gender) +
     # coord_cartesian(xlim=c(-.5,1)) +
-    facet_grid(species~breed, scales="free", labeller = label_parsed) +
+    facet_grid(species~breed, scales="free") + # labeller = label_parsed) +
     # facet_grid(process_b~stem, scales="free", labeller = label_bquote(cols = r[.(stem)])) +
     # facet_grid(process_b~stem, scales="free") +
     theme_report +
     theme(legend.position="none") +
     theme(strip.text.y = element_text(angle=0)) +
-    labs(x=expression(italic(r)), y=NULL, title=paste0(unique(d$process), ": Growth Model Coefficients by Study and Gender"))
-    # labs(x=NULL, y="Correlation", title=paste("Correlation of random effects"))
-    # labs(x=NULL, y="Correlation", title=paste("Correlation of", process_a, "&", process_b, "effects"))
+    labs(x=expression(italic(gamma)), y=NULL, title=paste0(unique(d$process), ": Growth Model Coefficients by Study and Gender"))
+  # labs(x=NULL, y="Correlation", title=paste("Correlation of random effects"))
+  # labs(x=NULL, y="Correlation", title=paste("Correlation of", process_a, "&", process_b, "effects"))
 
 }
 # forest(ds_graph[ds_graph$process=="grip", ])
