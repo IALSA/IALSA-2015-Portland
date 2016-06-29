@@ -73,6 +73,9 @@ read_chunk("./reports/growth-curve-1/growth-curve-1.R") #This allows knitr to ca
 
 ### Answered Questions
 
+# Dynamic Table -Long (and filtered)
+
+This table has a few filters on it already, so it won't clog your computer with `r scales::comma(nrow(ds_long))` rows.  It's only `model_type=="aehplus" & subgroup=="female" & process_a=="gait"`.
 
 ```{r table-dynamic-long, echo=echoChunks, message=TRUE}
 ```
@@ -89,7 +92,7 @@ read_chunk("./reports/growth-curve-1/growth-curve-1.R") #This allows knitr to ca
 ```{r prettify, echo=echoChunks, message=TRUE}
 ```
 
-# Dynamic Table
+# Dynamic Table -Wide
 
 ```{r table-dynamic-wide, echo=echoChunks, message=TRUE}
 ```
