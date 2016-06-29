@@ -37,6 +37,15 @@ ds_order_gamma <- tidyr::crossing(
   stat          = factor(stats_possible       , levels=stats_possible)
 )
 
+coefficient_key <- c(
+  "1"  = "age",
+  "2"  = "education",
+  "3"  = "height",
+  "4"  = "smoking",
+  "5"  = "cardio",
+  "6"  = "diabetes"
+)
+
 #, "ci95_lower", "ci95_upper"),
 
 variables_part_4a <- c(
@@ -229,7 +238,7 @@ ds_collapsed_physical <- ds_no_duplicates %>%
 ds_collapsed_cognitive <- ds_no_duplicates %>%
   dplyr::group_by_(.dots=c("study_name", "process_b", "subgroup", "model_type", "coefficient", "stat")) %>%
   dplyr::summarize(
-    subject_count   = median(subject_count, na.rm=T),
+    subject_count   = as.integer(median(subject_count, na.rm=T)),
     value           = median(value, na.rm=T)
   ) %>%
   dplyr::ungroup() %>%
@@ -289,7 +298,10 @@ ds_spread_pretty <- ds_spread %>%
     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
     dense         = ifelse(is.nan(est), "--,$p$=  ----", dense)
   ) %>%
-  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern) #, -ci95_lower, -ci95_upper)
+  dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern) %>% #, -ci95_lower, -ci95_upper)
+  dplyr::mutate(
+    species       = factor(species, levels=names(coefficient_key), labels=coefficient_key)
+  )
   # dplyr::select(-coefficient) %>%
   # tidyr::spread(key=breed, value=dense)
 
@@ -299,10 +311,10 @@ ds_spread_pretty <- ds_spread %>%
 ds_wide_pretty <- ds_spread_pretty %>%
   dplyr::select(-coefficient) %>%
   tidyr::spread(key=breed, value=dense) %>%
-  dplyr::select(study_name, process, subgroup, model_type, subject_count, intercept, slope) %>%
+  dplyr::select(study_name, process, subgroup, model_type, subject_count, species, intercept, slope) %>%
   dplyr::arrange(study_name, process, subgroup, model_type) %>%
   dplyr::rename_(
-    "n"               = "subject_count"#,
+    "n"               = "subject_count"
     # "r_intercept"     = "r_i",
     # "r_slope"         = "r_s",
     # "r_residual"      = "r_r"
@@ -360,7 +372,7 @@ for( study in unique(ds_wide_pretty$study_name) ) {
     dplyr::select(-study_name) %>%
     knitr::kable(
       format     = "html",
-      align      = c("l", "l", "r", "r", "r")
+      align      = c("l", "l", "r", "l", "r", "r")
     ) %>%
     print()
 }
@@ -371,15 +383,12 @@ ds_graph <- ds_spread %>%
   dplyr::filter(!is.na(est) & !is.na(se) & !is.na(subject_count)) %>%
   dplyr::select(study_name, process, subgroup, subject_count, breed, species, est, se) %>% #, ci95_lower, ci95_upper
   dplyr::mutate(
-    study_name = factor(study_name, levels=rev(unique(ds_spread$study_name)))#,
+    study_name = factor(study_name, levels=rev(unique(ds_spread$study_name))),
+    species    = factor(species, levels=names(coefficient_key), labels=coefficient_key)
     # stem    = factor(stem, levels=c("i", "s", "r"), labels=c("italic(r)[intercepts]", "italic(r)[slopes]", "italic(r)[residuals]"))
     #stem    = factor(stem, levels=c("i", "s", "r"), labels=c("intercepts", "slopes", "residuals"))
   )
 
-#
-#
-# # table(ds_graph[, c("process_a", "process_b")])
-#
 palette_gender_dark          <- c("#af6ca8", "#5a8fc1") #duller than below. http://colrd.com/image-dna/42282/ & http://colrd.com/image-dna/42275/
 # palette_gender_dark        <- c("#f25091", "#6718f4") #brighter than above. http://colrd.com/palette/42278/
 palette_gender_light         <- adjustcolor(palette_gender_dark, alpha.f = .2)
@@ -407,14 +416,14 @@ forest <- function( d ) {
     scale_color_manual(values=palette_gender_dark) +
     scale_fill_manual(values=palette_gender_light) +
     scale_shape_manual(values=shape_gender) +
-    coord_cartesian(xlim=c(-.5,1)) +
-    facet_grid(breed+process~species, scales="free", labeller = label_parsed) +
+    # coord_cartesian(xlim=c(-.5,1)) +
+    facet_grid(species~breed, scales="free", labeller = label_parsed) +
     # facet_grid(process_b~stem, scales="free", labeller = label_bquote(cols = r[.(stem)])) +
     # facet_grid(process_b~stem, scales="free") +
     theme_report +
     theme(legend.position="none") +
     theme(strip.text.y = element_text(angle=0)) +
-    labs(x=expression(italic(r)), y=NULL, title=paste0(unique(d$process), ": Random Effects Correlations by Study and Gender"))
+    labs(x=expression(italic(r)), y=NULL, title=paste0(unique(d$process), ": Growth Model Coefficients by Study and Gender"))
     # labs(x=NULL, y="Correlation", title=paste("Correlation of random effects"))
     # labs(x=NULL, y="Correlation", title=paste("Correlation of", process_a, "&", process_b, "effects"))
 
