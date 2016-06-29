@@ -2,7 +2,6 @@
 title: "Correlation Report #1"
 output:
   html_document:
-    css: ./libs/css/sidebar.css
     keep_md: yes
     toc: yes
 date: 'Date: `r Sys.Date()`'

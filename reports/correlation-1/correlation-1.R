@@ -15,7 +15,7 @@ requireNamespace("scales")
 
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
-path_input <- "./data/shared/parsed-results.rds"
+path_input <- "./data/shared/parsed-results-computed_ci.rds"
 
 # ---- load-data ---------------------------------------------------------------
 ds_full <- readRDS(path_input)
