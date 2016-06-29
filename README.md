@@ -20,9 +20,6 @@ IALSA-2015-Portland workshop performs a **coordinated analysis with replication 
 - [Results Inspector](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/inspect-extracted-results/inspect-extracted-raw.html) - contains full model solutions. one row = one bivaraite model
 - Table 2 - [Correlations](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-1/correlation-1.html) - correlations between intercepts, slopes, and residuals of bivariate growth models.
 - Table 3 - [Growth Curves](https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/growth-curve-1/growth-curve-1.html) - intercepts, slopes, and covariate loadings of growth models
-- \[pivot tables\](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/pivotTable) (under construction) for basic exploration in the space of the submitted models
-- \[dashboard\](http://shiny.ouhsc.edu/IALSA-2015-Portland/shiny/dashboard) (under construction)
-
 
 Any model in the collective can be specified by a form nested within the following general **specification**:  
 [![general_model_specification](./libs/images/general_model_specification.png)](./reports/model_specification/README.md)  
