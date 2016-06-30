@@ -92,8 +92,6 @@ This table collapses the multiple process estimates down to one.  It's a middlem
 
 This table has a few filters on it already, so it won't clog your computer with `r nrow(ds_collapsed)` rows.  It's only `model_type=="aehplus" & subgroup=="female"`.
 
-```{r table-dynamic-collapsed, echo=echoChunks, message=TRUE}
-```
 
 ```{r spread, echo=echoChunks, message=TRUE}
 ```
