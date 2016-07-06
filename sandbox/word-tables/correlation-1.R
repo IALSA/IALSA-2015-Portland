@@ -149,12 +149,12 @@ ds_spread_pretty <- ds_spread %>%
     se_pretty     = sprintf(pattern_se[stem], se),
     pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
     pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
-    pval_pretty   = sprintf("$p$=%s", pval_pretty),
-    pval_pretty   = ifelse(pval_pretty=="$p$=.00", "$p$<.01", pval_pretty),       #Cap p-value at .01
-    pval_pretty   = ifelse(pval_pretty=="$p$=NA" , "$p$= NA", pval_pretty),       #Pad NA with space
+    pval_pretty   = sprintf("*p*=%s", pval_pretty),
+    pval_pretty   = ifelse(pval_pretty=="*p*=.00", "*p*<.01", pval_pretty),       #Cap p-value at .01
+    pval_pretty   = ifelse(pval_pretty=="*p*=NA" , "*p*= NA", pval_pretty),       #Pad NA with space
     pattern       = pattern_dense[stem],
     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
-    dense         = ifelse(is.nan(est), "--,$p$=  ----", dense)
+    dense         = ifelse(is.nan(est), "--,*p*=  ----", dense)
   ) %>%
   dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern, -ci95_lower, -ci95_upper)
 
@@ -184,9 +184,9 @@ ds_dynamic_pretty <- ds_wide_pretty %>%
     process_b     = factor(process_b),
     subgroup      = factor(subgroup),
     model_type    = factor(model_type),
-    r_intercept   = sub("\\$p\\$", "p", r_intercept),
-    r_slope       = sub("\\$p\\$", "p", r_slope),
-    r_residual    = sub("\\$p\\$", "p", r_residual)
+    r_intercept   = sub("*p*", "p", r_intercept),
+    r_slope       = sub("*p*", "p", r_slope),
+    r_residual    = sub("*p*", "p", r_residual)
   )
 colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 
@@ -233,7 +233,7 @@ for( study in unique(ds_wide_pretty$study_name) ) {
     dplyr::filter(study_name==study) %>%
     dplyr::select(-study_name) %>%
     knitr::kable(
-      format     = "html",
+      format     = "markdown",
       align      = c("l", "l", "r", "r", "r", "r")
     ) %>%
     print()

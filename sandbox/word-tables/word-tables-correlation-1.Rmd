@@ -4,11 +4,13 @@ output:
   word_document:
     keep_md: yes
     toc: yes
+    reference_docx: rmd-style.docx
   html_document:
     keep_md: yes
     toc: yes
 date: 'Date: `r Sys.Date()`'
 ---
+<!-- For instructions, see http://rmarkdown.rstudio.com/word_document_format.html and http://rmarkdown.rstudio.com/articles_docx.html -->
 
 This report contains a searchable table, followed by publication-ready tables.
 
@@ -35,7 +37,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./sandobx/word-tables/correlation-1.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./sandbox/word-tables/correlation-1.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
