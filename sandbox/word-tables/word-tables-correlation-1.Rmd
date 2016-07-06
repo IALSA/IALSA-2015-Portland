@@ -2,6 +2,7 @@
 title: 'Correlation Report #1'
 output:
   word_document:
+    keep_md: yes
     toc: yes
   html_document:
     keep_md: yes
@@ -34,7 +35,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./reports/correlation-1/correlation-1.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./sandobx/word-tables/correlation-1.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
@@ -69,6 +70,7 @@ read_chunk("./reports/correlation-1/correlation-1.R") #This allows knitr to call
 
 ### Unanswered Questions
 
+
 1. How should we handle entries that are entirely missing?
 1. How should we handle entries containing null/NA results?
 
@@ -78,10 +80,6 @@ read_chunk("./reports/correlation-1/correlation-1.R") #This allows knitr to call
 ```{r prettify, echo=echoChunks, message=TRUE}
 ```
 
-# Dynamic Table
-
-```{r table-dynamic, echo=echoChunks, message=TRUE}
-```
 
 # Static Tables
 The 'aehplus' model (with covariates *a*ge, *e*ducation, *h*ealth, and others) is shown for each combination of
@@ -93,16 +91,5 @@ The 'aehplus' model (with covariates *a*ge, *e*ducation, *h*ealth, and others) i
 ```{r table-static, echo=echoChunks, message=TRUE, results='asis'}
 ```
 
-# Forest Plots
-Forest plots of the 'aehplus' model are shown for each combination of physical & cognitive variable.
 
-```{r forest, echo=echoChunks, message=TRUE, results='asis', fig.height=8, fig.width=8}
-```
 
-# Session Information
-For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
-
-```{r session-info, echo=FALSE}
-cat("Report rendered by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
-sessionInfo()
-```
