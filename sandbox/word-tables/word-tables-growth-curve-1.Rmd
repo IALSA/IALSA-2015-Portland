@@ -1,16 +1,12 @@
 ---
-title: 'Correlation Report #1'
+title: "Growth Curve Report #1"
 output:
-  word_document:
-    keep_md: yes
-    toc: yes
-    reference_docx: rmd-style.docx
   html_document:
+    # css: ~/uvic/IALSA-2015-Portland/libs/css/sidebar.css
     keep_md: yes
     toc: yes
 date: 'Date: `r Sys.Date()`'
 ---
-<!-- For instructions, see http://rmarkdown.rstudio.com/word_document_format.html and http://rmarkdown.rstudio.com/articles_docx.html -->
 
 This report contains a searchable table, followed by publication-ready tables.
 
@@ -37,7 +33,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./sandbox/word-tables/wt-correlation-1.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./sandbox/word-tables/wt-growth-curve-1.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
@@ -72,16 +68,43 @@ read_chunk("./sandbox/word-tables/wt-correlation-1.R") #This allows knitr to cal
 
 ### Unanswered Questions
 
-
 1. How should we handle entries that are entirely missing?
 1. How should we handle entries containing null/NA results?
 
 ### Answered Questions
 
+# Dynamic Table -Long (and filtered)
+
+This table has a few filters on it already, so it won't clog your computer with `r scales::comma(nrow(ds_long))` rows.  It's only `model_type=="aehplus" & subgroup=="female" & process_a=="gait"`.
+
+```{r table-dynamic-long, echo=echoChunks, message=TRUE}
+```
+
+```{r remove-duplicates, echo=echoChunks, message=TRUE}
+```
+
+```{r collapse-within-process, echo=echoChunks, message=TRUE}
+```
+
+# Dynamic Table -Long (and collapsed and filtered)
+
+This table collapses the multiple process estimates down to one.  It's a middleman for the table discussed here: https://github.com/IALSA/IALSA-2015-Portland/issues/134
+
+This table has a few filters on it already, so it won't clog your computer with `r nrow(ds_collapsed)` rows.  It's only `model_type=="aehplus" & subgroup=="female"`.
+
+
+```{r spread, echo=echoChunks, message=TRUE}
+```
 
 ```{r prettify, echo=echoChunks, message=TRUE}
 ```
 
+# Dynamic Table -Wide
+
+Intercept and slope have been condensed (so each cell has 'est', 'se', and 'pval') and placed side-by-side.
+
+```{r table-dynamic-wide, echo=echoChunks, message=TRUE}
+```
 
 # Static Tables
 The 'aehplus' model (with covariates *a*ge, *e*ducation, *h*ealth, and others) is shown for each combination of
@@ -93,5 +116,16 @@ The 'aehplus' model (with covariates *a*ge, *e*ducation, *h*ealth, and others) i
 ```{r table-static, echo=echoChunks, message=TRUE, results='asis'}
 ```
 
+# Forest Plots
+Forest plots of the 'aehplus' model are shown for each combination of physical & cognitive variable.
 
+```{r forest, echo=echoChunks, message=TRUE, results='asis', fig.height=8, fig.width=6}
+```
 
+# Session Information
+For the sake of documentation and reproducibility, the current report was rendered on a system using the following software.
+
+```{r session-info, echo=FALSE}
+cat("Report rendered by", Sys.info()["user"], "at", strftime(Sys.time(), "%Y-%m-%d, %H:%M %z"))
+sessionInfo()
+```

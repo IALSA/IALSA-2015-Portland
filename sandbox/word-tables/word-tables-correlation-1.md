@@ -1,5 +1,6 @@
 # Correlation Report #1
 Date: `r Sys.Date()`  
+<!-- For instructions, see http://rmarkdown.rstudio.com/word_document_format.html and http://rmarkdown.rstudio.com/articles_docx.html -->
 
 This report contains a searchable table, followed by publication-ready tables.
 
