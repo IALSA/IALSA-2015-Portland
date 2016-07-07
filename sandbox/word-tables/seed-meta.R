@@ -82,9 +82,9 @@ for( study in unique(growth_static_pretty$study_name) ) {
     dplyr::group_by(process_group, subgroup_group, n_group) %>%
     dplyr::mutate(
       k            = seq_len(n()),
-      process      = ifelse(k==1, process , ""),
-      subgroup     = ifelse(k==1, subgroup, ""),
-      n            = ifelse(k==1, n       , "")
+      process      = ifelse(k==1, process , " "),
+      subgroup     = ifelse(k==1, subgroup, " "),
+      n            = ifelse(k==1, n       , " ")
     ) %>%
     dplyr::ungroup() %>%
     dplyr::select(-process_group, -subgroup_group, -n_group, -k) %>%

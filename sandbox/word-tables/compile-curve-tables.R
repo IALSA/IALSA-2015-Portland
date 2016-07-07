@@ -415,8 +415,8 @@ ds_dynamic_pretty <- ds_wide_pretty %>%
     process       = factor(process),
     subgroup      = factor(subgroup),
     model_type    = factor(model_type),
-    intercept     = sub("\\$p\\$", "p", intercept),
-    slope         = sub("\\$p\\$", "p", slope)
+    intercept     = sub("*p*", "p", intercept),
+    slope         = sub("*p*", "p", slope)
   )
 colnames(ds_dynamic_pretty) <- gsub("_", " ", colnames(ds_dynamic_pretty))
 
