@@ -386,12 +386,12 @@ ds_spread_pretty <- ds_spread %>%
     se_pretty     = sprintf(pattern_se[1], se),
     pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
     pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
-    pval_pretty   = sprintf("$p$=%s", pval_pretty),
-    pval_pretty   = ifelse(pval_pretty=="$p$=.00", "$p$<.01", pval_pretty),       #Cap p-value at .01
-    pval_pretty   = ifelse(pval_pretty=="$p$=NA" , "$p$= NA", pval_pretty),       #Pad NA with space
+    pval_pretty   = sprintf("*p*=%s", pval_pretty),
+    pval_pretty   = ifelse(pval_pretty=="*p*=.00", "*p*<.01", pval_pretty),       #Cap p-value at .01
+    pval_pretty   = ifelse(pval_pretty=="*p*=NA" , "*p*= NA", pval_pretty),       #Pad NA with space
     pattern       = pattern_dense[1],
     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
-    dense         = ifelse(is.na(est), "--,$p$=  ----", dense)                    #If the cell is bogus, don't bother displaying `NA` in the manuscript table.
+    dense         = ifelse(is.na(est), "--,*p*=  ----", dense)                    #If the cell is bogus, don't bother displaying `NA` in the manuscript table.
   ) %>%
   dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern) %>% #, -ci95_lower, -ci95_upper
   dplyr::mutate(

@@ -36,13 +36,16 @@ dto[["growth"]][["static"]] <- readr::read_csv(paths["growth_static"][1])
 
 rm(paths)
 
+# ---- select-study-eas ---------------------------------------------------------
+
+
 # ---- correlation-table-dynamic -----------------------------------------------------------
 
 # ds_dynamic_pretty %>%
 dto[["correlation"]][["dynamic"]]  %>%
   DT::datatable(
     class     = 'cell-border stripe',
-    caption   = "Random Effects Growth Curve Model Solution",
+    caption   = "Bivariate ISR Correlations",
     filter    = "top",
     options   = list(pageLength = 6, autoWidth = TRUE)
   )
@@ -51,19 +54,19 @@ dto[["correlation"]][["dynamic"]]  %>%
 dto[["growth"]][["dynamic"]]  %>%
   DT::datatable(
     class     = 'cell-border stripe',
-    caption   = "Growth Curve Model Solution --Wide Format",
+    caption   = "Growth Curve Model Solution ",
     filter    = "top",
     options   = list(pageLength = 6, autoWidth = TRUE)
   )
 
 
 # ---- correlation-table-static ------------------------------------------------------------
-d <- dto[["correlation"]][["static"]]
-d <- d %>% dplyr::filter(`study name`=='elsa')
+correlation_static_pretty <- dto[["correlation"]][["static"]]
+growth_static_pretty <- dto[["growth"]][["static"]]
 
-for( study in unique(d$`study name``) ) {
+for( study in unique(correlation_static_pretty$study_name) ) {
   cat("\n\n## ", study, "\n\n")
-  d %>%
+  correlation_static_pretty %>%
     dplyr::filter(study_name==study) %>%
     dplyr::select(-study_name) %>%
     knitr::kable(
@@ -74,9 +77,9 @@ for( study in unique(d$`study name``) ) {
 }
 
 # ---- growth-table-static ------------------------------------------------------------
-for( study in unique(ds_wide_pretty$study_name) ) {
+for( study in unique(growth_static_pretty$study_name) ) {
   cat("\n\n## ", study, "\n\n")
-  ds_static_pretty %>%
+  growth_static_pretty %>%
     dplyr::filter(study_name==study) %>%
     dplyr::select(-study_name) %>%
     dplyr::group_by(process_group, subgroup_group, n_group) %>%
