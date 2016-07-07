@@ -36,7 +36,15 @@ dto[["growth"]][["static"]] <- readr::read_csv(paths["growth_static"][1])
 
 rm(paths)
 
-# ---- select-study-eas ---------------------------------------------------------
+# ---- select-data --------------------------------------------------------------
+correlation_static_pretty <- dto[["correlation"]][["static"]]
+growth_static_pretty <- dto[["growth"]][["static"]]
+
+# ---- select-study-elsa ---------------------------------------------------------
+correlation_static_pretty <- dto[["correlation"]][["static"]] %>%
+  dplyr::filter(study_name == "elsa")
+growth_static_pretty <- dto[["growth"]][["static"]]%>%
+  dplyr::filter(study_name == "elsa")
 
 
 # ---- correlation-table-dynamic -----------------------------------------------------------
@@ -58,8 +66,6 @@ dto[["growth"]][["dynamic"]]  %>%
   )
 
 # ---- correlation-table-static ------------------------------------------------------------
-correlation_static_pretty <- dto[["correlation"]][["static"]]
-growth_static_pretty <- dto[["growth"]][["static"]]
 
 for( study in unique(correlation_static_pretty$study_name) ) {
   cat("\n\n## ", study, "\n\n")

@@ -320,27 +320,40 @@
 
       ## GAMMA*1 = AGE
 
+      age_eas    <- c("BAGE")
+      age_elsa   <- c("BAGE2")
+      age_hrs    <- c("BAGE")
+      age_ilse   <- c("BAGE")
+      age_lasa   <- c("BAGE")
+      age_map    <- c("BAGE")
+      age_nuage  <- c("BAGE")
+      age_octo   <- c("BAGE")
+      age_satsa  <- c("BAGE")
+      age_ <- unique(c(age_eas, age_elsa, age_hrs, age_ilse,
+                             age_lasa, age_map, age_nuage, age_octo,age_satsa))
+
+
       ## intercept of process 1 (P) regressed on Age at baseline
       (test <- model[grep("IP.ON", model$paramHeader),])
-      (test <- test[test$param=="BAGE",])
+      (test <- test[test$param %in% age_,])
       (test <- test[c('est', 'se', "est_se", 'pval')])
       if(dim(test)[1]!=0) {result[a_GAMMA_01] <- test}
 
       ## slope of process 1 (P) regressed on Age at baseline
       (test <- model[grep("SP.ON", model$paramHeader),])
-      (test <- test[test$param=="BAGE",])
+      (test <- test[test$param %in% age_,])
       (test <- test[c('est', 'se', "est_se", 'pval')])
       if(dim(test)[1]!=0) {result[a_GAMMA_11] <- test}
 
       ## intercept of process 2 (C) regressed on Age at baseline
       (test <- model[grep("IC.ON", model$paramHeader),])
-      (test <- test[test$param=="BAGE",])
+      (test <- test[test$param %in% age_,])
       (test <- test[c('est', 'se', "est_se", 'pval')])
       if(dim(test)[1]!=0) {result[b_GAMMA_01] <- test}
 
       ## slope of process 1 (P) regressed on Age at baseline
       (test <- model[grep("SC.ON", model$paramHeader),])
-      (test <- test[test$param=="BAGE",])
+      (test <- test[test$param %in% age_,])
       (test <- test[c('est', 'se', "est_se", 'pval')])
       if(dim(test)[1]!=0) {result[b_GAMMA_11] <- test}
 
