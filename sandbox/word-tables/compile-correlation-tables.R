@@ -53,18 +53,18 @@ variables_part_4b <- sprintf(
 # elongate ----
 ds_long <- ds_full %>%
   dplyr::rename_(
-       "r_i_est"           = "`R_IAIB_est`"
-       # "r_i_est"           = "`ab_CORR_00`"
+       "r_i_est"           = "`R_IAIB_est`"        # alternate as needed
+       # "r_i_est"           = "`ab_CORR_00`"      # alternate as needed
      , "r_i_se"            = "`R_IAIB_se`"
      , "r_i_wald"          = "`R_IAIB_wald`"
      , "r_i_pval"          = "`R_IAIB_pval`"
-     , "r_s_est"           = "`R_SASB_est`"
-     # , "r_s_est"           = "`ab_CORR_11`"
+     , "r_s_est"           = "`R_SASB_est`"        # alternate as needed
+     # , "r_s_est"           = "`ab_CORR_11`"      # alternate as needed
      , "r_s_se"            = "`R_SASB_se`"
      , "r_s_wald"          = "`R_SASB_wald`"
      , "r_s_pval"          = "`R_SASB_pval`"
-     , "r_r_est"           = "`R_RES_AB_est`"
-     # , "r_r_est"           = "`ab_CORR_residual`"
+     , "r_r_est"           = "`R_RES_AB_est`"      # alternate as needed
+     # , "r_r_est"           = "`ab_CORR_residual`"# alternate as needed
      , "r_r_se"            = "`R_RES_AB_se`"
      , "r_r_wald"          = "`R_RES_AB_wald`"
      , "r_r_pval"          = "`R_RES_AB_pval`"

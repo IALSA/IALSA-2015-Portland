@@ -30,15 +30,26 @@ variables_part_1 <- c(
 )
 
 # variables_part_4 <- grep(regex_r, colnames(ds_full), perl=T, value=T)
-regex_gamma <- "^(a|b)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
+# regex_gamma <- "^(a|b)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
+regex_gamma <- "^(a|b|aa|bb|ab)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 
 coefficients_possible <- c("00", "10", "01", "11", "02", "12", "03", "13", "04", "14", "05", "15", "06", "16")
 stats_possible        <- c("est", "se", "wald", "pval")#, "ci95_lower", "ci95_upper")
 ds_order_gamma <- tidyr::crossing(
-  process       = c("a", "b"),
+  process       = c("a", "b",
   ceofficient   = factor(coefficients_possible, levels=coefficients_possible),
   stat          = factor(stats_possible       , levels=stats_possible)
 )
+
+
+
+ds_order_tau <- tidyr::crossing(
+  process       = c("aa", "bb",
+                    ceofficient   = factor(coefficients_possible, levels=coefficients_possible),
+                    stat          = factor(stats_possible       , levels=stats_possible)
+  )
+
+
 
 coefficient_key <- c(
   "0"  = "intercept",
@@ -54,7 +65,8 @@ coefficient_key <- c(
 
 variables_part_4a <- c(
   "subject_count",
-  "parameter_count"
+  "parameter_count",
+  'll', "aic", "bic"
 )
 
 # ---- load-data ---------------------------------------------------------------
@@ -91,6 +103,53 @@ ds_long <- ds_full %>%
     , "trust_all"                   = "`trust_all`"
     , "mistrust"                    = "`mistrust`"
     , "covar_covered"               = "`covar_covered`"
+
+    , "aa_tau_00_est"               = "`aa_TAU_00_est`"
+    , "aa_tau_00_se"                = "`aa_TAU_00_se`"
+    , "aa_tau_00_wald"              = "`aa_TAU_00_wald`"
+    , "aa_tau_00_pval"              = "`aa_TAU_00_pval`"
+    , "aa_tau_11_est"               = "`aa_TAU_11_est`"
+    , "aa_tau_11_se"                = "`aa_TAU_11_se`"
+    , "aa_tau_11_wald"              = "`aa_TAU_11_wald`"
+    , "aa_tau_11_pval"              = "`aa_TAU_11_pval`"
+
+
+    , "bb_tau_00_es"                = "`bb_TAU_00_est`"
+    , "bb_tau_00_se"                = "`bb_TAU_00_se`"
+    , "bb_tau_00_wald"              = "`bb_TAU_00_wald`"
+    , "bb_tau_00_pval"              = "`bb_TAU_00_pval`"
+    , "bb_tau_11_est"               = "`bb_TAU_11_est`"
+    , "bb_tau_11_se"                = "`bb_TAU_11_se`"
+    , "bb_tau_11_wald"              = "`bb_TAU_11_wald`"
+    , "bb_tau_11_pval"              = "`bb_TAU_11_pval`"
+
+    # we arbitraraly assing residual to 00, to keep consistent, no implications
+    , "a_sigma_00_est"                 = "`a_SIGMA_est`"
+    , "a_sigma_00_se"                  = "`a_SIGMA_se`"
+    , "a_sigma_00_wald"                = "`a_SIGMA_wald`"
+    , "a_sigma_00_pval"                = "`a_SIGMA_pval`"
+    , "b_sigma_00_est"                 = "`b_SIGMA_est`"
+    , "b_sigma_00_se"                  = "`b_SIGMA_se`"
+    , "b_sigma_00_wald"                = "`b_SIGMA_wald`"
+    , "b_sigma_00_pval"                = "`b_SIGMA_pval`"
+
+    , "ab_tau_00_es"                = "`ab_TAU_00_est`"
+    , "ab_tau_00_se"                = "`ab_TAU_00_se`"
+    , "ab_tau_00_wald"              = "`ab_TAU_00_wald`"
+    , "ab_tau_00_pval"              = "`ab_TAU_00_pval`"
+    , "ab_tau_11_est"               = "`ab_TAU_11_est`"
+    , "ab_tau_11_se"                = "`ab_TAU_11_se`"
+    , "ab_tau_11_wald"              = "`ab_TAU_11_wald`"
+    , "ab_tau_11_pval"              = "`ab_TAU_11_pval`"
+    , "ab_tau_01_est"               = "`ab_TAU_01_est`"
+    , "ab_tau_01_se"                = "`ab_TAU_01_se`"
+    , "ab_tau_01_wald"              = "`ab_TAU_01_wald`"
+    , "ab_tau_01_pval"              = "`ab_TAU_01_pval`"
+    , "ab_tau_10_est"               = "`ab_TAU_10_est`"
+    , "ab_tau_10_se"                = "`ab_TAU_10_se`"
+    , "ab_tau_10_wald"              = "`ab_TAU_10_wald`"
+    , "ab_tau_10_pval"              = "`ab_TAU_10_pval`"
+
     , "a_gamma_00_est"              = "`a_GAMMA_00_est`"
     , "a_gamma_00_se"               = "`a_GAMMA_00_se`"
     , "a_gamma_00_wald"             = "`a_GAMMA_00_wald`"
@@ -329,7 +388,7 @@ rm(ds_collapsed_physical, ds_collapsed_cognitive)
 
 
 # ---- table-dynamic-collapsed ----------------------------------------
-# inspect the created object via dynamic table
+
 ds_collapsed %>%
   dplyr::mutate(
     study_name     = factor(study_name),
