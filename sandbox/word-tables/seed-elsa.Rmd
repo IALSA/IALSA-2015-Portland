@@ -1,12 +1,12 @@
 ---
 title: 'Seed report for Meta-Analysis #1'
 output:
+  html_document:
+    keep_md: yes
+    toc: yes
   word_document:
     keep_md: yes
     reference_docx: rmd-style.docx
-    toc: yes
-  html_document:
-    keep_md: yes
     toc: yes
 date: 'Date: `r Sys.Date()`'
 ---
@@ -87,11 +87,11 @@ read_chunk("./sandbox/word-tables/seed-meta.R") #This allows knitr to call chunk
 # Dynamic Tables
 
 ## Correlations
-```{r correlation-table-dynamic, echo=echoChunks, message=TRUE, eval=F}
+```{r correlation-table-dynamic, echo=echoChunks, message=TRUE, eval=T}
 ```
 
 ## Growth Curves
-```{r growth-table-dynamic, echo=echoChunks, message=TRUE, eval=F}
+```{r growth-table-dynamic, echo=echoChunks, message=TRUE, eval=T}
 ```
 
 # Static Tables

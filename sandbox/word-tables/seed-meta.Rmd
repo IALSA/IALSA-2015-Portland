@@ -79,6 +79,9 @@ read_chunk("./sandbox/word-tables/seed-meta.R") #This allows knitr to call chunk
 ### Answered Questions
 
 
+```{r select-data, echo=echoChunks, message=TRUE}
+```
+
 ```{r prettify, echo=echoChunks, message=TRUE}
 ```
 # Dynamic Tables
