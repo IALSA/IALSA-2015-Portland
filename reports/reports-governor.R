@@ -1,11 +1,4 @@
-# This script executes all manipulation scripts and walks you through data provisioniing chain.
-
-# rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
-#                   output_format="html_document", clean=TRUE)
-
-source("./manipulation/1-rename-classify.R")
-
-source("./manipulation/2-compute-bisr-ci.R")
+# This script procudes the reports that are ready to be shared
 
 
 rmarkdown::render(input = "./reports/outcome-space/outcome-space.Rmd" ,
@@ -15,7 +8,17 @@ rmarkdown::render(input = "./reports/outcome-space/outcome-space.Rmd" ,
 rmarkdown::render(input = "./reports/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
                   output_format="html_document", clean=TRUE)
 
+# produce the general tables of correlations
+rmarkdown::render(input = "./reports/correlation-1/correlation-1.Rmd" ,
+                  output_format="html_document", clean=TRUE)
 
+# produce the general tables of growth curves
+rmarkdown::render(input = "./reports/growth-cruve-1/growth-curve-1.Rmd" ,
+                  output_format="html_document", clean=TRUE)
+
+
+# The following scripts compile data objects described in other reports
+# these scripts needs to be replaced by reports (at some time in the future)
 source("./sandbox/word-tables/compile-correlation-tables.R")
 source("./sandbox/word-tables/compile-growth-tables.R")
 

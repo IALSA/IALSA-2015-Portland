@@ -221,7 +221,7 @@ ds_static_pretty <- ds_static_pretty %>%
 ds_dynamic_pretty %>%
   DT::datatable(
     class     = 'cell-border stripe',
-    caption   = "Random Effects Growth Curve Model Solution",
+    caption   = "Correlations of Bivariate ISR",
     filter    = "top",
     options   = list(pageLength = 6, autoWidth = TRUE)
   )
@@ -232,6 +232,7 @@ for( study in unique(ds_wide_pretty$study_name) ) {
   ds_static_pretty %>%
     dplyr::filter(study_name==study) %>%
     dplyr::select(-study_name) %>%
+    dplyr::arrange(Gender) %>%
     knitr::kable(
       format     = "html",
       align      = c("l", "l", "r", "r", "r", "r")
