@@ -7,21 +7,17 @@ knitr::stitch_rmd(
   output="./manipulation/stitched-output/0-ellis-island.md"
 )
 
-# Rename, classify, and organized model outputs
+# Rename, classify, correct the spelling of processes, organize them into domains
 knitr::stitch_rmd(
   script="./manipulation/1-rename-classify.R",
   output="./manipulation/stitched-output/1-rename-classify.md"
 )
 #
 
-# apply custom tranformations
-source("./manipulation/2-transformations-compute-ci.R")
+# Compute CI for the correlations using Fisher's transform
+knitr::stitch_rmd(
+  script="./manipulation/2-compute-bisr-ci.R",
+  output="./manipulation/stitched-output/2-compute-bisr-ci.md"
+)
 
-# Visualize the outcome space for cognitive measure
-rmarkdown::render(input = "./reports/outcome-space/outcome-space.Rmd" ,
-                  output_format="html_document", clean=TRUE)
-
-# Inspect the model outputs after parsing and organizing
-rmarkdown::render(input = "./sandbox/inspect-extracted-results/inspect-extracted-raw.Rmd" ,
-                  output_format="html_document", clean=TRUE)
 
