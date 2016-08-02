@@ -30,24 +30,16 @@ variables_part_1 <- c(
 )
 
 # variables_part_4 <- grep(regex_r, colnames(ds_full), perl=T, value=T)
-# regex_gamma <- "^(a|b)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
-regex_gamma <- "^(a|b|aa|bb|ab)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
+regex_gamma <- "^(a|b)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
+# regex_gamma <- "^(a|b|aa|bb|ab)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 
 coefficients_possible <- c("00", "10", "01", "11", "02", "12", "03", "13", "04", "14", "05", "15", "06", "16")
 stats_possible        <- c("est", "se", "wald", "pval")#, "ci95_lower", "ci95_upper")
 ds_order_gamma <- tidyr::crossing(
-  process       = c("a", "b",
+  process       = c("a", "b"),
   ceofficient   = factor(coefficients_possible, levels=coefficients_possible),
   stat          = factor(stats_possible       , levels=stats_possible)
 )
-
-
-
-ds_order_tau <- tidyr::crossing(
-  process       = c("aa", "bb",
-                    ceofficient   = factor(coefficients_possible, levels=coefficients_possible),
-                    stat          = factor(stats_possible       , levels=stats_possible)
-  )
 
 
 
@@ -83,6 +75,50 @@ variables_part_4b <- sprintf(
   ds_order_gamma$stat
 )
 
+variables_part_4c <- c(
+    "aa_tau_00_est"
+  , "aa_tau_00_se"
+  , "aa_tau_00_wald"
+  , "aa_tau_00_pval"
+  , "aa_tau_11_est"
+  , "aa_tau_11_se"
+  , "aa_tau_11_wald"
+  , "aa_tau_11_pval"
+  , "bb_tau_00_es"
+  , "bb_tau_00_se"
+  , "bb_tau_00_wald"
+  , "bb_tau_00_pval"
+  , "bb_tau_11_est"
+  , "bb_tau_11_se"
+  , "bb_tau_11_wald"
+  , "bb_tau_11_pval"
+  # residuals
+  , "a_sigma_00_est"
+  , "a_sigma_00_se"
+  , "a_sigma_00_wald"
+  , "a_sigma_00_pval"
+  , "b_sigma_00_est"
+  , "b_sigma_00_se"
+  , "b_sigma_00_wald"
+  , "b_sigma_00_pval"
+  # covariances
+  , "ab_tau_00_es"
+  , "ab_tau_00_se"
+  , "ab_tau_00_wald"
+  , "ab_tau_00_pval"
+  , "ab_tau_11_est"
+  , "ab_tau_11_se"
+  , "ab_tau_11_wald"
+  , "ab_tau_11_pval"
+  , "ab_tau_01_est"
+  , "ab_tau_01_se"
+  , "ab_tau_01_wald"
+  , "ab_tau_01_pval"
+  , "ab_tau_10_est"
+  , "ab_tau_10_se"
+  , "ab_tau_10_wald"
+  , "ab_tau_10_pval"
+)
 # elongate ----
 ds_long <- ds_full %>%
   dplyr::rename_(
@@ -282,10 +318,10 @@ ds_long <- ds_full %>%
   #   b_gamma_10_ci95_lower = b_gamma_10_est - b_gamma_10_radius,
   #   b_gamma_10_ci95_upper = b_gamma_10_est + b_gamma_10_radius
   # ) %>%
-  dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b))  %>%
+  dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b, variables_part_4c))  %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
   dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>%
-  tidyr::gather_("g", "value", variables_part_4b) %>%
+  tidyr::gather_("g", "value", c(variables_part_4b,variables_part_4c)) %>%
   dplyr::mutate(
     process      = gsub(regex_gamma, "\\1", g, perl=T),
     coefficient  = gsub(regex_gamma, "\\2", g, perl=T),
