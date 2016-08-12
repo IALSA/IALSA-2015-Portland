@@ -150,7 +150,7 @@ ds_long <- ds_full %>%
     , "aa_tau_11_pval"              = "`aa_TAU_11_pval`"
 
 
-    , "bb_tau_00_es"                = "`bb_TAU_00_est`"
+    , "bb_tau_00_est"               = "`bb_TAU_00_est`"
     , "bb_tau_00_se"                = "`bb_TAU_00_se`"
     , "bb_tau_00_wald"              = "`bb_TAU_00_wald`"
     , "bb_tau_00_pval"              = "`bb_TAU_00_pval`"
@@ -169,7 +169,7 @@ ds_long <- ds_full %>%
     , "b_sigma_00_wald"                = "`b_SIGMA_wald`"
     , "b_sigma_00_pval"                = "`b_SIGMA_pval`"
 
-    , "ab_tau_00_es"                = "`ab_TAU_00_est`"
+    , "ab_tau_00_est"                = "`ab_TAU_00_est`"
     , "ab_tau_00_se"                = "`ab_TAU_00_se`"
     , "ab_tau_00_wald"              = "`ab_TAU_00_wald`"
     , "ab_tau_00_pval"              = "`ab_TAU_00_pval`"
@@ -196,6 +196,8 @@ ds_long <- ds_full %>%
     , "a_gamma_10_pval"             = "`a_GAMMA_10_pval`"
     , "a_gamma_01_est"              = "`a_GAMMA_01_est`"
     , "a_gamma_01_se"               = "`a_GAMMA_01_se`"
+    , "a_gamma_01_wald"             = "`a_GAMMA_01_wald`"
+    , "a_gamma_01_pval"             = "`a_GAMMA_01_pval`"
     , "b_gamma_00_est"              = "`b_GAMMA_00_est`"
     , "b_gamma_00_se"               = "`b_GAMMA_00_se`"
     , "b_gamma_00_wald"             = "`b_GAMMA_00_wald`"
