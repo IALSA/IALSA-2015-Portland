@@ -84,7 +84,7 @@ variables_part_4c <- c(
   , "aa_tau_11_se"
   , "aa_tau_11_wald"
   , "aa_tau_11_pval"
-  , "bb_tau_00_es"
+  , "bb_tau_00_est"
   , "bb_tau_00_se"
   , "bb_tau_00_wald"
   , "bb_tau_00_pval"
@@ -102,7 +102,7 @@ variables_part_4c <- c(
   , "b_sigma_00_wald"
   , "b_sigma_00_pval"
   # covariances
-  , "ab_tau_00_es"
+  , "ab_tau_00_est"
   , "ab_tau_00_se"
   , "ab_tau_00_wald"
   , "ab_tau_00_pval"
