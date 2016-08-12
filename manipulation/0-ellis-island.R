@@ -171,7 +171,7 @@ for(i in seq_along(combine_studies)){
 }
 results <- plyr::ldply(dtos, data.frame)
 # explore dplyr::bind_rows() for a better solution
-head(results[,c("study_name","a_GAMMA_14_est")])
+head(results[,c("study_name","a_GAMMA_14_est")]) # example
 
 # ---- dto ---------------------------------------------------------
 #### REMOVE DUPLICATES BEFORE SAVING THE DATA FOR THE NEXT STEP
@@ -192,8 +192,7 @@ write.csv(results,  paste0("./data/shared/parsed-results-raw.csv"), row.names=F)
 
 
 # ---- dto ---------------------------------------------------------
-
-
+#  TODO:  compose dto to pass down the workflow
 
 
 # ---- verify-values -----------------------------------------------------------
@@ -204,23 +203,23 @@ write.csv(results,  paste0("./data/shared/parsed-results-raw.csv"), row.names=F)
 # ---- save-to-disk ------------------------------------------------------------
 
 # Save as a compress, binary R dataset.  It's no longer readable with a text editor, but it saves metadata (eg, factor information).
-saveRDS(dto, file="./data/unshared/derived/dto.rds", compress="xz")
+# saveRDS(dto, file="./data/unshared/derived/dto.rds", compress="xz")
 
 # ---- object-verification ------------------------------------------------
 # the production of the dto object is now complete
-# we verify its structure and content:
-dto <- readRDS("./data/unshared/derived/dto.rds")
-# each element this list is another list:
-names(dto)
-# 1st element - names of the studies as character vector
-dto[["studyName"]]
-# 2nd element - file paths of the data files for each study
-dto[["filePath"]]
-# 3rd element - list objects with
-names(dto[["unitData"]])
-dplyr::tbl_df(dto[["unitData"]][["alsa"]])
-# 4th element - dataset with augmented names and labels for variables from all involved studies
-dplyr::tbl_df(dto[["metaData"]])
+# # we verify its structure and content:
+# dto <- readRDS("./data/unshared/derived/dto.rds")
+# # each element this list is another list:
+# names(dto)
+# # 1st element - names of the studies as character vector
+# dto[["studyName"]]
+# # 2nd element - file paths of the data files for each study
+# dto[["filePath"]]
+# # 3rd element - list objects with
+# names(dto[["unitData"]])
+# dplyr::tbl_df(dto[["unitData"]][["alsa"]])
+# # 4th element - dataset with augmented names and labels for variables from all involved studies
+# dplyr::tbl_df(dto[["metaData"]])
 
 
 
