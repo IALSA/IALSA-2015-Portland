@@ -62,7 +62,7 @@ variables_part_4a <- c(
 )
 
 # ---- load-data ---------------------------------------------------------------
-ds_full <- readRDS(path_input)
+ds_full <- readRDS(path_input) # catalog
 rm(path_input)
 
 
