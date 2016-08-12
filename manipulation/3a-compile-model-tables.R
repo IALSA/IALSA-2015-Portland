@@ -381,6 +381,80 @@ ds_find_duplicates <- ds_long %>%
 # testit::assert("No meaningful duplicate rows should exist.", nrow(ds_find_duplicates)==0L)
 # rm(variables_part_1, variables_part_4a, ds_find_duplicates)
 
+# ---- spread ------------------------------------------------------------------
+pattern_est <- c(
+  "intercept"    = "%0.2f",
+  "slope"        = "%0.2f"
+)
+pattern_se <- c(
+  "intercept"    = "%0.2f",
+  "slope"        = "%0.2f"
+)
+pattern_dense <- c(
+  "intercept"    = "%6s(%4s),%7s",
+  "slope"        = "%6s(%4s),%7s"
+)
+
+# spread-to-stem ----
+ds_spread <- ds_no_duplicates %>%
+  # dplyr::select(-spread_lower, -spread_upper, -cv) %>%
+  tidyr::spread(key=stat, value=value) %>%
+  dplyr::mutate(
+    breed        = as.integer(gsub("^([01])(\\d)$", "\\1", coefficient)),
+    species      = as.integer(gsub("^([01])(\\d)$", "\\2", coefficient)),
+    breed        = ifelse(breed==0L, "intercept", ifelse(breed==1L, "slope", NA_character_))
+    # is_intercept = grepl("^0\\d$", coefficient),
+    # is_slope     = grepl("^1\\d$", coefficient),
+    # breed        = ifelse(is_intercept, "intercept", ifelse(is_slope, "slope", NA_character_))
+  ) #%>%
+# dplyr::select(-is_intercept, -is_slope)
+# testit::assert("A value should be from only an intercept or a slope, but not both.", all(xor(ds_long$is_intercept, ds_long$is_slope)))
+testit::assert("A value should be from only an intercept or a slope.", all(!is.na(ds_spread$breed)))
+
+# create a csv manhole
+# readr::write_csv(ds_spread, "./data/shared/tables/seed/growth-curve-spread.csv")
+
+
+
+
+
+# ----- function-to-pull-a-model --------------------------
+pull_one_model <- function(d, study_name, subgroup, process_a, process_b, model_type){
+  d <- ds_no_duplicates
+  head(d)
+  dd <- dplyr::filter(
+    study_name == "map",
+    subgroup   == "male",
+    process_a  == ""
+  )
+}
+pull_one_model(ds_no_duplicates, c("eas"))
+
+
+
+# ---- look-up-easy ---------------
+ds_no_duplicates %>%
+# ds_spread %>%
+  # dplyr::mutate(
+  #   study_name     = factor(study_name),
+  #   process        = factor(process),
+  #   # stat           = factor(stat),
+  #   coefficient    = factor(coefficient),
+  #   subgroup       = factor(subgroup)
+  # ) %>%
+  dplyr::filter(model_type=="aehplus" & subgroup=="female" & study_name=="map" ) %>%
+  dplyr::select(-model_type, -subgroup) %>%
+  # dplyr::arrange(study_name, process, coefficient, stat) %>%
+  dplyr::arrange(study_name, process, coefficient) %>%
+  DT::datatable(
+    class     = 'cell-border stripe',
+    caption   = "Growth Curve Model Solution --Collapsed Format",
+    filter    = "top",
+    options   = list(pageLength = 20, autoWidth = TRUE)
+  )
+
+############################## The code below is from sandbox/word-tables/compile-growth-tables
+
 # ---- collapse-within-process ----------------------------------------
 ds_collapsed_physical <- ds_no_duplicates %>%
   dplyr::filter(process=="a") %>%
