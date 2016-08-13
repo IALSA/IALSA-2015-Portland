@@ -21,6 +21,8 @@ path_input <- "./data/shared/parsed-results.rds"
 coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 
 # simplify ----
+##########
+# PART 1 : model identifiers
 variables_part_1 <- c(
   "study_name",
   "process_a",
@@ -29,8 +31,19 @@ variables_part_1 <- c(
   "model_type"          # 0 , a, ae, aeh, aeh+, & full
 )
 
+###########
+# PART 4a : model information indices
+variables_part_4a <- c(
+  "subject_count",
+  "parameter_count",
+  'll', "aic", "bic"
+)
+
+###########
+# Part 4b : estimates of the covariates
 # variables_part_4 <- grep(regex_r, colnames(ds_full), perl=T, value=T)
 regex_gamma <- "^(a|b)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
+regex_general <- "^(a|b|aa|bb|ab)_(\\w+)_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 # regex_gamma <- "^(a|b|aa|bb|ab)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 
 coefficients_possible <- c("00", "10", "01", "11", "02", "12", "03", "13", "04", "14", "05", "15", "06", "16")
@@ -41,8 +54,6 @@ ds_order_gamma <- tidyr::crossing(
   stat          = factor(stats_possible       , levels=stats_possible)
 )
 
-
-
 coefficient_key <- c(
   "0"  = "intercept",
   "1"  = "age",
@@ -52,21 +63,8 @@ coefficient_key <- c(
   "5"  = "cardio",
   "6"  = "diabetes"
 )
-
 #, "ci95_lower", "ci95_upper"),
 
-variables_part_4a <- c(
-  "subject_count",
-  "parameter_count",
-  'll', "aic", "bic"
-)
-
-# ---- load-data ---------------------------------------------------------------
-ds_full <- readRDS(path_input) # catalog
-rm(path_input)
-
-
-# ---- tweak-data --------------------------------------------------------------
 # OuhscMunge::column_rename_headstart(ds_full)
 variables_part_4b <- sprintf(
   "%s_gamma_%s_%s",
@@ -74,8 +72,10 @@ variables_part_4b <- sprintf(
   ds_order_gamma$ceofficient,
   ds_order_gamma$stat
 )
-
+###########
+# PART 4c :  bivariate intercepts, slopes, and residuals (BISR)
 variables_part_4c <- c(
+  # estimates of intercepts and slopes
     "aa_tau_00_est"
   , "aa_tau_00_se"
   , "aa_tau_00_wald"
@@ -101,7 +101,7 @@ variables_part_4c <- c(
   , "b_sigma_00_se"
   , "b_sigma_00_wald"
   , "b_sigma_00_pval"
-  # covariances
+  # covariances of intecepts and slopes
   , "ab_tau_00_est"
   , "ab_tau_00_se"
   , "ab_tau_00_wald"
@@ -119,10 +119,18 @@ variables_part_4c <- c(
   , "ab_tau_10_wald"
   , "ab_tau_10_pval"
 )
+# ---- load-data ---------------------------------------------------------------
+ds_full <- readRDS(path_input) # catalog
+rm(path_input)
+
+
+# ---- tweak-data --------------------------------------------------------------
+
 # elongate ----
 ds_long <- ds_full %>%
   dplyr::rename_(
-    "study_name"                  = "`study_name`"
+    # general model information
+      "study_name"                  = "`study_name`"
     , "model_number"                = "`model_number`"
     , "subgroup"                    = "`subgroup`"
     , "model_type"                  = "`model_type`"
@@ -139,7 +147,7 @@ ds_long <- ds_full %>%
     , "trust_all"                   = "`trust_all`"
     , "mistrust"                    = "`mistrust`"
     , "covar_covered"               = "`covar_covered`"
-
+    # estimates of intercepts and slopes
     , "aa_tau_00_est"               = "`aa_TAU_00_est`"
     , "aa_tau_00_se"                = "`aa_TAU_00_se`"
     , "aa_tau_00_wald"              = "`aa_TAU_00_wald`"
@@ -148,8 +156,6 @@ ds_long <- ds_full %>%
     , "aa_tau_11_se"                = "`aa_TAU_11_se`"
     , "aa_tau_11_wald"              = "`aa_TAU_11_wald`"
     , "aa_tau_11_pval"              = "`aa_TAU_11_pval`"
-
-
     , "bb_tau_00_est"               = "`bb_TAU_00_est`"
     , "bb_tau_00_se"                = "`bb_TAU_00_se`"
     , "bb_tau_00_wald"              = "`bb_TAU_00_wald`"
@@ -158,8 +164,7 @@ ds_long <- ds_full %>%
     , "bb_tau_11_se"                = "`bb_TAU_11_se`"
     , "bb_tau_11_wald"              = "`bb_TAU_11_wald`"
     , "bb_tau_11_pval"              = "`bb_TAU_11_pval`"
-
-    # we arbitraraly assing residual to 00, to keep consistent, no implications
+    # we arbitraraly assing residual to 00, to keep names consistent, no implications
     , "a_sigma_00_est"                 = "`a_SIGMA_est`"
     , "a_sigma_00_se"                  = "`a_SIGMA_se`"
     , "a_sigma_00_wald"                = "`a_SIGMA_wald`"
@@ -168,7 +173,7 @@ ds_long <- ds_full %>%
     , "b_sigma_00_se"                  = "`b_SIGMA_se`"
     , "b_sigma_00_wald"                = "`b_SIGMA_wald`"
     , "b_sigma_00_pval"                = "`b_SIGMA_pval`"
-
+    # covariances of intecepts and slopes
     , "ab_tau_00_est"                = "`ab_TAU_00_est`"
     , "ab_tau_00_se"                = "`ab_TAU_00_se`"
     , "ab_tau_00_wald"              = "`ab_TAU_00_wald`"
@@ -185,7 +190,7 @@ ds_long <- ds_full %>%
     , "ab_tau_10_se"                = "`ab_TAU_10_se`"
     , "ab_tau_10_wald"              = "`ab_TAU_10_wald`"
     , "ab_tau_10_pval"              = "`ab_TAU_10_pval`"
-
+    # estimates of covariates
     , "a_gamma_00_est"              = "`a_GAMMA_00_est`"
     , "a_gamma_00_se"               = "`a_GAMMA_00_se`"
     , "a_gamma_00_wald"             = "`a_GAMMA_00_wald`"
@@ -321,13 +326,14 @@ ds_long <- ds_full %>%
   #   b_gamma_10_ci95_upper = b_gamma_10_est + b_gamma_10_radius
   # ) %>%
   dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b, variables_part_4c))  %>%
-  dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%
-  dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>%
-  tidyr::gather_("g", "value", c(variables_part_4b,variables_part_4c)) %>%
+  dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%  # remove univariate models
+  dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>% # remove univariate models
+  tidyr::gather_("g", "value", c(variables_part_4b,variables_part_4c)) %>% # BISR + covariates
   dplyr::mutate(
-    process      = gsub(regex_gamma, "\\1", g, perl=T),
-    coefficient  = gsub(regex_gamma, "\\2", g, perl=T),
-    stat         = gsub(regex_gamma, "\\3", g, perl=T)
+    process      = gsub(regex_general, "\\1", g, perl=T),
+    coefficient  = gsub(regex_general, "\\2", g, perl=T),
+    subindex     = gsub(regex_general, "\\3", g, perl=T),
+    stat         = gsub(regex_general, "\\4", g, perl=T)
   )
 rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
 
@@ -335,7 +341,7 @@ rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
 # inspect the created object via dynamic table
 ds_long %>%
   dplyr::mutate(
-    study_name    = factor(study_name),
+    # study_name    = factor(study_name),
     process_a      = factor(process_a),
     process_b      = factor(process_b),
     process        = factor(process),
@@ -343,7 +349,8 @@ ds_long %>%
     coefficient    = factor(coefficient),
     stat           = factor(stat)
   ) %>%
-  dplyr::filter(model_type=="aehplus" & subgroup=="female" & process_a=="gait") %>%
+  # dplyr::filter(model_type=="aehplus" & subgroup=="female" & process_a=="grip") %>%
+  dplyr::filter(model_type=="aehplus" & subgroup=="female" & process_a=="grip" & study_name =="map") %>%
   dplyr::select(-g, -model_type, -subgroup, -process_a, -parameter_count) %>%
   DT::datatable(
     class     = 'cell-border stripe',
@@ -353,10 +360,13 @@ ds_long %>%
   )
 
 # ---- remove-duplicates ----------------------------------------
+define_duplicates <- c(variables_part_1, variables_part_4a, "process", "coefficient","subindex", "stat") #Lacks "value"
+
 ds_no_duplicates <- ds_long %>%
   dplyr::group_by_(
-    .dots=c(variables_part_1, variables_part_4a, "process", "process_a", "process_b", "coefficient", "stat") #Lacks "value"
+    # .dots=c(variables_part_1, variables_part_4a, "process", "process_a", "process_b", "coefficient", "stat") #Lacks "value"
     # .dots=c(variables_part_1, variables_part_4a, "process", "breed", "species", "stat") #Lacks "value"
+    .dots=define_duplicates #Lacks "value"
   ) %>%
   dplyr::summarize(
     # value  = dplyr::first(value, na.rm=T)
@@ -367,8 +377,9 @@ ds_no_duplicates <- ds_long %>%
 ds_find_duplicates <- ds_long %>%
   dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
   dplyr::group_by_(
-    .dots=c(variables_part_1, variables_part_4a, "process", "process_a", "process_b", "coefficient", "stat")
+    # .dots=c(variables_part_1, variables_part_4a, "process", "process_a", "process_b", "coefficient", "stat")
     # .dots=c(variables_part_1, variables_part_4a,  "process", "breed", "species", "stat")
+    .dots=define_duplicates #Lacks "value"
   ) %>%  #Lacks "value"
   dplyr::filter(!is.na(value)) %>% #Drops from 56 rows to 8 rows.  !!Careful that you don't remove legit NAs (esp, in nonduplicated rows).
   dplyr::summarize(
