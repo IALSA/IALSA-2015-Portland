@@ -165,16 +165,16 @@ ds_long <- ds_full %>%
     , "bb_tau_11_wald"              = "`bb_TAU_11_wald`"
     , "bb_tau_11_pval"              = "`bb_TAU_11_pval`"
     # we arbitraraly assing residual to 00, to keep names consistent, no implications
-    , "a_sigma_00_est"                 = "`a_SIGMA_est`"
-    , "a_sigma_00_se"                  = "`a_SIGMA_se`"
-    , "a_sigma_00_wald"                = "`a_SIGMA_wald`"
-    , "a_sigma_00_pval"                = "`a_SIGMA_pval`"
-    , "b_sigma_00_est"                 = "`b_SIGMA_est`"
-    , "b_sigma_00_se"                  = "`b_SIGMA_se`"
-    , "b_sigma_00_wald"                = "`b_SIGMA_wald`"
-    , "b_sigma_00_pval"                = "`b_SIGMA_pval`"
+    , "a_sigma_00_est"              = "`a_SIGMA_est`"
+    , "a_sigma_00_se"               = "`a_SIGMA_se`"
+    , "a_sigma_00_wald"             = "`a_SIGMA_wald`"
+    , "a_sigma_00_pval"             = "`a_SIGMA_pval`"
+    , "b_sigma_00_est"              = "`b_SIGMA_est`"
+    , "b_sigma_00_se"               = "`b_SIGMA_se`"
+    , "b_sigma_00_wald"             = "`b_SIGMA_wald`"
+    , "b_sigma_00_pval"             = "`b_SIGMA_pval`"
     # covariances of intecepts and slopes
-    , "ab_tau_00_est"                = "`ab_TAU_00_est`"
+    , "ab_tau_00_est"               = "`ab_TAU_00_est`"
     , "ab_tau_00_se"                = "`ab_TAU_00_se`"
     , "ab_tau_00_wald"              = "`ab_TAU_00_wald`"
     , "ab_tau_00_pval"              = "`ab_TAU_00_pval`"
@@ -411,37 +411,131 @@ pattern_dense <- c(
 # spread-to-stem ----
 ds_spread <- ds_no_duplicates %>%
   # dplyr::select(-spread_lower, -spread_upper, -cv) %>%
-  tidyr::spread(key=stat, value=value) %>%
-  dplyr::mutate(
-    breed        = as.integer(gsub("^([01])(\\d)$", "\\1", coefficient)),
-    species      = as.integer(gsub("^([01])(\\d)$", "\\2", coefficient)),
-    breed        = ifelse(breed==0L, "intercept", ifelse(breed==1L, "slope", NA_character_))
+  tidyr::spread(key=stat, value=value)# %>%
+  # dplyr::mutate(
+    # breed        = as.integer(gsub("^([01])(\\d)$", "\\1", coefficient)),
+    # breed        = as.integer(subindex),
+    # species      = as.integer(gsub("^([01])(\\d)$", "\\2", coefficient)),
+    # species      = as.integer(gsub("^([01])(\\d)$", "\\2", coefficient)),
+    # breed        = ifelse(breed==0L, "intercept", ifelse(breed==1L, "slope", NA_character_))
     # is_intercept = grepl("^0\\d$", coefficient),
     # is_slope     = grepl("^1\\d$", coefficient),
     # breed        = ifelse(is_intercept, "intercept", ifelse(is_slope, "slope", NA_character_))
-  ) #%>%
+  # ) %>%
 # dplyr::select(-is_intercept, -is_slope)
 # testit::assert("A value should be from only an intercept or a slope, but not both.", all(xor(ds_long$is_intercept, ds_long$is_slope)))
-testit::assert("A value should be from only an intercept or a slope.", all(!is.na(ds_spread$breed)))
+# testit::assert("A value should be from only an intercept or a slope.", all(!is.na(ds_spread$breed)))
 
 # create a csv manhole
 # readr::write_csv(ds_spread, "./data/shared/tables/seed/growth-curve-spread.csv")
+
+# spread-pretty -----------------
+ds_spread_pretty <- ds_spread %>%
+  dplyr::mutate(
+    subject_count = scales::comma(subject_count),
+    est_pretty    = sprintf(pattern_est[1], est),
+    se_pretty     = sprintf(pattern_se[1], se),
+    pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
+    pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
+    pval_pretty   = sprintf("*p*=%s", pval_pretty),
+    pval_pretty   = ifelse(pval_pretty=="*p*=.00", "*p*<.01", pval_pretty),       #Cap p-value at .01
+    pval_pretty   = ifelse(pval_pretty=="*p*=NA" , "*p*= NA", pval_pretty),       #Pad NA with space
+    pattern       = pattern_dense[1],
+    dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
+    dense         = ifelse(is.na(est), "--,*p*=  ----", dense),                    #If the cell is bogus, don't bother displaying `NA` in the manuscript table.
+    full_name     = paste0(process,"_",coefficient,"_",subindex)
+  )# %>%
+  # dplyr::select(-est, -se, -wald, -est_pretty, -se_pretty, -pval, -pval_pretty, -pattern) %>% #, -ci95_lower, -ci95_upper
+  # dplyr::mutate(
+  #   species       = factor(species, levels=names(coefficient_key), labels=coefficient_key)
+  # )
+
+# model_key <- c(
+#   # fixed effects
+#   "a_gamma_00", # intercept                          of process a
+#   "a_gamma_10", # slope                              of process a
+#   "a_gamma_01", # age        regressed on intercept  of process a
+#   "a_gamma_02", # education  regressed on intercept  of process a
+#   "a_gamma_03", # height     regressed on intercept  of process a
+#   "a_gamma_04", # smoking    regressed on intercept  of process a
+#   "a_gamma_05", # cardio     regressed on intercept  of process a
+#   "a_gamma_06", # diabetes   regressed on intercept  of process a
+#   "a_gamma_11", # age        regressed on slope      of process a
+#   "a_gamma_12", # education  regressed on slope      of process a
+#   "a_gamma_13", # height     regressed on slope      of process a
+#   "a_gamma_14", # smoking    regressed on slope      of process a
+#   "a_gamma_15", # cardio     regressed on slope      of process a
+#   "a_gamma_16", # diabetes   regressed on slope      of process a
+#
+#   "b_gamma_00", # intercept                          of process b
+#   "b_gamma_10", # slope                              of process b
+#   "b_gamma_01", # age        regressed on intercept  of process a
+#   "b_gamma_02", # education  regressed on intercept  of process a
+#   "b_gamma_03", # height     regressed on intercept  of process a
+#   "b_gamma_04", # smoking    regressed on intercept  of process a
+#   "b_gamma_05", # cardio     regressed on intercept  of process a
+#   "b_gamma_06", # diabetes   regressed on intercept  of process a
+#   "b_gamma_11", # age        regressed on slope      of process a
+#   "b_gamma_12", # education  regressed on slope      of process a
+#   "b_gamma_13", # height     regressed on slope      of process a
+#   "b_gamma_14", # smoking    regressed on slope      of process a
+#   "b_gamma_15", # cardio     regressed on slope      of process a
+#   "b_gamma_16", # diabetes   regressed on slope      of process a
+#
+#   # Variance components
+#   "aa_tau_00" , # intercept  variance                of process a
+#   "aa_tau_11" , # slope      variance                of process a
+#   "a_sigma_00", # residual   variance                of porcess a
+#
+#   "bb_tau_00" , # intercept  variance                of process b
+#   "bb_tau_11" , # slope      variance                of process b
+#   "b_sigma_00", # residual   variance                of porcess b
+#
+#   # Covariance componets
+#   "ab_tau_00",  #            covariance              of intercepts
+#   "ab_tau_11",  #            covariance              of slopes
+#   "ab_tau_01",  #            covariance b/w intercept a and slope b
+#   "ab_tau_10"  #            covariance b/w intercept b and slope a
+#   # "ab_tau_01"  # int-slope  covariance              of process a
+#   # "ab_tau_10"  # int-slope  covariance              of porcess b
+# )
 
 
 
 
 
 # ----- function-to-pull-a-model --------------------------
-pull_one_model <- function(d, study_name, subgroup, process_a, process_b, model_type){
-  d <- ds_no_duplicates
+# pull_one_model <- function(d, study_name, subgroup, process_a, process_b, model_type){
+pull_one_model <- function(d){
+  stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil.csv")
+  stencil$label <- format(stencil$label, justify = "left")
+  # model_key <- factor(stencil$full_name, levels = stencil$full_name, labels = stencil$label)
+  model_key <- stencil$full_name
+  model_key_labels <- stencil$label
+
+  d <- ds_spread_pretty
   head(d)
-  dd <- dplyr::filter(
+  dd <- d %>% dplyr::filter(
     study_name == "map",
-    subgroup   == "male",
-    process_a  == ""
-  )
+    subgroup   == "female",
+    process_a  == "grip",
+    process_b  == "line",
+    model_type == "aehplus",
+    full_name %in% model_key
+  ) #%>%
+  #   dplyr::mutate(
+        # full_name       = factor(full_name, levels=model_key, labels=model_key_labels)
+  #     full_name       = factor(full_name, levels=names(model_key), labels=model_key)
+  #   )
+  # d <- dd %>% dplyr::arrange(full_name)
+  d <- dplyr::left_join(stencil, dd, by = "full_name") %>%
+    # dplyr::rename(process = process.x) %>%
+    dplyr::mutate( process = process.x) %>%
+    dplyr::select(type,process, label,dense)
+
+  return(d)
 }
-pull_one_model(ds_no_duplicates, c("eas"))
+pull_one_model(ds_no_duplicates) %>% print(n=50)
 
 
 
