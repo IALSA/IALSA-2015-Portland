@@ -506,41 +506,60 @@ ds_spread_pretty <- ds_spread %>%
 
 # ----- function-to-pull-a-model --------------------------
 # pull_one_model <- function(d, study_name, subgroup, process_a, process_b, model_type){
-pull_one_model <- function(d){
+# test of equality of elements : http://stackoverflow.com/questions/4752275/test-for-equality-among-all-elements-of-a-single-vector
+pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, model_type_){
   stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil.csv")
   stencil$label <- format(stencil$label, justify = "left")
   # model_key <- factor(stencil$full_name, levels = stencil$full_name, labels = stencil$label)
   model_key <- stencil$full_name
   model_key_labels <- stencil$label
 
-  d <- ds_spread_pretty
-  head(d)
-  dd <- d %>% dplyr::filter(
-    study_name == "map",
-    subgroup   == "female",
-    process_a  == "grip",
-    process_b  == "line",
-    model_type == "aehplus",
+  single_model <- d %>% dplyr::filter(
+    study_name == study_name_,
+    subgroup   == subgroup_,
+    process_a  == process_a_,
+    process_b  == process_b_,
+    model_type == model_type_,
     full_name %in% model_key
-  ) #%>%
-  #   dplyr::mutate(
-        # full_name       = factor(full_name, levels=model_key, labels=model_key_labels)
-  #     full_name       = factor(full_name, levels=names(model_key), labels=model_key)
-  #   )
-  # d <- dd %>% dplyr::arrange(full_name)
-  d <- dplyr::left_join(stencil, dd, by = "full_name") %>%
+  )
+
+  subject_count_ <- single_model$subject_count[1]
+  AIC_ <- single_model$aic[1]
+  BIC_ <- single_model$bic[1]
+  LL_ <- single_model$ll[1]
+
+  model_info <- data.frame(
+    type = c("", "", ""),
+    process = c("", "", ""),
+    label = c("N", "AIC", "BIC"),
+    dense = c(subject_count_, AIC_, BIC_), stringsAsFactors = FALSE
+  )
+
+  d2 <- dplyr::left_join(stencil, single_model, by = "full_name") %>%
     # dplyr::rename(process = process.x) %>%
     dplyr::mutate( process = process.x) %>%
     dplyr::select(type,process, label,dense)
+  d3 <- dplyr::bind_rows(d2,model_info )
+  print(d3, n=50)
+  return(d3)
 
-  return(d)
 }
-pull_one_model(ds_no_duplicates) %>% print(n=50)
+# study_name_ = "map";subgroup_   = "female";process_a_  = "grip";process_b_  = "line";model_type_ = "aehplus"
+single_model_pretty <- pull_one_model(d = ds_spread_pretty,
+  study_name_ = "map",
+  subgroup_   = "female",
+  process_a_  = "grip",
+  process_b_  = "bnt",
+  model_type_ = "aehplus"
+)
 
 
+print(single_model_pretty, n=50)
 
 # ---- look-up-easy ---------------
-ds_no_duplicates %>%
+d %>%
+# dd %>%
+# ds_no_duplicates %>%
 # ds_spread %>%
   # dplyr::mutate(
   #   study_name     = factor(study_name),
@@ -549,10 +568,10 @@ ds_no_duplicates %>%
   #   coefficient    = factor(coefficient),
   #   subgroup       = factor(subgroup)
   # ) %>%
-  dplyr::filter(model_type=="aehplus" & subgroup=="female" & study_name=="map" ) %>%
-  dplyr::select(-model_type, -subgroup) %>%
+  # dplyr::filter(model_type=="aehplus" & subgroup=="female" & study_name=="map" ) %>%
+  # dplyr::select(-model_type, -subgroup) %>%
   # dplyr::arrange(study_name, process, coefficient, stat) %>%
-  dplyr::arrange(study_name, process, coefficient) %>%
+  # dplyr::arrange(study_name, process, coefficient) %>%
   DT::datatable(
     class     = 'cell-border stripe',
     caption   = "Growth Curve Model Solution --Collapsed Format",
