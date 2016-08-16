@@ -540,7 +540,7 @@ pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, mo
     dplyr::mutate( process = process.x) %>%
     dplyr::select(type,process, label,dense)
   d3 <- dplyr::bind_rows(d2,model_info )
-  print(d3, n=50)
+  print(knitr::kable(d3))
   return(d3)
 
 }
@@ -552,7 +552,7 @@ single_model_pretty <- pull_one_model(d = ds_spread_pretty,
   process_b_  = "bnt",
   model_type_ = "aehplus"
 )
-
+knitr::kable(single_model_pretty)
 
 print(single_model_pretty, n=50)
 
