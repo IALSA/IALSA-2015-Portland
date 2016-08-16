@@ -25,7 +25,17 @@ pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, mo
   model_key <- stencil$full_name
   model_key_labels <- stencil$label
 
-  single_model <- d %>% dplyr::filter(
+  d <- d %>%
+       dplyr::mutate(
+       full_name     = paste0(process,"_",coefficient,"_",subindex)
+       )
+
+
+  single_model <- d %>%
+    dplyr::mutate(
+      full_name     = paste0(process,"_",coefficient,"_",subindex)
+    ) %>%
+    dplyr::filter(
     study_name == study_name_,
     subgroup   == subgroup_,
     process_a  == process_a_,
