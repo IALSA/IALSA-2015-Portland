@@ -114,9 +114,7 @@ view_options <- function(d, group_){
   print(d2, n = nrow(d2))
 }
 
-
-# study_name_ = "map";subgroup_   = "female";process_a_  = "grip";process_b_  = "line";model_type_ = "aehplus"
-# single_model_pretty <- pull_one_model(d = ds_spread,
+# single_model_pretty <- pull_one_model(d = catalog,
 #                                       study_name_ = "map",
 #                                       subgroup_   = "female",
 #                                       process_a_  = "grip",

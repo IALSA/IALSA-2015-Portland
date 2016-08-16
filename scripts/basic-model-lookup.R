@@ -6,7 +6,7 @@ source("./scripts/model-lookup-function.R")
 
 single_model <- pull_one_model(
   d           = catalog,
-  study_name_ = "eas",
+  study_name_ = "map",
   subgroup_   = "female",
   process_a_  = "grip",
   process_b_  = "symbol",
