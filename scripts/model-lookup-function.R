@@ -16,12 +16,32 @@
 #     options   = list(pageLength = 20, autoWidth = TRUE)
 #   )
 #
-# study_name_ = "map";subgroup_   = "female";process_a_  = "grip";process_b_  = "line";model_type_ = "aehplus"
-results <- read.csv("https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/data/shared/derived/temp.csv", stringsAsFactors = FALSE)
+# study_name_ = "map";
+# subgroup_   = "female";
+# process_a_  = "grip";
+# process_b_  = "line";
+# model_type_ = "aehplus"
+# d <- readRDS("./data/shared/derived/spread.rds")
+# stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil.csv")
+# results <- read.csv("https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/data/shared/derived/temp.csv", stringsAsFactors = FALSE)
+# stencil <- read.csv("https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/data/shared/tables/study-specific-stencil.csv")
 
-pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, model_type_){
+pattern_est <- c(
+  "intercept"    = "%0.2f",
+  "slope"        = "%0.2f"
+)
+pattern_se <- c(
+  "intercept"    = "%0.2f",
+  "slope"        = "%0.2f"
+)
+pattern_dense <- c(
+  "intercept"    = "%6s(%4s),%7s",
+  "slope"        = "%6s(%4s),%7s"
+)
+
+pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, model_type_, pretty_=T){
   # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil.csv")
-  stencil <- read.csv("https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/data/shared/tables/study-specific-stencil.csv")
+  # stencil <- read.csv("https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/data/shared/tables/study-specific-stencil.csv")
   stencil$label <- format(stencil$label, justify = "left")
   model_key <- stencil$full_name
   model_key_labels <- stencil$label
@@ -52,25 +72,49 @@ pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, mo
   d2 <- dplyr::left_join(stencil, single_model, by = "full_name") %>%
     dplyr::mutate(process = process.y) %>%
       dplyr::select(type, process, label,est, se, pval, - process.y)
-  # d2 <- d2 %>%
-  #   dplyr::mutate(
-  #     # subject_count = scales::comma(subject_count),
-  #     est_pretty    = sprintf(pattern_est[1], est),
-  #     se_pretty     = sprintf(pattern_se[1], se),
-  #     pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
-  #     pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
-  #     pval_pretty   = sprintf("*p*=%s", pval_pretty),
-  #     pval_pretty   = ifelse(pval_pretty=="*p*=.00", "*p*<.01", pval_pretty),       #Cap p-value at .01
-  #     pval_pretty   = ifelse(pval_pretty=="*p*=NA" , "*p*= NA", pval_pretty),       #Pad NA with space
-  #     pattern       = pattern_dense[1],
-  #     dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
-  #     dense         = ifelse(is.na(est), "--,*p*=  ----", dense)
-  #   )
+
+  if(pretty_){
+  d2 <- d2 %>%
+    dplyr::mutate(
+      # subject_count = scales::comma(subject_count),
+      est_pretty    = sprintf(pattern_est[1], est),
+      se_pretty     = sprintf(pattern_se[1], se),
+      pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
+      pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
+      # pval_pretty   = sprintf("*p*=%s", pval_pretty),
+      pval_pretty   = sprintf("p=%s", pval_pretty),
+      # pval_pretty   = ifelse(pval_pretty=="*p*=.00", "*p*<.01", pval_pretty),       #Cap p-value at .01
+      # pval_pretty   = ifelse(pval_pretty=="*p*=NA" , "*p*= NA", pval_pretty),       #Pad NA with space
+      pval_pretty   = ifelse(pval_pretty=="p=.00", "p<.01", pval_pretty),       #Cap p-value at .01
+      pval_pretty   = ifelse(pval_pretty=="p=NA" , "p= NA", pval_pretty),       #Pad NA with space
+
+      pattern       = pattern_dense[1],
+      dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
+      # dense         = ifelse(is.na(est), "--,*p*=  ----", dense)
+      dense         = ifelse(is.na(est), "--,p=  ----", dense)
+    ) %>%
+    dplyr::select(type, process, label, dense)
+
+  model_info <- model_info %>%
+    dplyr::rename(dense =  est) %>%
+    dplyr::mutate(dense = scales::comma(dense,0))
+    d3 <- dplyr::bind_rows(d2,model_info )
+  }else{
   d3 <- dplyr::bind_rows(d2,model_info )
-  print(d3, n= 50)
+  }
+  print(d3, n= nrow(d3))
   return(d3)
 
 }
+
+view_options <- function(d, group_){
+  d2 <- d %>%
+    dplyr::group_by_(group_) %>%
+    dplyr::summarize(n = n())
+  print(d2, n = nrow(d2))
+}
+
+
 # study_name_ = "map";subgroup_   = "female";process_a_  = "grip";process_b_  = "line";model_type_ = "aehplus"
 # single_model_pretty <- pull_one_model(d = ds_spread,
 #                                       study_name_ = "map",
