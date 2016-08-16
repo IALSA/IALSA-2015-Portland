@@ -11,7 +11,8 @@ single_model <- pull_one_model(
   process_a_  = "grip",
   process_b_  = "symbol",
   model_type_ = "aehplus",
-  pretty_     = T
+  pretty_     = FALSE
 )
 
 
+view_options(catalog, "map")

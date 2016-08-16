@@ -107,9 +107,10 @@ pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, mo
 
 }
 
-view_options <- function(d, group_){
+view_options <- function(d, study_){
   d2 <- d %>%
-    dplyr::group_by_(group_) %>%
+    dplyr::filter(study_name == study_) %>%
+    dplyr::group_by(process_a, process_b) %>%
     dplyr::summarize(n = n())
   print(d2, n = nrow(d2))
 }
