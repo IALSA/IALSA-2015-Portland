@@ -17,6 +17,7 @@
 #   )
 #
 # study_name_ = "map";subgroup_   = "female";process_a_  = "grip";process_b_  = "line";model_type_ = "aehplus"
+results <- read.csv("https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/data/shared/derived/temp.csv", stringsAsFactors = FALSE)
 
 pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, model_type_){
   # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil.csv")
@@ -24,13 +25,7 @@ pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, mo
   stencil$label <- format(stencil$label, justify = "left")
   model_key <- stencil$full_name
   model_key_labels <- stencil$label
-
-  d <- d %>%
-       dplyr::mutate(
-       full_name     = paste0(process,"_",coefficient,"_",subindex)
-       )
-
-
+  # d <- results
   single_model <- d %>%
     dplyr::mutate(
       full_name     = paste0(process,"_",coefficient,"_",subindex)
@@ -52,11 +47,11 @@ pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, mo
   model_info <- data.frame(
     label = c("N", "AIC", "BIC"),
     est = as.double(c(subject_count_, AIC_, BIC_)),
-    stringsAsFactors = FALSE
-  )
+    stringsAsFactors = FALSE)
 
   d2 <- dplyr::left_join(stencil, single_model, by = "full_name") %>%
-      dplyr::select(type, process, label,est, se, pval)
+    dplyr::mutate(process = process.y) %>%
+      dplyr::select(type, process, label,est, se, pval, - process.y)
   # d2 <- d2 %>%
   #   dplyr::mutate(
   #     # subject_count = scales::comma(subject_count),

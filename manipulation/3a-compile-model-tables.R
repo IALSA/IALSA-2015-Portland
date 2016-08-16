@@ -428,6 +428,8 @@ ds_spread <- ds_no_duplicates %>%
 
 # create a csv manhole
 # readr::write_csv(ds_spread, "./data/shared/tables/seed/growth-curve-spread.csv")
+readr::write_csv(ds_spread, "./data/shared/derived/temp.csv")
+# saveRDS(ds_spread, "./data/shared/derived/temp.rds")
 
 # spread-pretty -----------------
 ds_spread_pretty <- ds_spread %>%
@@ -449,7 +451,7 @@ ds_spread_pretty <- ds_spread %>%
   # dplyr::mutate(
   #   species       = factor(species, levels=names(coefficient_key), labels=coefficient_key)
   # )
-
+saveRDS(ds_spread_pretty, "./data/shared/derived/temp.rds")
 # model_key <- c(
 #   # fixed effects
 #   "a_gamma_00", # intercept                          of process a
