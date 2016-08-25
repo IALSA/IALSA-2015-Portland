@@ -55,14 +55,14 @@ list_pc[["ilse"]]
 
 # ---- dto ---------------------------------------------------------
 ## point to the folders with results for physical-physical track
-eas <- list.files(file.path(pathStudies,"eas/physical"),full.names=T, recursive=T, pattern="out$")
-elsa <- list.files(file.path(pathStudies,"elsa/physical"),full.names=T, recursive=T, pattern="out$")
-hrs <- list.files(file.path(pathStudies,"hrs/physical"),full.names=T, recursive=T, pattern="out$")
-ilse <- list.files(file.path(pathStudies,"ilse/physical"),full.names=T, recursive=T, pattern="out$")
-lasa <- list.files(file.path(pathStudies,"lasa/physical"),full.names=T, recursive=T, pattern="out$")
+eas   <- list.files(file.path(pathStudies,"eas/physical"),full.names=T, recursive=T, pattern="out$")
+elsa  <- list.files(file.path(pathStudies,"elsa/physical"),full.names=T, recursive=T, pattern="out$")
+hrs   <- list.files(file.path(pathStudies,"hrs/physical"),full.names=T, recursive=T, pattern="out$")
+ilse  <- list.files(file.path(pathStudies,"ilse/physical"),full.names=T, recursive=T, pattern="out$")
+lasa  <- list.files(file.path(pathStudies,"lasa/physical"),full.names=T, recursive=T, pattern="out$")
 nuage <- list.files(file.path(pathStudies,"nuage/physical"),full.names=T, recursive=T, pattern="out$")
-octo <- list.files(file.path(pathStudies,"octo/physical"),full.names=T, recursive=T, pattern="out$")
-radc <- list.files(file.path(pathStudies,"radc/physical"),full.names=T, recursive=T, pattern="out$")
+octo  <- list.files(file.path(pathStudies,"octo/physical"),full.names=T, recursive=T, pattern="out$")
+map   <- list.files(file.path(pathStudies,"map/physical"),full.names=T, recursive=T, pattern="out$")
 satsa <- list.files(file.path(pathStudies,"satsa/physical"),full.names=T, recursive=T, pattern="out$")
 
 list_pp <-  list("eas" = eas,
@@ -195,7 +195,7 @@ head(results[,c("study_name","a_GAMMA_14_est")]) # example
 
 ### NOTE to DO: attach attributes with descriptions to the variables of the `results` file
 # write.csv(results,  paste0("./data/shared/parsed-results-raw.csv"), row.names=F)
-write.csv(results,  paste0("./data/shared/phys-phys/parsed-results-pp-raw.csv"), row.names=F)
+write.csv(results,  paste0("./data/shared/pp-0-parsed-results-raw.csv"), row.names=F)
 #
 
 
