@@ -159,7 +159,7 @@ collect_study <- function(study, selected_results){
   }
 
   # write.csv(results,  paste0("./data/shared/parsed-results-pc-",study,".csv"), row.names=F)
-  write.csv(results,  paste0("./data/shared/parsed-results-pp-",study,".csv"), row.names=F)
+  write.csv(results,  paste0("./data/shared/phys-phys/parsed-results-pp-",study,".csv"), row.names=F)
   return(results)
 }
 
@@ -177,7 +177,7 @@ collect_study <- function(study, selected_results){
 # ---- dto ---------------------------------------------------------
 # combine results files from each study
 # (combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-\\w+\\.csv$", full.names =T) )
-(combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pp-\\w+\\.csv$", full.names =T) )
+(combine_studies <- list.files("./data/shared/phys-phys/", pattern = "^parsed-results-pp-\\w+\\.csv$", full.names =T) )
 # (combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-elsa", full.names =T) )
 dtos <- list()
 for(i in seq_along(combine_studies)){
@@ -195,7 +195,7 @@ head(results[,c("study_name","a_GAMMA_14_est")]) # example
 
 ### NOTE to DO: attach attributes with descriptions to the variables of the `results` file
 # write.csv(results,  paste0("./data/shared/parsed-results-raw.csv"), row.names=F)
-write.csv(results,  paste0("./data/shared/parsed-results-pp-raw.csv"), row.names=F)
+write.csv(results,  paste0("./data/shared/phys-phys/parsed-results-pp-raw.csv"), row.names=F)
 #
 
 
