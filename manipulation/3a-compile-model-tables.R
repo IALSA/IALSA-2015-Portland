@@ -339,25 +339,25 @@ rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
 
 # ---- table-dynamic-long ----------------------------------------
 # inspect the created object via dynamic table
-ds_long %>%
-  dplyr::mutate(
-    # study_name    = factor(study_name),
-    process_a      = factor(process_a),
-    process_b      = factor(process_b),
-    process        = factor(process),
-    subgroup       = factor(subgroup),
-    coefficient    = factor(coefficient),
-    stat           = factor(stat)
-  ) %>%
-  # dplyr::filter(model_type=="aehplus" & subgroup=="female" & process_a=="grip") %>%
-  dplyr::filter(model_type=="aehplus" & subgroup=="female" & process_a=="grip" & study_name =="map") %>%
-  dplyr::select(-g, -model_type, -subgroup, -process_a, -parameter_count) %>%
-  DT::datatable(
-    class     = 'cell-border stripe',
-    caption   = "Growth Curve Model Solution --Long Format",
-    filter    = "top",
-    options   = list(pageLength = 6, autoWidth = TRUE)
-  )
+# ds_long %>%
+#   dplyr::mutate(
+#     # study_name    = factor(study_name),
+#     process_a      = factor(process_a),
+#     process_b      = factor(process_b),
+#     process        = factor(process),
+#     subgroup       = factor(subgroup),
+#     coefficient    = factor(coefficient),
+#     stat           = factor(stat)
+#   ) %>%
+#   # dplyr::filter(model_type=="aehplus" & subgroup=="female" & process_a=="grip") %>%
+#   dplyr::filter(model_type=="aehplus" & subgroup=="female" & process_a=="grip" & study_name =="map") %>%
+#   dplyr::select(-g, -model_type, -subgroup, -process_a, -parameter_count) %>%
+#   DT::datatable(
+#     class     = 'cell-border stripe',
+#     caption   = "Growth Curve Model Solution --Long Format",
+#     filter    = "top",
+#     options   = list(pageLength = 6, autoWidth = TRUE)
+#   )
 
 # ---- remove-duplicates ----------------------------------------
 define_duplicates <- c(variables_part_1, variables_part_4a, "process", "coefficient","subindex", "stat") #Lacks "value"
@@ -428,8 +428,8 @@ ds_spread <- ds_no_duplicates %>%
 
 # create a csv manhole
 # readr::write_csv(ds_spread, "./data/shared/tables/seed/growth-curve-spread.csv")
-readr::write_csv(ds_spread, "./data/shared/derived/temp.csv")
-# saveRDS(ds_spread, "./data/shared/derived/temp.rds")
+# readr::write_csv(ds_spread, "./data/shared/derived/temp.csv")
+saveRDS(ds_spread, "./data/shared/derived/spread.rds")
 
 # spread-pretty -----------------
 ds_spread_pretty <- ds_spread %>%
@@ -451,59 +451,7 @@ ds_spread_pretty <- ds_spread %>%
   # dplyr::mutate(
   #   species       = factor(species, levels=names(coefficient_key), labels=coefficient_key)
   # )
-saveRDS(ds_spread_pretty, "./data/shared/derived/temp.rds")
-# model_key <- c(
-#   # fixed effects
-#   "a_gamma_00", # intercept                          of process a
-#   "a_gamma_10", # slope                              of process a
-#   "a_gamma_01", # age        regressed on intercept  of process a
-#   "a_gamma_02", # education  regressed on intercept  of process a
-#   "a_gamma_03", # height     regressed on intercept  of process a
-#   "a_gamma_04", # smoking    regressed on intercept  of process a
-#   "a_gamma_05", # cardio     regressed on intercept  of process a
-#   "a_gamma_06", # diabetes   regressed on intercept  of process a
-#   "a_gamma_11", # age        regressed on slope      of process a
-#   "a_gamma_12", # education  regressed on slope      of process a
-#   "a_gamma_13", # height     regressed on slope      of process a
-#   "a_gamma_14", # smoking    regressed on slope      of process a
-#   "a_gamma_15", # cardio     regressed on slope      of process a
-#   "a_gamma_16", # diabetes   regressed on slope      of process a
-#
-#   "b_gamma_00", # intercept                          of process b
-#   "b_gamma_10", # slope                              of process b
-#   "b_gamma_01", # age        regressed on intercept  of process a
-#   "b_gamma_02", # education  regressed on intercept  of process a
-#   "b_gamma_03", # height     regressed on intercept  of process a
-#   "b_gamma_04", # smoking    regressed on intercept  of process a
-#   "b_gamma_05", # cardio     regressed on intercept  of process a
-#   "b_gamma_06", # diabetes   regressed on intercept  of process a
-#   "b_gamma_11", # age        regressed on slope      of process a
-#   "b_gamma_12", # education  regressed on slope      of process a
-#   "b_gamma_13", # height     regressed on slope      of process a
-#   "b_gamma_14", # smoking    regressed on slope      of process a
-#   "b_gamma_15", # cardio     regressed on slope      of process a
-#   "b_gamma_16", # diabetes   regressed on slope      of process a
-#
-#   # Variance components
-#   "aa_tau_00" , # intercept  variance                of process a
-#   "aa_tau_11" , # slope      variance                of process a
-#   "a_sigma_00", # residual   variance                of porcess a
-#
-#   "bb_tau_00" , # intercept  variance                of process b
-#   "bb_tau_11" , # slope      variance                of process b
-#   "b_sigma_00", # residual   variance                of porcess b
-#
-#   # Covariance componets
-#   "ab_tau_00",  #            covariance              of intercepts
-#   "ab_tau_11",  #            covariance              of slopes
-#   "ab_tau_01",  #            covariance b/w intercept a and slope b
-#   "ab_tau_10"  #            covariance b/w intercept b and slope a
-#   # "ab_tau_01"  # int-slope  covariance              of process a
-#   # "ab_tau_10"  # int-slope  covariance              of porcess b
-# )
-
-
-
+# saveRDS(ds_spread_pretty, "./data/shared/derived/temp.rds")
 
 
 # ----- function-to-pull-a-model --------------------------
@@ -542,7 +490,8 @@ pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, mo
     dplyr::mutate( process = process.x) %>%
     dplyr::select(type,process, label,dense)
   d3 <- dplyr::bind_rows(d2,model_info )
-  print(knitr::kable(d3))
+  # print(knitr::kable(d3))
+  print(d3, n = nrow(d3))
   return(d3)
 
 }
