@@ -16,4 +16,14 @@ single_model <- pull_one_model(
 )
 
 unique(catalog$study_name)
-view_options(catalog, "lasa")
+view_options(catalog, "octo")
+
+view_options(catalog, "eas")
+view_options(catalog, "elsa") # annie
+view_options(catalog, "hrs")
+view_options(catalog, "ilse")
+view_options(catalog, "lasa") # annie
+view_options(catalog, "map")
+view_options(catalog, "nuage")
+view_options(catalog, "octo") # octo
+view_options(catalog, "satsa")
