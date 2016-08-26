@@ -117,7 +117,7 @@ knitr::kable(d)
 # ---- correct_process_b ------------------------------------------------
 # extract the specific renaming rule
 d_rule <- ds_rules %>%
-  dplyr::filter(category == "cognitive") %>%
+  dplyr::filter(category == "physical") %>%
   dplyr::select(entry_raw,entry_new,label_cell,label_row, domain )
 d_rule
 # join the model data frame to the conversion data frame.
