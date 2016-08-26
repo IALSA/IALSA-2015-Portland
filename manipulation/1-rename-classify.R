@@ -19,10 +19,10 @@ requireNamespace("testit", quietly=TRUE)
 # path_input  <- "./data-phi-free/raw/results-physical-cognitive.csv"
 # path_input <- paste0("./data/shared/parsed-results-pc-",study,".csv")
 # path_input  <- "./data/shared/parsed-results.csv"
-path_input <- "./data/shared/parsed-results-raw.csv"
-path_output <- "./data/shared/parsed-results.rds"
-path_output_csv <- "./data/shared/parsed-results-mapped.csv"
-figure_path <- './manipulation/stitched_output/'
+path_input      <- "./data/shared/pc-0-parsed-results-raw.csv"
+path_output     <- "./data/shared/pc-1-parsed-results.rds"
+path_output_csv <- "./data/shared/pc-1-parsed-results.csv"
+figure_path     <- './manipulation/stitched_output/'
 
 
 # ---- load_data ---------------------------------------------------------------
