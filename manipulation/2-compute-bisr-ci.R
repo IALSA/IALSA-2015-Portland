@@ -8,7 +8,9 @@ library(dplyr)
 
 ## @knitr load_data -----
 # ds <- readRDS('./data/shared/ds1.rds')
-ds <- readRDS('./data/shared/parsed-results.rds')
+# ds <- readRDS('./data/shared/parsed-results.rds')
+ds <- readRDS('./data/shared/pc-1-parsed-results.rds')
+# ds <- readRDS('./data/shared/pp-1-parsed-results.rds')
 
 ## @knitr basic_view -----
 keepvar <-  c("output_file", "subject_count","ab_TAU_00_est", "ab_TAU_11_est","ab_SIGMA_est", "a_GAMMA_00_est" )
@@ -177,7 +179,9 @@ ds$uni_bi <- stringr::str_sub(ds$model_number,1,1)
 ## @knitr export_dataset -----
 # saveRDS(ds,"./data/shared/ds2.rds")
 # saveRDS(ds,"./data/shared/parsed-results.rds")
-readr::write_csv(ds,"./data/shared/parsed-results-computed_ci.csv")
+readr::write_csv(ds,"./data/shared/pc-2-parsed-results-computed_ci.csv")
+# readr::write_csv(ds,"./data/shared/pp-2-parsed-results-computed_ci.csv")
+
 #
 # source("./scripts/make_pretty.r")
 
