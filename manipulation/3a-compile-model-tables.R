@@ -17,7 +17,8 @@ requireNamespace("scales")
 
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
-path_input <- "./data/shared/parsed-results.rds"
+# path_input <- "./data/shared/parsed-results.rds"
+path_input <- "./data/shared/pp-1-parsed-results.rds"
 coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 
 # simplify ----
@@ -429,7 +430,8 @@ ds_spread <- ds_no_duplicates %>%
 # create a csv manhole
 # readr::write_csv(ds_spread, "./data/shared/tables/seed/growth-curve-spread.csv")
 # readr::write_csv(ds_spread, "./data/shared/derived/temp.csv")
-saveRDS(ds_spread, "./data/shared/derived/spread.rds")
+# saveRDS(ds_spread, "./data/shared/derived/spread.rds")
+saveRDS(ds_spread, "./data/shared/derived/pp-spread.rds")
 
 # spread-pretty -----------------
 ds_spread_pretty <- ds_spread %>%
