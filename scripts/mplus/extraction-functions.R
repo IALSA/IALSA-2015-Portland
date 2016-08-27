@@ -554,7 +554,26 @@
   }# close get_results_fixed
   # results <- get_results_fixed()
 
-  # IV.A. Export results
+  # IV.A Function to rule them all
+  collect_result <- function(path){
+    # extract model idendification
+    mid <- get_id(path)
+    msum <- get_msum(path)
+    mpar <- get_mpar(path)
+
+    result <- data.frame(matrix(NA, ncol = length(selected_results)))
+    names(result) <- selected_results
+
+    result <- get_results_basic(path, mid, msum, mpar, result)
+    result <- get_results_errors(path, mpar, result)
+    result <- get_results_random(path, mpar, result)
+    result <- get_results_residual(path, mpar, result)
+    result <- get_results_fixed(path, mpar, result)
+    return(result)
+  }
+  # collected <- collect_result(path=path_model_output)
+
+  # IV.B. Export results
   # destination <- folder # pass in the main function, show where to save
   # write.csv(results, paste0(destination,".csv") , row.names=F)
   # saveRDS(results, paste0(destination,".rds") )
