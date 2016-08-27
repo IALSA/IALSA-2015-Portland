@@ -16,8 +16,7 @@ requireNamespace("testit", quietly=TRUE)
 pathStudies <- file.path("./data/shared/covariance-issue/studies")
 
 path_input      <- paste0(pathStudies,"/0-parsed-results-raw.csv")
-path_output     <- paste0(pathStudies,"/1-parsed-results.rds")
-path_output_csv <- paste0(pathStudies,"/1-parsed-results.csv")
+path_output     <- paste0(pathStudies,"/1-parsed-results.csv")
 
 # ---- load_data ---------------------------------------------------------------
 ds0 <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
@@ -147,9 +146,8 @@ knitr::kable(d)
 t <- table(ds$process_b, ds$process_b_domain);t[t==0]<-".";t
 
 
-# ---- export_ready_data ---------------------------------------
-saveRDS(ds, path_output)
-readr::write_csv(ds,path_output_csv)
+# ---- export-ready-data ---------------------------------------
+readr::write_csv(ds,path_output)
 
 
 
