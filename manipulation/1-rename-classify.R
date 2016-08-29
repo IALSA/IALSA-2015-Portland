@@ -95,7 +95,7 @@ head(ds)
 t <- table(ds[ ,"entry_new"],  ds[,"study_name"]);t[t==0]<-".";t
 # Remove the old variable, and rename the cleaned/condensed variable.
 ds <- ds %>%
-  dplyr::select(-process_a) %>%
+  dplyr::select(-process_a) %>% #dplyr::filter(model_number == "b1") %>%
   dplyr::rename_("process_a"="entry_new") # name correction
 # verify
 t <- table(ds$process_a, ds$study_name); t[t==0]<-"."; t
