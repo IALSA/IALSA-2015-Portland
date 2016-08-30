@@ -8,9 +8,9 @@ source("./scripts/model-lookup-function.R")
 
 single_model <- pull_one_model(
   d           = catalog,
-  study_name_ = "octo",
+  study_name_ = "eas",
   subgroup_   = "male",
-  process_a_  = "grip",
+  process_a_  = "gait",
   process_b_  =  "block",
   model_type_ = "aehplus",
   pretty_     = FALSE

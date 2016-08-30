@@ -39,6 +39,14 @@ pattern_dense <- c(
   "slope"        = "%6s(%4s),%7s"
 )
 
+# d <- catalog
+# study_name_ = "octo"
+# subgroup_   = "male"
+# process_a_  = "grip"
+# process_b_  =  "block"
+# model_type_ = "aehplus"
+# pretty_     = FALSE
+
 pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, model_type_, pretty_=T){
   # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil.csv")
   # stencil <- read.csv("https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/data/shared/tables/study-specific-stencil.csv")

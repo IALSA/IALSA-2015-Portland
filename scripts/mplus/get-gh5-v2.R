@@ -30,15 +30,24 @@ library(IalsaSynthesis)
 #
 # {
 # file=model_list;study="eas";subgroup="female";model_type="aehplus"; process_a="grip";process_b="pef";age_center=70
-
+# file =
 get_gh5_data <- function(file, study, subgroup, model_type, process_a, process_b, age_center=70){
    # browser()
   #find the row that matches criteria
+  # pull_model <- file[["study_name"]] == study &
+  #               file[["subgroup"]]   == subgroup &
+  #               file[["model_type"]] == model_type &
+  #               file[["process_a"]]  == process_a &
+  #               file[["process_b"]]  == process_b
+
   pull_model <- file[["study_name"]] == study &
                 file[["subgroup"]]   == subgroup &
                 file[["model_type"]] == model_type &
                 file[["process_a"]]  == process_a &
                 file[["process_b"]]  == process_b
+
+
+
   #get the path
   # (gh5_file <- model_list[["path_gh5"]][pull_model])
   (gh5_file <- model_list[["path_gh5"]][pull_model])

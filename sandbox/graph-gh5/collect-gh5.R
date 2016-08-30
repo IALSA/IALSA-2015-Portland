@@ -22,6 +22,7 @@ model_list[["path_out"]] <- model_path_out
 model_list[["path_gh5"]] <- model_path_gh5
 
 study_name <- list()
+# i = 1
 for(i in 1:length(model_list[["path_out"]])){
   # locate a common root for studies: "~GitHub/IALSA-2015-Portland"
   (a <- strsplit(model_path_out[i], split="/"))
