@@ -36,6 +36,7 @@ nrow(t)
 
 # ---- process_b -------------------
 t <- table(ds$process_b_row, ds$study_name); t[t==0]<-"."; t
+nrow(t)
 d <- ds %>%
   dplyr::filter(model_number == "b1") %>%
   dplyr::group_by_("study_name","process_b") %>%
@@ -45,8 +46,25 @@ d <- ds %>%
 knitr::kable(d)
 
 # ----- ------------
-t <- table( ds$process_b_row, ds$study_name, ds$process_a); t[t==0]<-"."; t
+t <- table(ds$process_b_row, ds$process_a); t[t==0]<-"."; t
+nrow(t)
 
+d <- ds %>%
+  dplyr::filter(model_number == "b1") %>%
+  dplyr::group_by_("process_b_row","process_b_domain") %>%
+  dplyr::summarize(count=n()) %>%
+  dplyr::ungroup() %>%
+  dplyr::arrange_("process_b_domain")
+d$process_b_row <- format(d$process_b_row, justify = "left")
+# d$process_b_domain <- format(d$process_b_domain, justify = "left")
+
+print(d, n = 100)
+knitr::kable(d)
+
+
+
+t <- table( ds$process_b_row, ds$study_name, ds$process_a); t[t==0]<-"."; t
+nrow(t)
 
 # ---- outcome-space ----------
 ds %>% dplyr::glimpse()

@@ -78,7 +78,7 @@ variables_part_4b <- sprintf(
 # PART 4c :  bivariate intercepts, slopes, and residuals (BISR)
 variables_part_4c <- c(
   # estimates of intercepts and slopes
-  "aa_tau_00_est"
+    "aa_tau_00_est"
   , "aa_tau_00_se"
   , "aa_tau_00_wald"
   , "aa_tau_00_pval"
