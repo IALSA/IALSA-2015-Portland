@@ -70,13 +70,52 @@ d <-ds[1:100,c("output_file","ab_SIGMA_est", "ab_SIGMA_pval", "ab_CORR_residual"
 
 
 
+# cor.test.plus <- function(x) {
+#   list(x,
+#        Standard.Error = unname(sqrt((1 - x$estimate^2)/x$parameter)))
+# }
+# cor.test.plus(cor.test(mydf$X, mydf$Y))
 
 
+compute_r_se <- function( r , n_pairs ){
+ r <- ifelse(
+   (is.na(r)) |  is.nan(r) | is.infinite(abs(r)) |abs(r)<.00001 | abs(r)>.99999,
+   NA_real_,
+   r
+   )
+
+   # ifelse(
+   #  (is.na(r)) |  is.nan(r) | is.infinite(abs(r)) |abs(r)<.00001 | abs(r)>.99999,
+   #  NA_real_, # TODO: examine this test
+    sqrt((1 - r^2)/(n_pairs-2))
+  # )
+}
+
+# table(round(ds$ab_CORR_11_se,1), useNA = "always")
+# table(round(ds$ab_CORR_11,1), useNA = "always")
+# table(round(ds$subject_count,1), useNA = "always")
+
+ds$ab_CORR_00_se <- compute_r_se(ds$ab_CORR_00, ds$subject_count)
+ds$ab_CORR_11_se <- compute_r_se(ds$ab_CORR_11, ds$subject_count)
+ds$ab_CORR_residual_se <- compute_r_se(ds$ab_CORR_residual, ds$subject_count)
 
 
 
 
 # CI for the z test statistic
+# compute z-test statistics and corresponding p-values
+ds$ab_ZTEST_00 <- ds$ab_CORR_00_z * sqrt((ds$subject_count - 3))
+# CDF, left-sided: ensure that its negative, then mulitiply by 2 to get the full .05
+ds$ab_ZPVAL_00 <- pnorm(-abs(ds$ab_ZTEST_00))*2
+
+
+
+ds$ab_ZTEST_11 <- ds$ab_CORR_11_z * sqrt((ds$subject_count - 3))
+ds$ab_ZPVAL_11 <- pnorm(-abs(ds$ab_ZTEST_11))*2 # CDF, left-sided
+ds$ab_ZTEST_residual <- ds$ab_CORR_residual_z * sqrt((ds$subject_count - 3))
+ds$ab_ZPVAL_residual <- pnorm(-abs(ds$ab_ZTEST_residual))*2 # CDF, left-sided
+
+
 ## @knitr confidence_limit -----
 ds$ab_ZETA_00_low <- ds$ab_CORR_00_z - (z_alpha * sqrt( 1 / (ds$subject_count - 3)))
 ds$ab_ZETA_00_high <- ds$ab_CORR_00_z + (z_alpha * sqrt( 1 / (ds$subject_count - 3)))
@@ -84,6 +123,10 @@ ds$ab_ZETA_11_low <- ds$ab_CORR_11_z - (z_alpha * sqrt( 1 / (ds$subject_count - 
 ds$ab_ZETA_11_high <- ds$ab_CORR_11_z + (z_alpha * sqrt( 1 / (ds$subject_count - 3)))
 ds$ab_ZETA_residual_low <- ds$ab_CORR_residual_z - (z_alpha * sqrt( 1 / (ds$subject_count - 3)))
 ds$ab_ZETA_residual_high <- ds$ab_CORR_residual_z + (z_alpha * sqrt( 1 / (ds$subject_count - 3)))
+
+
+
+
 # ds$ab_ZETA_00_low <- ds$ab_CORR_00 - (limit * sqrt( 1 / (ds$subject_count - 3)))
 # ds$ab_ZETA_00_high <- ds$ab_CORR_00 + (limit * sqrt( 1 / (ds$subject_count - 3)))
 # ds$ab_ZETA_11_low <- ds$ab_CORR_11 - (limit * sqrt( 1 / (ds$subject_count - 3)))

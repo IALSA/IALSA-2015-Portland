@@ -139,16 +139,31 @@ variables_part_4c <- c(
   , "r_sigma_00_pval"
 )
 
+# variables_part_4d <- c(
+#   # COMPUTED  correlations of intercepts, slopes, and residuals
+#     "cr_tau_00_est"
+#   , "cr_tau_00_se"
+#   , "cr_tau_00_pval"
+#   , "cr_tau_11_est"
+#   , "cr_tau_11_se"
+#   , "cr_tau_11_pval"
+#   , "cr_sigma_00_est"
+#   , "cr_sigma_00_se"
+#   , "cr_sigma_00_pval"
+# )
+
 variables_part_4d <- c(
-  # COMPUTED  correlations of intercepts, slopes, and residuals
     "cr_tau_00_est"
   , "cr_tau_00_se"
+  , "cr_tau_00_wald"
   , "cr_tau_00_pval"
   , "cr_tau_11_est"
   , "cr_tau_11_se"
+  , "cr_tau_11_wald"
   , "cr_tau_11_pval"
   , "cr_sigma_00_est"
   , "cr_sigma_00_se"
+  , "cr_sigma_00_wald"
   , "cr_sigma_00_pval"
 )
 variables_part_4c <- c(variables_part_4c, variables_part_4d)
@@ -160,7 +175,7 @@ rm(path_input)
 ds_small <- ds_full %>%
   dplyr::filter(
      study_name == "octo"
-    # ,process_a  == "gait"
+    ,process_a  == "gait"
     ,process_b  == "block"
     ,subgroup   == "female"
     ,model_type == "aehplus"
@@ -169,8 +184,8 @@ ds_small <- ds_full %>%
 # ---- tweak-data --------------------------------------------------------------
 
 # elongate ----
-ds_long <- ds_full %>%
-# ds_long <- ds_small %>%
+# ds_long <- ds_full %>%
+ds_long <- ds_small %>%
   dplyr::rename_(
     # general model information
       "study_name"                  = "`study_name`"
@@ -251,16 +266,29 @@ ds_long <- ds_full %>%
     , "r_sigma_00_wald"              = "R_RES_AB_wald"
     , "r_sigma_00_pval"              = "R_RES_AB_pval"
     # COMPUTED  correlations of intercepts, slopes, and residuals
-    # use of the slots:est = CORR, se = low, wald = high
+    # use of the slots:est = CORR, se = low, pval = high
     , "cr_tau_00_est"                = "ab_CORR_00"
-    , "cr_tau_00_se"                 = "ab_CI95_00_low"
-    , "cr_tau_00_pval"               = "ab_CI95_00_high"
+    , "cr_tau_00_se"                 = "ab_CORR_00_se"
+    , "cr_tau_00_wald"               = "ab_ZTEST_00"
+    , "cr_tau_00_pval"               = "ab_ZPVAL_00"
+
     , "cr_tau_11_est"                = "ab_CORR_11"
-    , "cr_tau_11_se"                 = "ab_CI95_11_low"
-    , "cr_tau_11_pval"               = "ab_CI95_11_high"
+    , "cr_tau_11_se"                 = "ab_CORR_11_se"
+    , "cr_tau_11_wald"               = "ab_ZTEST_11"
+    , "cr_tau_11_pval"               = "ab_ZPVAL_11"
+
     , "cr_sigma_00_est"              = "ab_CORR_residual"
-    , "cr_sigma_00_se"               = "ab_CI95_residual_low"
-    , "cr_sigma_00_pval"             = "ab_CI95_residual_high"
+    , "cr_sigma_00_se"               = "ab_CORR_residual_se"
+    , "cr_sigma_00_wald"             = "ab_ZTEST_residual"
+    , "cr_sigma_00_pval"             = "ab_ZPVAL_residual"
+
+    # , "cr_tau_00_se"                 = "ab_CI95_00_low"
+    # , "cr_tau_00_pval"               = "ab_CI95_00_high"
+    # , "cr_tau_11_se"                 = "ab_CI95_11_low"
+    # , "cr_tau_11_pval"               = "ab_CI95_11_high"
+    # , "cr_sigma_00_se"               = "ab_CI95_residual_low"
+    # , "cr_sigma_00_pval"             = "ab_CI95_residual_high"
+
     # estimates of covariates
     , "a_gamma_00_est"              = "`a_GAMMA_00_est`"
     , "a_gamma_00_se"               = "`a_GAMMA_00_se`"
