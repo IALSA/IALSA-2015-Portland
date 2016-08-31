@@ -117,29 +117,29 @@ collect_result <- function(path){
 # collected[c(model_id,b_GAMMA_04)]
 # result %>% dplyr::glimpse()
 
-# model_output_file_path <- list(
-#   "eas"   = list_pc[["eas"]],
-#   "elsa"  = list_pc[["elsa"]], #[1:2],
-#   "hrs"   = list_pc[["hrs"]], #[1:2],
-#   "ilse"  = list_pc[["ilse"]],#[1:2],
-#   "lasa"  = list_pc[["lasa"]],#[1:2],
-#   "map"   = list_pc[["map"]],#[1:2],
-#   "nuage" = list_pc[["nuage"]],#[1:2] ,
-#   "octo"  = list_pc[["octo"]],#[1:2],
-#   "satsa" = list_pc[["satsa"]] #[1:2]
-# )
-
 model_output_file_path <- list(
-  "eas"   = list_pp[["eas"]],
-  "elsa"  = list_pp[["elsa"]], #[1:2],
-  "hrs"   = list_pp[["hrs"]], #[1:2],
-  "ilse"  = list_pp[["ilse"]],#[1:2],
-  "lasa"  = list_pp[["lasa"]],#[1:2],
-  "map"   = list_pp[["map"]],#[1:2],
-  "nuage" = list_pp[["nuage"]],#[1:2] ,
-  "octo"  = list_pp[["octo"]],#[1:2],
-  "satsa" = list_pp[["satsa"]] #[1:2]
+  "eas"   = list_pc[["eas"]],
+  "elsa"  = list_pc[["elsa"]], #[1:2],
+  "hrs"   = list_pc[["hrs"]], #[1:2],
+  "ilse"  = list_pc[["ilse"]],#[1:2],
+  "lasa"  = list_pc[["lasa"]],#[1:2],
+  "map"   = list_pc[["map"]],#[1:2],
+  "nuage" = list_pc[["nuage"]],#[1:2] ,
+  "octo"  = list_pc[["octo"]],#[1:2],
+  "satsa" = list_pc[["satsa"]] #[1:2]
 )
+
+# model_output_file_path <- list(
+#   "eas"   = list_pp[["eas"]],
+#   "elsa"  = list_pp[["elsa"]], #[1:2],
+#   "hrs"   = list_pp[["hrs"]], #[1:2],
+#   "ilse"  = list_pp[["ilse"]],#[1:2],
+#   "lasa"  = list_pp[["lasa"]],#[1:2],
+#   "map"   = list_pp[["map"]],#[1:2],
+#   "nuage" = list_pp[["nuage"]],#[1:2] ,
+#   "octo"  = list_pp[["octo"]],#[1:2],
+#   "satsa" = list_pp[["satsa"]] #[1:2]
+# )
 
 # ---- dto ---------------------------------------------------------
 
@@ -158,8 +158,8 @@ collect_study <- function(study, selected_results){
     results[i, collected_names] <- collected
   }
 
-  # write.csv(results,  paste0("./data/shared/parsed-results-pc-",study,".csv"), row.names=F)
-  write.csv(results,  paste0("./data/shared/phys-phys/parsed-results-pp-",study,".csv"), row.names=F)
+  write.csv(results,    paste0("./data/shared/phys-cog/parsed-results-pc-",study,".csv"), row.names=F)
+  # write.csv(results,  paste0("./data/shared/phys-phys/parsed-results-pp-",study,".csv"), row.names=F)
   return(results)
 }
 
@@ -171,13 +171,13 @@ collect_study <- function(study, selected_results){
 # collect_study(study="lasa", selected_results)
 # collect_study(study="map", selected_results)
 # collect_study(study="nuage", selected_results)
-# collect_study(study="octo", selected_results)
+collect_study(study="octo", selected_results)
 # collect_study(study="satsa", selected_results)
 
 # ---- dto ---------------------------------------------------------
 # combine results files from each study
-# (combine_studies <- list.files("./data/shared/phys-cog/", pattern = "^parsed-results-pc-\\w+\\.csv$", full.names =T) )
-(combine_studies <- list.files("./data/shared/phys-phys/", pattern = "^parsed-results-pp-\\w+\\.csv$", full.names =T) )
+(combine_studies <- list.files("./data/shared/phys-cog/", pattern = "^parsed-results-pc-\\w+\\.csv$", full.names =T) )
+# (combine_studies <- list.files("./data/shared/phys-phys/", pattern = "^parsed-results-pp-\\w+\\.csv$", full.names =T) )
 # (combine_studies <- list.files("./data/shared/", pattern = "^parsed-results-pc-elsa", full.names =T) )
 dtos <- list()
 for(i in seq_along(combine_studies)){
@@ -194,8 +194,8 @@ head(results[,c("study_name","a_GAMMA_14_est")]) # example
 
 
 ### NOTE to DO: attach attributes with descriptions to the variables of the `results` file
-# write.csv(results,  paste0("./data/shared/pc-0-parsed-results-raw.csv"), row.names=F)
-write.csv(results,  paste0("./data/shared/pp-0-parsed-results-raw.csv"), row.names=F)
+write.csv(results,  paste0("./data/shared/pc-0-parsed-results-raw.csv"), row.names=F)
+# write.csv(results,  paste0("./data/shared/pp-0-parsed-results-raw.csv"), row.names=F)
 #
 
 
