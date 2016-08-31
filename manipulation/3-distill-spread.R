@@ -45,7 +45,7 @@ variables_part_4a <- c(
 # Part 4b : estimates of the covariates
 # variables_part_4 <- grep(regex_r, colnames(ds_full), perl=T, value=T)
 regex_gamma <- "^(a|b)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
-regex_general <- "^(a|b|aa|bb|ab|r)_(\\w+)_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
+regex_general <- "^(a|b|aa|bb|ab|r|cr)_(\\w+)_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 # regex_gamma <- "^(a|b|aa|bb|ab)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 
 coefficients_possible <- c("00", "10", "01", "11", "02", "12", "03", "13", "04", "14", "05", "15", "06", "16")
@@ -136,17 +136,18 @@ variables_part_4c <- c(
 )
 
 variables_part_4d <- c(
-# COMPUTED  correlations of intercepts, slopes, and residuals
-  "ab_CORR_00"
-, "ab_CORR_11"
-, "ab_CORR_residual"
-, "ab_CI95_00_low"
-, "ab_CI95_00_high"
-, "ab_CI95_11_low"
-, "ab_CI95_11_high"
-, "ab_CI95_residual_low"
-, "ab_CI95_residual_high"
+  # COMPUTED  correlations of intercepts, slopes, and residuals
+    "cr_tau_00_est"
+  , "cr_tau_00_se"
+  , "cr_tau_00_wald"
+  , "cr_tau_11_est"
+  , "cr_tau_11_se"
+  , "cr_tau_11_wald"
+  , "cr_sigma_00_est"
+  , "cr_sigma_00_se"
+  , "cr_sigma_00_wald"
 )
+variables_part_4c <- c(variables_part_4c, variables_part_4d)
 # ---- load-data ---------------------------------------------------------------
 # ds_full <- readRDS(path_input) # catalog
 ds_full <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
@@ -154,11 +155,11 @@ rm(path_input)
 # create a small ds for testing
 ds_small <- ds_full %>%
   dplyr::filter(
-     study_name == "eas"
+     study_name == "octo"
     # ,process_a  == "gait"
-    # ,process_b  == "fas"
-    # ,subgroup   == "female"
-    # ,model_type == "aehplus"
+    ,process_b  == "block"
+    ,subgroup   == "female"
+    ,model_type == "aehplus"
   )
 
 # ---- tweak-data --------------------------------------------------------------
@@ -228,19 +229,6 @@ ds_long <- ds_full %>%
     , "ab_tau_10_se"                = "`ab_TAU_10_se`"
     , "ab_tau_10_wald"              = "`ab_TAU_10_wald`"
     , "ab_tau_10_pval"              = "`ab_TAU_10_pval`"
-    # # ESTIMATED correlations of intercepts, slopes, and residuals
-    # , "ab_r_00_est"                 = "R_IAIB_est"
-    # , "ab_r_00_se"                  = "R_IAIB_se"
-    # , "ab_r_00_wald"                = "R_IAIB_wald"
-    # , "ab_r_00_pval"                = "R_IAIB_pval"
-    # , "ab_r_11_est"                 = "R_SASB_est"
-    # , "ab_r_11_se"                  = "R_SASB_se"
-    # , "ab_r_11_wald"                = "R_SASB_wald"
-    # , "ab_r_11_pval"                = "R_SASB_pval"
-    # , "ab_r_00_est"                 = "R_RES_AB_est"
-    # , "ab_r_00_se"                  = "R_RES_AB_se"
-    # , "ab_r_00_wald"                = "R_RES_AB_wald"
-    # , "ab_r_00_pval"                = "R_RES_AB_pval"
     # ESTIMATED correlations of intercepts, slopes, and residuals
     , "r_tau_00_est"                 = "R_IAIB_est"
     , "r_tau_00_se"                  = "R_IAIB_se"
@@ -254,6 +242,17 @@ ds_long <- ds_full %>%
     , "r_sigma_00_se"                = "R_RES_AB_se"
     , "r_sigma_00_wald"              = "R_RES_AB_wald"
     , "r_sigma_00_pval"              = "R_RES_AB_pval"
+    # COMPUTED  correlations of intercepts, slopes, and residuals
+    # use of the slots:est = CORR, se = low, wald = high
+    , "cr_tau_00_est"                = "ab_CORR_00"
+    , "cr_tau_00_se"                 = "ab_CI95_00_low"
+    , "cr_tau_00_wald"               = "ab_CI95_00_high"
+    , "cr_tau_11_est"                = "ab_CORR_11"
+    , "cr_tau_11_se"                 = "ab_CI95_11_low"
+    , "cr_tau_11_wald"               = "ab_CI95_11_high"
+    , "cr_sigma_00_est"              = "ab_CORR_residual"
+    , "cr_sigma_00_se"               = "ab_CI95_residual_low"
+    , "cr_sigma_00_wald"             = "ab_CI95_residual_high"
     # estimates of covariates
     , "a_gamma_00_est"              = "`a_GAMMA_00_est`"
     , "a_gamma_00_se"               = "`a_GAMMA_00_se`"
@@ -401,7 +400,7 @@ dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b, v
     stat         = gsub(regex_general, "\\4", g, perl=T)
   )
 rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
-
+# temp <- ds_long
 # ---- table-dynamic-long ----------------------------------------
 # inspect the created object via dynamic table
 # ds_long %>%
@@ -463,7 +462,7 @@ ds_find_duplicates <- ds_long %>%
 ds_spread <- ds_no_duplicates %>%
   # dplyr::select(-spread_lower, -spread_upper, -cv) %>%
   tidyr::spread(key=stat, value=value)# %>%
-
+temp <- ds_spread
 # create a csv manhole
 readr::write_csv(ds_spread, "./data/shared/derived/pc-spread.csv")
 saveRDS(         ds_spread, "./data/shared/derived/pc-spread.rds")
