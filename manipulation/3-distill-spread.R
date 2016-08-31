@@ -379,6 +379,17 @@ ds_long <- ds_full %>%
     , "b_gamma_16_wald"             = "`b_GAMMA_16_wald`"
     , "b_gamma_16_pval"             = "`b_GAMMA_16_pval`"
   ) %>%
+  dplyr::mutate(
+      cr_tau_00_est   = as.numeric(round(cr_tau_00_est    ,3))
+    , cr_tau_00_se    = as.numeric(round(cr_tau_00_se     ,3))
+    , cr_tau_00_pval  = as.numeric(round(cr_tau_00_pval   ,3))
+    , cr_tau_11_est   = as.numeric(round(cr_tau_11_est    ,3))
+    , cr_tau_11_se    = as.numeric(round(cr_tau_11_se     ,3))
+    , cr_tau_11_pval  = as.numeric(round(cr_tau_11_pval   ,3))
+    , cr_sigma_00_est = as.numeric(round(cr_sigma_00_est  ,3))
+    , cr_sigma_00_se  = as.numeric(round(cr_sigma_00_se   ,3))
+    , cr_sigma_00_pval= as.numeric(round(cr_sigma_00_pval ,2))
+  ) %>%
   # dplyr::mutate(
   #   t_crit                = qt(subject_count - parameter_count, p=.975),
   #   a_gamma_00_radius     = t_crit * a_gamma_00_se,
