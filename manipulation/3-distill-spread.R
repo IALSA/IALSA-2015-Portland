@@ -45,7 +45,7 @@ variables_part_4a <- c(
 # Part 4b : estimates of the covariates
 # variables_part_4 <- grep(regex_r, colnames(ds_full), perl=T, value=T)
 regex_gamma <- "^(a|b)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
-regex_general <- "^(a|b|aa|bb|ab)_(\\w+)_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
+regex_general <- "^(a|b|aa|bb|ab|r)_(\\w+)_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 # regex_gamma <- "^(a|b|aa|bb|ab)_gamma_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
 
 coefficients_possible <- c("00", "10", "01", "11", "02", "12", "03", "13", "04", "14", "05", "15", "06", "16")
@@ -120,20 +120,55 @@ variables_part_4c <- c(
   , "ab_tau_10_se"
   , "ab_tau_10_wald"
   , "ab_tau_10_pval"
+  # ESTIMATED correlations of intercepts, slopes, and residuals
+  , "r_tau_00_est"
+  , "r_tau_00_se"
+  , "r_tau_00_wald"
+  , "r_tau_00_pval"
+  , "r_tau_11_est"
+  , "r_tau_11_se"
+  , "r_tau_11_wald"
+  , "r_tau_11_pval"
+  , "r_sigma_00_est"
+  , "r_sigma_00_se"
+  , "r_sigma_00_wald"
+  , "r_sigma_00_pval"
+)
+
+variables_part_4d <- c(
+# COMPUTED  correlations of intercepts, slopes, and residuals
+  "ab_CORR_00"
+, "ab_CORR_11"
+, "ab_CORR_residual"
+, "ab_CI95_00_low"
+, "ab_CI95_00_high"
+, "ab_CI95_11_low"
+, "ab_CI95_11_high"
+, "ab_CI95_residual_low"
+, "ab_CI95_residual_high"
 )
 # ---- load-data ---------------------------------------------------------------
 # ds_full <- readRDS(path_input) # catalog
 ds_full <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
 rm(path_input)
-
+# create a small ds for testing
+ds_small <- ds_full %>%
+  dplyr::filter(
+     study_name == "eas"
+    # ,process_a  == "gait"
+    # ,process_b  == "fas"
+    # ,subgroup   == "female"
+    # ,model_type == "aehplus"
+  )
 
 # ---- tweak-data --------------------------------------------------------------
 
 # elongate ----
 ds_long <- ds_full %>%
+# ds_long <- ds_small %>%
   dplyr::rename_(
     # general model information
-    "study_name"                  = "`study_name`"
+      "study_name"                  = "`study_name`"
     , "model_number"                = "`model_number`"
     , "subgroup"                    = "`subgroup`"
     , "model_type"                  = "`model_type`"
@@ -193,6 +228,32 @@ ds_long <- ds_full %>%
     , "ab_tau_10_se"                = "`ab_TAU_10_se`"
     , "ab_tau_10_wald"              = "`ab_TAU_10_wald`"
     , "ab_tau_10_pval"              = "`ab_TAU_10_pval`"
+    # # ESTIMATED correlations of intercepts, slopes, and residuals
+    # , "ab_r_00_est"                 = "R_IAIB_est"
+    # , "ab_r_00_se"                  = "R_IAIB_se"
+    # , "ab_r_00_wald"                = "R_IAIB_wald"
+    # , "ab_r_00_pval"                = "R_IAIB_pval"
+    # , "ab_r_11_est"                 = "R_SASB_est"
+    # , "ab_r_11_se"                  = "R_SASB_se"
+    # , "ab_r_11_wald"                = "R_SASB_wald"
+    # , "ab_r_11_pval"                = "R_SASB_pval"
+    # , "ab_r_00_est"                 = "R_RES_AB_est"
+    # , "ab_r_00_se"                  = "R_RES_AB_se"
+    # , "ab_r_00_wald"                = "R_RES_AB_wald"
+    # , "ab_r_00_pval"                = "R_RES_AB_pval"
+    # ESTIMATED correlations of intercepts, slopes, and residuals
+    , "r_tau_00_est"                 = "R_IAIB_est"
+    , "r_tau_00_se"                  = "R_IAIB_se"
+    , "r_tau_00_wald"                = "R_IAIB_wald"
+    , "r_tau_00_pval"                = "R_IAIB_pval"
+    , "r_tau_11_est"                 = "R_SASB_est"
+    , "r_tau_11_se"                  = "R_SASB_se"
+    , "r_tau_11_wald"                = "R_SASB_wald"
+    , "r_tau_11_pval"                = "R_SASB_pval"
+    , "r_sigma_00_est"               = "R_RES_AB_est"
+    , "r_sigma_00_se"                = "R_RES_AB_se"
+    , "r_sigma_00_wald"              = "R_RES_AB_wald"
+    , "r_sigma_00_pval"              = "R_RES_AB_pval"
     # estimates of covariates
     , "a_gamma_00_est"              = "`a_GAMMA_00_est`"
     , "a_gamma_00_se"               = "`a_GAMMA_00_se`"
@@ -328,6 +389,7 @@ ds_long <- ds_full %>%
 #   b_gamma_10_ci95_lower = b_gamma_10_est - b_gamma_10_radius,
 #   b_gamma_10_ci95_upper = b_gamma_10_est + b_gamma_10_radius
 # ) %>%
+# dtmp <- ds_long %>%
 dplyr::select_(.dots=c(variables_part_1, variables_part_4a, variables_part_4b, variables_part_4c))  %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%  # remove univariate models
   dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>% # remove univariate models
