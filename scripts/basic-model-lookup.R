@@ -2,7 +2,7 @@ rm(list = ls())
 # catalog <- readRDS("./data/shared/derived/pp-spread.rds") # physical-physical track
 catalog <- readRDS("./data/shared/derived/pc-spread.rds") # physical-cognitive track
 # template for structuring tables for reporting individual models
-stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil.csv")
+stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v3.csv")
 # load lookup function
 source("./scripts/model-lookup-function.R")
 

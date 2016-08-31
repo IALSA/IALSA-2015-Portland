@@ -103,6 +103,10 @@ variables_part_4c <- c(
   , "b_sigma_00_se"
   , "b_sigma_00_wald"
   , "b_sigma_00_pval"
+  ,"ab_sigma_00_est"
+  ,"ab_sigma_00_se"
+  ,"ab_sigma_00_wald"
+  ,"ab_sigma_00_pval"
   # covariances of intecepts and slopes
   , "ab_tau_00_est"
   , "ab_tau_00_se"
@@ -139,13 +143,13 @@ variables_part_4d <- c(
   # COMPUTED  correlations of intercepts, slopes, and residuals
     "cr_tau_00_est"
   , "cr_tau_00_se"
-  , "cr_tau_00_wald"
+  , "cr_tau_00_pval"
   , "cr_tau_11_est"
   , "cr_tau_11_se"
-  , "cr_tau_11_wald"
+  , "cr_tau_11_pval"
   , "cr_sigma_00_est"
   , "cr_sigma_00_se"
-  , "cr_sigma_00_wald"
+  , "cr_sigma_00_pval"
 )
 variables_part_4c <- c(variables_part_4c, variables_part_4d)
 # ---- load-data ---------------------------------------------------------------
@@ -212,6 +216,10 @@ ds_long <- ds_full %>%
     , "b_sigma_00_se"               = "`b_SIGMA_se`"
     , "b_sigma_00_wald"             = "`b_SIGMA_wald`"
     , "b_sigma_00_pval"             = "`b_SIGMA_pval`"
+    ,"ab_sigma_00_est"              = "ab_SIGMA_est"
+    ,"ab_sigma_00_se"               = "ab_SIGMA_se"
+    ,"ab_sigma_00_wald"             = "ab_SIGMA_wald"
+    ,"ab_sigma_00_pval"             = "ab_SIGMA_pval"
     # covariances of intecepts and slopes
     , "ab_tau_00_est"               = "`ab_TAU_00_est`"
     , "ab_tau_00_se"                = "`ab_TAU_00_se`"
@@ -246,13 +254,13 @@ ds_long <- ds_full %>%
     # use of the slots:est = CORR, se = low, wald = high
     , "cr_tau_00_est"                = "ab_CORR_00"
     , "cr_tau_00_se"                 = "ab_CI95_00_low"
-    , "cr_tau_00_wald"               = "ab_CI95_00_high"
+    , "cr_tau_00_pval"               = "ab_CI95_00_high"
     , "cr_tau_11_est"                = "ab_CORR_11"
     , "cr_tau_11_se"                 = "ab_CI95_11_low"
-    , "cr_tau_11_wald"               = "ab_CI95_11_high"
+    , "cr_tau_11_pval"               = "ab_CI95_11_high"
     , "cr_sigma_00_est"              = "ab_CORR_residual"
     , "cr_sigma_00_se"               = "ab_CI95_residual_low"
-    , "cr_sigma_00_wald"             = "ab_CI95_residual_high"
+    , "cr_sigma_00_pval"             = "ab_CI95_residual_high"
     # estimates of covariates
     , "a_gamma_00_est"              = "`a_GAMMA_00_est`"
     , "a_gamma_00_se"               = "`a_GAMMA_00_se`"
