@@ -1,83 +1,45 @@
 
-library(MplusAutomation)
-library(IalsaSynthesis)
+library("MplusAutomation")
+library("IalsaSynthesis")
+# load functions to process mplus objects
+source("http://www.statmodel.com/mplus-R/mplus.R") # load
 
 
 
 
+catalog <- readr::read_csv("./data/shared/covariance-issue/studies/2-parsed-results-ci.csv")
 
-# gh5_file <- model_list[["path_out"]]
+# ---- function-to-collect-gh5-paths -----------------------------------
+get_gh5_path <- function(catalog,study_name,subgroup,model_type,process_a,process_b){
+  path_out <- catalog %>%
+    # dplyr::filter(   study_name == "elsa" &
+    #                    subgroup   == "female" &
+    #                    model_type == "aehplus" &
+    #                    process_a  == "fev" &
+    #                    process_b  == "gait") %>%
+    dplyr::filter( study_name == study_name &
+                   subgroup   == subgroup &
+                   model_type == model_type &
+                   process_a  == process_a &
+                   process_b  == process_b) %>%
+    dplyr::select(file_path) %>% as.data.frame()
+  testit::assert("ERROR: more than one model present", sum(duplicated(path_out$file_path))==0L)
+  path_out <- as.character(path_out[1,"file_path"])
+  (path_gh5 <- gsub(".out",".gh5", path_out))
+  return(path_gh5)
+}
 
-
-# get_model_def <- function(file=gh5_file){
+# path_gh5 <- get_gh5_path(catalog, "elsa", "female", "aehplus", "fev", "gait")
 #
-#   ## Add descriptive info
-#   selector <- which(strsplit(gh5_file, '/')[[1]]=='studies')
-#   (study_name <- strsplit(gh5_file, '/')[[1]][selector+1])
-#   (model_name <- strsplit(gh5_file, '/')[[1]][5])
-#   (subgroup <- strsplit(model_name, '_|.gh5')[[1]][2])
-#   (model_type <- strsplit(model_name, '_|.gh5')[[1]][3])
-#   (process_a <- strsplit(model_name, '_|.gh5')[[1]][4])
-#   (process_b <- strsplit(model_name, '_|.gh5')[[1]][5])
-#   md <- c(study_name, subgroup, model_type, process_a, process_b, model_name)
-#   return(md)
-# }
-# (model_def <- get_model_def(file=gh5_file))
 
+get_gh5_data <- function(file, study_name, subgroup, model_type, process_a, process_b, age_center=70){
 
-# get_gh5_data <- function(
-# file=model_list; study="eas"; subgroup="female"; model_type="aehplus"; process_a="grip"; process_b="gait"; age_center=70
-#
-# {
-# file=model_list;study="eas";subgroup="female";model_type="aehplus"; process_a="grip";process_b="pef";age_center=70
-# file =
-get_gh5_data <- function(file, study, subgroup, model_type, process_a, process_b, age_center=70){
-   # browser()
-  #find the row that matches criteria
-  # pull_model <- file[["study_name"]] == study &
-  #               file[["subgroup"]]   == subgroup &
-  #               file[["model_type"]] == model_type &
-  #               file[["process_a"]]  == process_a &
-  #               file[["process_b"]]  == process_b
+  path_gh5 <- get_gh5_path(catalog, "elsa", "female", "aehplus", "fev", "gait")
 
-  pull_model <- file[["study_name"]] == study &
-                file[["subgroup"]]   == subgroup &
-                file[["model_type"]] == model_type &
-                file[["process_a"]]  == process_a &
-                file[["process_b"]]  == process_b
-
-
-
-  #get the path
-  # (gh5_file <- model_list[["path_gh5"]][pull_model])
-  (gh5_file <- model_list[["path_gh5"]][pull_model])
-  (results <- readRDS("./projects/physical/outputs/physical.rds"))
-  pull_model_results <- results[
-    results$study_name==study & results$subgroup==subgroup &
-    results$model_type==model_type &
-    results$physical_measure==process_a & results$cognitive_measure==process_b
-    , ]
-  (results <- pull_model_results)
-
-  selector <- which(strsplit(gh5_file, '/')[[1]]=='studies')
-  (study_name_check <- strsplit(gh5_file, '/')[[1]][selector+1])
-  (a <- strsplit(gh5_file, '/'))
-  (model_name <- a[[1]][length(a[[1]])])
-  (subgroup_check <- strsplit(model_name, '_|.gh5|.out')[[1]][2])
-  (model_type_check <- strsplit(model_name, '_|.gh5|.out')[[1]][3])
-  (process_a_check <- strsplit(model_name, '_|.gh5|.out')[[1]][4])
-  (process_b_check <- strsplit(model_name, '_|.gh5|.out')[[1]][5])
-
-  (test1 <- c(study, subgroup, model_type, process_a, process_b))
-  (test2 <- c(study_name_check, subgroup_check, model_type_check, process_a_check, process_b_check))
-  if(!all.equal(test1,test2)){
-    "No gh5 provided for this model configuration"
-  }else{
-
-  mplus.view.plots(gh5_file) # read in a .gh5 file
-  gh5_variables<- mplus.list.variables(gh5_file) # inspect variables in .gh5
+  mplus.view.plots(path_gh5) # read in a .gh5 file
+  gh5_variables<- mplus.list.variables(path_gh5) # inspect variables in .gh5
   # extract observed individual - level data from .gh5
-  ds_obs <- as.data.frame(t(mplus.get.data(gh5_file,gh5_variables)))
+  ds_obs <- as.data.frame(t(mplus.get.data(path_gh5,gh5_variables)))
   (names(ds_obs) <- gh5_variables)
   # head(ds_obs)
   ds_obs$id <- 1:nrow(ds_obs) # create person id
