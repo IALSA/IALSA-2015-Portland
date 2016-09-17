@@ -94,6 +94,16 @@ variables_part_4c <- c(
   , "bb_tau_11_se"
   , "bb_tau_11_wald"
   , "bb_tau_11_pval"
+
+  , "aa_tau_01_est"
+  , "aa_tau_01_se"
+  , "aa_tau_01_wald"
+  , "aa_tau_01_pval"
+  , "bb_tau_10_est"
+  , "bb_tau_10_se"
+  , "bb_tau_10_wald"
+  , "bb_tau_10_pval"
+
   # residuals
   , "a_sigma_00_est"
   , "a_sigma_00_se"
@@ -184,8 +194,8 @@ ds_small <- ds_full %>%
 # ---- tweak-data --------------------------------------------------------------
 
 # elongate ----
-# ds_long <- ds_full %>%
-ds_long <- ds_small %>%
+ds_long <- ds_full %>%
+# ds_long <- ds_small %>%
   dplyr::rename_(
     # general model information
       "study_name"                  = "`study_name`"
@@ -222,6 +232,16 @@ ds_long <- ds_small %>%
     , "bb_tau_11_se"                = "`bb_TAU_11_se`"
     , "bb_tau_11_wald"              = "`bb_TAU_11_wald`"
     , "bb_tau_11_pval"              = "`bb_TAU_11_pval`"
+
+    , "aa_tau_01_est"               = "`aa_TAU_01_est`"
+    , "aa_tau_01_se"                = "`aa_TAU_01_se`"
+    , "aa_tau_01_wald"              = "`aa_TAU_01_wald`"
+    , "aa_tau_01_pval"              = "`aa_TAU_01_pval`"
+    , "bb_tau_10_est"               = "`bb_TAU_10_est`"
+    , "bb_tau_10_se"                = "`bb_TAU_10_se`"
+    , "bb_tau_10_wald"              = "`bb_TAU_10_wald`"
+    , "bb_tau_10_pval"              = "`bb_TAU_10_pval`"
+
     # we arbitraraly assing residual to 00, to keep names consistent, no implications
     , "a_sigma_00_est"              = "`a_SIGMA_est`"
     , "a_sigma_00_se"               = "`a_SIGMA_se`"
