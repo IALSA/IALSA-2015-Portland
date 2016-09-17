@@ -1,43 +1,64 @@
 requireNamespace("plyr", quietly=T) #Data manipulation.
 requireNamespace("tidyr", quietly=T) #Data manipulation.
 requireNamespace("grid", quietly=T) #Data manipulation.
+library("magrittr")
+# load in the file with model soluions (row = model)
+catalog <- readr::read_csv("./data/shared/covariance-issue/studies/2-parsed-results-ci.csv")
+
 
 # function to get a dataset with model solution (one row = one model)
-get_ds_model <- function(process1="grip", process2="numbercomp", subgroup="female", wave_count=4){
-  # process1 <- "grip"
-  # process2 <- "numbercomp"
-  pair <- paste0(process1,"_",process2)
-
-  # load in the file with model soluions (row = model)
-  rdsPath <- paste0(pathFolder, "/", pair, ".rds")
-  ds_model <- readRDS(rdsPath)
-  names(ds_model)
-
-  ds_model <- readRDS(rdsPath)
-  ds_model <- ds_model[is.na(ds_model$Error),]
-  ds_model <- ds_model[ds_model$wave_count==wave_count &
-                         ds_model$subgroup==subgroup,]
-  ds_model <- ds_model[ ,c("subgroup", "physical_measure","cognitive_measure", "wave_count",
-                          "p_GAMMA_00_est","p_GAMMA_10_est","c_GAMMA_10_est","c_GAMMA_00_est",
-                          "p_GAMMA_01_est","p_GAMMA_11_est", "c_GAMMA_11_est", "c_GAMMA_01_est",
-                          "output_file" )]
-  ds_model$gh5_file <- gsub(".out",".gh5", ds_model$output_file)
-  ds_model
+get_ds_model <- function(catalog,study_name,subgroup,model_type,process_a,process_b){
+  ds_model <- catalog %>%
+    # dplyr::filter(   study_name == "octo" &
+    #                    subgroup   == "female" &
+    #                    model_type == "aehplus" &
+    #                    process_a  == "grip" &
+    #                    process_b  == "gait") %>%
+    dplyr::filter(   study_name == study_name &
+                     subgroup   == subgroup &
+                     model_type == model_type &
+                     process_a  == process_a &
+                     process_b  == process_b) %>%
+    # dplyr::select_(
+    #   "study_name",
+    #   "subgroup",
+    #   "model_type",
+    #   "process_a",
+    #   "process_b",
+    #   "wave_count",
+    #   "a_GAMMA_00_est",
+    #   "a_GAMMA_10_est",
+    #   "b_GAMMA_10_est",
+    #   "b_GAMMA_00_est",
+    #   "a_GAMMA_01_est",
+    #   "a_GAMMA_11_est",
+    #   "b_GAMMA_11_est",
+    #   "b_GAMMA_01_est",
+    #   "file_path") %>%
+    dplyr::mutate(
+      path_out  = file_path,
+      path_gh5  = gsub(".out",".gh5", path_out)
+    ) %>%
+    dplyr::select(-file_path)
+  testit::assert("ERROR: more than one model present", sum(duplicated(ds_model$path_out))==0L)
+  browser()
   return(ds_model)
 } # close function
-# (ds_model <- get_ds_model(process1="grip", process2="numbercomp"))
+(ds_model <- get_ds_model(catalog, "octo", "female", "aehplus", "grip", "gait"))
 
 
 # get observed valued from gh5 files (one row  = one person)
 get_ds_obs <- function(process1="grip", process2="numbercomp", subgroup="female", wave_count=4){
-  ds_model <- get_ds_model(process1=process1, process2=process2, subgroup=subgroup, wave_count=wave_count) #
-  pair <- paste0(process1,"_",process2)
-  gh5Path <- file.path(pathFolder,pair,ds_model["gh5_file"])
+  # ds_model <- get_ds_model(process1=process1, process2=process2, subgroup=subgroup, wave_count=wave_count) #
+  ds_model <- get_ds_model(catalog, "octo", "female", "aehplus", "fev", "gait")
+  # pair <- paste0(process1,"_",process2)
+  # path_gh5 <- file.path(pathFolder,pair,ds_model["gh5_file"])
+  (path_gh5 <- as.character(ds_model[1, "path_gh5"]))
 
-  mplus.view.plots(gh5Path)
-  (gh5_variables<- mplus.list.variables(gh5Path)) # inspect variables in .gh5
+  mplus.view.plots(path_gh5)
+  (gh5_variables<- mplus.list.variables(path_gh5)) # inspect variables in .gh5
   # extract observed individual-level data from .gh5
-  ds_obs <- as.data.frame(t(mplus.get.data(gh5Path,gh5_variables)))
+  ds_obs <- as.data.frame(t(mplus.get.data(path_gh5,gh5_variables)))
   (names(ds_obs) <- gh5_variables)
   # head(ds_obs)
   ds_obs$id <- 1:nrow(ds_obs) # create person id
@@ -45,12 +66,12 @@ get_ds_obs <- function(process1="grip", process2="numbercomp", subgroup="female"
   ds_obs[ds_obs$id==1, ] # structure of data for one individual
 
   # select if starts with "C" and ends in one- or two-digit number (e.g. "C1", "C12")
-  cognitive <- grep("^[C]", names(ds_obs), value=TRUE)
-  physical <- grep("^[P]", names(ds_obs), value=TRUE)
-  time <- grep("^[T]", names(ds_obs), value=TRUE)
-  cpt <- c(cognitive, physical, time)
+  process_b <- grep("^[C]", names(ds_obs), value=TRUE) # cognitive
+  process_a <- grep("^[P]", names(ds_obs), value=TRUE) # physical
+  time <- grep("^[TIME]", names(ds_obs), value=TRUE)
+  abt <- c(process_b, process_a, time)
   # select all columns that are neither "C", "P", or "TIME"
-  stem <- c(gh5_variables[!(gh5_variables %in% cpt)], time)
+  stem <- c(gh5_variables[!(gh5_variables %in% abt)], time)
 
   a <- ds_obs[,c("id",stem)]
   aL <- tidyr::gather_(a, "wave", "time",time)
@@ -58,20 +79,20 @@ get_ds_obs <- function(process1="grip", process2="numbercomp", subgroup="female"
   aL$wave <- gsub("TIME", "", aL$wave)
   aL[aL$id==1,]
 
-  b <- ds_obs[,c("id",physical)]
-  bL <- tidyr::gather_(b, "wave","physical", physical)
+  b <- ds_obs[,c("id",process_a)]
+  bL <- tidyr::gather_(b, "wave","process_a", process_a)
   bL$wave <- NULL
   bL[bL$id==1,]
 
-  c <- ds_obs[,c("id",cognitive)]
-  cL <- tidyr::gather_(c, "wave","cognitive", cognitive)
+  c <- ds_obs[,c("id",process_b)]
+  cL <- tidyr::gather_(c, "wave","process_b", process_b)
   cL$wave <- NULL
   cL[cL$id==1, ]
 
   ds <- cbind(aL, bL, cL)
   head(ds)
 
-  dsL <- tidyr::gather_(ds,"outcome", "observed", c("physical", "cognitive"))
+  dsL <- tidyr::gather_(ds,"outcome", "observed", c("process_a", "process_b"))
   head(dsL)
    # ds <- dsL
 
@@ -95,7 +116,7 @@ get_ds_obs <- function(process1="grip", process2="numbercomp", subgroup="female"
 
 # combine model estimation results and observed values in a graph-ready dataset
 get_ds_plot <- function(process1="grip", process2="numbercomp", subgroup="female", wave_count=4,
-                        outcome="physical"){
+                        outcome="process_a"){
 
   (ds_model <- get_ds_model(process1="grip", process2="numbercomp", subgroup=subgroup, wave_count=wave_count))
   ds_obs <- get_ds_obs(process1="grip", process2="numbercomp", subgroup=subgroup, wave_count=wave_count)
@@ -123,19 +144,19 @@ get_ds_plot <- function(process1="grip", process2="numbercomp", subgroup="female
   ds[1:10, c(stem, M_coeffs)]
 
   for(i in 1:nrow(ds)){
-    if(ds$outcome[i]=="physical"){
+    if(ds$outcome[i]=="process_a"){
       ds[["fixed_effects"]][i] <- ds[["pBeta0"]][i] + ds[["pBeta1"]][i]*ds[["time"]][i]
     }else{
-    # if(ds$outcome=="cognitive"){
+    # if(ds$outcome=="process_b"){
       ds[["fixed_effects"]][i] <- ds[["cBeta0"]][i] + ds[["cBeta1"]][i]*ds[["time"]][i]
     }
   } # close for loop
 
   for(i in 1:nrow(ds)){
-    if(ds$outcome[i]=="physical"){
+    if(ds$outcome[i]=="process_a"){
       ds[["factor_scores"]][i] <- ds[["IP"]][i] + ds[["SC"]][i]*ds[["time"]][i]
     }else{
-    # if(ds$outcome=="cognitive"){
+    # if(ds$outcome=="process_b"){
       ds[["factor_scores"]][i] <- ds[["IC"]][i] + ds[["SP"]][i]*ds[["time"]][i]
     }
   } # close for loop
@@ -149,15 +170,15 @@ get_ds_plot <- function(process1="grip", process2="numbercomp", subgroup="female
 
 get_ds_Plot <- function(process1 = "grip", process2 = "numbercomp", wave_count=4){
   female <- list() # list for the model fit to  the female subgroup
-  female[["physical"]] <- get_ds_plot(process1 = process1, process2 = process2,  wave_count=wave_count,
-                                 subgroup = "female", outcome = "physical")
-  female[["cognitive"]] <- get_ds_plot(process1 = process1, process2 = process2,  wave_count=wave_count,
-                                 subgroup = "female", outcome = "cognitive")
+  female[["process_a"]] <- get_ds_plot(process1 = process1, process2 = process2,  wave_count=wave_count,
+                                 subgroup = "female", outcome = "process_a")
+  female[["process_b"]] <- get_ds_plot(process1 = process1, process2 = process2,  wave_count=wave_count,
+                                 subgroup = "female", outcome = "process_b")
   male <- list() # list for the model fit to the male subgroup
-  male[["physical"]] <- get_ds_plot(process1 = process1, process2 = process2,  wave_count=wave_count,
-                                 subgroup = "male", outcome = "physical")
-  male[["cognitive"]] <- get_ds_plot(process1 = process1, process2 = process2, wave_count=wave_count,
-                                 subgroup = "male", outcome = "cognitive")
+  male[["process_a"]] <- get_ds_plot(process1 = process1, process2 = process2,  wave_count=wave_count,
+                                 subgroup = "male", outcome = "process_a")
+  male[["process_b"]] <- get_ds_plot(process1 = process1, process2 = process2, wave_count=wave_count,
+                                 subgroup = "male", outcome = "process_b")
   lsPlot <- list() # list for the outcome pair
   lsPlot[["female"]] <- female
   lsPlot[["male"]]<- male
@@ -171,7 +192,7 @@ get_ds_Plot <- function(process1 = "grip", process2 = "numbercomp", wave_count=4
 vpLayout <- function(rowIndex, columnIndex) { return( viewport(layout.pos.row=rowIndex, layout.pos.col=columnIndex) ) }
 
 kb_fans <- function(process1="grip", process2="numbercomp", wave_count=13,
-                     subgroup="female", outcome="cognitive", sample=length(unique(ds$id))){
+                     subgroup="female", outcome="process_b", sample=length(unique(ds$id))){
 
   lsPlot <- get_ds_Plot(process1=process1, process2=process2, wave_count=wave_count) # disable after first run
   ds <- plyr::ldply(lsPlot[[subgroup]][outcome], data.frame)
@@ -241,10 +262,10 @@ kb_fans <- function(process1="grip", process2="numbercomp", wave_count=13,
    # return(c)
 } # close kb_fans
 # kb_fans(process1="grip", process2="numbercomp", wave_count=4,
-#                      subgroup="female", outcome="cognitive", sample=10)
+#                      subgroup="female", outcome="process_b", sample=10)
 
 kb_fans_cell <- function(process1="grip", process2="numbercomp", wave_count=13,
-                     subgroup="female", outcome="cognitive",
+                     subgroup="female", outcome="process_b",
                      temporal_name="age", dv_name="fixed_effected", sample=length(unique(ds$id))){
 
   lsPlot <- get_ds_Plot(process1=process1, process2=process2, wave_count=wave_count) # disable after first run
@@ -259,7 +280,7 @@ kb_fans_cell <- function(process1="grip", process2="numbercomp", wave_count=13,
 } # close kb_fans_cell
 
 # kb_fans_cell(process1="grip", process2="numbercomp", wave_count=13,
-#                      subgroup="female", outcome="cognitive",
+#                      subgroup="female", outcome="process_b",
 #              temporal_name="age", dv_name="fixed_effected", sample=10)
 
 
