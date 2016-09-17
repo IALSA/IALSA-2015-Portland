@@ -52,6 +52,8 @@ pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, mo
   # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v2.csv")
   # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v3.csv")
   # stencil <- read.csv("https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/data/shared/tables/study-specific-stencil.csv")
+  # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v5.csv")
+
   stencil$label <- format(stencil$label, justify = "left")
   model_key <- stencil$full_name
   model_key_labels <- stencil$label
