@@ -38,6 +38,7 @@ variables_part_1 <- c(
 variables_part_4a <- c(
   "subject_count",
   "parameter_count",
+  "wave_count",
   'll', "aic", "bic"
 )
 
