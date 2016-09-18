@@ -160,74 +160,65 @@ cake$est
 
 slice_the_cake <- function(cake){
 
+  # slice[[1]] <- labels
+  # slice[[m]] <- dense of the model
+  # slice[[collapsed]] <- collapsing across models (mean, se, pval)
+
   model_names <- paste0("model_",1:length(cake$baking_mix))
   dense_names <- gsub("model","dense",model_names)
-  m <- 1
-  dense_raw <- data.frame(
+
+
+    names_study_name <- c()
+    names_subgroup   <- c()
+    names_model_type <- c()
+    names_process_a  <- c()
+    names_process_b  <- c()
+    for(m in seq_along(model_names)){
+      names_study_name[m] <- as.character(cake$baking_mix[[m]]$id["study_name"])
+      names_subgroup[m]   <- as.character(cake$baking_mix[[m]]$id["subgroup"])
+      names_model_type[m] <- as.character(cake$baking_mix[[m]]$id["model_type"])
+      names_process_a[m]  <- as.character(cake$baking_mix[[m]]$id["process_a"])
+      names_process_b[m]  <- as.character(cake$baking_mix[[m]]$id["process_b"])
+    }
+
+model_denses <- list()
+for(m in seq_along(model_names)){
+  coef_raw <- data.frame(
+    label = cake$baking_mix[[1]][["coef"]]["label"],
     est  = cake$est[[m]],
     se   = cake$se[[m]],
     pval = cake$pval[[m]]
   )
+  model_denses[[m]] <- dense_v1(coef_raw)
+}
+model_denses <- as.data.frame(model_denses)
+names(model_denses) <- names_process_b
+model_denses <- cbind(
+  cake$baking_mix[[1]][["coef"]]["process"], # process indicator
+  cake$baking_mix[[1]][["coef"]]["label"], # label indicator
+  model_denses)
+# compute summary
 
 
-
-  pattern_est <- c(
-    "intercept"    = "%0.2f",
-    "slope"        = "%0.2f"
+for(m in seq_along(model_names)){
+  est_raw <- data.frame(
+    label = cake$baking_mix[[1]][["coef"]]["label"],
+    est_mean  = cake$est["mean"],
+    est_sd    = cake$est["sd"]
   )
-  pattern_se <- c(
-    "intercept"    = "%0.2f",
-    "slope"        = "%0.2f"
-  )
-  pattern_dense <- c(
-    "intercept"    = "%6s(%4s),%7s",
-    "slope"        = "%6s(%4s),%7s"
-  )
+}
+process_a_name <- unique(names_process_a)
+testit::assert("Process must be the same across", sum( duplicated(process_a_name))==0L)
+model_denses[process_a_name] <- dense_v2(est_raw)
+model_denses[process_a_name] <- ifelse(model_denses[,"process"]=="a",model_denses[,process_a_name],"---")
 
-  d2 <-
-  d2 <- d2 %>%
-    dplyr::mutate(
-      # subject_count = scales::comma(subject_count),
-      est_pretty    = sprintf(pattern_est[1], est),
-      se_pretty     = sprintf(pattern_se[1], se),
-      pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
-      pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
-      # pval_pretty   = sprintf("*p*=%s", pval_pretty),
-      pval_pretty   = sprintf("p=%s", pval_pretty),
-      # pval_pretty   = ifelse(pval_pretty=="*p*=.00", "*p*<.01", pval_pretty),       #Cap p-value at .01
-      # pval_pretty   = ifelse(pval_pretty=="*p*=NA" , "*p*= NA", pval_pretty),       #Pad NA with space
-      pval_pretty   = ifelse(pval_pretty=="p=.00", "p<.01", pval_pretty),       #Cap p-value at .01
-      pval_pretty   = ifelse(pval_pretty=="p=NA" , "p= NA", pval_pretty),       #Pad NA with space
+model_denses <- model_denses[c("label")]
 
-      pattern       = pattern_dense[1],
-      dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
-      # dense         = ifelse(is.na(est), "--,*p*=  ----", dense)
-      dense         = ifelse(is.na(est), "--,p=  ----", dense)
-    ) %>%
-    dplyr::select(type, process, label, dense)
+slice <- model_denses %>%
 
-
+return(slice)
 
 }
-
-
-
-cake_layers[["dense"]] <- ...
-
-cake_layers[["est"]]$mean <- mean(cake_layers[["est"]][,1:4])
-
-
-a <- cake_layers[["est"]]
-str(a)
-a[1]
-a[[1]]
-
-
-  lapply(cake_layers, names)
-  cake_layers$est$
-
-  lapply(baking_mix, names)
-
 
 
 
