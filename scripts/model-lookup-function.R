@@ -39,7 +39,7 @@ pattern_dense <- c(
   "slope"        = "%6s(%4s),%7s"
 )
 
-# d <- catalog
+# d <- catalog_spread
 # study_name_ = "octo"
 # subgroup_   = "male"
 # process_a_  = "grip"
