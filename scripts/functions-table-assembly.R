@@ -11,7 +11,7 @@
 # model_type_ = "aehplus"
 
 
-pull_one_model <- function(d, study_name_, subgroup_,model_type_,  process_a_, process_b_, pretty_=T){
+pull_one_model <- function(d, study_name_, subgroup_, model_type_,  process_a_, process_b_){
 
   stencil$label <- format(stencil$label, justify = "left")
   model_key <- stencil$full_name
@@ -60,7 +60,7 @@ pull_one_model <- function(d, study_name_, subgroup_,model_type_,  process_a_, p
   ls[["id"]]   <- model_id
   ls[["coef"]] <- as.data.frame(model_coef)
   ls[["info"]] <- model_info
-  ls[["label"]] <- model_key_labels
+  # ls[["label"]] <- model_key_labels
 
   # a <- ls$id
   # mid <- paste0(a,sep="-", collapse ="")
@@ -74,11 +74,36 @@ pull_one_model <- function(d, study_name_, subgroup_,model_type_,  process_a_, p
 
 }
 
-view_options <- function(d, study_){
-  d2 <- d %>%
-    dplyr::filter(study_name == study_) %>%
-    dplyr::group_by(process_a, process_b) %>%
-    dplyr::summarize(n = n())
+view_options <- function(
+  d
+  ,study_name_
+  ,outcomes = sort(unique(d$process_a))
+  ,full_id = TRUE
+){
+  versions_of_process_a <- outcomes
+  if(!full_id){
+    d2 <- d %>%
+      dplyr::filter(
+        study_name == study_name_,
+        process_a %in% versions_of_process_a
+      ) %>%
+      dplyr::group_by(process_a, process_b) %>%
+      dplyr::summarize(n_models = n()/47)
+  }else{
+    d2 <- d %>%
+      dplyr::filter(
+        study_name == study_name_
+        ,process_a %in% versions_of_process_a
+        ,model_type %in% c("aehplus")
+      ) %>%
+      dplyr::group_by(study_name,subgroup, model_type, process_a, process_b) %>%
+      dplyr::summarize(n_models = n()/47)
+  }
+  print(d2, n = nrow(d2))
+}
+
+view_options_details <- function(d, study_name_){
+
   print(d2, n = nrow(d2))
 }
 
@@ -98,7 +123,7 @@ view_options <- function(d, study_){
 ##########################
 
 
-dense_v1 <- function(cake, label_=FALSE){
+dense_v1 <- function(coef_raw, label_=FALSE){
   pattern_est <- c(
     "intercept"    = "%0.2f",
     "slope"        = "%0.2f"
@@ -137,7 +162,7 @@ dense_v1 <- function(cake, label_=FALSE){
   return(coef_dense)
 }
 
-dense_v2 <- function(cake, label_=FALSE){
+dense_v2 <- function(est_raw, label_=FALSE){
   pattern_est <- c(
     "intercept"    = "%0.2f",
     "slope"        = "%0.2f"
@@ -176,6 +201,50 @@ dense_v2 <- function(cake, label_=FALSE){
   return(est_dense)
 }
 
+make_baking_mix <- function(
+  d=catalog_spread
+  ,study_name_
+  ,subgroup_
+  ,model_type_
+  ,process_a_to_sum
+  ,print_config=T
+){
+  # d = catalog_spread
+  # study_name_ = "eas"
+  # subgroup_   = c("female")
+  # model_type_ = "aehplus"
+  # process_a_to_sum   = c("pef")
+
+  d2 <- d %>%
+    dplyr::filter(
+      study_name %in% study_name_
+      ,model_type %in% model_type_
+      ,subgroup   %in% subgroup_
+      ,process_a  %in% process_a_to_sum
+    ) %>%
+    dplyr::group_by(study_name, subgroup, model_type, process_a, process_b) %>%
+    dplyr::summarize(n_models = n()/47)
+  if(print_config){
+    print(d2, n = nrow(d2))
+  }
+
+  process_b_names <- sort(unique(d2$process_b))
+
+  baking_mix <- list()
+  for(b in process_b_names){
+    baking_mix[[b]] <- pull_one_model(
+      d                = catalog_spread
+      ,study_name_      = study_name_ # "eas"
+      ,subgroup_        = subgroup_ #"male"
+      ,model_type_      = model_type_ # "aehplus",
+      ,process_a        = process_a_to_sum #"pef",
+      ,process_b        = b
+    )
+  }
+  return(baking_mix)
+}
+
+
 
 bake_the_cake <- function(baking_mix){
   # BAKING THE CAKE
@@ -184,7 +253,8 @@ bake_the_cake <- function(baking_mix){
   # first we base fundamental "layers" of the cake: est/se/pval/.../....
   cake_layers <- list()
 
-  model_names <- paste0("model_",1:length(baking_mix))
+  # model_names <- paste0("model_",1:length(baking_mix))
+  model_names <- names(baking_mix)
 
   for(m in seq_along(model_names)){
     # m <- 1
@@ -217,7 +287,8 @@ bake_the_cake <- function(baking_mix){
   # a <- cake_layers$est
   # str(a)
   put_stat_frosting <- function(a, row_labels){
-    b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
+    # b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
+    b <- as.data.frame(a, col.names = model_names)
     b[,"label"] <- row_labels
     # b %>% head()
     # b[1,"model_1"] <- NA
@@ -245,8 +316,9 @@ slice_the_cake <- function(cake){
   # slice[[m]] <- dense of the model
   # slice[[collapsed]] <- collapsing across models (mean, se, pval)
 
-  model_names <- paste0("model_",1:length(cake$baking_mix))
-  dense_names <- gsub("model","dense",model_names)
+  # model_names <- paste0("model_",1:length(cake$baking_mix))
+  model_names <- names(cake$baking_mix)
+  # dense_names <- gsub("model","dense",model_names)
 
 
   names_study_name <- c()
@@ -270,36 +342,58 @@ slice_the_cake <- function(cake){
       se   = cake$se[[m]],
       pval = cake$pval[[m]]
     )
+    # browser()
     model_denses[[m]] <- dense_v1(coef_raw)
   }
   model_denses <- as.data.frame(model_denses)
   names(model_denses) <- names_process_b
+  # names(model_denses) <- model_names
   model_denses <- cbind(
     cake$baking_mix[[1]][["coef"]]["process"], # process indicator
     cake$baking_mix[[1]][["coef"]]["label"], # label indicator
     model_denses)
+
+
   # compute summary
+  est_raw <- data.frame(
+    label = cake$baking_mix[[1]][["coef"]]["label"],
+    est_mean  = cake$est["mean"],
+    est_sd    = cake$est["sd"]
+  )
 
-
-  for(m in seq_along(model_names)){
-    est_raw <- data.frame(
-      label = cake$baking_mix[[1]][["coef"]]["label"],
-      est_mean  = cake$est["mean"],
-      est_sd    = cake$est["sd"]
-    )
-  }
   process_a_name <- unique(names_process_a)
   testit::assert("Process must be the same across", sum( duplicated(process_a_name))==0L)
   model_denses[process_a_name] <- dense_v2(est_raw)
   model_denses[process_a_name] <- ifelse(model_denses[,"process"]=="a",model_denses[,process_a_name],"---")
 
-  model_denses <- model_denses[c("label")]
 
-  slice <- model_denses %>%
+
+  slice <- model_denses
 
     return(slice)
 
 }
 
+## Now all together
+serve_a_slice <- function(
+  d                ,
+  study_name_      ,
+  subgroup_        ,
+  model_type       ,
+  process_a_to_sum
+){
+  baking_mix <- make_baking_mix(
+    d                = catalog_spread,
+    study_name_      = study_name_,
+    subgroup_        = subgroup_,
+    model_type       = model_type,
+    process_a_to_sum = process_a_to_sum,
+    print_config = FALSE
+  )
+  cake <- bake_the_cake(baking_mix)
+  slice <- slice_the_cake(cake)
+  # print(knitr::kable(slice))
+  return(slice)
+}
 
 
