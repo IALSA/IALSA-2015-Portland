@@ -81,7 +81,6 @@ d <- pull_one_model(catalog_spread,"eas","male","pef","trailsb","aehplus")
 
 
 baking_mix <- list(a,b,c,d)
-names(baking_mix)
 # how many models will be aggregated across?
 length(baking_mix) # study has this many outputs for this configuration /
 lapply(baking_mix, names) # each model consists of three elements
@@ -108,11 +107,17 @@ bake_the_cake <- function(baking_mix){
     # names(mid) <- model_names[m]
 
     cake_layers[["id"]][m] <- mid
+    # a <- baking_mix[[1]][["coef"]]["label"]
+    # a <- paste(baking_mix[[1]][["coef"]]$label)
+    # str(a)
+    # cake_layers[['label']][m] <- as.data.frame(noquote(baking_mix[[1]][["coef"]]["label"]))
+    # cake_layers[['label']][m] <- baking_mix[[1]][["coef"]]["label"]
     # names(cake_layers[["id"]][m]) <- model_names[m]
     lapply(cake_layers, names)
   for(index in c("est", "se", "pval")){
        # index = "est"
       # for(m in 1:length(baking_mix)){
+
        cake_layers[[index]][[m]] <- baking_mix[[m]][["coef"]][[index]]
 
       # cake_layers[[index]][m] <- baking_mix[m][["coef"]][[index]]
@@ -124,8 +129,9 @@ bake_the_cake <- function(baking_mix){
 
 # a <- cake_layers$est
 # str(a)
-  put_stat_frosting <- function(a){
+  put_stat_frosting <- function(a, row_labels){
     b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
+    b[,"label"] <- row_labels
     # b %>% head()
     # b[1,"model_1"] <- NA
     b[,"mean"] <- apply(b[,model_names],1,mean, na.rm = TRUE)
@@ -135,64 +141,76 @@ bake_the_cake <- function(baking_mix){
     return(b)
   }
 
+  row_labels <- baking_mix[[1]][["coef"]]["label"]
   for(index in c("est", "se", "pval")){
     # index = "est"
-  cake_layers[[index]] <- put_stat_frosting(cake_layers[[index]])
+  cake_layers[[index]] <- put_stat_frosting(cake_layers[[index]], row_labels)
   }
+  cake_layers[["baking_mix"]] <- baking_mix
   return(cake_layers)
 }
 
-cake_layers <- bake_the_cake(baking_mix)
+cake <- bake_the_cake(baking_mix)
+lapply(cake, names) # layers stacked into in a cake
+lapply(cake$baking_mix, names) # elements of the baking mix
+cake$baking_mix[[1]][["id"]] # model configuration
+cake$est
 
-b <- put_stat_frosting(a)
+## Now SLICE the cake
 
-b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
-b %>% head()
-b[1,"model_1"] <- NA
-b[,"mean"] <- apply(b,1,mean, na.rm = TRUE)
-b[,"sd"]   <- apply(b,1,sd, na.rm = TRUE)
-b[,"min"]  <- apply(b,1,min, na.rm = TRUE)
-b[,"max"]  <- apply(b,1,max, na.rm = TRUE)
+slice_the_cake <- function(cake){
 
-b %>% head()
-
-c <- b %>%
-  dplyr::mutate(
-    mean = mean()
+  model_names <- paste0("model_",1:length(cake$baking_mix))
+  dense_names <- gsub("model","dense",model_names)
+  m <- 1
+  dense_raw <- data.frame(
+    est  = cake$est[[m]],
+    se   = cake$se[[m]],
+    pval = cake$pval[[m]]
   )
 
 
 
-for(i in 1:length(a)){
+  pattern_est <- c(
+    "intercept"    = "%0.2f",
+    "slope"        = "%0.2f"
+  )
+  pattern_se <- c(
+    "intercept"    = "%0.2f",
+    "slope"        = "%0.2f"
+  )
+  pattern_dense <- c(
+    "intercept"    = "%6s(%4s),%7s",
+    "slope"        = "%6s(%4s),%7s"
+  )
 
-  b[,i] <- a[[i]]
+  d2 <-
+  d2 <- d2 %>%
+    dplyr::mutate(
+      # subject_count = scales::comma(subject_count),
+      est_pretty    = sprintf(pattern_est[1], est),
+      se_pretty     = sprintf(pattern_se[1], se),
+      pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
+      pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
+      # pval_pretty   = sprintf("*p*=%s", pval_pretty),
+      pval_pretty   = sprintf("p=%s", pval_pretty),
+      # pval_pretty   = ifelse(pval_pretty=="*p*=.00", "*p*<.01", pval_pretty),       #Cap p-value at .01
+      # pval_pretty   = ifelse(pval_pretty=="*p*=NA" , "*p*= NA", pval_pretty),       #Pad NA with space
+      pval_pretty   = ifelse(pval_pretty=="p=.00", "p<.01", pval_pretty),       #Cap p-value at .01
+      pval_pretty   = ifelse(pval_pretty=="p=NA" , "p= NA", pval_pretty),       #Pad NA with space
+
+      pattern       = pattern_dense[1],
+      dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
+      # dense         = ifelse(is.na(est), "--,*p*=  ----", dense)
+      dense         = ifelse(is.na(est), "--,p=  ----", dense)
+    ) %>%
+    dplyr::select(type, process, label, dense)
+
+
+
 }
-for(i in 1:length(a)){
-  b[i] <- a[[i]]
-  v1 <- a[[1]]
-  v2 <- a[[2]]
-  v3 <- a[[3]]
-
-  d <- as.data.frame()
 
 
-}
-names(b) <- paste0("V",1:length(b))
-temp <- b
-
-
-
-table
-a <- cake_layers$est
-a <- cake_layers
-str(a)
-
-b <- plyr::ldply(a, data.frame)
-
-cake_layers$est
-
-str(cake_layers$est)
-lapply(cake_layers$est, 2, sum)
 
 cake_layers[["dense"]] <- ...
 
