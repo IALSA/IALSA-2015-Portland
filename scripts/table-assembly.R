@@ -36,8 +36,8 @@ baking_mix <- catalog_spread %>%
   make_baking_mix(
     study_name_      = "eas",
     subgroup_        = "female",
-    model_type       = "aehplus",
-    process_a_to_sum = "gait" # pivot
+    model_type       =  c("a", "aehplus"),
+    process_a_to_sum = "pef" # pivot
   )
 lapply(baking_mix, names) # one element for each pair with the pivot
 # using layers from individual model we now bake the cake
@@ -47,6 +47,28 @@ lapply(cake, names) # inspect the cake
 slice <- slice_the_cake(cake)
 # the cake is ready to be surved in the appropriate location of a report
 # use wrapper function to serve:
+## Now all together
+serve_a_slice <- function(
+  d                ,
+  study_name_      ,
+  subgroup_        ,
+  model_type       ,
+  process_a_to_sum
+){
+  baking_mix <- make_baking_mix_process_a(
+    d                = catalog_spread,
+    study_name_      = study_name_,
+    subgroup_        = subgroup_,
+    model_type       = model_type,
+    process_a_to_sum = process_a_to_sum,
+    print_config = FALSE
+  )
+  cake <- bake_the_cake(baking_mix)
+  slice <- slice_the_cake(cake)
+  # print(knitr::kable(slice))
+  return(slice)
+}
+
 catalog_spread %>%
   serve_a_slice("eas","female","aehplus", "pef")
 

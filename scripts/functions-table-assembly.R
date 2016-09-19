@@ -119,7 +119,7 @@ view_options_details <- function(d, study_name_){
 # knitr::kable(single_model_pretty)
 
 
-make_baking_mix <- function(
+make_baking_mix_process_a <- function(
   d=catalog_spread
   ,study_name_
   ,subgroup_
@@ -292,27 +292,7 @@ slice_the_cake <- function(cake){
 
 }
 
-## Now all together
-serve_a_slice <- function(
-  d                ,
-  study_name_      ,
-  subgroup_        ,
-  model_type       ,
-  process_a_to_sum
-){
-  baking_mix <- make_baking_mix(
-    d                = catalog_spread,
-    study_name_      = study_name_,
-    subgroup_        = subgroup_,
-    model_type       = model_type,
-    process_a_to_sum = process_a_to_sum,
-    print_config = FALSE
-  )
-  cake <- bake_the_cake(baking_mix)
-  slice <- slice_the_cake(cake)
-  # print(knitr::kable(slice))
-  return(slice)
-}
+
 
 
 ##########################
