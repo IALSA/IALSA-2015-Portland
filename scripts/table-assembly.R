@@ -15,8 +15,55 @@ source("./scripts/functions-table-assembly.R")
 # unique(catalog$study_name)
 # view_options(catalog, "octo")
 
+# ---- one-study-example-model_type -------
+# a_possibles <- c("fev","fev100","pef") # if there are multiple measure of the contruct
+# a_possibles <- "gait"
+view_options(
+  d = catalog_spread
+  ,study_name_ ="eas"
+  ,full_id = T
+  ,subgroups = c("female")
+  ,model_types = c("a","ae","aeh", "aehplus")
+  ,processes_a = "pef"
+  ,processes_b = "block"
+)
 
-# ---- one-study-example ----------------------------
+# inspect individual models
+catalog_spread %>%
+  pull_one_model(
+    study_name_ = "eas",
+    subgroup_   = "male",
+    process_a_  = "pef",
+    process_b_  =  "fas",
+    model_type_ = "a"
+  )
+
+# create a baking mix for model_type pivot
+baking_mix <- catalog_spread %>%
+  make_baking_mix_model_type(
+    study_name_      = "eas",
+    subgroup_        = "female",
+    process_a        = "pef",
+    process_b        = "block"
+  )
+lapply(baking_mix, names)
+cake <- bake_the_cake(baking_mix)
+lapply(cake, names) # inspect the cake
+slice <- slice_the_cake(cake, mask_not = c("a","b") )
+
+# create a baking mix for process_a pivot
+baking_mix <- catalog_spread %>%
+  make_baking_mix_process_a(
+    study_name_      = "eas",
+    subgroup_        = "female",
+    model_type       =  "aehplus",
+    process_a_to_sum = "pef" # pivot
+  )
+lapply(baking_mix, names)
+
+
+
+# ---- one-study-example-process_a ----------------------------
 a_possibles <- c("fev","fev100","pef") # if there are multiple measure of the contruct
 a_possibles <- "gait"
 view_options(catalog_spread, "eas", a_possibles )

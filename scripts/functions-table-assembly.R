@@ -109,21 +109,57 @@ view_options <- function(
   print(d2, n = nrow(d2))
 }
 
-view_options_details <- function(d, study_name_){
+make_baking_mix_model_type <- function(
+  d=catalog_spread
+  ,study_name_
+  ,subgroup_
+  # ,model_type_
+  # ,process_a_to_sum
+  ,process_a_
+  ,process_b_
+  ,print_config=T
+){
+  d = catalog_spread
+  study_name_ = "octo"
+  subgroup_   = "female"
+  # model_type_ = "aehplus"
+  # process_a_to_sum   = c("pef")
+  process_a_   = "pef"
+  process_b_ = "block"
 
-  print(d2, n = nrow(d2))
+  pivot_ = "model_type"
+
+  d2 <- d %>%
+    dplyr::filter(
+      study_name %in% study_name_
+      # ,model_type %in% model_type_
+      ,subgroup   %in% subgroup_
+      ,process_a  %in% process_a_
+      ,process_b  %in% process_b_
+    ) %>%
+    dplyr::group_by(study_name, subgroup, model_type, process_a, process_b) %>%
+    dplyr::summarize(n_models = n()/47)
+  if(print_config){
+    print(d2, n = nrow(d2))
+  }
+
+  summed_models_names <- sort(unique(as.data.frame(d2)[,pivot_]))
+
+  baking_mix <- list()
+  for(i in summed_models_names){
+    baking_mix[[i]] <- pull_one_model(
+       d                = catalog_spread
+      ,study_name_      = study_name_ # "eas"
+      ,subgroup_        = subgroup_ #"male"
+      ,model_type_      = i # "aehplus",
+      ,process_a        = process_a_ #"pef",
+      ,process_b        = process_b_ # "block"
+    )
+  }
+  baking_mix[["pivot"]] <- pivot_
+  return(baking_mix)
 }
 
-
-
-# single_model_pretty <- pull_one_model(d = catalog,
-#                                       study_name_ = "map",
-#                                       subgroup_   = "female",
-#                                       process_a_  = "grip",
-#                                       process_b_  = "bnt",
-#                                       model_type_ = "aehplus"
-# )
-# knitr::kable(single_model_pretty)
 
 
 make_baking_mix_process_a <- function(
@@ -166,6 +202,7 @@ make_baking_mix_process_a <- function(
       ,process_b        = b
     )
   }
+  baking_mix[["pivot"]] <- "process_a"
   return(baking_mix)
 }
 
@@ -180,8 +217,9 @@ bake_the_cake <- function(baking_mix){
 
   # model_names <- paste0("model_",1:length(baking_mix))
   model_names <- names(baking_mix)
+  model_names <- model_names[!model_names %in% "pivot"]
 
-  for(m in seq_along(model_names)){
+  for(m in model_names){
     # m <- 1
     a <- baking_mix[[m]][["id"]]
     mid <- paste0(a,sep="-", collapse ="")
@@ -235,7 +273,7 @@ bake_the_cake <- function(baking_mix){
 # cake <- bake_the_cake(baking_mix)
 
 
-slice_the_cake <- function(cake){
+slice_the_cake <- function(cake,mask_not){
 
   # slice[[1]] <- labels
   # slice[[m]] <- dense of the model
@@ -271,7 +309,9 @@ slice_the_cake <- function(cake){
     model_denses[[m]] <- dense_v1(coef_raw)
   }
   model_denses <- as.data.frame(model_denses)
+
   names(model_denses) <- names_process_b
+
   # names(model_denses) <- model_names
   model_denses <- cbind(
     cake$baking_mix[[1]][["coef"]]["process"], # process indicator
@@ -289,7 +329,8 @@ slice_the_cake <- function(cake){
   process_a_name <- unique(names_process_a)
   testit::assert("Process must be the same across", sum( duplicated(process_a_name))==0L)
   model_denses[process_a_name] <- dense_v2(est_raw)
-  model_denses[process_a_name] <- ifelse(model_denses[,"process"]=="a",model_denses[,process_a_name],"---")
+  # model_denses[process_a_name] <- ifelse(model_denses[,"process"]=="a",model_denses[,process_a_name],"---")
+  model_denses[process_a_name] <- ifelse(model_denses[,"process"] %in% mask_not, model_denses[,process_a_name],"---")
 
 
 
