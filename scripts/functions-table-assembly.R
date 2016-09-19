@@ -77,15 +77,19 @@ pull_one_model <- function(d, study_name_, subgroup_, model_type_,  process_a_, 
 view_options <- function(
   d
   ,study_name_
-  ,outcomes = sort(unique(d$process_a))
   ,full_id = TRUE
+  ,subgroups   = sort(unique(d$subgroup)) #c("male","female")
+  ,model_types = sort(unique(d$model_type)) #c("a","aehplus")
+  ,processes_a = sort(unique(d$process_a))
+  ,processes_b = sort(unique(d$process_b))
 ){
-  versions_of_process_a <- outcomes
+
   if(!full_id){
     d2 <- d %>%
       dplyr::filter(
         study_name == study_name_,
-        process_a %in% versions_of_process_a
+        process_a %in% processes_a,
+        process_b %in% processes_b
       ) %>%
       dplyr::group_by(process_a, process_b) %>%
       dplyr::summarize(n_models = n()/47)
@@ -93,8 +97,11 @@ view_options <- function(
     d2 <- d %>%
       dplyr::filter(
         study_name == study_name_
-        ,process_a %in% versions_of_process_a
-        ,model_type %in% c("aehplus")
+        ,model_type %in% model_types
+        ,subgroup %in% subgroups
+        ,process_a %in% processes_a
+        ,process_b %in% processes_b
+
       ) %>%
       dplyr::group_by(study_name,subgroup, model_type, process_a, process_b) %>%
       dplyr::summarize(n_models = n()/47)
