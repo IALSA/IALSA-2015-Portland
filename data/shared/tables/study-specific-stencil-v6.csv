@@ -27,18 +27,14 @@ Fixed Effect,b,b_gamma_13,Slope * height
 Fixed Effect,b,b_gamma_14,Slope * smoking
 Fixed Effect,b,b_gamma_15,Slope * cardio
 Fixed Effect,b,b_gamma_16,Slope * diabetes
-Variance,a,aa_tau_00,Intercept
-Variance,a,aa_tau_11,Slope
-Variance,a,a_sigma_00,Residual
-Variance,b,bb_tau_00,Intercept
-Variance,b,bb_tau_11,Slope
-Variance,b,b_sigma_00,Residual
-Covariance,ab,ab_tau_00,Intercepts
-Covariance,ab,ab_tau_11,Slope
-Covariance,ab,ab_sigma_00,Residual
-Correlation,r,r_tau_00,Intercepts
-Correlation,r,r_tau_11,Slope
-Correlation,r,r_sigma_00,Residual
-Correlation,cr,cr_tau_00,Intercepts (est/lo/hi)
-Correlation,cr,cr_tau_11,Slope (est/lo/hi)
-Correlation,cr,cr_sigma_00,Residual (est/lo/hi)
+Variance,a,aa_tau_00,Intercept (a)
+Variance,a,aa_tau_11,Slope (a)
+Variance,a,a_sigma_00,Residual (a)
+Covariance,a,aa_tau_01,Intercept(a) - Slope(a)
+Variance,b,bb_tau_00,Intercept (b)
+Variance,b,bb_tau_11,Slope (b)
+Variance,b,b_sigma_00,Residual (b)
+Covariance,b,bb_tau_10,Intercept(b) - Slope(b)
+Covariance,ab,ab_tau_00,Intercept(a) - Intercept(b)
+Covariance,ab,ab_tau_11,Slope(a) - Slope(b)
+Covariance,ab,ab_sigma_00,Residual(a) - Residual(b)

@@ -33,12 +33,7 @@ Variance,a,a_sigma_00,Residual
 Variance,b,bb_tau_00,Intercept
 Variance,b,bb_tau_11,Slope
 Variance,b,b_sigma_00,Residual
-Covariance,ab,ab_tau_00,Intercepts
-Covariance,ab,ab_tau_11,Slope
-Covariance,ab,ab_sigma_00,Residual
-Correlation,r,r_tau_00,Intercepts
-Correlation,r,r_tau_11,Slope
-Correlation,r,r_sigma_00,Residual
-Correlation,cr,cr_tau_00,Intercepts (est/lo/hi)
-Correlation,cr,cr_tau_11,Slope (est/lo/hi)
-Correlation,cr,cr_sigma_00,Residual (est/lo/hi)
+Covariance,ab,ab_tau_00,Intercept(a) - Intercept(b)
+Covariance,ab,ab_tau_11,Slope(a) - Slope(b)
+Covariance,a,aa_tau_01,Intercept(a) - Slope(a)
+Covariance,b,bb_tau_10,Intercept(b) - Slope(b)
