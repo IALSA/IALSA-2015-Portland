@@ -12,6 +12,14 @@
 
 
 pull_one_model <- function(d, study_name_, subgroup_, model_type_,  process_a_, process_b_){
+  # TESTING CASE
+  # d = catalog_spread
+  # study_name_ = "octo"
+  # subgroup_   = "female"
+  # model_type_  = "aehplus"
+  # process_a_   = "pef"
+  # process_b_ = "block"
+
 
   stencil$label <- format(stencil$label, justify = "left")
   model_key <- stencil$full_name
@@ -40,26 +48,64 @@ pull_one_model <- function(d, study_name_, subgroup_, model_type_,  process_a_, 
   # assemble model coefficients
   model_coef <- dplyr::left_join(stencil, single_model, by = "full_name") %>%
     dplyr::mutate(process = process.y) %>%
-    dplyr::select(type, process, label,est, se, pval, - process.y)
+    dplyr::select(type, process, label,est, se, pval, - process.y, full_name)
 
-  # assemble model information
+  # assemble model  information (1)
   subject_count_ <- single_model$subject_count[1]
   wave_count_ <- single_model$wave_count[1]
   parameter_count_ <- single_model$parameter_count[1]
+
+  model_info_1 <- data.frame(
+    label = c("N","occasions","parameters"),
+    est = as.integer(c(subject_count_, wave_count_, parameter_count_)),
+    stringsAsFactors = FALSE)
+
+  # assemble model information (2)
   AIC_ <- single_model$aic[1]
   BIC_ <- single_model$bic[1]
   LL_ <- single_model$ll[1]
 
-  model_info <- data.frame(
-    label = c("N","occasions","parameters","LL", "AIC", "BIC"),
-    est = as.double(c(subject_count_, wave_count_, parameter_count_, LL_, AIC_, BIC_)),
+  model_info_2 <- data.frame(
+    label = c("LL", "AIC", "BIC"),
+    est = as.double(c(LL_, AIC_, BIC_)),
     stringsAsFactors = FALSE)
+
+  # compute and assemble BISR correlations
+
+  d <- as.data.frame(model_coef)
+
+  (ab_tau_00 <- d[d$full_name=='ab_tau_00',"est"])
+  (aa_tau_00 <- d[d$full_name=='aa_tau_00',"est"])
+  (bb_tau_00 <- d[d$full_name=='bb_tau_00',"est"])
+  (ab_cor_00 <- ab_tau_00 / (sqrt(aa_tau_00)*sqrt(bb_tau_00)))
+
+  (ab_tau_11  <- d[d$full_name=='ab_tau_11',"est"])
+  (aa_tau_11  <- d[d$full_name=='aa_tau_11',"est"])
+  (bb_tau_11  <- d[d$full_name=='bb_tau_11',"est"])
+  (ab_cor_11  <- ab_tau_11 / (sqrt(aa_tau_11)*sqrt(bb_tau_11)))
+
+  (ab_sigma_00 <- d[d$full_name=='ab_sigma_00',"est"])
+  (a_sigma_00  <- d[d$full_name=='a_sigma_00',"est"])
+  (b_sigma_00  <- d[d$full_name=='b_sigma_00',"est"])
+  (ab_cor_res  <- ab_sigma_00 / (sqrt(a_sigma_00)*sqrt(b_sigma_00)))
+
+  bisr_cor <- data.frame(
+    label = c("R(intercepts)", "R(slopes)", "R(residuals)"),
+    est   = as.double(c(ab_cor_00, ab_cor_11, ab_cor_res)),
+    stringsAsFactors = FALSE
+  )
+  bisr_cor$est <- round(bisr_cor$est, 2)
+  bisr_cor$label <- format(bisr_cor$label, justify = "left")
+  rm(d)
 
   # assemble object for output
   ls <- list()
   ls[["id"]]   <- model_id
-  ls[["coef"]] <- as.data.frame(model_coef)
-  ls[["info"]] <- model_info
+  ls[["coef"]] <- as.data.frame(model_coef %>% dplyr::select(-full_name))
+  ls[["corr"]] <- bisr_cor
+  ls[["info_1"]] <- model_info_1
+  ls[["info_2"]] <- model_info_2
+
   # ls[["label"]] <- model_key_labels
 
   # a <- ls$id
@@ -77,23 +123,16 @@ pull_one_model <- function(d, study_name_, subgroup_, model_type_,  process_a_, 
 view_options <- function(
   d
   ,study_name_
-  ,full_id = TRUE
   ,subgroups   = sort(unique(d$subgroup)) #c("male","female")
   ,model_types = sort(unique(d$model_type)) #c("a","aehplus")
   ,processes_a = sort(unique(d$process_a))
   ,processes_b = sort(unique(d$process_b))
+  # ,a = sort(unique(d$process_a))
+  # ,b = sort(unique(d$process_b))
+  ,full_id = TRUE
 ){
 
-  if(!full_id){
-    d2 <- d %>%
-      dplyr::filter(
-        study_name == study_name_,
-        process_a %in% processes_a,
-        process_b %in% processes_b
-      ) %>%
-      dplyr::group_by(process_a, process_b) %>%
-      dplyr::summarize(n_models = n()/47)
-  }else{
+  if(full_id){
     d2 <- d %>%
       dplyr::filter(
         study_name == study_name_
@@ -105,6 +144,16 @@ view_options <- function(
       ) %>%
       dplyr::group_by(study_name,subgroup, model_type, process_a, process_b) %>%
       dplyr::summarize(n_models = n()/47)
+  }else{
+    d2 <- d %>%
+      dplyr::filter(
+        study_name == study_name_,
+        process_a %in% processes_a,
+        process_b %in% processes_b
+      ) %>%
+      dplyr::group_by(process_a, process_b) %>%
+      dplyr::summarize(n_models = n()/47)
+
   }
   print(d2, n = nrow(d2))
 }
@@ -122,11 +171,9 @@ make_baking_mix_model_type <- function(
   d = catalog_spread
   study_name_ = "octo"
   subgroup_   = "female"
-  # model_type_ = "aehplus"
-  # process_a_to_sum   = c("pef")
   process_a_   = "pef"
   process_b_ = "block"
-
+  #
   pivot_ = "model_type"
 
   d2 <- d %>%
@@ -310,7 +357,7 @@ slice_the_cake <- function(cake,mask_not){
   }
   model_denses <- as.data.frame(model_denses)
 
-  names(model_denses) <- names_process_b
+  names(model_denses) <- model_names
 
   # names(model_denses) <- model_names
   model_denses <- cbind(

@@ -4,9 +4,20 @@ library(magrittr)
 # catalog <- readRDS("./data/shared/derived/pp-spread.rds") # physical-physical track
 catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds") # physical-cognitive track
 # template for structuring tables for reporting individual models
-stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v5.csv")
+stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v6.csv")
+# basic lookup function
+source("./scripts/model-lookup-function.R")
 # load lookup function
 source("./scripts/functions-table-assembly.R")
+model_view <- catalog_spread %>%
+  view_one_model(
+    study_name_ = "eas",
+    subgroup_   = "female",
+    process_a_  = "gait",
+    process_b_  =  "block",
+    model_type_ = "aehplus",
+    pretty_     = FALSE
+)
 
 
 # returns:
@@ -38,62 +49,80 @@ catalog_spread %>%
     model_type_ = "a"
   )
 
-# create a baking mix for model_type pivot
+# create a baking mix for the pivot : model_type
 baking_mix <- catalog_spread %>%
   make_baking_mix_model_type(
     study_name_      = "eas",
     subgroup_        = "female",
+    # model_type       = ""      # pivot
     process_a        = "pef",
     process_b        = "block"
   )
 lapply(baking_mix, names)
 cake <- bake_the_cake(baking_mix)
 lapply(cake, names) # inspect the cake
-slice <- slice_the_cake(cake, mask_not = "a" )
+slice <- slice_the_cake(cake, mask_not = c("a","b","ab","aa","bb") )
 knitr::kable(slice)
-# create a baking mix for process_a pivot
-baking_mix <- catalog_spread %>%
-  make_baking_mix_process_a(
-    study_name_      = "eas",
-    subgroup_        = "female",
-    model_type       =  "aehplus",
-    process_a_to_sum = "pef" # pivot
-  )
-lapply(baking_mix, names)
+
+# create a baking mix for the pivot : process_a
+# baking_mix <- catalog_spread %>%
+#   make_baking_mix_process_a(
+#     study_name_      = "eas",
+#     subgroup_        = "female",
+#     model_type       =  "aehplus",
+#     process_a_to_sum = "pef" # pivot
+#   )
+# lapply(baking_mix, names)
 
 
 
 # ---- one-study-example-process_a ----------------------------
-a_possibles <- c("fev","fev100","pef") # if there are multiple measure of the contruct
+a_possibles <- c("fev","fev100","pef")  # if there are multiple measure of the contruct
 a_possibles <- "gait"
-view_options(catalog_spread, "eas", a_possibles )
-view_options(catalog_spread, "eas", "gait", full_id = F)
+
+catalog_spread %>% view_options(
+  study_name="eas"
+  # ,model_types = c("a","aehplus")
+  # ,processes_a = "grip"
+  # ,process_b = "logic_tot"
+  ,full_id = F
+)
+catalog_spread %>% view_options(
+   study_name="eas"
+  # ,model_types = c("a")
+  ,processes_a = "grip"
+  ,processes_b = "logic_tot"
+  ,full_id = T
+  )
 # inspect individual models
 catalog_spread %>%
   pull_one_model(
-    study_name_ = "eas",
-    subgroup_   = "male",
-    process_a_  = "pef",
-    process_b_  =  "fas",
-    model_type_ = "a"
+     study_name_ = "eas"
+    ,subgroup_   = "male"
+    ,process_a_  = "pef"
+    ,process_b_  =  "fas"
+    ,model_type_ = "a"
   )
-view_options(catalog_spread, "eas",a_possibles, full_id = F )
+
 # create the baking mix for models with a selected pivot
 baking_mix <- catalog_spread %>%
-  make_baking_mix(
+  make_baking_mix_model_type( # not that functions are unique to the pivot (for now)
     study_name_      = "eas",
     subgroup_        = "female",
-    model_type       =  c("a", "aehplus"),
-    process_a_to_sum = "pef" # pivot
+    # model_type       = ""      # pivot
+    process_a        = "pef",
+    process_b        = "block"
   )
 lapply(baking_mix, names) # one element for each pair with the pivot
 # using layers from individual model we now bake the cake
 cake <- bake_the_cake(baking_mix)
 lapply(cake, names) # inspect the cake
 # now we slice the cake with a predefined cookie-cutter
-slice <- slice_the_cake(cake)
+slice <- slice_the_cake(cake, mask_not = c("a","b","ab","aa","bb") )
 # the cake is ready to be surved in the appropriate location of a report
 # use wrapper function to serve:
+knitr::kable(slice)
+
 ## Now all together
 serve_a_slice <- function(
   d                ,
