@@ -69,7 +69,7 @@ pull_one_model <- function(d, study_name_, subgroup_, model_type_,  process_a_, 
     label = c("LL", "AIC", "BIC"),
     est = as.double(c(LL_, AIC_, BIC_)),
     stringsAsFactors = FALSE)
-  model_info_2$est <- format(model_info_2$est,digits = 0,big.mark ="," )
+  # model_info_2$est <- format(model_info_2$est,digits = 0,big.mark ="," )
 
   # compute and assemble BISR correlations
 
@@ -163,8 +163,7 @@ make_baking_mix_model_type <- function(
   d=catalog_spread
   ,study_name_
   ,subgroup_
-  # ,model_type_
-  # ,process_a_to_sum
+  ,model_type_
   ,process_a_
   ,process_b_
   ,print_config=T
@@ -174,14 +173,16 @@ make_baking_mix_model_type <- function(
   # subgroup_   = "female"
   # process_a_   = "pef"
   # process_b_ = "block"
-  # #
-  # pivot_ = "model_type"
 
+
+
+  pivot_ = "model_type"
   d2 <- d %>%
     dplyr::filter(
       study_name %in% study_name_
-      # ,model_type %in% model_type_
       ,subgroup   %in% subgroup_
+      ,model_type %in% model_type_
+      # ,model_type %in% c("a","ae","aeh","aehplus")
       ,process_a  %in% process_a_
       ,process_b  %in% process_b_
     ) %>%
@@ -257,7 +258,7 @@ make_baking_mix_process_a <- function(
 
 # a <- cake_layers$est
 # str(a)
-put_stat_frosting <- function(a, row_labels){
+put_stat_frosting <- function(a, row_labels, model_names){
   # b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
   b <- as.data.frame(a, col.names = model_names)
   b[,"label"] <- row_labels
@@ -281,7 +282,7 @@ bake_the_cake <- function(baking_mix){
   # model_names <- paste0("model_",1:length(baking_mix))
   model_names <- names(baking_mix)
   model_names <- model_names[!model_names %in% "pivot"]
-
+  # browser()
   for(m in model_names){
     # m <- 1
     a <- baking_mix[[m]][["id"]]
@@ -327,7 +328,7 @@ bake_the_cake <- function(baking_mix){
   row_labels <- baking_mix[[1]][["coef"]]["label"]
   for(index in c("est", "se", "pval")){
     # index = "est"
-    cake_layers[[index]] <- put_stat_frosting(cake_layers[[index]], row_labels)
+    cake_layers[[index]] <- put_stat_frosting(cake_layers[[index]], row_labels, model_names)
   }
   cake_layers[["baking_mix"]] <- baking_mix
   return(cake_layers)
@@ -337,11 +338,12 @@ bake_the_cake <- function(baking_mix){
 
 slice_the_cake <- function(
   cake,
-  mask_not = c("a","b","ab","aa","bb")
+  mask_not = c("a","b","ab","aa","bb"),
+  info = T,
+  corr = T
+
   ){
 
-  info = T
-  corr = T
 
   # slice[[1]] <- labels
   # slice[[m]] <- dense of the model
@@ -403,32 +405,53 @@ slice_the_cake <- function(
 
   slice <- model_denses
 
-  if(corr){
-    model_corrs <- list()
-    for(m in model_names){
-      model_corrs[[m]] <- cake$baking_mix[[m]]$corr["est"]
-    }
-    model_corrs <- as.data.frame(model_corrs)
-    row_labels <- cake$baking_mix[[1]]$corr["label"]
-    names(model_corrs) <- model_names
+  compute_aggregate <- function(x, row_labels, model_names){
+    x[,"label"] <- row_labels
+    x[,"mean"] <- apply(x[,model_names],1,mean, na.rm = TRUE)
+    x[,"sd"]   <- apply(x[,model_names],1,sd, na.rm = TRUE)
+    x[,"min"]  <- apply(x[,model_names],1,min, na.rm = TRUE)
+    x[,"max"]  <- apply(x[,model_names],1,max, na.rm = TRUE)
+    return(x)
+  }
 
-    compute_corr_sum <- function(x, row_labels){
-      x[,"label"] <- row_labels
-      x[,"mean"] <- apply(x[,model_names],1,mean, na.rm = TRUE)
-      x[,"sd"]   <- apply(x[,model_names],1,sd, na.rm = TRUE)
-      x[,"min"]  <- apply(x[,model_names],1,min, na.rm = TRUE)
-      x[,"max"]  <- apply(x[,model_names],1,max, na.rm = TRUE)
-      return(x)
+  assemble_aggregate <- function(cake,component,digits, model_names){
+    # component = "corr"
+    # component = "info_1"
+    # component = "info_2"
+    output <- list()
+    for(m in model_names){
+      output[[m]] <- cake$baking_mix[[m]][[component]]["est"]
     }
-    model_corrs <- compute_corr_sum(model_corrs,row_labels)
-    model_corrs[process_a_name] <- dense_v2(model_corrs)
-    for(i in model_names){
-      model_corrs[,i] <- as.character(round(model_corrs[,i],2))
+    output <- as.data.frame(output)
+    names(output) <- model_names
+    row_labels <- cake$baking_mix[[1]][[component]]["label"]
+    output <- compute_aggregate(output,row_labels, model_names)
+    if(component =="info_2"){
+      output[process_a_name] <- dense_v3(output) #? should I pass
+    }else{
+      output[process_a_name] <- dense_v2(output) #? should I pass
     }
-    model_corrs <- as.data.frame(model_corrs) %>%
-      # model_corrs %>%
+
+
+    output <- as.data.frame(output) %>%
       dplyr::select(label,dplyr::everything(), -mean,-sd, -min,-max)
+    for(i in model_names){
+      output[,i] <- format(output[,i],digits=digits, big.mark = ",")
+    }
+    return(output)
+  }
+
+
+  if(corr){
+    model_corrs <- assemble_aggregate(cake, "corr",   2, model_names)
     slice <- dplyr::full_join(slice,model_corrs)
+  }
+
+  if(info){
+    model_info_1 <- assemble_aggregate(cake, "info_1",   2, model_names)
+    model_info_2 <- assemble_aggregate(cake, "info_2",   2, model_names)
+    slice <- dplyr::full_join(slice,model_info_1)
+    slice <- dplyr::full_join(slice,model_info_2)
   }
 
   return(slice)
@@ -521,4 +544,14 @@ dense_v2 <- function(est_raw, label_=FALSE){
   return(est_dense)
 }
 
-
+dense_v3 <- function(est_raw, label=FALSE){
+  est_dense <- est_raw %>%
+    dplyr::mutate(
+      mean_pretty   = format(mean,digits=0,big.mark = ","),
+      sd_pretty     = format(sd,digits=0,big.mark = ","),
+      dense         = paste0(mean_pretty,"(",sd_pretty,")"),
+      dense         = ifelse(is.na(mean), "...", dense)
+    )
+  est_dense <- est_dense %>% dplyr::select( dense)
+  return(est_dense)
+}

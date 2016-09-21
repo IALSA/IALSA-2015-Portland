@@ -54,14 +54,14 @@ baking_mix <- catalog_spread %>%
   make_baking_mix_model_type(
     study_name_      = "eas",
     subgroup_        = "female",
-    # model_type       = ""      # pivot
+    model_type_       = c("a","ae","aeh", "aehplus"),     # pivot
     process_a        = "pef",
     process_b        = "block"
   )
 lapply(baking_mix, names)
 cake <- bake_the_cake(baking_mix)
 lapply(cake, names) # inspect the cake
-slice <- slice_the_cake(cake, mask_not = c("a","b","ab","aa","bb") )
+slice <- slice_the_cake(cake)
 knitr::kable(slice)
 
 # create a baking mix for the pivot : process_a
