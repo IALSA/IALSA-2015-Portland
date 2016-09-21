@@ -47,7 +47,7 @@ pattern_dense <- c(
 # model_type_ = "aehplus"
 # pretty_     = FALSE
 
-pull_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, model_type_, pretty_=T){
+view_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, model_type_, pretty_=T){
   # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil.csv")
   # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v2.csv")
   # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v3.csv")

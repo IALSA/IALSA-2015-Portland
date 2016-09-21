@@ -282,7 +282,7 @@ slice_the_cake <- function(cake,mask_not){
   # model_names <- paste0("model_",1:length(cake$baking_mix))
   model_names <- names(cake$baking_mix)
   # dense_names <- gsub("model","dense",model_names)
-
+  model_names <- model_names[!model_names %in% "pivot"]
 
   names_study_name <- c()
   names_subgroup   <- c()

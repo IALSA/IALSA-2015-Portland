@@ -49,8 +49,8 @@ baking_mix <- catalog_spread %>%
 lapply(baking_mix, names)
 cake <- bake_the_cake(baking_mix)
 lapply(cake, names) # inspect the cake
-slice <- slice_the_cake(cake, mask_not = c("a","b") )
-
+slice <- slice_the_cake(cake, mask_not = "a" )
+knitr::kable(slice)
 # create a baking mix for process_a pivot
 baking_mix <- catalog_spread %>%
   make_baking_mix_process_a(
