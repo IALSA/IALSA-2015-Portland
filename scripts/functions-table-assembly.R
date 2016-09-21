@@ -69,6 +69,7 @@ pull_one_model <- function(d, study_name_, subgroup_, model_type_,  process_a_, 
     label = c("LL", "AIC", "BIC"),
     est = as.double(c(LL_, AIC_, BIC_)),
     stringsAsFactors = FALSE)
+  model_info_2$est <- format(model_info_2$est,digits = 0,big.mark ="," )
 
   # compute and assemble BISR correlations
 
@@ -89,20 +90,20 @@ pull_one_model <- function(d, study_name_, subgroup_, model_type_,  process_a_, 
   (b_sigma_00  <- d[d$full_name=='b_sigma_00',"est"])
   (ab_cor_res  <- ab_sigma_00 / (sqrt(a_sigma_00)*sqrt(b_sigma_00)))
 
-  bisr_cor <- data.frame(
+  bisr_corr <- data.frame(
     label = c("R(intercepts)", "R(slopes)", "R(residuals)"),
     est   = as.double(c(ab_cor_00, ab_cor_11, ab_cor_res)),
     stringsAsFactors = FALSE
   )
-  bisr_cor$est <- round(bisr_cor$est, 2)
-  bisr_cor$label <- format(bisr_cor$label, justify = "left")
+  # bisr_corr$est <- round(bisr_corr$est, 2)
+  bisr_corr$label <- format(bisr_corr$label, justify = "left")
   rm(d)
 
   # assemble object for output
   ls <- list()
   ls[["id"]]   <- model_id
   ls[["coef"]] <- as.data.frame(model_coef %>% dplyr::select(-full_name))
-  ls[["corr"]] <- bisr_cor
+  ls[["corr"]] <- bisr_corr
   ls[["info_1"]] <- model_info_1
   ls[["info_2"]] <- model_info_2
 
@@ -168,13 +169,13 @@ make_baking_mix_model_type <- function(
   ,process_b_
   ,print_config=T
 ){
-  d = catalog_spread
-  study_name_ = "octo"
-  subgroup_   = "female"
-  process_a_   = "pef"
-  process_b_ = "block"
-  #
-  pivot_ = "model_type"
+  # d = catalog_spread
+  # study_name_ = "octo"
+  # subgroup_   = "female"
+  # process_a_   = "pef"
+  # process_b_ = "block"
+  # #
+  # pivot_ = "model_type"
 
   d2 <- d %>%
     dplyr::filter(
@@ -254,6 +255,21 @@ make_baking_mix_process_a <- function(
 }
 
 
+# a <- cake_layers$est
+# str(a)
+put_stat_frosting <- function(a, row_labels){
+  # b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
+  b <- as.data.frame(a, col.names = model_names)
+  b[,"label"] <- row_labels
+  # b %>% head()
+  # b[1,"model_1"] <- NA
+  b[,"mean"] <- apply(b[,model_names],1,mean, na.rm = TRUE)
+  b[,"sd"]   <- apply(b[,model_names],1,sd, na.rm = TRUE)
+  b[,"min"]  <- apply(b[,model_names],1,min, na.rm = TRUE)
+  b[,"max"]  <- apply(b[,model_names],1,max, na.rm = TRUE)
+  return(b)
+}
+
 
 bake_the_cake <- function(baking_mix){
   # BAKING THE CAKE
@@ -294,20 +310,19 @@ bake_the_cake <- function(baking_mix){
   names(cake_layers[["id"]]) <- model_names
 
 
-  # a <- cake_layers$est
-  # str(a)
-  put_stat_frosting <- function(a, row_labels){
-    # b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
-    b <- as.data.frame(a, col.names = model_names)
-    b[,"label"] <- row_labels
-    # b %>% head()
-    # b[1,"model_1"] <- NA
-    b[,"mean"] <- apply(b[,model_names],1,mean, na.rm = TRUE)
-    b[,"sd"]   <- apply(b[,model_names],1,sd, na.rm = TRUE)
-    b[,"min"]  <- apply(b[,model_names],1,min, na.rm = TRUE)
-    b[,"max"]  <- apply(b[,model_names],1,max, na.rm = TRUE)
-    return(b)
-  }
+
+  # put_stat_frosting <- function(a, row_labels){
+  #   # b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
+  #   b <- as.data.frame(a, col.names = model_names)
+  #   b[,"label"] <- row_labels
+  #   # b %>% head()
+  #   # b[1,"model_1"] <- NA
+  #   b[,"mean"] <- apply(b[,model_names],1,mean, na.rm = TRUE)
+  #   b[,"sd"]   <- apply(b[,model_names],1,sd, na.rm = TRUE)
+  #   b[,"min"]  <- apply(b[,model_names],1,min, na.rm = TRUE)
+  #   b[,"max"]  <- apply(b[,model_names],1,max, na.rm = TRUE)
+  #   return(b)
+  # }
 
   row_labels <- baking_mix[[1]][["coef"]]["label"]
   for(index in c("est", "se", "pval")){
@@ -320,7 +335,13 @@ bake_the_cake <- function(baking_mix){
 # cake <- bake_the_cake(baking_mix)
 
 
-slice_the_cake <- function(cake,mask_not){
+slice_the_cake <- function(
+  cake,
+  mask_not = c("a","b","ab","aa","bb")
+  ){
+
+  info = T
+  corr = T
 
   # slice[[1]] <- labels
   # slice[[m]] <- dense of the model
@@ -345,9 +366,9 @@ slice_the_cake <- function(cake,mask_not){
   }
 
   model_denses <- list()
-  for(m in seq_along(model_names)){
+  for(m in model_names){
     coef_raw <- data.frame(
-      label = cake$baking_mix[[1]][["coef"]]["label"],
+      label = cake$baking_mix[[m]][["coef"]]["label"],# local use only
       est  = cake$est[[m]],
       se   = cake$se[[m]],
       pval = cake$pval[[m]]
@@ -373,17 +394,44 @@ slice_the_cake <- function(cake,mask_not){
     est_sd    = cake$est["sd"]
   )
 
+  ##### process_a must become a dynamic element : process_b
   process_a_name <- unique(names_process_a)
   testit::assert("Process must be the same across", sum( duplicated(process_a_name))==0L)
   model_denses[process_a_name] <- dense_v2(est_raw)
-  # model_denses[process_a_name] <- ifelse(model_denses[,"process"]=="a",model_denses[,process_a_name],"---")
   model_denses[process_a_name] <- ifelse(model_denses[,"process"] %in% mask_not, model_denses[,process_a_name],"---")
-
 
 
   slice <- model_denses
 
-    return(slice)
+  if(corr){
+    model_corrs <- list()
+    for(m in model_names){
+      model_corrs[[m]] <- cake$baking_mix[[m]]$corr["est"]
+    }
+    model_corrs <- as.data.frame(model_corrs)
+    row_labels <- cake$baking_mix[[1]]$corr["label"]
+    names(model_corrs) <- model_names
+
+    compute_corr_sum <- function(x, row_labels){
+      x[,"label"] <- row_labels
+      x[,"mean"] <- apply(x[,model_names],1,mean, na.rm = TRUE)
+      x[,"sd"]   <- apply(x[,model_names],1,sd, na.rm = TRUE)
+      x[,"min"]  <- apply(x[,model_names],1,min, na.rm = TRUE)
+      x[,"max"]  <- apply(x[,model_names],1,max, na.rm = TRUE)
+      return(x)
+    }
+    model_corrs <- compute_corr_sum(model_corrs,row_labels)
+    model_corrs[process_a_name] <- dense_v2(model_corrs)
+    for(i in model_names){
+      model_corrs[,i] <- as.character(round(model_corrs[,i],2))
+    }
+    model_corrs <- as.data.frame(model_corrs) %>%
+      # model_corrs %>%
+      dplyr::select(label,dplyr::everything(), -mean,-sd, -min,-max)
+    slice <- dplyr::full_join(slice,model_corrs)
+  }
+
+  return(slice)
 
 }
 
