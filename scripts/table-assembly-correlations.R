@@ -26,49 +26,43 @@ path_input <- "./data/shared/pc-2-parsed-results-computed_ci.csv"
 # ---- load-data ---------------------------------------------------------------
 # ds_full <- readRDS(path_input) # catalog
 
-ds_full <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
+catalog <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
 rm(path_input)
 
-ds_corr <- ds_full %>%
+# ---- tweak-data ----------------------------
+ds <- catalog %>%
+  # ds_long <- ds_small %>%
+  dplyr::rename_(
+    # general model information
+      "study_name"   = "`study_name`"
+    , "model_number" = "`model_number`"
+    , "subgroup"     = "`subgroup`"
+    , "model_type"   = "`model_type`"
+    , "r_levels"     = "ab_CORR_00"
+    , "r_slopes"     = "ab_CORR_11"
+    , "r_residuals"  = "ab_CORR_residual"
+
+  ) %>%
   dplyr::select(
     study_name,
     subgroup,
     model_type,
     process_a,
     process_b,
-    ab_CORR_00,
-    ab_CORR_11,
-    ab_CORR_residual
+    r_levels,
+    r_slopes,
+    r_residuals
   )
 
 
-
-# create a small ds for testing
-ds_small <- ds_full %>%
-  dplyr::filter(
-    study_name == "octo"
-    ,process_a  == "gait"
-    ,process_b  == "block"
-    ,subgroup   == "female"
-    ,model_type == "aehplus"
-  )
-
-
-
-# elongate ----
-ds_long <- ds_full %>%
-  # ds_long <- ds_small %>%
-  dplyr::rename_(
-    # general model information
-      "study_name"                  = "`study_name`"
-    , "model_number"                = "`model_number`"
-    , "subgroup"                    = "`subgroup`"
-    , "model_type"                  = "`model_type`"
-    , "cr_tau_00_est"                = "ab_CORR_00"
-    , "cr_tau_11_est"                = "ab_CORR_11"
-    , "cr_sigma_00_est"              = "ab_CORR_residual"
-
-  ) %>%
+view_options(
+   ds
+  ,study_name_ = "eas"
+  # ,subgroups = "female"
+  # ,model_types = "aeh"
+  ,processes_a = "pef"
+  # ,processes_b = "block"
+)
 
 # ) %>%
 # dtmp <- ds_long %>%
