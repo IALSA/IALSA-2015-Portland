@@ -34,9 +34,9 @@ view_options(
   ,study_name_ ="eas"
   ,full_id = T
   ,subgroups = c("female")
-  ,model_types = c("a","ae","aeh", "aehplus")
+  ,model_types = c("aehplus")
   ,processes_a = "pef"
-  ,processes_b = "block"
+  # ,processes_b = "block"
 )
 
 # inspect individual models
@@ -54,9 +54,9 @@ baking_mix <- catalog_spread %>%
   make_baking_mix_model_type(
     study_name_      = "eas",
     subgroup_        = "female",
-    model_type_       = c("a","ae","aeh", "aehplus"),     # pivot
+    model_type_       = c("aehplus"),     # pivot
     process_a        = "pef",
-    process_b        = "block"
+    process_b        = c("block", "digit_tot", "symbol")
   )
 lapply(baking_mix, names)
 cake <- bake_the_cake(baking_mix)
