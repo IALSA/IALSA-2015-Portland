@@ -42,71 +42,73 @@ catalog_spread %>% view_options(
 # ---- eas-0 ---------------------------------------------------------
 #
 cat("\n# Available models \n")
-cat("\n All models involving pulmonary function: \n")
+cat("\n All **outcome pairs** involving pulmonary function: \n")
+view_options(catalog_spread
+             ,study_name_ ="eas"
+             ,full_id = F
+             ,subgroups = c("female","male")
+             ,processes_a = "pef"
+) %>% knitr::kable()
+
+cat("\n All **models** involving pulmonary outcome: \n")
 view_options(catalog_spread
   ,study_name_ ="eas"
   ,full_id = T
-  ,subgroups = c("female")
+  ,subgroups = c("female","male")
   # ,model_types = c("aehplus")
   ,processes_a = "pef"
   # ,processes_b = "block"
 ) %>% knitr::kable()
-cat("\n All outcome pairs involving pulmonary function: \n")
-view_options(catalog_spread
-             ,study_name_ ="eas"
-             ,full_id = F
-             ,subgroups = c("female")
-             ,processes_a = "pef"
-) %>% knitr::kable()
+
 
 
 
 # ---- eas-1 ---------------------------------------------------------
-cat("\n Models involving pef ")
-knitr::kable(
-  serve_slice_process_a(d = catalog_spread
-    ,study_name = "eas"
-    ,subgroup = "female"
-    ,model_type = "aehplus"
-    ,process_a = "pef"
-    ,mask_not = c("a","aa")
-  ),
-align      = c("l", "l", "r", "r", "r", "r", "r")
-)
+cat("\n# Across pairs")
+
+for(gender in c("female","male")){
+  cat("\n##",gender)
+  cat("\n Models involving pef ")
+  print(knitr::kable(
+    serve_slice_process_a(d = catalog_spread
+      ,study_name = "eas"
+      ,subgroup = gender
+      ,model_type = "aehplus"
+      ,process_a = "pef"
+      ,mask_not = c("a","aa")
+    ),
+  align      = c("r", "l", "r", "r", "r", "r", "r")
+  ))
+
+}
 
 
 # ---- eas-2 ---------------------------------------------------------
-cat("\n## Female \n")
-processes_b <- c("block", "digit_tot", "symbol", "trailsb")
-for(i in processes_b){
-  cat("\n### ",i,"\n")
-  print(knitr::kable(
-    serve_slice_model_type(
-      d =  catalog_spread
-    , study_name = "eas"
-    , subgroup   = "female"
-    , model_type = c("a", "ae", "aeh", "aehplus", "plus")
-    , process_a  = "pef"
-    , process_b  = i
-    ),
-    align      = c("l", "l", "r", "r", "r", "r", "r")
-  ))
-}
-cat("\n## Male \n")
-processes_b <- c("block", "digit_tot", "symbol", "trailsb")
-for(i in processes_b){
-  cat("\n### ",i,"\n")
-  print(knitr::kable(
-    serve_slice_model_type(
-      d =  catalog_spread
+cat("\n# Across model types")
+
+for(gender in c("female","male")){
+  cat("\n##", gender, "\n")
+  # if(gender == "female"){
+    processes_b <- c("block", "digit_tot", "symbol", "trailsb")
+  # } #else{
+  #   processes_b <- c("block", "digit_tot", "fas","symbol", "trailsb")
+  # }
+
+  for(i in processes_b){
+    cat("\n### ",i,"\n")
+    print(knitr::kable(
+      serve_slice_model_type(
+        d =  catalog_spread
       , study_name = "eas"
-      , subgroup   = "male"
-      , model_type = c("a", "ae", "aeh", "aehplus", "plus")
+      , subgroup   = "female"
+      , model_type = c("a", "ae", "aeh", "aehplus", "full")
       , process_a  = "pef"
       , process_b  = i
-    ),
-    align      = c("l", "l", "r", "r", "r", "r", "r")
-  ))
+      ),
+      align      = c("r", "l", "r", "r", "r", "r", "r")
+    ))
+  }
 }
+
 
 
