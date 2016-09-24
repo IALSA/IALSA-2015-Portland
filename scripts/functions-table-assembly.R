@@ -10,9 +10,56 @@
 # process_b_  =  "block"
 # model_type_ = "aehplus"
 
+view_options <- function(
+  d
+  ,study_name_
+  ,subgroups   = sort(unique(d$subgroup)) #c("male","female")
+  ,model_types = sort(unique(d$model_type)) #c("a","aehplus")
+  ,processes_a = sort(unique(d$process_a))
+  ,processes_b = sort(unique(d$process_b))
+  # ,a = sort(unique(d$process_a))
+  # ,b = sort(unique(d$process_b))
+  ,full_id = TRUE
+){
 
-pull_one_model <- function(d, study_name_, subgroup_, model_type_,  process_a_, process_b_){
-  # TESTING CASE
+  if(full_id){
+    d2 <- d %>%
+      dplyr::filter(
+        study_name == study_name_
+        ,model_type %in% model_types
+        ,subgroup %in% subgroups
+        ,process_a %in% processes_a
+        ,process_b %in% processes_b
+
+      ) %>%
+      dplyr::group_by(study_name,subgroup, model_type, process_a, process_b) %>%
+      dplyr::summarize(n_models = n()/44)
+  }else{
+    d2 <- d %>%
+      dplyr::filter(
+        study_name == study_name_,
+        process_a %in% processes_a,
+        process_b %in% processes_b
+      ) %>%
+      dplyr::group_by(process_a, process_b) %>%
+      dplyr::summarize(n_models = n()/44)
+
+  }
+  d2 <- as.data.frame(d2)
+  # print(d2, n = nrow(d2))
+  # print(d2)
+  return(d2)
+}
+
+pull_one_model <- function(
+    d
+  , study_name_
+  , subgroup_
+  , model_type_
+  , process_a_
+  , process_b_
+){
+# TESTING CASE
   # d = catalog_spread
   # study_name_ = "octo"
   # subgroup_   = "female"
@@ -121,43 +168,11 @@ pull_one_model <- function(d, study_name_, subgroup_, model_type_,  process_a_, 
 
 }
 
-view_options <- function(
-  d
-  ,study_name_
-  ,subgroups   = sort(unique(d$subgroup)) #c("male","female")
-  ,model_types = sort(unique(d$model_type)) #c("a","aehplus")
-  ,processes_a = sort(unique(d$process_a))
-  ,processes_b = sort(unique(d$process_b))
-  # ,a = sort(unique(d$process_a))
-  # ,b = sort(unique(d$process_b))
-  ,full_id = TRUE
-){
 
-  if(full_id){
-    d2 <- d %>%
-      dplyr::filter(
-        study_name == study_name_
-        ,model_type %in% model_types
-        ,subgroup %in% subgroups
-        ,process_a %in% processes_a
-        ,process_b %in% processes_b
 
-      ) %>%
-      dplyr::group_by(study_name,subgroup, model_type, process_a, process_b) %>%
-      dplyr::summarize(n_models = n()/47)
-  }else{
-    d2 <- d %>%
-      dplyr::filter(
-        study_name == study_name_,
-        process_a %in% processes_a,
-        process_b %in% processes_b
-      ) %>%
-      dplyr::group_by(process_a, process_b) %>%
-      dplyr::summarize(n_models = n()/47)
-
-  }
-  print(d2, n = nrow(d2))
-}
+###########################
+##### BAKING functions ####
+###########################
 
 make_baking_mix_model_type <- function(
   d=catalog_spread
@@ -171,12 +186,12 @@ make_baking_mix_model_type <- function(
   # d = catalog_spread
   # study_name_ = "octo"
   # subgroup_   = "female"
+  # model_type_ = c("a","ae","aeh","aehplus")
   # process_a_   = "pef"
   # process_b_ = "block"
 
+  spread = "model_type"
 
-
-  pivot_ = "model_type"
   d2 <- d %>%
     dplyr::filter(
       study_name %in% study_name_
@@ -187,15 +202,15 @@ make_baking_mix_model_type <- function(
       ,process_b  %in% process_b_
     ) %>%
     dplyr::group_by(study_name, subgroup, model_type, process_a, process_b) %>%
-    dplyr::summarize(n_models = n()/47)
+    dplyr::summarize(n_models = n()/44)
   if(print_config){
     print(d2, n = nrow(d2))
   }
 
-  summed_models_names <- sort(unique(as.data.frame(d2)[,pivot_]))
+  spread_names <- sort(unique(as.data.frame(d2)[,spread]))
 
   baking_mix <- list()
-  for(i in summed_models_names){
+  for(i in spread_names){
     baking_mix[[i]] <- pull_one_model(
        d                = catalog_spread
       ,study_name_      = study_name_ # "eas"
@@ -205,7 +220,7 @@ make_baking_mix_model_type <- function(
       ,process_b        = process_b_ # "block"
     )
   }
-  baking_mix[["pivot"]] <- pivot_
+  baking_mix[["spread"]] <- spread
   return(baking_mix)
 }
 
@@ -216,44 +231,44 @@ make_baking_mix_process_a <- function(
   ,study_name_
   ,subgroup_
   ,model_type_
-  ,process_a_to_sum
+  ,process_a_
   ,print_config=T
 ){
   # d = catalog_spread
-  # study_name_ = "eas"
-  # subgroup_   = c("female")
-  # model_type_ = "aehplus"
-  # process_a_to_sum   = c("pef")
+  # study_name_ = "octo"
+  # subgroup_   = "female"
+  # model_type_ = c("aehplus")
+  # process_a_   = "pef"
 
+  spread = "process_b"
   d2 <- d %>%
     dplyr::filter(
       study_name %in% study_name_
-      ,model_type %in% model_type_
       ,subgroup   %in% subgroup_
-      ,process_a  %in% process_a_to_sum
+      ,model_type %in% model_type_
+      ,process_a  %in% process_a_
     ) %>%
     dplyr::group_by(study_name, subgroup, model_type, process_a, process_b) %>%
-    dplyr::summarize(n_models = n()/47)
+    dplyr::summarize(n_models = n()/44)
   if(print_config){
     print(d2, n = nrow(d2))
   }
-
-  process_b_names <- sort(unique(d2$process_b))
-
+  spread_names <- sort(unique(as.data.frame(d2)[,spread]))
   baking_mix <- list()
-  for(b in process_b_names){
-    baking_mix[[b]] <- pull_one_model(
+  for(i in spread_names){
+    baking_mix[[i]] <- pull_one_model(
       d                = catalog_spread
-      ,study_name_      = study_name_ # "eas"
-      ,subgroup_        = subgroup_ #"male"
-      ,model_type_      = model_type_ # "aehplus",
-      ,process_a        = process_a_to_sum #"pef",
-      ,process_b        = b
+      ,study_name_      = study_name_  # "eas"
+      ,subgroup_        = subgroup_    #"male"
+      ,model_type_      = model_type_  # "aehplus",
+      ,process_a        = process_a_   #"pef",
+      ,process_b        = i
     )
   }
-  baking_mix[["pivot"]] <- "process_a"
+  baking_mix[["spread"]] <- "process_b"
   return(baking_mix)
 }
+
 
 
 # a <- cake_layers$est
@@ -281,7 +296,7 @@ bake_the_cake <- function(baking_mix){
 
   # model_names <- paste0("model_",1:length(baking_mix))
   model_names <- names(baking_mix)
-  model_names <- model_names[!model_names %in% "pivot"]
+  model_names <- model_names[!model_names %in% "spread"]
   # browser()
   for(m in model_names){
     # m <- 1
@@ -352,7 +367,7 @@ slice_the_cake <- function(
   # model_names <- paste0("model_",1:length(cake$baking_mix))
   model_names <- names(cake$baking_mix)
   # dense_names <- gsub("model","dense",model_names)
-  model_names <- model_names[!model_names %in% "pivot"]
+  model_names <- model_names[!model_names %in% "spread"]
 
   names_study_name <- c()
   names_subgroup   <- c()
@@ -488,16 +503,20 @@ dense_v1 <- function(coef_raw, label_=FALSE){
       pval_pretty   = sprintf("%0.2f", pval), #Remove leading zero from p-value.
       pval_pretty   = ifelse(pval>.99, ".99", sub("^0(.\\d+)$", "\\1", pval_pretty)), #Cap p-value at .99
       # pval_pretty   = sprintf("*p*=%s", pval_pretty),
-      pval_pretty   = sprintf("p=%s", pval_pretty),
+      # pval_pretty   = sprintf("p=%s", pval_pretty),
+      pval_pretty   = sprintf("%s", pval_pretty),
       # pval_pretty   = ifelse(pval_pretty=="*p*=.00", "*p*<.01", pval_pretty),       #Cap p-value at .01
       # pval_pretty   = ifelse(pval_pretty=="*p*=NA" , "*p*= NA", pval_pretty),       #Pad NA with space
-      pval_pretty   = ifelse(pval_pretty=="p=.00", "p<.01", pval_pretty),       #Cap p-value at .01
-      pval_pretty   = ifelse(pval_pretty=="p=NA" , "p= NA", pval_pretty),       #Pad NA with space
+      # pval_pretty   = ifelse(pval_pretty=="p=.00", "p<.01", pval_pretty),       #Cap p-value at .01
+      # pval_pretty   = ifelse(pval_pretty=="p=NA" , "p= NA", pval_pretty),       #Pad NA with space
+      pval_pretty   = ifelse(pval_pretty==".00", "<.01", pval_pretty),       #Cap p-value at .01
+      pval_pretty   = ifelse(pval_pretty=="NA" , "  NA", pval_pretty),       #Pad NA with space
 
       pattern       = pattern_dense[1],
       dense         = sprintf(pattern, est_pretty, se_pretty, pval_pretty),
       # dense         = ifelse(is.na(est), "--,*p*=  ----", dense)
-      dense         = ifelse(is.na(est), "--,p=  ----", dense)
+      # dense         = ifelse(is.na(est), "--,p=  ----", dense)
+      dense         = ifelse(is.na(est), "---", dense)
     )
   # coef_dense <- coef_dense %>% dplyr::select(label, dense)
   coef_dense <- coef_dense %>% dplyr::select( dense)
@@ -555,3 +574,89 @@ dense_v3 <- function(est_raw, label=FALSE){
   est_dense <- est_dense %>% dplyr::select( dense)
   return(est_dense)
 }
+
+
+
+##############################
+#### SERVING FUNCTIONS #######
+##############################
+
+# ---- serve-slice-model_type -------------------------------
+serve_slice_model_type <- function(
+  d
+  ,study_name
+  ,subgroup
+  ,model_type
+  ,process_a
+  ,process_b
+  ,print_config = FALSE
+  ,mask_not = c("a","b","ab","aa","bb")
+  ,info = T
+  ,corr = T
+){
+  baking_mix <- make_baking_mix_model_type(
+    d                = catalog_spread,
+    study_name_      = study_name,
+    subgroup_        = subgroup,
+    model_type_      = model_type,
+    process_a_       = process_a,
+    process_b        = process_b,
+    print_config     = print_config
+  )
+  cake <- bake_the_cake(baking_mix)
+  slice <- slice_the_cake(cake,info = info, corr=corr, mask_not = mask_not)
+  # print(knitr::kable(slice))
+  return(slice)
+}
+
+# catalog_spread %>% serve_slice_model_type(
+#   study_name   = "eas"            ,
+#   subgroup     = "female"         ,
+#   model_type   = c("a", "ae","aeh","aehplus") ,
+#   process_a    = "pef"            ,
+#   process_b    = "block"          ,
+#   print_config = FALSE
+# )
+
+
+# ---- serve-slice-process_a -------------------------------
+serve_slice_process_a <- function(
+  d
+  ,study_name
+  ,subgroup
+  ,model_type
+  ,process_a
+  # ,process_b
+  ,print_config = FALSE
+  ,mask_not = c("a","b","ab","aa","bb")
+  ,info = T
+  ,corr = T
+){
+
+  study_name = "eas"
+  model_type = "aehplus"
+  process_a = "pef"
+
+  baking_mix <- make_baking_mix_process_a(
+    d                = catalog_spread,
+    study_name_      = study_name,
+    subgroup_        = subgroup,
+    model_type_      = model_type,
+    process_a_       = process_a,
+    # process_b        = process_b,
+    print_config     = print_config
+  )
+  cake <- bake_the_cake(baking_mix)
+  slice <- slice_the_cake(cake,info = info, corr=corr, mask_not = mask_not)
+  # print(knitr::kable(slice))
+  return(slice)
+}
+
+# catalog_spread %>% serve_slice_process_a(
+#   study_name   = "eas"            ,
+#   subgroup     = "female"         ,
+#   model_type   = "aehplus"        ,
+#   process_a    = "pef"            ,
+#   # process_b    = "block"          ,
+#   print_config = FALSE
+# )

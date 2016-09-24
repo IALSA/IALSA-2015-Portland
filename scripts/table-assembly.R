@@ -54,9 +54,9 @@ baking_mix <- catalog_spread %>%
   make_baking_mix_model_type(
     study_name_      = "eas",
     subgroup_        = "female",
-    model_type_       = c("aehplus"),     # pivot
+    model_type_       = c("a","ae","aeh","aehplus"),     # pivot
     process_a        = "pef",
-    process_b        = c("block", "digit_tot", "symbol")
+    process_b        = "block"
   )
 lapply(baking_mix, names)
 cake <- bake_the_cake(baking_mix)
@@ -106,10 +106,10 @@ catalog_spread %>%
 
 # create the baking mix for models with a selected pivot
 baking_mix <- catalog_spread %>%
-  make_baking_mix_model_type( # not that functions are unique to the pivot (for now)
+  make_baking_mix_model_type(
     study_name_      = "eas",
     subgroup_        = "female",
-    # model_type       = ""      # pivot
+    model_type_       = c("a","ae","aeh","aehplus"),     # pivot
     process_a        = "pef",
     process_b        = "block"
   )
