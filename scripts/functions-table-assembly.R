@@ -138,7 +138,10 @@ pull_one_model <- function(
   (ab_cor_res  <- ab_sigma_00 / (sqrt(a_sigma_00)*sqrt(b_sigma_00)))
 
   bisr_corr <- data.frame(
-    label = c("R(intercepts)", "R(slopes)", "R(residuals)"),
+    label = c(
+      "Correlation of levels",
+      "Correlation of slopes",
+      "Correlation of residuals"),
     est   = as.double(c(ab_cor_00, ab_cor_11, ab_cor_res)),
     stringsAsFactors = FALSE
   )
@@ -469,6 +472,22 @@ slice_the_cake <- function(
     slice <- dplyr::full_join(slice,model_info_2)
   }
 
+
+  # for(i in seq_along(model_names)){
+  #   model_names[i] = paste0(model_names[i],"\nn est(se)pval")
+  # }
+
+  slice[is.na(slice$process),"process"] <- "-"
+  slice[slice$process=="aa","process"] <- "a"
+  slice[slice$process=="bb","process"] <- "b"
+
+  # slice[slice$label == "Correlation of levels","process"] <- "ab"
+  # slice[slice$label == "Correlation of slopes","process"] <- "ab"
+  # slice[slice$label == "Correlation of residuals","process"] <- "ab"
+
+
+  slice_names <- c("process","label", model_names,"mean(sd)")
+  names(slice) <- slice_names
   return(slice)
 
 }
