@@ -48,7 +48,8 @@ print_outcome_pairs <- function(
   ,model_type_standard
   ,model_type_set
 ){
-    cat("\n",paste0("Gender = ",gender,";  Process (a) = *",outcome,"*; Process (b): ",  paste0("*",model_type_set,"*", collapse = ", "),"; Model type: _",model_type_standard,"_\n"))
+    cat("\\n",paste0("Gender = _",gender,"_; Model type: _",model_type_standard,"_;  Process (a) = *",outcome,"*; Process (b): ",  paste0("*",processes_b,"*", collapse = ", "),"\\n"))
+
     print(
       knitr::kable(
         serve_slice_process_a(
@@ -59,13 +60,14 @@ print_outcome_pairs <- function(
           ,process_a  = outcome#"pef"
           ,mask_not   = c("a","aa")
         )
-        ,format = "html"
-        ,align  = c("c", "l", "r", "r", "r", "r", "r")
+      ,format = "html"
+      ,align  = c("c", "l", "r", "r", "r", "r", "r")
       )
     )
     for(i in processes_b ){
       cat("\n## ",i,"\n")
-      cat("\n",paste0("Gender = ",gender,";  Process (a) = *",outcome,"*; Process (b): _",i,"_" ))
+      cat("\n",paste0("Gender = _",gender,"_;  Process (a) = *",outcome,"*; Process (b) = _",i,"_"))
+      cat("\n")
       print(
         knitr::kable(
           serve_slice_model_type(
@@ -75,9 +77,10 @@ print_outcome_pairs <- function(
             , model_type = model_type_set#
             , process_a  = outcome#"pef"
             , process_b  = i
-          ),
-          ,format = "html"
-          ,align  = c("c", "l", "r", "r", "r", "r", "r")
+          )
+        # ,format = "html"
+          ,format =
+         ,align  = c("c", "l", "r", "r", "r", "r", "r")
         )
       )
     }
@@ -87,37 +90,53 @@ print_outcome_pairs <- function(
 study <- 'eas'
 outcome <- "pef"
 model_type_standard <- "aehplus" # spread at outcome pair level
-model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
+# model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
+model_type_set <- c("a", "ae", "aeh", "aehplus") # spread at model type level
 
 
 cat("\n# Available models \n")
-cat("\n",paste0("Study **",toupper(study),"** contains the following outcome pairs:"),"\n\n")
-view_options(catalog_spread
-             ,study_name_ = study#"eas"
-             ,full_id = F
-             ,subgroups = c("female","male")
-             ,processes_a = outcome#"pef"
-) #%>% knitr::kable(format = "html")
+print(cat("\n",paste0("Study **",toupper(study),"** contains the following outcome pairs:"),"\n\n"))
+print(
+  knitr::kable(
+    view_options(catalog_spread
+                 ,study_name_ = study#"eas"
+                 ,full_id     = F
+                 ,subgroups   = c("female","male")
+                 ,processes_a = outcome#"pef"
+    )
+    # ,format = "html"
+  )
+)
+cat("\\n")
+# cat("\\n")
+for(gender in c("female","male")){
+  print(
+    knitr::kable(
+      view_options(catalog_spread
+                   ,study_name_ = study#"eas"
+                   ,full_id     = T
+                   ,subgroups   = gender
+                   ,processes_a = outcome#"pef"
+      )
+    # ,format = "html"
+   )
+  )
+}
+
 for(gender in c("female","male")){
   if(gender == "female"){
     processes_b <- c("block", "digit_tot", "symbol", "trailsb")
   }else{ # covariate sets may differ by gender, both must have the standard "aehplus"
     processes_b <- c("block", "digit_tot", "symbol", "trailsb") # fas would break it no standard
   }
-  cat("\n#",gender)
-  view_options(catalog_spread
-    ,study_name_ =study#"eas"
-    ,full_id     = T
-    ,subgroups   = gender#c("female","male")
-    ,processes_a = outcome#"pef"
-  ) #>% knitr::kable(format = "html")
+  cat("\n#",gender,"\n")
   print_outcome_pairs(
     d = catalog_spread
-    ,study = 'eas'
+    ,study = study#'eas'
     ,gender = gender
-    ,outcome = "pef"
-    ,model_type_standard = "aehplus" # spread at outcome pair level
-    ,model_type_set = c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
+    ,outcome = outcome#"pef"
+    ,model_type_standard = model_type_standard#"aehplus" # spread at outcome pair level
+    ,model_type_set = model_type_set#c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
   )
 }
 

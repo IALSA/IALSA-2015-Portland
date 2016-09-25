@@ -66,7 +66,7 @@ read_chunk("./reports/seeds-pulmonary/seed-study.R") #This allows knitr to call 
 ```{r tweak-data, echo=echoChunks, results='show', message=FALSE}
 ```
 
-```{r print-functions}
+```{r print-functions, echo =echoChunks }
 ```
 
 ```{r eas, echo=echoChunks, results='asis', message=FALSE}

@@ -27,14 +27,14 @@ Fixed Effect,b,b_gamma_13,Slope * height
 Fixed Effect,b,b_gamma_14,Slope * smoking
 Fixed Effect,b,b_gamma_15,Slope * cardio
 Fixed Effect,b,b_gamma_16,Slope * diabetes
-Variance,a,aa_tau_00,Var (level)
-Variance,a,aa_tau_11,Var (slope)
-Variance,a,a_sigma_00,Var (residual)
-Covariance,a,aa_tau_01,"Covar (level, slope)"
-Variance,b,bb_tau_00,Var (level)
-Variance,b,bb_tau_11,Var (slope)
-Variance,b,b_sigma_00,Var (residual)
-Covariance,b,bb_tau_10,"Covar (level, slope)"
-Covariance,ab,ab_tau_00,Covar (levels)
+Variance,a,aa_tau_00,Var (Level)
+Variance,a,aa_tau_11,Var (Slope)
+Variance,a,a_sigma_00,Var (Residual)
+Covariance,a,aa_tau_01,"Covar (Level, Slope)"
+Variance,b,bb_tau_00,Var (Level)
+Variance,b,bb_tau_11,Var (Slope)
+Variance,b,b_sigma_00,Var (Residual)
+Covariance,b,bb_tau_10,"Covar (Level, Slope)"
+Covariance,ab,ab_tau_00,Covar (Levels)
 Covariance,ab,ab_tau_11,Covar (Slopes)
 Covariance,ab,ab_sigma_00,Covar (Residuals)

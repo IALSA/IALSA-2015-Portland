@@ -33,7 +33,10 @@ view_options <- function(
 
       ) %>%
       dplyr::group_by(study_name,subgroup, model_type, process_a, process_b) %>%
-      dplyr::summarize(n_models = n()/44)
+      dplyr::summarize(
+        n_models = n()/44
+        # ,count = dplyr::cumany(n_models)
+      )
   }else{
     d2 <- d %>%
       dplyr::filter(
@@ -42,7 +45,10 @@ view_options <- function(
         process_b %in% processes_b
       ) %>%
       dplyr::group_by(process_a, process_b) %>%
-      dplyr::summarize(n_models = n()/44)
+      dplyr::summarize(
+        n_models = n()/44
+        # ,count = dplyr::cumall(n_models)
+      )
 
   }
   d2 <- as.data.frame(d2)
@@ -139,9 +145,9 @@ pull_one_model <- function(
 
   bisr_corr <- data.frame(
     label = c(
-      "Correlation of levels",
-      "Correlation of slopes",
-      "Correlation of residuals"),
+      "Correlation of Levels",
+      "Correlation of Slopes",
+      "Correlation of Residuals"),
     est   = as.double(c(ab_cor_00, ab_cor_11, ab_cor_res)),
     stringsAsFactors = FALSE
   )
