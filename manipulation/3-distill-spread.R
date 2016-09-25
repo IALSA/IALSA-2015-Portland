@@ -19,8 +19,8 @@ requireNamespace("scales")
 options(show.signif.stars=F) #Turn off the annotations on p-values
 # path_input <- "./data/shared/parsed-results.rds"
 # path_input <- "./data/shared/pp-1-parsed-results.rds"
-# path_input <- "./data/shared/pc-2-parsed-results-computed_ci.csv"
-path_input <- "./data/shared/pc-1-parsed-results.csv"
+# path_input <- "./data/shared/pc-1-parsed-results.csv"
+path_input <- "./data/shared/pc-2-parsed-results-computed_ci.csv"
 
 coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 
@@ -36,7 +36,8 @@ variables_part_1 <- c(
 
 ###########
 # PART 4a : model information indices
-variables_part_4a <- c(
+# variables_part_4a <- c(
+variables_part_2 <- c(
   "subject_count",
   "parameter_count",
   "wave_count",
@@ -70,16 +71,18 @@ coefficient_key <- c(
 #, "ci95_lower", "ci95_upper"),
 
 # OuhscMunge::column_rename_headstart(ds_full)
-variables_part_4b <- sprintf(
+# variables_part_4b <- sprintf(
+variables_part_3 <- sprintf(
   "%s_gamma_%s_%s",
   ds_order_gamma$process,
   ds_order_gamma$ceofficient,
   ds_order_gamma$stat
 )
 ###########
-# PART 4c :  bivariate intercepts, slopes, and residuals (BISR)
-variables_part_4c <- c(
-# estimates of intercepts and slopes (est/se/pval)
+# PART 4 :  bivariate intercepts, slopes, and residuals (BISR)
+
+# variances : estimates of intercepts(levels), slopes and residuals (est/se/pval)
+variables_part_4a <- c(
     "aa_tau_00_est"
   , "aa_tau_00_se"
   , "aa_tau_00_wald"
@@ -96,15 +99,6 @@ variables_part_4c <- c(
   , "bb_tau_11_se"
   , "bb_tau_11_wald"
   , "bb_tau_11_pval"
-# covariance between levels and slopes within each process
-  , "aa_tau_01_est"
-  , "aa_tau_01_se"
-  , "aa_tau_01_wald"
-  , "aa_tau_01_pval"
-  , "bb_tau_10_est"
-  , "bb_tau_10_se"
-  , "bb_tau_10_wald"
-  , "bb_tau_10_pval"
 # residuals
   , "a_sigma_00_est"
   , "a_sigma_00_se"
@@ -118,6 +112,17 @@ variables_part_4c <- c(
   ,"ab_sigma_00_se"
   ,"ab_sigma_00_wald"
   ,"ab_sigma_00_pval"
+)
+# covariance :  between levels and slopes within each process
+variables_part_4b <- c(
+    "aa_tau_01_est"
+  , "aa_tau_01_se"
+  , "aa_tau_01_wald"
+  , "aa_tau_01_pval"
+  , "bb_tau_10_est"
+  , "bb_tau_10_se"
+  , "bb_tau_10_wald"
+  , "bb_tau_10_pval"
 # covariances of intecepts and slopes
   , "ab_tau_00_est"
   , "ab_tau_00_se"
@@ -135,8 +140,10 @@ variables_part_4c <- c(
   , "ab_tau_10_se"
   , "ab_tau_10_wald"
   , "ab_tau_10_pval"
+)
 # (e)stimated co(r)relations of intercepts, slopes, and residuals
-  , "er_tau_00_est"
+variables_part_4c <- c(
+    "er_tau_00_est"
   , "er_tau_00_se"
   , "er_tau_00_wald"
   , "er_tau_00_pval"
@@ -150,9 +157,10 @@ variables_part_4c <- c(
   , "er_sigma_00_pval"
 )
 
-variables_part_4d <- c(
+
 # (c)omputed  co(r)relations of intercepts, slopes, and residuals
-    "cr_tau_00_est"
+variables_part_5 <- c(
+    "cr_levels_est"
   , "cr_tau_00_se"
   , "cr_tau_00_wald"
   , "cr_tau_00_pval"
@@ -165,7 +173,24 @@ variables_part_4d <- c(
   , "cr_sigma_00_wald"
   , "cr_sigma_00_pval"
 )
-# variables_part_4c <- c(variables_part_4c, variables_part_4d)
+
+# components in correlation computation
+# levels
+variables_part_6 <- c(
+  "ab_tau_00_est"   # covar bw (a) - (b)
+  ,"aa_tau_00_est"   # var (a)
+  ,"bb_tau_00_est"   # var (b)
+
+  ,"ab_tau_11_est"   # covar bw (a) - (b)
+  ,"aa_tau_11_est"   # var (a)
+  ,"bb_tau_11_est"   # var (b)
+
+  ,"ab_sigma_00_est" # covar bw (a) - (b)
+  ,"a_sigma_00_est"  # var (a)
+  ,"b_sigma_00_est"  # var (b)
+
+)
+# variables_part_4 <- c(variables_part_4, variables_part_5)
 # ---- load-data ---------------------------------------------------------------
 # ds_full <- readRDS(path_input) # catalog
 ds_full <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
@@ -179,11 +204,11 @@ ds_small <- ds_full %>%
     ,subgroup   == "female"
     ,model_type == "aehplus"
   )
-
+temp <- ds_small
 # ---- tweak-data --------------------------------------------------------------
 
-# elongate ----
-ds_long <- ds_full %>%
+# ----- consider-later --------
+# ds_long <- ds_full %>%
 # ds_long <- ds_small %>%
   # dplyr::mutate(
   #     cr_tau_00_est   = as.numeric(round(cr_tau_00_est    ,3))
@@ -214,23 +239,44 @@ ds_long <- ds_full %>%
 #   b_gamma_10_ci95_upper = b_gamma_10_est + b_gamma_10_radius
 # ) %>%
 # dtmp <- ds_long %>%
-dplyr::select_(.dots=c(
-  variables_part_1,
-  variables_part_4a,
-  variables_part_4b,
-  variables_part_4c)
+
+
+
+# ---- elongate-raw-outcomes ----
+
+ds_long <- ds_full %>%
+  dplyr::select_(
+    .dots=c(
+       variables_part_1  # id
+      ,variables_part_2  # info
+      ,variables_part_3  # gammas
+      ,variables_part_4a # variances
+      ,variables_part_4b # covariances
+      ,variables_part_4c # estimated correlations
+      # ,variables_part_5  # computed correlations
+      # ,variables_part_6 # used in computing cor
+
+    )
   )  %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%  # remove univariate models
+  # dplyr::filter( model_number %in% c("b1"))    # same as above, remove univariate models, but more restrictive
   dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>% # remove univariate models
-  tidyr::gather_("g", "value", c(variables_part_4b,variables_part_4c)) %>% # BISR + covariates
+  tidyr::gather_("g", "value", c(variables_part_3,variables_part_4a,variables_part_4b,variables_part_4c) ) %>% # BISR + covariates
   dplyr::mutate(
     process      = gsub(regex_general, "\\1", g, perl=T),
     coefficient  = gsub(regex_general, "\\2", g, perl=T),
     subindex     = gsub(regex_general, "\\3", g, perl=T),
     stat         = gsub(regex_general, "\\4", g, perl=T)
   )
-rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
+temp <- ds_long
+# rm(ds_order_gamma, ds_full, variables_part_3) #variables_part_1
+rm(ds_order_gamma)
 # temp <- ds_long
+
+
+
+
+
 # ---- table-dynamic-long ----------------------------------------
 # inspect the created object via dynamic table
 # ds_long %>%
@@ -254,12 +300,12 @@ rm(ds_order_gamma, ds_full, variables_part_4b) #variables_part_1
 #   )
 
 # ---- remove-duplicates ----------------------------------------
-define_duplicates <- c(variables_part_1, variables_part_4a, "process", "coefficient","subindex", "stat") #Lacks "value"
+define_duplicates <- c(variables_part_1, variables_part_2, "process", "coefficient","subindex", "stat") #Lacks "value"
 
 ds_no_duplicates <- ds_long %>%
   dplyr::group_by_(
-    # .dots=c(variables_part_1, variables_part_4a, "process", "process_a", "process_b", "coefficient", "stat") #Lacks "value"
-    # .dots=c(variables_part_1, variables_part_4a, "process", "breed", "species", "stat") #Lacks "value"
+    # .dots=c(variables_part_1, variables_part_2, "process", "process_a", "process_b", "coefficient", "stat") #Lacks "value"
+    # .dots=c(variables_part_1, variables_part_2, "process", "breed", "species", "stat") #Lacks "value"
     .dots=define_duplicates #Lacks "value"
   ) %>%
   dplyr::summarize(
@@ -271,8 +317,8 @@ ds_no_duplicates <- ds_long %>%
 ds_find_duplicates <- ds_long %>%
   dplyr::distinct() %>% #Drops it from 256 rows to 56 rows.
   dplyr::group_by_(
-    # .dots=c(variables_part_1, variables_part_4a, "process", "process_a", "process_b", "coefficient", "stat")
-    # .dots=c(variables_part_1, variables_part_4a,  "process", "breed", "species", "stat")
+    # .dots=c(variables_part_1, variables_part_2, "process", "process_a", "process_b", "coefficient", "stat")
+    # .dots=c(variables_part_1, variables_part_2,  "process", "breed", "species", "stat")
     .dots=define_duplicates #Lacks "value"
   ) %>%  #Lacks "value"
   dplyr::filter(!is.na(value)) %>% #Drops from 56 rows to 8 rows.  !!Careful that you don't remove legit NAs (esp, in nonduplicated rows).
@@ -286,7 +332,7 @@ ds_find_duplicates <- ds_long %>%
   dplyr::filter(.001 < value_cv) #Drops from 8 to 0 rows.
 
 # testit::assert("No meaningful duplicate rows should exist.", nrow(ds_find_duplicates)==0L)
-# rm(variables_part_1, variables_part_4a, ds_find_duplicates)
+# rm(variables_part_1, variables_part_2, ds_find_duplicates)
 
 # ---- distill-spread ------------------------------------------------------------------
 ds_spread <- ds_no_duplicates %>%
