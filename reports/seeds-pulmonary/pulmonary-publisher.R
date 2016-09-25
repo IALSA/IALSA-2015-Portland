@@ -38,7 +38,7 @@ for( pathFile in pathFilesToBuild ) {
   rmarkdown::render(input = pathFile,
                     output_format=c(
                       "html_document"
-                       #,"pdf_document"
+                       #, "pdf_document"
                       # ,"md_document"
                       ,"word_document"
                     ),

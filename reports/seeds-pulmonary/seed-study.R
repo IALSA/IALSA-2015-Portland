@@ -20,11 +20,13 @@ requireNamespace("scales")
 
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
+
 # ---- load-data ---------------------------------------------------------------
 # catalog <- readRDS("./data/shared/derived/pp-spread.rds") # physical-physical track
 catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds") # physical-cognitive track
 # template for structuring tables for reporting individual models
-stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v7.csv")
+# stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v7.csv")
+stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v8.csv")
 
 # ---- explorations -------------------------------------------
 catalog_spread %>% view_options(
@@ -37,78 +39,97 @@ catalog_spread %>% view_options(
 )
 
 
-# ---- custom-functions -----------------
+# ---- print-functions -----------------
+print_outcome_pairs <- function(
+  d
+  ,study
+  ,gender
+  ,outcome
+  ,model_type_standard
+  ,model_type_set
+){
+    cat("\n",paste0("Gender = ",gender,";  Process (a) = *",outcome,"*; Process (b): ",  paste0("*",model_type_set,"*", collapse = ", "),"; Model type: _",model_type_standard,"_\n"))
+    print(
+      knitr::kable(
+        serve_slice_process_a(
+           d          = d
+          ,study_name = study#"eas"
+          ,subgroup   = gender#"female"
+          ,model_type = model_type_standard#"aehplus"
+          ,process_a  = outcome#"pef"
+          ,mask_not   = c("a","aa")
+        )
+        ,format = "html"
+        ,align  = c("c", "l", "r", "r", "r", "r", "r")
+      )
+    )
+    for(i in processes_b ){
+      cat("\n## ",i,"\n")
+      cat("\n",paste0("Gender = ",gender,";  Process (a) = *",outcome,"*; Process (b): _",i,"_" ))
+      print(
+        knitr::kable(
+          serve_slice_model_type(
+            d            =  d
+            , study_name = study#"eas"
+            , subgroup   = gender#"female"
+            , model_type = model_type_set#
+            , process_a  = outcome#"pef"
+            , process_b  = i
+          ),
+          ,format = "html"
+          ,align  = c("c", "l", "r", "r", "r", "r", "r")
+        )
+      )
+    }
+  }
 
-# ---- eas-0 ---------------------------------------------------------
-#
+# ---- eas ---------------------------------------------------------
+study <- 'eas'
+outcome <- "pef"
+model_type_standard <- "aehplus" # spread at outcome pair level
+model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
+
+
 cat("\n# Available models \n")
-cat("\n All **outcome pairs** involving pulmonary function: \n")
+cat("\n",paste0("Study **",toupper(study),"** contains the following outcome pairs:"),"\n\n")
 view_options(catalog_spread
-             ,study_name_ ="eas"
+             ,study_name_ = study#"eas"
              ,full_id = F
              ,subgroups = c("female","male")
-             ,processes_a = "pef"
-) %>% knitr::kable()
-
-cat("\n All **models** involving pulmonary outcome: \n")
-view_options(catalog_spread
-  ,study_name_ ="eas"
-  ,full_id = T
-  ,subgroups = c("female","male")
-  # ,model_types = c("aehplus")
-  ,processes_a = "pef"
-  # ,processes_b = "block"
-) %>% knitr::kable()
-
-
-
-
-# ---- eas-1 ---------------------------------------------------------
-cat("\n# Across pairs")
-
+             ,processes_a = outcome#"pef"
+) #%>% knitr::kable(format = "html")
 for(gender in c("female","male")){
-  cat("\n##",gender)
-  cat("\n Models involving pef ")
-  print(knitr::kable(
-    serve_slice_process_a(d = catalog_spread
-      ,study_name = "eas"
-      ,subgroup = gender
-      ,model_type = "aehplus"
-      ,process_a = "pef"
-      ,mask_not = c("a","aa")
-    ),
-  align      = c("r", "l", "r", "r", "r", "r", "r")
-  ))
-
-}
-
-
-# ---- eas-2 ---------------------------------------------------------
-cat("\n# Across model types")
-
-for(gender in c("female","male")){
-  cat("\n##", gender, "\n")
-  # if(gender == "female"){
+  if(gender == "female"){
     processes_b <- c("block", "digit_tot", "symbol", "trailsb")
-  # } #else{
-  #   processes_b <- c("block", "digit_tot", "fas","symbol", "trailsb")
-  # }
-
-  for(i in processes_b){
-    cat("\n### ",i,"\n")
-    print(knitr::kable(
-      serve_slice_model_type(
-        d =  catalog_spread
-      , study_name = "eas"
-      , subgroup   = "female"
-      , model_type = c("a", "ae", "aeh", "aehplus", "full")
-      , process_a  = "pef"
-      , process_b  = i
-      ),
-      align      = c("r", "l", "r", "r", "r", "r", "r")
-    ))
+  }else{ # covariate sets may differ by gender, both must have the standard "aehplus"
+    processes_b <- c("block", "digit_tot", "symbol", "trailsb") # fas would break it no standard
   }
+  cat("\n#",gender)
+  view_options(catalog_spread
+    ,study_name_ =study#"eas"
+    ,full_id     = T
+    ,subgroups   = gender#c("female","male")
+    ,processes_a = outcome#"pef"
+  ) #>% knitr::kable(format = "html")
+  print_outcome_pairs(
+    d = catalog_spread
+    ,study = 'eas'
+    ,gender = gender
+    ,outcome = "pef"
+    ,model_type_standard = "aehplus" # spread at outcome pair level
+    ,model_type_set = c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
+  )
 }
+
+
+
+
+# ---- session-info ---------------------
+cat("\n#Session Info")
+sessionInfo()
+
+
+
 
 
 

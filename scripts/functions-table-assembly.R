@@ -477,7 +477,7 @@ slice_the_cake <- function(
   #   model_names[i] = paste0(model_names[i],"\nn est(se)pval")
   # }
 
-  slice[is.na(slice$process),"process"] <- "-"
+  slice[is.na(slice$process),"process"] <- "\\ "
   slice[slice$process=="aa","process"] <- "a"
   slice[slice$process=="bb","process"] <- "b"
 
