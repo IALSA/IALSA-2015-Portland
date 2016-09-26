@@ -745,6 +745,7 @@ spread_model_type <- function(
   ,pivot
   ,target_name
   ,target_label
+  ,processes_b
 ){
   # d            =  catalog
   # study_name_  = "eas"
@@ -765,7 +766,8 @@ spread_model_type <- function(
     dplyr::mutate(
       label = gsub(target_name, target_label, label)
     ) %>%
-    dplyr::select(label, process_b, dplyr::everything()) #%>%
+    dplyr::select(label, process_b, dplyr::everything()) %>%
+    dplyr::filter(process_b %in% processes_b)
   col_names <- names(d_print)
   col_names <- col_names[!col_names %in% c("label","process_b")]
   for(cn in col_names){
