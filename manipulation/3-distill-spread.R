@@ -261,7 +261,13 @@ ds_long <- ds_full %>%
   dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%  # remove univariate models
   # dplyr::filter( model_number %in% c("b1"))    # same as above, remove univariate models, but more restrictive
   dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>% # remove univariate models
-  tidyr::gather_("g", "value", c(variables_part_3,variables_part_4a,variables_part_4b,variables_part_4c) ) %>% # BISR + covariates
+  tidyr::gather_("g", "value", c(
+      variables_part_3
+      ,variables_part_4a
+      ,variables_part_4b
+      ,variables_part_4c
+    )
+  ) %>% # BISR + covariates
   dplyr::mutate(
     process      = gsub(regex_general, "\\1", g, perl=T),
     coefficient  = gsub(regex_general, "\\2", g, perl=T),

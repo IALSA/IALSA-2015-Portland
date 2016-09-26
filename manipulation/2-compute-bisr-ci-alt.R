@@ -34,11 +34,11 @@ variables_part_1 <- c(
 # PART 2 : model information indices
 variables_part_2 <- c(
   "subject_count"
-  # ,"parameter_count"
-  # ,"wave_count"
-  # ,'ll'
-  # ,"aic"
-  # ,"bic"
+  ,"parameter_count"
+  ,"wave_count"
+  ,'ll'
+  ,"aic"
+  ,"bic"
 )
 
 ##########
@@ -74,19 +74,20 @@ ds_full$outcome_count <- ifelse(is_univariate, 1L, 2L)
 # create a small ds for testing
 ds_small <- ds_full %>%
   dplyr::filter(
-    study_name == "octo"
+    # study_name == "octo"
     # ,process_a  == "gait"
     # ,process_b  == "block"
     # ,subgroup   == "female"
     # ,model_type == "aehplus"
   ) %>%
-  dplyr::select_(.dots=c(
-    variables_part_1
-    ,variables_part_2
-    ,variables_part_3a
+  dplyr::select_(
+    .dots=c(
+      variables_part_1
+      ,variables_part_2
+      ,variables_part_3a
     )
   )
-
+temp <- ds_small
 
 # ---- computational-functions ------------------------------------------
 compute_r_se <- function( r , n_pairs ){
@@ -112,7 +113,7 @@ z_alpha <- qnorm(1 - (alpha/2))
 ds <- ds_full %>%
   dplyr::mutate(
 
-     cr_levels_est      = ab_tau_00_est  / (sqrt(aa_tau_00_est) * sqrt(bb_tau_00_est))
+     cr_levels_est      = ab_tau_00_est  / ( sqrt(aa_tau_00_est) * sqrt(bb_tau_00_est) )
     ,cr_levels_z        = atanh(cr_levels_est)
     ,cr_levels_ztest    = cr_levels_z * sqrt(subject_count - 3)
     ,cr_levels_zpval    = pnorm(-abs(cr_levels_z))*2
@@ -121,7 +122,7 @@ ds <- ds_full %>%
     ,cr_levels_ci95_lo  = tanh(cr_levels_zeta_lo)
     ,cr_levels_ci95_hi  = tanh(cr_levels_zeta_hi)
 
-    ,cr_slopes_est      = ab_tau_11_est  / (sqrt(aa_tau_11_est) * sqrt(bb_tau_11_est))
+    ,cr_slopes_est      = ab_tau_11_est  / ( sqrt(aa_tau_11_est) * sqrt(bb_tau_11_est) )
     ,cr_slopes_z        = atanh(cr_slopes_est)
     ,cr_slopes_ztest    = cr_slopes_z * sqrt(subject_count - 3)
     ,cr_slopes_zpval    = pnorm(-abs(cr_slopes_ztest))*2
@@ -130,7 +131,7 @@ ds <- ds_full %>%
     ,cr_slopes_ci95_lo  = tanh(cr_slopes_zeta_lo)
     ,cr_slopes_ci95_hi  = tanh(cr_slopes_zeta_hi)
 
-    ,cr_resid_est       = ab_sigma_00_est/ (sqrt(a_sigma_00_est) * sqrt(b_sigma_00_est))
+    ,cr_resid_est       = ab_sigma_00_est/ ( sqrt(a_sigma_00_est) * sqrt(b_sigma_00_est) )
     ,cr_resid_z         = atanh(cr_resid_est)
     ,cr_resid_ztest     = cr_resid_z * sqrt(subject_count - 3)
     ,cr_resid_zpval     = pnorm(-abs(cr_resid_ztest))*2
@@ -142,6 +143,8 @@ ds <- ds_full %>%
   ) #%>%
   # t() %>%
   # print()
+
+table(ds_full$model_number)
 
 
 ## @knitr export_dataset -----

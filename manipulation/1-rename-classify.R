@@ -119,10 +119,21 @@ d_rule <- ds_rules %>%
 d_rule
 # join the model data frame to the conversion data frame.
 ds <- ds %>%
+# d <- ds %>%
+  # dplyr::filter(
+  #   study_name == "elsa"
+  # )
   dplyr::left_join(d_rule, by=c("process_b"="entry_raw"))
+  # dplyr::inner_join(d_rule, by=c("process_b"="entry_raw"))
 # verify
 t <- table(ds$entry_new, ds$study_name);t[t==0]<-".";t
 head(ds)
+temp <- ds %>%
+  dplyr::filter(
+    study_name == "elsa"
+  ) %>%
+  dplyr::select(variables_part_)
+
 t <- table(ds[ ,"entry_new"], ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"label_cell"],  ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"label_row"],  ds[,"study_name"]);t[t==0]<-".";t
