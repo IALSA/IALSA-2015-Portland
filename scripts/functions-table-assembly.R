@@ -685,3 +685,55 @@ serve_slice_process_a <- function(
 #   # process_b    = "block"          ,
 #   print_config = FALSE
 # )
+
+##################################
+#### SPREAD ACROSS MODEL TYPE ####
+#################################
+spread_across_model_type <- function(
+  d
+  ,study_name_
+  ,subgroup_
+  ,pivot
+  ,target_value
+){
+  # d = catalog
+  # study_name_  = "eas"
+  # subgroup_    = "female"
+  # pivot        = "pef"
+  # target_value = "cr_levels_est"
+  ds_target <- d %>%
+    dplyr::distinct() %>%
+    dplyr::filter(model_number == "b1") %>%
+    dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%  # remove univariate models
+    dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>%  # remove univariate models
+    dplyr::filter(
+      study_name == study_name_#"eas" #eas  elsa   hrs  ilse  lasa   map nuage  octo satsa
+      ,subgroup  == subgroup_#"female"
+      ,process_a == pivot#"pef"
+      # ,process_b == "trailsb"
+    ) %>%
+    dplyr::select_(
+      .dots=c(
+        "model_number"
+        ,"study_name"
+        ,"process_a"
+        ,"process_b"
+        ,"subgroup"
+        ,"model_type"
+        # ,variables_part_2  # info
+        , target_value # target variable
+      )
+    ) %>%
+    tidyr::gather_("target", "value",target_value ) %>%
+    dplyr::distinct() %>%
+    # dplyr::select(-model_type, -g, - new_var) %>%
+    tidyr::spread_(key_col = "model_type", value_col = "value" )
+  return(ds_target)
+}
+# spread_across_model_type(
+#   d = catalog
+#   , study_name_ = "eas"
+#   ,subgroup_ = "female"
+#   ,pivot = "pef"
+#   ,target_value = "cr_slopes_est"
+# )
