@@ -1,7 +1,7 @@
 rm(list = ls())
 library(magrittr)
 
-# catalog <- readRDS("./data/shared/derived/pp-spread.rds") # physical-physical track
+catalog <- read.csv("./data/shared/pc-2-parsed-results-computed_ci.csv", header = T,  stringsAsFactors=FALSE)
 catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds") # physical-cognitive track
 # template for structuring tables for reporting individual models
 stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v6.csv")
@@ -18,10 +18,68 @@ source("./scripts/functions-table-assembly.R")
 # cog_2||                              ||                              ||                              ||
 #  ... ||                              ||                              ||                              ||
 # cog_N||______________________________||______________________________||______________________________||
-temp <- catalog_spread; View(temp)
+
+print_bisr_spread <- function(
+   d
+  ,study_name_
+  ,subgroup_
+  ,pivot
+
+){
+  # d            =  catalog
+  # study_name_  = "eas"
+  # subgroup_    = "female"
+  # pivot        = "pef"
+
+  cat("\\n",paste0("Gender = _",subgroup_,"_; Process (a) = _",pivot,"_\\n"))
+
+  metaspread <- c("cr_levels_est","cr_slopes_est", "cr_resid_est")
+  ls <- list()
+  for(i in metaspread){
+
+    d_print   <- spread_across_model_type(
+      d = d
+      ,study_name_ = study_name_
+      ,subgroup_ = subgroup_
+      ,pivot = pivot
+      ,target_value = i
+    ) %>%
+    dplyr::rename(component = target) %>%
+    dplyr::select(-model_number,-study_name, -process_a, -subgroup) %>%
+    dplyr::mutate(
+       component = gsub(metaspread[1],"Levels", component)
+      ,component = gsub(metaspread[2],"Slopes", component)
+      ,component = gsub(metaspread[3],"Residuals", component)
+    ) %>%
+    dplyr::select(component, process_b, dplyr::everything()) #%>%
+    col_names <- names(d_print)
+    col_names <- col_names[!col_names %in% c("component","process_b")]
+    for(cn in col_names){
+      d_print[,cn] <- sprintf("%0.2f",d_print[,cn])
+      d_print[d_print[,cn] == "NA",cn] <- "."
+    }
+    print(
+      knitr::kable(
+        d_print
+        ,format = "pandoc"
+        ,align = c("r","l","r","r","r","r","r","r")
+      )
+    )
+  }
+}
+print_bisr_spread(
+  d = catalog
+ ,study_name_ = "eas"
+ ,subgroup_ = "male"
+ ,pivot = "pef"
+ # ,target_value =
+)
 
 
-catalog_spread
+
+
+
+
 # ---- one-study-example-model_type ----------------------------
 a_possibles <- c("fev","fev100","pef")  # if there are multiple measure of the contruct
 a_possibles <- "gait"
