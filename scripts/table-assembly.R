@@ -19,6 +19,8 @@ source("./scripts/functions-table-assembly.R")
 #  ... ||                              ||                              ||                              ||
 # cog_N||______________________________||______________________________||______________________________||
 temp <- catalog_spread; View(temp)
+
+
 catalog_spread
 # ---- one-study-example-model_type ----------------------------
 a_possibles <- c("fev","fev100","pef")  # if there are multiple measure of the contruct
