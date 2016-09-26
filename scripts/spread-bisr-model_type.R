@@ -277,8 +277,8 @@ temp <- ds_find_duplicates
   spread_across = c("a", "ae", "aeh", "aehplus","full")
   spread_across_name = "model_type"
   pivot = "pef"
-  target_value = c("cr_levels_est", "cr_slopes_est", "cr_resid_est")
-  # target_value = c("cr_levels_est")
+  # target_value = c("cr_levels_est", "cr_slopes_est", "cr_resid_est")
+  target_value = c("cr_levels_est")
 
 
 
@@ -289,7 +289,7 @@ temp <- ds_find_duplicates
   ds_target <- ds_full %>%
     dplyr::distinct() %>%
     dplyr::filter(
-      study_name == "map" #eas  elsa   hrs  ilse  lasa   map nuage  octo satsa
+      study_name == "eas" #eas  elsa   hrs  ilse  lasa   map nuage  octo satsa
       # ,subgroup  == "female"
       # ,process_a == "fev"
       # ,process_b == "trailsb"
@@ -298,17 +298,17 @@ temp <- ds_find_duplicates
     dplyr::select_(
       .dots=c(
         variables_part_1  # id
-        ,variables_part_2  # info
+        # ,variables_part_2  # info
         , target_value # target variable
       )
     ) %>%
-    tidyr::gather_("g", "value",target_value ) %>%
-    dplyr::mutate(
-       new_var      = gsub(regex, "\\2", g, perl = T)
-      ,spread_names = paste0(new_var,"-",model_type)
-    ) %>%
-    dplyr::select(-model_type, -g, - new_var) %>%
-    tidyr::spread_(key_col = "spread_names", value_col = "value" )
+    tidyr::gather_("target", "value",target_value ) %>%
+    # dplyr::rename_(
+    #   value = target_value
+    # ) %>%
+    dplyr::distinct() %>%
+    # dplyr::select(-model_type, -g, - new_var) %>%
+    tidyr::spread_(key_col = "model_type", value_col = "value" )
 
     temp <- ds_target
 
