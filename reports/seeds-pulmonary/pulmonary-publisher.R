@@ -2,30 +2,18 @@ rm(list=ls(all=TRUE))
 ########## Production of reports from .Rmd files ###
 
 path_eas <- base::file.path("./reports/seeds-pulmonary/seed-eas.Rmd")
-# pathReport2 <- base::file.path("./reports/essentials.Rmd")
-# pathReport3 <- base::file.path("./reports/individual/eas.Rmd")
-# pathReport4 <- base::file.path("./reports/individual/habc.Rmd")
-# pathReport5 <- base::file.path("./reports/individual/ilse.Rmd")
-# pathReport6 <- base::file.path("./reports/individual/nas.Rmd")
-# pathReport7 <- base::file.path("./reports/individual/nuage.Rmd")
-# pathReport8 <- base::file.path("./reports/individual/obas.Rmd")
-# pathReport9 <- base::file.path("./reports/individual/octo.Rmd")
-# pathReport10 <- base::file.path("./reports/individual/radc.Rmd")
-# pathReport11 <- base::file.path("./reports/individual/satsa.Rmd")
+path_elsa <- base::file.path("./reports/seeds-pulmonary/seed-elsa.Rmd")
+path_map <- base::file.path("./reports/seeds-pulmonary/seed-map.Rmd")
+path_octo <- base::file.path("./reports/seeds-pulmonary/seed-octo.Rmd")
+path_satsa <- base::file.path("./reports/seeds-pulmonary/seed-satsa.Rmd")
 
 #  Define groups of reports
 allReports<- c(
    path_eas
-  # ,pathReport2
-  # ,pathReport3
-  # ,pathReport4
-  # ,pathReport5
-  # ,pathReport6
-  # ,pathReport7
-  # ,pathReport8
-  # ,pathReport9
-  # ,pathReport10
-  # ,pathReport11
+  # path_elsa
+  # path_map
+  ,path_octo
+  # path_satsa
 )
 # Place report paths HERE ###########
 pathFilesToBuild <- c(allReports) ##########
@@ -37,10 +25,10 @@ for( pathFile in pathFilesToBuild ) {
   #   pathMd <- base::gsub(pattern=".Rmd$", replacement=".md", x=pathRmd)
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      "html_document"
+                      # "html_document"
                        #, "pdf_document"
                       # ,"md_document"
-                      ,"word_document"
+                      "word_document"
                     ),
                     clean=TRUE)
 }

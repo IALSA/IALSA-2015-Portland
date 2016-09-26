@@ -1,5 +1,5 @@
 ---
-title: 'EAS : Seed report'
+title: 'OCTO : Seed report'
 output:
   html_document:
     css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar-simple.css
@@ -69,7 +69,7 @@ read_chunk("./reports/seeds-pulmonary/seed-study.R") #This allows knitr to call 
 ```{r print-functions, echo =echoChunks }
 ```
 
-```{r eas, echo=echoChunks, results='asis', message=FALSE}
+```{r octo, echo=echoChunks, results='asis', message=FALSE, warning = FALSE}
 ```
 
 ```{r session-info,echo=echoChunks, results='show'}

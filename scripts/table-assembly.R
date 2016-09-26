@@ -22,58 +22,29 @@ source("./scripts/functions-table-assembly.R")
 # 1
 spread_across_model_type(
   d = catalog
-  , study_name_ = "eas"
+  , study_name_ = "elsa"
   ,subgroup_ = "female"
-  ,pivot = "pef"
+  ,pivot = "fev"
   ,target_value = "cr_levels_est"
 )
 
 # 2
 a <- spread_model_type(
    d = catalog
-  ,study_name_ = "eas"
-  ,subgroup_ = "male"
-  ,pivot = "pef"
+  ,study_name_ = "elsa"
+  ,subgroup_ = "female"
+  ,pivot = "fev"
   ,target_name  = "ab_tau_11_pval" # cr_slopes_est
   ,target_label = "Levels"
 )
 print(a)
 
 # 3
-print_bisr_spread <- function(
-  d
-  ,study_name
-  ,subgroup
-  ,pivot
-  ,target_names
-  ,target_labels
-){
-  cat("\\n",paste0("Study = _",toupper(study_name),"_; Gender = _",subgroup_,"_; Process (a) = _",pivot,"_\\n"))
-  ls <- list()
-  for(i in seq_along(target_names)){
-    # i <- 1
-    ls[[i]] <-  spread_model_type(
-           d = catalog
-          ,study_name_  = study_name#"eas"
-          ,subgroup_    = subgroup#"male"
-          ,pivot        = "pef"# pivot#"pef"
-          ,target_name  = target_names[i] # cr_slopes_est
-          ,target_label = target_labels[i]
-      )
-      print(
-        knitr::kable(
-          ls[[i]]
-          ,format = "pandoc"
-          ,align = c("r","l","r","r","r","r","r","r")
-        )
-      )
-  }
-}
 print_bisr_spread(
   d = catalog
   ,study_name    = "eas"
   ,subgroup      = "female"
-  ,pivot         = "fev"
+  ,pivot         = "gait"
   ,target_names  = c("cr_levels_est","cr_slopes_est", "cr_resid_est")
   ,target_labels = c("Levels","Slopes","Residuals")
 )
