@@ -51,7 +51,7 @@ list_pc <-  list("eas" = eas,
                  "map" = map,
                  "satsa" = satsa)
 # Now the object contains paths to files with model outputs
-list_pc[["ilse"]]
+list_pc[["elsa"]]
 
 # ---- dto ---------------------------------------------------------
 ## point to the folders with results for physical-physical track
@@ -82,7 +82,7 @@ list_pp[["elsa"]]
 # ---- dto ---------------------------------------------------------
 # studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
 # path_model_output <- list_pc[["eas"]][23]
-path_model_output <- list_pc[["elsa"]][1]
+# path_model_output <- list_pc[["elsa"]][1]
 # path_model_output <- list_pc[["hrs"]][13]
 # path_model_output <- list_pc[["ilse"]][1]
 # path_model_output <- list_pc[["lasa"]][1]
@@ -167,11 +167,11 @@ collect_study <- function(study, selected_results){
 # collect_study(study="eas", selected_results)
 # collect_study(study="elsa", selected_results)
 # collect_study(study="hrs", selected_results)
-# collect_study(study="ilse", selected_results)
+collect_study(study="ilse", selected_results)
 # collect_study(study="lasa", selected_results)
 # collect_study(study="map", selected_results)
 # collect_study(study="nuage", selected_results)
-collect_study(study="octo", selected_results)
+# collect_study(study="octo", selected_results)
 # collect_study(study="satsa", selected_results)
 
 # ---- dto ---------------------------------------------------------
