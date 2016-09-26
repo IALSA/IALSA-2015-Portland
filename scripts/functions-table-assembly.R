@@ -738,6 +738,52 @@ spread_across_model_type <- function(
 #   ,target_value = "cr_levels_est"
 # )
 
+spread_model_type <- function(
+  d
+  ,study_name_
+  ,subgroup_
+  ,pivot
+  ,target_name
+  ,target_label
+){
+  # d            =  catalog
+  # study_name_  = "eas"
+  # subgroup_    = "female"
+  # pivot        = "pef"
+  # target_name  = "cr_levels_est"
+  # target_label = "Levels"
+
+  d_print   <- spread_across_model_type(
+    d = d
+    ,study_name_ = study_name_
+    ,subgroup_ = subgroup_
+    ,pivot = pivot
+    ,target_value = target_name
+  ) %>%
+    dplyr::rename(label = target) %>%
+    dplyr::select(-model_number,-study_name, -process_a, -subgroup) %>%
+    dplyr::mutate(
+      label = gsub(target_name, target_label, label)
+    ) %>%
+    dplyr::select(label, process_b, dplyr::everything()) #%>%
+  col_names <- names(d_print)
+  col_names <- col_names[!col_names %in% c("label","process_b")]
+  for(cn in col_names){
+    d_print[,cn] <- sprintf("%0.2f",d_print[,cn])
+    d_print[d_print[,cn] == "NA",cn] <- "."
+  }
+  return(d_print)
+}
+# a <- spread_model_type(
+#    d = catalog
+#   ,study_name_ = "eas"
+#   ,subgroup_ = "male"
+#   ,pivot = "pef"
+#   ,target_name  = "ab_tau_11_pval" # cr_slopes_est
+#   ,target_label = "Levels"
+# )
+# print(a)
+
 
 
 ########### trying out

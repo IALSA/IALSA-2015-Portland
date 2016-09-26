@@ -19,65 +19,64 @@ source("./scripts/functions-table-assembly.R")
 #  ... ||                              ||                              ||                              ||
 # cog_N||______________________________||______________________________||______________________________||
 
+# 1
+spread_across_model_type(
+  d = catalog
+  , study_name_ = "eas"
+  ,subgroup_ = "female"
+  ,pivot = "pef"
+  ,target_value = "cr_levels_est"
+)
+
+# 2
+a <- spread_model_type(
+   d = catalog
+  ,study_name_ = "eas"
+  ,subgroup_ = "male"
+  ,pivot = "pef"
+  ,target_name  = "ab_tau_11_pval" # cr_slopes_est
+  ,target_label = "Levels"
+)
+print(a)
+
+# 3
 print_bisr_spread <- function(
-   d
-  ,study_name_
-  ,subgroup_
+  d
+  ,study_name
+  ,subgroup
   ,pivot
-
+  ,target_names
+  ,target_labels
 ){
-  # d            =  catalog
-  # study_name_  = "eas"
-  # subgroup_    = "female"
-  # pivot        = "pef"
-
-  cat("\\n",paste0("Gender = _",subgroup_,"_; Process (a) = _",pivot,"_\\n"))
-
-  metaspread <- c("cr_levels_est","cr_slopes_est", "cr_resid_est")
+  cat("\\n",paste0("Study = _",toupper(study_name),"_; Gender = _",subgroup_,"_; Process (a) = _",pivot,"_\\n"))
   ls <- list()
-  for(i in metaspread){
-
-    d_print   <- spread_across_model_type(
-      d = d
-      ,study_name_ = study_name_
-      ,subgroup_ = subgroup_
-      ,pivot = pivot
-      ,target_value = i
-    ) %>%
-    dplyr::rename(component = target) %>%
-    dplyr::select(-model_number,-study_name, -process_a, -subgroup) %>%
-    dplyr::mutate(
-       component = gsub(metaspread[1],"Levels", component)
-      ,component = gsub(metaspread[2],"Slopes", component)
-      ,component = gsub(metaspread[3],"Residuals", component)
-    ) %>%
-    dplyr::select(component, process_b, dplyr::everything()) #%>%
-    col_names <- names(d_print)
-    col_names <- col_names[!col_names %in% c("component","process_b")]
-    for(cn in col_names){
-      d_print[,cn] <- sprintf("%0.2f",d_print[,cn])
-      d_print[d_print[,cn] == "NA",cn] <- "."
-    }
-    print(
-      knitr::kable(
-        d_print
-        ,format = "pandoc"
-        ,align = c("r","l","r","r","r","r","r","r")
+  for(i in seq_along(target_names)){
+    # i <- 1
+    ls[[i]] <-  spread_model_type(
+           d = catalog
+          ,study_name_  = study_name#"eas"
+          ,subgroup_    = subgroup#"male"
+          ,pivot        = "pef"# pivot#"pef"
+          ,target_name  = target_names[i] # cr_slopes_est
+          ,target_label = target_labels[i]
       )
-    )
+      print(
+        knitr::kable(
+          ls[[i]]
+          ,format = "pandoc"
+          ,align = c("r","l","r","r","r","r","r","r")
+        )
+      )
   }
 }
 print_bisr_spread(
   d = catalog
- ,study_name_ = "eas"
- ,subgroup_ = "male"
- ,pivot = "pef"
- # ,target_value =
+  ,study_name    = "eas"
+  ,subgroup      = "female"
+  ,pivot         = "fev"
+  ,target_names  = c("cr_levels_est","cr_slopes_est", "cr_resid_est")
+  ,target_labels = c("Levels","Slopes","Residuals")
 )
-
-
-
-
 
 
 # ---- one-study-example-model_type ----------------------------
@@ -179,27 +178,6 @@ knitr::kable(slice)
 
 
 ## Now all together
-serve_a_slice_process_a <- function(
-  d                ,
-  study_name_      ,
-  subgroup_        ,
-  model_type       ,
-  process_a_to_sum
-){
-  baking_mix <- make_baking_mix_process_a(
-    d                = catalog_spread,
-    study_name_      = study_name_,
-    subgroup_        = subgroup_,
-    model_type       = model_type,
-    process_a_       = process_a,
-    print_config = FALSE
-  )
-  cake <- bake_the_cake(baking_mix)
-  slice <- slice_the_cake(cake)
-  # print(knitr::kable(slice))
-  return(slice)
-}
-
 catalog_spread %>%
   serve_a_slice("eas","female","aehplus", "pef")
 

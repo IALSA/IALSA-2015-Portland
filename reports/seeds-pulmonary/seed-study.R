@@ -22,8 +22,8 @@ requireNamespace("scales")
 options(show.signif.stars=F) #Turn off the annotations on p-values
 
 # ---- load-data ---------------------------------------------------------------
-# catalog <- readRDS("./data/shared/derived/pp-spread.rds") # physical-physical track
-catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds") # physical-cognitive track
+catalog <- read.csv("./data/shared/pc-2-parsed-results-computed_ci.csv", header = T,  stringsAsFactors=FALSE)
+catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds")
 # template for structuring tables for reporting individual models
 # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v7.csv")
 stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v8.csv")
@@ -40,6 +40,46 @@ catalog_spread %>% view_options(
 
 
 # ---- print-functions -----------------
+
+print_bisr_spread <- function(
+  d
+  ,study_name
+  ,subgroup
+  ,pivot
+  ,target_names
+  ,target_labels
+){
+  # cat("\\n",paste0("Study = _",toupper(study_name),"_; Gender = _",subgroup_,"_; Process (a) = _",pivot,"_\\n"))
+  ls <- list()
+  for(i in seq_along(target_names)){
+    # i <- 1
+    ls[[i]] <-  spread_model_type(
+      d = catalog
+      ,study_name_  = study_name#"eas"
+      ,subgroup_    = subgroup#"male"
+      ,pivot        = "pef"# pivot#"pef"
+      ,target_name  = target_names[i] # cr_slopes_est
+      ,target_label = target_labels[i]
+    )
+    print(
+      knitr::kable(
+        ls[[i]]
+        ,format = "pandoc"
+        ,align = c("r","l","r","r","r","r","r","r")
+      )
+    )
+  }
+}
+# print_bisr_spread(
+#   d = catalog
+#   ,study_name    = "eas"
+#   ,subgroup      = "female"
+#   ,pivot         = "fev"
+#   ,target_names  = c("cr_levels_est","cr_slopes_est", "cr_resid_est")
+#   ,target_labels = c("Levels","Slopes","Residuals")
+# )
+
+
 print_outcome_pairs <- function(
   d
   ,study
@@ -130,6 +170,16 @@ for(gender in c("female","male")){
     processes_b <- c("block", "digit_tot", "symbol", "trailsb") # fas would break it no standard
   }
   cat("\n#",gender,"\n")
+  cat("\\n",paste0("Study = _",toupper(study),"_; Gender = _",gender,"_; Process (a) = _",outcome,"_\\n"))
+  print_bisr_spread(
+    d = catalog
+    ,study_name    = study
+    ,subgroup      = gender
+    ,pivot         = outcome
+    ,target_names  = c("cr_levels_est","cr_slopes_est", "cr_resid_est")
+    ,target_labels = c("Levels","Slopes","Residuals")
+  )
+
   print_outcome_pairs(
     d = catalog_spread
     ,study = study#'eas'
