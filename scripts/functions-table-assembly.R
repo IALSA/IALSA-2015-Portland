@@ -288,6 +288,7 @@ put_stat_frosting <- function(a, row_labels, model_names){
   b[,"label"] <- row_labels
   # b %>% head()
   # b[1,"model_1"] <- NA
+
   b[,"mean"] <- apply(b[,model_names],1,mean, na.rm = TRUE)
   b[,"sd"]   <- apply(b[,model_names],1,sd, na.rm = TRUE)
   b[,"min"]  <- apply(b[,model_names],1,min, na.rm = TRUE)
@@ -697,7 +698,7 @@ spread_across_model_type <- function(
   ,target_value
 ){
   # d = catalog
-  # study_name_  = "eas"
+  # study_name_  = "lasa"
   # subgroup_    = "female"
   # pivot        = "pef"
   # target_value = "cr_levels_est"
@@ -748,7 +749,7 @@ spread_model_type <- function(
   # ,processes_b
 ){
   # d            =  catalog
-  # study_name_  = "eas"
+  # study_name_  = "lasa"
   # subgroup_    = "female"
   # pivot        = "pef"
   # target_name  = "cr_levels_est"

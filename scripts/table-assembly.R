@@ -42,12 +42,59 @@ print(a)
 # 3
 print_bisr_spread(
   d = catalog
-  ,study_name    = "eas"
+  ,study_name    = "elsa"
   ,subgroup      = "female"
-  ,pivot         = "gait"
+  ,pivot         = "fev"
   ,target_names  = c("cr_levels_est","cr_slopes_est", "cr_resid_est")
   ,target_labels = c("Levels","Slopes","Residuals")
 )
+
+# ---- one-study-debug-mode ----------------------------
+a_possibles <- c("fev","fev100","pef")  # if there are multiple measure of the contruct
+a_possibles <- "fev"
+
+catalog_spread %>% view_options(
+  study_name="elsa"
+  # ,model_types = c("a","aehplus")
+  # ,processes_a = "grip"
+  # ,process_b = "logic_tot"
+  ,full_id = F
+)
+catalog_spread %>% view_options(
+  study_name="elsa"
+  # ,model_types = c("a")
+  ,processes_a = "fev"
+  ,processes_b = "word_de"
+  ,full_id = T
+)
+# inspect individual models
+catalog_spread %>%
+  pull_one_model(
+    study_name_ = "elsa"
+    ,subgroup_   = "male"
+    ,process_a_  = "fev"
+    ,process_b_  =  "word_de"
+    ,model_type_ = "aehplus"
+  )
+
+# create the baking mix for models with a selected pivot
+baking_mix <- make_baking_mix_model_type(
+  d            = catalog_spread,
+  study_name_  = "elsa",
+  subgroup_    = "female",
+  model_type_  = c("a","ae","aeh","aehplus"),     # pivot
+  process_a    = "fev",
+  process_b    = "word_de"
+)
+lapply(baking_mix, names) # one element for each pair with the pivot
+# using layers from individual model we now bake the cake
+cake <- bake_the_cake(baking_mix)
+lapply(cake, names) # inspect the cake
+# now we slice the cake with a predefined cookie-cutter
+slice <- slice_the_cake(cake, mask_not = c("a","b","ab","aa","bb") )
+# the cake is ready to be surved in the appropriate location of a report
+# use wrapper function to serve:
+knitr::kable(slice)
 
 
 # ---- one-study-example-model_type ----------------------------

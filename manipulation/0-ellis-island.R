@@ -31,15 +31,15 @@ requireNamespace("testit") #For asserting conditions meet expected patterns.
 
 # ---- dto-1 ---------------------------------------------------------
 # point to the folders with results for physical-cognitive track
-eas <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=T, pattern="out$")
-elsa <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-hrs <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=F, pattern="out$")
-ilse <- list.files(file.path(pathStudies,"ilse/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-lasa <- list.files(file.path(pathStudies,"lasa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive"),full.names=T, recursive=F, pattern="out$")
-octo <- list.files(file.path(pathStudies,"octo/physical-cognitive/combined"),full.names=T, recursive=T, pattern="out$")
-map <- list.files(file.path(pathStudies,"map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+eas   <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=T, pattern="out$")
+elsa  <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+hrs   <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=F, pattern="out$")
+ilse  <- list.files(file.path(pathStudies,"ilse/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+lasa  <- list.files(file.path(pathStudies,"lasa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive/without-errors/"),full.names=T, recursive=F, pattern="out$")
+octo  <- list.files(file.path(pathStudies,"octo/physical-cognitive/Final/"),full.names=T, recursive=T, pattern="out$")
+map   <- list.files(file.path(pathStudies,"map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive/"),full.names=T, recursive=F, pattern="out$")
 
 list_pc <-  list("eas" = eas,
                  "elsa" = elsa,
@@ -60,7 +60,7 @@ elsa  <- list.files(file.path(pathStudies,"elsa/physical"),full.names=T, recursi
 hrs   <- list.files(file.path(pathStudies,"hrs/physical"),full.names=T, recursive=T, pattern="out$")
 ilse  <- list.files(file.path(pathStudies,"ilse/physical"),full.names=T, recursive=T, pattern="out$")
 lasa  <- list.files(file.path(pathStudies,"lasa/physical"),full.names=T, recursive=T, pattern="out$")
-nuage <- list.files(file.path(pathStudies,"nuage/physical"),full.names=T, recursive=T, pattern="out$")
+nuage <- list.files(file.path(pathStudies,"nuage/physical"),full.names=T, recursive=F, pattern="out$")
 octo  <- list.files(file.path(pathStudies,"octo/physical"),full.names=T, recursive=T, pattern="out$")
 map   <- list.files(file.path(pathStudies,"map/physical"),full.names=T, recursive=T, pattern="out$")
 satsa <- list.files(file.path(pathStudies,"satsa/physical"),full.names=T, recursive=T, pattern="out$")
@@ -164,10 +164,10 @@ collect_study <- function(study, selected_results){
 }
 
 # ---- dto ---------------------------------------------------------
-# collect_study(study="eas", selected_results)
+collect_study(study="eas", selected_results)
 # collect_study(study="elsa", selected_results)
 # collect_study(study="hrs", selected_results)
-collect_study(study="ilse", selected_results)
+# collect_study(study="ilse", selected_results)
 # collect_study(study="lasa", selected_results)
 # collect_study(study="map", selected_results)
 # collect_study(study="nuage", selected_results)

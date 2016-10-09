@@ -1,19 +1,34 @@
 rm(list=ls(all=TRUE))
 ########## Production of reports from .Rmd files ###
 
-path_eas <- base::file.path("./reports/seeds-pulmonary/seed-eas.Rmd")
-path_elsa <- base::file.path("./reports/seeds-pulmonary/seed-elsa.Rmd")
-path_map <- base::file.path("./reports/seeds-pulmonary/seed-map.Rmd")
-path_octo <- base::file.path("./reports/seeds-pulmonary/seed-octo.Rmd")
+path_eas   <- base::file.path("./reports/seeds-pulmonary/seed-eas.Rmd")
+path_elsa  <- base::file.path("./reports/seeds-pulmonary/seed-elsa.Rmd")
+path_hrs   <- base::file.path("./reports/seeds-pulmonary/seed-hrs.Rmd")
+path_ilse  <- base::file.path("./reports/seeds-pulmonary/seed-ilse.Rmd")
+path_lasa  <- base::file.path("./reports/seeds-pulmonary/seed-lasa.Rmd")
+path_nuage <- base::file.path("./reports/seeds-pulmonary/seed-nuage.Rmd")
+path_octo  <- base::file.path("./reports/seeds-pulmonary/seed-octo.Rmd")
+path_map   <- base::file.path("./reports/seeds-pulmonary/seed-map.Rmd")
 path_satsa <- base::file.path("./reports/seeds-pulmonary/seed-satsa.Rmd")
 
 #  Define groups of reports
 allReports<- c(
-   path_eas
+  # path_eas
+  # path_elsa # fails at put_stat_frosting() b/c contains only 'aehplus'
+  path_hrs
+  # path_ilse
+  # path_lasa
+  # path_nuage
+  # path_octo
+  # path_map
+  # path_satsa
+  #
+  # path_eas
   # path_elsa
   # path_map
-  ,path_octo
+  # ,path_octo
   # path_satsa
+  # path_
 )
 # Place report paths HERE ###########
 pathFilesToBuild <- c(allReports) ##########
@@ -25,10 +40,10 @@ for( pathFile in pathFilesToBuild ) {
   #   pathMd <- base::gsub(pattern=".Rmd$", replacement=".md", x=pathRmd)
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      # "html_document"
+                      "html_document"
                        #, "pdf_document"
                       # ,"md_document"
-                      "word_document"
+                      ,"word_document"
                     ),
                     clean=TRUE)
 }
