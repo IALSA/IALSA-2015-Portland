@@ -1,6 +1,7 @@
 
 library("MplusAutomation")
 library("IalsaSynthesis")
+library(magrittr)
 # load functions to process mplus objects
 source("http://www.statmodel.com/mplus-R/mplus.R") # load
 
