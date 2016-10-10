@@ -50,29 +50,29 @@ print_bisr_spread(
 )
 
 # ---- one-study-debug-mode ----------------------------
-a_possibles <- c("fev","fev100","pef")  # if there are multiple measure of the contruct
-a_possibles <- "fev"
+# a_possibles <- c("fev","fev100","pef")  # if there are multiple measure of the contruct
+a_possibles <- "pef"
 
 catalog_spread %>% view_options(
-  study_name="elsa"
+  study_name="hrs"
   # ,model_types = c("a","aehplus")
   # ,processes_a = "grip"
   # ,process_b = "logic_tot"
   ,full_id = F
 )
 catalog_spread %>% view_options(
-  study_name="elsa"
+  study_name="hrs"
   # ,model_types = c("a")
-  ,processes_a = "fev"
-  ,processes_b = "word_de"
+  ,processes_a = "pef"
+  ,processes_b = "tics"
   ,full_id = T
 )
 # inspect individual models
 catalog_spread %>%
   pull_one_model(
-    study_name_ = "elsa"
+    study_name_ = "hrs"
     ,subgroup_   = "male"
-    ,process_a_  = "fev"
+    ,process_a_  = "pef"
     ,process_b_  =  "word_de"
     ,model_type_ = "aehplus"
   )
@@ -80,10 +80,10 @@ catalog_spread %>%
 # create the baking mix for models with a selected pivot
 baking_mix <- make_baking_mix_model_type(
   d            = catalog_spread,
-  study_name_  = "elsa",
+  study_name_  = "hrs",
   subgroup_    = "female",
   model_type_  = c("a","ae","aeh","aehplus"),     # pivot
-  process_a    = "fev",
+  process_a    = "pef",
   process_b    = "word_de"
 )
 lapply(baking_mix, names) # one element for each pair with the pivot
