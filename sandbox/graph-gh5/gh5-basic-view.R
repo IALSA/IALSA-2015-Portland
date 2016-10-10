@@ -27,7 +27,8 @@ get_gh5_path <- function(catalog,study_name,subgroup,model_type,process_a,proces
   return(path_gh5)
 }
 
-path_gh5 <- get_gh5_path(catalog, "octo", "female", "aehplus", "grip", "gait")
+# path_gh5 <- get_gh5_path(catalog, "octo", "female", "aehplus", "grip", "gait")
+path_gh5 <- "./data/shared/covariance-issue/annie/studies/octo/physical/b1_female_aehplus_grip_gait.gh5"
 
 # view options: https://www.statmodel.com/mplus-R/GH5_R.shtml
 
