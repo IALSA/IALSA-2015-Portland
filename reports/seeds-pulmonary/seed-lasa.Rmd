@@ -1,5 +1,5 @@
 ---
-title: 'EAS : Seed report'
+title: 'LASA : Seed report'
 output:
   word_document:
     keep_md: yes
@@ -69,7 +69,7 @@ read_chunk("./reports/seeds-pulmonary/seed-study.R") #This allows knitr to call 
 ```{r print-functions, echo =echoChunks }
 ```
 
-```{r eas, echo=echoChunks, results='asis', message=FALSE}
+```{r lasa, echo=echoChunks, results='asis', message=FALSE}
 ```
 
 ```{r session-info,echo=echoChunks, results='show'}

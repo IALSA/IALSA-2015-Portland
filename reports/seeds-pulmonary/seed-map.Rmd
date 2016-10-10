@@ -1,13 +1,13 @@
 ---
-title: 'EAS : Seed report'
+title: 'MAP : Seed report'
 output:
-  word_document:
-    keep_md: yes
-    reference_docx: rmd-style.docx
-    toc: yes
   html_document:
     css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar-simple.css
     keep_md: yes
+    toc: yes
+  word_document:
+    keep_md: yes
+    reference_docx: rmd-style.docx
     toc: yes
 date: 'Date: `r Sys.Date()`'
 ---
@@ -69,7 +69,7 @@ read_chunk("./reports/seeds-pulmonary/seed-study.R") #This allows knitr to call 
 ```{r print-functions, echo =echoChunks }
 ```
 
-```{r eas, echo=echoChunks, results='asis', message=FALSE}
+```{r map, echo=echoChunks, results='asis', message=FALSE, warning = FALSE}
 ```
 
 ```{r session-info,echo=echoChunks, results='show'}

@@ -1,5 +1,5 @@
 ---
-title: 'OCTO : Seed report'
+title: 'OCTO : Seed Report'
 output:
   html_document:
     css: ~/GitHub/IALSA-2015-Portland/libs/css/sidebar-simple.css
