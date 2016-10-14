@@ -1,33 +1,12 @@
 
-library("MplusAutomation")
-library("IalsaSynthesis")
+# library("MplusAutomation")
+# library("IalsaSynthesis")
 library(magrittr)
-# load functions to process mplus objects
-source("http://www.statmodel.com/mplus-R/mplus.R") # load
 
-catalog <- readr::read_csv("./data/shared/covariance-issue/studies/2-parsed-results-ci.csv")
+source("./scripts/mplus/mplus.R") # downloaded from http://www.statmodel.com/mplus-R/mplus.R
+source("./scripts/graphs/main_theme.R") # pre-sets and options for graphing
+source("./sandbox/graph-gh5/gh5-graphing-functions.R")
 
-# ---- function-to-collect-gh5-paths -----------------------------------
-get_gh5_path <- function(catalog,study_name,subgroup,model_type,process_a,process_b){
-  path_out <- catalog %>%
-    # dplyr::filter(   study_name == "elsa" &
-    #                    subgroup   == "female" &
-    #                    model_type == "aehplus" &
-    #                    process_a  == "fev" &
-    #                    process_b  == "gait") %>%
-    dplyr::filter( study_name == study_name &
-                   subgroup   == subgroup &
-                   model_type == model_type &
-                   process_a  == process_a &
-                   process_b  == process_b) %>%
-    dplyr::select(file_path) %>% as.data.frame()
-  testit::assert("ERROR: more than one model present", sum(duplicated(path_out$file_path))==0L)
-  path_out <- as.character(path_out[1,"file_path"])
-  (path_gh5 <- gsub(".out",".gh5", path_out))
-  return(path_gh5)
-}
-
-# path_gh5 <- get_gh5_path(catalog, "octo", "female", "aehplus", "grip", "gait")
 path_gh5 <- "./data/shared/covariance-issue/annie/studies/octo/physical/b1_female_aehplus_grip_gait.gh5"
 
 # view options: https://www.statmodel.com/mplus-R/GH5_R.shtml
@@ -46,3 +25,20 @@ path_gh5 <- "./data/shared/covariance-issue/annie/studies/octo/physical/b1_femal
   ds <- mplus.get.data(path_gh5, "SP")
 
   summary(ds)
+
+# ---- new-scatter-matrix ------------------
+
+dsL <- get_gh5_data(
+  path_gh5 = "./data/shared/covariance-issue/annie/studies/octo/physical/b1_female_aehplus_grip_gait.gh5"
+  ,study_name = "octo"
+  ,subgroup = "female"
+  ,model_type = "aehplus"
+  ,process_a = "grip"
+  ,process_b = "gait"
+)
+
+proto_scatter(dsL, "s_grip", "s_gait")
+proto_scatter(dsL, "i_grip", "i_gait")
+
+int_slope(dsL)
+

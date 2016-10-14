@@ -54,14 +54,14 @@ print_bisr_spread(
 a_possibles <- "pef"
 
 catalog_spread %>% view_options(
-  study_name="hrs"
+  study_name="nuage"
   # ,model_types = c("a","aehplus")
-  # ,processes_a = "grip"
+  # ,processes_a = "pef"
   # ,process_b = "logic_tot"
-  ,full_id = F
+  ,full_id  = T
 )
 catalog_spread %>% view_options(
-  study_name="hrs"
+  study_name="lasa"
   # ,model_types = c("a")
   ,processes_a = "pef"
   ,processes_b = "tics"
