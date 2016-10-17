@@ -26,7 +26,7 @@ path_gh5 <- "./data/shared/covariance-issue/annie/studies/octo/physical/b1_femal
 
   summary(ds)
 
-# ---- new-scatter-matrix ------------------
+# ---- level-slope-scatter ------------------
 
 dsL <- get_gh5_data(
   path_gh5 = "./data/shared/covariance-issue/annie/studies/octo/physical/b1_female_aehplus_grip_gait.gh5"
