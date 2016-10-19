@@ -193,6 +193,7 @@ make_baking_mix_model_type <- function(
   ,process_b_
   ,print_config=T
 ){
+  # TESTING CASE
   # d = catalog_spread
   # study_name_ = "octo"
   # subgroup_   = "female"
@@ -201,7 +202,7 @@ make_baking_mix_model_type <- function(
   # process_b_ = "block"
 
   # d = catalog_spread
-  # study_name_ = "lasa"
+  # study_name_ = "elsa"
   # subgroup_   = "female"
   # model_type_ = c("a","ae","aeh","aehplus")
   # process_a_   = "pef"
@@ -409,9 +410,9 @@ slice_the_cake <- function(
   # slice[[collapsed]] <- collapsing across models (mean, se, pval)
 
   # model_names <- paste0("model_",1:length(cake$baking_mix))
-  model_names <- names(cake$baking_mix)
+  (model_names <- names(cake$baking_mix))
   # dense_names <- gsub("model","dense",model_names)
-  model_names <- model_names[!model_names %in% "spread"]
+  (model_names <- model_names[!model_names %in% "spread"])
 
   names_study_name <- c()
   names_subgroup   <- c()
@@ -438,8 +439,7 @@ slice_the_cake <- function(
     model_denses[[m]] <- dense_v1(coef_raw)
   }
   model_denses <- as.data.frame(model_denses)
-
-  names(model_denses) <- model_names
+  (names(model_denses) <- model_names)
 
   # names(model_denses) <- model_names
   model_denses <- cbind(
@@ -486,9 +486,9 @@ slice_the_cake <- function(
       output[[m]] <- cake$baking_mix[[m]][[component]]["est"]
     }
     output <- as.data.frame(output)
-    names(output) <- model_names
-    row_labels <- cake$baking_mix[[1]][[component]]["label"]
-    output <- compute_aggregate(output,row_labels, model_names)
+    (names(output) <- model_names)
+    (row_labels <- cake$baking_mix[[1]][[component]]["label"])
+    (output <- compute_aggregate(output,row_labels, model_names))
     if(component =="info_2"){
       output[process_a_name] <- dense_v3(output) #? should I pass
     }else{
@@ -619,7 +619,8 @@ dense_v2 <- function(est_raw, label_=FALSE){
       # pattern       = pattern_dense_long[1],
       dense         = sprintf(pattern, mean_pretty, sd_pretty),
       # dense         = sprintf(pattern, mean_pretty, sd_pretty, min_pretty, max_pretty),
-      dense         = ifelse(is.na(mean), "--,p=  ----", dense)
+      # dense         = ifelse(is.na(mean), "--,p=  ----", dense)
+      dense         = ifelse(is.na(mean), "---", dense)
     )
   # coef_dense <- coef_dense %>% dplyr::select(label, dense)
   est_dense <- est_dense %>% dplyr::select( dense)
