@@ -88,12 +88,12 @@ print_outcome_pairs <- function(
   ,model_type_set
 ){
   # d                   = catalog_spread
-  # study               = 'elsa'
-  # gender              = gender
-  # outcome             = "fev"
+  # study               = "lasa" #'elsa'
+  # gender              = "male"
+  # outcome             = "pef"# "fev"
   # model_type_standard = model_type_standard#"aehplus" # spread at outcome pair level
   # model_type_set      = model_type_set#c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
-  #
+
   # browser()
     dtemp <- d %>%
       dplyr::filter(
@@ -103,7 +103,7 @@ print_outcome_pairs <- function(
       )
     processes_b <- sort(unique(dtemp$process_b))
 
-    cat("\n",paste0("Gender = _",gender,"_; Model type: _",model_type_standard,"_;  Process (a) = *",outcome,"*; Process (b): ",  paste0("*",processes_b,"*", collapse = ", "),"\n"))
+    cat("\n",paste0("Gender = _",gender,"_; Model type: _",model_type_standard,"_;  Process (a) = _",outcome,"_; Process (b): ",  paste0("*",processes_b,"*", collapse = ", "),"\n"))
 
     print(
       knitr::kable(
@@ -121,6 +121,7 @@ print_outcome_pairs <- function(
       )
     )
     for(i in processes_b ){
+      # i <- "letter"
       cat("\n## ",i,"\n")
       cat("\n",paste0("Gender = _",gender,"_;  Process (a) = *",outcome,"*; Process (b) = _",i,"_"))
       cat("\n")

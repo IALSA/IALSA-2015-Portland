@@ -183,6 +183,7 @@ pull_one_model <- function(
 ##### BAKING functions ####
 ###########################
 
+# creates baking mix for models of a particular (outcome pair) across many (model types)
 make_baking_mix_model_type <- function(
   d=catalog_spread
   ,study_name_
@@ -198,6 +199,13 @@ make_baking_mix_model_type <- function(
   # model_type_ = c("a","ae","aeh","aehplus")
   # process_a_   = "pef"
   # process_b_ = "block"
+
+  # d = catalog_spread
+  # study_name_ = "lasa"
+  # subgroup_   = "female"
+  # model_type_ = c("a","ae","aeh","aehplus")
+  # process_a_   = "pef"
+  # process_b_ = "letter"
 
   spread = "model_type"
 
@@ -234,7 +242,7 @@ make_baking_mix_model_type <- function(
 }
 
 
-
+# creates baking mix for models of a particular (type) across many (process_a) outcomes
 make_baking_mix_process_a <- function(
   d=catalog_spread
   ,study_name_
@@ -282,40 +290,55 @@ make_baking_mix_process_a <- function(
 
 # a <- cake_layers$est
 # str(a)
-put_stat_frosting <- function(a, row_labels, model_names){
-  # b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
-  b <- as.data.frame(a, col.names = model_names)
-  b[,"label"] <- row_labels
-  # b %>% head()
-  # b[1,"model_1"] <- NA
+# put_stat_frosting <- function(a, row_labels, model_names){
+#   # b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
+#   b <- as.data.frame(a, col.names = model_names)
+#   b[,"label"] <- row_labels
+#   # b %>% head()
+#   # b[1,"model_1"] <- NA
+#
+#   b[,"mean"] <- apply(b[,model_names],1,mean, na.rm = TRUE)
+#   b[,"sd"]   <- apply(b[,model_names],1,sd, na.rm = TRUE)
+#   b[,"min"]  <- apply(b[,model_names],1,min, na.rm = TRUE)
+#   b[,"max"]  <- apply(b[,model_names],1,max, na.rm = TRUE)
+#   return(b)
+# }
 
-  b[,"mean"] <- apply(b[,model_names],1,mean, na.rm = TRUE)
-  b[,"sd"]   <- apply(b[,model_names],1,sd, na.rm = TRUE)
-  b[,"min"]  <- apply(b[,model_names],1,min, na.rm = TRUE)
-  b[,"max"]  <- apply(b[,model_names],1,max, na.rm = TRUE)
+put_stat_frosting <- function(a, row_labels, model_names){
+  # (a <- cake_layers[[index]]); str(a)
+  (b <- as.data.frame(a, col.names = model_names))
+  b[,"label"] <- row_labels
+
+  target <- as.data.frame(b[,model_names])
+  names(target) <- model_names
+
+  b[,"mean"] <- apply(target,1,mean, na.rm = TRUE)
+  b[,"sd"]   <- apply(target,1,sd, na.rm = TRUE)
+  b[,"min"]  <- apply(target,1,min, na.rm = TRUE)
+  b[,"max"]  <- apply(target,1,max, na.rm = TRUE)
   return(b)
 }
 
 
 bake_the_cake <- function(baking_mix){
   # BAKING THE CAKE
-  # now we will creat a list object in which each element will be
+  # now we will create a list object in which each element will be
   # a 38 by m data.frame with model coefficient values of a given type (est/se/pval)
   # first we base fundamental "layers" of the cake: est/se/pval/.../....
   cake_layers <- list()
 
   # model_names <- paste0("model_",1:length(baking_mix))
-  model_names <- names(baking_mix)
-  model_names <- model_names[!model_names %in% "spread"]
+  (model_names <- names(baking_mix))
+  (model_names <- model_names[!model_names %in% "spread"])
   # browser()
   for(m in model_names){
     # m <- 1
-    a <- baking_mix[[m]][["id"]]
-    mid <- paste0(a,sep="-", collapse ="")
-    mid <- paste(substr(mid, 1, nchar(mid)-1))
+    (a <- baking_mix[[m]][["id"]])
+    (mid <- paste0(a,sep="-", collapse =""))
+    (mid <- paste(substr(mid, 1, nchar(mid)-1)))
     # names(mid) <- model_names[m]
 
-    cake_layers[["id"]][m] <- mid
+    (cake_layers[["id"]][m] <- mid)
     # a <- baking_mix[[1]][["coef"]]["label"]
     # a <- paste(baking_mix[[1]][["coef"]]$label)
     # str(a)
@@ -333,26 +356,37 @@ bake_the_cake <- function(baking_mix){
     }
   }
 
-  names(cake_layers[["id"]]) <- model_names
+  (names(cake_layers[["id"]]) <- model_names)
 
 
 
-  # put_stat_frosting <- function(a, row_labels){
+  # put_stat_frosting <- function(a, row_labels, model_names){
+  #   (a <- cake_layers[[index]]); str(a)
   #   # b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
-  #   b <- as.data.frame(a, col.names = model_names)
+  #   (b <- as.data.frame(a, col.names = model_names))
   #   b[,"label"] <- row_labels
+  #   str(b)
   #   # b %>% head()
   #   # b[1,"model_1"] <- NA
-  #   b[,"mean"] <- apply(b[,model_names],1,mean, na.rm = TRUE)
-  #   b[,"sd"]   <- apply(b[,model_names],1,sd, na.rm = TRUE)
-  #   b[,"min"]  <- apply(b[,model_names],1,min, na.rm = TRUE)
-  #   b[,"max"]  <- apply(b[,model_names],1,max, na.rm = TRUE)
+  #
+  #   target <- b[,model_names]
+  #   # target <- b[,"block"]
+  #   # str(target)
+  #   # is.data.frame(target)
+  #   target <- as.data.frame(target)
+  #   names(target) <- model_names
+  #
+  #   b[,"mean"] <- apply(target,1,mean, na.rm = TRUE)
+  #   b[,"sd"]   <- apply(target,1,sd, na.rm = TRUE)
+  #   b[,"min"]  <- apply(target,1,min, na.rm = TRUE)
+  #   b[,"max"]  <- apply(target,1,max, na.rm = TRUE)
   #   return(b)
   # }
 
   row_labels <- baking_mix[[1]][["coef"]]["label"]
   for(index in c("est", "se", "pval")){
     # index = "est"
+    # browser()
     cake_layers[[index]] <- put_stat_frosting(cake_layers[[index]], row_labels, model_names)
   }
   cake_layers[["baking_mix"]] <- baking_mix
@@ -432,10 +466,14 @@ slice_the_cake <- function(
 
   compute_aggregate <- function(x, row_labels, model_names){
     x[,"label"] <- row_labels
-    x[,"mean"] <- apply(x[,model_names],1,mean, na.rm = TRUE)
-    x[,"sd"]   <- apply(x[,model_names],1,sd, na.rm = TRUE)
-    x[,"min"]  <- apply(x[,model_names],1,min, na.rm = TRUE)
-    x[,"max"]  <- apply(x[,model_names],1,max, na.rm = TRUE)
+
+    target <- as.data.frame(x[,model_names])
+    names(target) <- model_names
+
+    x[,"mean"] <- apply(target,1,mean, na.rm = TRUE)
+    x[,"sd"]   <- apply(target,1,sd, na.rm = TRUE)
+    x[,"min"]  <- apply(target,1,min, na.rm = TRUE)
+    x[,"max"]  <- apply(target,1,max, na.rm = TRUE)
     return(x)
   }
 
@@ -620,6 +658,13 @@ serve_slice_model_type <- function(
   ,info = T
   ,corr = T
 ){
+  # study_name = "lasa"
+  # subgroup = "male"
+  # model_type = "aehplus"
+  # process_a = "pef"
+  # process_b = "letter"
+  # print_config = FALSE
+
   baking_mix <- make_baking_mix_model_type(
     d                = catalog_spread,
     study_name_      = study_name,
