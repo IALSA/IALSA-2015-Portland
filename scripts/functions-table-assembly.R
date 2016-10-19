@@ -288,23 +288,6 @@ make_baking_mix_process_a <- function(
 }
 
 
-
-# a <- cake_layers$est
-# str(a)
-# put_stat_frosting <- function(a, row_labels, model_names){
-#   # b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
-#   b <- as.data.frame(a, col.names = model_names)
-#   b[,"label"] <- row_labels
-#   # b %>% head()
-#   # b[1,"model_1"] <- NA
-#
-#   b[,"mean"] <- apply(b[,model_names],1,mean, na.rm = TRUE)
-#   b[,"sd"]   <- apply(b[,model_names],1,sd, na.rm = TRUE)
-#   b[,"min"]  <- apply(b[,model_names],1,min, na.rm = TRUE)
-#   b[,"max"]  <- apply(b[,model_names],1,max, na.rm = TRUE)
-#   return(b)
-# }
-
 put_stat_frosting <- function(a, row_labels, model_names){
   # (a <- cake_layers[[index]]); str(a)
   (b <- as.data.frame(a, col.names = model_names))
@@ -321,7 +304,9 @@ put_stat_frosting <- function(a, row_labels, model_names){
 }
 
 
-bake_the_cake <- function(baking_mix){
+bake_the_cake <- function(
+  baking_mix
+){
   # BAKING THE CAKE
   # now we will create a list object in which each element will be
   # a 38 by m data.frame with model coefficient values of a given type (est/se/pval)
@@ -340,49 +325,15 @@ bake_the_cake <- function(baking_mix){
     # names(mid) <- model_names[m]
 
     (cake_layers[["id"]][m] <- mid)
-    # a <- baking_mix[[1]][["coef"]]["label"]
-    # a <- paste(baking_mix[[1]][["coef"]]$label)
-    # str(a)
-    # cake_layers[['label']][m] <- as.data.frame(noquote(baking_mix[[1]][["coef"]]["label"]))
-    # cake_layers[['label']][m] <- baking_mix[[1]][["coef"]]["label"]
-    # names(cake_layers[["id"]][m]) <- model_names[m]
+
     lapply(cake_layers, names)
     for(index in c("est", "se", "pval")){
       # index = "est"
-      # for(m in 1:length(baking_mix)){
-
       cake_layers[[index]][[m]] <- baking_mix[[m]][["coef"]][[index]]
-
-      # cake_layers[[index]][m] <- baking_mix[m][["coef"]][[index]]
     }
   }
 
   (names(cake_layers[["id"]]) <- model_names)
-
-
-
-  # put_stat_frosting <- function(a, row_labels, model_names){
-  #   (a <- cake_layers[[index]]); str(a)
-  #   # b <- as.data.frame(a,col.names = paste0("model_",1:length(a)))
-  #   (b <- as.data.frame(a, col.names = model_names))
-  #   b[,"label"] <- row_labels
-  #   str(b)
-  #   # b %>% head()
-  #   # b[1,"model_1"] <- NA
-  #
-  #   target <- b[,model_names]
-  #   # target <- b[,"block"]
-  #   # str(target)
-  #   # is.data.frame(target)
-  #   target <- as.data.frame(target)
-  #   names(target) <- model_names
-  #
-  #   b[,"mean"] <- apply(target,1,mean, na.rm = TRUE)
-  #   b[,"sd"]   <- apply(target,1,sd, na.rm = TRUE)
-  #   b[,"min"]  <- apply(target,1,min, na.rm = TRUE)
-  #   b[,"max"]  <- apply(target,1,max, na.rm = TRUE)
-  #   return(b)
-  # }
 
   row_labels <- baking_mix[[1]][["coef"]]["label"]
   for(index in c("est", "se", "pval")){
@@ -401,17 +352,8 @@ slice_the_cake <- function(
   mask_not = c("a","b","ab","aa","bb"),
   info = T,
   corr = T
-
-  ){
-
-
-  # slice[[1]] <- labels
-  # slice[[m]] <- dense of the model
-  # slice[[collapsed]] <- collapsing across models (mean, se, pval)
-
-  # model_names <- paste0("model_",1:length(cake$baking_mix))
+){
   (model_names <- names(cake$baking_mix))
-  # dense_names <- gsub("model","dense",model_names)
   (model_names <- model_names[!model_names %in% "spread"])
 
   names_study_name <- c()
@@ -441,13 +383,10 @@ slice_the_cake <- function(
   model_denses <- as.data.frame(model_denses)
   (names(model_denses) <- model_names)
 
-  # names(model_denses) <- model_names
   model_denses <- cbind(
     cake$baking_mix[[1]][["coef"]]["process"], # process indicator
     cake$baking_mix[[1]][["coef"]]["label"], # label indicator
     model_denses)
-
-
   # compute summary
   est_raw <- data.frame(
     label = cake$baking_mix[[1]][["coef"]]["label"],
@@ -461,10 +400,13 @@ slice_the_cake <- function(
   model_denses[process_a_name] <- dense_v2(est_raw)
   model_denses[process_a_name] <- ifelse(model_denses[,"process"] %in% mask_not, model_denses[,process_a_name],"---")
 
-
   slice <- model_denses
 
-  compute_aggregate <- function(x, row_labels, model_names){
+  compute_aggregate <- function(
+    x,
+    row_labels,
+    model_names
+  ){
     x[,"label"] <- row_labels
 
     target <- as.data.frame(x[,model_names])
@@ -477,7 +419,12 @@ slice_the_cake <- function(
     return(x)
   }
 
-  assemble_aggregate <- function(cake,component,digits, model_names){
+  assemble_aggregate <- function(
+    cake,
+    component,
+    digits,
+    model_names
+  ){
     # component = "corr"
     # component = "info_1"
     # component = "info_2"
@@ -517,11 +464,6 @@ slice_the_cake <- function(
     slice <- dplyr::full_join(slice,model_info_2)
   }
 
-
-  # for(i in seq_along(model_names)){
-  #   model_names[i] = paste0(model_names[i],"\nn est(se)pval")
-  # }
-
   slice[is.na(slice$process),"process"] <- "\\ "
   slice[slice$process=="aa","process"] <- "a"
   slice[slice$process=="bb","process"] <- "b"
@@ -529,7 +471,6 @@ slice_the_cake <- function(
   # slice[slice$label == "Correlation of levels","process"] <- "ab"
   # slice[slice$label == "Correlation of slopes","process"] <- "ab"
   # slice[slice$label == "Correlation of residuals","process"] <- "ab"
-
 
   slice_names <- c("process","label", model_names,"mean(sd)")
   names(slice) <- slice_names
