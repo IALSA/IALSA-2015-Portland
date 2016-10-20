@@ -65,9 +65,9 @@ print_coefficients(
     ,"ab_sigma_00_pval"
   )
   ,target_labels = c(              # labels for the coefs of interest
-    "p-value of covariance of Levels"
-    ,"p-value of covariance of Slopes"
-    ,"p-value of covariance of  Residuals"
+    "Covariance of Levels"
+    ,"Covariance of Slopes"
+    ,"Covariance of  Residuals"
   )
 )
 
