@@ -84,7 +84,7 @@ hrs          male       aehplus      pef         word_im             1
 
 # female 
 
- Gender = _female_; Model type: _aehplus_;  Process (a) = *pef*; Process (b): *serial7*, *tics*, *word_de*, *word_im*
+ Gender = _female_; Model type: _aehplus_;  Process (a) = _pef_; Process (b): *serial7*, *tics*, *word_de*, *word_im*
 
 
  process   label                                       serial7                      tics                   word_de                   word_im               mean(sd)
@@ -397,7 +397,7 @@ Correlation of Residuals      word_im   0.00   0.00      0.04
 
 # male 
 
- Gender = _male_; Model type: _aehplus_;  Process (a) = *pef*; Process (b): *serial7*, *tics*, *word_de*, *word_im*
+ Gender = _male_; Model type: _aehplus_;  Process (a) = _pef_; Process (b): *serial7*, *tics*, *word_de*, *word_im*
 
 
  process   label                                       serial7                      tics                   word_de                   word_im             mean(sd)
@@ -725,12 +725,12 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_2.1.0 knitr_1.14    magrittr_1.5 
+[1] knitr_1.14    ggplot2_2.1.0 magrittr_1.5 
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-6 R6_2.1.3         highr_0.6       
- [7] plyr_1.8.4       stringr_1.1.0    dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
+ [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-7 R6_2.2.0         stringr_1.1.0   
+ [7] highr_0.6        plyr_1.8.4       dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
 [13] gtable_0.2.0     DBI_0.5-1        htmltools_0.3.5  yaml_2.1.13      lazyeval_0.2.0   assertthat_0.1  
-[19] digest_0.6.10    tibble_1.2       readr_1.0.0      formatR_1.4      tidyr_0.6.0      htmlwidgets_0.7 
-[25] rsconnect_0.4.3  evaluate_0.9     rmarkdown_1.0    stringi_1.1.1    scales_0.4.0    
+[19] digest_0.6.10    tibble_1.2       formatR_1.4      readr_1.0.0      tidyr_0.6.0      htmlwidgets_0.7 
+[25] rsconnect_0.5    evaluate_0.10    rmarkdown_1.1    stringi_1.1.2    scales_0.4.0    
 ```

@@ -33,7 +33,7 @@ This report contains a searchable table, followed by publication-ready tables.
 
 # Available models 
 
- Study **SATSA** contains the following outcome pairs: 
+ Study **SATSA** have contributed the following outcome pairs to the IASLA-2015-Portland model pool: 
 NULL
 
 
@@ -169,7 +169,7 @@ satsa        male       aehplus      fev         synonyms              1
 
 # female 
 
- Gender = _female_; Model type: _aehplus_;  Process (a) = *fev*; Process (b): *analogies*, *block*, *digit_b*, *digit_f*, *fig_id*, *fig_mem*, *information*, *mmse*, *rotate*, *symbol*, *synonyms*
+ Gender = _female_; Model type: _aehplus_;  Process (a) = _fev_; Process (b): *analogies*, *block*, *digit_b*, *digit_f*, *fig_id*, *fig_mem*, *information*, *mmse*, *rotate*, *symbol*, *synonyms*
 
 
  process   label                                 analogies               digit_b               digit_f               fig_mem           information          mmse           rotate                              synonyms        mean(sd)
@@ -270,7 +270,7 @@ satsa        male       aehplus      fev         synonyms              1
    ab      Covar (Slopes)               0.00(0.00),    .28    0.00(0.00),    .48    0.00(0.00),    .42    0.00(0.00),    .36      0.00(0.00)
    ab      Covar (Residuals)            0.00(0.02),    .95    0.01(0.02),    .62    0.01(0.02),    .61    0.01(0.02),    .66      0.01(0.00)
     \      Correlation of Levels                    0.2904                 0.267                 0.252                 0.258      0.27(0.02)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                 0.0019                 0.019                 0.019                 0.018      0.01(0.01)
     \      N                                           507                   485                   476                   408   469.00(42.70)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -291,29 +291,29 @@ satsa        male       aehplus      fev         synonyms              1
     a      Level * age                 -0.04(0.00),   <.01   -0.04(0.00),   <.01   -0.03(0.00),   <.01     -0.04(0.00)
     a      Level * education                           ---    0.05(0.03),    .09    0.03(0.03),    .27      0.04(0.01)
     a      Level * height                              ---                   ---    0.01(0.00),   <.01        0.01(NA)
-    a      Level * smoking                             ---                   ---                   ---     --,p=  ----
-    a      Level * cardio                              ---                   ---                   ---     --,p=  ----
-    a      Level * diabetes                            ---                   ---                   ---     --,p=  ----
+    a      Level * smoking                             ---                   ---                   ---             ---
+    a      Level * cardio                              ---                   ---                   ---             ---
+    a      Level * diabetes                            ---                   ---                   ---             ---
     a      Slope * age                  0.00(0.00),    .46    0.00(0.00),    .27    0.00(0.00),    .23      0.00(0.00)
     a      Slope * education                           ---    0.00(0.00),    .81    0.00(0.00),    .87      0.00(0.00)
     a      Slope * height                              ---                   ---    0.00(0.00),    .55        0.00(NA)
-    a      Slope * smoking                             ---                   ---                   ---     --,p=  ----
-    a      Slope * cardio                              ---                   ---                   ---     --,p=  ----
-    a      Slope * diabetes                            ---                   ---                   ---     --,p=  ----
+    a      Slope * smoking                             ---                   ---                   ---             ---
+    a      Slope * cardio                              ---                   ---                   ---             ---
+    a      Slope * diabetes                            ---                   ---                   ---             ---
     b      Level                       17.24(0.40),   <.01   16.25(0.41),   <.01   16.25(0.42),   <.01     16.58(0.57)
     b      Slope                       -0.37(0.03),   <.01   -0.37(0.03),   <.01   -0.37(0.03),   <.01     -0.37(0.00)
     b      Level * age                 -0.37(0.04),   <.01   -0.32(0.04),   <.01   -0.31(0.04),   <.01     -0.33(0.04)
     b      Level * education                           ---    2.40(0.43),   <.01    2.38(0.45),   <.01      2.39(0.01)
     b      Level * height                              ---                   ---    0.07(0.06),    .24        0.07(NA)
-    b      Level * smoking                             ---                   ---                   ---     --,p=  ----
-    b      Level * cardio                              ---                   ---                   ---     --,p=  ----
-    b      Level * diabetes                            ---                   ---                   ---     --,p=  ----
+    b      Level * smoking                             ---                   ---                   ---             ---
+    b      Level * cardio                              ---                   ---                   ---             ---
+    b      Level * diabetes                            ---                   ---                   ---             ---
     b      Slope * age                 -0.01(0.00),   <.01   -0.01(0.00),   <.01   -0.01(0.00),   <.01     -0.01(0.00)
     b      Slope * education                           ---    0.01(0.03),    .73    0.01(0.03),    .77      0.01(0.00)
     b      Slope * height                              ---                   ---   -0.00(0.00),    .47       -0.00(NA)
-    b      Slope * smoking                             ---                   ---                   ---     --,p=  ----
-    b      Slope * cardio                              ---                   ---                   ---     --,p=  ----
-    b      Slope * diabetes                            ---                   ---                   ---     --,p=  ----
+    b      Slope * smoking                             ---                   ---                   ---             ---
+    b      Slope * cardio                              ---                   ---                   ---             ---
+    b      Slope * diabetes                            ---                   ---                   ---             ---
     a      Var (Level)                  0.10(0.01),   <.01    0.10(0.01),   <.01    0.09(0.01),   <.01      0.10(0.01)
     a      Var (Slope)                  0.00(0.00),   <.01    0.00(0.00),   <.01    0.00(0.00),   <.01      0.00(0.00)
     a      Var (Residual)               0.06(0.00),   <.01    0.05(0.00),   <.01    0.05(0.00),   <.01      0.05(0.00)
@@ -382,7 +382,7 @@ satsa        male       aehplus      fev         synonyms              1
    ab      Covar (Slopes)               0.00(0.00),    .03    0.00(0.00),    .04    0.00(0.00),    .04    0.00(0.00),    .19      0.00(0.00)
    ab      Covar (Residuals)           -0.00(0.01),    .63   -0.00(0.01),    .64   -0.00(0.01),    .69   -0.01(0.01),    .59     -0.01(0.00)
     \      Correlation of Levels                     0.243                 0.236                 0.269                 0.331      0.27(0.04)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                 -0.021                -0.021                -0.017                -0.029     -0.02(0.00)
     \      N                                           512                   490                   478                   409   472.25(44.46)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -438,7 +438,7 @@ satsa        male       aehplus      fev         synonyms              1
    ab      Covar (Slopes)               0.00(0.00),    .51    0.00(0.00),    .57    0.00(0.00),    .59    0.00(0.00),    .91      0.00(0.00)
    ab      Covar (Residuals)            0.01(0.01),    .18    0.01(0.01),    .08    0.01(0.01),    .08    0.01(0.01),    .07      0.01(0.00)
     \      Correlation of Levels                     0.099                 0.075                 0.089                 0.081      0.09(0.01)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                  0.043                 0.055                 0.061                 0.069      0.06(0.01)
     \      N                                           512                   490                   478                   409   472.25(44.46)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -459,29 +459,29 @@ satsa        male       aehplus      fev         synonyms              1
     a      Level * age                 -0.04(0.00),   <.01   -0.04(0.00),   <.01   -0.03(0.00),   <.01     -0.04(0.00)
     a      Level * education                           ---    0.05(0.03),    .10    0.03(0.03),    .30      0.04(0.01)
     a      Level * height                              ---                   ---    0.01(0.00),   <.01        0.01(NA)
-    a      Level * smoking                             ---                   ---                   ---     --,p=  ----
-    a      Level * cardio                              ---                   ---                   ---     --,p=  ----
-    a      Level * diabetes                            ---                   ---                   ---     --,p=  ----
+    a      Level * smoking                             ---                   ---                   ---             ---
+    a      Level * cardio                              ---                   ---                   ---             ---
+    a      Level * diabetes                            ---                   ---                   ---             ---
     a      Slope * age                  0.00(0.00),    .36    0.00(0.00),    .19    0.00(0.00),    .16      0.00(0.00)
     a      Slope * education                           ---    0.00(0.00),    .78    0.00(0.00),    .84      0.00(0.00)
     a      Slope * height                              ---                   ---    0.00(0.00),    .49        0.00(NA)
-    a      Slope * smoking                             ---                   ---                   ---     --,p=  ----
-    a      Slope * cardio                              ---                   ---                   ---     --,p=  ----
-    a      Slope * diabetes                            ---                   ---                   ---     --,p=  ----
+    a      Slope * smoking                             ---                   ---                   ---             ---
+    a      Slope * cardio                              ---                   ---                   ---             ---
+    a      Slope * diabetes                            ---                   ---                   ---             ---
     b      Level                       27.99(0.40),   <.01   27.65(0.44),   <.01   27.64(0.45),   <.01     27.76(0.20)
     b      Slope                       -0.53(0.04),   <.01   -0.56(0.04),   <.01   -0.56(0.04),   <.01     -0.55(0.02)
     b      Level * age                 -0.49(0.04),   <.01   -0.48(0.04),   <.01   -0.47(0.04),   <.01     -0.48(0.01)
     b      Level * education                           ---    0.76(0.54),    .16    0.71(0.55),    .20      0.74(0.03)
     b      Level * height                              ---                   ---    0.04(0.06),    .52        0.04(NA)
-    b      Level * smoking                             ---                   ---                   ---     --,p=  ----
-    b      Level * cardio                              ---                   ---                   ---     --,p=  ----
-    b      Level * diabetes                            ---                   ---                   ---     --,p=  ----
+    b      Level * smoking                             ---                   ---                   ---             ---
+    b      Level * cardio                              ---                   ---                   ---             ---
+    b      Level * diabetes                            ---                   ---                   ---             ---
     b      Slope * age                 -0.02(0.00),   <.01   -0.02(0.00),   <.01   -0.02(0.00),   <.01     -0.02(0.00)
     b      Slope * education                           ---    0.07(0.03),    .04    0.06(0.04),    .06      0.07(0.00)
     b      Slope * height                              ---                   ---    0.00(0.00),    .62        0.00(NA)
-    b      Slope * smoking                             ---                   ---                   ---     --,p=  ----
-    b      Slope * cardio                              ---                   ---                   ---     --,p=  ----
-    b      Slope * diabetes                            ---                   ---                   ---     --,p=  ----
+    b      Slope * smoking                             ---                   ---                   ---             ---
+    b      Slope * cardio                              ---                   ---                   ---             ---
+    b      Slope * diabetes                            ---                   ---                   ---             ---
     a      Var (Level)                  0.10(0.01),   <.01    0.10(0.01),   <.01    0.09(0.01),   <.01      0.10(0.01)
     a      Var (Slope)                  0.00(0.00),   <.01    0.00(0.00),   <.01    0.00(0.00),   <.01      0.00(0.00)
     a      Var (Residual)               0.06(0.00),   <.01    0.05(0.00),   <.01    0.05(0.00),   <.01      0.05(0.00)
@@ -550,7 +550,7 @@ satsa        male       aehplus      fev         synonyms              1
    ab      Covar (Slopes)               0.00(0.00),    .20    0.00(0.00),    .31    0.00(0.00),    .31    0.00(0.00),    .29      0.00(0.00)
    ab      Covar (Residuals)            0.05(0.02),    .05    0.04(0.02),    .09    0.04(0.02),    .11    0.04(0.03),    .20      0.04(0.00)
     \      Correlation of Levels                     0.137                 0.113                 0.135                 0.097      0.12(0.02)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                  0.076                 0.067                 0.064                 0.057      0.07(0.01)
     \      N                                           512                   490                   478                   410   472.50(43.98)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -739,29 +739,29 @@ satsa        male       aehplus      fev         synonyms              1
     a      Level * age                 -0.04(0.00),   <.01   -0.04(0.00),   <.01   -0.03(0.00),   <.01     -0.04(0.00)
     a      Level * education                           ---    0.05(0.02),    .06    0.03(0.02),    .23      0.04(0.01)
     a      Level * height                              ---                   ---    0.01(0.00),   <.01        0.01(NA)
-    a      Level * smoking                             ---                   ---                   ---     --,p=  ----
-    a      Level * cardio                              ---                   ---                   ---     --,p=  ----
-    a      Level * diabetes                            ---                   ---                   ---     --,p=  ----
+    a      Level * smoking                             ---                   ---                   ---             ---
+    a      Level * cardio                              ---                   ---                   ---             ---
+    a      Level * diabetes                            ---                   ---                   ---             ---
     a      Slope * age                  0.00(0.00),    .34    0.00(0.00),    .17    0.00(0.00),    .13      0.00(0.00)
     a      Slope * education                           ---    0.00(0.00),    .76    0.00(0.00),    .83      0.00(0.00)
     a      Slope * height                              ---                   ---    0.00(0.00),    .57        0.00(NA)
-    a      Slope * smoking                             ---                   ---                   ---     --,p=  ----
-    a      Slope * cardio                              ---                   ---                   ---     --,p=  ----
-    a      Slope * diabetes                            ---                   ---                   ---     --,p=  ----
+    a      Slope * smoking                             ---                   ---                   ---             ---
+    a      Slope * cardio                              ---                   ---                   ---             ---
+    a      Slope * diabetes                            ---                   ---                   ---             ---
     b      Level                       35.42(0.55),   <.01   33.81(0.59),   <.01   33.86(0.59),   <.01     34.36(0.91)
     b      Slope                       -0.85(0.04),   <.01   -0.86(0.04),   <.01   -0.86(0.04),   <.01     -0.86(0.00)
     b      Level * age                 -0.83(0.05),   <.01   -0.76(0.05),   <.01   -0.73(0.05),   <.01     -0.77(0.05)
     b      Level * education                           ---    4.04(0.70),   <.01    3.94(0.70),   <.01      3.99(0.07)
     b      Level * height                              ---                   ---    0.10(0.08),    .23        0.10(NA)
-    b      Level * smoking                             ---                   ---                   ---     --,p=  ----
-    b      Level * cardio                              ---                   ---                   ---     --,p=  ----
-    b      Level * diabetes                            ---                   ---                   ---     --,p=  ----
+    b      Level * smoking                             ---                   ---                   ---             ---
+    b      Level * cardio                              ---                   ---                   ---             ---
+    b      Level * diabetes                            ---                   ---                   ---             ---
     b      Slope * age                 -0.03(0.00),   <.01   -0.02(0.00),   <.01   -0.02(0.00),   <.01     -0.02(0.00)
     b      Slope * education                           ---    0.01(0.04),    .82    0.00(0.04),    .92      0.01(0.00)
     b      Slope * height                              ---                   ---    0.00(0.00),    .50        0.00(NA)
-    b      Slope * smoking                             ---                   ---                   ---     --,p=  ----
-    b      Slope * cardio                              ---                   ---                   ---     --,p=  ----
-    b      Slope * diabetes                            ---                   ---                   ---     --,p=  ----
+    b      Slope * smoking                             ---                   ---                   ---             ---
+    b      Slope * cardio                              ---                   ---                   ---             ---
+    b      Slope * diabetes                            ---                   ---                   ---             ---
     a      Var (Level)                  0.10(0.01),   <.01    0.10(0.01),   <.01    0.09(0.01),   <.01      0.10(0.01)
     a      Var (Slope)                  0.00(0.00),   <.01    0.00(0.00),   <.01    0.00(0.00),   <.01      0.00(0.00)
     a      Var (Residual)               0.06(0.00),   <.01    0.05(0.00),   <.01    0.05(0.00),   <.01      0.05(0.00)
@@ -774,7 +774,7 @@ satsa        male       aehplus      fev         synonyms              1
    ab      Covar (Slopes)               0.00(0.00),    .95    0.00(0.00),    .79    0.00(0.00),    .84      0.00(0.00)
    ab      Covar (Residuals)            0.04(0.04),    .34    0.05(0.04),    .21    0.05(0.04),    .27      0.05(0.01)
     \      Correlation of Levels                     0.147                 0.117                 0.096      0.12(0.03)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                  0.032                 0.043                 0.039      0.04(0.01)
     \      N                                           508                   486                   477   490.33(15.95)
     \      occasions                                     7                     7                     7      7.00(0.00)
@@ -830,7 +830,7 @@ satsa        male       aehplus      fev         synonyms              1
    ab      Covar (Slopes)               0.00(0.00),    .30    0.00(0.00),    .31    0.00(0.00),    .26    0.00(0.00),    .20      0.00(0.00)
    ab      Covar (Residuals)            0.04(0.02),    .05    0.04(0.02),    .04    0.04(0.02),    .05    0.04(0.02),    .09      0.04(0.00)
     \      Correlation of Levels                     0.228                 0.209                 0.191                 0.179      0.20(0.02)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                  0.072                 0.079                 0.079                 0.078      0.08(0.00)
     \      N                                           509                   487                   478                   410   471.00(42.70)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -895,7 +895,7 @@ Correlation of Residuals       synonyms    0.07    0.07    0.08    0.08      0.0
 
 # male 
 
- Gender = _male_; Model type: _aehplus_;  Process (a) = *fev*; Process (b): *analogies*, *block*, *digit_b*, *digit_f*, *fig_id*, *fig_mem*, *information*, *mmse*, *rotate*, *symbol*, *synonyms*
+ Gender = _male_; Model type: _aehplus_;  Process (a) = _fev_; Process (b): *analogies*, *block*, *digit_b*, *digit_f*, *fig_id*, *fig_mem*, *information*, *mmse*, *rotate*, *symbol*, *synonyms*
 
 
  process   label                                 analogies               digit_b               digit_f               fig_mem           information          mmse           rotate                              synonyms        mean(sd)
@@ -996,7 +996,7 @@ Correlation of Residuals       synonyms    0.07    0.07    0.08    0.08      0.0
    ab      Covar (Slopes)               0.00(0.00),    .97    0.00(0.00),    .96    0.00(0.00),    .98    0.00(0.00),    .93      0.00(0.00)
    ab      Covar (Residuals)            0.05(0.03),    .14    0.06(0.03),    .10    0.05(0.04),    .14    0.04(0.04),    .24      0.05(0.00)
     \      Correlation of Levels                     0.217                 0.173                 0.107                 0.109      0.15(0.05)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                  0.068                 0.076                 0.072                 0.062      0.07(0.01)
     \      N                                           347                   341                   338                   300   331.50(21.33)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -1017,29 +1017,29 @@ Correlation of Residuals       synonyms    0.07    0.07    0.08    0.08      0.0
     a      Level * age                 -0.05(0.00),   <.01   -0.05(0.00),   <.01   -0.04(0.00),   <.01     -0.04(0.00)
     a      Level * education                           ---    0.08(0.04),    .06    0.04(0.04),    .36      0.06(0.03)
     a      Level * height                              ---                   ---    0.04(0.01),   <.01        0.04(NA)
-    a      Level * smoking                             ---                   ---                   ---     --,p=  ----
-    a      Level * cardio                              ---                   ---                   ---     --,p=  ----
-    a      Level * diabetes                            ---                   ---                   ---     --,p=  ----
+    a      Level * smoking                             ---                   ---                   ---             ---
+    a      Level * cardio                              ---                   ---                   ---             ---
+    a      Level * diabetes                            ---                   ---                   ---             ---
     a      Slope * age                  0.00(0.00),    .56    0.00(0.00),    .69    0.00(0.00),    .54      0.00(0.00)
     a      Slope * education                           ---    0.00(0.00),    .96    0.00(0.00),    .92      0.00(0.00)
     a      Slope * height                              ---                   ---    0.00(0.00),    .25        0.00(NA)
-    a      Slope * smoking                             ---                   ---                   ---     --,p=  ----
-    a      Slope * cardio                              ---                   ---                   ---     --,p=  ----
-    a      Slope * diabetes                            ---                   ---                   ---     --,p=  ----
+    a      Slope * smoking                             ---                   ---                   ---             ---
+    a      Slope * cardio                              ---                   ---                   ---             ---
+    a      Slope * diabetes                            ---                   ---                   ---             ---
     b      Level                       17.43(0.56),   <.01   16.07(0.56),   <.01   15.93(0.57),   <.01     16.48(0.83)
     b      Slope                       -0.43(0.04),   <.01   -0.42(0.04),   <.01   -0.42(0.04),   <.01     -0.42(0.00)
     b      Level * age                 -0.46(0.05),   <.01   -0.43(0.05),   <.01   -0.40(0.05),   <.01     -0.43(0.03)
     b      Level * education                           ---    2.27(0.40),   <.01    2.18(0.40),   <.01      2.23(0.07)
     b      Level * height                              ---                   ---    0.10(0.06),    .13        0.10(NA)
-    b      Level * smoking                             ---                   ---                   ---     --,p=  ----
-    b      Level * cardio                              ---                   ---                   ---     --,p=  ----
-    b      Level * diabetes                            ---                   ---                   ---     --,p=  ----
+    b      Level * smoking                             ---                   ---                   ---             ---
+    b      Level * cardio                              ---                   ---                   ---             ---
+    b      Level * diabetes                            ---                   ---                   ---             ---
     b      Slope * age                 -0.02(0.00),   <.01   -0.01(0.00),   <.01   -0.01(0.00),   <.01     -0.01(0.00)
     b      Slope * education                           ---    0.01(0.02),    .75   -0.00(0.02),    .93      0.00(0.01)
     b      Slope * height                              ---                   ---    0.01(0.00),    .13        0.01(NA)
-    b      Slope * smoking                             ---                   ---                   ---     --,p=  ----
-    b      Slope * cardio                              ---                   ---                   ---     --,p=  ----
-    b      Slope * diabetes                            ---                   ---                   ---     --,p=  ----
+    b      Slope * smoking                             ---                   ---                   ---             ---
+    b      Slope * cardio                              ---                   ---                   ---             ---
+    b      Slope * diabetes                            ---                   ---                   ---             ---
     a      Var (Level)                  0.34(0.04),   <.01    0.34(0.04),   <.01    0.29(0.03),   <.01      0.32(0.03)
     a      Var (Slope)                  0.00(0.00),   <.01    0.00(0.00),   <.01    0.00(0.00),   <.01      0.00(0.00)
     a      Var (Residual)               0.09(0.00),   <.01    0.09(0.00),   <.01    0.09(0.00),   <.01      0.09(0.00)
@@ -1108,7 +1108,7 @@ Correlation of Residuals       synonyms    0.07    0.07    0.08    0.08      0.0
    ab      Covar (Slopes)               0.00(0.00),    .85    0.00(0.00),    .72    0.00(0.00),    .78    0.00(0.00),    .57      0.00(0.00)
    ab      Covar (Residuals)           -0.00(0.01),    .68   -0.00(0.01),    .73   -0.00(0.01),    .58   -0.01(0.01),    .40     -0.01(0.00)
     \      Correlation of Levels                     0.304                  0.27                 0.208                 0.220      0.25(0.05)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                 -0.014                 -0.01                -0.018                -0.033     -0.02(0.01)
     \      N                                           347                   341                   338                   299   331.25(21.82)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -1164,7 +1164,7 @@ Correlation of Residuals       synonyms    0.07    0.07    0.08    0.08      0.0
    ab      Covar (Slopes)               0.00(0.00),    .74    0.00(0.00),    .78    0.00(0.00),    .87    0.00(0.00),    .92      0.00(0.00)
    ab      Covar (Residuals)            0.01(0.01),    .43    0.01(0.01),    .40    0.01(0.01),    .43    0.01(0.01),    .36      0.01(0.00)
     \      Correlation of Levels                     0.249                 0.217                 0.143                 0.147      0.19(0.05)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                  0.035                 0.035                 0.036                 0.048      0.04(0.01)
     \      N                                           347                   341                   338                   299   331.25(21.82)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -1185,29 +1185,29 @@ Correlation of Residuals       synonyms    0.07    0.07    0.08    0.08      0.0
     a      Level * age                 -0.05(0.00),   <.01   -0.05(0.00),   <.01   -0.04(0.00),   <.01    -0.04(0.00)
     a      Level * education                           ---    0.08(0.04),    .06    0.04(0.04),    .37     0.06(0.03)
     a      Level * height                              ---                   ---    0.04(0.01),   <.01       0.04(NA)
-    a      Level * smoking                             ---                   ---                   ---    --,p=  ----
-    a      Level * cardio                              ---                   ---                   ---    --,p=  ----
-    a      Level * diabetes                            ---                   ---                   ---    --,p=  ----
+    a      Level * smoking                             ---                   ---                   ---            ---
+    a      Level * cardio                              ---                   ---                   ---            ---
+    a      Level * diabetes                            ---                   ---                   ---            ---
     a      Slope * age                  0.00(0.00),    .39    0.00(0.00),    .49    0.00(0.00),    .35     0.00(0.00)
     a      Slope * education                           ---    0.00(0.00),    .94    0.00(0.00),    .90     0.00(0.00)
     a      Slope * height                              ---                   ---    0.00(0.00),    .23       0.00(NA)
-    a      Slope * smoking                             ---                   ---                   ---    --,p=  ----
-    a      Slope * cardio                              ---                   ---                   ---    --,p=  ----
-    a      Slope * diabetes                            ---                   ---                   ---    --,p=  ----
+    a      Slope * smoking                             ---                   ---                   ---            ---
+    a      Slope * cardio                              ---                   ---                   ---            ---
+    a      Slope * diabetes                            ---                   ---                   ---            ---
     b      Level                       26.80(0.50),   <.01   25.54(0.59),   <.01   25.37(0.62),   <.01    25.90(0.78)
     b      Slope                       -0.57(0.06),   <.01   -0.58(0.06),   <.01   -0.59(0.06),   <.01    -0.58(0.01)
     b      Level * age                 -0.44(0.05),   <.01   -0.40(0.05),   <.01   -0.37(0.05),   <.01    -0.41(0.03)
     b      Level * education                           ---    2.13(0.34),   <.01    1.94(0.35),   <.01     2.04(0.14)
     b      Level * height                              ---                   ---    0.14(0.06),    .02       0.14(NA)
-    b      Level * smoking                             ---                   ---                   ---    --,p=  ----
-    b      Level * cardio                              ---                   ---                   ---    --,p=  ----
-    b      Level * diabetes                            ---                   ---                   ---    --,p=  ----
+    b      Level * smoking                             ---                   ---                   ---            ---
+    b      Level * cardio                              ---                   ---                   ---            ---
+    b      Level * diabetes                            ---                   ---                   ---            ---
     b      Slope * age                 -0.03(0.00),   <.01   -0.02(0.00),   <.01   -0.02(0.00),   <.01    -0.02(0.00)
     b      Slope * education                           ---    0.04(0.03),    .15    0.03(0.03),    .28     0.04(0.01)
     b      Slope * height                              ---                   ---    0.01(0.00),    .14       0.01(NA)
-    b      Slope * smoking                             ---                   ---                   ---    --,p=  ----
-    b      Slope * cardio                              ---                   ---                   ---    --,p=  ----
-    b      Slope * diabetes                            ---                   ---                   ---    --,p=  ----
+    b      Slope * smoking                             ---                   ---                   ---            ---
+    b      Slope * cardio                              ---                   ---                   ---            ---
+    b      Slope * diabetes                            ---                   ---                   ---            ---
     a      Var (Level)                  0.34(0.04),   <.01    0.34(0.04),   <.01    0.29(0.03),   <.01     0.32(0.03)
     a      Var (Slope)                  0.00(0.00),   <.01    0.00(0.00),   <.01    0.00(0.00),   <.01     0.00(0.00)
     a      Var (Residual)               0.09(0.00),   <.01    0.09(0.00),   <.01    0.09(0.00),   <.01     0.09(0.00)
@@ -1276,7 +1276,7 @@ Correlation of Residuals       synonyms    0.07    0.07    0.08    0.08      0.0
    ab      Covar (Slopes)               0.00(0.00),    .46    0.00(0.00),    .50    0.00(0.00),    .46    0.00(0.00),    .91      0.00(0.00)
    ab      Covar (Residuals)            0.01(0.03),    .79    0.01(0.03),    .77    0.01(0.04),    .79    0.01(0.04),    .78      0.01(0.00)
     \      Correlation of Levels                     0.197                 0.175                 0.185                 0.227      0.20(0.02)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                  0.011                 0.012                 0.011                 0.013      0.01(0.00)
     \      N                                           347                   341                   337                   299   331.00(21.73)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -1332,7 +1332,7 @@ Correlation of Residuals       synonyms    0.07    0.07    0.08    0.08      0.0
    ab      Covar (Slopes)               0.00(0.00),    .90    0.00(0.00),    .88    0.00(0.00),    .97    0.00(0.00),    .96      0.00(0.00)
    ab      Covar (Residuals)            0.07(0.04),    .04    0.07(0.04),    .05    0.07(0.04),    .06    0.08(0.04),    .04      0.07(0.01)
     \      Correlation of Levels                     0.185                 0.145                 0.115                  0.11      0.14(0.04)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                  0.089                 0.088                 0.084                  0.10      0.09(0.01)
     \      N                                           347                   341                   338                   300   331.50(21.33)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -1465,29 +1465,29 @@ Correlation of Residuals       synonyms    0.07    0.07    0.08    0.08      0.0
     a      Level * age                 -0.05(0.00),   <.01   -0.05(0.00),   <.01   -0.04(0.00),   <.01    -0.04(0.00)
     a      Level * education                           ---    0.08(0.03),    .01    0.04(0.03),    .26     0.06(0.03)
     a      Level * height                              ---                   ---    0.04(0.01),   <.01       0.04(NA)
-    a      Level * smoking                             ---                   ---                   ---    --,p=  ----
-    a      Level * cardio                              ---                   ---                   ---    --,p=  ----
-    a      Level * diabetes                            ---                   ---                   ---    --,p=  ----
+    a      Level * smoking                             ---                   ---                   ---            ---
+    a      Level * cardio                              ---                   ---                   ---            ---
+    a      Level * diabetes                            ---                   ---                   ---            ---
     a      Slope * age                  0.00(0.00),    .33    0.00(0.00),    .48    0.00(0.00),    .33     0.00(0.00)
     a      Slope * education                           ---    0.00(0.00),    .87    0.00(0.00),    .84     0.00(0.00)
     a      Slope * height                              ---                   ---    0.00(0.00),    .14       0.00(NA)
-    a      Slope * smoking                             ---                   ---                   ---    --,p=  ----
-    a      Slope * cardio                              ---                   ---                   ---    --,p=  ----
-    a      Slope * diabetes                            ---                   ---                   ---    --,p=  ----
+    a      Slope * smoking                             ---                   ---                   ---            ---
+    a      Slope * cardio                              ---                   ---                   ---            ---
+    a      Slope * diabetes                            ---                   ---                   ---            ---
     b      Level                       34.49(0.84),   <.01   32.27(0.89),   <.01   31.95(0.87),   <.01    32.91(1.38)
     b      Slope                       -0.96(0.07),   <.01   -0.98(0.07),   <.01   -0.98(0.07),   <.01    -0.97(0.01)
     b      Level * age                 -0.86(0.07),   <.01   -0.80(0.07),   <.01   -0.75(0.07),   <.01    -0.80(0.05)
     b      Level * education                           ---    3.84(0.59),   <.01    3.57(0.62),   <.01     3.70(0.19)
     b      Level * height                              ---                   ---    0.23(0.10),    .02       0.23(NA)
-    b      Level * smoking                             ---                   ---                   ---    --,p=  ----
-    b      Level * cardio                              ---                   ---                   ---    --,p=  ----
-    b      Level * diabetes                            ---                   ---                   ---    --,p=  ----
+    b      Level * smoking                             ---                   ---                   ---            ---
+    b      Level * cardio                              ---                   ---                   ---            ---
+    b      Level * diabetes                            ---                   ---                   ---            ---
     b      Slope * age                 -0.03(0.00),   <.01   -0.03(0.00),   <.01   -0.03(0.00),   <.01    -0.03(0.00)
     b      Slope * education                           ---    0.06(0.03),    .04    0.05(0.03),    .10     0.06(0.01)
     b      Slope * height                              ---                   ---    0.00(0.01),    .39       0.00(NA)
-    b      Slope * smoking                             ---                   ---                   ---    --,p=  ----
-    b      Slope * cardio                              ---                   ---                   ---    --,p=  ----
-    b      Slope * diabetes                            ---                   ---                   ---    --,p=  ----
+    b      Slope * smoking                             ---                   ---                   ---            ---
+    b      Slope * cardio                              ---                   ---                   ---            ---
+    b      Slope * diabetes                            ---                   ---                   ---            ---
     a      Var (Level)                  0.34(0.03),   <.01    0.34(0.03),   <.01    0.29(0.03),   <.01     0.32(0.03)
     a      Var (Slope)                  0.00(0.00),    .01    0.00(0.00),    .01    0.00(0.00),    .01     0.00(0.00)
     a      Var (Residual)               0.09(0.01),   <.01    0.09(0.01),   <.01    0.09(0.01),   <.01     0.09(0.00)
@@ -1556,7 +1556,7 @@ Correlation of Residuals       synonyms    0.07    0.07    0.08    0.08      0.0
    ab      Covar (Slopes)               0.00(0.00),    .48    0.00(0.00),    .63    0.00(0.00),    .66    0.00(0.00),    .79      0.00(0.00)
    ab      Covar (Residuals)            0.02(0.02),    .52    0.02(0.02),    .48    0.02(0.02),    .45    0.02(0.03),    .38      0.02(0.00)
     \      Correlation of Levels                     0.206                  0.17                 0.105                  0.13      0.15(0.04)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                  0.027                  0.03                 0.032                  0.04      0.03(0.01)
     \      N                                           347                   341                   338                   300   331.50(21.33)
     \      occasions                                     7                     7                     7                     7      7.00(0.00)
@@ -1636,12 +1636,12 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_2.1.0 knitr_1.14    magrittr_1.5 
+[1] knitr_1.14    ggplot2_2.1.0 magrittr_1.5 
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-6 R6_2.1.3         highr_0.6       
- [7] plyr_1.8.4       stringr_1.1.0    dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
+ [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-7 R6_2.2.0         stringr_1.1.0   
+ [7] highr_0.6        plyr_1.8.4       dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
 [13] gtable_0.2.0     DBI_0.5-1        htmltools_0.3.5  yaml_2.1.13      lazyeval_0.2.0   assertthat_0.1  
-[19] digest_0.6.10    tibble_1.2       readr_1.0.0      formatR_1.4      tidyr_0.6.0      htmlwidgets_0.7 
-[25] rsconnect_0.4.3  evaluate_0.9     rmarkdown_1.0    stringi_1.1.1    scales_0.4.0    
+[19] digest_0.6.10    tibble_1.2       formatR_1.4      readr_1.0.0      tidyr_0.6.0      htmlwidgets_0.7 
+[25] rsconnect_0.5    evaluate_0.10    rmarkdown_1.1    stringi_1.1.2    scales_0.4.0    
 ```

@@ -33,7 +33,7 @@ This report contains a searchable table, followed by publication-ready tables.
 
 # Available models 
 
- Study **OCTO** contains the following outcome pairs: 
+ Study **OCTO** have contributed the following outcome pairs to the IASLA-2015-Portland model pool: 
 NULL
 
 
@@ -105,7 +105,7 @@ octo         male       full         pef         prose_im            1
 
 # female 
 
- Gender = _female_; Model type: _aehplus_;  Process (a) = *pef*; Process (b): *block*, *digit_b*, *digit_f*, *fig_logic*, *mir*, *prose_im*, *symbol*
+ Gender = _female_; Model type: _aehplus_;  Process (a) = _pef_; Process (b): *block*, *digit_b*, *digit_f*, *fig_logic*, *mir*, *prose_im*, *symbol*
 
 
  process   label                                         block                   digit_b                   digit_f                  prose_im                    symbol      mean(sd)    
@@ -339,29 +339,29 @@ octo         male       full         pef         prose_im            1
     a      Level * age                     -5.98(1.92),   <.01       -5.44(2.05),    .01       -5.71(0.38)
     a      Level * education                               ---        3.23(2.51),    .20          3.23(NA)
     a      Level * height                                  ---        2.58(1.06),    .01          2.58(NA)
-    a      Level * smoking                                 ---                       ---       --,p=  ----
-    a      Level * cardio                                  ---                       ---       --,p=  ----
-    a      Level * diabetes                                ---                       ---       --,p=  ----
+    a      Level * smoking                                 ---                       ---               ---
+    a      Level * cardio                                  ---                       ---               ---
+    a      Level * diabetes                                ---                       ---               ---
     a      Slope * age                      1.10(0.36),   <.01        1.00(0.34),   <.01        1.05(0.07)
     a      Slope * education                               ---       -0.37(0.38),    .33         -0.37(NA)
     a      Slope * height                                  ---       -0.24(0.21),    .25         -0.24(NA)
-    a      Slope * smoking                                 ---                       ---       --,p=  ----
-    a      Slope * cardio                                  ---                       ---       --,p=  ----
-    a      Slope * diabetes                                ---                       ---       --,p=  ----
+    a      Slope * smoking                                 ---                       ---               ---
+    a      Slope * cardio                                  ---                       ---               ---
+    a      Slope * diabetes                                ---                       ---               ---
     b      Level                           16.57(0.39),   <.01       16.66(0.40),   <.01       16.62(0.07)
     b      Slope                           -0.07(0.07),    .33       -0.05(0.08),    .52       -0.06(0.01)
     b      Level * age                     -0.25(0.09),   <.01       -0.26(0.10),    .01       -0.25(0.00)
     b      Level * education                               ---        0.22(0.12),    .07          0.22(NA)
     b      Level * height                                  ---       -0.01(0.05),    .74         -0.01(NA)
-    b      Level * smoking                                 ---                       ---       --,p=  ----
-    b      Level * cardio                                  ---                       ---       --,p=  ----
-    b      Level * diabetes                                ---                       ---       --,p=  ----
+    b      Level * smoking                                 ---                       ---               ---
+    b      Level * cardio                                  ---                       ---               ---
+    b      Level * diabetes                                ---                       ---               ---
     b      Slope * age                     -0.00(0.02),    .85       -0.00(0.02),    .85       -0.00(0.00)
     b      Slope * education                               ---       -0.02(0.03),    .51         -0.02(NA)
     b      Slope * height                                  ---        0.01(0.01),    .45          0.01(NA)
-    b      Slope * smoking                                 ---                       ---       --,p=  ----
-    b      Slope * cardio                                  ---                       ---       --,p=  ----
-    b      Slope * diabetes                                ---                       ---       --,p=  ----
+    b      Slope * smoking                                 ---                       ---               ---
+    b      Slope * cardio                                  ---                       ---               ---
+    b      Slope * diabetes                                ---                       ---               ---
     a      Var (Level)                 4837.50(557.41),   <.01   4451.45(528.76),   <.01   4644.47(272.98)
     a      Var (Slope)                    34.69(16.31),    .03      32.45(16.52),    .05       33.57(1.58)
     a      Var (Residual)              2103.22(184.08),   <.01   2119.44(185.06),   <.01    2111.33(11.47)
@@ -378,7 +378,7 @@ octo         male       full         pef         prose_im            1
     \      Correlation of Residuals                      0.029                     0.024        0.03(0.00)
     \      N                                               284                       268     276.00(11.31)
     \      occasions                                         5                         5        5.00(0.00)
-    \      parameters                                       NA                        NA       --,p=  ----
+    \      parameters                                       NA                        NA               ---
     \      LL                                           -6,051                    -5,892       -5,972(112)
     \      AIC                                          12,144                    11,842       11,993(214)
     \      BIC                                          12,221                    11,946       12,084(194)
@@ -395,29 +395,29 @@ octo         male       full         pef         prose_im            1
     a      Level * age                     -5.93(1.93),   <.01       -5.41(2.06),    .01       -5.67(0.37)
     a      Level * education                               ---        3.29(2.51),    .19          3.29(NA)
     a      Level * height                                  ---        2.52(1.06),    .02          2.52(NA)
-    a      Level * smoking                                 ---                       ---       --,p=  ----
-    a      Level * cardio                                  ---                       ---       --,p=  ----
-    a      Level * diabetes                                ---                       ---       --,p=  ----
+    a      Level * smoking                                 ---                       ---               ---
+    a      Level * cardio                                  ---                       ---               ---
+    a      Level * diabetes                                ---                       ---               ---
     a      Slope * age                      1.00(0.38),    .01        0.92(0.37),    .01        0.96(0.06)
     a      Slope * education                               ---       -0.26(0.38),    .50         -0.26(NA)
     a      Slope * height                                  ---       -0.24(0.21),    .25         -0.24(NA)
-    a      Slope * smoking                                 ---                       ---       --,p=  ----
-    a      Slope * cardio                                  ---                       ---       --,p=  ----
-    a      Slope * diabetes                                ---                       ---       --,p=  ----
+    a      Slope * smoking                                 ---                       ---               ---
+    a      Slope * cardio                                  ---                       ---               ---
+    a      Slope * diabetes                                ---                       ---               ---
     b      Level                            7.62(0.19),   <.01        7.79(0.18),   <.01        7.70(0.12)
     b      Slope                           -0.06(0.05),    .22       -0.05(0.05),    .28       -0.05(0.00)
     b      Level * age                     -0.15(0.05),   <.01       -0.16(0.05),   <.01       -0.15(0.00)
     b      Level * education                               ---        0.03(0.07),    .68          0.03(NA)
     b      Level * height                                  ---       -0.01(0.02),    .45         -0.01(NA)
-    b      Level * smoking                                 ---                       ---       --,p=  ----
-    b      Level * cardio                                  ---                       ---       --,p=  ----
-    b      Level * diabetes                                ---                       ---       --,p=  ----
+    b      Level * smoking                                 ---                       ---               ---
+    b      Level * cardio                                  ---                       ---               ---
+    b      Level * diabetes                                ---                       ---               ---
     b      Slope * age                     -0.02(0.01),    .12       -0.02(0.01),    .18       -0.02(0.00)
     b      Slope * education                               ---       -0.01(0.02),    .71         -0.01(NA)
     b      Slope * height                                  ---        0.00(0.01),    .38          0.00(NA)
-    b      Slope * smoking                                 ---                       ---       --,p=  ----
-    b      Slope * cardio                                  ---                       ---       --,p=  ----
-    b      Slope * diabetes                                ---                       ---       --,p=  ----
+    b      Slope * smoking                                 ---                       ---               ---
+    b      Slope * cardio                                  ---                       ---               ---
+    b      Slope * diabetes                                ---                       ---               ---
     a      Var (Level)                 4855.37(562.46),   <.01   4455.71(528.11),   <.01   4655.54(282.60)
     a      Var (Slope)                    32.46(16.64),    .05      30.44(16.47),    .06       31.45(1.43)
     a      Var (Residual)              2112.86(185.23),   <.01   2127.15(186.88),   <.01    2120.00(10.10)
@@ -434,7 +434,7 @@ octo         male       full         pef         prose_im            1
     \      Correlation of Residuals                      0.058                     0.055        0.06(0.00)
     \      N                                               293                       271     282.00(15.56)
     \      occasions                                         5                         5        5.00(0.00)
-    \      parameters                                       NA                        NA       --,p=  ----
+    \      parameters                                       NA                        NA               ---
     \      LL                                           -5,878                    -5,691       -5,785(133)
     \      AIC                                          11,799                    11,439       11,619(254)
     \      BIC                                          11,876                    11,544       11,710(235)
@@ -595,7 +595,7 @@ Correlation of Residuals       symbol   0.04   0.04      0.03      .
 
 # male 
 
- Gender = _male_; Model type: _aehplus_;  Process (a) = *pef*; Process (b): *block*, *digit_b*, *digit_f*, *fig_logic*, *mir*, *prose_im*, *symbol*
+ Gender = _male_; Model type: _aehplus_;  Process (a) = _pef_; Process (b): *block*, *digit_b*, *digit_f*, *fig_logic*, *mir*, *prose_im*, *symbol*
 
 
  process   label                                          block                    digit_b                    digit_f                   prose_im                     symbol      mean(sd)    
@@ -829,29 +829,29 @@ Correlation of Residuals       symbol   0.04   0.04      0.03      .
     a      Level * age                     -11.97(4.22),   <.01       -11.90(4.21),   <.01      -11.94(0.05)
     a      Level * education                                ---         6.56(1.94),   <.01          6.56(NA)
     a      Level * height                                   ---         1.82(1.44),    .20          1.82(NA)
-    a      Level * smoking                                  ---                        ---       --,p=  ----
-    a      Level * cardio                                   ---                        ---       --,p=  ----
-    a      Level * diabetes                                 ---                        ---       --,p=  ----
+    a      Level * smoking                                  ---                        ---               ---
+    a      Level * cardio                                   ---                        ---               ---
+    a      Level * diabetes                                 ---                        ---               ---
     a      Slope * age                       0.62(0.89),    .48         0.67(0.89),    .45        0.64(0.03)
     a      Slope * education                                ---        -0.52(0.62),    .40         -0.52(NA)
     a      Slope * height                                   ---         0.16(0.24),    .49          0.16(NA)
-    a      Slope * smoking                                  ---                        ---       --,p=  ----
-    a      Slope * cardio                                   ---                        ---       --,p=  ----
-    a      Slope * diabetes                                 ---                        ---       --,p=  ----
+    a      Slope * smoking                                  ---                        ---               ---
+    a      Slope * cardio                                   ---                        ---               ---
+    a      Slope * diabetes                                 ---                        ---               ---
     b      Level                            15.80(0.51),   <.01        16.03(0.48),   <.01       15.92(0.16)
     b      Slope                            -0.06(0.11),    .58        -0.04(0.11),    .72       -0.05(0.02)
     b      Level * age                      -0.17(0.12),    .16        -0.17(0.12),    .17       -0.17(0.00)
     b      Level * education                                ---         0.31(0.10),   <.01          0.31(NA)
     b      Level * height                                   ---         0.04(0.05),    .42          0.04(NA)
-    b      Level * smoking                                  ---                        ---       --,p=  ----
-    b      Level * cardio                                   ---                        ---       --,p=  ----
-    b      Level * diabetes                                 ---                        ---       --,p=  ----
+    b      Level * smoking                                  ---                        ---               ---
+    b      Level * cardio                                   ---                        ---               ---
+    b      Level * diabetes                                 ---                        ---               ---
     b      Slope * age                       0.02(0.03),    .55         0.02(0.03),    .46        0.02(0.00)
     b      Slope * education                                ---        -0.02(0.02),    .33         -0.02(NA)
     b      Slope * height                                   ---         0.01(0.01),    .44          0.01(NA)
-    b      Slope * smoking                                  ---                        ---       --,p=  ----
-    b      Slope * cardio                                   ---                        ---       --,p=  ----
-    b      Slope * diabetes                                 ---                        ---       --,p=  ----
+    b      Slope * smoking                                  ---                        ---               ---
+    b      Slope * cardio                                   ---                        ---               ---
+    b      Slope * diabetes                                 ---                        ---               ---
     a      Var (Level)                 9875.76(1556.03),   <.01   8796.11(1448.56),   <.01   9335.94(763.42)
     a      Var (Slope)                     42.14(22.72),    .06       39.89(22.41),    .07       41.01(1.59)
     a      Var (Residual)               3389.61(416.49),   <.01    3375.96(490.10),   <.01     3382.79(9.65)
@@ -868,7 +868,7 @@ Correlation of Residuals       symbol   0.04   0.04      0.03      .
     \      Correlation of Residuals                      -0.002                     -0.004       -0.00(0.00)
     \      N                                                146                        133      139.50(9.19)
     \      occasions                                          5                          5        5.00(0.00)
-    \      parameters                                        NA                         NA       --,p=  ----
+    \      parameters                                        NA                         NA               ---
     \      LL                                            -3,134                     -3,014       -3,074( 85)
     \      AIC                                            6,310                      6,086        6,198(159)
     \      BIC                                            6,373                      6,170        6,271(144)
@@ -885,29 +885,29 @@ Correlation of Residuals       symbol   0.04   0.04      0.03      .
     a      Level * age                      -13.81(4.17),   <.01       -12.72(4.27),   <.01      -13.26(0.77)
     a      Level * education                                 ---         7.27(1.99),   <.01          7.27(NA)
     a      Level * height                                    ---         2.08(1.44),    .15          2.08(NA)
-    a      Level * smoking                                   ---                        ---       --,p=  ----
-    a      Level * cardio                                    ---                        ---       --,p=  ----
-    a      Level * diabetes                                  ---                        ---       --,p=  ----
+    a      Level * smoking                                   ---                        ---               ---
+    a      Level * cardio                                    ---                        ---               ---
+    a      Level * diabetes                                  ---                        ---               ---
     a      Slope * age                        0.78(0.84),    .35         0.73(0.83),    .38        0.75(0.03)
     a      Slope * education                                 ---        -0.62(0.57),    .28         -0.62(NA)
     a      Slope * height                                    ---         0.20(0.24),    .41          0.20(NA)
-    a      Slope * smoking                                   ---                        ---       --,p=  ----
-    a      Slope * cardio                                    ---                        ---       --,p=  ----
-    a      Slope * diabetes                                  ---                        ---       --,p=  ----
+    a      Slope * smoking                                   ---                        ---               ---
+    a      Slope * cardio                                    ---                        ---               ---
+    a      Slope * diabetes                                  ---                        ---               ---
     b      Level                              7.02(0.24),   <.01         6.97(0.27),   <.01        6.99(0.04)
     b      Slope                             -0.09(0.07),    .19        -0.06(0.08),    .45       -0.07(0.02)
     b      Level * age                       -0.27(0.07),   <.01        -0.22(0.07),   <.01       -0.24(0.03)
     b      Level * education                                 ---         0.08(0.05),    .08          0.08(NA)
     b      Level * height                                    ---         0.00(0.03),    .99          0.00(NA)
-    b      Level * smoking                                   ---                        ---       --,p=  ----
-    b      Level * cardio                                    ---                        ---       --,p=  ----
-    b      Level * diabetes                                  ---                        ---       --,p=  ----
+    b      Level * smoking                                   ---                        ---               ---
+    b      Level * cardio                                    ---                        ---               ---
+    b      Level * diabetes                                  ---                        ---               ---
     b      Slope * age                       -0.01(0.02),    .48        -0.02(0.02),    .27       -0.02(0.01)
     b      Slope * education                                 ---        -0.00(0.02),    .80         -0.00(NA)
     b      Slope * height                                    ---         0.00(0.01),    .98          0.00(NA)
-    b      Slope * smoking                                   ---                        ---       --,p=  ----
-    b      Slope * cardio                                    ---                        ---       --,p=  ----
-    b      Slope * diabetes                                  ---                        ---       --,p=  ----
+    b      Slope * smoking                                   ---                        ---               ---
+    b      Slope * cardio                                    ---                        ---               ---
+    b      Slope * diabetes                                  ---                        ---               ---
     a      Var (Level)                 10138.97(1598.00),   <.01   9019.27(1464.11),   <.01   9579.12(791.75)
     a      Var (Slope)                      40.23(18.13),    .03       45.55(18.97),    .02       42.89(3.76)
     a      Var (Residual)                3405.19(404.24),   <.01    3339.70(464.65),   <.01    3372.44(46.31)
@@ -924,7 +924,7 @@ Correlation of Residuals       symbol   0.04   0.04      0.03      .
     \      Correlation of Residuals                        -0.02                      -0.02       -0.02(0.00)
     \      N                                                 153                        137     145.00(11.31)
     \      occasions                                           5                          5        5.00(0.00)
-    \      parameters                                         NA                         NA       --,p=  ----
+    \      parameters                                         NA                         NA               ---
     \      LL                                             -3,006                     -2,869       -2,937( 97)
     \      AIC                                             6,053                      5,796        5,925(182)
     \      BIC                                             6,117                      5,880        5,999(167)
@@ -1100,12 +1100,12 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_2.1.0 knitr_1.14    magrittr_1.5 
+[1] knitr_1.14    ggplot2_2.1.0 magrittr_1.5 
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-6 R6_2.1.3         highr_0.6       
- [7] plyr_1.8.4       stringr_1.1.0    dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
+ [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-7 R6_2.2.0         stringr_1.1.0   
+ [7] highr_0.6        plyr_1.8.4       dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
 [13] gtable_0.2.0     DBI_0.5-1        htmltools_0.3.5  yaml_2.1.13      lazyeval_0.2.0   assertthat_0.1  
-[19] digest_0.6.10    tibble_1.2       readr_1.0.0      formatR_1.4      tidyr_0.6.0      htmlwidgets_0.7 
-[25] rsconnect_0.4.3  evaluate_0.9     rmarkdown_1.0    stringi_1.1.1    scales_0.4.0    
+[19] digest_0.6.10    tibble_1.2       formatR_1.4      readr_1.0.0      tidyr_0.6.0      htmlwidgets_0.7 
+[25] rsconnect_0.5    evaluate_0.10    rmarkdown_1.1    stringi_1.1.2    scales_0.4.0    
 ```

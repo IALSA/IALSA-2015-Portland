@@ -33,7 +33,7 @@ This report contains a searchable table, followed by publication-ready tables.
 
 # Available models 
 
- Study **MAP** contains the following outcome pairs: 
+ Study **MAP** have contributed the following outcome pairs to the IASLA-2015-Portland model pool: 
 NULL
 
 
@@ -225,7 +225,7 @@ map          male       aehplus      fev         word_rec             1
 
 # female 
 
- Gender = _female_; Model type: _aehplus_;  Process (a) = *fev*; Process (b): *bnt*, *bstory_de*, *bstory_im*, *categories*, *digit_b*, *digit_f*, *digit_o*, *ideas*, *line*, *logic_de*, *logic_im*, *matrices*, *mmse*, *nart*, *num_comp*, *symbol*, *word_de*, *word_im*, *word_rec*
+ Gender = _female_; Model type: _aehplus_;  Process (a) = _fev_; Process (b): *bnt*, *bstory_de*, *bstory_im*, *categories*, *digit_b*, *digit_f*, *digit_o*, *ideas*, *line*, *logic_de*, *logic_im*, *matrices*, *mmse*, *nart*, *num_comp*, *symbol*, *word_de*, *word_im*, *word_rec*
 
 
  process   label                                       bnt             bstory_de             bstory_im            categories               digit_b         digit_f         digit_o                              ideas                  line              logic_de              logic_im              matrices          mmse           nart                              num_comp                symbol               word_de               word_im              word_rec         mean(sd)       
@@ -270,7 +270,7 @@ map          male       aehplus      fev         word_rec             1
    ab      Covar (Slopes)               0.00(0.00),    .72   -0.00(0.00),    .42   -0.00(0.00),    .40    0.00(0.01),    .99    0.00(0.00),    .10   0.00(0.00),    .99    -0.00(0.00),    .31     0.00(0.00),    .58    0.00(0.00),    .96   -0.01(0.00),    .22   -0.00(0.00),    .51    0.00(0.00),    .40   -0.00(0.00),    .64   0.00(0.00),    .73     -0.00(0.01),    .47   -0.00(0.01),    .53   -0.00(0.00),    .70   -0.01(0.01),    .11    0.00(0.00),    .93           ---          
    ab      Covar (Residuals)           -0.00(0.00),    .61   -0.01(0.01),    .08   -0.01(0.01),    .12   -0.03(0.02),    .20   -0.01(0.01),    .11   0.01(0.01),    .22    0.00(0.00),    .34     -0.00(0.00),    .55   -0.01(0.01),    .08   -0.01(0.01),    .61   -0.01(0.01),    .60   -0.01(0.01),    .11   0.00(0.00),    .73    0.00(0.00),    .98      0.00(0.02),    .96    0.01(0.03),    .69    0.00(0.01),    .94    0.02(0.01),    .23    0.00(0.00),    .96           ---          
     \      Correlation of Levels                     0.047                 0.020                 0.082                 0.221                 0.152          0.129          0.192                                0.184                  0.15                 0.030                 0.052                 0.202         0.0523          0.16                                0.1474                 0.179                 0.055                 0.122                 0.028        0.12(0.07)      
-    \      Correlation of Slopes                       NaN                  -Inf                  -Inf                   NaN                 0.514           NaN           -Inf                                   NaN                   NaN                  -Inf                  -Inf                   Inf          -Inf           NaN                                   -Inf                  -Inf                  -Inf                  -Inf                 0.000       --,p=  ----      
+    \      Correlation of Slopes                       NaN                  -Inf                  -Inf                   NaN                 0.514           NaN           -Inf                                   NaN                   NaN                  -Inf                  -Inf                   Inf          -Inf           NaN                                   -Inf                  -Inf                  -Inf                  -Inf                 0.000           ---          
     \      Correlation of Residuals                 -0.018                -0.056                -0.039                -0.035                -0.044          0.034          0.027                               -0.013                 -0.04                -0.018                -0.015                -0.047         0.0095          0.00                                0.0016                 0.014                 0.000                 0.044                 0.000       -0.01(0.03)      
     \      N                                         1,010                 1,010                 1,010                 1,010                 1,010          1,010          1,010                                1,010                 1,010                 1,010                 1,010                 1,010          1,010          1,010                                1,010                 1,010                 1,010                 1,010                 1,010      1010.00(0.00)     
     \      occasions                                     5                     5                     5                     5                     5            5            5                                        5                     5                     5                     5                     5            5            5                                        5                     5                     5                     5                     5        5.00(0.00)      
@@ -606,7 +606,7 @@ map          male       aehplus      fev         word_rec             1
    ab      Covar (Slopes)               0.00(0.00),    .88    0.00(0.00),    .91    0.00(0.00),    .94    0.00(0.00),    .99             0.00(0.00)
    ab      Covar (Residuals)            0.01(0.01),    .21    0.01(0.01),    .22    0.01(0.01),    .23    0.01(0.01),    .22             0.01(0.00)
     \      Correlation of Levels                     0.208                 0.168                 0.126                 0.129             0.16(0.04)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN            --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN                    ---
     \      Correlation of Residuals                  0.034                 0.034                 0.034                 0.034             0.03(0.00)
     \      N                                         1,010                 1,010                 1,010                 1,010          1010.00(0.00)
     \      occasions                                     5                     5                     5                     5             5.00(0.00)
@@ -718,7 +718,7 @@ map          male       aehplus      fev         word_rec             1
    ab      Covar (Slopes)               0.00(0.00),    .65    0.00(0.00),    .65    0.00(0.00),    .59    0.00(0.00),    .58      0.00(0.00)
    ab      Covar (Residuals)           -0.00(0.00),    .54   -0.00(0.00),    .54   -0.00(0.00),    .56   -0.00(0.00),    .55     -0.00(0.00)
     \      Correlation of Levels                     0.227                 0.201                 0.188                 0.184      0.20(0.02)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN     --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN             ---
     \      Correlation of Residuals                 -0.013                -0.013                -0.013                -0.013     -0.01(0.00)
     \      N                                         1,010                 1,010                 1,010                 1,010   1010.00(0.00)
     \      occasions                                     5                     5                     5                     5      5.00(0.00)
@@ -774,7 +774,7 @@ map          male       aehplus      fev         word_rec             1
    ab      Covar (Slopes)               0.00(0.00),    .94    0.00(0.00),    .98    0.00(0.00),    .99    0.00(0.00),    .96             0.00(0.00)
    ab      Covar (Residuals)           -0.01(0.01),    .08   -0.01(0.01),    .08   -0.01(0.01),    .08   -0.01(0.01),    .08            -0.01(0.00)
     \      Correlation of Levels                      0.22                  0.18                  0.14                  0.15             0.17(0.04)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN            --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN                    ---
     \      Correlation of Residuals                  -0.04                 -0.04                 -0.04                 -0.04            -0.04(0.00)
     \      N                                         1,010                 1,010                   951                 1,010          995.25(29.50)
     \      occasions                                     5                     5                     5                     5             5.00(0.00)
@@ -1054,7 +1054,7 @@ map          male       aehplus      fev         word_rec             1
    ab      Covar (Slopes)               0.00(0.00),    .66    0.00(0.00),    .71    0.00(0.00),    .66    0.00(0.00),    .73             0.00(0.00)
    ab      Covar (Residuals)            0.00(0.00),    .98    0.00(0.00),    .98    0.00(0.00),    .99    0.00(0.00),    .98             0.00(0.00)
     \      Correlation of Levels                      0.25                   0.2                  0.16                  0.16             0.19(0.04)
-    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN            --,p=  ----
+    \      Correlation of Slopes                       NaN                   NaN                   NaN                   NaN                    ---
     \      Correlation of Residuals                   0.00                   0.0                  0.00                  0.00             0.00(0.00)
     \      N                                         1,010                 1,010                 1,010                 1,010          1010.00(0.00)
     \      occasions                                     5                     5                     5                     5             5.00(0.00)
@@ -1423,7 +1423,7 @@ Correlation of Residuals      word_rec    0.00    0.00    0.00      0.00
 
 # male 
 
- Gender = _male_; Model type: _aehplus_;  Process (a) = *fev*; Process (b): *bnt*, *bstory_de*, *bstory_im*, *categories*, *digit_b*, *digit_f*, *digit_o*, *ideas*, *line*, *logic_de*, *logic_im*, *matrices*, *mmse*, *nart*, *num_comp*, *symbol*, *word_de*, *word_im*, *word_rec*
+ Gender = _male_; Model type: _aehplus_;  Process (a) = _fev_; Process (b): *bnt*, *bstory_de*, *bstory_im*, *categories*, *digit_b*, *digit_f*, *digit_o*, *ideas*, *line*, *logic_de*, *logic_im*, *matrices*, *mmse*, *nart*, *num_comp*, *symbol*, *word_de*, *word_im*, *word_rec*
 
 
  process   label                                       bnt             bstory_de             bstory_im            categories               digit_b         digit_f         digit_o                              ideas                  line              logic_de              logic_im              matrices          mmse           nart                              num_comp                symbol               word_de               word_im              word_rec     mean(sd)    
@@ -2636,12 +2636,12 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_2.1.0 knitr_1.14    magrittr_1.5 
+[1] knitr_1.14    ggplot2_2.1.0 magrittr_1.5 
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-6 R6_2.1.3         highr_0.6       
- [7] plyr_1.8.4       stringr_1.1.0    dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
+ [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-7 R6_2.2.0         stringr_1.1.0   
+ [7] highr_0.6        plyr_1.8.4       dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
 [13] gtable_0.2.0     DBI_0.5-1        htmltools_0.3.5  yaml_2.1.13      lazyeval_0.2.0   assertthat_0.1  
-[19] digest_0.6.10    tibble_1.2       readr_1.0.0      formatR_1.4      tidyr_0.6.0      htmlwidgets_0.7 
-[25] rsconnect_0.4.3  evaluate_0.9     rmarkdown_1.0    stringi_1.1.1    scales_0.4.0    
+[19] digest_0.6.10    tibble_1.2       formatR_1.4      readr_1.0.0      tidyr_0.6.0      htmlwidgets_0.7 
+[25] rsconnect_0.5    evaluate_0.10    rmarkdown_1.1    stringi_1.1.2    scales_0.4.0    
 ```
