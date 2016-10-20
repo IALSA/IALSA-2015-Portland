@@ -3,10 +3,8 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 # ---- load-sources ------------------------------------------------------------
 #Load any source files that contain/define functions, but that don't load any other types of variables
 #   into memory.  Avoid side effects and don't pollute the global environment.
-# basic lookup function
-source("./scripts/model-lookup-function.R")
-# load lookup function
-source("./scripts/functions-table-assembly.R")
+# load functions to assemble the tables
+source("./scripts/table-assembly-functions.R")
 
 # ---- load-packages -----------------------------------------------------------
 library(magrittr) #Pipes
@@ -22,6 +20,10 @@ requireNamespace("scales")
 options(show.signif.stars=F) #Turn off the annotations on p-values
 print_format <- "pandoc"
 # print_format <- "html"
+model_type_standard <- "aehplus" # spread at outcome pair level
+# model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
+model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
+
 
 # ---- load-data ---------------------------------------------------------------
 catalog <- read.csv("./data/shared/pc-2-parsed-results-computed_ci.csv", header = T,  stringsAsFactors=FALSE)
@@ -42,106 +44,6 @@ catalog_spread %>% view_options(
 
 
 # ---- print-functions -----------------
-
-print_bisr_spread <- function(
-  d
-  ,study_name
-  ,subgroup
-  ,pivot_
-  ,target_names
-  ,target_labels
-  # ,processes_b_
-){
-  # cat("\\n",paste0("Study = _",toupper(study_name),"_; Gender = _",subgroup_,"_; Process (a) = _",pivot,"_\\n"))
-  cat("\n ")
-  ls <- list()
-  for(i in seq_along(target_names)){
-    # i <- 1
-    ls[[i]] <-  spread_model_type(
-      d = catalog
-      ,study_name_  = study_name#"lasa"
-      ,subgroup_    = subgroup#"male"
-      ,pivot        = pivot_#"pef"# pivot#"pef"
-      ,target_name  = target_names[i] # cr_slopes_est
-      ,target_label = target_labels[i]
-      # ,processes_b  = processes_b_
-    )
-    print(
-      knitr::kable(
-        ls[[i]]
-        # ,format = print_format
-        ,format = "pandoc"
-        ,align = c("l","r","r","r","r","r","r","r")
-      )
-    )
-    cat("\n")
-  }
-}
-
-
-print_outcome_pairs <- function(
-  d
-  ,study
-  ,gender
-  ,outcome
-  ,model_type_standard
-  ,model_type_set
-){
-  # d                   = catalog_spread
-  # study               = "lasa" #'elsa'
-  # gender              = "male"
-  # outcome             = "pef"# "fev"
-  # model_type_standard = model_type_standard#"aehplus" # spread at outcome pair level
-  # model_type_set      = model_type_set#c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
-
-  # browser()
-    dtemp <- d %>%
-      dplyr::filter(
-        study_name == study
-        ,subgroup == gender
-        ,process_a == outcome
-      )
-    processes_b <- sort(unique(dtemp$process_b))
-
-    cat("\n",paste0("Gender = _",gender,"_; Model type: _",model_type_standard,"_;  Process (a) = _",outcome,"_; Process (b): ",  paste0("*",processes_b,"*", collapse = ", "),"\n"))
-
-    print(
-      knitr::kable(
-        serve_slice_process_a(
-           d          = d
-          ,study_name = study#"eas"
-          ,subgroup   = gender#"female"
-          ,model_type = model_type_standard#"aehplus"
-          ,process_a  = outcome#"pef"
-          ,mask_not   = c("a","aa")
-        )
-      # ,format = "html"
-      ,format = print_format
-      ,align  = c("c", "l", "r", "r", "r", "r", "r")
-      )
-    )
-    for(i in processes_b ){
-      # i <- "letter"
-      cat("\n## ",i,"\n")
-      cat("\n",paste0("Gender = _",gender,"_;  Process (a) = *",outcome,"*; Process (b) = _",i,"_"))
-      cat("\n")
-      print(
-        knitr::kable(
-          serve_slice_model_type(
-            d            =  d
-            , study_name = study#"eas"
-            , subgroup   = gender#"female"
-            , model_type = model_type_set#
-            , process_a  = outcome#"pef"
-            , process_b  = i
-          )
-        # ,format = "html"
-          ,format =print_format
-         ,align  = c("c", "l", "r", "r", "r", "r", "r")
-        )
-      )
-    }
-  }
 
 print_header <- function(
   catalog_spread
@@ -199,10 +101,12 @@ print_body <- function(
       ,outcome = outcome#"pef"
       ,model_type_standard = model_type_standard#"aehplus" # spread at outcome pair level
       ,model_type_set = model_type_set#c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
+      ,print_format = print_format
     )
     cat("\n## Summary","\n")
     cat("\n",paste0("Study = _",toupper(study),"_; Gender = _",gender,"_; Process (a) = _",outcome,"_\n"))
-    print_bisr_spread(
+    cat("\n Computed correlations:\n")
+    print_coefficients(
       d = catalog
       ,study_name    = study
       ,subgroup      = gender
@@ -218,6 +122,23 @@ print_body <- function(
       # ,processes_b_  = processes_b
     )
     cat("\n")
+    cat("P-values for corresponding covariances: \n")
+    print_coefficients(
+      d              = catalog         # contains model solutions, row = model
+      ,study_name    = study           # name of study
+      ,subgroup      = gender          # gender : male or female
+      ,pivot         = outcome         # fixed; name of process 1
+      ,target_names  = c(              # coefficients of interest
+        "ab_tau_00_pval"
+        ,"ab_tau_11_pval"
+        ,"ab_sigma_00_pval"
+      )
+      ,target_labels = c(              # labels for the coefs of interest
+        "Covariance of Levels"
+        ,"Covariance of Slopes"
+        ,"Covariance of  Residuals"
+      )
+    )
   }
 }
 
@@ -225,9 +146,6 @@ print_body <- function(
 # ---- eas ---------------------------------------------------------
 study <- 'eas'
 outcome <- "pef"
-model_type_standard <- "aehplus" # spread at outcome pair level
-# model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
-model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
 
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)
@@ -235,10 +153,7 @@ print_body(catalog_spread, catalog)
 # elsa has only "aehplus" form
 # ---- elsa ---------------------------------------------------------
 study <- 'elsa'
-outcome <- "fev"
-model_type_standard <- "aehplus" # spread at outcome pair level
-# model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
-model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
+outcome <- "fev100"
 
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)
@@ -246,9 +161,6 @@ print_body(catalog_spread, catalog)
 # ---- hrs ---------------------------------------------------------
 study <- 'hrs'
 outcome <- "pef"
-model_type_standard <- "aehplus" # spread at outcome pair level
-# model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
-model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
 
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)
@@ -256,9 +168,6 @@ print_body(catalog_spread, catalog)
 # ---- octo ---------------------------------------------------------
 study <- 'octo'
 outcome <- "pef"
-model_type_standard <- "aehplus" # spread at outcome pair level
-# model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
-model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
 
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)
@@ -268,9 +177,6 @@ print_body(catalog_spread, catalog)
 # ---- lasa ---------------------------------------------------------
 study <- 'lasa'
 outcome <- "pef"
-model_type_standard <- "aehplus" # spread at outcome pair level
-# model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
-model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
 
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)
@@ -279,9 +185,6 @@ print_body(catalog_spread, catalog)
 # ---- map ---------------------------------------------------------
 study <- 'map'
 outcome <- "fev"
-model_type_standard <- "aehplus" # spread at outcome pair level
-# model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
-model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
 
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)
@@ -290,9 +193,6 @@ print_body(catalog_spread, catalog)
 # ---- satsa ---------------------------------------------------------
 study <- 'satsa'
 outcome <- "fev"
-model_type_standard <- "aehplus" # spread at outcome pair level
-# model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
-model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
 
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)
