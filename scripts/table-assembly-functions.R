@@ -597,9 +597,14 @@ dense_v1 <- function(coef_raw, label_=FALSE){
     "intercept"    = "%0.2f",
     "slope"        = "%0.2f"
   )
+  # pattern_dense <- c(
+  #   "intercept"    = "%6s(%4s),%7s",
+  #   "slope"        = "%6s(%4s),%7s"
+  # )
+
   pattern_dense <- c(
-    "intercept"    = "%6s(%4s),%7s",
-    "slope"        = "%6s(%4s),%7s"
+    "intercept"    = "%6s (%4s) %7s",
+    "slope"        = "%6s (%4s) %7s"
   )
 
   coef_dense <- coef_raw %>%

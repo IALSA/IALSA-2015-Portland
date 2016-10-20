@@ -8,7 +8,7 @@ stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v6.csv")
 # basic lookup function
 # source("./scripts/model-lookup-function.R")
 # load lookup function
-source("./scripts/functions-table-assembly.R")
+source("./scripts/table-assembly-functions.R")
 
 
 
@@ -43,15 +43,34 @@ print_coefficients(
   ,pivot         = "pef"           # fixed; name of process 1
   ,target_names  = c(              # coefficients of interest
     "cr_levels_est"
-    # ,"cr_slopes_est"
-    # ,"cr_resid_est"
+    ,"cr_slopes_est"
+    ,"cr_resid_est"
     )
   ,target_labels = c(              # labels for the coefs of interest
     "Correlation of Levels"
-    # ,"Correlation of Slopes"
-    # ,"Correlation of Residuals"
+    ,"Correlation of Slopes"
+    ,"Correlation of Residuals"
     )
 )
+
+
+print_coefficients(
+  d              = catalog         # contains model solutions, row = model
+  ,study_name    = "octo"          # name of study
+  ,subgroup      = "female"        # gender : male or female
+  ,pivot         = "pef"           # fixed; name of process 1
+  ,target_names  = c(              # coefficients of interest
+    "ab_tau_00_pval"
+    ,"ab_tau_11_pval"
+    ,"ab_sigma_00_pval"
+  )
+  ,target_labels = c(              # labels for the coefs of interest
+    "p-value of covariance of Levels"
+    ,"p-value of covariance of Slopes"
+    ,"p-value of covariance of  Residuals"
+  )
+)
+
 
 
 ###  Baking functions
