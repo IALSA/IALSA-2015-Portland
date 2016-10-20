@@ -32,12 +32,12 @@ stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v8.csv")
 
 # ---- explorations -------------------------------------------
 catalog_spread %>% view_options(
-   study_name_ ="lasa"
-  ,full_id = F
-  # ,subgroups = c("female")
-  # ,model_types = c("aehplus")
-  # ,processes_a = "fev"
-  # ,processes_b = "word_de"
+   study_name_ ="eas"
+  ,full_id     = T
+  ,subgroups   = c("female")
+  ,model_types = c("aehplus")
+  ,processes_a = "pef"
+  ,processes_b = "symbol"
 )
 
 
