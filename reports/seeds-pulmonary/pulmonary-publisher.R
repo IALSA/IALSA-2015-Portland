@@ -14,10 +14,10 @@ path_satsa <- base::file.path("./reports/seeds-pulmonary/seed-satsa.Rmd")
 #  Define groups of reports
 allReports<- c(
    path_eas
-  #, path_elsa # fails at put_stat_frosting() b/c contains only 'aehplus'
+  , path_elsa # fails at put_stat_frosting() b/c contains only 'aehplus'
   ,path_hrs
   # path_ilse # does not have pulmonary measure
-  # ,path_lasa  # fails at put_stat_frosting() b/c contains only 'aehplus'
+  ,path_lasa  # fails at put_stat_frosting() b/c contains only 'aehplus'
   # path_nuage # does not have pulmonary measure
   ,path_octo
   ,path_map
