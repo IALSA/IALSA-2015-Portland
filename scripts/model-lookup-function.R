@@ -114,8 +114,8 @@ view_one_model <- function(d, study_name_, subgroup_, process_a_, process_b_, mo
   }else{
   d3 <- dplyr::bind_rows(d2,model_info )
   }
-  print(d3, n= nrow(d3))
-  return(d3)
+  # print(d3, n= nrow(d3))
+  return(as.data.frame(d3))
 
 }
 
