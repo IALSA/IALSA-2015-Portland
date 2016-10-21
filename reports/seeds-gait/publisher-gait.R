@@ -1,27 +1,29 @@
 rm(list=ls(all=TRUE))
 ########## Production of reports from .Rmd files ###
 
-path_eas   <- base::file.path("./reports/seeds-pulmonary/seed-eas.Rmd")
-path_elsa  <- base::file.path("./reports/seeds-pulmonary/seed-elsa.Rmd")
-path_hrs   <- base::file.path("./reports/seeds-pulmonary/seed-hrs.Rmd")
-path_ilse  <- base::file.path("./reports/seeds-pulmonary/seed-ilse.Rmd")
-path_lasa  <- base::file.path("./reports/seeds-pulmonary/seed-lasa.Rmd")
-path_nuage <- base::file.path("./reports/seeds-pulmonary/seed-nuage.Rmd")
-path_octo  <- base::file.path("./reports/seeds-pulmonary/seed-octo.Rmd")
-path_map   <- base::file.path("./reports/seeds-pulmonary/seed-map.Rmd")
-path_satsa <- base::file.path("./reports/seeds-pulmonary/seed-satsa.Rmd")
+path_eas   <- base::file.path("./reports/seeds-gait/seed-eas.Rmd")
+path_elsa  <- base::file.path("./reports/seeds-gait/seed-elsa.Rmd")
+path_hrs   <- base::file.path("./reports/seeds-gait/seed-hrs.Rmd")
+path_ilse  <- base::file.path("./reports/seeds-gait/seed-ilse.Rmd")
+path_lasa  <- base::file.path("./reports/seeds-gait/seed-lasa.Rmd")
+# path_map   <- base::file.path("./reports/seeds-gait/seed-map.Rmd")
+# path_nuage <- base::file.path("./reports/seeds-gait/seed-nuage.Rmd")
+path_octo  <- base::file.path("./reports/seeds-gait/seed-octo.Rmd")
+# path_satsa <- base::file.path("./reports/seeds-gait/seed-satsa.Rmd")
+
+# Has no gait: map, nuage, satsa
 
 #  Define groups of reports
 allReports<- c(
    path_eas
-  , path_elsa # fails at put_stat_frosting() b/c contains only 'aehplus'
+  ,path_elsa
   ,path_hrs
-  # path_ilse # does not have pulmonary measure
-  ,path_lasa  # fails at put_stat_frosting() b/c contains only 'aehplus'
-  # path_nuage # does not have pulmonary measure
+  ,path_ilse
+  ,path_lasa
+  # ,path_map # has no gait
+  # ,path_nuage # has no gait
   ,path_octo
-  ,path_map
-  ,path_satsa
+  # ,path_satsa # has no gait
 )
 # Place report paths HERE ###########
 pathFilesToBuild <- c(allReports) ##########
@@ -33,10 +35,10 @@ for( pathFile in pathFilesToBuild ) {
   #   pathMd <- base::gsub(pattern=".Rmd$", replacement=".md", x=pathRmd)
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      "html_document"
-                       #, "pdf_document"
+                      "html_document" # set print_format <- "html" in seed-study.R
+                      #, "pdf_document"
                       # ,"md_document"
-                      ,"word_document"
+                      # "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
 }

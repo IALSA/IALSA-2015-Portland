@@ -14,10 +14,10 @@ path_satsa <- base::file.path("./reports/seeds-pulmonary/seed-satsa.Rmd")
 #  Define groups of reports
 allReports<- c(
    path_eas
-  , path_elsa # fails at put_stat_frosting() b/c contains only 'aehplus'
+  , path_elsa
   ,path_hrs
   # path_ilse # does not have pulmonary measure
-  ,path_lasa  # fails at put_stat_frosting() b/c contains only 'aehplus'
+  ,path_lasa
   # path_nuage # does not have pulmonary measure
   ,path_octo
   ,path_map
@@ -33,10 +33,10 @@ for( pathFile in pathFilesToBuild ) {
   #   pathMd <- base::gsub(pattern=".Rmd$", replacement=".md", x=pathRmd)
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      "html_document"
+                      "html_document" # set print_format <- "html" in seed-study.R
                        #, "pdf_document"
                       # ,"md_document"
-                      ,"word_document"
+                      # "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
 }
