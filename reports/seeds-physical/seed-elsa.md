@@ -1026,12 +1026,12 @@ NULL
   <tr>
    <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> fev </td>
-   <td style="text-align:right;"> Inf </td>
+   <td style="text-align:right;"> 0.63 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> Inf </td>
+   <td style="text-align:right;"> 0.50 </td>
   </tr>
 </tbody>
 </table>
@@ -1048,12 +1048,12 @@ NULL
   <tr>
    <td style="text-align:left;"> Correlation of Residuals </td>
    <td style="text-align:right;"> fev </td>
-   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.02 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Correlation of Residuals </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.02 </td>
   </tr>
 </tbody>
 </table>
@@ -1071,12 +1071,12 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:left;"> Correlation of Levels </td>
    <td style="text-align:right;"> fev </td>
    <td style="text-align:right;"> 0.00 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:left;"> Correlation of Levels </td>
    <td style="text-align:right;"> gait </td>
    <td style="text-align:right;"> 0.00 </td>
   </tr>
@@ -1093,14 +1093,14 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> fev </td>
-   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.50 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.00 </td>
   </tr>
 </tbody>
 </table>
@@ -1115,14 +1115,14 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:left;"> Correlation of  Residuals </td>
    <td style="text-align:right;"> fev </td>
    <td style="text-align:right;"> 0.57 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:left;"> Correlation of  Residuals </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.00 </td>
   </tr>
 </tbody>
 </table>
@@ -2031,12 +2031,12 @@ P-values for corresponding covariances:
   <tr>
    <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> fev </td>
-   <td style="text-align:right;"> 0.41 </td>
+   <td style="text-align:right;"> 0.42 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> Inf </td>
+   <td style="text-align:right;"> 0.55 </td>
   </tr>
 </tbody>
 </table>
@@ -2053,12 +2053,12 @@ P-values for corresponding covariances:
   <tr>
    <td style="text-align:left;"> Correlation of Residuals </td>
    <td style="text-align:right;"> fev </td>
-   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.03 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Correlation of Residuals </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.03 </td>
   </tr>
 </tbody>
 </table>
@@ -2076,12 +2076,12 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:left;"> Correlation of Levels </td>
    <td style="text-align:right;"> fev </td>
    <td style="text-align:right;"> 0.00 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:left;"> Correlation of Levels </td>
    <td style="text-align:right;"> gait </td>
    <td style="text-align:right;"> 0.00 </td>
   </tr>
@@ -2098,14 +2098,14 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> fev </td>
-   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.22 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.18 </td>
   </tr>
 </tbody>
 </table>
@@ -2120,12 +2120,12 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:left;"> Correlation of  Residuals </td>
    <td style="text-align:right;"> fev </td>
    <td style="text-align:right;"> 0.61 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:left;"> Correlation of  Residuals </td>
    <td style="text-align:right;"> gait </td>
    <td style="text-align:right;"> 0.43 </td>
   </tr>
@@ -2814,7 +2814,7 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
   <tr>
    <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.40 </td>
   </tr>
 </tbody>
 </table>
@@ -2831,7 +2831,7 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
   <tr>
    <td style="text-align:left;"> Correlation of Residuals </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.03 </td>
   </tr>
 </tbody>
 </table>
@@ -2849,7 +2849,7 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:left;"> Correlation of Levels </td>
    <td style="text-align:right;"> gait </td>
    <td style="text-align:right;"> 0.00 </td>
   </tr>
@@ -2866,9 +2866,9 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.46 </td>
+   <td style="text-align:right;"> 0.11 </td>
   </tr>
 </tbody>
 </table>
@@ -2883,9 +2883,9 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:left;"> Correlation of  Residuals </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 0.44 </td>
   </tr>
 </tbody>
 </table>
@@ -3499,7 +3499,7 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
   <tr>
    <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> NaN </td>
+   <td style="text-align:right;"> 0.34 </td>
   </tr>
 </tbody>
 </table>
@@ -3516,7 +3516,7 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
   <tr>
    <td style="text-align:left;"> Correlation of Residuals </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.02 </td>
   </tr>
 </tbody>
 </table>
@@ -3534,7 +3534,7 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:left;"> Correlation of Levels </td>
    <td style="text-align:right;"> gait </td>
    <td style="text-align:right;"> 0.00 </td>
   </tr>
@@ -3551,9 +3551,9 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.26 </td>
   </tr>
 </tbody>
 </table>
@@ -3568,7 +3568,7 @@ P-values for corresponding covariances:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:left;"> Correlation of  Residuals </td>
    <td style="text-align:right;"> gait </td>
    <td style="text-align:right;"> 0.59 </td>
   </tr>
@@ -3591,18 +3591,19 @@ locale:
 [4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
 
 attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+[1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] IalsaSynthesis_0.1.8.9000 MplusAutomation_0.6-4     knitr_1.14                ggplot2_2.1.0            
-[5] magrittr_1.5             
+[1] RColorBrewer_1.1-2        dichromat_2.0-0           extrafont_0.17            rhdf5_2.16.0             
+[5] IalsaSynthesis_0.1.8.9000 MplusAutomation_0.6-4     knitr_1.14                ggplot2_2.1.0            
+[9] magrittr_1.5             
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       xtable_1.8-2     lattice_0.20-34  colorspace_1.2-7
- [7] R6_2.2.0         stringr_1.1.0    highr_0.6        plyr_1.8.4       dplyr_0.5.0      tools_3.3.1     
-[13] DT_0.2           grid_3.3.1       gtable_0.2.0     texreg_1.36.7    coda_0.18-1      DBI_0.5-1       
-[19] htmltools_0.3.5  yaml_2.1.13      lazyeval_0.2.0   assertthat_0.1   digest_0.6.10    tibble_1.2      
-[25] formatR_1.4      readr_1.0.0      tidyr_0.6.0      htmlwidgets_0.7  rsconnect_0.5    evaluate_0.10   
-[31] gsubfn_0.6-6     rmarkdown_1.1    stringi_1.1.2    pander_0.6.0     scales_0.4.0     boot_1.3-18     
-[37] proto_0.3-10    
+ [1] Rcpp_0.12.7      formatR_1.4      plyr_1.8.4       highr_0.6        zlibbioc_1.18.0  tools_3.3.1     
+ [7] boot_1.3-18      digest_0.6.10    evaluate_0.10    tibble_1.2       gtable_0.2.0     lattice_0.20-34 
+[13] texreg_1.36.7    DBI_0.5-1        yaml_2.1.13      proto_0.3-10     Rttf2pt1_1.3.4   coda_0.18-1     
+[19] dplyr_0.5.0      stringr_1.1.0    htmlwidgets_0.7  DT_0.2           R6_2.2.0         rmarkdown_1.1   
+[25] gsubfn_0.6-6     extrafontdb_1.0  pander_0.6.0     tidyr_0.6.0      readr_1.0.0      scales_0.4.0    
+[31] htmltools_0.3.5  rsconnect_0.5    assertthat_0.1   testit_0.5       colorspace_1.2-7 xtable_1.8-2    
+[37] labeling_0.3     stringi_1.1.2    lazyeval_0.2.0   munsell_0.4.3   
 ```

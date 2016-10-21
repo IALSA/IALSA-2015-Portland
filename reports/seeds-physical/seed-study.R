@@ -112,9 +112,9 @@ print_body <- function(
       ,subgroup      = gender
       ,pivot         = outcome
       ,target_names  = c(
-        "cr_levels_est"
-        ,"cr_slopes_est"
-        ,"cr_resid_est")
+        "er_tau_00_est"
+        ,"er_tau_11_est"
+        ,"er_sigma_00_se")
       ,target_labels = c(
         "Correlation of Levels"
         ,"Correlation of Slopes"
@@ -129,14 +129,14 @@ print_body <- function(
       ,subgroup      = gender          # gender : male or female
       ,pivot         = outcome         # fixed; name of process 1
       ,target_names  = c(              # coefficients of interest
-        "ab_tau_00_pval"
-        ,"ab_tau_11_pval"
-        ,"ab_sigma_00_pval"
+           "er_tau_00_pval"
+        ,  "er_tau_11_pval"
+        ,"er_sigma_00_pval"
       )
       ,target_labels = c(              # labels for the coefs of interest
-        "Covariance of Levels"
-        ,"Covariance of Slopes"
-        ,"Covariance of  Residuals"
+        "Correlation of Levels"
+        ,"Correlation of Slopes"
+        ,"Correlation of  Residuals"
       )
     )
   }
