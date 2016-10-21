@@ -914,8 +914,8 @@ print_coefficients <- function(
     print(
       knitr::kable(
         ls[[i]]
-        # ,format = print_format
-        ,format = "pandoc"
+        ,format = print_format
+        # ,format = "pandoc"
         ,align = c("l","r","r","r","r","r","r","r")
       )
     )
