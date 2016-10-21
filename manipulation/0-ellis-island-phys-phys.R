@@ -63,9 +63,9 @@ model_output_file_path <- list(
   "elsa"  = list_pp[["elsa"]], #[1:2],
   "hrs"   = list_pp[["hrs"]], #[1:2],
   "ilse"  = list_pp[["ilse"]],#[1:2],
-  "lasa"  = list_pp[["lasa"]],#[1:2],
   "map"   = list_pp[["map"]],#[1:2],
   "nuage" = list_pp[["nuage"]],#[1:2] ,
+  "lasa"  = list_pp[["lasa"]],#[1:2],
   "octo"  = list_pp[["octo"]],#[1:2],
   "satsa" = list_pp[["satsa"]] #[1:2]
 )
