@@ -17,7 +17,8 @@ requireNamespace("DT")
 requireNamespace("scales")
 
 # ---- load-globals ---------------------
-path_input <- './data/shared/pc-1-parsed-results.csv'
+# path_input <- './data/shared/pc-1-parsed-results.csv'
+path_input <- './data/shared/pp-1-parsed-results.csv'
 
 ##########
 # PART 1 : model identifiers
@@ -62,7 +63,7 @@ variables_part_3a <- c(
 # ---- load-data ---------------------------------------------------------------
 # ds_full <- readRDS(path_input) # catalog
 ds_full <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
-rm(path_input)
+# rm(path_input)
 # ----- bivariate_test -----_________________________________________________
 is_univariate <- grepl(pattern="^u\\d$", x=ds_full$model_number)
 is_bivariate <- grepl(pattern="^b\\d$", x=ds_full$model_number)
@@ -148,10 +149,8 @@ table(ds_full$model_number)
 
 
 ## @knitr export_dataset -----
-# saveRDS(ds,"./data/shared/ds2.rds")
-# saveRDS(ds,         "./data/shared/pc-2-parsed-results-computed_ci.rds")
-readr::write_csv(ds,"./data/shared/pc-2-parsed-results-computed_ci.csv")
-# readr::write_csv(ds,"./data/shared/pp-2-parsed-results-computed_ci.csv")
+# readr::write_csv(ds,"./data/shared/pc-2-parsed-results-computed_ci.csv")
+readr::write_csv(ds,"./data/shared/pp-2-parsed-results-computed_ci.csv")
 
 #
 # source("./scripts/make_pretty.r")

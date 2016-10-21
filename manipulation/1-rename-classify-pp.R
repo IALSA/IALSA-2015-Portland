@@ -4,7 +4,7 @@ rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
 
 # ---- load_sources ------------------------------------------------------------
 # Call `base::source()` on any repo file that defines functions needed below.  Ideally, no real operations are performed.
-
+base::source("./scripts/mplus/group-variables.R")
 # ---- load_packages -----------------------------------------------------------
 # Attach these packages so their functions don't need to be qualified: http://r-pkgs.had.co.nz/namespace.html#search-path
 library(magrittr) #Pipes
@@ -24,9 +24,8 @@ requireNamespace("testit", quietly=TRUE)
 # path_output_csv <- "./data/shared/parsed-results-mapped.csv"
 figure_path <- './manipulation/stitched_output/'
 
-path_input      <- "./data/shared/pp-0-parsed-results-raw.csv"
-path_output     <- "./data/shared/pp-1-parsed-results.rds"
-path_output_csv <- "./data/shared/pp-1-parsed-results.csv"
+path_input   <- "./data/shared/pp-0-parsed-results-raw.csv"
+path_output  <- "./data/shared/pp-1-parsed-results.csv"
 
 # ---- load_data ---------------------------------------------------------------
 ds0 <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
@@ -155,10 +154,12 @@ knitr::kable(d)
 # ---- test_cog_domain -----------------------------------------
 t <- table(ds$process_b, ds$process_b_domain);t[t==0]<-".";t
 
+# ---- standardize-names -------------------------
+ds <- rename_columns_in_catalog(ds)
 
 # ---- export_ready_data ---------------------------------------
-saveRDS(ds, path_output)
-readr::write_csv(ds,path_output_csv)
+# saveRDS(ds, path_output)
+readr::write_csv(ds,path_output)
 
 
 
