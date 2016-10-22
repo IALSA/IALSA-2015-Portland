@@ -11,6 +11,10 @@ source("./scripts/graphs/main_theme.R") # pre-sets and options for graphing
 
 # baseSize = 10
 
+########################
+##### Data   ###########
+#######################
+
 get_model_data <- function(
   folder,
   path_out,
@@ -71,6 +75,12 @@ get_model_data <- function(
     )
   head(ds)
 
+  #replace missing codes
+  ds$time[ds$time==999] <- NA
+  ds$process_a[ds$process_a==999] <- NA
+  ds$process_b[ds$process_b==999] <- NA
+
+
   # Compute predictions from factor scores
   ds$process_a_fs <- ds$IP + (ds$SP * ds$time)
   ds$process_b_fs <- ds$IC + (ds$SC * ds$time);head(ds)
@@ -86,9 +96,7 @@ get_model_data <- function(
   table(dsL$outcome)
   table(dsL$source)
 
-  #replace missing codes
-  dsL$time[dsL$time==999] <- NA
-  dsL$value[dsL$value==999] <- NA
+
 
   head(dsL)
   dsL$age <- dsL$BAGE + dsL$time + center_age
@@ -107,15 +115,22 @@ get_model_data <- function(
 
 }
 
-
 folder <- "./data/shared/covariance-issue/annie/studies/octo/physical"
-# ls_model <- get_model_data(
-#   folder = folder
-#   ,path_out ="b1_female_aehplus_grip_gait.out"
-#   ,center_age = 70
-# )
+ls_model <- get_model_data(
+  folder = folder
+  # ,path_out ="b1_female_aehplus_grip_gait.out"
+  # ,path_out ="b1_female_aehplus_pef_gait.out"
+  ,path_out ="b1_female_aehplus_grip_pef.out"
+  ,center_age = 70
+)
 # head(ls_model$data)
 # t(ls_model$coefs)
+
+
+########################
+##### Scatter###########
+#######################
+
 
 proto_scatter <- function(
   d,
@@ -270,13 +285,56 @@ factor_score_scatter <- function(
 }
 # factor_score_scatter(ls_model)
 
-ls_model <- get_model_data(
-  folder = folder
-  # ,path_out ="b1_female_aehplus_grip_gait.out"
-  # ,path_out ="b1_female_aehplus_pef_gait.out"
-  ,path_out ="b1_female_aehplus_grip_pef.out"
-  ,center_age = 70
-)
+
+
 factor_score_scatter(ls_model)
+
+########################
+##### Lines ############
+#######################
+
+proto_line <- function(
+  ls,
+  x,
+  y,
+  outcome_name,
+  fill
+){
+  # x="time"
+  # y="value"
+  # outcome_name="process_a"
+  # fill="wave"
+  (subgroup <- ls_model$coefs$subgroup)
+
+  d <- ls_model$data %>%
+    dplyr::mutate(
+      wave = factor(wave)
+    )
+  # compute min and max to harmonize the graphs
+  d_obs <- d %>% dplyr::filter(source == "observed", outcome == outcome_name)
+  d_fs  <- d %>% dplyr::filter(source == "fscores", outcome  == outcome_name)
+  (ymax <- ceiling( max( max(d_obs$value,na.rm = T)*1.05, max(d_fs$value,na.rm = T)*1.05 )))
+  (ymin <- floor( min( min(d_obs$value,na.rm = T)*.95, min(d_fs$value,na.rm = T)*.95 ) ))
+
+  g <- ggplot2::ggplot(d,aes_string(x=x, y=y, fill=fill, group="id")) +
+    geom_smooth(method="lm", color=alpha("grey70",.6), na.rm=T, se=F) +
+    geom_point(shape=21,size=3, alpha=.4)+
+    geom_smooth(aes(group=subgroup),method="loess", color="blue", size=1, fill="gray80", alpha=.3, na.rm=T) +
+    scale_y_continuous(limits=c(ymin, ymax))+
+    # geom_line()+
+    # facet_grid(outcome~.)+
+    # scale_fill_gradient2(low="#7fbf7b", mid="#f7f7f7", high="#af8dc3", space="Lab")+
+    main_theme
+  g
+}
+
+proto_line(
+  ls = ls_model,
+  x = "age",
+  y = "value",
+  outcome_name = "process_b",
+  fill = "wave"
+)
+
 
 
