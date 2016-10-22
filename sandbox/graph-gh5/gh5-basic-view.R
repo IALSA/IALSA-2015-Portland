@@ -29,16 +29,16 @@ path_gh5 <- "./data/shared/covariance-issue/annie/studies/octo/physical/b1_femal
 # ---- level-slope-scatter ------------------
 
 dsL <- get_gh5_data(
-  path_gh5 = "./data/shared/covariance-issue/annie/studies/octo/physical/b1_female_aehplus_grip_gait.gh5"
+  path_gh5 = "./data/shared/covariance-issue/annie/studies/octo/physical/b1_male_aehplus_pef_gait.gh5"
   ,study_name = "octo"
-  ,subgroup = "female"
+  ,subgroup = "male"
   ,model_type = "aehplus"
-  ,process_a = "grip"
+  ,process_a = "pef"
   ,process_b = "gait"
 )
 
-proto_scatter(dsL, "s_grip", "s_gait")
-proto_scatter(dsL, "i_grip", "i_gait")
+# g <- proto_scatter(dsL, "s_grip", "s_gait");g
+# g <- proto_scatter(dsL, "i_grip", "i_gait");g
 
 int_slope(dsL)
 
