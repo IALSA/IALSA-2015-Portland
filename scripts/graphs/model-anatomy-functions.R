@@ -1,5 +1,7 @@
 # rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it's above the first chunk.
 
+# source("./scripts/mplus/model-components.R")
+
 # source("./scripts/mplus/group-variables.R")
 # source("./scripts/mplus/extraction-functions.R")
 # source("./scripts/mplus/mplus.R")
@@ -27,6 +29,7 @@ get_model_data <- function(
 
   model_parsed <- collect_result(path_out)
   model_parsed <- rename_columns_in_catalog(model_parsed)
+  # model_parsed_spread <- distill_one_spread(model_parsed)
 
   (path_gh5 <- gsub(".out",".gh5", model_parsed$file_path))
   testit::assert(".gh5 file does not exist", file.exists(path_gh5) )

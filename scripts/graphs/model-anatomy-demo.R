@@ -4,15 +4,15 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 #Load any source files that contain/define functions, but that don't load any other types of variables
 #   into memory.  Avoid side effects and don't pollute the global environment.
 # load functions to assemble the tables
-source("./scripts/table-assembly-functions.R")
-source("./scripts/mplus/group-variables.R")
-source("./scripts/mplus/extraction-functions.R")
-source("./scripts/mplus/mplus.R")
+
+
+source("./scripts/mplus/extraction-functions.R")   # parsing functions
+source("./scripts/mplus/mplus.R")                  # working with Mplus object
+
+source("./scripts/graphs/model-anatomy-functions.R")# treating single outputs
+source("./scripts/table-assembly-functions.R")      # working with compound catalogs
+
 source("./scripts/graphs/main_theme.R") # pre-sets and options for graphing
-
-
-source("./scripts/graphs/model-anatomy-functions.R")
-
 # ---- load-packages -----------------------------------------------------------
 library(magrittr) #Pipes
 library(ggplot2)
@@ -27,8 +27,6 @@ options(show.signif.stars=T) #Turn off the annotations on p-values
 
 
 # ---- load-data ---------------------------------------------------------------
-catalog <- read.csv("./data/shared/pp-2-parsed-results-computed_ci.csv", header = T,  stringsAsFactors=FALSE)
-catalog_spread <- readRDS("./data/shared/derived/pp-spread.rds")
 # template for structuring tables for reporting individual models
 stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v8.csv")
 
@@ -37,7 +35,15 @@ stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v8.csv")
 # define the folder where your models are stored
 folder <- "./data/shared/covariance-issue/annie/studies/octo/physical"
 model_name <- "b1_female_aehplus_grip_pef.out"
-(path_out <- file.path(folder,model_name))
+(path_out <- file.path(folder,model_name)) # path to the output file (.out)
+
+# ---- make-catalog ----------------------------
+model_parsed <- collect_result(path_out)
+model_parsed <- rename_columns_in_catalog(model_parsed) # see group-variables.R
+t(model_parsed)
+model_parsed_spread <- distill_one_spread(model_parsed, model_components)
+
+
 # extract the data for a single model
 ls_model <- get_model_data(
    path_out = path_out
@@ -49,7 +55,7 @@ t(ls_model$coefs)   # estimated parameters parsed from the .out file
 
 
 # simple scatter
-g <- proto_scatter(ls_model$data, "fs_level_a", "fs_level_b");g
+g <- proto_scatter(ls_model, "fs_level_a", "fs_level_b");g
 # combined into a complex scatter
 factor_score_scatter(ls_model)
 
