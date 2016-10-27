@@ -1,0 +1,43 @@
+type,process,full_name,label
+Fixed Effect,a,a_gamma_00,Level
+Fixed Effect,a,a_gamma_10,Slope 
+Fixed Effect,a,a_gamma_01,Level * age
+Fixed Effect,a,a_gamma_02,Level * education
+Fixed Effect,a,a_gamma_03,Level * height
+Fixed Effect,a,a_gamma_04,Level * smoking
+Fixed Effect,a,a_gamma_05,Level * cardio
+Fixed Effect,a,a_gamma_06,Level * diabetes
+Fixed Effect,a,a_gamma_11,Slope * age
+Fixed Effect,a,a_gamma_12,Slope * education
+Fixed Effect,a,a_gamma_13,Slope * height
+Fixed Effect,a,a_gamma_14,Slope * smoking
+Fixed Effect,a,a_gamma_15,Slope * cardio
+Fixed Effect,a,a_gamma_16,Slope * diabetes
+Fixed Effect,b,b_gamma_00,Level
+Fixed Effect,b,b_gamma_10,Slope
+Fixed Effect,b,b_gamma_01,Level * age
+Fixed Effect,b,b_gamma_02,Level * education
+Fixed Effect,b,b_gamma_03,Level * height
+Fixed Effect,b,b_gamma_04,Level * smoking
+Fixed Effect,b,b_gamma_05,Level * cardio
+Fixed Effect,b,b_gamma_06,Level * diabetes
+Fixed Effect,b,b_gamma_11,Slope * age
+Fixed Effect,b,b_gamma_12,Slope * education
+Fixed Effect,b,b_gamma_13,Slope * height
+Fixed Effect,b,b_gamma_14,Slope * smoking
+Fixed Effect,b,b_gamma_15,Slope * cardio
+Fixed Effect,b,b_gamma_16,Slope * diabetes
+Variance,a,aa_tau_00,Var (Level)
+Variance,a,aa_tau_11,Var (Slope)
+Variance,a,a_sigma_00,Var (Residual)
+Covariance,a,aa_tau_01,"Covar (Level, Slope)"
+Variance,b,bb_tau_00,Var (Level)
+Variance,b,bb_tau_11,Var (Slope)
+Variance,b,b_sigma_00,Var (Residual)
+Covariance,b,bb_tau_10,"Covar (Level, Slope)"
+Covariance,ab,ab_tau_00,Covar (Levels)
+Covariance,ab,ab_tau_11,Covar (Slopes)
+Covariance,ab,ab_sigma_00,Covar (Residuals)
+Correlation,er,er_tau_00,Corr (Levels)
+Correlation,er,er_tau_11,Corr (Slopes)
+Correlation,er,er_sigma_00,Corr (Residuals)
