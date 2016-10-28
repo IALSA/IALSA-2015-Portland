@@ -28,10 +28,10 @@ options(show.signif.stars=T) #Turn off the annotations on p-values
 
 # ---- load-data ---------------------------------------------------------------
 # template for structuring tables for reporting individual models
-stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v8.csv")
+stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v9.csv")
 
 
-# ----  ---------------------------
+# ---- get-path ---------------------------
 # define the folder where your models are stored
 folder <- "./data/shared/covariance-issue/annie/studies/octo/physical"
 model_name <- "b1_female_aehplus_grip_pef.out"
@@ -44,10 +44,14 @@ t(model_parsed)
 model_parsed_spread <- distill_one_spread(model_parsed, model_components)
 
 
+# ---- make-table ----------------------------
+proto_table(model_parsed,model_components,pretty=T)
+
+
 # extract the data for a single model
 ls_model <- get_model_data(
    path_out = path_out
-  ,center_age = 70
+  ,center_age = 70 # location at which baseline age was centered
 )
 names(ls_model)
 head(ls_model$data) # data recovered from .gh5 file

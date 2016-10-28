@@ -818,7 +818,10 @@ rename_columns_in_catalog <- function(
 # ---- distill-one-spread --------------------------------
 # function to distill a single spread
 # to transform the results of a single model into a spread form
-distill_one_spread <- function(model_parsed, model_components){
+distill_one_spread <- function(
+  model_parsed,
+  model_components
+){
   regex_general <- "^(a|b|aa|bb|ab|er|cr)_(\\w+)_(\\d{2})_(est|se|wald|pval|ci95_lower|ci95_upper)$"
   ds_long <- model_parsed %>%
     dplyr::select_(
@@ -833,7 +836,7 @@ distill_one_spread <- function(model_parsed, model_components){
       )
     )  %>%
     dplyr::filter( !is.na(process_a) & !is.na(process_b) ) %>%  # remove univariate models
-    # dplyr::filter( model_number %in% c("b1"))    # same as above, remove univariate models, but more restrictive
+    dplyr::filter( model_number %in% c("b1")) %>%    # same as above, remove univariate models, but more restrictive
     dplyr::filter( process_a!="nophys" & process_b!="nocog" ) %>% # remove univariate models
     tidyr::gather_("g", "value", c(
       model_components[["fixed"]]
@@ -852,6 +855,7 @@ distill_one_spread <- function(model_parsed, model_components){
 
   ds_spread <- ds_long %>%
     tidyr::spread(key=stat, value=value)
+  ds_spread[,c("est","se","wald","pval")] <- lapply(ds_spread[,c("est","se","wald","pval")], as.numeric)
   return(ds_spread)
 }
 # Usage:
