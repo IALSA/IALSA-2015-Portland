@@ -33,12 +33,14 @@ requireNamespace("testit") #For asserting conditions meet expected patterns.
 # point to the folders with results for physical-cognitive track
 eas   <- list.files(file.path(pathStudies,"eas/physical-cognitive/without-errors"),full.names=T, recursive=T, pattern="out$")
 elsa  <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-hrs   <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=F, pattern="out$")
+hrs   <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 ilse  <- list.files(file.path(pathStudies,"ilse/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 lasa  <- list.files(file.path(pathStudies,"lasa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive/without-errors/"),full.names=T, recursive=F, pattern="out$")
-octo  <- list.files(file.path(pathStudies,"octo/physical-cognitive/Final/"),full.names=T, recursive=T, pattern="out$")
 map   <- list.files(file.path(pathStudies,"map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+# nas   <- list.files(file.path(pathStudies,"nas/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive/without-errors/"),full.names=T, recursive=F, pattern="out$")
+# obas  <- list.files(file.path(pathStudies,"obas/physical-cognitive/"),full.names=T, recursive=T, pattern="out$")
+octo  <- list.files(file.path(pathStudies,"octo/physical-cognitive/Final/"),full.names=T, recursive=T, pattern="out$")
 satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive/"),full.names=T, recursive=F, pattern="out$")
 
 list_pc <-  list("eas" = eas,
@@ -81,7 +83,7 @@ list_pp[["elsa"]]
 
 # ---- dto ---------------------------------------------------------
 # studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
-# path_model_output <- list_pc[["eas"]][23]
+path_model_output <- list_pc[["eas"]][23]
 # path_model_output <- list_pc[["elsa"]][1]
 # path_model_output <- list_pc[["hrs"]][13]
 # path_model_output <- list_pc[["ilse"]][1]
@@ -164,9 +166,9 @@ collect_study <- function(study, selected_results){
 }
 
 # ---- dto ---------------------------------------------------------
-collect_study(study="eas", selected_results)
+# collect_study(study="eas", selected_results)
 # collect_study(study="elsa", selected_results)
-# collect_study(study="hrs", selected_results)
+collect_study(study="hrs", selected_results)
 # collect_study(study="ilse", selected_results)
 # collect_study(study="lasa", selected_results)
 # collect_study(study="map", selected_results)

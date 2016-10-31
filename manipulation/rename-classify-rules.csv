@@ -18,9 +18,11 @@ cognitive,fluency,fluency,verbalfluencytest,fluency,fluency,fluency,unverified,T
 cognitive,fluency,fluency,fas,fas,f-a-s phonemic words,fas,literal,FALSE,,,http://www.clinicalneuropsychiatry.org/pdf/03abreu.pdf
 cognitive,memory,semantic memory,delayedrecall,word_de,word list delayed,word_de,alt to wordlistrecall,FALSE,cflisd,elsa,
 cognitive,memory,semantic memory,delayedrecall,word_de,word list delayed,word_de,alt to wordlistrecall,FALSE,recall04d,hrs,
+cognitive,memory,semantic memory,recalld,word_de,word list delayed,word_de,alt to wordlistrecall,FALSE,,,
 cognitive,memory,semantic memory,wordlistdelay,word_de,word list delayed,word_de,literal,FALSE,,,
 cognitive,memory,short-term memory,wordlistimmed,word_im,word list immediate,word_im,literal,FALSE,,,
 cognitive,memory,short-term memory,immediaterecall,word_im,word list immediate,word_im,alternative to wordlistimmed,FALSE,,,
+cognitive,memory,short-term memory,recalli,word_im,word list immediate,word_im,alternative to wordlistimmed,FALSE,,,
 cognitive,memory,semantic memory,wordlistrecog,word_rec,word list recognition,word_rec,literal,FALSE,,,
 cognitive,memory,short-term memory,figurememory,fig_mem,figure memory,fig_mem,literal,FALSE,,,
 cognitive,memory,episodic memory,mirrecall,mir,memory in reality,mir,literal,FALSE,,,
