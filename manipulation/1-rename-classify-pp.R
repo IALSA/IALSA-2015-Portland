@@ -5,6 +5,7 @@ rm(list=ls(all=TRUE))  #Clear the variables from previous runs.
 # ---- load_sources ------------------------------------------------------------
 # Call `base::source()` on any repo file that defines functions needed below.  Ideally, no real operations are performed.
 base::source("./scripts/mplus/group-variables.R")
+base::source("./scripts/mplus/extraction-functions.R") # includes renaming
 # ---- load_packages -----------------------------------------------------------
 # Attach these packages so their functions don't need to be qualified: http://r-pkgs.had.co.nz/namespace.html#search-path
 library(magrittr) #Pipes

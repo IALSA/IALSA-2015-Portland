@@ -17,8 +17,8 @@ requireNamespace("DT")
 requireNamespace("scales")
 
 # ---- load-globals ---------------------
-path_input <- './data/shared/pc-1-parsed-results.csv'
-# path_input <- './data/shared/pp-1-parsed-results.csv'
+# path_input <- './data/shared/pc-1-parsed-results.csv'
+path_input <- './data/shared/pp-1-parsed-results.csv'
 
 ##########
 # PART 1 : model identifiers
@@ -149,8 +149,8 @@ table(ds_full$model_number)
 
 
 ## @knitr export_dataset -----
-readr::write_csv(ds,"./data/shared/pc-2-parsed-results-computed_ci.csv")
-# readr::write_csv(ds,"./data/shared/pp-2-parsed-results-computed_ci.csv")
+# readr::write_csv(ds,"./data/shared/pc-2-parsed-results-computed_ci.csv")
+readr::write_csv(ds,"./data/shared/pp-2-parsed-results-computed_ci.csv")
 
 #
 # source("./scripts/make_pretty.r")
