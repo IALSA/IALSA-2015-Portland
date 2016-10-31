@@ -103,42 +103,42 @@ print_body <- function(
       ,model_type_set = model_type_set#c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
       ,print_format = print_format
     )
-    cat("\n## Summary","\n")
-    cat("\n",paste0("Study = _",toupper(study),"_; Gender = _",gender,"_; Process (a) = _",outcome,"_\n"))
-    cat("\n Computed correlations:\n")
-    print_coefficients(
-      d = catalog
-      ,study_name    = study
-      ,subgroup      = gender
-      ,pivot         = outcome
-      ,target_names  = c(
-        "er_tau_00_est"
-        ,"er_tau_11_est"
-        ,"er_sigma_00_se")
-      ,target_labels = c(
-        "Correlation of Levels"
-        ,"Correlation of Slopes"
-        ,"Correlation of Residuals")
-      # ,processes_b_  = processes_b
-    )
-    cat("\n")
-    cat("P-values for corresponding covariances: \n")
-    print_coefficients(
-      d              = catalog         # contains model solutions, row = model
-      ,study_name    = study           # name of study
-      ,subgroup      = gender          # gender : male or female
-      ,pivot         = outcome         # fixed; name of process 1
-      ,target_names  = c(              # coefficients of interest
-           "er_tau_00_pval"
-        ,  "er_tau_11_pval"
-        ,"er_sigma_00_pval"
-      )
-      ,target_labels = c(              # labels for the coefs of interest
-        "Correlation of Levels"
-        ,"Correlation of Slopes"
-        ,"Correlation of  Residuals"
-      )
-    )
+    # cat("\n## Summary","\n")
+    # cat("\n",paste0("Study = _",toupper(study),"_; Gender = _",gender,"_; Process (a) = _",outcome,"_\n"))
+    # cat("\n Computed correlations:\n")
+    # print_coefficients(
+    #   d = catalog
+    #   ,study_name    = study
+    #   ,subgroup      = gender
+    #   ,pivot         = outcome
+    #   ,target_names  = c(
+    #     "er_tau_00_est"
+    #     ,"er_tau_11_est"
+    #     ,"er_sigma_00_se")
+    #   ,target_labels = c(
+    #     "Correlation of Levels"
+    #     ,"Correlation of Slopes"
+    #     ,"Correlation of Residuals")
+    #   # ,processes_b_  = processes_b
+    # )
+    # cat("\n")
+    # cat("P-values for corresponding covariances: \n")
+    # print_coefficients(
+    #   d              = catalog         # contains model solutions, row = model
+    #   ,study_name    = study           # name of study
+    #   ,subgroup      = gender          # gender : male or female
+    #   ,pivot         = outcome         # fixed; name of process 1
+    #   ,target_names  = c(              # coefficients of interest
+    #        "er_tau_00_pval"
+    #     ,  "er_tau_11_pval"
+    #     ,"er_sigma_00_pval"
+    #   )
+    #   ,target_labels = c(              # labels for the coefs of interest
+    #     "Correlation of Levels"
+    #     ,"Correlation of Slopes"
+    #     ,"Correlation of  Residuals"
+    #   )
+    # )
   }
 }
 

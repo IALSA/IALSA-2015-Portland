@@ -15,8 +15,8 @@ path_satsa <- base::file.path("./reports/anatomy-physical/anatomy-satsa.Rmd")
 
 #  Define groups of reports
 allReports<- c(
-   # path_eas
-  path_elsa
+   path_eas
+  # path_elsa
   # path_hrs
   # ,path_ilse
   # path_lasa
