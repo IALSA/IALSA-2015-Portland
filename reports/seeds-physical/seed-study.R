@@ -30,7 +30,7 @@ catalog <- read.csv("./data/shared/pp-2-parsed-results-computed_ci.csv", header 
 catalog_spread <- readRDS("./data/shared/derived/pp-spread.rds")
 # template for structuring tables for reporting individual models
 # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v7.csv")
-stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v8.csv")
+stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v10.csv")
 
 # ---- explorations -------------------------------------------
 catalog_spread %>% view_options(

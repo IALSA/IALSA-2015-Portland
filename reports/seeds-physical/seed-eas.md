@@ -138,6 +138,48 @@ NULL
  </thead>
 <tbody>
   <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> 16.31 (16.92)     .34 </td>
+   <td style="text-align:right;"> 98.73 (59.72)     .10 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> 0.46 (0.74)     .53 </td>
+   <td style="text-align:right;"> 0.12 (2.96)     .97 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> 0.51 (1.84)     .78 </td>
+   <td style="text-align:right;"> 11.15 (9.83)     .26 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> 0.17 (0.17)     .31 </td>
+   <td style="text-align:right;"> 0.29 (0.15)     .05 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> 0.38 (0.50)     .44 </td>
+   <td style="text-align:right;"> 0.03 (0.80)     .97 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> 0.03 (0.10)     .78 </td>
+   <td style="text-align:right;"> 0.11 (0.10)     .26 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> a </td>
    <td style="text-align:left;"> Level </td>
    <td style="text-align:right;"> 18.51 (1.61)    &lt;.01 </td>
@@ -355,13 +397,6 @@ NULL
    <td style="text-align:right;"> 824.17(1157.35) </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -1.38 (1.16)     .23 </td>
-   <td style="text-align:right;"> -343.08 (186.70)     .07 </td>
-   <td style="text-align:right;"> -172.23(241.62) </td>
-  </tr>
-  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Var (Level) </td>
    <td style="text-align:right;"> 343.99 (79.40)    &lt;.01 </td>
@@ -383,31 +418,17 @@ NULL
    <td style="text-align:right;"> --- </td>
   </tr>
   <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -1.38 (1.16)     .23 </td>
+   <td style="text-align:right;"> -343.08 (186.70)     .07 </td>
+   <td style="text-align:right;"> -172.23(241.62) </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Covar (Level, Slope) </td>
    <td style="text-align:right;"> -13.23 (17.91)     .46 </td>
    <td style="text-align:right;"> -1.33 (1.22)     .28 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 16.31 (16.92)     .34 </td>
-   <td style="text-align:right;"> 98.73 (59.72)     .10 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> 0.46 (0.74)     .53 </td>
-   <td style="text-align:right;"> 0.12 (2.96)     .97 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 0.51 (1.84)     .78 </td>
-   <td style="text-align:right;"> 11.15 (9.83)     .26 </td>
    <td style="text-align:right;"> --- </td>
   </tr>
   <tr>
@@ -488,6 +509,36 @@ NULL
   </tr>
  </thead>
 <tbody>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> 16.31 (16.92)     .34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> 0.46 (0.74)     .53 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> 0.51 (1.84)     .78 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> 0.17 (0.17)     .31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> 0.38 (0.50)     .44 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> 0.03 (0.10)     .78 </td>
+  </tr>
   <tr>
    <td style="text-align:center;"> a </td>
    <td style="text-align:left;"> Level </td>
@@ -644,11 +695,6 @@ NULL
    <td style="text-align:right;"> 5.79 (0.52)    &lt;.01 </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -1.38 (1.16)     .23 </td>
-  </tr>
-  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Var (Level) </td>
    <td style="text-align:right;"> 343.99 (79.40)    &lt;.01 </td>
@@ -664,24 +710,14 @@ NULL
    <td style="text-align:right;"> 60.52 (8.03)    &lt;.01 </td>
   </tr>
   <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -1.38 (1.16)     .23 </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Covar (Level, Slope) </td>
    <td style="text-align:right;"> -13.23 (17.91)     .46 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 16.31 (16.92)     .34 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> 0.46 (0.74)     .53 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 0.51 (1.84)     .78 </td>
   </tr>
   <tr>
    <td style="text-align:center;"> \ </td>
@@ -743,6 +779,36 @@ NULL
   </tr>
  </thead>
 <tbody>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> 98.73 (59.72)     .10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> 0.12 (2.96)     .97 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> 11.15 (9.83)     .26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> 0.29 (0.15)     .05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> 0.03 (0.80)     .97 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> 0.11 (0.10)     .26 </td>
+  </tr>
   <tr>
    <td style="text-align:center;"> a </td>
    <td style="text-align:left;"> Level </td>
@@ -899,11 +965,6 @@ NULL
    <td style="text-align:right;"> 1642.54 (106.77)    &lt;.01 </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -343.08 (186.70)     .07 </td>
-  </tr>
-  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Var (Level) </td>
    <td style="text-align:right;"> 24.96 (5.37)    &lt;.01 </td>
@@ -919,24 +980,14 @@ NULL
    <td style="text-align:right;"> 5.78 (0.52)    &lt;.01 </td>
   </tr>
   <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -343.08 (186.70)     .07 </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Covar (Level, Slope) </td>
    <td style="text-align:right;"> -1.33 (1.22)     .28 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 98.73 (59.72)     .10 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> 0.12 (2.96)     .97 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 11.15 (9.83)     .26 </td>
   </tr>
   <tr>
    <td style="text-align:center;"> \ </td>
@@ -986,148 +1037,6 @@ NULL
 </tbody>
 </table>
 
-## Summary 
-
- Study = _EAS_; Gender = _female_; Process (a) = _grip_
-
- Computed correlations:
-
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.17 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.29 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.38 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.03 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.10 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.10 </td>
-  </tr>
-</tbody>
-</table>
-
-
-P-values for corresponding covariances: 
-
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.31 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.05 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.44 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.97 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of  Residuals </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.78 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of  Residuals </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.26 </td>
-  </tr>
-</tbody>
-</table>
-
-
 # male 
 
  Gender = _male_; Model type: _aehplus_;  Process (a) = _grip_; Process (b): *gait*, *pef*
@@ -1142,6 +1051,48 @@ P-values for corresponding covariances:
   </tr>
  </thead>
 <tbody>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> 23.89 (37.41)     .52 </td>
+   <td style="text-align:right;"> 24.83 (258.35)     .92 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> 0.18 (2.28)     .94 </td>
+   <td style="text-align:right;"> 1.16 (32.16)     .97 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> 7.76 (10.60)     .46 </td>
+   <td style="text-align:right;"> 65.69 (48.29)     .17 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> 0.32 (0.45)     .48 </td>
+   <td style="text-align:right;"> 0.04 (0.45)     .92 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> 0.24 (2.86)     .93 </td>
+   <td style="text-align:right;"> 0.08 (2.22)     .97 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> 0.21 (0.25)     .39 </td>
+   <td style="text-align:right;"> 0.24 (0.17)     .15 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
   <tr>
    <td style="text-align:center;"> a </td>
    <td style="text-align:left;"> Level </td>
@@ -1360,13 +1311,6 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 2121.19(2975.34) </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -2.27 (3.72)     .54 </td>
-   <td style="text-align:right;"> -839.47 (1678.46)     .62 </td>
-   <td style="text-align:right;"> -420.87(591.99) </td>
-  </tr>
-  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Var (Level) </td>
    <td style="text-align:right;"> 213.71 (102.29)     .04 </td>
@@ -1388,31 +1332,17 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> --- </td>
   </tr>
   <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -2.27 (3.72)     .54 </td>
+   <td style="text-align:right;"> -839.47 (1678.46)     .62 </td>
+   <td style="text-align:right;"> -420.87(591.99) </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Covar (Level, Slope) </td>
    <td style="text-align:right;"> -0.00 (19.88)     .99 </td>
    <td style="text-align:right;"> -2.26 (3.64)     .54 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 23.89 (37.41)     .52 </td>
-   <td style="text-align:right;"> 24.83 (258.35)     .92 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> 0.18 (2.28)     .94 </td>
-   <td style="text-align:right;"> 1.16 (32.16)     .97 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 7.76 (10.60)     .46 </td>
-   <td style="text-align:right;"> 65.69 (48.29)     .17 </td>
    <td style="text-align:right;"> --- </td>
   </tr>
   <tr>
@@ -1493,6 +1423,36 @@ P-values for corresponding covariances:
   </tr>
  </thead>
 <tbody>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> 23.89 (37.41)     .52 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> 0.18 (2.28)     .94 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> 7.76 (10.60)     .46 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> 0.32 (0.45)     .48 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> 0.24 (2.86)     .93 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> 0.21 (0.25)     .39 </td>
+  </tr>
   <tr>
    <td style="text-align:center;"> a </td>
    <td style="text-align:left;"> Level </td>
@@ -1649,11 +1609,6 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 17.30 (4.73)    &lt;.01 </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -2.27 (3.72)     .54 </td>
-  </tr>
-  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Var (Level) </td>
    <td style="text-align:right;"> 213.71 (102.29)     .04 </td>
@@ -1669,24 +1624,14 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 75.38 (31.90)     .02 </td>
   </tr>
   <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -2.27 (3.72)     .54 </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Covar (Level, Slope) </td>
    <td style="text-align:right;"> -0.00 (19.88)     .99 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 23.89 (37.41)     .52 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> 0.18 (2.28)     .94 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 7.76 (10.60)     .46 </td>
   </tr>
   <tr>
    <td style="text-align:center;"> \ </td>
@@ -1748,6 +1693,36 @@ P-values for corresponding covariances:
   </tr>
  </thead>
 <tbody>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> 24.83 (258.35)     .92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> 1.16 (32.16)     .97 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> 65.69 (48.29)     .17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> 0.04 (0.45)     .92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> 0.08 (2.22)     .97 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> 0.24 (0.17)     .15 </td>
+  </tr>
   <tr>
    <td style="text-align:center;"> a </td>
    <td style="text-align:left;"> Level </td>
@@ -1904,11 +1879,6 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 4225.07 (1115.18)    &lt;.01 </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -839.47 (1678.46)     .62 </td>
-  </tr>
-  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Var (Level) </td>
    <td style="text-align:right;"> 26.60 (19.35)     .17 </td>
@@ -1924,24 +1894,14 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 17.71 (3.45)    &lt;.01 </td>
   </tr>
   <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -839.47 (1678.46)     .62 </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Covar (Level, Slope) </td>
    <td style="text-align:right;"> -2.26 (3.64)     .54 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 24.83 (258.35)     .92 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> 1.16 (32.16)     .97 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 65.69 (48.29)     .17 </td>
   </tr>
   <tr>
    <td style="text-align:center;"> \ </td>
@@ -1990,148 +1950,6 @@ P-values for corresponding covariances:
   </tr>
 </tbody>
 </table>
-
-## Summary 
-
- Study = _EAS_; Gender = _male_; Process (a) = _grip_
-
- Computed correlations:
-
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.32 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.04 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.24 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.08 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.25 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.17 </td>
-  </tr>
-</tbody>
-</table>
-
-
-P-values for corresponding covariances: 
-
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.48 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.92 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.93 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.97 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of  Residuals </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.39 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of  Residuals </td>
-   <td style="text-align:right;"> pef </td>
-   <td style="text-align:right;"> 0.15 </td>
-  </tr>
-</tbody>
-</table>
-
 
 # pef : Available models 
 
@@ -2217,6 +2035,42 @@ NULL
   </tr>
  </thead>
 <tbody>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> 67.25 (237.19)     .78 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> -10.98 (12.32)     .37 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> 29.78 (37.80)     .43 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> 0.05 (0.19)     .78 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> -0.55 (0.52)     .28 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> 0.10 (0.12)     .44 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
   <tr>
    <td style="text-align:center;"> a </td>
    <td style="text-align:left;"> Level </td>
@@ -2404,12 +2258,6 @@ NULL
    <td style="text-align:right;"> 1650.99(NA) </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -351.80 (181.86)     .05 </td>
-   <td style="text-align:right;"> -351.80(NA) </td>
-  </tr>
-  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Var (Level) </td>
    <td style="text-align:right;"> 347.82 (88.89)    &lt;.01 </td>
@@ -2428,27 +2276,15 @@ NULL
    <td style="text-align:right;"> --- </td>
   </tr>
   <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -351.80 (181.86)     .05 </td>
+   <td style="text-align:right;"> -351.80(NA) </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Covar (Level, Slope) </td>
    <td style="text-align:right;"> -15.13 (19.84)     .45 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 67.25 (237.19)     .78 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> -10.98 (12.32)     .37 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 29.78 (37.80)     .43 </td>
    <td style="text-align:right;"> --- </td>
   </tr>
   <tr>
@@ -2520,6 +2356,36 @@ NULL
   </tr>
  </thead>
 <tbody>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> 67.25 (237.19)     .78 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> -10.98 (12.32)     .37 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> 29.78 (37.80)     .43 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> 0.05 (0.19)     .78 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> -0.55 (0.52)     .28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> 0.10 (0.12)     .44 </td>
+  </tr>
   <tr>
    <td style="text-align:center;"> a </td>
    <td style="text-align:left;"> Level </td>
@@ -2676,11 +2542,6 @@ NULL
    <td style="text-align:right;"> 1650.99 (113.82)    &lt;.01 </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -351.80 (181.86)     .05 </td>
-  </tr>
-  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Var (Level) </td>
    <td style="text-align:right;"> 347.82 (88.89)    &lt;.01 </td>
@@ -2696,24 +2557,14 @@ NULL
    <td style="text-align:right;"> 60.03 (6.89)    &lt;.01 </td>
   </tr>
   <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -351.80 (181.86)     .05 </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Covar (Level, Slope) </td>
    <td style="text-align:right;"> -15.13 (19.84)     .45 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 67.25 (237.19)     .78 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> -10.98 (12.32)     .37 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 29.78 (37.80)     .43 </td>
   </tr>
   <tr>
    <td style="text-align:center;"> \ </td>
@@ -2763,118 +2614,6 @@ NULL
 </tbody>
 </table>
 
-## Summary 
-
- Study = _EAS_; Gender = _female_; Process (a) = _pef_
-
- Computed correlations:
-
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.05 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> -0.55 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.12 </td>
-  </tr>
-</tbody>
-</table>
-
-
-P-values for corresponding covariances: 
-
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.78 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.28 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of  Residuals </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.44 </td>
-  </tr>
-</tbody>
-</table>
-
-
 # male 
 
  Gender = _male_; Model type: _aehplus_;  Process (a) = _pef_; Process (b): *gait*
@@ -2888,6 +2627,42 @@ P-values for corresponding covariances:
   </tr>
  </thead>
 <tbody>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> -64.30 (734.65)     .93 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> -7.98 (29.04)     .78 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> 101.38 (125.95)     .42 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> -0.04 (0.44)     .93 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> -0.45 (1.86)     .81 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> 0.18 (0.21)     .40 </td>
+   <td style="text-align:right;"> --- </td>
+  </tr>
   <tr>
    <td style="text-align:center;"> a </td>
    <td style="text-align:left;"> Level </td>
@@ -3075,12 +2850,6 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 4251.44(NA) </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -826.29 (1495.31)     .58 </td>
-   <td style="text-align:right;"> -826.29(NA) </td>
-  </tr>
-  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Var (Level) </td>
    <td style="text-align:right;"> 227.47 (127.34)     .07 </td>
@@ -3099,27 +2868,15 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> --- </td>
   </tr>
   <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -826.29 (1495.31)     .58 </td>
+   <td style="text-align:right;"> -826.29(NA) </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Covar (Level, Slope) </td>
    <td style="text-align:right;"> -3.42 (33.86)     .92 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> -64.30 (734.65)     .93 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> -7.98 (29.04)     .78 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 101.38 (125.95)     .42 </td>
    <td style="text-align:right;"> --- </td>
   </tr>
   <tr>
@@ -3191,6 +2948,36 @@ P-values for corresponding covariances:
   </tr>
  </thead>
 <tbody>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> -64.30 (734.65)     .93 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> -7.98 (29.04)     .78 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> 101.38 (125.95)     .42 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> -0.04 (0.44)     .93 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> -0.45 (1.86)     .81 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> 0.18 (0.21)     .40 </td>
+  </tr>
   <tr>
    <td style="text-align:center;"> a </td>
    <td style="text-align:left;"> Level </td>
@@ -3347,11 +3134,6 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 4251.44 (862.69)    &lt;.01 </td>
   </tr>
   <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -826.29 (1495.31)     .58 </td>
-  </tr>
-  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Var (Level) </td>
    <td style="text-align:right;"> 227.47 (127.34)     .07 </td>
@@ -3367,24 +3149,14 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 73.71 (17.69)    &lt;.01 </td>
   </tr>
   <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -826.29 (1495.31)     .58 </td>
+  </tr>
+  <tr>
    <td style="text-align:center;"> b </td>
    <td style="text-align:left;"> Covar (Level, Slope) </td>
    <td style="text-align:right;"> -3.42 (33.86)     .92 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> -64.30 (734.65)     .93 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> -7.98 (29.04)     .78 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 101.38 (125.95)     .42 </td>
   </tr>
   <tr>
    <td style="text-align:center;"> \ </td>
@@ -3434,117 +3206,6 @@ P-values for corresponding covariances:
 </tbody>
 </table>
 
-## Summary 
-
- Study = _EAS_; Gender = _male_; Process (a) = _pef_
-
- Computed correlations:
-
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> -0.04 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> -0.45 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.21 </td>
-  </tr>
-</tbody>
-</table>
-
-
-P-values for corresponding covariances: 
-
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.93 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.81 </td>
-  </tr>
-</tbody>
-</table>
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of  Residuals </td>
-   <td style="text-align:right;"> gait </td>
-   <td style="text-align:right;"> 0.40 </td>
-  </tr>
-</tbody>
-</table>
-
 
 ```
 
@@ -3565,15 +3226,15 @@ attached base packages:
 
 other attached packages:
 [1] RColorBrewer_1.1-2        dichromat_2.0-0           extrafont_0.17            rhdf5_2.16.0             
-[5] IalsaSynthesis_0.1.8.9000 MplusAutomation_0.6-4     knitr_1.14                ggplot2_2.1.0            
+[5] knitr_1.14                IalsaSynthesis_0.1.8.9000 MplusAutomation_0.6-4     ggplot2_2.1.0            
 [9] magrittr_1.5             
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.7      formatR_1.4      plyr_1.8.4       highr_0.6        zlibbioc_1.18.0  tools_3.3.1     
- [7] boot_1.3-18      digest_0.6.10    evaluate_0.10    tibble_1.2       gtable_0.2.0     lattice_0.20-34 
-[13] texreg_1.36.7    DBI_0.5-1        yaml_2.1.13      proto_0.3-10     Rttf2pt1_1.3.4   coda_0.18-1     
-[19] dplyr_0.5.0      stringr_1.1.0    htmlwidgets_0.7  DT_0.2           R6_2.2.0         rmarkdown_1.1   
-[25] gsubfn_0.6-6     extrafontdb_1.0  pander_0.6.0     tidyr_0.6.0      readr_1.0.0      scales_0.4.0    
-[31] htmltools_0.3.5  rsconnect_0.5    assertthat_0.1   testit_0.5       colorspace_1.2-7 xtable_1.8-2    
-[37] labeling_0.3     stringi_1.1.2    lazyeval_0.2.0   munsell_0.4.3   
+ [1] Rcpp_0.12.7      formatR_1.4      highr_0.6        plyr_1.8.4       zlibbioc_1.18.0  tools_3.3.1     
+ [7] boot_1.3-18      digest_0.6.10    jsonlite_1.1     evaluate_0.10    tibble_1.2       gtable_0.2.0    
+[13] lattice_0.20-34  texreg_1.36.7    DBI_0.5-1        yaml_2.1.13      proto_0.3-10     Rttf2pt1_1.3.4  
+[19] coda_0.18-1      dplyr_0.5.0      stringr_1.1.0    htmlwidgets_0.7  cowplot_0.6.3    DT_0.2          
+[25] R6_2.2.0         rmarkdown_1.1    gsubfn_0.6-6     extrafontdb_1.0  pander_0.6.0     tidyr_0.6.0     
+[31] readr_1.0.0      scales_0.4.0     htmltools_0.3.5  rsconnect_0.5    assertthat_0.1   testit_0.5      
+[37] colorspace_1.2-7 xtable_1.8-2     labeling_0.3     stringi_1.1.2    lazyeval_0.2.0   munsell_0.4.3   
 ```
