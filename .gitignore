@@ -37,6 +37,8 @@ cache/
 
 studies/*/unshared/*
 
+reports/anatomy-physical/*/*/*.png
+
 data/unshared
 
 # Dataset Exceptions
