@@ -1,4 +1,10 @@
 type,process,full_name,label
+Covariance,ab,ab_tau_00,Covar (Levels)
+Covariance,ab,ab_tau_11,Covar (Slopes)
+Covariance,ab,ab_sigma_00,Covar (Residuals)
+Correlation,er,er_tau_00,Corr (Levels)
+Correlation,er,er_tau_11,Corr (Slopes)
+Correlation,er,er_sigma_00,Corr (Residuals)
 Fixed Effect,a,a_gamma_00,Level
 Fixed Effect,a,a_gamma_10,Slope 
 Fixed Effect,a,a_gamma_01,Level * age
@@ -35,9 +41,3 @@ Variance,b,bb_tau_11,Var (Slope)
 Variance,b,b_sigma_00,Var (Residual)
 Covariance,a,aa_tau_01,"Covar (Level, Slope)"
 Covariance,b,bb_tau_10,"Covar (Level, Slope)"
-Covariance,ab,ab_tau_00,Covar (Levels)
-Covariance,ab,ab_tau_11,Covar (Slopes)
-Covariance,ab,ab_sigma_00,Covar (Residuals)
-Correlation,er,er_tau_00,Corr (Levels)
-Correlation,er,er_tau_11,Corr (Slopes)
-Correlation,er,er_sigma_00,Corr (Residuals)
