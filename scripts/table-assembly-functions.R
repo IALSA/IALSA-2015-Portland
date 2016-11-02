@@ -1,3 +1,5 @@
+# this report assembles tables for comparing models
+# it works with catalogs that include multiple models
 
 # # catalog <- readRDS("./data/shared/derived/pp-spread.rds") # physical-physical track
 # catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds") # physical-cognitive track

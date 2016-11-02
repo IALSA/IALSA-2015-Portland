@@ -578,7 +578,9 @@ get_results_fixed <- function(
 # results <- get_results_fixed()
 
 # IV.A Function to rule them all
-collect_result <- function(path){
+collect_result <- function(
+  path
+){
   # extract model idendification
   mid <- get_id(path)
   msum <- get_msum(path)
@@ -592,6 +594,8 @@ collect_result <- function(path){
   result <- get_results_random(path, mpar, result)
   result <- get_results_residual(path, mpar, result)
   result <- get_results_fixed(path, mpar, result)
+
+  # results <- rename_columns_in_catalog(result)
   return(result)
 }
 # model_parsed <- collect_result(path=path_model_output)
