@@ -1,0 +1,817 @@
+Mplus VERSION 7.4 (Mac)
+MUTHEN & MUTHEN
+11/06/2015   1:18 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: fev - symbol - male - age & education & height & diab & smoke & cardio
+
+  DATA:  File = satsa.dat;
+
+  VARIABLE: Names are
+  twinnr pairid sex01 przygup rear iage1-iage7 intakeage time1-time7 dem1-dem7
+  s_demen_onset
+  htcm wtkg qualc depr cv chd sumill eversmoke diabete
+  marital msgroup sesobj educ edugr
+  fev1_1-fev1_7 ht_1-ht_7 grip1-grip7 gait2-gait7
+  stupt_2-stupt_7 stuprt_2-stuprt_7
+  idigf_r1-idigf_r7 idigb_r1-idigb_r7 ibloc_r1-ibloc_r7 ithur_r1-ithur_r7
+  isynm_r1-isynm_r7 iinfo_r1-iinfo_r7 ianal_r1-ianal_r7 irota_r1-irota_r7
+  ifigi_r1-ifigi_r7 isymd_r1-isymd_r7 mmse7_1-mmse7_7
+  tverb1-tverb7 tspat1-tspat7 tmemo1-tmemo7 tsped1-tsped7 tpcom1-tpcom7;
+
+         MISSING are .;
+         USEVAR are  diabete eversmoke chd time1 time2 time3  time5 time6 time7
+                     p1 p2 p3  p5 p6 p7
+                     c1 c2 c3  c5 c6 c7
+                     Bage ceduc height;
+         TSCORES =   time1 time2 time3   time5 time6 time7;
+
+         USEOBSERVATIONS are  sex01 EQ 0;
+
+  Define: p1=fev1_1; p2=fev1_2; p3=fev1_3; p5=fev1_5; p6=fev1_6; p7=fev1_7;
+          c1=isymd_r1; c2=isymd_r2; c3=isymd_r3; c5=isymd_r5; c6=isymd_r6; c7=isymd_r7;
+
+          Bage=intakeage-70;   !Centered at Age 70
+          !Bagesq=(intakeage-70)**2;
+
+          Sex=0;         !0=Male
+          cEduc=educ-1;     ! center at 1 as most equivalent to 7 years
+          !SEP=SESgrp;
+          !Marstat;
+          Height=htcm-172;  !center at 172 for males and 160 for females
+          !Weight
+          !BMI
+          !SmokHist=Smoke;
+          !Alcohol;
+          !CompExp;
+          !PhysAct;
+          !BP;
+          !DepSymp;
+          !Cardio;
+          !Diab;
+          !MorbInd;
+
+          !BageSex=Bage*Sex;
+          !BageEduc=Bage*Educ;
+          !SexEduc=Sex*Educ;
+
+  ANALYSIS: TYPE = RANDOM;
+  	estimator=mlf;
+
+  MODEL:  ip sp | p1 p2 p3 p5 p6 p7 at time1 time2 time3 time5 time6 time7;
+          ic sc | c1 c2 c3 c5 c6 c7 at time1 time2 time3 time5 time6 time7;
+
+          ip sp ic sc ON Bage ceduc height diabete eversmoke chd;
+
+          p2-p7 (res_p);
+          c2-c7 (res_c);
+
+          p2 p3 p5 p6 p7 pwith c2 c3 c5 c6 c7(res_cov);
+
+          ip (v_ip); ! v - variance
+          sp (v_sp);
+          ic (v_ic);
+          sc (v_sc);
+          ip WITH sp (c_ipsp); ! c - covariance
+          ip WITH ic (c_ipic);
+          ip WITH sc (c_ipsc);
+          sp WITH ic (c_spic);
+          sp WITH sc (c_spsc);
+          ic WITH sc (c_icsc);
+
+  MODEL CONSTRAINT:
+
+          NEW r_ipic;
+          NEW r_spsc;
+          NEW r_res_pc;
+
+          r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
+          r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
+          r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+  OUTPUT: sampstat Cinterval;
+
+  PLOT: Type is Plot1 Plot2 Plot3;
+
+  SAVEDATA:
+
+          FILE IS   SATSASlopes_m_fev_symbol;
+          SAVE = FSCORES;
+
+
+
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in PLOT command
+  Note that only the first 8 characters of variable names are used in plots.
+  If variable names are not unique within the first 8 characters, problems
+  may occur.
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  47
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+fev - symbol - male - age & education & height & diab & smoke & cardio
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         299
+
+Number of dependent variables                                   12
+Number of independent variables                                  6
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P5          P6          P7
+   C1          C2          C3          C5          C6          C7
+
+Observed independent variables
+   DIABETE     EVERSMOK    CHD         BAGE        CEDUC       HEIGHT
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME5       TIME6       TIME7
+
+
+Estimator                                                      MLF
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  satsa.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            74
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P5            P6
+              ________      ________      ________      ________      ________
+ P1             0.615
+ P2             0.472         0.652
+ P3             0.452         0.562         0.656
+ P5             0.294         0.395         0.435         0.575
+ P6             0.234         0.308         0.344         0.452         0.475
+ P7             0.177         0.254         0.291         0.391         0.385
+ C1             0.602         0.532         0.515         0.318         0.251
+ C2             0.472         0.619         0.572         0.411         0.331
+ C3             0.428         0.532         0.615         0.418         0.344
+ C5             0.291         0.388         0.421         0.552         0.462
+ C6             0.241         0.314         0.355         0.462         0.472
+ C7             0.164         0.244         0.278         0.388         0.375
+ DIABETE        0.615         0.652         0.656         0.575         0.475
+ EVERSMOK       0.615         0.652         0.656         0.575         0.475
+ CHD            0.615         0.652         0.656         0.575         0.475
+ BAGE           0.615         0.652         0.656         0.575         0.475
+ CEDUC          0.615         0.652         0.656         0.575         0.475
+ HEIGHT         0.615         0.652         0.656         0.575         0.475
+
+
+           Covariance Coverage
+              P7            C1            C2            C3            C5
+              ________      ________      ________      ________      ________
+ P7             0.411
+ C1             0.191         0.709
+ C2             0.274         0.538         0.662
+ C3             0.291         0.492         0.559         0.625
+ C5             0.398         0.308         0.411         0.418         0.569
+ C6             0.391         0.261         0.341         0.355         0.472
+ C7             0.378         0.177         0.264         0.278         0.388
+ DIABETE        0.411         0.709         0.662         0.625         0.569
+ EVERSMOK       0.411         0.709         0.662         0.625         0.569
+ CHD            0.411         0.709         0.662         0.625         0.569
+ BAGE           0.411         0.709         0.662         0.625         0.569
+ CEDUC          0.411         0.709         0.662         0.625         0.569
+ HEIGHT         0.411         0.709         0.662         0.625         0.569
+
+
+           Covariance Coverage
+              C6            C7            DIABETE       EVERSMOK      CHD
+              ________      ________      ________      ________      ________
+ C6             0.488
+ C7             0.381         0.398
+ DIABETE        0.488         0.398         1.000
+ EVERSMOK       0.488         0.398         1.000         1.000
+ CHD            0.488         0.398         1.000         1.000         1.000
+ BAGE           0.488         0.398         1.000         1.000         1.000
+ CEDUC          0.488         0.398         1.000         1.000         1.000
+ HEIGHT         0.488         0.398         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              BAGE          CEDUC         HEIGHT
+              ________      ________      ________
+ BAGE           1.000
+ CEDUC          1.000         1.000
+ HEIGHT         1.000         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P5            P6
+              ________      ________      ________      ________      ________
+ 1              2.834         2.761         2.719         2.304         2.109
+
+
+           Means
+              P7            C1            C2            C3            C5
+              ________      ________      ________      ________      ________
+ 1              2.033        40.946        37.843        36.867        31.283
+
+
+           Means
+              C6            C7            DIABETE       EVERSMOK      CHD
+              ________      ________      ________      ________      ________
+ 1             27.637        28.407         0.030         0.642         0.154
+
+
+           Means
+              BAGE          CEDUC         HEIGHT
+              ________      ________      ________
+ 1             -7.261         0.706         3.749
+
+
+           Covariances
+              P1            P2            P3            P5            P6
+              ________      ________      ________      ________      ________
+ P1             0.568
+ P2             0.541         0.577
+ P3             0.538         0.552         0.633
+ P5             0.573         0.594         0.614         0.770
+ P6             0.546         0.567         0.596         0.638         0.826
+ P7             0.583         0.599         0.604         0.652         0.696
+ C1             4.472         4.317         4.552         4.002         4.535
+ C2             5.201         5.101         5.025         5.090         5.607
+ C3             5.442         5.111         5.190         5.538         5.367
+ C5             6.184         6.060         5.739         6.054         6.212
+ C6             7.464         7.084         7.593         8.006         7.733
+ C7             7.257         6.966         6.967         7.308         7.837
+ DIABETE       -0.021        -0.021        -0.014        -0.023        -0.004
+ EVERSMOK       0.028         0.014         0.018         0.012         0.009
+ CHD           -0.056        -0.058        -0.059        -0.033        -0.043
+ BAGE          -3.447        -3.321        -3.370        -3.851        -4.036
+ CEDUC          0.147         0.148         0.129         0.137         0.117
+ HEIGHT         2.088         2.208         2.175         2.165         2.218
+
+
+           Covariances
+              P7            C1            C2            C3            C5
+              ________      ________      ________      ________      ________
+ P7             0.826
+ C1             4.735       155.706
+ C2             5.598       137.444       161.360
+ C3             6.032       151.953       158.583       204.474
+ C5             6.988       139.238       159.203       177.622       197.416
+ C6             8.069       155.624       170.546       198.314       196.055
+ C7             8.450       134.063       158.070       175.932       183.209
+ DIABETE       -0.025        -0.149        -0.110        -0.132        -0.275
+ EVERSMOK       0.042         0.516         0.629         0.363         0.454
+ CHD           -0.070        -0.637        -0.566        -0.569        -0.509
+ BAGE          -4.071       -55.304       -59.837       -67.475       -75.659
+ CEDUC          0.183         4.320         4.686         5.432         5.956
+ HEIGHT         2.146        24.656        29.192        30.979        32.514
+
+
+           Covariances
+              C6            C7            DIABETE       EVERSMOK      CHD
+              ________      ________      ________      ________      ________
+ C6           254.323
+ C7           214.467       226.154
+ DIABETE       -0.296        -0.065         0.029
+ EVERSMOK       0.350         0.642        -0.003         0.230
+ CHD           -0.733        -0.713         0.012        -0.008         0.130
+ BAGE         -93.648       -89.117         0.165        -0.762         0.246
+ CEDUC          5.179         5.416         0.002         0.012        -0.045
+ HEIGHT        39.752        39.515         0.054         0.181        -0.152
+
+
+           Covariances
+              BAGE          CEDUC         HEIGHT
+              ________      ________      ________
+ BAGE          66.838
+ CEDUC         -0.953         0.964
+ HEIGHT       -15.960         1.391        40.027
+
+
+           Correlations
+              P1            P2            P3            P5            P6
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.945         1.000
+ P3             0.897         0.913         1.000
+ P5             0.867         0.891         0.879         1.000
+ P6             0.798         0.821         0.825         0.800         1.000
+ P7             0.851         0.868         0.836         0.818         0.842
+ C1             0.475         0.455         0.459         0.365         0.400
+ C2             0.543         0.529         0.497         0.457         0.486
+ C3             0.505         0.470         0.456         0.441         0.413
+ C5             0.584         0.568         0.513         0.491         0.487
+ C6             0.621         0.585         0.599         0.572         0.534
+ C7             0.640         0.610         0.582         0.554         0.574
+ DIABETE       -0.162        -0.160        -0.102        -0.154        -0.023
+ EVERSMOK       0.077         0.039         0.046         0.030         0.021
+ CHD           -0.208        -0.210        -0.205        -0.103        -0.132
+ BAGE          -0.559        -0.535        -0.518        -0.537        -0.543
+ CEDUC          0.198         0.199         0.166         0.160         0.131
+ HEIGHT         0.438         0.459         0.432         0.390         0.386
+
+
+           Correlations
+              P7            C1            C2            C3            C5
+              ________      ________      ________      ________      ________
+ P7             1.000
+ C1             0.417         1.000
+ C2             0.485         0.867         1.000
+ C3             0.464         0.852         0.873         1.000
+ C5             0.547         0.794         0.892         0.884         1.000
+ C6             0.557         0.782         0.842         0.870         0.875
+ C7             0.618         0.714         0.827         0.818         0.867
+ DIABETE       -0.158        -0.070        -0.051        -0.054        -0.114
+ EVERSMOK       0.096         0.086         0.103         0.053         0.067
+ CHD           -0.214        -0.141        -0.124        -0.110        -0.100
+ BAGE          -0.548        -0.542        -0.576        -0.577        -0.659
+ CEDUC          0.205         0.353         0.376         0.387         0.432
+ HEIGHT         0.373         0.312         0.363         0.342         0.366
+
+
+           Correlations
+              C6            C7            DIABETE       EVERSMOK      CHD
+              ________      ________      ________      ________      ________
+ C6             1.000
+ C7             0.894         1.000
+ DIABETE       -0.109        -0.025         1.000
+ EVERSMOK       0.046         0.089        -0.032         1.000
+ CHD           -0.127        -0.131         0.196        -0.049         1.000
+ BAGE          -0.718        -0.725         0.118        -0.195         0.083
+ CEDUC          0.331         0.367         0.013         0.025        -0.127
+ HEIGHT         0.394         0.415         0.050         0.060        -0.067
+
+
+           Correlations
+              BAGE          CEDUC         HEIGHT
+              ________      ________      ________
+ BAGE           1.000
+ CEDUC         -0.119         1.000
+ HEIGHT        -0.309         0.224         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -6544.560
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P1                    2.715      -0.132       0.700    0.54%       2.100      2.600      2.800
+             184.000       0.512      -0.003       4.600    1.09%       3.000      3.300
+     P2                    2.743      -0.360       0.570    0.51%       2.150      2.610      2.800
+             195.000       0.529       0.040       4.550    0.51%       2.950      3.350
+     P3                    2.720      -0.230       0.700    0.51%       2.100      2.600      2.760
+             196.000       0.573      -0.050       4.530    0.51%       2.890      3.360
+     P5                    2.606      -0.192       0.440    0.58%       1.920      2.390      2.585
+             172.000       0.619      -0.295       4.490    0.58%       2.780      3.330
+     P6                    2.501      -0.182       0.460    0.70%       1.760      2.260      2.570
+             142.000       0.605      -0.617       4.290    0.70%       2.760      3.300
+     P7                    2.537      -0.122       0.770    0.81%       1.950      2.370      2.490
+             123.000       0.484      -0.464       4.130    0.81%       2.750      3.140
+     C1                   38.557      -0.324       5.000    0.47%      28.000     37.000     39.500
+             212.000     143.454      -0.062      66.000    0.47%      42.000     47.000
+     C2                   38.409      -0.229       6.000    0.51%      29.000     36.000     38.000
+             198.000     136.060      -0.192      71.000    0.51%      42.000     49.000
+     C3                   37.824      -0.138       7.000    0.53%      25.000     35.000     39.000
+             187.000     171.236      -0.576      74.000    0.53%      42.000     50.000
+     C5                   36.576      -0.325       3.000    0.59%      27.000     34.000     36.000
+             170.000     151.362      -0.064      69.000    0.59%      40.000     47.000
+     C6                   35.144      -0.195       8.000    0.68%      22.000     33.000     35.000
+             146.000     154.671      -0.815      61.000    0.68%      40.000     46.000
+     C7                   37.941      -0.386       8.000    0.84%      28.000     36.000     38.000
+             119.000     122.240      -0.305      60.000    0.84%      41.000     49.000
+     DIABETE               0.030       5.500       0.000   96.99%       0.000      0.000      0.000
+             299.000       0.029      28.253       1.000    3.01%       0.000      0.000
+     EVERSMOKE             0.642      -0.593       0.000   35.79%       0.000      1.000      1.000
+             299.000       0.230      -1.648       1.000   64.21%       1.000      1.000
+     CHD                   0.154       1.919       0.000   84.62%       0.000      0.000      0.000
+             299.000       0.130       1.682       1.000   15.38%       0.000      0.000
+     BAGE                 -7.261       0.145     -27.605    0.33%     -15.299     -8.997     -6.716
+             299.000      66.838      -0.356      17.816    0.33%      -4.736     -0.339
+     CEDUC                 0.706       1.188       0.000   58.19%       0.000      0.000      0.000
+             299.000       0.964       0.176       3.000    9.03%       1.000      1.000
+     HEIGHT                3.749       0.356     -10.000    0.33%      -2.000      1.000      2.000
+             299.000      40.027      -0.295      22.000    0.33%       5.000     10.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       43
+
+Loglikelihood
+
+          H0 Value                       -4050.210
+
+Information Criteria
+
+          Akaike (AIC)                    8186.419
+          Bayesian (BIC)                  8345.539
+          Sample-Size Adjusted BIC        8209.169
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.043      0.006     -7.545      0.000
+    CEDUC              0.044      0.042      1.047      0.295
+    HEIGHT             0.034      0.007      4.878      0.000
+    DIABETE           -0.430      0.268     -1.604      0.109
+    EVERSMOKE         -0.093      0.083     -1.131      0.258
+    CHD               -0.270      0.119     -2.262      0.024
+
+ SP         ON
+    BAGE               0.000      0.000     -0.079      0.937
+    CEDUC              0.000      0.002     -0.067      0.946
+    HEIGHT             0.000      0.000      0.028      0.978
+    DIABETE            0.017      0.034      0.485      0.628
+    EVERSMOKE         -0.002      0.006     -0.264      0.792
+    CHD                0.004      0.007      0.602      0.547
+
+ IC         ON
+    BAGE              -0.693      0.076     -9.110      0.000
+    CEDUC              3.647      0.642      5.682      0.000
+    HEIGHT             0.229      0.097      2.352      0.019
+    DIABETE           -0.682      5.475     -0.125      0.901
+    EVERSMOKE         -0.471      1.278     -0.369      0.712
+    CHD               -1.199      1.967     -0.610      0.542
+
+ SC         ON
+    BAGE              -0.031      0.006     -5.405      0.000
+    CEDUC              0.028      0.042      0.659      0.510
+    HEIGHT             0.006      0.006      1.022      0.307
+    DIABETE           -0.051      0.528     -0.097      0.923
+    EVERSMOKE         -0.125      0.089     -1.404      0.160
+    CHD                0.000      0.142     -0.002      0.998
+
+ IP       WITH
+    SP                -0.001      0.002     -0.642      0.521
+    IC                 0.964      0.408      2.361      0.018
+    SC                 0.029      0.024      1.204      0.229
+
+ SP       WITH
+    IC                -0.022      0.027     -0.827      0.408
+    SC                 0.000      0.001      0.245      0.806
+
+ IC       WITH
+    SC                -0.834      0.422     -1.974      0.048
+
+ P2       WITH
+    C2                 0.019      0.086      0.225      0.822
+
+ P3       WITH
+    C3                 0.019      0.086      0.225      0.822
+
+ P5       WITH
+    C5                 0.019      0.086      0.225      0.822
+
+ P6       WITH
+    C6                 0.019      0.086      0.225      0.822
+
+ P7       WITH
+    C7                 0.019      0.086      0.225      0.822
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    P7                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    C6                 0.000      0.000    999.000    999.000
+    C7                 0.000      0.000    999.000    999.000
+    IP                 2.499      0.075     33.484      0.000
+    SP                -0.040      0.007     -5.735      0.000
+    IC                32.727      1.152     28.412      0.000
+    SC                -0.916      0.086    -10.626      0.000
+
+ Residual Variances
+    P1                 0.018      0.012      1.504      0.133
+    P2                 0.098      0.005     20.457      0.000
+    P3                 0.098      0.005     20.457      0.000
+    P5                 0.098      0.005     20.457      0.000
+    P6                 0.098      0.005     20.457      0.000
+    P7                 0.098      0.005     20.457      0.000
+    C1                23.561      4.783      4.926      0.000
+    C2                23.669      1.162     20.366      0.000
+    C3                23.669      1.162     20.366      0.000
+    C5                23.669      1.162     20.366      0.000
+    C6                23.669      1.162     20.366      0.000
+    C7                23.669      1.162     20.366      0.000
+    IP                 0.301      0.033      9.024      0.000
+    SP                 0.000      0.000      3.225      0.001
+    IC                76.397      9.711      7.867      0.000
+    SC                 0.072      0.028      2.590      0.010
+
+New/Additional Parameters
+    R_IPIC             0.201      0.082      2.463      0.014
+    R_SPSC             0.066      0.267      0.247      0.805
+    R_RES_PC           0.013      0.056      0.224      0.822
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.646E-07
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IP       ON
+    BAGE            -0.057      -0.054      -0.052      -0.043      -0.033      -0.032      -0.028
+    CEDUC           -0.064      -0.038      -0.025       0.044       0.113       0.126       0.152
+    HEIGHT           0.016       0.020       0.022       0.034       0.045       0.047       0.052
+    DIABETE         -1.119      -0.954      -0.870      -0.430       0.011       0.095       0.260
+    EVERSMOKE       -0.306      -0.255      -0.229      -0.093       0.042       0.069       0.119
+    CHD             -0.576      -0.503      -0.466      -0.270      -0.074      -0.036       0.037
+
+ SP       ON
+    BAGE            -0.001      -0.001      -0.001       0.000       0.001       0.001       0.001
+    CEDUC           -0.006      -0.005      -0.004       0.000       0.004       0.005       0.006
+    HEIGHT          -0.001      -0.001      -0.001       0.000       0.001       0.001       0.001
+    DIABETE         -0.072      -0.051      -0.040       0.017       0.073       0.084       0.105
+    EVERSMOKE       -0.016      -0.013      -0.011      -0.002       0.008       0.010       0.013
+    CHD             -0.014      -0.009      -0.007       0.004       0.015       0.018       0.022
+
+ IC       ON
+    BAGE            -0.889      -0.842      -0.818      -0.693      -0.568      -0.544      -0.497
+    CEDUC            1.994       2.389       2.591       3.647       4.703       4.905       5.300
+    HEIGHT          -0.022       0.038       0.069       0.229       0.389       0.420       0.480
+    DIABETE        -14.784     -11.413      -9.688      -0.682       8.324      10.048      13.419
+    EVERSMOKE       -3.763      -2.976      -2.573      -0.471       1.631       2.034       2.821
+    CHD             -6.265      -5.054      -4.435      -1.199       2.037       2.656       3.867
+
+ SC       ON
+    BAGE            -0.046      -0.042      -0.041      -0.031      -0.022      -0.020      -0.016
+    CEDUC           -0.081      -0.055      -0.042       0.028       0.097       0.110       0.136
+    HEIGHT          -0.010      -0.006      -0.004       0.006       0.016       0.018       0.022
+    DIABETE         -1.411      -1.086      -0.920      -0.051       0.817       0.984       1.309
+    EVERSMOKE       -0.356      -0.301      -0.273      -0.125       0.022       0.050       0.105
+    CHD             -0.365      -0.278      -0.233       0.000       0.233       0.277       0.364
+
+ IP       WITH
+    SP              -0.006      -0.005      -0.004      -0.001       0.002       0.002       0.003
+    IC              -0.088       0.164       0.293       0.964       1.636       1.765       2.016
+    SC              -0.033      -0.018      -0.011       0.029       0.069       0.076       0.091
+
+ SP       WITH
+    IC              -0.091      -0.074      -0.066      -0.022       0.022       0.030       0.047
+    SC              -0.003      -0.002      -0.002       0.000       0.003       0.003       0.004
+
+ IC       WITH
+    SC              -1.922      -1.662      -1.529      -0.834      -0.139      -0.006       0.254
+
+ P2       WITH
+    C2              -0.202      -0.149      -0.122       0.019       0.160       0.187       0.240
+
+ P3       WITH
+    C3              -0.202      -0.149      -0.122       0.019       0.160       0.187       0.240
+
+ P5       WITH
+    C5              -0.202      -0.149      -0.122       0.019       0.160       0.187       0.240
+
+ P6       WITH
+    C6              -0.202      -0.149      -0.122       0.019       0.160       0.187       0.240
+
+ P7       WITH
+    C7              -0.202      -0.149      -0.122       0.019       0.160       0.187       0.240
+
+ Intercepts
+    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P7               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C7               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IP               2.307       2.353       2.376       2.499       2.622       2.645       2.691
+    SP              -0.057      -0.053      -0.051      -0.040      -0.028      -0.026      -0.022
+    IC              29.760      30.469      30.832      32.727      34.621      34.984      35.694
+    SC              -1.138      -1.085      -1.057      -0.916      -0.774      -0.747      -0.694
+
+ Residual Variances
+    P1              -0.013      -0.005      -0.002       0.018       0.037       0.041       0.048
+    P2               0.086       0.089       0.090       0.098       0.106       0.108       0.111
+    P3               0.086       0.089       0.090       0.098       0.106       0.108       0.111
+    P5               0.086       0.089       0.090       0.098       0.106       0.108       0.111
+    P6               0.086       0.089       0.090       0.098       0.106       0.108       0.111
+    P7               0.086       0.089       0.090       0.098       0.106       0.108       0.111
+    C1              11.242      14.187      15.694      23.561      31.429      32.936      35.881
+    C2              20.676      21.391      21.757      23.669      25.581      25.947      26.663
+    C3              20.676      21.391      21.757      23.669      25.581      25.947      26.663
+    C5              20.676      21.391      21.757      23.669      25.581      25.947      26.663
+    C6              20.676      21.391      21.757      23.669      25.581      25.947      26.663
+    C7              20.676      21.391      21.757      23.669      25.581      25.947      26.663
+    IP               0.215       0.235       0.246       0.301       0.356       0.366       0.387
+    SP               0.000       0.000       0.000       0.000       0.001       0.001       0.001
+    IC              51.382      57.362      60.422      76.397      92.372      95.431     101.412
+    SC               0.000       0.018       0.026       0.072       0.118       0.127       0.144
+
+New/Additional Parameters
+    R_IPIC          -0.009       0.041       0.067       0.201       0.336       0.361       0.412
+    R_SPSC          -0.621      -0.457      -0.373       0.066       0.505       0.589       0.753
+    R_RES_PC        -0.133      -0.098      -0.080       0.013       0.105       0.123       0.158
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ 1              2.852         0.178        -0.039         0.016        40.685
+
+
+           Means
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ 1              3.440        -0.729         0.231
+
+
+           Covariances
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             0.509
+ IP_SE          0.005         0.009
+ SP             0.000         0.000         0.000
+ SP_SE         -0.001         0.000         0.000         0.000
+ IC             4.438         0.023        -0.023        -0.011       123.651
+ IC_SE          0.004         0.043         0.000         0.001        -0.096
+ SC             0.150         0.003         0.000         0.000         1.479
+ SC_SE         -0.004         0.001         0.000         0.000        -0.060
+
+
+           Covariances
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          0.853
+ SC             0.009         0.091
+ SC_SE          0.013        -0.002         0.001
+
+
+           Correlations
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             1.000
+ IP_SE          0.079         1.000
+ SP            -0.035         0.009         1.000
+ SP_SE         -0.350         0.316         0.083         1.000
+ IC             0.559         0.022        -0.181        -0.314         1.000
+ IC_SE          0.007         0.500         0.044         0.447        -0.009
+ SC             0.697         0.095         0.051        -0.322         0.440
+ SC_SE         -0.258         0.416         0.108         0.893        -0.238
+
+
+           Correlations
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          1.000
+ SC             0.031         1.000
+ SC_SE          0.636        -0.238         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores)
+  Scatterplots (sample values, estimated factor scores)
+  Latent variable distribution plots
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    SATSASlopes_m_fev_symbol
+
+  Order and format of variables
+
+    P1             F10.3
+    P2             F10.3
+    P3             F10.3
+    P5             F10.3
+    P6             F10.3
+    P7             F10.3
+    C1             F10.3
+    C2             F10.3
+    C3             F10.3
+    C5             F10.3
+    C6             F10.3
+    C7             F10.3
+    DIABETE        F10.3
+    EVERSMOK       F10.3
+    CHD            F10.3
+    BAGE           F10.3
+    CEDUC          F10.3
+    HEIGHT         F10.3
+    TIME1          F10.3
+    TIME2          F10.3
+    TIME3          F10.3
+    TIME5          F10.3
+    TIME6          F10.3
+    TIME7          F10.3
+    IP             F10.3
+    IP_SE          F10.3
+    SP             F10.3
+    SP_SE          F10.3
+    IC             F10.3
+    IC_SE          F10.3
+    SC             F10.3
+    SC_SE          F10.3
+
+  Save file format
+    32F10.3
+
+  Save file record length    10000
+
+
+     Beginning Time:  13:18:54
+        Ending Time:  13:18:56
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen
