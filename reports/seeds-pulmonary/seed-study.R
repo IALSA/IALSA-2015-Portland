@@ -34,12 +34,12 @@ stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v8.csv")
 
 # ---- explorations -------------------------------------------
 catalog_spread %>% view_options(
-   study_name_ ="eas"
+   study_name_ ="nas"
   ,full_id     = T
-  ,subgroups   = c("female")
+  # ,subgroups   = c("female")
   ,model_types = c("aehplus")
-  ,processes_a = "pef"
-  ,processes_b = "symbol"
+  # ,processes_a = "pef"
+  # ,processes_b = "symbol"
 )
 
 
@@ -189,6 +189,12 @@ outcome <- "fev"
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)
 
+# ---- nas ---------------------------------------------------------
+study <- 'nas'
+outcome <- "fev"
+
+print_header(catalog_spread)
+print_body(catalog_spread, catalog)
 
 # ---- satsa ---------------------------------------------------------
 study <- 'satsa'
