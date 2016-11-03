@@ -83,9 +83,9 @@ list_pp[["elsa"]]
 
 # ---- dto ---------------------------------------------------------
 # studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
-path_model_output <- list_pc[["eas"]][23]
+# path_model_output <- list_pc[["eas"]][23]
 # path_model_output <- list_pc[["elsa"]][1]
-# path_model_output <- list_pc[["hrs"]][13]
+path_model_output <- list_pc[["hrs"]][13]
 # path_model_output <- list_pc[["ilse"]][1]
 # path_model_output <- list_pc[["lasa"]][1]
 # path_model_output <- list_pc[["map"]][116]

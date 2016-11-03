@@ -119,7 +119,7 @@ ds <- ds_full %>%
 
 # ---- select-pulmonary ------------------------------------
 ds <- ds %>%
-  dplyr::filter(process_a %in% c("fev","fev100", "pef", "pek")) %>%
+  dplyr::filter(process_a %in% c("fev","fev100", "pef", "pek"))
 
 # ---- select-gait ------------------------------------
 ds <- ds %>%
