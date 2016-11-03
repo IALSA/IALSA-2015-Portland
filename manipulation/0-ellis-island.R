@@ -37,7 +37,7 @@ hrs   <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T
 ilse  <- list.files(file.path(pathStudies,"ilse/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 lasa  <- list.files(file.path(pathStudies,"lasa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 map   <- list.files(file.path(pathStudies,"map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-# nas   <- list.files(file.path(pathStudies,"nas/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+nas   <- list.files(file.path(pathStudies,"nas/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive/without-errors/"),full.names=T, recursive=F, pattern="out$")
 # obas  <- list.files(file.path(pathStudies,"obas/physical-cognitive/"),full.names=T, recursive=T, pattern="out$")
 octo  <- list.files(file.path(pathStudies,"octo/physical-cognitive/Final/"),full.names=T, recursive=T, pattern="out$")
@@ -48,12 +48,13 @@ list_pc <-  list("eas" = eas,
                  "hrs" = hrs,
                  "ilse" = ilse,
                  "lasa" = lasa,
+                 "map" = map,
+                 "nas" = nas,
                  "nuage" = nuage,
                  "octo" = octo,
-                 "map" = map,
                  "satsa" = satsa)
 # Now the object contains paths to files with model outputs
-list_pc[["elsa"]]
+list_pc[["nas"]]
 
 # ---- dto ---------------------------------------------------------
 ## point to the folders with results for physical-physical track
@@ -62,9 +63,9 @@ elsa  <- list.files(file.path(pathStudies,"elsa/physical"),full.names=T, recursi
 hrs   <- list.files(file.path(pathStudies,"hrs/physical"),full.names=T, recursive=T, pattern="out$")
 ilse  <- list.files(file.path(pathStudies,"ilse/physical"),full.names=T, recursive=T, pattern="out$")
 lasa  <- list.files(file.path(pathStudies,"lasa/physical"),full.names=T, recursive=T, pattern="out$")
+map   <- list.files(file.path(pathStudies,"map/physical"),full.names=T, recursive=T, pattern="out$")
 nuage <- list.files(file.path(pathStudies,"nuage/physical"),full.names=T, recursive=F, pattern="out$")
 octo  <- list.files(file.path(pathStudies,"octo/physical"),full.names=T, recursive=T, pattern="out$")
-map   <- list.files(file.path(pathStudies,"map/physical"),full.names=T, recursive=T, pattern="out$")
 satsa <- list.files(file.path(pathStudies,"satsa/physical"),full.names=T, recursive=T, pattern="out$")
 
 list_pp <-  list("eas" = eas,
@@ -85,7 +86,7 @@ list_pp[["elsa"]]
 # studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
 # path_model_output <- list_pc[["eas"]][23]
 # path_model_output <- list_pc[["elsa"]][1]
-path_model_output <- list_pc[["hrs"]][13]
+# path_model_output <- list_pc[["hrs"]][13]
 # path_model_output <- list_pc[["ilse"]][1]
 # path_model_output <- list_pc[["lasa"]][1]
 # path_model_output <- list_pc[["map"]][116]
@@ -126,6 +127,7 @@ model_output_file_path <- list(
   "ilse"  = list_pc[["ilse"]],#[1:2],
   "lasa"  = list_pc[["lasa"]],#[1:2],
   "map"   = list_pc[["map"]],#[1:2],
+  "nas"   = list_pc[["nas"]],#[1:2],
   "nuage" = list_pc[["nuage"]],#[1:2] ,
   "octo"  = list_pc[["octo"]],#[1:2],
   "satsa" = list_pc[["satsa"]] #[1:2]
@@ -168,10 +170,11 @@ collect_study <- function(study, selected_results){
 # ---- dto ---------------------------------------------------------
 # collect_study(study="eas", selected_results)
 # collect_study(study="elsa", selected_results)
-collect_study(study="hrs", selected_results)
+# collect_study(study="hrs", selected_results)
 # collect_study(study="ilse", selected_results)
 # collect_study(study="lasa", selected_results)
 # collect_study(study="map", selected_results)
+collect_study(study="nas", selected_results)
 # collect_study(study="nuage", selected_results)
 # collect_study(study="octo", selected_results)
 # collect_study(study="satsa", selected_results)
