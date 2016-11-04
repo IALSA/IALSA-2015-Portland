@@ -52,6 +52,9 @@ read_chunk("./reports/correlation-2/correlation-2.R") #This allows knitr to call
 #Put presentation-specific code in here.  It doesn't call a chunk in the codebehind file.
 ```
 
+```{r input-phys-cog, echo=echoChunks, results='show', message=FALSE}
+```
+
 <!-- Load the datasets.   -->
 ```{r load-data, echo=echoChunks, results='show', message=FALSE, warning =FALSE}
 ```
@@ -65,6 +68,10 @@ read_chunk("./reports/correlation-2/correlation-2.R") #This allows knitr to call
 
 
 ```{r select-pulmonary, echo=echoChunks, message=TRUE,eval=T}
+```
+
+
+```{r select-phys-cog, echo=echoChunks, message=TRUE,eval=T}
 ```
 
 

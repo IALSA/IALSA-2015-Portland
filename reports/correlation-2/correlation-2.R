@@ -16,8 +16,12 @@ requireNamespace("scales")
 
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
+
+# ----- input-phys-cog -----------------
 path_input <- "./data/shared/pc-2-parsed-results-computed_ci.csv"
-# path_input <- "./data/shared/pp-2-parsed-results-computed_ci.csv"
+
+# ---- input-phys-phys -----------------------------------
+path_input <- "./data/shared/pp-2-parsed-results-computed_ci.csv"
 
 # ---- load-data ---------------------------------------------------------------
 ds_full <- readr::read_csv(path_input)
@@ -54,13 +58,13 @@ compute_in_out <- function(est, lo, hi){
 
 numformat <- function(val) { sub("^(-?)0.", "\\1.", sprintf("%.2f", val)) }
 
-dense_v1 <- function(est,se,pval){
+dense_v1 <- function(est,se,pval, star=FALSE){
   signif <- ifelse(
     pval > .1, " ", ifelse(
       (pval <=.1 & pval >.05),".",ifelse(
         (pval<=.05 & pval>.01),"*",ifelse(
           (pval<=.01 & pval>.001),"**",ifelse(
-            pval<=.001,"***",NA)
+            pval<=.001,"***"," ")
         )
       )
     )
@@ -79,6 +83,9 @@ dense_v1 <- function(est,se,pval){
   pval_pretty <- ifelse(pval_pretty=="$p$=.00", "$p$<.01", pval_pretty)       #Cap p-value at .01
   pval_pretty <- ifelse(pval_pretty=="$p$=NA" , "$p$= NA", pval_pretty)       #Pad NA with space
   dense       <- sprintf("%4s(%4s), %7s", est_pretty, se_pretty, pval_pretty)
+  if(star=="TRUE"){
+    dense <- sprintf("%4s(%4s), %7s %s",est_pretty, se_pretty, pval_pretty, signif )
+  }
   dense       <- ifelse((is.nan(est)|is.na(est)|is.infinite(est)), "---", dense)
   return(dense)
 
@@ -89,17 +96,26 @@ dense_v2 <- function(est, lo, hi){
   lo_pretty  <- numformat(lo)
   hi_pretty  <- numformat(hi)
 
-  dense <- sprintf("%4s(%4s,%4s)", est_pretty, lo_pretty, hi_pretty)
+
+  # if(star){
+  #   dense <- sprintf("%4s(%4s,%4s)%s", est_pretty, lo_pretty, hi_pretty, signif)
+  # }else{
+    dense <- sprintf("%4s(%4s,%4s)", est_pretty, lo_pretty, hi_pretty)
+  # }
   dense <- ifelse((is.nan(est)|is.na(est)|is.infinite(est)), "---", dense)
   return(dense)
 }
 
-dense_v3 <- function(est, lo, hi, signif){
+dense_v3 <- function(est, lo, hi,star=F, signif){
   est_pretty <- numformat(est)
   lo_pretty  <- numformat(lo)
   hi_pretty  <- numformat(hi)
 
-  dense <- sprintf("%4s(%4s,%4s) %s", est_pretty, lo_pretty, hi_pretty, signif)
+  if(star){
+    dense <- sprintf("%4s(%4s,%4s)%s", est_pretty, lo_pretty, hi_pretty, signif)
+  }else{
+    dense <- sprintf("%4s(%4s,%4s)", est_pretty, lo_pretty, hi_pretty)
+  }
   dense <- ifelse((is.nan(est)|is.na(est)|is.infinite(est)), "---", dense)
   return(dense)
 }
@@ -134,35 +150,30 @@ ds <- ds_full %>%
   dplyr::filter(model_number == "b1") %>%
   dplyr::mutate(
 
-    signif_levels = compute_significance(ab_tau_00_est,ab_tau_00_se, ab_tau_00_pval),
-    singif_slopes = compute_significance(ab_tau_11_est,ab_tau_11_se, ab_tau_11_pval),
-    signif_resid = compute_significance(ab_sigma_00_est,ab_sigma_00_se, ab_sigma_00_pval),
-
-    tau_levels = dense_v1(ab_tau_00_est,ab_tau_00_se, ab_tau_00_pval),
-    tau_slopes = dense_v1(ab_tau_11_est,ab_tau_11_se, ab_tau_11_pval),
-    tau_resid = dense_v1(ab_sigma_00_est,ab_sigma_00_se, ab_sigma_00_pval),
-
-    er_levels  = dense_v1(er_tau_00_est,er_tau_00_se, er_tau_00_pval),
-    er_slopes  = dense_v1(er_tau_11_est,er_tau_11_se, er_tau_11_pval),
-    er_resid  = dense_v1(er_sigma_00_est,er_sigma_00_se, er_sigma_00_pval),
-
-    cr_levels  = dense_v2(cr_levels_est, cr_levels_ci95_lo,cr_levels_ci95_hi),
-    cr_slopes  = dense_v2(cr_slopes_est, cr_slopes_ci95_lo,cr_slopes_ci95_hi),
-    cr_resid   = dense_v2(cr_resid_est,  cr_resid_ci95_lo, cr_resid_ci95_hi),
 
 
-    cr_levels_2  = dense_v3(cr_levels_est, cr_levels_ci95_lo,cr_levels_ci95_hi,signif_levels),
-    cr_slopes_2  = dense_v3(cr_slopes_est, cr_slopes_ci95_lo,cr_slopes_ci95_hi,singif_slopes),
-    cr_resid_2   = dense_v3(cr_resid_est,  cr_resid_ci95_lo, cr_resid_ci95_hi, signif_resid)
+    tau_levels = dense_v1(ab_tau_00_est,  ab_tau_00_se,     ab_tau_00_pval,   star = T),
+    tau_slopes = dense_v1(ab_tau_11_est,  ab_tau_11_se,     ab_tau_11_pval,   star = T),
+    tau_resid  = dense_v1(ab_sigma_00_est,ab_sigma_00_se,   ab_sigma_00_pval, star = T),
+    er_levels  = dense_v1(er_tau_00_est,  er_tau_00_se,     er_tau_00_pval,   star = T),
+    er_slopes  = dense_v1(er_tau_11_est,  er_tau_11_se,     er_tau_11_pval,   star = T),
+    er_resid   = dense_v1(er_sigma_00_est,er_sigma_00_se,   er_sigma_00_pval, star = T),
+
+    signif_levels = compute_significance(ab_tau_00_est,  ab_tau_00_se,   ab_tau_00_pval),
+    singif_slopes = compute_significance(ab_tau_11_est,  ab_tau_11_se,   ab_tau_11_pval),
+    signif_resid  = compute_significance(ab_sigma_00_est,ab_sigma_00_se, ab_sigma_00_pval),
+
+    cr_levels  = dense_v3(cr_levels_est, cr_levels_ci95_lo, cr_levels_ci95_hi,star = T, signif_levels),
+    cr_slopes  = dense_v3(cr_slopes_est, cr_slopes_ci95_lo, cr_slopes_ci95_hi,star = T, singif_slopes),
+    cr_resid   = dense_v3(cr_resid_est,  cr_resid_ci95_lo,  cr_resid_ci95_hi, star = T, signif_resid)
   # )
   ) %>%
   dplyr::select_(.dots = c(model_components$id,"process_b_domain", "subject_count",
                           "tau_levels", "tau_slopes","tau_resid",
                            "er_levels",  "er_slopes", "er_resid",
-                           "cr_levels",  "cr_slopes", "cr_resid",
-                           "cr_levels_2",  "cr_slopes_2", "cr_resid_2"
+                           "cr_levels",  "cr_slopes", "cr_resid"#,
+                           # "cr_levels_2",  "cr_slopes_2", "cr_resid_2"
                            ))
-
 
 # ---- select-pulmonary ------------------------------------
 ds <- ds %>%
@@ -175,6 +186,66 @@ ds <- ds %>%
 # ---- select-grip ------------------------------------
 ds <- ds %>%
   dplyr::filter(process_a %in% c("grip"))
+
+
+
+# ---- select-phys-phys --------------------
+ds <- ds %>%
+  dplyr::select(
+    study_name,
+    model_number, subgroup, model_type, process_a, process_b, subject_count,
+    tau_levels, er_levels,  #cr_levels,
+    tau_slopes, er_slopes, #cr_slopes,
+    tau_resid,  er_resid   #cr_resid
+  ) %>%
+  dplyr::arrange(process_a, process_b, study_name) %>%
+  dplyr::rename_(
+    "Study"     = "study_name",
+    "$n$"       = "subject_count",
+    "Process A"  = "process_a",
+    "Process B" = "process_b",
+
+    "Cov(Levels)"    = "tau_levels",
+    "Cov(Slopes)"    = "tau_slopes",
+    "Cov(Residuals)" = "tau_resid",
+
+    "Corr(Levels)"    = "er_levels",
+    "Corr(Slopes)"    = "er_slopes",
+    "Corr(Residuals)" = "er_resid"
+
+  )
+
+
+# ---- select-phys-cog --------------------------
+ds <- ds %>%
+  dplyr::select(
+    process_b_domain, study_name,
+    model_number, subgroup, model_type, process_a, process_b, subject_count,
+    tau_levels, cr_levels,
+    tau_slopes, cr_slopes,
+    tau_resid,  cr_resid
+  ) %>%
+  dplyr::arrange(process_b_domain,process_b) %>%
+  dplyr::rename_(
+    "domain"    = "process_b_domain",
+    "study"     = "study_name",
+    "$n$"       = "subject_count",
+    "physical"  = "process_a",
+    "cognitive" = "process_b",
+
+    "Cov(Levels)"    = "tau_levels",
+    "Cov(Slopes)"    = "tau_slopes",
+    "Cov(Residuals)" = "tau_resid",
+
+    "Corr(Levels)"    = "cr_levels",
+    "Corr(Slopes)"    = "cr_slopes",
+    "Corr(Residuals)" = "cr_resid"
+
+  )
+
+
+
+
 
 # ---- table-dynamic -----------------------------------------------------------
 
@@ -193,8 +264,7 @@ ds %>%
   dplyr::select_(.dots = c(model_components$id,"process_b_domain", "subject_count",
                           "tau_levels", "tau_slopes","tau_resid",
                            # "er_levels",  "er_slopes", "er_resid",
-                           "cr_levels_2",  "cr_slopes_2", "cr_resid_2"
-                           # "cr_levels",  "cr_slopes", "cr_resid"
+                            "cr_levels",  "cr_slopes", "cr_resid"
                            )) %>%
   DT::datatable(
     class     = 'cell-border stripe',
@@ -211,29 +281,7 @@ for(gender in c("male","female")){
   cat("\n##",gender)
   ds %>%
     dplyr::filter(subgroup %in% gender) %>%
-    dplyr::select(
-      process_b_domain, study_name,process_a, process_b, subject_count, dplyr::everything()
-    ) %>%
-    dplyr::arrange(process_b_domain,process_b) %>%
-    dplyr::rename_(
-      "domain" = "process_b_domain",
-      "study" = "study_name",
-       "$n$"                   = "subject_count",
-      "phys" = "process_a",
-      "cog"  = "process_b"
-      # "Levels\nCovariance"    = "tau_levels",
-      # "Slopes\nCovariance"    = "tau_slopes",
-      # "Residuals\nCovariance" = "tau_resid",
-
-      # "Levels\nR(est)"   = "er_levels",
-      # "Slopes\nR(est)"    = "er_slopes",
-      # "Residuals\nR(est)" = "er_resid",
-
-      # "Levels\nR(comp)"    = "cr_levels",
-      # "Slopes\nR(comp)"    = "cr_slopes",
-      # "Residuals\nR(comp)" = "cr_resid"
-    ) %>%
-    dplyr::select(-model_number, -subgroup, -model_type) %>%
+    # dplyr::select(-model_number, -subgroup, -model_type) %>%
     knitr::kable(
       format     = "pandoc",
       align      = c("l", "r", "l", "r", "c", "r","r","r","r","r")
@@ -247,42 +295,27 @@ for(gender in c("male","female")){
   cat("\n#",gender)
   ds %>%
     dplyr::filter(subgroup %in% gender) %>%
-    dplyr::select(
-      process_b_domain, study_name,process_a, process_b, subject_count,
-      tau_levels,cr_levels_2,
-      tau_slopes, cr_slopes_2,
-      tau_resid, cr_resid_2
-    ) %>%
-    dplyr::arrange(process_b_domain,process_b) %>%
-    dplyr::rename_(
-      "domain" = "process_b_domain",
-      "study" = "study_name",
-      "$n$"                   = "subject_count",
-      "phys" = "process_a",
-      "cog"  = "process_b",
-      "Cov(Levels)"    = "tau_levels",
-      "Cov(Slopes)"    = "tau_slopes",
-      "Cov(Residuals)" = "tau_resid",
-
-      # "Levels\nR(est)"   = "er_levels",
-      # "Slopes\nR(est)"    = "er_slopes",
-      # "Residuals\nR(est)" = "er_resid",
-
-      "Corr(Levels)"    = "cr_levels_2",
-      "Corr(Slopes)"    = "cr_slopes_2",
-      "Corr(Residuals)" = "cr_resid_2"
-    ) %>%
-    # dplyr::select(-model_number, -subgroup, -model_type) %>%
+    dplyr::select(-model_number, -subgroup, -model_type) %>%
     knitr::kable(
       format     = "pandoc",
-      align      = c("l", "r", "l", "r", "c", "r","l","r","l","r","l")
+      # align      = c("l", "l", "r", "l", "c", "r","l","r","l","r","l") # cognitive
+      align      = c(     "l", "r", "l", "c", "r","l","r","l","r","l") # physical
     ) %>%
     print()
 }
-# ---- dummy --------------
-# pathFile <- "./reports/correlation-2/correlation-2-pulmonary.Rmd"
-pathFile <- "./reports/correlation-2/correlation-2-gait.Rmd"
-# pathFile <- "./reports/correlation-2/correlation-2-grip.Rmd"
+# ---- publish --------------
+path_pulmonary <- "./reports/correlation-2/correlation-2-pulmonary.Rmd"
+path_gait <- "./reports/correlation-2/correlation-2-gait.Rmd"
+path_grip <- "./reports/correlation-2/correlation-2-grip.Rmd"
+path_physical <- "./reports/correlation-2/correlation-2-physical.Rmd"
+
+allReports <- c(path_pulmonary, path_grip, path_gait)
+allReports <- path_physical
+pathFilesToBuild <- c(allReports) ##########
+testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesToBuild))
+# Build the reports
+for( pathFile in pathFilesToBuild ) {
+
 rmarkdown::render(input = pathFile,
                     output_format=c(
                       # "html_document" # set print_format <- "html" in seed-study.R
@@ -291,6 +324,8 @@ rmarkdown::render(input = pathFile,
                       "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
+}
+
 
 
 

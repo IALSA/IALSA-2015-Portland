@@ -1,5 +1,5 @@
 ---
-title: 'Correlation Report #2'
+title: 'BISR: physical-physical'
 output:
   word_document:
     toc: yes
@@ -8,8 +8,6 @@ output:
     toc: yes
 date: 'Date: `r Sys.Date()`'
 ---
-
-This report contains a searchable table, followed by publication-ready tables.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
 ```{r, echo=F, message=F} 
@@ -54,6 +52,9 @@ read_chunk("./reports/correlation-2/correlation-2.R") #This allows knitr to call
 #Put presentation-specific code in here.  It doesn't call a chunk in the codebehind file.
 ```
 
+```{r input-phys-phys, echo=echoChunks, results='show', message=FALSE}
+```
+
 <!-- Load the datasets.   -->
 ```{r load-data, echo=echoChunks, results='show', message=FALSE}
 ```
@@ -65,21 +66,28 @@ read_chunk("./reports/correlation-2/correlation-2.R") #This allows knitr to call
 ```{r tweak-data, echo=echoChunks, results='show', message=FALSE}
 ```
 
-Correlation report for the pulmonary track
 
-# Dynamic Table
+The table reports the model of type 'aehplus', which include covariates *a*ge, *e*ducation, *h*eight, and binary covariates smoking history, cardiovascular disease, and diabetes. 
+
+The table reports relationships between levels, slopes, and residuals between the two processes in a given pair of outcomes. For each index, we report the covariances (raw meteric) and correlations (standardized metric). 
+
+Raw covariance are reported in the form : ` est(se)pval star`       
+where        
+- `est` is the point estimate   
+- `se` is the standard error   
+- `pval` is the p-value associated with the point estimate   
+- `star` is significance indicator of the point estimate, with  `.`, `*`, `**`, and `***` denoting significance at `.10`, `.05`, `.01`, and `.001` alpha levels, respectively  
+
+Note: cases in which correlations are not available are marked by `---`  
+
+```{r select-phys-phys, echo=echoChunks, results='show', message=FALSE}
+```
 
 ```{r table-dynamic, echo=echoChunks, message=TRUE,eval=F}
 ```
 
-# Static Tables
-The 'aehplus' model (with covariates *a*ge, *e*ducation, *h*ealth, and others) is shown for each combination of
 
-* study,
-* process, and
-* gender.
-
-```{r table-static, echo=echoChunks, message=TRUE, results='asis'}
+```{r table-static-2, echo=echoChunks, message=TRUE, results='asis'}
 ```
 
 
