@@ -1,5 +1,5 @@
 ---
-title: 'BISR: gait'
+title: 'BISR: pulmonary'
 output:
   word_document:
     toc: no
@@ -64,7 +64,7 @@ read_chunk("./reports/correlation-2/correlation-2.R") #This allows knitr to call
 ```
 
 
-```{r select-gait, echo=echoChunks, message=TRUE,eval=T}
+```{r select-pulmonary, echo=echoChunks, message=TRUE,eval=T}
 ```
 
 

@@ -1,15 +1,13 @@
 ---
-title: 'Correlation Report #2'
+title: 'BISR: gait'
 output:
   word_document:
-    toc: yes
+    toc: no
   html_document:
     keep_md: yes
     toc: yes
 date: 'Date: `r Sys.Date()`'
 ---
-
-This report contains a searchable table, followed by publication-ready tables.
 
 <!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
 ```{r, echo=F, message=F} 
@@ -55,7 +53,7 @@ read_chunk("./reports/correlation-2/correlation-2.R") #This allows knitr to call
 ```
 
 <!-- Load the datasets.   -->
-```{r load-data, echo=echoChunks, results='show', message=FALSE}
+```{r load-data, echo=echoChunks, results='show', message=FALSE, warning =FALSE}
 ```
 
 ```{r formatting-functions, echo=echoChunks, results='show', message=FALSE}
@@ -65,9 +63,6 @@ read_chunk("./reports/correlation-2/correlation-2.R") #This allows knitr to call
 ```{r tweak-data, echo=echoChunks, results='show', message=FALSE}
 ```
 
-Correlation report for the pulmonary track
-
-# Dynamic Table
 
 ```{r select-grip, echo=echoChunks, message=TRUE,eval=T}
 ```
@@ -76,14 +71,25 @@ Correlation report for the pulmonary track
 ```{r table-dynamic, echo=echoChunks, message=TRUE,eval=F}
 ```
 
-# Static Tables
-The 'aehplus' model (with covariates *a*ge, *e*ducation, *h*ealth, and others) is shown for each combination of
+The table reports the model of type 'aehplus', which include covariates *a*ge, *e*ducation, *h*eight, and binary covariates smoking history, cardiovascular disease, and diabetes. 
 
-* study,
-* process, and
-* gender.
+The table reports relationships between levels, slopes, and residuals between the two processes in a given pair of outcomes. For each index, we report the raw covariances produced by the Mplus estimation routine and the correlations with confidence intevals, computed from the estimated (co)variances using Fisher's transform.
 
-```{r table-static, echo=echoChunks, message=TRUE, results='asis'}
+Raw covariance are reported in the form : ` est(se) pval`     
+where      
+- `est` is the covariance estimate on the original metric   
+- `se` is the standard error on the original metric  
+- `pval` is the p-value associated with the raw covariance  
+
+Computed correlations are reported in the form: ` est(low, high) star`   
+where      
+- `est` is the correlation coefficient computed from raw (co)variances using Fisher transfrom   
+- `low` and `high` are the 95% confidence intervals associated with the computed correlations  
+- `star` is significance indicator associated with corresponding covariance estimate, with  `.`, `*`, `**`, and `***` indicating significance at `.10`, `.05`, `.01`, and `.001` alpha levels, respectively
+
+Note: cases in which restricted (co)variances or insufficient decimals prevent the computation of correlations are marked by `---`
+
+```{r table-static-2, echo=echoChunks, message=TRUE, results='asis'}
 ```
 
 
