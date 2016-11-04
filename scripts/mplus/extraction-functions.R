@@ -349,11 +349,12 @@ get_results_fixed <- function(
     age_ilse   <- c("BAGE")
     age_lasa   <- c("BAGE")
     age_map    <- c("BAGE")
+    age_nas    <- c("BAGE")
     age_nuage  <- c("BAGE")
     age_octo   <- c("BAGE")
     age_satsa  <- c("BAGE")
     age_ <- unique(c(age_eas, age_elsa, age_hrs, age_ilse,
-                           age_lasa, age_map, age_nuage, age_octo,age_satsa))
+                           age_lasa, age_map, age_nas, age_nuage, age_octo,age_satsa))
 
 
     ## intercept of process 1 (P) regressed on Age at baseline
@@ -388,11 +389,12 @@ get_results_fixed <- function(
     edu_ilse   <- c("EDUCNEW")
     edu_lasa   <- c("EDUC")
     edu_map    <- c("EDUC")
+    edu_nas    <- c("EDUC")
     edu_nuage  <- c("EDUC")
     edu_octo   <- c("EDUC")
     edu_satsa  <- c("CEDUC")
     education_ <- unique(c(edu_eas, edu_elsa, edu_hrs, edu_ilse,
-                    edu_lasa, edu_map, edu_nuage, edu_octo,edu_satsa))
+                    edu_lasa, edu_map, edu_nas, edu_nuage, edu_octo,edu_satsa))
 
     ## intercept of process 1 (P) regressed on EDUCATION at baseline
     (test <- model[grep("IP.ON", model$paramHeader),])
@@ -426,11 +428,12 @@ get_results_fixed <- function(
     height_ilse  <- c("HEIGHT")
     height_lasa  <- c("HEIGHTC")
     height_map   <- c("HEIGHT")
+    height_nas   <- c("HTCM1")
     height_nuage <- c("HEIGHT")
     height_octo  <- c("HEIGHTC")
     height_satsa <- c("HEIGHT")
     height_ <- unique(c(height_eas, height_elsa, height_hrs, height_ilse,
-                        height_lasa, height_map, height_nuage, height_octo,height_satsa))
+                        height_lasa, height_map, height_nas, height_nuage, height_octo,height_satsa))
 
     ## intercept of process 1 (P) regressed on HEIGHT at baseline
     (test <- model[grep("IP.ON", model$paramHeader),])
@@ -465,11 +468,13 @@ get_results_fixed <- function(
     height_ilse  <- c("SMOKER")
     height_lasa  <- c("SMOKHIST")
     height_map   <- c("SMOKHIST")
+    height_nas   <- c("SMK_FMR1")
     height_nuage <- c("SMOKHIST")
     height_octo  <- c("SMOKHIST")
     height_satsa <- c("EVERSMOKE")
     height_ <- unique(c(height_eas, height_elsa, height_hrs, height_ilse,
-                        height_lasa, height_map, height_nuage, height_octo,height_satsa))
+                        height_lasa, height_map, height_nas, height_nuage,
+                        height_octo, height_satsa))
 
     ## intercept of process 1 (P) regressed on SMOKING at baseline
     (test <- model[grep("IP.ON", model$paramHeader),])
@@ -495,7 +500,7 @@ get_results_fixed <- function(
     (test <- test[c('est', 'se', "est_se", 'pval')])
     if(dim(test)[1]!=0) {result[b_GAMMA_14] <- test}
 
-
+    # browser()
     ## GAMMA*5 = CARDIO
 
     cardio_eas   <- c("CARDIO")
@@ -504,11 +509,12 @@ get_results_fixed <- function(
     cardio_ilse  <- c("HEARTDIS")
     cardio_lasa  <- c("CARDIO")
     cardio_map   <- c("CARDIO")
+    cardio_nas   <- c("HEART_BASE")
     cardio_nuage <- c("CARDIO")
     cardio_octo  <- c("CARDIO")
     cardio_satsa <- c("CHD")
     cardio_ <- unique(c(cardio_eas, cardio_elsa, cardio_hrs, cardio_ilse,
-                        cardio_lasa, cardio_map, cardio_nuage, cardio_octo, cardio_satsa))
+                        cardio_lasa, cardio_map, cardio_nas, cardio_nuage, cardio_octo, cardio_satsa))
 
     ## intercept of process 1 (P) regressed on CARDIO at baseline
     (test <- model[grep("IP.ON", model$paramHeader),])
@@ -542,11 +548,13 @@ get_results_fixed <- function(
     diabetes_ilse  <- NULL # DOES NOT CONTAIN DIABETES
     diabetes_lasa  <- c("DIABETES")
     diabetes_map   <- c("DIAB")
+    diabetes_nas   <- c("DM_BASE")
     diabetes_nuage <- c("DIAB")
     diabetes_octo  <- c("DIABETES")
     diabetes_satsa <- c("DIABETE")
     diabetes_ <- unique(c(diabetes_eas, diabetes_elsa, diabetes_hrs, diabetes_ilse,
-                          diabetes_lasa, diabetes_map, diabetes_nuage, diabetes_octo, diabetes_satsa))
+                          diabetes_lasa, diabetes_map, diabetes_nas, diabetes_nuage,
+                          diabetes_octo, diabetes_satsa))
 
     ## intercept of process 1 (P) regressed on DIABETES at baseline
     (test <- model[grep("IP.ON", model$paramHeader),])
