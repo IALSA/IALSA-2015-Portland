@@ -18,8 +18,8 @@ requireNamespace("scales")
 
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
-# print_format <- "pandoc"
-print_format <- "html"
+print_format <- "pandoc"
+# print_format <- "html"
 model_type_standard <- "aehplus" # spread at outcome pair level
 # model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
 model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
@@ -142,6 +142,67 @@ print_body <- function(
   }
 }
 
+print_body_gender <- function(
+  catalog_spread,
+  catalog,
+  gender_value
+){
+
+  for(gender in gender_value){
+    # if(gender == "female"){
+    #   processes_b <- c("block", "digit_tot","symbol", "trailsb")
+    # }else{ # covariate sets may differ by gender, both must have the standard "aehplus"
+    #   processes_b <- c("block", "digit_tot","symbol", "trailsb") # fas would break it no standard
+    # }
+    cat("\n#",gender,"\n")
+    print_outcome_pairs(
+      d = catalog_spread
+      ,study = study#'eas'
+      ,gender = gender
+      ,outcome = outcome#"pef"
+      ,model_type_standard = model_type_standard#"aehplus" # spread at outcome pair level
+      ,model_type_set = model_type_set#c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
+      ,print_format = print_format
+    )
+    cat("\n## Summary","\n")
+    cat("\n",paste0("Study = _",toupper(study),"_; Gender = _",gender,"_; Process (a) = _",outcome,"_\n"))
+    cat("\n Computed correlations:\n")
+    print_coefficients(
+      d = catalog
+      ,study_name    = study
+      ,subgroup      = gender
+      ,pivot         = outcome
+      ,target_names  = c(
+        "cr_levels_est"
+        ,"cr_slopes_est"
+        ,"cr_resid_est")
+      ,target_labels = c(
+        "Correlation of Levels"
+        ,"Correlation of Slopes"
+        ,"Correlation of Residuals")
+      # ,processes_b_  = processes_b
+    )
+    cat("\n")
+    cat("P-values for corresponding covariances: \n")
+    print_coefficients(
+      d              = catalog         # contains model solutions, row = model
+      ,study_name    = study           # name of study
+      ,subgroup      = gender          # gender : male or female
+      ,pivot         = outcome         # fixed; name of process 1
+      ,target_names  = c(              # coefficients of interest
+        "ab_tau_00_pval"
+        ,"ab_tau_11_pval"
+        ,"ab_sigma_00_pval"
+      )
+      ,target_labels = c(              # labels for the coefs of interest
+        "Covariance of Levels"
+        ,"Covariance of Slopes"
+        ,"Covariance of  Residuals"
+      )
+    )
+  }
+}
+
 
 # ---- eas ---------------------------------------------------------
 study <- 'eas'
@@ -194,7 +255,7 @@ study <- 'nas'
 outcome <- "fev"
 
 print_header(catalog_spread)
-print_body(catalog_spread, catalog)
+print_body_gender(catalog_spread, catalog, "male")
 
 # ---- satsa ---------------------------------------------------------
 study <- 'satsa'

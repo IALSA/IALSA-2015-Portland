@@ -127,7 +127,7 @@ model_output_file_path <- list(
   "ilse"  = list_pc[["ilse"]],#[1:2],
   "lasa"  = list_pc[["lasa"]],#[1:2],
   "map"   = list_pc[["map"]],#[1:2],
-  "nas"   = list_pc[["nas"]],#[1:2],
+  "nas"   = list_pc[["nas"]],#[20]
   "nuage" = list_pc[["nuage"]],#[1:2] ,
   "octo"  = list_pc[["octo"]],#[1:2],
   "satsa" = list_pc[["satsa"]] #[1:2]

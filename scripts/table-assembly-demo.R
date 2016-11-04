@@ -19,28 +19,28 @@ source("./scripts/table-assembly-functions.R")
 
 view_options(
    d           = catalog_spread                       # transformed catalog
-  ,study_name  = c("octo")                            # name of study
+  ,study_name  = c("nas")                            # name of study
   ,model_types = c("a","ae","aeh","aehplus", "full")  # types of model (covariate set)
   ,processes_a = c("fev","fev100","pef")              # names of process 1
-  ,processes_b = c("block")                          # names of process 2
+  # ,processes_b = c("block")                          # names of process 2
   ,full_id     = TRUE
 )
 
 view_one_model(
   d           = catalog_spread,  # transformed catalog
-  study_name_ = "octo",          # name of study
-  subgroup_   = "female",        # gender: male or female
+  study_name_ = "nas",          # name of study
+  subgroup_   = "male",        # gender: male or female
   model_type_ = "aehplus",       # type of model (covariate set)
-  process_a_  = "pef",           # single measure of process 1
-  process_b_  = "block",       # single measure of process 2
+  process_a_  = "fev",           # single measure of process 1
+  process_b_  = "word_de",       # single measure of process 2
   pretty_     = FALSE            # formatting option
 )
 
 print_coefficients(
   d              = catalog         # contains model solutions, row = model
-  ,study_name    = "octo"          # name of study
-  ,subgroup      = "female"        # gender : male or female
-  ,pivot         = "pef"           # fixed; name of process 1
+  ,study_name    = "nas"          # name of study
+  ,subgroup      = "male"        # gender : male or female
+  ,pivot         = "fev"           # fixed; name of process 1
   ,target_names  = c(              # coefficients of interest
     "cr_levels_est"
     ,"cr_slopes_est"
@@ -51,24 +51,7 @@ print_coefficients(
     ,"Correlation of Slopes"
     ,"Correlation of Residuals"
     )
-)
-
-
-print_coefficients(
-  d              = catalog         # contains model solutions, row = model
-  ,study_name    = "octo"          # name of study
-  ,subgroup      = "female"        # gender : male or female
-  ,pivot         = "pef"           # fixed; name of process 1
-  ,target_names  = c(              # coefficients of interest
-    "ab_tau_00_pval"
-    ,"ab_tau_11_pval"
-    ,"ab_sigma_00_pval"
-  )
-  ,target_labels = c(              # labels for the coefs of interest
-    "Covariance of Levels"
-    ,"Covariance of Slopes"
-    ,"Covariance of  Residuals"
-  )
+  ,print_format = "pandoc"
 )
 
 
@@ -77,32 +60,32 @@ print_coefficients(
 
 ls <- pull_one_model(
    d           = catalog_spread # transformed catalog
-  ,study_name_ = "octo"         # name of study
-  ,subgroup_   = "female"       # gender : male or female
+  ,study_name_ = "nas"         # name of study
+  ,subgroup_   = "male"       # gender : male or female
   ,model_type_ = "aehplus"      # type of model (covariate set)
-  ,process_a_  = "pef"          # name of process 1
-  ,process_b_  = "block"        # name of process 2
+  ,process_a_  = "fev"          # name of process 1
+  ,process_b_  = "mmse"        # name of process 2
 )
 lapply(ls, names)
 
 
 baking_mix <- make_baking_mix_model_type(
   d = catalog_spread                         # transformed catalog
-  ,study_name_ = "octo"                      # name of study
-  ,subgroup_   = "female"                    # gender : male or female
+  ,study_name_ = "nas"                      # name of study
+  ,subgroup_   = "male"                    # gender : male or female
   ,model_type_ = c("a","ae","aeh","aehplus") # types of model to include
-  ,process_a_  = "pef"                       # name of process 1
-  ,process_b_  = "block"                     # name of process 2
+  ,process_a_  = "fev"                       # name of process 1
+  ,process_b_  = "mmse"                     # name of process 2
 )
 lapply(baking_mix, names)
 
 
 baking_mix <- make_baking_mix_process_a(
   d = catalog_spread          # transformed catalog
-  ,study_name_ = "octo"       # name of study
-  ,subgroup_   = "female"     # gender : male or female
+  ,study_name_ = "nas"       # name of study
+  ,subgroup_   = "male"     # gender : male or female
   ,model_type_ = c("aehplus") # the common model type
-  ,process_a_  = "pef"        # the stable process in pair
+  ,process_a_  = "fev"        # the stable process in pair
 )
 lapply(baking_mix, names)
 
@@ -126,11 +109,11 @@ print(slice)
 ### Convenience functions
 serve_slice_model_type(
    d            = catalog_spread
-  ,study_name   = "octo"                      # name of study
-  ,subgroup     = "female"                    # gender : male or female
+  ,study_name   = "nas"                      # name of study
+  ,subgroup     = "male"                    # gender : male or female
   ,model_type   = c("a","ae","aeh","aehplus") # compare across these models
-  ,process_a    = "pef"                       # name of process 1
-  ,process_b    = "block"                     # name of process 2
+  ,process_a    = "fev"                       # name of process 1
+  ,process_b    = "mmse"                     # name of process 2
   ,print_config = FALSE                       # should configuration be printed?
   ,mask_not     = c("a","b","ab","aa","bb")   # process components to keep
   ,info         = TRUE                        # include bivariate correlation section?
@@ -139,10 +122,10 @@ serve_slice_model_type(
 
 serve_slice_process_a(
   d             = catalog_spread
-  ,study_name   = "octo"      # name of study
-  ,subgroup     = "female"    # gender : male or female
+  ,study_name   = "nas"      # name of study
+  ,subgroup     = "male"    # gender : male or female
   ,model_type   = "aehplus"   # target model type used in comparisons
-  ,process_a    = "pef"       # fixed name of process 1
+  ,process_a    = "fev"       # fixed name of process 1
   ,print_config = FALSE       # should configuration be printed?
   ,mask_not     = c("a","aa") # process components to keep
   ,info         = TRUE        # include bivariate correlation section?
@@ -152,9 +135,9 @@ serve_slice_process_a(
 
 print_outcome_pairs(
    d = catalog_spread # transformed catalog
-  ,study               = "octo"                      # name of study
-  ,gender              = "female"                    # gender : male or female
-  ,outcome             = "pef"                       # fixed name of process 1
+  ,study               = "nas"                      # name of study
+  ,gender              = "male"                    # gender : male or female
+  ,outcome             = "fev"                       # fixed name of process 1
   ,model_type_standard = "aehplus"                   # compare this type
   ,model_type_set      = c("a","ae","aeh","aehplus") # compare across these models
 )

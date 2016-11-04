@@ -898,6 +898,7 @@ print_coefficients <- function(
   ,target_names
   ,target_labels
   # ,processes_b_
+  ,print_format = "html"
 ){
   # cat("\\n",paste0("Study = _",toupper(study_name),"_; Gender = _",subgroup_,"_; Process (a) = _",pivot,"_\\n"))
   cat("\n ")
