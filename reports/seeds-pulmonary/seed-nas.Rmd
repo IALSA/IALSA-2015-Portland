@@ -69,7 +69,7 @@ read_chunk("./reports/seeds-pulmonary/seed-study.R") #This allows knitr to call 
 ```{r print-functions, echo =echoChunks }
 ```
 
-```{r nas, echo=echoChunks, results='asis', message=FALSE}
+```{r nas, echo=echoChunks, results='asis', message=FALSE, warning=FALSE}
 ```
 
 ```{r session-info,echo=echoChunks, results='show'}
