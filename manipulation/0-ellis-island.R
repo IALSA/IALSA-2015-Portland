@@ -168,13 +168,13 @@ collect_study <- function(study, selected_results){
 }
 
 # ---- dto ---------------------------------------------------------
-# collect_study(study="eas", selected_results)
+collect_study(study="eas", selected_results)
 # collect_study(study="elsa", selected_results)
 # collect_study(study="hrs", selected_results)
 # collect_study(study="ilse", selected_results)
 # collect_study(study="lasa", selected_results)
 # collect_study(study="map", selected_results)
-collect_study(study="nas", selected_results)
+# collect_study(study="nas", selected_results)
 # collect_study(study="nuage", selected_results)
 # collect_study(study="octo", selected_results)
 # collect_study(study="satsa", selected_results)
