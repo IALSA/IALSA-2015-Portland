@@ -18,7 +18,7 @@ requireNamespace("scales")
 options(show.signif.stars=F) #Turn off the annotations on p-values
 
 # ----- input-phys-cog -----------------
-path_input <- "./data/shared/pc-2-parsed-results-computed_ci.csv"
+# path_input <- "./data/shared/pc-2-parsed-results-computed_ci.csv"
 
 # ---- input-phys-phys -----------------------------------
 path_input <- "./data/shared/pp-2-parsed-results-computed_ci.csv"
@@ -208,6 +208,40 @@ ds <- ds %>%
     "Cov(Levels)"    = "tau_levels",
     "Cov(Slopes)"    = "tau_slopes",
     "Cov(Residuals)" = "tau_resid",
+
+    "Corr(Levels)"    = "er_levels",
+    "Corr(Slopes)"    = "er_slopes",
+    "Corr(Residuals)" = "er_resid"
+
+  )
+
+# ---- select-phys-phys-short --------------------
+pulmonary_gait_pairs <- c("fev", "pef","gait","tug")
+pulmonary_grip_pairs <- c("fev","pef", "grip")
+gait_grip_pairs <- c("gait","tug","grip")
+
+d <- ds %>%
+  dplyr::select(
+    study_name,
+    model_number, subgroup, model_type, process_a, process_b, subject_count,
+     er_levels,  #cr_levels,
+     er_slopes, #cr_slopes,
+     er_resid   #cr_resid
+  ) %>%
+  dplyr::mutate(
+    pair = ifelse(
+      process_a %in% pulmonary_gait_pairs & process_b %in% pulmonary_gait_pairs,"pulmonary-gait",ifelse(
+      process_a %in% pulmonary_grip_pairs & process_b %in% pulmonary_grip_pairs,"pulmonary-grip",ifelse(
+      process_a %in% gait_grip_pairs & process_b %in% gait_grip_pairs, "gait-grip",NA
+      )
+      ))
+  ) %>%
+  dplyr::arrange(desc(pair), study_name, process_a, process_b) %>%
+  dplyr::rename_(
+    "Study"     = "study_name",
+    "$n$"       = "subject_count",
+    "Process A"  = "process_a",
+    "Process B" = "process_b",
 
     "Corr(Levels)"    = "er_levels",
     "Corr(Slopes)"    = "er_slopes",
