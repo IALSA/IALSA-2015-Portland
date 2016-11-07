@@ -86,10 +86,15 @@ Note: cases in which correlations are not available are marked by `---`
 ```{r table-dynamic, echo=echoChunks, message=TRUE,eval=F}
 ```
 
-
 ```{r table-static-2, echo=echoChunks, message=TRUE, results='asis'}
 ```
 
+
+```{r select-phys-phys-short, echo=echoChunks, results='show', message=FALSE}
+```
+
+```{r table-static-3, echo=echoChunks, message=TRUE, results='asis'}
+```
 
 
 # Session Information

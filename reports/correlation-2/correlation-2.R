@@ -190,7 +190,11 @@ ds <- ds %>%
 
 
 # ---- select-phys-phys --------------------
-ds <- ds %>%
+pulmonary_gait_pairs <- c("fev", "pef","gait","tug")
+pulmonary_grip_pairs <- c("fev","pef", "grip")
+gait_grip_pairs <- c("gait","tug","grip")
+
+d <- ds %>%
   dplyr::select(
     study_name,
     model_number, subgroup, model_type, process_a, process_b, subject_count,
@@ -198,7 +202,16 @@ ds <- ds %>%
     tau_slopes, er_slopes, #cr_slopes,
     tau_resid,  er_resid   #cr_resid
   ) %>%
-  dplyr::arrange(process_a, process_b, study_name) %>%
+  dplyr::mutate(
+    pair = ifelse(
+      process_a %in% pulmonary_gait_pairs & process_b %in% pulmonary_gait_pairs,"pulmonary-gait",ifelse(
+        process_a %in% pulmonary_grip_pairs & process_b %in% pulmonary_grip_pairs,"pulmonary-grip",ifelse(
+          process_a %in% gait_grip_pairs & process_b %in% gait_grip_pairs, "gait-grip",NA
+        )
+      ))
+  ) %>%
+  dplyr::arrange(desc(pair), study_name, process_a, process_b) %>%
+  dplyr::select(-pair) %>%
   dplyr::rename_(
     "Study"     = "study_name",
     "$n$"       = "subject_count",
@@ -237,6 +250,7 @@ d <- ds %>%
       ))
   ) %>%
   dplyr::arrange(desc(pair), study_name, process_a, process_b) %>%
+  dplyr::select(-pair) %>%
   dplyr::rename_(
     "Study"     = "study_name",
     "$n$"       = "subject_count",
@@ -283,7 +297,7 @@ ds <- ds %>%
 
 # ---- table-dynamic -----------------------------------------------------------
 
-ds %>%
+d %>%
   # dplyr::filter(process_a %in% c("fev","fev100", "pef", "pek")) %>%
   dplyr::filter(model_type == "aehplus") %>%
   dplyr::mutate(
@@ -313,7 +327,7 @@ ds %>%
 
 for(gender in c("male","female")){
   cat("\n##",gender)
-  ds %>%
+  d %>%
     dplyr::filter(subgroup %in% gender) %>%
     # dplyr::select(-model_number, -subgroup, -model_type) %>%
     knitr::kable(
@@ -327,7 +341,7 @@ for(gender in c("male","female")){
 
 for(gender in c("male","female")){
   cat("\n#",gender)
-  ds %>%
+  d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
     knitr::kable(
@@ -337,6 +351,23 @@ for(gender in c("male","female")){
     ) %>%
     print()
 }
+
+# ---- table-static-3 ------------------------------------------------------------
+
+for(gender in c("male","female")){
+  cat("\n#",gender)
+  d %>%
+    dplyr::filter(subgroup %in% gender) %>%
+    dplyr::select(-model_number, -subgroup, -model_type) %>%
+    knitr::kable(
+      format     = "pandoc",
+      # align      = c("l", "l", "r", "l", "c", "r","l","r","l","r","l") # cognitive
+      align      = c(     "l", "r", "l", "c", "l","l","l") # physical
+    ) %>%
+    print()
+}
+
+
 # ---- publish --------------
 path_pulmonary <- "./reports/correlation-2/correlation-2-pulmonary.Rmd"
 path_gait <- "./reports/correlation-2/correlation-2-gait.Rmd"
