@@ -175,17 +175,17 @@ ds <- ds_full %>%
                            # "cr_levels_2",  "cr_slopes_2", "cr_resid_2"
                            ))
 
-# ---- select-pulmonary ------------------------------------
-ds <- ds %>%
-  dplyr::filter(process_a %in% c("fev","fev100", "pef", "pek"))
-
-# ---- select-gait ------------------------------------
-ds <- ds %>%
-  dplyr::filter(process_a %in% c("gait","tug"))
-
-# ---- select-grip ------------------------------------
-ds <- ds %>%
-  dplyr::filter(process_a %in% c("grip"))
+# # ---- select-pulmonary ------------------------------------
+# ds <- ds %>%
+#   dplyr::filter(process_a %in% c("fev","fev100", "pef", "pek"))
+#
+# # ---- select-gait ------------------------------------
+# ds <- ds %>%
+#   dplyr::filter(process_a %in% c("gait","tug"))
+#
+# # ---- select-grip ------------------------------------
+# ds <- ds %>%
+#   dplyr::filter(process_a %in% c("grip"))
 
 
 

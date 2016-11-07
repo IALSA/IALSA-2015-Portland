@@ -59,17 +59,17 @@ list_pp[["elsa"]]
 
 
 model_output_file_path <- list(
-  "eas"   = list_pp[["eas"]],
-  "elsa"  = list_pp[["elsa"]], #[1:2],
-  "hrs"   = list_pp[["hrs"]], #[1:2],
-  "ilse"  = list_pp[["ilse"]],#[1:2],
-  "lasa"  = list_pp[["lasa"]],#[1:2],
-  "map"   = list_pp[["map"]],#[1:2],
+  "eas"   = list_pp[["eas"]]  ,
+  "elsa"  = list_pp[["elsa"]] , #[1:2],
+  "hrs"   = list_pp[["hrs"]]  , #[1:2],
+  "ilse"  = list_pp[["ilse"]] ,#[1:2],
+  "lasa"  = list_pp[["lasa"]] ,#[1:2],
+  "map"   = list_pp[["map"]]  ,#[1:2],
   "nuage" = list_pp[["nuage"]],#[1:2] ,
-  "octo"  = list_pp[["octo"]],#[1:2],
+  "octo"  = list_pp[["octo"]] ,#[6]
   "satsa" = list_pp[["satsa"]] #[1:2]
 )
-
+# (path = model_output_file_path[['octo']][6])
 # ---- dto ---------------------------------------------------------
 
 collect_study <- function(study, selected_results){
@@ -93,15 +93,15 @@ collect_study <- function(study, selected_results){
 }
 
 # ---- dto ---------------------------------------------------------
-# collect_study(study="eas", selected_results)
-# collect_study(study="elsa", selected_results)
-# collect_study(study="hrs", selected_results)
-# collect_study(study="ilse", selected_results)
-# collect_study(study="lasa", selected_results)
-# collect_study(study="map", selected_results)
-# collect_study(study="nuage", selected_results)
-# collect_study(study="octo", selected_results)
-# collect_study(study="satsa", selected_results)
+collect_study(study="eas", selected_results)
+collect_study(study="elsa", selected_results)
+collect_study(study="hrs", selected_results)
+collect_study(study="ilse", selected_results)
+collect_study(study="lasa", selected_results)
+collect_study(study="map", selected_results)
+collect_study(study="nuage", selected_results)
+collect_study(study="octo", selected_results)
+collect_study(study="satsa", selected_results)
 
 # ---- dto ---------------------------------------------------------
 # combine results files from each study
@@ -113,6 +113,8 @@ for(i in seq_along(combine_studies)){
   dtos[[i]] <- read.csv(combine_studies[i], header=T, stringsAsFactors = F)
 }
 results <- plyr::ldply(dtos, data.frame)
+
+# results <- results %>% dplyr::filter(study_name == "octo")
 # explore dplyr::bind_rows() for a better solution
 head(results[,c("study_name","a_GAMMA_14_est")]) # example
 
