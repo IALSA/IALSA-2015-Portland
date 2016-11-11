@@ -6,6 +6,9 @@ output:
   html_document:
     keep_md: yes
     toc: yes
+  pdf_document:
+    toc: yes
+  classoption: landscape
 date: 'Date: `r Sys.Date()`'
 ---
 

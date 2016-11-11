@@ -15,15 +15,15 @@ path_satsa <- base::file.path("./reports/seeds-physical/seed-satsa.Rmd")
 
 #  Define groups of reports
 allReports<- c(
-   path_eas
-  ,path_elsa
-  ,path_hrs
-  ,path_ilse
-  ,path_lasa
-  ,path_map
-  ,path_nuage
-  ,path_octo
-  ,path_satsa
+  #  path_eas
+  # ,path_elsa
+  path_hrs
+  # ,path_ilse
+  # ,path_lasa
+  # ,path_map
+  # ,path_nuage
+  # ,path_octo
+  # ,path_satsa
 )
 # Place report paths HERE ###########
 pathFilesToBuild <- c(allReports) ##########
@@ -35,10 +35,10 @@ for( pathFile in pathFilesToBuild ) {
   #   pathMd <- base::gsub(pattern=".Rmd$", replacement=".md", x=pathRmd)
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      "html_document" # set print_format <- "html" in seed-study.R
+                      # "html_document" # set print_format <- "html" in seed-study.R
                       #, "pdf_document"
                       # ,"md_document"
-                      # "word_document" # set print_format <- "pandoc" in seed-study.R
+                      "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
 }
