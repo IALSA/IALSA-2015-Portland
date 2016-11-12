@@ -20,8 +20,8 @@ options(show.signif.stars=F) #Turn off the annotations on p-values
 # path_input <- "./data/shared/parsed-results.rds"
 # path_input <- "./data/shared/pp-1-parsed-results.rds"
 # path_input <- "./data/shared/pc-1-parsed-results.csv"
-# path_input <- "./data/shared/pc-2-parsed-results-computed_ci.csv"
-path_input <- "./data/shared/pp-2-parsed-results-computed_ci.csv"
+path_input <- "./data/shared/pc-2-parsed-results-computed_ci.csv"
+# path_input <- "./data/shared/pp-2-parsed-results-computed_ci.csv"
 
 coefficient_of_variation <- function(x)( sd(x)/mean(x) )
 
@@ -347,8 +347,8 @@ ds_spread <- ds_no_duplicates %>%
   tidyr::spread(key=stat, value=value)# %>%
 temp <- ds_spread
 # create a csv manhole
-# readr::write_csv(ds_spread, "./data/shared/derived/pc-spread.csv")
-# saveRDS(         ds_spread, "./data/shared/derived/pc-spread.rds")
+readr::write_csv(ds_spread, "./data/shared/derived/pc-spread.csv")
+saveRDS(         ds_spread, "./data/shared/derived/pc-spread.rds")
 
-readr::write_csv(ds_spread, "./data/shared/derived/pp-spread.csv")
-saveRDS(         ds_spread, "./data/shared/derived/pp-spread.rds")
+# readr::write_csv(ds_spread, "./data/shared/derived/pp-spread.csv")
+# saveRDS(         ds_spread, "./data/shared/derived/pp-spread.rds")
