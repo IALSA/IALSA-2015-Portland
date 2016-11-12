@@ -32,7 +32,7 @@ opts_chunk$set(
 
 echoChunks <- FALSE
 options(width=120) #So the output is 50% wider than the default.
-read_chunk("./reports/correlation-2/correlation-2.R") #This allows knitr to call chunks tagged in the underlying *.R file.
+read_chunk("./reports/correlation-2/correlation-2-pc.R") #This allows knitr to call chunks tagged in the underlying *.R file.
 ```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
@@ -99,6 +99,11 @@ Note: cases in which restricted (co)variances or insufficient decimals prevent t
 ```{r table-static-2, echo=echoChunks, message=TRUE, results='asis'}
 ```
 
+```{r select-phys-cog-short, echo=echoChunks, results='show', message=FALSE}
+```
+
+```{r table-static-3, echo=echoChunks, message=TRUE, results='asis'}
+```
 
 
 # Session Information

@@ -314,12 +314,12 @@ for(gender in c("male","female")){
 
 
 # ---- publish --------------
-path_pulmonary <- "./reports/correlation-2/correlation-2-pulmonary.Rmd"
+# path_pulmonary <- "./reports/correlation-2/correlation-2-pulmonary.Rmd"
 # path_gait <- "./reports/correlation-2/correlation-2-gait.Rmd"
-# path_grip <- "./reports/correlation-2/correlation-2-grip.Rmd"
+path_grip <- "./reports/correlation-2/correlation-2-grip.Rmd"
 
 # allReports <- c(path_pulmonary, path_grip, path_gait)
-allReports <- path_pulmonary
+allReports <- path_grip
 pathFilesToBuild <- c(allReports) ##########
 testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesToBuild))
 # Build the reports
