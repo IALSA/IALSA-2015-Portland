@@ -7,6 +7,7 @@ cognitive,knowledge,semantic memory,nationaladultreadingtest,nart,reading,nart,a
 cognitive,knowledge,semantic memory,synon,synonyms,synonyms,synon,literal,TRUE,,,
 cognitive,knowledge,semantic memory,synonyms,synonyms,synonyms,synon,alternative for synon,TRUE,,,
 cognitive,knowledge,semantic memory,waisvocab,waisvocab,vocabulary,waisvoc,literal,FALSE,,,
+cognitive,knowledge,semantic memory,vocabulary,waisvocab,vocabulary,waisvoc,alternative to waisvocab,FALSE,,,
 cognitive,language,semantic memory,bnt,bnt,boston naming test,bnt,literal,FALSE,,,
 cognitive,language,semantic memory,bostonnamingtest,bnt,boston naming test,bnt,alternative to bnt,FALSE,,,
 cognitive,language,semantic memory,bostonnaming,bnt,boston naming test,bnt,alternative to bnt,FALSE,,,
