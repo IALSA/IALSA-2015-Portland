@@ -71,30 +71,41 @@ read_chunk("./reports/correlation-2/correlation-2-pc.R") #This allows knitr to c
 ```
 
 
-```{r select-phys-cog, echo=echoChunks, message=TRUE,eval=T}
+```{r select-phys-cog, echo=echoChunks, message=TRUE,eval=F}
 ```
 
+```{r select-phys-cog-full, echo=echoChunks, message=TRUE,eval=T}
+```
 
 ```{r table-dynamic, echo=echoChunks, message=TRUE,eval=F}
 ```
 
-The table reports the model of type 'aehplus', which include covariates *a*ge, *e*ducation, *h*eight, and binary covariates smoking history, cardiovascular disease, and diabetes. 
+## Legend
 
-The table reports relationships between levels, slopes, and residuals between the two processes in a given pair of outcomes. For each index, we report the raw covariances produced by the Mplus estimation routine and the correlations with confidence intevals, computed from the estimated (co)variances using Fisher's transform.
+- `Cov(Slopes)` = raw covariance  
+- `Corr(Slopes)Est` = correlation , ESTimated in Mplus  
+- `CI(Slopes)Est` = Confidence intervals estimated in Mplus  
+- `Corr(Slopes)Comp` = correlation, computed outside of Mplus  
 
-Raw covariance are reported in the form : ` est(se) pval`     
+Note: cases in which restricted (co)variances or insufficient decimals prevent the computation of correlations are marked by `---`
+
+Raw covariance and estimated correlations are reported in the form : ` est(se) pval star`     
 where      
 - `est` is the covariance estimate on the original metric   
 - `se` is the standard error on the original metric  
 - `pval` is the p-value associated with the raw covariance  
+- `star` is significance indicator associated with corresponding covariance estimate, with  `.`, `*`, `**`, and `***` indicating significance at `.10`, `.05`, `.01`, and `.001` alpha levels, respectively
 
-Computed correlations are reported in the form: ` est(low, high) star`   
+Confidence intervals for estimated correlations are reported in the form: `(low,high)`
+where
+- `low` - bottom boundry of the 95% confidence interval
+- `high` - top boundry of the 95% confidence interval
+
+Computed correlations are reported in the form: ` est(low, high)`   
 where      
 - `est` is the correlation coefficient computed from raw (co)variances using Fisher transfrom   
 - `low` and `high` are the 95% confidence intervals associated with the computed correlations  
-- `star` is significance indicator associated with corresponding covariance estimate, with  `.`, `*`, `**`, and `***` indicating significance at `.10`, `.05`, `.01`, and `.001` alpha levels, respectively
 
-Note: cases in which restricted (co)variances or insufficient decimals prevent the computation of correlations are marked by `---`
 
 ```{r table-static-2, echo=echoChunks, message=TRUE, results='asis'}
 ```
@@ -102,7 +113,7 @@ Note: cases in which restricted (co)variances or insufficient decimals prevent t
 ```{r select-phys-cog-short, echo=echoChunks, results='show', message=FALSE}
 ```
 
-```{r table-static-3, echo=echoChunks, message=TRUE, results='asis'}
+```{r table-static-3, echo=echoChunks, message=TRUE, results='asis', eval=F}
 ```
 
 
