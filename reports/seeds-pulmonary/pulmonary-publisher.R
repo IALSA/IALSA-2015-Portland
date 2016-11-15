@@ -14,7 +14,7 @@ path_satsa <- base::file.path("./reports/seeds-pulmonary/seed-satsa.Rmd")
 
 #  Define groups of reports
 allReports<- c(
-   path_eas
+   # path_eas
   # , path_elsa
   # ,path_hrs
   # # path_ilse # does not have pulmonary measure
@@ -23,7 +23,7 @@ allReports<- c(
   # path_nas
   # path_nuage # does not have pulmonary measure
   # ,path_octo
-  # ,path_satsa
+  path_satsa
 )
 # Place report paths HERE ###########
 pathFilesToBuild <- c(allReports) ##########
