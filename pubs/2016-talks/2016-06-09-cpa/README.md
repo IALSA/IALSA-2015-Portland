@@ -1,4 +1,4 @@
-Digital poster presented at the Canadian Psychological Association on June 9, 2016 at Victoria, Canada. 
+Digital poster presented at the Canadian Psychological Association on June 9, 2016 at Victoria, Canada. ([View poster](https://rawgit.com/IALSA/IALSA-2015-Portland/master/pubs/2016-talks/2016-06-09-cpa/ppt/koval-etal-2016-06-10-cpa.pdf))
 
 ### Abstract
 
