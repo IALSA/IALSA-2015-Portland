@@ -128,11 +128,11 @@ ds <- ds %>%
 # verify
 t <- table(ds$entry_new, ds$study_name);t[t==0]<-".";t
 head(ds)
-temp <- ds %>%
-  dplyr::filter(
-    study_name == "elsa"
-  ) %>%
-  dplyr::select(variables_part_)
+# temp <- ds %>%
+#   dplyr::filter(
+#     study_name == "elsa"
+#   ) %>%
+#   dplyr::select(variables_part_)
 
 t <- table(ds[ ,"entry_new"], ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"label_cell"],  ds[,"study_name"]);t[t==0]<-".";t
