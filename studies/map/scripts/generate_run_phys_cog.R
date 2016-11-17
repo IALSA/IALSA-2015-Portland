@@ -9,7 +9,7 @@ library(ggplot2)
 library(MplusAutomation)
 
 pathRoot <- getwd()
-pathFolder <- file.path(pathRoot,"studies/map/outputs/physical-cognitive")
+pathFolder <- file.path(pathRoot,"studies/map/physical-cognitive/outputs")
 
 
 
@@ -685,7 +685,7 @@ make_script_waves(
   ,processC = 'cts_nccrtd'# Mplus variable
   ,covariates = "aehplus"
   ,least_waves = "5"
-  ,most_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
@@ -695,116 +695,116 @@ make_script_waves(
 
 #Female models
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_numbcomp"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'numbercomp'# measure name
   ,processC = 'cts_nccrtd'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
 #### fev - Boston Naming Task ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_bnt"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bnt'# measure name
   ,processC = 'cts_bname'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_bnt"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bnt'# measure name
   ,processC = 'cts_bname'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 #### fev - Boston Story Delayed Recall ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_bostonstorydelay"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bostonstorydelay'# measure name
   ,processC = 'cts_ebdr'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_bostonstorydelay"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bostonstorydelay'# measure name
   ,processC = 'cts_ebdr'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
 #### fev - Boston Story Immediate Recall ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_bostonstoryimm"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bostonstoryimm'# measure name
   ,processC = 'cts_ebmt'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_bostonstoryimm"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bostonstoryimm'# measure name
   ,processC = 'cts_ebmt'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
@@ -813,155 +813,155 @@ make_script_waves(
 #### fev - complex ideational material ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_complexidea"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'complexidea'# measure name
   ,processC = 'cts_idea'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_complexidea"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'complexidea'# measure name
   ,processC = 'cts_idea'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
 #### fev - digit ordering ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_digitordering"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitordering'# measure name
   ,processC = 'cts_doperf'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_digitordering"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitordering'# measure name
   ,processC = 'cts_doperf'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
 #### Grip - digits forwards ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_digitsf"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsf'# measure name
   ,processC = 'cts_df'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_digitsf"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsf'# measure name
   ,processC = 'cts_df'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
 #### fev - digits backwards ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_digitsb"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsb'# measure name
   ,processC = 'cts_db'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_digitsb"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsb'# measure name
   ,processC = 'cts_db'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
 #### fev - line orientation ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_lineorientation"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lineorientation'# measure name
   ,processC = 'cts_lopair'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_lineorientation"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lineorientation'# measure name
@@ -971,49 +971,49 @@ make_script_waves(
   ,most_waves = "11"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
-#### Grip - Logical Memory Delayed Recall ####
+#### fev - Logical Memory Delayed Recall ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_lmdelayed"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lmdelayed'# measure name
   ,processC = 'cts_delay'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_lmdelayed"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lmdelayed'# measure name
   ,processC = 'cts_delay'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
 
-#### Grip - Logical Memory Immediate Recall ####
+#### fev - Logical Memory Immediate Recall ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_cognitive_10"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lmimmed'# measure name
@@ -1027,14 +1027,14 @@ make_script_waves(
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_cognitive_10"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lmimmed'# measure name
   ,processC = 'cts_story'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
+  ,least_waves = "5"
   ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
@@ -1045,262 +1045,265 @@ make_script_waves(
 #### Grip - Matrices ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_matrices"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'matrices'# measure name
   ,processC = 'cts_pmat'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
-  ,all_waves = "21"
-  ,sex = "male"
-  ,run_models = TRUE
-)
-
-make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_matrices"
-  ,processP_name = "fev100" # measure name
-  ,processP = "fev" # Mplus variable
-  ,processC_name = 'matrices'# measure name
-  ,processC = 'cts_pmat'# Mplus variable
-  ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
-  ,all_waves = "21"
-  ,sex = "female"
-  ,run_models = TRUE
-)
-
-
-#### Grip - word list ####
-
-make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_wordlistimm"
-  ,processP_name = "fev100" # measure name
-  ,processP = "fev" # Mplus variable
-  ,processC_name = 'wordlistimm'# measure name
-  ,processC = 'cts_wli'# Mplus variable
-  ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_wordlistimm"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
+  ,processP_name = "fev100" # measure name
+  ,processP = "fev" # Mplus variable
+  ,processC_name = 'matrices'# measure name
+  ,processC = 'cts_pmat'# Mplus variable
+  ,covariates = "aehplus"
+  ,least_waves = "5"
+  ,most_waves = "10"
+  ,all_waves = "21"
+  ,sex = "female"
+  ,run_models = FALSE
+)
+
+
+#### fev - word list ####
+
+make_script_waves(
+  prototype = "studies/fev/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistimm'# measure name
   ,processC = 'cts_wli'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
+  ,all_waves = "21"
+  ,sex = "male"
+  ,run_models = FALSE
+)
+
+make_script_waves(
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
+  ,processP_name = "fev100" # measure name
+  ,processP = "fev" # Mplus variable
+  ,processC_name = 'wordlistimm'# measure name
+  ,processC = 'cts_wli'# Mplus variable
+  ,covariates = "aehplus"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 #### fev - word list delayed recall ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_wordlistdelayed"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistdelayed'# measure name
   ,processC = 'cts_wlii'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_wordlistdelayed"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistdelayed'# measure name
   ,processC = 'cts_wlii'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 #### Fev - word list recognition ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_wordlistrec"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistrec'# measure name
   ,processC = 'cts_wliii'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_wordlistrec"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistrec'# measure name
   ,processC = 'cts_wliii'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 #### FEV - Categories ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_categories"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'categories'# measure name
   ,processC = 'cts_catflu'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_categories"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'categories'# measure name
   ,processC = 'cts_catflu'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
 #### Fev - Digit Symbol #####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_digitsymbol"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsymbol'# measure name
   ,processC = 'cts_sdmt'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_digitsymbol"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsymbol'# measure name
   ,processC = 'cts_sdmt'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
 #### fev - MMSE ####
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_mmse"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'mmse'# measure name
   ,processC = 'cts_mmse30'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_mmse"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'mmse'# measure name
   ,processC = 'cts_mmse30'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 
-####Grip-NART######
+####fev-NART######
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_nart"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'nart'# measure name
   ,processC = 'cts_read_nart'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "male"
   ,run_models = FALSE
 )
 
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_nart"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'nart'# measure name
   ,processC = 'cts_read_nart'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "10"
-  ,most_waves = "11"
+  ,least_waves = "5"
+  ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
-MplusAutomation::runModels("C:/Users/iLife Admin/Documents/GitHub/IALSA-2015-Portland/studies/map/physical-cognitive/outputs")
+fivewave<-paste0(pathFolder,"/5-wave-models")
+fivewave
+
+runModels(directory = fivewave)
 
