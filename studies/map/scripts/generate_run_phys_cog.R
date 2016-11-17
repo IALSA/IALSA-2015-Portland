@@ -9,16 +9,16 @@ library(ggplot2)
 library(MplusAutomation)
 
 pathRoot <- getwd()
-pathFolder <- file.path(pathRoot,"studies/radc/outputs/physical_cognitive")
+pathFolder <- file.path(pathRoot,"studies/map/outputs/physical-cognitive")
 
 
 
 #e.g pc_TAU_00 <- c("pc_TAU_00_est", "pc_TAU_00_se", "pc_TAU_00_wald","pc_TAU_00_pval")
-source("./scripts/mplus/group_variables.R") # selected_results
+source("./studies/map/scripts/group_variables.R") # selected_results
 # load functions that generate scripts
-source("./studies/radc/scripts/functions_to_generate_Mplus_scripts.R")
+source("./studies/map/scripts/functions_to_generate_Mplus_scripts.R")
 # load functions that process the output files and create a summary dataset
-source("./studies/radc/scripts/extraction_functions.R")
+source("./studies/map/scripts/extraction_functions.R")
 
 
 
@@ -677,18 +677,18 @@ make_script_waves(
 #fev - number comparison
 #Male models
 make_script_waves(
-  prototype = "studies/radc/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/radc/outputs/physical_cognitive/fev_numbcomp"
+  prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
+  ,place_in = "studies/map/physical-cognitive/outputs"
   ,processP_name = "fev100" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'numbercomp'# measure name
   ,processC = 'cts_nccrtd'# Mplus variable
   ,covariates = "aehplus"
-  ,least_waves = "9"
-  ,most_waves = "12"
+  ,least_waves = "5"
+  ,most_waves = "5"
   ,all_waves = "21"
   ,sex = "male"
-  ,run_models = TRUE
+  ,run_models = FALSE
 )
 
 # generate mplus scripts from a prototype, estimate (run_models=TRUE)
@@ -1302,5 +1302,5 @@ make_script_waves(
   ,run_models = TRUE
 )
 
-MplusAutomation::runModels("C:/Users/iLife Admin/Documents/GitHub/IALSA-2015-Portland/studies/radc/outputs/physical_cognitive")
+MplusAutomation::runModels("C:/Users/iLife Admin/Documents/GitHub/IALSA-2015-Portland/studies/map/physical-cognitive/outputs")
 

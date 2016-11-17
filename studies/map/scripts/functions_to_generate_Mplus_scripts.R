@@ -14,8 +14,8 @@
 # covariates = "a"
 
 make_script_waves <- function(
-                              prototype = "scripts/mplus/prototype/prototype_b1_RADC.inp",
-                              place_in = "reports/grip_digitsymbols",
+                              prototype = "studies/map/scripts/prototype/prototype_b1_RADC.inp",
+                              place_in = "studies/map/scripts/mplus_scripts",
                               processP_name = "grip", # goes into the name of the file
                               processP = "gripavg", # goes into the mplus script
                               processC_name = 'digitsymbols',
