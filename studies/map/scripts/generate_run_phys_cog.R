@@ -23,10 +23,7 @@ source("./studies/map/scripts/extraction_functions.R")
 
 
 # create a object with main_theme definition
-source("./scripts/graphs/main_theme.R")
-# load graphical function
-source("./scripts/graphs/kb_profiles_functions.R")
-
+#source("./scripts/graphs/main_theme.R")
 
 # point to  the folder with datasets containing model results
 
@@ -1302,6 +1299,7 @@ make_script_waves(
   ,run_models = FALSE
 )
 
+#Running only five wave models
 fivewave<-paste0(pathFolder,"/5-wave-models")
 fivewave
 
