@@ -675,8 +675,8 @@ make_script_waves(
 #Male models
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled "
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'numbercomp'# measure name
   ,processC = 'cts_nccrtd'# Mplus variable
@@ -687,14 +687,13 @@ make_script_waves(
   ,sex = "male"
   ,run_models = FALSE
 )
-
 # generate mplus scripts from a prototype, estimate (run_models=TRUE)
 
 #Female models
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'numbercomp'# measure name
   ,processC = 'cts_nccrtd'# Mplus variable
@@ -711,8 +710,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bnt'# measure name
   ,processC = 'cts_bname'# Mplus variable
@@ -726,8 +725,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bnt'# measure name
   ,processC = 'cts_bname'# Mplus variable
@@ -743,8 +742,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bostonstorydelay'# measure name
   ,processC = 'cts_ebdr'# Mplus variable
@@ -758,8 +757,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bostonstorydelay'# measure name
   ,processC = 'cts_ebdr'# Mplus variable
@@ -776,8 +775,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bostonstoryimm'# measure name
   ,processC = 'cts_ebmt'# Mplus variable
@@ -791,8 +790,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'bostonstoryimm'# measure name
   ,processC = 'cts_ebmt'# Mplus variable
@@ -811,8 +810,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'complexidea'# measure name
   ,processC = 'cts_idea'# Mplus variable
@@ -826,8 +825,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'complexidea'# measure name
   ,processC = 'cts_idea'# Mplus variable
@@ -844,8 +843,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitordering'# measure name
   ,processC = 'cts_doperf'# Mplus variable
@@ -859,8 +858,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitordering'# measure name
   ,processC = 'cts_doperf'# Mplus variable
@@ -877,8 +876,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsf'# measure name
   ,processC = 'cts_df'# Mplus variable
@@ -892,8 +891,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsf'# measure name
   ,processC = 'cts_df'# Mplus variable
@@ -910,8 +909,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsb'# measure name
   ,processC = 'cts_db'# Mplus variable
@@ -925,8 +924,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsb'# measure name
   ,processC = 'cts_db'# Mplus variable
@@ -943,8 +942,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lineorientation'# measure name
   ,processC = 'cts_lopair'# Mplus variable
@@ -958,8 +957,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lineorientation'# measure name
   ,processC = 'cts_lopair'# Mplus variable
@@ -976,8 +975,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lmdelayed'# measure name
   ,processC = 'cts_delay'# Mplus variable
@@ -991,8 +990,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lmdelayed'# measure name
   ,processC = 'cts_delay'# Mplus variable
@@ -1010,8 +1009,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lmimmed'# measure name
   ,processC = 'cts_story'# Mplus variable
@@ -1025,8 +1024,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'lmimmed'# measure name
   ,processC = 'cts_story'# Mplus variable
@@ -1039,12 +1038,12 @@ make_script_waves(
 )
 
 
-#### Grip - Matrices ####
+#### Fev - Matrices ####
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'matrices'# measure name
   ,processC = 'cts_pmat'# Mplus variable
@@ -1058,8 +1057,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'matrices'# measure name
   ,processC = 'cts_pmat'# Mplus variable
@@ -1076,8 +1075,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/fev/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistimm'# measure name
   ,processC = 'cts_wli'# Mplus variable
@@ -1091,8 +1090,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistimm'# measure name
   ,processC = 'cts_wli'# Mplus variable
@@ -1108,8 +1107,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistdelayed'# measure name
   ,processC = 'cts_wlii'# Mplus variable
@@ -1123,8 +1122,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistdelayed'# measure name
   ,processC = 'cts_wlii'# Mplus variable
@@ -1140,8 +1139,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistrec'# measure name
   ,processC = 'cts_wliii'# Mplus variable
@@ -1155,8 +1154,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'wordlistrec'# measure name
   ,processC = 'cts_wliii'# Mplus variable
@@ -1172,8 +1171,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'categories'# measure name
   ,processC = 'cts_catflu'# Mplus variable
@@ -1187,8 +1186,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'categories'# measure name
   ,processC = 'cts_catflu'# Mplus variable
@@ -1205,8 +1204,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsymbol'# measure name
   ,processC = 'cts_sdmt'# Mplus variable
@@ -1220,8 +1219,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'digitsymbol'# measure name
   ,processC = 'cts_sdmt'# Mplus variable
@@ -1238,8 +1237,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'mmse'# measure name
   ,processC = 'cts_mmse30'# Mplus variable
@@ -1253,8 +1252,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'mmse'# measure name
   ,processC = 'cts_mmse30'# Mplus variable
@@ -1271,8 +1270,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_male.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled"
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'nart'# measure name
   ,processC = 'cts_read_nart'# Mplus variable
@@ -1286,8 +1285,8 @@ make_script_waves(
 
 make_script_waves(
   prototype = "studies/map/scripts/prototype/prototype_b1_RADC_fev_female.inp"
-  ,place_in = "studies/map/physical-cognitive/outputs"
-  ,processP_name = "fev100" # measure name
+  ,place_in = "studies/map/physical-cognitive/outputs/Fev-unscaled "
+  ,processP_name = "fev" # measure name
   ,processP = "fev" # Mplus variable
   ,processC_name = 'nart'# measure name
   ,processC = 'cts_read_nart'# Mplus variable
@@ -1296,12 +1295,13 @@ make_script_waves(
   ,most_waves = "10"
   ,all_waves = "21"
   ,sex = "female"
-  ,run_models = FALSE
+  ,run_models = TRUE
 )
 
 #Running only five wave models
-fivewave<-paste0(pathFolder,"/5-wave-models")
+pathFolder
+fivewave<-paste0(pathFolder)
 fivewave
 
-runModels(directory = fivewave)
+runModels(directory = pathFolder)
 

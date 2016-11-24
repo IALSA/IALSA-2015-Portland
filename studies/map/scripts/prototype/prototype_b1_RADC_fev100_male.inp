@@ -319,27 +319,27 @@ USEOBSERVATIONS are
 
 DEFINE:
 !assign variables to the process p
-	p1= processP_00;
-	p2= processP_01;
-	p3= processP_02;
-	p4= processP_03;
-	p5= processP_04;
-	p6= processP_05;
-	p7= processP_06;
-	p8= processP_07;
-	p9= processP_08;
-	p10=processP_09;
-	p11=processP_10;
-	p12=processP_11;
-	p13=processP_12;
-	p14=processP_13;
-	p15=processP_14;
-	p16=processP_15;
-	p17=processP_16;
-	p18=processP_17;
-	p19=processP_18;
-	p20=processP_19;
-	p21=processP_20;
+	p1= processP_00*100;
+	p2= processP_01*100;
+	p3= processP_02*100;
+	p4= processP_03*100;
+	p5= processP_04*100;
+	p6= processP_05*100;
+	p7= processP_06*100;
+	p8= processP_07*100;
+	p9= processP_08*100;
+	p10=processP_09*100;
+	p11=processP_10*100;
+	p12=processP_11*100;
+	p13=processP_12*100;
+	p14=processP_13*100;
+	p15=processP_14*100;
+	p16=processP_15*100;
+	p17=processP_16*100;
+	p18=processP_17*100;
+	p19=processP_18*100;
+	p20=processP_19*100;
+	p21=processP_20*100;
 !assign variables to the process c
 	c1= processC_00;
 	c2= processC_01;
@@ -387,7 +387,7 @@ DEFINE:
 !define the second-level terms
 	Bage=age_bl-80;
 	Educ=educ-7;
-	Height=htm_00-1.60;
+	Height=htm_00-1.72;
 	SmokHist=smoking;
 	Cardio=heart_cum_00;
 	Diab=dm_cum_00;
@@ -397,6 +397,8 @@ DEFINE:
 ANALYSIS:
 TYPE = RANDOM;
 COVERAGE=.00;
+H1ITERATIONS=5000;
+MITERATIONS=2000;
 
 MODEL:
 !first-level equation
