@@ -1,0 +1,122 @@
+TITLE:
+Script produced from the prototype in ./sandbox/syntax-creator/
+
+DATA:
+File = wide-dataset.dat ;
+
+VARIABLE:
+NAMES are
+ %names_are%
+	;
+
+Missing are all (-9999);
+
+USEVARIABLES are
+	!define the variables used in the analysis
+	! covariates used in the model
+%covariate_set%	
+	!estimated time points
+%estimated_timepoints%
+	!modelled time points of process (A)
+%process_a_timepoints% 
+	!modelled time points of process (B)
+%process_b_timepoints% 
+;
+
+TSCORES are
+	!estimated time points
+%estimated_timepoints%;
+
+USEOBSERVATIONS are
+	!select a subset of observations
+%subgroup_condition%
+and
+%subset_condition_1%
+;
+
+DEFINE:
+	! assign variables to the process (A)
+%match_timepoints_process_a%
+	! assign variables to the process (B)
+%match_timepoints_process_b%
+	!assign variables to time points
+%match_timepoints%
+	
+
+ANALYSIS:
+TYPE = RANDOM;
+COVERAGE=.00;  
+
+
+
+MODEL:
+	!first-level equation
+	! assign process (A) to time points 
+%assing_a_to_timepoints%
+	! assign process (B) to time points 
+%assing_b_to_timepoints%
+	!variance of the first-level terms
+ia (v_ia);
+sa (v_sa);
+ib (v_ib);
+sb (v_sb);
+	!covariance among first-level terms
+ia WITH sa (c_iasa);
+ia WITH ib (c_iaib);
+ia WITH sb (c_iasb);
+sa WITH ib (c_saib);
+sa WITH sb (c_sasb);
+ib WITH sb (c_ibsb);
+	!second-level equation
+ia sa ib sb ON %covariate_set%;
+	!residual covariance of process (A)
+%resid_covariance_a%	
+	!residual covariance of process (B)
+%resid_covariance_b%	
+	!Paired covariances constrained to be equal across t
+%resid_covariances%	
+
+
+MODEL CONSTRAINT:
+	!assigns labels to new parameters;
+NEW r_iaib;
+NEW r_sasb;
+NEW r_res_ab;
+	!compute confidence intervals for correlation coefficients; 
+r_iaib = c_iaib/((v_ia**0.5)*(v_ib**0.5));
+r_sasb = c_sasb/((v_sa**0.5)*(v_sb**0.5));
+r_res_ab = res_cov/((res_a**0.5)*(res_b**0.5));
+
+SAVEDATA:
+FILE is   %saved_analysis%_fscores.dat;
+SAVE = FSCORES;
+RESULTS are   %saved_analysis%_results.dat;
+	
+OUTPUT: sampstat cinterval;
+PLOT: Type is Plot1 Plot2 Plot3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
