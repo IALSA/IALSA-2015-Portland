@@ -11,6 +11,8 @@ devtools.zip
 /unshared_material/*
 /data_unshared/*
 
+/data/unshared/derived/*
+
 # Unnecessary files for knitr reports
 
 # Dataset Exceptions
@@ -34,6 +36,16 @@ cache/
 */unshared/*
 */*/unshared/*
 */*/*/unshared/*
+
+output/*
+
+!output/README.md
+!output/*/README.md
+!output/*/*/README.md
+!output/*/*/*/README.md
+!output/*/*/*/*/README.md
+!output/*/*/*/*/*/README.md
+!output/*/*/*/*/*/*/README.md
 
 studies/*/unshared/*
 
