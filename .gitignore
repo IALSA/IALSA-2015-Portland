@@ -37,15 +37,15 @@ cache/
 */*/unshared/*
 */*/*/unshared/*
 
-output/*
+output/*/*/*/*/*/*
 
 !output/README.md
-!output/*/README.md
-!output/*/*/README.md
-!output/*/*/*/README.md
-!output/*/*/*/*/README.md
-!output/*/*/*/*/*/README.md
-!output/*/*/*/*/*/*/README.md
+!output/*/*.md
+!output/*/*/*.md
+!output/*/*/*/*.md
+!output/*/*/*/*/*.md
+!output/*/*/*/*/*/*.md
+!output/*/*/*/*/*/*/*.md
 
 studies/*/unshared/*
 
