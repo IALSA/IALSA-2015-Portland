@@ -31,8 +31,8 @@ path_generic_names <- "./data/unshared/derived/map-1/wide-variable-names.txt"
 
 varnames_physical <- c(
   "fev",             # forced expiratory volume
-  "gait_speed",      # Gait Speed - MAP
-  "gripavg"          # Extremity strength
+  "gait",      # Gait Speed - MAP
+  "grip"          # Extremity strength
 )
 varnames_cognitive <- c(
   "bnt"              # Boston naming
@@ -118,11 +118,8 @@ folder_output      = "./output/studies/map/phys-cog/"
 #    model_number       = "b1"
 #   ,subgroup           = "male"
 #   ,model_type         = "aehplus"
-#   ,process_a_name     = 'fev'# item name of process (A), goes into file name
-#   ,process_a_mplus    = 'fev'# identifies the variable in Mplus
-#   ,process_b_name     = 'numbercomparison'# item name of process (B), goes into file name
-#   ,process_b_mplus    = 'numbercomparison'# identifies the variable in Mplus
-#   ,covariate_set      = ls_model_type[["aehplus"]]
+#   ,process_a          = 'fev'# item name of process (A), goes into file name
+#   ,process_b          = 'numbercomparison'# item name of process (B), goes into file name
 #   ,wave_set_modeled   = wave_set_modeled
 #   ,subset_condition_1 = subset_condition_1 # subset data to member of this group
 #   ,path_prototype     = path_prototype
@@ -134,17 +131,15 @@ folder_output      = "./output/studies/map/phys-cog/"
 # loop over conditions
 for(subgroup in names(ls_subgroup)){
   for(model_type in names(ls_model_type)){
-    for(phys_measure in varnames_physical){
+    for(phys_measure in "fev"){
+    # for(phys_measure in varnames_physical){
       for(cog_measure in varnames_cognitive){
         mplus_generator_bivariate(
           model_number        = "b1"
           ,subgroup           = subgroup
           ,model_type         = model_type
-          ,process_a_name     = phys_measure# item name of process (A), goes into file name
-          ,process_a_mplus    = phys_measure# identifies the variable in Mplus
-          ,process_b_name     = cog_measure# item name of process (B), goes into file name
-          ,process_b_mplus    = cog_measure# identifies the variable in Mplus
-          ,covariate_set      = ls_model_type[[model_type]]
+          ,process_a          = phys_measure# item name of process (A), goes into file name
+          ,process_b          = cog_measure# item name of process (B), goes into file name
           ,wave_set_modeled   = wave_set_modeled
           ,subset_condition_1 = subset_condition_1 # subset data to member of this group
           ,path_prototype     = path_prototype

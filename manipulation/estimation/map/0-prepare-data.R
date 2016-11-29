@@ -109,8 +109,8 @@ varnames_context <- c(
 )
 varnames_physical <- c(
   "fev",             # forced expiratory volume
-  "gait_speed",      # Gait Speed - MAP
-  "gripavg"          # Extremity strength
+  "gait",      # Gait Speed - MAP
+  "grip"          # Extremity strength
 )
 varnames_cognitive <- c(
   "bnt"              # Boston naming
