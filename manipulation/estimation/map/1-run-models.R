@@ -88,9 +88,9 @@ ls_model_number <- list(
   "bivariate_quadratic"  = "b2"
 )
 ls_subgroup = list(
-  "male" = "male",
-  "female" = "female",
-  "unisex" = "unisex"
+  "male" = "male"
+  ,"female" = "female"
+  # ,"unisex" = "unisex"
 )
 ls_model_type <- list(
    "a"   = c("age_c70")
@@ -109,48 +109,50 @@ wave_set_modeled <-  c(1,2,3,4,5)
 subset_condition_1 <- "dementia_ever NE 1"
 folder_data        = "./data/unshared/derived/map-1"
 path_prototype     = "./manipulation/estimation/prototype-wide.inp"
-folder_output      = "./output/studies/map/phys-cog/pulmonary/"
+folder_output      = "./output/studies/map/phys-cog/"
 # folder_data        = "./data/unshared/derived/map"
 # folder_output      = "./output/studies/map/phys-cog/pulmonary"
 
 # single model
-mplus_generator_bivariate(
-   model_number       = "b1"
-  ,subgroup           = "male"
-  ,model_type         = "aehplus"
-  ,process_a_name     = 'fev'# item name of process (A), goes into file name
-  ,process_a_mplus    = 'fev'# identifies the variable in Mplus
-  ,process_b_name     = 'numbercomparison'# item name of process (B), goes into file name
-  ,process_b_mplus    = 'numbercomparison'# identifies the variable in Mplus
-  ,covariate_set      = ls_model_type[["aehplus"]]
-  ,wave_set_modeled   = wave_set_modeled
-  ,subset_condition_1 = subset_condition_1 # subset data to member of this group
-  ,path_prototype     = path_prototype
-  ,folder_data        = folder_data
-  ,folder_output      = folder_output
-  ,run_models         = TRUE # If TRUE then Mplus runs estimation to produce .out, .gh5, and/or, other files
-)
+# mplus_generator_bivariate(
+#    model_number       = "b1"
+#   ,subgroup           = "male"
+#   ,model_type         = "aehplus"
+#   ,process_a_name     = 'fev'# item name of process (A), goes into file name
+#   ,process_a_mplus    = 'fev'# identifies the variable in Mplus
+#   ,process_b_name     = 'numbercomparison'# item name of process (B), goes into file name
+#   ,process_b_mplus    = 'numbercomparison'# identifies the variable in Mplus
+#   ,covariate_set      = ls_model_type[["aehplus"]]
+#   ,wave_set_modeled   = wave_set_modeled
+#   ,subset_condition_1 = subset_condition_1 # subset data to member of this group
+#   ,path_prototype     = path_prototype
+#   ,folder_data        = folder_data
+#   ,folder_output      = folder_output
+#   ,run_models         = TRUE # If TRUE then Mplus runs estimation to produce .out, .gh5, and/or, other files
+# )
 
 # loop over conditions
 for(subgroup in names(ls_subgroup)){
   for(model_type in names(ls_model_type)){
-    for(cog_measure in varnames_cognitive){
-      mplus_generator_bivariate(
-        model_number        = "b1"
-        ,subgroup           = subgroup
-        ,model_type         = model_type
-        ,process_a_name     = 'fev'# item name of process (A), goes into file name
-        ,process_a_mplus    = 'fev'# identifies the variable in Mplus
-        ,process_b_name     = cog_measure# item name of process (B), goes into file name
-        ,process_b_mplus    = cog_measure# identifies the variable in Mplus
-        ,covariate_set      = ls_model_type[[model_type]]
-        ,wave_set_modeled   = wave_set_modeled
-        ,subset_condition_1 = subset_condition_1 # subset data to member of this group
-        ,path_prototype     = path_prototype
-        ,folder_data        = folder_data
-        ,folder_output      = folder_output
-        ,run_models         = TRUE # If TRUE then Mplus runs estimation to produce .out, .gh5, and/or, other files
-      )
+    for(phys_measure in varnames_physical){
+      for(cog_measure in varnames_cognitive){
+        mplus_generator_bivariate(
+          model_number        = "b1"
+          ,subgroup           = subgroup
+          ,model_type         = model_type
+          ,process_a_name     = phys_measure# item name of process (A), goes into file name
+          ,process_a_mplus    = phys_measure# identifies the variable in Mplus
+          ,process_b_name     = cog_measure# item name of process (B), goes into file name
+          ,process_b_mplus    = cog_measure# identifies the variable in Mplus
+          ,covariate_set      = ls_model_type[[model_type]]
+          ,wave_set_modeled   = wave_set_modeled
+          ,subset_condition_1 = subset_condition_1 # subset data to member of this group
+          ,path_prototype     = path_prototype
+          ,folder_data        = folder_data
+          ,folder_output      = folder_output
+          ,run_models         = TRUE # If TRUE then Mplus runs estimation to produce .out, .gh5, and/or, other files
+        )
+      }
     }
   }
 }

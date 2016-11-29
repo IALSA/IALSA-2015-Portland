@@ -33,7 +33,7 @@ view_one_model(
   model_type_ = "aehplus",       # type of model (covariate set)
   process_a_  = "fev",           # single measure of process 1
   process_b_  = "word_de",       # single measure of process 2
-  pretty_     = FALSE            # formatting option
+  pretty_     = TRUE            # formatting option
 )
 
 print_coefficients(
