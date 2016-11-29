@@ -1,0 +1,961 @@
+Mplus VERSION 7.3
+MUTHEN & MUTHEN
+11/29/2016   9:48 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+   m3, b1, FAS, grip, LGM,aehplus Conditional, female
+
+  DATA:
+    File = C:\Users\Andrea Zammit\Desktop\EASMaster.csv;
+  VARIABLE:
+   Names are
+          SubjectID Sex Ethnic Caus DemEver Bagesq deathage DEMO23 Educyrs Status
+          Wave_1 Wave_2 Wave_3 Wave_4 Wave_5 Wave_6 Wave_7 Wave_8 Wave_9 Wave_10
+          AgeAtWaveOne AgeAtWave_2 AgeAtWave_3 AgeAtWave_4 AgeAtWave_5 AgeAtWave_6
+          AgeAtWave_7
+          AgeAtWave_8 AgeAtWave_9 AgeAtWave_10
+          YrsSinceBaseline_1 YrsSinceBaseline_2 YrsSinceBaseline_3 YrsSinceBaseline_4
+          YrsSinceBaseline_5 YrsSinceBaseline_6 YrsSinceBaseline_7 YrsSinceBaseline_8
+          YrsSinceBaseline_9 YrsSinceBaseline_10
+          Blessd_1 Blessd_2 Blessd_3 Blessd_4 Blessd_5 Blessd_6 Blessd_7
+          Blessd_8 Blessd_9 Blessd_10
+          MMS_1 MMS_2 MMS_3 MMS_4 MMS_5 MMS_6 MMS_7 MMS_8 MMS_9 MMS_10
+          GDSScore_1 GDSScore_2 GDSScore_3 GDSScore_4 GDSScore_5 GDSScore_6 GDSScore_7
+          GDSScore_8 GDSScore_9 GDSScore_10
+          FreeRecall_1 FreeRecall_2 FreeRecall_3 FreeRecall_4 FreeRecall_5
+          FreeRecall_6 FreeRecall_7 FreeRecall_8 FreeRecall_9 FreeRecall_10
+          TotRecall_1 TotRecall_2 TotRecall_3 TotRecall_4 TotRecall_5 TotRecall_6
+          TotRecall_7
+          TotRecall_8 TotRecall_9 TotRecall_10
+          DelFreeRecall_1 DelFreeRecall_2 DelFreeRecall_3 DelFreeRecall_4 DelFreeRecall_5
+          DelFreeRecall_6 DelFreeRecall_7 DelFreeRecall_8 DelFreeRecall_9 DelFreeRecall_10
+          DelTotRecall_1 DelTotRecall_2 DelTotRecall_3 DelTotRecall_4 DelTotRecall_5
+          DelTotRecall_6 DelTotRecall_7 DelTotRecall_8 DelTotRecall_9 DelTotRecall_10
+          BostonFree_1 BostonFree_2 BostonFree_3 BostonFree_4 BostonFree_5
+          BostonFree_6 BostonFree_7 BostonFree_8 BostonFree_9 BostonFree_10
+          Infraw_1 Infraw_2 Infraw_3 Infraw_4 Infraw_5 Infraw_6 Infraw_7
+          Infraw_8 Infraw_9 Infraw_10
+          Vocraw_1 Vocraw_2 Vocraw_3 Vocraw_4 Vocraw_5 Vocraw_6 Vocraw_7
+          Vocraw_8 Vocraw_9 Vocraw_10
+          Spnraw_1 Spnraw_2 Spnraw_3 Spnraw_4 Spnraw_5 Spnraw_6 Spnraw_7
+          Spnraw_8 Spnraw_9 Spnraw_10
+          DSpnAgeScaledScore_1 DSpnAgeScaledScore_2 DSpnAgeScaledScore_3
+          DSpnAgeScaledScore_4 DSpnAgeScaledScore_5 DSpnAgeScaledScore_6
+          DSpnAgeScaledScore_7 DSpnAgeScaledScore_8 DSpnAgeScaledScore_9
+          DSpnAgeScaledScore_10
+          Symraw_1 Symraw_2 Symraw_3 Symraw_4 Symraw_5 Symraw_6
+          Symraw_7 Symraw_8 Symraw_9 Symraw_10
+          Blockraw_1 Blockraw_2 Blockraw_3 Blockraw_4 Blockraw_5 Blockraw_6
+          Blockraw_7 Blockraw_8 Blockraw_9 Blockraw_10
+          FAS_1 FAS_2 FAS_3 FAS_4 FAS_5 FAS_6 FAS_7 FAS_8 FAS_9 FAS_10
+          CAT_1 CAT_2 CAT_3 CAT_4
+          CAT_5 CAT_6 CAT_7 CAT_8 CAT_9 CAT_10
+          Grade_1 Grade_2 Grade_3 Grade_4 Grade_5 Grade_6 Grade_7 Grade_8 Grade_9 Grade_10
+          LM_1 LM_2 LM_3 LM_4 LM_5 LM_6 LM_7 LM_8 LM_9 LM_10
+          CFCopy_1 CFCopy_2 CFCopy_3 CFCopy_4 CFCopy_5 CFCopy_6 CFCopy_7
+          CFCopy_8 CFCopy_9 CFCopy_10
+          CFRecall_1 CFRecall_2 CFRecall_3 CFRecall_4 CFRecall_5 CFRecall_6 CFRecall_7
+          CFRecall_8 CFRecall_9 CFRecall_10
+          TrA1_1 TrA1_2 TrA1_3 TrA1_4 TrA1_5 TrA1_6 TrA1_7 TrA1_8 TrA1_9 TrA1_10
+          TrlAZScore_1 TrlAZScore_2 TrlAZScore_3 TrlAZScore_4 TrlAZScore_5
+          TrlAZScore_6 TrlAZScore_7 TrlAZScore_8 TrlAZScore_9 TrlAZScore_10
+          TMTARate_1 TMTARate_2 TMTARate_3 TMTARate_4 TMTARate_5 TMTARate_6 TMTARate_7
+          TMTARate_8 TMTARate_9 TMTARate_10
+          TrA2_1 TrA2_2 TrA2_3 TrA2_4 TrA2_5 TrA2_6 TrA2_7 TrA2_8 TrA2_9 TrA2_10
+          TrB1_1 TrB1_2 TrB1_3 TrB1_4 TrB1_5 TrB1_6 TrB1_7 TrB1_8 TrB1_9 TrB1_10
+          TrlBZScore_1 TrlBZScore_2 TrlBZScore_3 TrlBZScore_4 TrlBZScore_5
+          TrlBZScore_6 TrlBZScore_7 TrlBZScore_8 TrlBZScore_9 TrlBZScore_10
+          TMTBRate_1 TMTBRate_2 TMTBRate_3 TMTBRate_4 TMTBRate_5 TMTBRate_6 TMTBRate_7
+          TMTBRate_8 TMTBRate_9 TMTBRate_10
+          TrB2_1 TrB2_2 TrB2_3 TrB2_4 TrB2_5 TrB2_6
+          TrB2_7 TrB2_8 TrB2_9 TrB2_10
+          EpisodicMemory2FreeCatLM_1 EpisodicMemory2FreeCatLM_2
+          EpisodicMemory2FreeCatLM_3
+          EpisodicMemory2FreeCatLM_4 EpisodicMemory2FreeCatLM_5
+          EpisodicMemory2FreeCatLM_6 EpisodicMemory2FreeCatLM_7
+          EpisodicMemory2FreeCatLM_8 EpisodicMemory2FreeCatLM_9
+          EpisodicMemory2FreeCatLM_10
+          FrontalExecFunc_1 FrontalExecFunc_2 FrontalExecFunc_3 FrontalExecFunc_4
+          FrontalExecFunc_5 FrontalExecFunc_6 FrontalExecFunc_7 FrontalExecFunc_8
+          FrontalExecFunc_9 FrontalExecFunc_10
+          Language2BostVoc_1 Language2BostVoc_2
+          Language2BostVoc_3 Language2BostVoc_4 Language2BostVoc_5
+          Language2BostVoc_6 Language2BostVoc_7 Language2BostVoc_8
+          Language2BostVoc_9 Language2BostVoc_10
+          DysExec_1 DysExec_2 DysExec_3 DysExec_4 DysExec_5 DysExec_6 DysExec_7
+          DysExec_8 DysExec_9 DysExec_10
+          aMCI1_1 aMCI1_2 aMCI1_3 aMCI1_4 aMCI1_5 aMCI1_6 aMCI1_7 aMCI1_8 aMCI1_9 aMCI1_10
+          naMCI1_1 naMCI1_2 naMCI1_3 naMCI1_4 naMCI1_5 naMCI1_6 naMCI1_7
+          naMCI1_8 naMCI1_9 naMCI1_10
+          CumulMI_1 CumulMI_2 CumulMI_3 CumulMI_4
+          CumulMI_5 CumulMI_6 CumulMI_7 CumulMI_8 CumulMI_9 CumulMI_10
+          CumulStroke_1 CumulStroke_2 CumulStroke_3 CumulStroke_4 CumulStroke_5
+          CumulStroke_6 CumulStroke_7 CumulStroke_8 CumulStroke_9 CumulStroke_10
+          CumulDiab_1 CumulDiab_2 CumulDiab_3 CumulDiab_4 CumulDiab_5 CumulDiab_6
+          CumulDiab_7 CumulDiab_8 CumulDiab_9 CumulDiab_10
+          DMever
+          CumulHyper_1 CumulHyper_2 CumulHyper_3 CumulHyper_4 CumulHyper_5
+          CumulHyper_6 CumulHyper_7 CumulHyper_8 CumulHyper_9 CumulHyper_10
+          CumulAngina_1 CumulAngina_2 CumulAngina_3 CumulAngina_4 CumulAngina_5
+          CumulAngina_6 CumulAngina_7 CumulAngina_8 CumulAngina_9 CumulAngina_10
+          CumulHrtFail_1 CumulHrtFail_2 CumulHrtFail_3 CumulHrtFail_4 CumulHrtFail_5
+          CumulHrtFail_6 CumulHrtFail_7 CumulHrtFail_8 CumulHrtFail_9 CumulHrtFail_10
+          CumulPD_1 CumulPD_2 CumulPD_3 CumulPD_4 CumulPD_5 CumulPD_6 CumulPD_7
+          CumulPD_8 CumulPD_9 CumulPD_10
+          CumulDep_1 CumulDep_2 CumulDep_3 CumulDep_4
+          CumulDep_5 CumulDep_6 CumulDep_7 CumulDep_8 CumulDep_9 CumulDep_10
+          CumulAnemia_1 CumulAnemia_2 CumulAnemia_3 CumulAnemia_4 CumulAnemia_5
+          CumulAnemia_6 CumulAnemia_7 CumulAnemia_8 CumulAnemia_9 CumulAnemia_10
+          CVIndexArWave_1 CVIndexArWave_2 CVIndexArWave_3 CVIndexArWave_4 CVIndexArWave_5
+          CVIndexArWave_6 CVIndexArWave_7 CVIndexArWave_8 CVIndexArWave_9 CVIndexArWave_10
+          CVIndexCumul_1 CVIndexCumul_2 CVIndexCumul_3 CVIndexCumul_4 CVIndexCumul_5
+          CVIndexCumul_6 CVIndexCumul_7 CVIndexCumul_8 CVIndexCumul_9 CVIndexCumul_10
+          BloodPres1stSys_1 BloodPres1stSys_2 BloodPres1stSys_3 BloodPres1stSys_4
+          BloodPres1stSys_5 BloodPres1stSys_6 BloodPres1stSys_7 BloodPres1stSys_8
+          BloodPres1stSys_9 BloodPres1stSys_10
+          BloodPres1stDia_1 BloodPres1stDia_2 BloodPres1stDia_3 BloodPres1stDia_4
+          BloodPres1stDia_5 BloodPres1stDia_6 BloodPres1stDia_7 BloodPres1stDia_8
+          BloodPres1stDia_9 BloodPres1stDia_10
+          Ht_1 Ht_2 Ht_3 Ht_4 Ht_5 Ht_6 Ht_7 Ht_8 Ht_9 Ht_10
+          Wt_1 Wt_2 Wt_3 Wt_4 Wt_5 Wt_6 Wt_7 Wt_8 Wt_9 Wt_10
+          BMI_1 BMI_2 BMI_3 BMI_4 BMI_5 BMI_6 BMI_7 BMI_8 BMI_9 BMI_10
+          Waist_1 Waist_2 Waist_3 Waist_4 Waist_5 Waist_6 Waist_7 Waist_8 Waist_9 Waist_10
+          Hip_1 Hip_2 Hip_3 Hip_4 Hip_5 Hip_6 Hip_7 Hip_8 Hip_9 Hip_10
+          Velocity_1 Velocity_2 Velocity_3 Velocity_4 Velocity_5 Velocity_6 Velocity_7
+          Velocity_8 Velocity_9 Velocity_10
+          ChairRaiseTime_1 ChairRaiseTime_2 ChairRaiseTime_3 ChairRaiseTime_4
+          ChairRaiseTime_5 ChairRaiseTime_6 ChairRaiseTime_7 ChairRaiseTime_8
+          ChairRaiseTime_9 ChairRaiseTime_10
+          FlamingoStandTime_1 FlamingoStandTime_2 FlamingoStandTime_3 FlamingoStandTime_4
+          FlamingoStandTime_5 FlamingoStandTime_6 FlamingoStandTime_7 FlamingoStandTime_8
+          FlamingoStandTime_9 FlamingoStandTime_10
+          MaxEff_1 MaxEff_2 MaxEff_3 MaxEff_4 MaxEff_5 MaxEff_6 MaxEff_7
+          MaxEff_8 MaxEff_9 MaxEff_10
+          PeakFlowBestOf3_1 PeakFlowBestOf3_2 PeakFlowBestOf3_3 PeakFlowBestOf3_4
+          PeakFlowBestOf3_5 PeakFlowBestOf3_6 PeakFlowBestOf3_7 PeakFlowBestOf3_8
+          PeakFlowBestOf3_9 PeakFlowBestOf3_10
+          UPDRS15_1 UPDRS15_2 UPDRS15_3 UPDRS15_4 UPDRS15_5 UPDRS15_6 UPDRS15_7
+          UPDRS15_8 UPDRS15_9 UPDRS15_10
+          UPDRS27_1 UPDRS27_2 UPDRS27_3 UPDRS27_4 UPDRS27_5 UPDRS27_6 UPDRS27_7
+          UPDRS27_8 UPDRS27_9 UPDRS27_10
+          UPDRS28_1 UPDRS28_2 UPDRS28_3 UPDRS28_4
+          UPDRS28_5 UPDRS28_6 UPDRS28_7 UPDRS28_8 UPDRS28_9 UPDRS28_10
+          UPDRS29_1 UPDRS29_2 UPDRS29_3 UPDRS29_4 UPDRS29_5 UPDRS29_6 UPDRS29_7
+          UPDRS29_8 UPDRS29_9 UPDRS29_10
+          EMail_1 EMail_2 EMail_3 EMail_4 EMail_5 EMail_6 EMail_7 EMail_8 EMail_9 EMail_10
+          Aerobic_1 Aerobic_2 Aerobic_3 Aerobic_4 Aerobic_5 Aerobic_6 Aerobic_7
+          Aerobic_8 Aerobic_9 Aerobic_10
+          HrsFor2WeekLight_1 HrsFor2WeekLight_2 HrsFor2WeekLight_3 HrsFor2WeekLight_4
+          HrsFor2WeekLight_5 HrsFor2WeekLight_6 HrsFor2WeekLight_7 HrsFor2WeekLight_8
+          HrsFor2WeekLight_9 HrsFor2WeekLight_10
+          HrsFor2WeekMedium_1 HrsFor2WeekMedium_2 HrsFor2WeekMedium_3 HrsFor2WeekMedium_4
+          HrsFor2WeekMedium_5 HrsFor2WeekMedium_6 HrsFor2WeekMedium_7 HrsFor2WeekMedium_8
+          HrsFor2WeekMedium_9 HrsFor2WeekMedium_10
+          HrsFor2WeekHeavy_1 HrsFor2WeekHeavy_2 HrsFor2WeekHeavy_3 HrsFor2WeekHeavy_4
+          HrsFor2WeekHeavy_5 HrsFor2WeekHeavy_6 HrsFor2WeekHeavy_7 HrsFor2WeekHeavy_8
+          HrsFor2WeekHeavy_9 HrsFor2WeekHeavy_10
+          DaysPerWeekLight_1 DaysPerWeekLight_2 DaysPerWeekLight_3 DaysPerWeekLight_4
+          DaysPerWeekLight_5 DaysPerWeekLight_6 DaysPerWeekLight_7 DaysPerWeekLight_8
+          DaysPerWeekLight_9 DaysPerWeekLight_10
+          DaysPerWeekMedium_1 DaysPerWeekMedium_2 DaysPerWeekMedium_3 DaysPerWeekMedium_4
+          DaysPerWeekMedium_5
+          DaysPerWeekMedium_6 DaysPerWeekMedium_7 DaysPerWeekMedium_8 DaysPerWeekMedium_9
+          DaysPerWeekMedium_10
+          DaysPerWeekHeavy_1 DaysPerWeekHeavy_2 DaysPerWeekHeavy_3 DaysPerWeekHeavy_4
+          DaysPerWeekHeavy_5 DaysPerWeekHeavy_6 DaysPerWeekHeavy_7 DaysPerWeekHeavy_8
+          DaysPerWeekHeavy_9 DaysPerWeekHeavy_10
+          CigsPerDay_1 CigsPerDay_2 CigsPerDay_3
+          CigsPerDay_4 CigsPerDay_5 CigsPerDay_6 CigsPerDay_7 CigsPerDay_8
+          CigsPerDay_9 CigsPerDay_10
+          SmokNow_1 SmokNow_2 SmokNow_3 SmokNow_4
+          SmokNow_5 SmokNow_6 SmokNow_7 SmokNow_8 SmokNow_9 SmokNow_10
+          SmokEver_1 SmokEver_2 SmokEver_3 SmokEver_4 SmokEver_5 SmokEver_6 SmokEver_7
+          SmokEver_8 SmokEver_9 SmokEver_10
+          SmokNumYrs_1 SmokNumYrs_2 SmokNumYrs_3 SmokNumYrs_4 SmokNumYrs_5
+          SmokNumYrs_6 SmokNumYrs_7 SmokNumYrs_8 SmokNumYrs_9 SmokNumYrs_10
+          DrinksPerMonth_1 DrinksPerMonth_2 DrinksPerMonth_3 DrinksPerMonth_4
+          DrinksPerMonth_5 DrinksPerMonth_6 DrinksPerMonth_7 DrinksPerMonth_8
+          DrinksPerMonth_9 DrinksPerMonth_10
+          Glucose_1 Glucose_2 Glucose_3 Glucose_4 Glucose_5 Glucose_6 Glucose_7
+          Glucose_8 Glucose_9 Glucose_10
+          chronicpi1 chronicpi2 chronicpi3 chronicpi4 chronicpi5 chronicpi6 chronicpi7
+          chronicpi8 chronicpi9 chronicpi10
+          Pdever
+          Cvd cisum;
+        MISSING = ALL(-9999);
+               USEVAR are time1 time2 time3 time4 time5 !time6 time7
+                          p1 p2 p3 p4 p5 !p6 p7
+                         c1 c2 c3 c4 c5 !c6 c7
+                         Bage educ height Diab SmokHist Cardio;
+               TSCORES =   time1 time2 time3 time4 time5; !time6 time7;
+              USEOBSERVATIONS are DemEver EQ 0 and sex EQ 1;
+  DEFINE:
+    p1=MaxEff_1; p2=MaxEff_2; p3=MaxEff_3;
+       p4=MaxEff_4; p5=MaxEff_5; !p6=MaxEff_6;
+       !p7=MaxEff_7;
+  c1= FAS_1; c2=FAS_2; c3=FAS_3; c4=FAS_4; c5=FAS_5;
+
+                Bage=AgeAtWaveOne-70;
+                Bagesq=(AgeatWaveOne-70)**2;
+                Dage=deathage;
+                Educ=Educyrs-7;
+                SEP=DEMO23;
+                time1=wave_1;
+                time2=wave_2;
+                time3=wave_3;
+                time4=wave_4;
+                time5=wave_5;
+                time6=wave_6;
+                time7=wave_7;
+                time8=wave_8;
+                time9=wave_9;
+                time10=wave_10;
+               Height=Ht_1-160;
+                SmokHist=SmokEver_1;
+                DepSymp = GDSScore_1;
+                Cardio = cvd;
+                Diab=DMever;
+                AgeAtWave_1Educyrs=Bage*Educ;
+  ANALYSIS:
+   TYPE = RANDOM;
+         ESTIMATOR=MLF;
+         miterations=10000;
+     h1convergence = 0.00001;
+         COVERAGE = .001;
+  OUTPUT:
+   sampstat
+  MODEL:
+       ip sp | p1-p5 AT time1-time5;
+       ic sc  | c1 - c5 AT time1-time5;
+            ip(v_ip);
+       sp(v_sp);
+       ic(v_ic);
+       sc(v_sc);
+       ip WITH sp(c_ipsp);
+       ip WITH ic(c_ipic);
+       ip WITH sc (c_ipsc);
+       sp WITH ic (c_spic);
+       sp WITH sc (c_spsc);
+       ic WITH SC (C_ICSC);
+        ip sp  ic sc WITH  ip sp  ic sc;
+       ip sp  ic sc  ON Bage educ height smokhist cardio diab;
+        c1-c5 (res_c)
+         p1-p5 (res_p);
+          p1-p5 pwith c1-c5(res_cov);
+
+           height;
+
+
+
+   MODEL CONSTRAINT:
+
+              NEW r_ipic; !assigns labels to new parameters;
+              NEW r_spsc;
+              NEW r_res_pc;
+
+              r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
+              r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
+              r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+    SAVEDATA:
+    FILE IS EAS_Grip_fas_Slopes_female; ! *rename for each specific variable combination*;
+    SAVE = FSCORES;
+
+    PLOT:   TYPE IS PLOT3;
+      OUTPUT: sampstat Cinterval;
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  237
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  3
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+m3, b1, FAS, grip, LGM,aehplus Conditional, female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         360
+
+Number of dependent variables                                   10
+Number of independent variables                                  6
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          P4          P5          C1
+   C2          C3          C4          C5
+
+Observed independent variables
+   BAGE        EDUC        HEIGHT      DIAB        SMOKHIST    CARDIO
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+
+
+Estimator                                                      MLF
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                              10000
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-04
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Andrea Zammit\Desktop\EASMaster.csv
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            68
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.001
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             0.397
+ P2             0.231         0.275
+ P3             0.172         0.164         0.233
+ P4             0.133         0.136         0.164         0.242
+ P5             0.108         0.103         0.131         0.175         0.225
+ C1             0.397         0.275         0.231         0.233         0.206
+ C2             0.392         0.272         0.233         0.236         0.217
+ C3             0.294         0.267         0.222         0.239         0.219
+ C4             0.206         0.206         0.228         0.239         0.225
+ C5             0.158         0.153         0.186         0.236         0.217
+ HEIGHT         0.397         0.233         0.172         0.136         0.108
+ BAGE           0.397         0.275         0.233         0.242         0.225
+ EDUC           0.397         0.275         0.233         0.242         0.225
+ DIAB           0.397         0.275         0.233         0.242         0.225
+ SMOKHIST       0.397         0.275         0.233         0.242         0.225
+ CARDIO         0.397         0.275         0.233         0.242         0.225
+
+
+           Covariance Coverage
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             0.931
+ C2             0.867         0.936
+ C3             0.664         0.672         0.711
+ C4             0.461         0.467         0.475         0.494
+ C5             0.333         0.333         0.347         0.350         0.356
+ HEIGHT         0.417         0.411         0.303         0.208         0.161
+ BAGE           0.931         0.936         0.711         0.494         0.356
+ EDUC           0.931         0.936         0.711         0.494         0.356
+ DIAB           0.931         0.936         0.711         0.494         0.356
+ SMOKHIST       0.931         0.936         0.711         0.494         0.356
+ CARDIO         0.931         0.936         0.711         0.494         0.356
+
+
+           Covariance Coverage
+              HEIGHT        BAGE          EDUC          DIAB          SMOKHIST
+              ________      ________      ________      ________      ________
+ HEIGHT         0.417
+ BAGE           0.417         1.000
+ EDUC           0.417         1.000         1.000
+ DIAB           0.417         1.000         1.000         1.000
+ SMOKHIST       0.417         1.000         1.000         1.000         1.000
+ CARDIO         0.417         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              CARDIO
+              ________
+ CARDIO         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ 1             16.621        15.460        13.927        12.292        11.810
+
+
+           Means
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1             34.933        35.081        35.783        35.013        36.800
+
+
+           Means
+              HEIGHT        BAGE          EDUC          DIAB          SMOKHIST
+              ________      ________      ________      ________      ________
+ 1             -2.567         8.647         6.464         0.200         0.547
+
+
+           Means
+              CARDIO
+              ________
+ 1              0.164
+
+
+           Covariances
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1            32.337
+ P2            25.578        35.318
+ P3            25.397        31.658        38.801
+ P4            21.355        30.157        36.422        42.418
+ P5            15.377        22.148        31.925        38.411        48.284
+ C1             7.768        14.647        12.469        10.147         9.109
+ C2             8.041        11.651        10.154        -0.722         0.976
+ C3             9.220         6.852        11.412         5.485         4.007
+ C4            10.183        12.935        14.761         7.019         6.041
+ C5             1.192         9.757         9.869         3.757         9.099
+ HEIGHT        11.490        12.961        17.788        15.614        11.272
+ BAGE          -0.850        -4.500        -9.206        -6.989        -9.049
+ EDUC          -0.893         0.616         0.814         1.855         1.367
+ DIAB          -0.268        -0.341        -0.263        -0.215        -0.140
+ SMOKHIST       0.612         0.281         0.481         0.490         0.158
+ CARDIO         0.104         0.233         0.084         0.121        -0.274
+
+
+           Covariances
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1           158.075
+ C2           135.508       167.178
+ C3           131.677       146.400       181.810
+ C4           131.960       144.158       154.235       176.846
+ C5           142.118       153.639       157.721       160.019       195.468
+ HEIGHT        -0.524         1.280         8.001         4.434         1.900
+ BAGE          -6.415        -7.351        -9.457       -10.709       -11.555
+ EDUC          15.800        15.498        18.074        17.203        17.717
+ DIAB          -0.735        -0.845        -0.713        -0.852        -0.872
+ SMOKHIST       0.729         0.698         0.474         0.918         0.644
+ CARDIO        -0.414        -0.258        -0.533        -0.662        -0.861
+
+
+           Covariances
+              HEIGHT        BAGE          EDUC          DIAB          SMOKHIST
+              ________      ________      ________      ________      ________
+ HEIGHT        62.176
+ BAGE         -16.472        28.376
+ EDUC           2.744        -0.624        11.493
+ DIAB           0.136        -0.207        -0.034         0.160
+ SMOKHIST       0.367        -0.225        -0.040         0.002         0.648
+ CARDIO        -0.442         0.072        -0.195         0.014         0.008
+
+
+           Covariances
+              CARDIO
+              ________
+ CARDIO         0.248
+
+
+           Correlations
+              P1            P2            P3            P4            P5
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.757         1.000
+ P3             0.717         0.855         1.000
+ P4             0.577         0.779         0.898         1.000
+ P5             0.389         0.536         0.738         0.849         1.000
+ C1             0.109         0.196         0.159         0.124         0.104
+ C2             0.109         0.152         0.126        -0.009         0.011
+ C3             0.120         0.086         0.136         0.062         0.043
+ C4             0.135         0.164         0.178         0.081         0.065
+ C5             0.015         0.117         0.113         0.041         0.094
+ HEIGHT         0.256         0.277         0.362         0.304         0.206
+ BAGE          -0.028        -0.142        -0.277        -0.201        -0.244
+ EDUC          -0.046         0.031         0.039         0.084         0.058
+ DIAB          -0.118        -0.143        -0.106        -0.082        -0.050
+ SMOKHIST       0.134         0.059         0.096         0.093         0.028
+ CARDIO         0.037         0.079         0.027         0.037        -0.079
+
+
+           Correlations
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.834         1.000
+ C3             0.777         0.840         1.000
+ C4             0.789         0.838         0.860         1.000
+ C5             0.809         0.850         0.837         0.861         1.000
+ HEIGHT        -0.005         0.013         0.075         0.042         0.017
+ BAGE          -0.096        -0.107        -0.132        -0.151        -0.155
+ EDUC           0.371         0.354         0.395         0.382         0.374
+ DIAB          -0.146        -0.163        -0.132        -0.160        -0.156
+ SMOKHIST       0.072         0.067         0.044         0.086         0.057
+ CARDIO        -0.066        -0.040        -0.079        -0.100        -0.124
+
+
+           Correlations
+              HEIGHT        BAGE          EDUC          DIAB          SMOKHIST
+              ________      ________      ________      ________      ________
+ HEIGHT         1.000
+ BAGE          -0.392         1.000
+ EDUC           0.103        -0.035         1.000
+ DIAB           0.043        -0.097        -0.025         1.000
+ SMOKHIST       0.058        -0.053        -0.015         0.005         1.000
+ CARDIO        -0.113         0.027        -0.116         0.072         0.019
+
+
+           Correlations
+              CARDIO
+              ________
+ CARDIO         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -9100.518
+
+
+UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P1                   15.615      -0.020       4.000    1.40%      10.000     14.000     16.000
+             143.000      31.523      -0.352      32.000    0.70%      18.000     20.000
+     P2                   14.919       0.251       4.000    1.01%      10.000     14.000     14.000
+              99.000      28.862      -0.425      28.000    2.02%      16.000     20.000
+     P3                   13.988       0.623       4.000    1.19%       8.000     12.000     14.000
+              84.000      29.774       0.261      30.000    2.38%      14.000     18.000
+     P4                   13.345       0.852       4.000    3.45%       8.000     10.000     12.000
+              87.000      38.065       0.566      34.000    1.15%      14.000     18.000
+     P5                   13.519       0.630       2.000    1.23%       8.000     10.000     13.000
+              81.000      45.781      -0.039      34.000    1.23%      15.000     20.000
+     C1                   35.134       0.361       9.000    0.60%      24.000     30.000     34.000
+             335.000     156.534      -0.416      75.000    0.30%      38.000     47.000
+     C2                   35.487       0.242       3.000    0.30%      25.000     32.000     35.000
+             337.000     166.463      -0.016      77.000    0.30%      39.000     45.000
+     C3                   36.539       0.380       3.000    0.39%      25.000     33.000     36.000
+             256.000     186.358       0.389      85.000    0.39%      39.000     47.000
+     C4                   36.478       0.372       9.000    1.12%      27.000     32.000     34.500
+             178.000     167.654       0.280      75.000    1.12%      39.000     47.000
+     C5                   40.094       0.490       9.000    0.78%      28.000     34.000     37.500
+             128.000     186.241      -0.232      76.000    0.78%      42.000     50.000
+     HEIGHT               -2.673      -0.197     -24.000    0.67%      -9.000     -4.000     -3.000
+             150.000      60.793      -0.142      15.000    0.67%      -1.000      4.000
+     BAGE                  8.647       0.415      -3.799    0.28%       3.582      6.693      8.041
+             360.000      28.376      -0.334      25.962    0.28%       9.691     13.967
+     EDUC                  6.464       0.057      -4.000    0.28%       4.000      5.000      6.000
+             360.000      11.493      -0.117      15.000    0.28%       7.000      9.000
+     DIAB                  0.200       1.500       0.000   80.00%       0.000      0.000      0.000
+             360.000       0.160       0.250       1.000   20.00%       0.000      0.000
+     SMOKHIST              0.547       6.368       0.000   49.72%       0.000      0.000      1.000
+             360.000       0.648      64.746       9.000    0.56%       1.000      1.000
+     CARDIO                0.164       3.539       0.000   88.06%       0.000      0.000      0.000
+             360.000       0.248      13.471       3.000    1.11%       0.000      0.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       43
+
+Loglikelihood
+
+          H0 Value                       -6233.668
+
+Information Criteria
+
+          Akaike (AIC)                   12553.337
+          Bayesian (BIC)                 12720.439
+          Sample-Size Adjusted BIC       12584.021
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE               0.131      0.121      1.086      0.278
+    EDUC              -0.150      0.157     -0.956      0.339
+    HEIGHT             0.238      0.073      3.279      0.001
+    SMOKHIST           0.786      0.948      0.829      0.407
+    CARDIO             1.497      1.915      0.782      0.434
+    DIAB              -2.548      1.712     -1.488      0.137
+
+ SP         ON
+    BAGE              -0.089      0.036     -2.461      0.014
+    EDUC               0.055      0.056      0.978      0.328
+    HEIGHT            -0.010      0.033     -0.314      0.754
+    SMOKHIST          -0.106      0.385     -0.275      0.783
+    CARDIO            -0.346      0.763     -0.454      0.650
+    DIAB               0.278      0.519      0.536      0.592
+
+ IC         ON
+    BAGE              -0.215      0.135     -1.590      0.112
+    EDUC               1.293      0.204      6.328      0.000
+    HEIGHT            -0.148      0.152     -0.971      0.332
+    SMOKHIST           1.077      0.980      1.099      0.272
+    CARDIO             0.432      1.478      0.292      0.770
+    DIAB              -4.546      1.845     -2.464      0.014
+
+ SC         ON
+    BAGE              -0.034      0.030     -1.123      0.262
+    EDUC               0.052      0.059      0.869      0.385
+    HEIGHT             0.038      0.036      1.075      0.282
+    SMOKHIST           0.008      0.318      0.024      0.981
+    CARDIO            -0.338      0.301     -1.124      0.261
+    DIAB              -0.188      0.398     -0.472      0.637
+
+ IP       WITH
+    SP                -4.103      1.690     -2.428      0.015
+    IC                12.136      8.116      1.495      0.135
+    SC                -1.011      1.889     -0.535      0.592
+
+ SP       WITH
+    IC                -1.699      2.541     -0.669      0.504
+    SC                 0.216      0.530      0.406      0.685
+
+ IC       WITH
+    SC                 0.803      2.484      0.323      0.747
+
+ P1       WITH
+    C1                 0.187      1.061      0.176      0.860
+
+ P2       WITH
+    C2                 0.187      1.061      0.176      0.860
+
+ P3       WITH
+    C3                 0.187      1.061      0.176      0.860
+
+ P4       WITH
+    C4                 0.187      1.061      0.176      0.860
+
+ P5       WITH
+    C5                 0.187      1.061      0.176      0.860
+
+ Means
+    HEIGHT            -2.079      0.828     -2.512      0.012
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P5                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    IP                18.512      1.602     11.558      0.000
+    SP                -1.013      0.553     -1.831      0.067
+    IC                28.073      2.102     13.353      0.000
+    SC                 0.411      0.539      0.761      0.447
+
+ Variances
+    HEIGHT            61.469      8.663      7.096      0.000
+
+ Residual Variances
+    P1                 5.071      0.345     14.718      0.000
+    P2                 5.071      0.345     14.718      0.000
+    P3                 5.071      0.345     14.718      0.000
+    P4                 5.071      0.345     14.718      0.000
+    P5                 5.071      0.345     14.718      0.000
+    C1                27.858      1.571     17.738      0.000
+    C2                27.858      1.571     17.738      0.000
+    C3                27.858      1.571     17.738      0.000
+    C4                27.858      1.571     17.738      0.000
+    C5                27.858      1.571     17.738      0.000
+    IP                31.147      6.062      5.138      0.000
+    SP                 2.218      0.579      3.829      0.000
+    IC               100.488     13.199      7.613      0.000
+    SC                 1.047      0.626      1.673      0.094
+
+New/Additional Parameters
+    R_IPIC             0.217      0.139      1.563      0.118
+    R_SPSC             0.141      0.350      0.404      0.686
+    R_RES_PC           0.016      0.089      0.176      0.860
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.261E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IP       ON
+    BAGE            -0.180      -0.106      -0.068       0.131       0.330       0.368       0.443
+    EDUC            -0.556      -0.459      -0.409      -0.150       0.108       0.158       0.255
+    HEIGHT           0.051       0.096       0.119       0.238       0.357       0.380       0.425
+    SMOKHIST        -1.657      -1.073      -0.774       0.786       2.346       2.645       3.229
+    CARDIO          -3.436      -2.257      -1.653       1.497       4.648       5.251       6.430
+    DIAB            -6.958      -5.904      -5.364      -2.548       0.269       0.808       1.862
+
+ SP       ON
+    BAGE            -0.183      -0.160      -0.149      -0.089      -0.030      -0.018       0.004
+    EDUC            -0.090      -0.055      -0.037       0.055       0.147       0.165       0.200
+    HEIGHT          -0.095      -0.075      -0.065      -0.010       0.044       0.054       0.075
+    SMOKHIST        -1.097      -0.860      -0.739      -0.106       0.527       0.648       0.885
+    CARDIO          -2.310      -1.841      -1.601      -0.346       0.908       1.148       1.618
+    DIAB            -1.060      -0.740      -0.576       0.278       1.133       1.296       1.616
+
+ IC       ON
+    BAGE            -0.562      -0.479      -0.437      -0.215       0.007       0.050       0.133
+    EDUC             0.767       0.893       0.957       1.293       1.629       1.694       1.820
+    HEIGHT          -0.540      -0.446      -0.398      -0.148       0.103       0.151       0.244
+    SMOKHIST        -1.448      -0.844      -0.535       1.077       2.690       2.999       3.603
+    CARDIO          -3.375      -2.465      -1.999       0.432       2.863       3.328       4.238
+    DIAB            -9.300      -8.163      -7.582      -4.546      -1.511      -0.930       0.207
+
+ SC       ON
+    BAGE            -0.112      -0.094      -0.084      -0.034       0.016       0.025       0.044
+    EDUC            -0.102      -0.065      -0.046       0.052       0.150       0.168       0.205
+    HEIGHT          -0.054      -0.032      -0.020       0.038       0.097       0.108       0.130
+    SMOKHIST        -0.811      -0.615      -0.515       0.008       0.531       0.631       0.827
+    CARDIO          -1.114      -0.928      -0.833      -0.338       0.157       0.252       0.437
+    DIAB            -1.212      -0.967      -0.842      -0.188       0.466       0.592       0.837
+
+ IP       WITH
+    SP              -8.456      -7.416      -6.883      -4.103      -1.323      -0.791       0.250
+    IC              -8.769      -3.771      -1.215      12.136      25.486      28.042      33.040
+    SC              -5.876      -4.713      -4.118      -1.011       2.096       2.691       3.854
+
+ SP       WITH
+    IC              -8.244      -6.679      -5.879      -1.699       2.481       3.281       4.846
+    SC              -1.151      -0.824      -0.657       0.216       1.088       1.255       1.582
+
+ IC       WITH
+    SC              -5.596      -4.066      -3.284       0.803       4.890       5.672       7.202
+
+ P1       WITH
+    C1              -2.547      -1.893      -1.559       0.187       1.933       2.267       2.921
+
+ P2       WITH
+    C2              -2.547      -1.893      -1.559       0.187       1.933       2.267       2.921
+
+ P3       WITH
+    C3              -2.547      -1.893      -1.559       0.187       1.933       2.267       2.921
+
+ P4       WITH
+    C4              -2.547      -1.893      -1.559       0.187       1.933       2.267       2.921
+
+ P5       WITH
+    C5              -2.547      -1.893      -1.559       0.187       1.933       2.267       2.921
+
+ Means
+    HEIGHT          -4.211      -3.701      -3.441      -2.079      -0.718      -0.457       0.053
+
+ Intercepts
+    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IP              14.386      15.373      15.877      18.512      21.147      21.651      22.638
+    SP              -2.438      -2.097      -1.923      -1.013      -0.103       0.072       0.412
+    IC              22.658      23.953      24.615      28.073      31.532      32.194      33.489
+    SC              -0.979      -0.647      -0.477       0.411       1.298       1.468       1.800
+
+ Variances
+    HEIGHT          39.155      44.490      47.218      61.469      75.720      78.448      83.783
+
+ Residual Variances
+    P1               4.183       4.396       4.504       5.071       5.638       5.746       5.958
+    P2               4.183       4.396       4.504       5.071       5.638       5.746       5.958
+    P3               4.183       4.396       4.504       5.071       5.638       5.746       5.958
+    P4               4.183       4.396       4.504       5.071       5.638       5.746       5.958
+    P5               4.183       4.396       4.504       5.071       5.638       5.746       5.958
+    C1              23.812      24.780      25.274      27.858      30.441      30.936      31.903
+    C2              23.812      24.780      25.274      27.858      30.441      30.936      31.903
+    C3              23.812      24.780      25.274      27.858      30.441      30.936      31.903
+    C4              23.812      24.780      25.274      27.858      30.441      30.936      31.903
+    C5              23.812      24.780      25.274      27.858      30.441      30.936      31.903
+    IP              15.533      19.266      21.175      31.147      41.119      43.029      46.762
+    SP               0.726       1.082       1.265       2.218       3.170       3.353       3.709
+    IC              66.491      74.619      78.776     100.488     122.200     126.358     134.486
+    SC              -0.565      -0.180       0.018       1.047       2.077       2.274       2.660
+
+New/Additional Parameters
+    R_IPIC          -0.141      -0.055      -0.011       0.217       0.445       0.489       0.574
+    R_SPSC          -0.760      -0.545      -0.434       0.141       0.717       0.827       1.043
+    R_RES_PC        -0.215      -0.160      -0.131       0.016       0.163       0.191       0.246
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ 1             18.346         4.251        -1.467         1.280        34.635
+
+
+           Means
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ 1              3.527         0.281         0.932
+
+
+           Covariances
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP            16.413
+ IP_SE          0.681         2.472
+ SP            -1.412         0.238         0.821
+ SP_SE         -0.254         0.275         0.054         0.082
+ IC             8.037        -2.164        -0.107        -0.640       113.329
+ IC_SE         -0.110         0.240         0.021         0.045        -0.725
+ SC            -0.258        -0.149         0.204        -0.030         3.428
+ SC_SE         -0.056         0.067         0.006         0.018        -0.167
+
+
+           Covariances
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          0.126
+ SC            -0.020         0.394
+ SC_SE          0.018        -0.007         0.006
+
+
+           Correlations
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             1.000
+ IP_SE          0.107         1.000
+ SP            -0.385         0.167         1.000
+ SP_SE         -0.218         0.609         0.208         1.000
+ IC             0.186        -0.129        -0.011        -0.210         1.000
+ IC_SE         -0.077         0.429         0.067         0.445        -0.192
+ SC            -0.101        -0.151         0.359        -0.165         0.513
+ SC_SE         -0.180         0.556         0.087         0.794        -0.204
+
+
+           Correlations
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          1.000
+ SC            -0.091         1.000
+ SC_SE          0.654        -0.136         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores)
+  Scatterplots (sample values, estimated factor scores)
+  Latent variable distribution plots
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    EAS_Grip_fas_Slopes_female
+
+  Order and format of variables
+
+    P1             F10.3
+    P2             F10.3
+    P3             F10.3
+    P4             F10.3
+    P5             F10.3
+    C1             F10.3
+    C2             F10.3
+    C3             F10.3
+    C4             F10.3
+    C5             F10.3
+    HEIGHT         F10.3
+    BAGE           F10.3
+    EDUC           F10.3
+    DIAB           F10.3
+    SMOKHIST       F10.3
+    CARDIO         F10.3
+    TIME1          F10.3
+    TIME2          F10.3
+    TIME3          F10.3
+    TIME4          F10.3
+    TIME5          F10.3
+    IP             F10.3
+    IP_SE          F10.3
+    SP             F10.3
+    SP_SE          F10.3
+    IC             F10.3
+    IC_SE          F10.3
+    SC             F10.3
+    SC_SE          F10.3
+
+  Save file format
+    29F10.3
+
+  Save file record length    10000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\andrea zammit\documents\github\ialsa-2015-portland\studies\eas\november29\b1_female_aeh
+
+     Beginning Time:  09:48:34
+        Ending Time:  09:48:37
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2014 Muthen & Muthen
