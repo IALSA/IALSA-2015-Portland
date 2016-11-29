@@ -47,7 +47,7 @@ extractor2 <- function(p2, headerZZ, paramZZ) {
   p2[p2$paramHeader==headerZZ & p2$param==paramZZ, ]
 }
 
-e <- extractor1("./studies/eas/physical-cognitive/without-errors/b1_female_ae_walking_executive_gait_trailsb.out")
+e <- extractor1("./studies/eas/physical-cognitive/without-errors/Gait/b1_female_ae_walking_executive_gait_trailsb.out")
 p <- e$parameters
 extractor2(p, "IP.ON", "EDUC")
 
