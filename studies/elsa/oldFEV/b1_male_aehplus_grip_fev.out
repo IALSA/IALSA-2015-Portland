@@ -1,0 +1,660 @@
+Mplus VERSION 7.31
+MUTHEN & MUTHEN
+03/09/2016   5:41 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: b1 male aehplus grip fev
+
+  DATA:  File = b1_male_aehplus_grip_fev_newdata.dat;
+
+    VARIABLE: Names are P2 P4 P6 C2 C4
+      C6 BAGE2 EDUC2 HEI2 SMOKE1
+      DIAB1 CARDIO1 TIME2 TIME4 TIME6
+      IDAUNIQ t2miss t4miss t6miss nomatch;
+
+
+
+         MISSING is all (-99999);
+
+        USEVAR are P2 P4 P6 C2 C4
+      C6 BAGE2 EDUC2 HEI2 SMOKE1
+      DIAB1 CARDIO1 TIME2 TIME4 TIME6;
+
+
+         TSCORES = time2 time4 time6;
+
+  USEOBSERVATIONS are nomatch NE 0 AND t2miss==0;
+  Define:
+
+      Time2=time2-time2; !to make time2 as the intercept
+      time4=time4-time2;
+      time6=time6-time2;
+
+
+
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp | p2 p4 p6 AT time2 time4 time6;
+          ic sc | c2 c4 c6  AT time2 time4 time6;
+          ip (v_ip);
+          sp (v_sp);
+          ic (v_ic);
+          sc (v_sc);
+          ip WITH sp (c_ipsp);
+          ip WITH ic (c_ipic);
+          ip WITH sc (c_ipsc);
+          sp WITH ic (c_spic);
+          sp WITH sc (c_spsc);
+          ic WITH sc (c_icsc);
+
+          ip sp ic sc ON Bage2
+         educ2 hei2 smoke1 diab1 cardio1;
+
+          p2 p4 p6  (res_p);
+          c2 c4 c6 (res_c);
+          p2 p4 p6 pwith c2 c4 c6(res_cov); !Paired covariances constrained to be equal
+
+  MODEL CONSTRAINT:
+
+  !        NEW r_ipsp;
+          NEW r_ipic;
+  !        NEW r_ipsc;
+  !        NEW r_spic;
+          NEW r_spsc;
+  !        NEW r_icsc;
+
+          NEW r_res_pc;
+
+  !        r_ipsp = c_ipsp/((v_ip**0.5)*(v_sp**0.5));
+          r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
+  !        r_ipsc = c_ipsc/((v_ip**0.5)*(v_sc**0.5));
+  !        r_spic = c_spic/((v_sp**0.5)*(v_ic**0.5));
+          r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
+  !        r_icsc = c_icsc/((v_ic**0.5)*(v_sc**0.5));
+
+          r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+     SAVEDATA:
+  FILE IS   ELSAfSlopes_male_aehplus_grip_fev;
+  SAVE = FSCORES;
+  PLOT:
+   TYPE IS PLOT3;
+
+
+
+  OUTPUT: sampstat Cinterval;
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+b1 male aehplus grip fev
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2872
+
+Number of dependent variables                                    6
+Number of independent variables                                  6
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P2          P4          P6          C2          C4          C6
+
+Observed independent variables
+   BAGE2       EDUC2       HEI2        SMOKE1      DIAB1       CARDIO1
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME2       TIME4       TIME6
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  b1_male_aehplus_grip_fev_newdata.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            16
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2             1.000
+ P4             0.669         0.669
+ P6             0.552         0.499         0.552
+ C2             1.000         0.669         0.552         1.000
+ C4             0.623         0.614         0.472         0.623         0.623
+ C6             0.503         0.453         0.494         0.503         0.432
+ BAGE2          1.000         0.669         0.552         1.000         0.623
+ EDUC2          1.000         0.669         0.552         1.000         0.623
+ HEI2           1.000         0.669         0.552         1.000         0.623
+ SMOKE1         1.000         0.669         0.552         1.000         0.623
+ DIAB1          1.000         0.669         0.552         1.000         0.623
+ CARDIO1        1.000         0.669         0.552         1.000         0.623
+
+
+           Covariance Coverage
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ C6             0.503
+ BAGE2          0.503         1.000
+ EDUC2          0.503         1.000         1.000
+ HEI2           0.503         1.000         1.000         1.000
+ SMOKE1         0.503         1.000         1.000         1.000         1.000
+ DIAB1          0.503         1.000         1.000         1.000         1.000
+ CARDIO1        0.503         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          1.000
+ CARDIO1        1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ 1             36.979        34.697        32.051         2.762         2.670
+
+
+           Means
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ 1              2.476        -4.523         0.680         0.883         0.717
+
+
+           Means
+              DIAB1         CARDIO1
+              ________      ________
+ 1              0.079         0.130
+
+
+           Covariances
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2            81.761
+ P4            66.312        89.641
+ P6            64.930        72.122        89.333
+ C2             3.262         3.337         3.680         0.774
+ C4             3.006         3.219         3.476         0.506         0.694
+ C6             3.287         3.664         3.982         0.520         0.537
+ BAGE2        -43.400       -48.490       -53.053        -3.755        -3.576
+ EDUC2          0.853         0.880         0.926         0.101         0.087
+ HEI2          22.511        24.077        25.351         2.376         2.389
+ SMOKE1        -0.297        -0.289        -0.385        -0.066        -0.057
+ DIAB1         -0.285        -0.381        -0.430        -0.017        -0.022
+ CARDIO1       -0.439        -0.577        -0.654        -0.059        -0.056
+
+
+           Covariances
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ C6             0.720
+ BAGE2         -4.137        80.885
+ EDUC2          0.095        -0.909         0.217
+ HEI2           2.397       -16.844         0.608        47.683
+ SMOKE1        -0.063         0.392        -0.017        -0.066         0.203
+ DIAB1         -0.029         0.222        -0.002        -0.066         0.004
+ CARDIO1       -0.058         0.621        -0.010        -0.283         0.011
+
+
+           Covariances
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          0.073
+ CARDIO1        0.008         0.113
+
+
+           Correlations
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2             1.000
+ P4             0.775         1.000
+ P6             0.760         0.806         1.000
+ C2             0.410         0.401         0.443         1.000
+ C4             0.399         0.408         0.442         0.691         1.000
+ C6             0.428         0.456         0.496         0.697         0.759
+ BAGE2         -0.534        -0.569        -0.624        -0.475        -0.477
+ EDUC2          0.202         0.199         0.210         0.247         0.224
+ HEI2           0.361         0.368         0.388         0.391         0.415
+ SMOKE1        -0.073        -0.068        -0.090        -0.166        -0.152
+ DIAB1         -0.116        -0.149        -0.168        -0.072        -0.098
+ CARDIO1       -0.145        -0.181        -0.206        -0.198        -0.199
+
+
+           Correlations
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ C6             1.000
+ BAGE2         -0.542         1.000
+ EDUC2          0.241        -0.217         1.000
+ HEI2           0.409        -0.271         0.189         1.000
+ SMOKE1        -0.165         0.097        -0.083        -0.021         1.000
+ DIAB1         -0.128         0.091        -0.014        -0.035         0.030
+ CARDIO1       -0.203         0.205        -0.066        -0.122         0.073
+
+
+           Correlations
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          1.000
+ CARDIO1        0.093         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -50942.290
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P2                   36.979      -0.223       1.000    0.07%      29.333     35.000     37.333
+            2872.000      81.761       0.294      69.500    0.03%      39.333     44.667
+     P4                   35.644      -0.185       0.000    0.10%      28.000     33.667     35.833
+            1922.000      82.632       0.056      63.167    0.05%      38.167     43.500
+     P6                   34.111      -0.154       4.833    0.06%      27.167     32.333     34.416
+            1586.000      73.063       0.022      62.500    0.06%      36.500     41.333
+     C2                    2.762      -0.287       0.000    0.24%       2.070      2.610      2.830
+            2872.000       0.774       0.340       7.590    0.03%       3.030      3.480
+     C4                    2.757      -0.126       0.000    0.06%       2.110      2.590      2.800
+            1790.000       0.662       0.480       6.680    0.06%       2.980      3.430
+     C6                    2.677      -0.503       0.000    1.45%       2.054      2.532      2.742
+            1444.000       0.630       0.885       4.890    0.07%       2.910      3.314
+     BAGE2                -4.523       0.513     -18.000    0.97%     -13.000     -9.000     -6.000
+            2872.000      80.885      -0.593      22.000    0.07%      -3.000      4.000
+     EDUC2                 0.680      -0.774       0.000   31.96%       0.000      1.000      1.000
+            2872.000       0.217      -1.402       1.000   68.04%       1.000      1.000
+     HEI2                  0.883       0.045     -20.500    0.03%      -5.100     -0.800      0.800
+            2872.000      47.683      -0.102      29.400    0.03%       2.500      6.800
+     SMOKE1                0.717      -0.963       0.000   28.31%       0.000      1.000      1.000
+            2872.000       0.203      -1.073       1.000   71.69%       1.000      1.000
+     DIAB1                 0.079       3.112       0.000   92.06%       0.000      0.000      0.000
+            2872.000       0.073       7.683       1.000    7.94%       0.000      0.000
+     CARDIO1               0.130       2.202       0.000   87.01%       0.000      0.000      0.000
+            2872.000       0.113       2.849       1.000   12.99%       0.000      0.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       41
+
+Loglikelihood
+
+          H0 Value                      -26380.240
+          H0 Scaling Correction Factor      1.3720
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   52842.479
+          Bayesian (BIC)                 53086.952
+          Sample-Size Adjusted BIC       52956.681
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE2             -0.453      0.015    -29.245      0.000
+    EDUC2              1.173      0.309      3.803      0.000
+    HEI2               0.293      0.021     14.088      0.000
+    SMOKE1            -0.291      0.302     -0.962      0.336
+    DIAB1             -2.205      0.528     -4.178      0.000
+    CARDIO1           -0.392      0.398     -0.985      0.325
+
+ SP         ON
+    BAGE2             -0.009      0.002     -5.039      0.000
+    EDUC2             -0.028      0.034     -0.811      0.417
+    HEI2               0.001      0.002      0.588      0.557
+    SMOKE1            -0.010      0.031     -0.333      0.740
+    DIAB1             -0.154      0.051     -3.018      0.003
+    CARDIO1           -0.125      0.046     -2.706      0.007
+
+ IC         ON
+    BAGE2             -0.034      0.002    -22.471      0.000
+    EDUC2              0.199      0.029      6.805      0.000
+    HEI2               0.034      0.002     15.799      0.000
+    SMOKE1            -0.216      0.028     -7.584      0.000
+    DIAB1             -0.059      0.047     -1.254      0.210
+    CARDIO1           -0.203      0.039     -5.150      0.000
+
+ SC         ON
+    BAGE2              0.000      0.000     -0.750      0.453
+    EDUC2             -0.006      0.004     -1.679      0.093
+    HEI2               0.000      0.000     -0.110      0.912
+    SMOKE1             0.003      0.003      0.860      0.390
+    DIAB1             -0.015      0.006     -2.341      0.019
+    CARDIO1            0.003      0.005      0.675      0.500
+
+ IP       WITH
+    SP                -0.368      0.184     -2.005      0.045
+    IC                 0.621      0.109      5.675      0.000
+    SC                -0.015      0.012     -1.187      0.235
+
+ SP       WITH
+    IC                -0.013      0.011     -1.277      0.202
+    SC                 0.002      0.001      1.397      0.163
+
+ IC       WITH
+    SC                -0.008      0.003     -2.909      0.004
+
+ P2       WITH
+    C2                 0.037      0.052      0.713      0.476
+
+ P4       WITH
+    C4                 0.037      0.052      0.713      0.476
+
+ P6       WITH
+    C6                 0.037      0.052      0.713      0.476
+
+ Intercepts
+    P2                 0.000      0.000    999.000    999.000
+    P4                 0.000      0.000    999.000    999.000
+    P6                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C6                 0.000      0.000    999.000    999.000
+    IP                34.417      0.339    101.630      0.000
+    SP                -0.448      0.040    -11.123      0.000
+    IC                 2.637      0.032     81.725      0.000
+    SC                -0.022      0.004     -4.933      0.000
+
+ Residual Variances
+    P2                17.861      0.924     19.330      0.000
+    P4                17.861      0.924     19.330      0.000
+    P6                17.861      0.924     19.330      0.000
+    C2                 0.188      0.018     10.365      0.000
+    C4                 0.188      0.018     10.365      0.000
+    C6                 0.188      0.018     10.365      0.000
+    IP                36.623      1.955     18.737      0.000
+    SP                 0.042      0.026      1.623      0.105
+    IC                 0.325      0.023     14.029      0.000
+    SC                 0.001      0.000      2.172      0.030
+
+New/Additional Parameters
+    R_IPIC             0.180      0.031      5.778      0.000
+    R_SPSC             0.301      0.240      1.252      0.211
+    R_RES_PC           0.020      0.028      0.718      0.473
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.807E-06
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IP       ON
+    BAGE2           -0.493      -0.483      -0.478      -0.453      -0.427      -0.422      -0.413
+    EDUC2            0.379       0.568       0.666       1.173       1.681       1.778       1.968
+    HEI2             0.240       0.252       0.259       0.293       0.327       0.334       0.347
+    SMOKE1          -1.069      -0.883      -0.788      -0.291       0.207       0.302       0.488
+    DIAB1           -3.564      -3.239      -3.073      -2.205      -1.337      -1.170      -0.846
+    CARDIO1         -1.418      -1.173      -1.047      -0.392       0.263       0.388       0.633
+
+ SP       ON
+    BAGE2           -0.014      -0.013      -0.012      -0.009      -0.006      -0.006      -0.004
+    EDUC2           -0.116      -0.095      -0.084      -0.028       0.028       0.039       0.060
+    HEI2            -0.004      -0.003      -0.002       0.001       0.005       0.006       0.007
+    SMOKE1          -0.089      -0.070      -0.061      -0.010       0.040       0.050       0.069
+    DIAB1           -0.286      -0.254      -0.238      -0.154      -0.070      -0.054      -0.023
+    CARDIO1         -0.244      -0.216      -0.201      -0.125      -0.049      -0.034      -0.006
+
+ IC       ON
+    BAGE2           -0.038      -0.037      -0.037      -0.034      -0.032      -0.031      -0.030
+    EDUC2            0.124       0.142       0.151       0.199       0.247       0.256       0.274
+    HEI2             0.028       0.030       0.030       0.034       0.037       0.038       0.039
+    SMOKE1          -0.289      -0.272      -0.263      -0.216      -0.169      -0.160      -0.143
+    DIAB1           -0.182      -0.152      -0.137      -0.059       0.019       0.033       0.063
+    CARDIO1         -0.304      -0.280      -0.267      -0.203      -0.138      -0.126      -0.101
+
+ SC       ON
+    BAGE2           -0.001      -0.001       0.000       0.000       0.000       0.000       0.000
+    EDUC2           -0.016      -0.013      -0.012      -0.006       0.000       0.001       0.003
+    HEI2            -0.001      -0.001       0.000       0.000       0.000       0.000       0.001
+    SMOKE1          -0.006      -0.004      -0.003       0.003       0.009       0.010       0.012
+    DIAB1           -0.031      -0.027      -0.025      -0.015      -0.004      -0.002       0.001
+    CARDIO1         -0.010      -0.006      -0.005       0.003       0.012       0.013       0.016
+
+ IP       WITH
+    SP              -0.841      -0.728      -0.670      -0.368      -0.066      -0.008       0.105
+    IC               0.339       0.407       0.441       0.621       0.801       0.836       0.903
+    SC              -0.047      -0.039      -0.035      -0.015       0.006       0.010       0.017
+
+ SP       WITH
+    IC              -0.041      -0.034      -0.031      -0.013       0.004       0.007       0.014
+    SC              -0.002      -0.001       0.000       0.002       0.004       0.005       0.005
+
+ IC       WITH
+    SC              -0.015      -0.013      -0.012      -0.008      -0.003      -0.003      -0.001
+
+ P2       WITH
+    C2              -0.097      -0.065      -0.049       0.037       0.123       0.139       0.171
+
+ P4       WITH
+    C4              -0.097      -0.065      -0.049       0.037       0.123       0.139       0.171
+
+ P6       WITH
+    C6              -0.097      -0.065      -0.049       0.037       0.123       0.139       0.171
+
+ Intercepts
+    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C6               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IP              33.545      33.754      33.860      34.417      34.974      35.081      35.290
+    SP              -0.551      -0.527      -0.514      -0.448      -0.382      -0.369      -0.344
+    IC               2.554       2.574       2.584       2.637       2.690       2.701       2.721
+    SC              -0.033      -0.031      -0.029      -0.022      -0.015      -0.013      -0.011
+
+ Residual Variances
+    P2              15.481      16.050      16.341      17.861      19.381      19.672      20.241
+    P4              15.481      16.050      16.341      17.861      19.381      19.672      20.241
+    P6              15.481      16.050      16.341      17.861      19.381      19.672      20.241
+    C2               0.141       0.152       0.158       0.188       0.218       0.224       0.235
+    C4               0.141       0.152       0.158       0.188       0.218       0.224       0.235
+    C6               0.141       0.152       0.158       0.188       0.218       0.224       0.235
+    IP              31.588      32.792      33.408      36.623      39.838      40.454      41.657
+    SP              -0.024      -0.009      -0.001       0.042       0.084       0.092       0.108
+    IC               0.266       0.280       0.287       0.325       0.363       0.371       0.385
+    SC               0.000       0.000       0.000       0.001       0.002       0.002       0.002
+
+New/Additional Parameters
+    R_IPIC           0.100       0.119       0.129       0.180       0.231       0.241       0.260
+    R_SPSC          -0.318      -0.170      -0.095       0.301       0.697       0.772       0.920
+    R_RES_PC        -0.052      -0.035      -0.026       0.020       0.067       0.076       0.093
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ 1             37.088         2.841        -0.460         0.193         2.771
+
+
+           Means
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ 1              0.302        -0.024         0.028
+
+
+           Covariances
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP            56.600
+ IP_SE         -0.686         0.158
+ SP             0.317        -0.008         0.017
+ SP_SE         -0.007         0.001         0.000         0.000
+ IC             3.140        -0.066         0.037        -0.001         0.489
+ IC_SE         -0.050         0.011        -0.001         0.000        -0.005
+ SC            -0.007         0.000         0.001         0.000        -0.004
+ SC_SE         -0.002         0.000         0.000         0.000         0.000
+
+
+           Covariances
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          0.001
+ SC             0.000         0.000
+ SC_SE          0.000         0.000         0.000
+
+
+           Correlations
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             1.000
+ IP_SE         -0.229         1.000
+ SP             0.321        -0.149         1.000
+ SP_SE         -0.259         0.858        -0.217         1.000
+ IC             0.597        -0.237         0.408        -0.278         1.000
+ IC_SE         -0.230         0.914        -0.149         0.781        -0.236
+ SC            -0.064         0.068         0.336         0.055        -0.437
+ SC_SE         -0.260         0.778        -0.222         0.931        -0.275
+
+
+           Correlations
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          1.000
+ SC             0.067         1.000
+ SC_SE          0.787         0.051         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores)
+  Scatterplots (sample values, estimated factor scores)
+  Latent variable distribution plots
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    ELSAfSlopes_male_aehplus_grip_fev
+
+  Order and format of variables
+
+    P2             F10.3
+    P4             F10.3
+    P6             F10.3
+    C2             F10.3
+    C4             F10.3
+    C6             F10.3
+    BAGE2          F10.3
+    EDUC2          F10.3
+    HEI2           F10.3
+    SMOKE1         F10.3
+    DIAB1          F10.3
+    CARDIO1        F10.3
+    TIME2          F10.3
+    TIME4          F10.3
+    TIME6          F10.3
+    IP             F10.3
+    IP_SE          F10.3
+    SP             F10.3
+    SP_SE          F10.3
+    IC             F10.3
+    IC_SE          F10.3
+    SC             F10.3
+    SC_SE          F10.3
+
+  Save file format
+    23F10.3
+
+  Save file record length    10000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\annie\dropbox\ialsa_cambridge\elsa-phy-phy\elsa phy-phy covariates t2\b1_male_aehplus_g
+
+     Beginning Time:  17:41:50
+        Ending Time:  17:42:05
+       Elapsed Time:  00:00:15
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen
