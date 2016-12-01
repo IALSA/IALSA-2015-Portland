@@ -18,8 +18,8 @@ requireNamespace("scales")
 
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
-print_format <- "pandoc"
-# print_format <- "html"
+# print_format <- "pandoc"
+print_format <- "html"
 model_type_standard <- "aehplus" # spread at outcome pair level
 # model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
 model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
@@ -34,7 +34,7 @@ stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v8.csv")
 
 # ---- explorations -------------------------------------------
 catalog_spread %>% view_options(
-   study_name_ ="nuage"
+   study_name_ ="ilse"
   ,full_id     = T
   # ,subgroups   = c("female")
   # ,model_types = c("aehplus")
@@ -167,7 +167,7 @@ print_body(catalog_spread, catalog)
 
 # ---- ilse ---------------------------------------------------------
 study <- 'ilse'
-outcome <- "tug"
+outcome <- "grip"
 
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)

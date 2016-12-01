@@ -41,7 +41,7 @@ nas   <- list.files(file.path(pathStudies,"nas/physical-cognitive"),full.names=T
 nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive/without-errors/"),full.names=T, recursive=T, pattern="out$")
 # obas  <- list.files(file.path(pathStudies,"obas/physical-cognitive/"),full.names=T, recursive=T, pattern="out$")
 octo  <- list.files(file.path(pathStudies,"octo/physical-cognitive/Final/"),full.names=T, recursive=T, pattern="out$")
-satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive/"),full.names=T, recursive=F, pattern="out$")
+satsa <- list.files(file.path(pathStudies,"satsa/physical-cognitive/"),full.names=T, recursive=T, pattern="out$")
 
 list_pc <-  list("eas" = eas,
                  "elsa" = elsa,
@@ -54,7 +54,7 @@ list_pc <-  list("eas" = eas,
                  "octo" = octo,
                  "satsa" = satsa)
 # Now the object contains paths to files with model outputs
-list_pc[["nas"]]
+list_pc[["satsa"]]
 
 # ---- dto ---------------------------------------------------------
 ## point to the folders with results for physical-physical track
@@ -95,10 +95,10 @@ list_pp[["elsa"]]
 # path_model_output <- list_pc[["satsa"]][50]
 
 # list_pc$satsa
-(path=path_model_output)
+# (path=path_model_output)
 # check the parameter output
-model <- get_mpar(path)$unstandardized
-get_mpar(path)$unstandardized %>% dplyr::slice(1:26)
+# model <- get_mpar(path)$unstandardized
+# get_mpar(path)$unstandardized %>% dplyr::slice(1:26)
 # ---- dto ---------------------------------------------------------
 collect_result <- function(path){
   # extract model idendification
@@ -168,16 +168,16 @@ collect_study <- function(study, selected_results){
 }
 
 # ---- dto ---------------------------------------------------------
-collect_study(study="eas", selected_results)
+# collect_study(study="eas", selected_results)
 # collect_study(study="elsa", selected_results)
 # collect_study(study="hrs", selected_results)
 # collect_study(study="ilse", selected_results)
 # collect_study(study="lasa", selected_results)
 # collect_study(study="map", selected_results)
 # collect_study(study="nas", selected_results)
-collect_study(study="nuage", selected_results)
+# collect_study(study="nuage", selected_results)
 # collect_study(study="octo", selected_results)
-# collect_study(study="satsa", selected_results)
+collect_study(study="satsa", selected_results)
 
 # ---- dto ---------------------------------------------------------
 # combine results files from each study
