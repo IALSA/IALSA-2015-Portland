@@ -36,955 +36,357 @@ This report contains a searchable table, followed by publication-ready tables.
  Study **ELSA** have contributed the following outcome pairs to the IASLA-2015-Portland model pool: 
 NULL
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> process_a </th>
-   <th style="text-align:left;"> process_b </th>
-   <th style="text-align:right;"> n_models </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> fev100 </td>
-   <td style="text-align:left;"> word_de </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> fev100 </td>
-   <td style="text-align:left;"> word_im </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-</tbody>
-</table>
 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> study_name </th>
-   <th style="text-align:left;"> subgroup </th>
-   <th style="text-align:left;"> model_type </th>
-   <th style="text-align:left;"> process_a </th>
-   <th style="text-align:left;"> process_b </th>
-   <th style="text-align:right;"> n_models </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> elsa </td>
-   <td style="text-align:left;"> female </td>
-   <td style="text-align:left;"> aehplus </td>
-   <td style="text-align:left;"> fev100 </td>
-   <td style="text-align:left;"> word_de </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> elsa </td>
-   <td style="text-align:left;"> female </td>
-   <td style="text-align:left;"> aehplus </td>
-   <td style="text-align:left;"> fev100 </td>
-   <td style="text-align:left;"> word_im </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-</tbody>
-</table>
+process_a   process_b    n_models
+----------  ----------  ---------
+fev100      word_de             2
+fev100      word_im             2
 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> study_name </th>
-   <th style="text-align:left;"> subgroup </th>
-   <th style="text-align:left;"> model_type </th>
-   <th style="text-align:left;"> process_a </th>
-   <th style="text-align:left;"> process_b </th>
-   <th style="text-align:right;"> n_models </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> elsa </td>
-   <td style="text-align:left;"> male </td>
-   <td style="text-align:left;"> aehplus </td>
-   <td style="text-align:left;"> fev100 </td>
-   <td style="text-align:left;"> word_de </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> elsa </td>
-   <td style="text-align:left;"> male </td>
-   <td style="text-align:left;"> aehplus </td>
-   <td style="text-align:left;"> fev100 </td>
-   <td style="text-align:left;"> word_im </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-</tbody>
-</table>
+
+
+study_name   subgroup   model_type   process_a   process_b    n_models
+-----------  ---------  -----------  ----------  ----------  ---------
+elsa         female     aehplus      fev100      word_de             1
+elsa         female     aehplus      fev100      word_im             1
+
+
+
+
+study_name   subgroup   model_type   process_a   process_b    n_models
+-----------  ---------  -----------  ----------  ----------  ---------
+elsa         male       aehplus      fev100      word_de             1
+elsa         male       aehplus      fev100      word_im             1
 
 
 # female 
 
  Gender = _female_; Model type: _aehplus_;  Process (a) = _fev100_; Process (b): *word_de*, *word_im*
-<table>
- <thead>
-  <tr>
-   <th style="text-align:center;"> process </th>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> word_de </th>
-   <th style="text-align:right;"> word_im </th>
-   <th style="text-align:right;"> mean(sd) </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 188.51 (1.68)    &lt;.01 </td>
-   <td style="text-align:right;"> 188.49 (1.68)    &lt;.01 </td>
-   <td style="text-align:right;"> 188.50(0.01) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> -2.12 (0.19)    &lt;.01 </td>
-   <td style="text-align:right;"> -2.13 (0.19)    &lt;.01 </td>
-   <td style="text-align:right;"> -2.13(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -2.61 (0.10)    &lt;.01 </td>
-   <td style="text-align:right;"> -2.61 (0.10)    &lt;.01 </td>
-   <td style="text-align:right;"> -2.61(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 10.18 (1.79)    &lt;.01 </td>
-   <td style="text-align:right;"> 10.17 (1.79)    &lt;.01 </td>
-   <td style="text-align:right;"> 10.17(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 2.76 (0.15)    &lt;.01 </td>
-   <td style="text-align:right;"> 2.76 (0.15)    &lt;.01 </td>
-   <td style="text-align:right;"> 2.76(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> -10.89 (1.70)    &lt;.01 </td>
-   <td style="text-align:right;"> -10.89 (1.70)    &lt;.01 </td>
-   <td style="text-align:right;"> -10.89(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -11.16 (3.09)    &lt;.01 </td>
-   <td style="text-align:right;"> -11.19 (3.09)    &lt;.01 </td>
-   <td style="text-align:right;"> -11.18(0.02) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -5.06 (3.83)     .19 </td>
-   <td style="text-align:right;"> -5.22 (3.83)     .17 </td>
-   <td style="text-align:right;"> -5.14(0.11) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .42 </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .41 </td>
-   <td style="text-align:right;"> -0.01(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> 0.08 (0.21)     .68 </td>
-   <td style="text-align:right;"> 0.10 (0.21)     .62 </td>
-   <td style="text-align:right;"> 0.09(0.01) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> -0.04 (0.02)     .03 </td>
-   <td style="text-align:right;"> -0.04 (0.02)     .02 </td>
-   <td style="text-align:right;"> -0.04(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> -0.14 (0.20)     .47 </td>
-   <td style="text-align:right;"> -0.15 (0.20)     .44 </td>
-   <td style="text-align:right;"> -0.15(0.01) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> 0.32 (0.46)     .49 </td>
-   <td style="text-align:right;"> 0.31 (0.46)     .50 </td>
-   <td style="text-align:right;"> 0.31(0.01) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> -0.35 (0.56)     .54 </td>
-   <td style="text-align:right;"> -0.35 (0.56)     .53 </td>
-   <td style="text-align:right;"> -0.35(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 3.89 (0.06)    &lt;.01 </td>
-   <td style="text-align:right;"> 5.29 (0.05)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> -0.04 (0.01)    &lt;.01 </td>
-   <td style="text-align:right;"> -0.04 (0.01)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -0.07 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> -0.06 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 1.00 (0.07)    &lt;.01 </td>
-   <td style="text-align:right;"> 0.73 (0.06)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 0.02 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> 0.01 (0.00)     .05 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> -0.21 (0.06)    &lt;.01 </td>
-   <td style="text-align:right;"> -0.04 (0.05)     .49 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -0.12 (0.12)     .32 </td>
-   <td style="text-align:right;"> -0.20 (0.10)     .05 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -0.38 (0.16)     .02 </td>
-   <td style="text-align:right;"> -0.33 (0.14)     .02 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.00 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> -0.00 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> -0.00 (0.01)     .56 </td>
-   <td style="text-align:right;"> 0.01 (0.01)     .08 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .72 </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .26 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> 0.01 (0.01)     .05 </td>
-   <td style="text-align:right;"> -0.00 (0.01)     .58 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .54 </td>
-   <td style="text-align:right;"> 0.00 (0.01)     .78 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> 0.01 (0.02)     .62 </td>
-   <td style="text-align:right;"> 0.01 (0.02)     .55 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 1381.08 (90.17)    &lt;.01 </td>
-   <td style="text-align:right;"> 1380.40 (92.33)    &lt;.01 </td>
-   <td style="text-align:right;"> 1380.74(0.48) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 1.25 (1.24)     .31 </td>
-   <td style="text-align:right;"> 1.23 (1.34)     .36 </td>
-   <td style="text-align:right;"> 1.24(0.02) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1014.18 (84.65)    &lt;.01 </td>
-   <td style="text-align:right;"> 1014.46 (86.25)    &lt;.01 </td>
-   <td style="text-align:right;"> 1014.32(0.20) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -5.75 (8.91)     .52 </td>
-   <td style="text-align:right;"> -5.38 (9.33)     .56 </td>
-   <td style="text-align:right;"> -5.57(0.26) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 1.47 (0.08)    &lt;.01 </td>
-   <td style="text-align:right;"> 0.97 (0.09)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .43 </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .07 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1.91 (0.06)    &lt;.01 </td>
-   <td style="text-align:right;"> 1.60 (0.06)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> 0.01 (0.01)     .20 </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .34 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 2.12 (1.77)     .23 </td>
-   <td style="text-align:right;"> 2.63 (1.49)     .08 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> -0.01 (0.03)     .58 </td>
-   <td style="text-align:right;"> -0.01 (0.02)     .63 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 0.67 (1.07)     .53 </td>
-   <td style="text-align:right;"> 1.00 (0.86)     .24 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> 0.047 </td>
-   <td style="text-align:right;"> 0.072 </td>
-   <td style="text-align:right;"> 0.06(0.02) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> -0.423 </td>
-   <td style="text-align:right;"> -0.165 </td>
-   <td style="text-align:right;"> -0.29(0.18) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> 0.015 </td>
-   <td style="text-align:right;"> 0.025 </td>
-   <td style="text-align:right;"> 0.02(0.01) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> N </td>
-   <td style="text-align:right;"> 3,511 </td>
-   <td style="text-align:right;"> 3,511 </td>
-   <td style="text-align:right;"> 3511.00(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> occasions </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 6.00(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> parameters </td>
-   <td style="text-align:right;"> 41 </td>
-   <td style="text-align:right;"> 41 </td>
-   <td style="text-align:right;"> 41.00(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> LL </td>
-   <td style="text-align:right;"> -53,174 </td>
-   <td style="text-align:right;"> -52,196 </td>
-   <td style="text-align:right;"> -5.268498e+04(  692) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:right;"> 106,430 </td>
-   <td style="text-align:right;"> 104,474 </td>
-   <td style="text-align:right;"> 1.054520e+05(1,383) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:right;"> 106,683 </td>
-   <td style="text-align:right;"> 104,726 </td>
-   <td style="text-align:right;"> 1.057047e+05(1,383) </td>
-  </tr>
-</tbody>
-</table>
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+
+
+ process   label                                        word_de                    word_im               mean(sd)
+---------  -------------------------  -------------------------  -------------------------  ---------------------
+   ab      Covar (Levels)                   2.57 (1.83)     .16        2.90 (1.57)     .06                    ---
+   ab      Covar (Slopes)                  -0.01 (0.03)     .80       -0.01 (0.02)     .79                    ---
+   ab      Covar (Residuals)                0.41 (1.20)     .73        0.90 (0.97)     .35                    ---
+   er      Corr (Levels)                                    ---                        ---                    ---
+   er      Corr (Slopes)                                    ---                        ---                    ---
+   er      Corr (Residuals)                                 ---                        ---                    ---
+    a      Level                          188.74 (1.69)    <.01      188.71 (1.70)    <.01           188.73(0.02)
+    a      Slope                           -2.08 (0.19)    <.01       -2.09 (0.19)    <.01            -2.09(0.00)
+    a      Level * age                     -2.62 (0.10)    <.01       -2.62 (0.10)    <.01            -2.62(0.00)
+    a      Level * education                9.83 (1.80)    <.01        9.85 (1.80)    <.01             9.84(0.01)
+    a      Level * height                   2.74 (0.15)    <.01        2.74 (0.15)    <.01             2.74(0.00)
+    a      Level * smoking                -10.77 (1.71)    <.01      -10.76 (1.71)    <.01           -10.76(0.01)
+    a      Level * cardio                 -12.53 (3.10)    <.01      -12.52 (3.10)    <.01           -12.53(0.01)
+    a      Level * diabetes                -4.05 (3.83)     .29       -4.07 (3.83)     .29            -4.06(0.01)
+    a      Slope * age                     -0.01 (0.01)     .37       -0.01 (0.01)     .37            -0.01(0.00)
+    a      Slope * education                0.06 (0.21)     .76        0.08 (0.21)     .70             0.07(0.01)
+    a      Slope * height                  -0.04 (0.02)     .02       -0.04 (0.02)     .01            -0.04(0.00)
+    a      Slope * smoking                 -0.15 (0.20)     .45       -0.16 (0.20)     .43            -0.15(0.01)
+    a      Slope * cardio                   0.14 (0.47)     .76        0.14 (0.47)     .77             0.14(0.01)
+    a      Slope * diabetes                -0.16 (0.55)     .76       -0.16 (0.54)     .77            -0.16(0.01)
+    b      Level                            3.93 (0.06)    <.01        5.33 (0.06)    <.01                    ---
+    b      Slope                           -0.04 (0.01)    <.01       -0.04 (0.01)    <.01                    ---
+    b      Level * age                     -0.07 (0.00)    <.01       -0.06 (0.00)    <.01                    ---
+    b      Level * education                1.02 (0.07)    <.01        0.72 (0.06)    <.01                    ---
+    b      Level * height                   0.01 (0.00)    <.01        0.01 (0.00)     .18                    ---
+    b      Level * smoking                 -0.22 (0.06)    <.01       -0.05 (0.06)     .36                    ---
+    b      Level * cardio                  -0.11 (0.13)     .39       -0.17 (0.12)     .15                    ---
+    b      Level * diabetes                -0.29 (0.17)     .09       -0.21 (0.15)     .15                    ---
+    b      Slope * age                     -0.00 (0.00)    <.01       -0.00 (0.00)    <.01                    ---
+    b      Slope * education               -0.01 (0.01)     .29        0.01 (0.01)     .20                    ---
+    b      Slope * height                   0.00 (0.00)     .78        0.00 (0.00)     .13                    ---
+    b      Slope * smoking                  0.02 (0.01)     .04       -0.00 (0.01)     .66                    ---
+    b      Slope * cardio                  -0.01 (0.02)     .52        0.01 (0.02)     .73                    ---
+    b      Slope * diabetes                 0.00 (0.02)     .90        0.00 (0.02)     .82                    ---
+    a      Var (Level)                 1360.77 (109.43)    <.01   1360.58 (109.51)    <.01          1360.67(0.13)
+    a      Var (Slope)                      0.89 (2.14)     .68        0.86 (2.14)     .69             0.87(0.02)
+    a      Var (Residual)              1028.77 (102.06)    <.01   1029.49 (102.16)    <.01          1029.13(0.51)
+    b      Var (Level)                      1.41 (0.10)    <.01        0.94 (0.09)    <.01                    ---
+    b      Var (Slope)                      0.00 (0.00)     .80        0.00 (0.00)     .12                    ---
+    b      Var (Residual)                   1.91 (0.07)    <.01        1.62 (0.06)    <.01                    ---
+    a      Covar (Level, Slope)           -6.30 (12.84)     .62      -5.92 (12.85)     .64            -6.11(0.26)
+    b      Covar (Level, Slope)             0.02 (0.01)     .15       -0.01 (0.01)     .46                    ---
+    \      Correlation of Levels                         0.0586                      0.081             0.07(0.02)
+    \      Correlation of Slopes                        -0.2683                     -0.138            -0.20(0.09)
+    \      Correlation of Residuals                      0.0093                      0.022             0.02(0.01)
+    \      N                                              3,228                      3,227          3227.50(0.71)
+    \      occasions                                          6                          6             6.00(0.00)
+    \      parameters                                        41                         41            41.00(0.00)
+    \      LL                                           -50,805                    -49,896   -5.035017e+04(  643)
+    \      AIC                                          101,692                     99,873    1.007823e+05(1,286)
+    \      BIC                                          101,941                    100,122    1.010316e+05(1,286)
 
 ##  word_de 
 
  Gender = _female_;  Process (a) = *fev100*; Process (b) = _word_de_
-<table>
- <thead>
-  <tr>
-   <th style="text-align:center;"> process </th>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 188.51 (1.68)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> -2.12 (0.19)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -2.61 (0.10)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 10.18 (1.79)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 2.76 (0.15)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> -10.89 (1.70)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -11.16 (3.09)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -5.06 (3.83)     .19 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .42 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> 0.08 (0.21)     .68 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> -0.04 (0.02)     .03 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> -0.14 (0.20)     .47 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> 0.32 (0.46)     .49 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> -0.35 (0.56)     .54 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 3.89 (0.06)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> -0.04 (0.01)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -0.07 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 1.00 (0.07)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 0.02 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> -0.21 (0.06)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -0.12 (0.12)     .32 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -0.38 (0.16)     .02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.00 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> -0.00 (0.01)     .56 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .72 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> 0.01 (0.01)     .05 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .54 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> 0.01 (0.02)     .62 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 1381.08 (90.17)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 1.25 (1.24)     .31 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1014.18 (84.65)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -5.75 (8.91)     .52 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 1.47 (0.08)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .43 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1.91 (0.06)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> 0.01 (0.01)     .20 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 2.12 (1.77)     .23 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> -0.01 (0.03)     .58 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 0.67 (1.07)     .53 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> 0.047 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> -0.423 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> 0.015 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> N </td>
-   <td style="text-align:right;"> 3,511 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> occasions </td>
-   <td style="text-align:right;"> 6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> parameters </td>
-   <td style="text-align:right;"> 41 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> LL </td>
-   <td style="text-align:right;"> -53,174 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:right;"> 106,430 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:right;"> 106,683 </td>
-  </tr>
-</tbody>
-</table>
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+
+
+ process   label                                        aehplus
+---------  -------------------------  -------------------------
+   ab      Covar (Levels)                   2.57 (1.83)     .16
+   ab      Covar (Slopes)                  -0.01 (0.03)     .80
+   ab      Covar (Residuals)                0.41 (1.20)     .73
+   er      Corr (Levels)                                    ---
+   er      Corr (Slopes)                                    ---
+   er      Corr (Residuals)                                 ---
+    a      Level                          188.74 (1.69)    <.01
+    a      Slope                           -2.08 (0.19)    <.01
+    a      Level * age                     -2.62 (0.10)    <.01
+    a      Level * education                9.83 (1.80)    <.01
+    a      Level * height                   2.74 (0.15)    <.01
+    a      Level * smoking                -10.77 (1.71)    <.01
+    a      Level * cardio                 -12.53 (3.10)    <.01
+    a      Level * diabetes                -4.05 (3.83)     .29
+    a      Slope * age                     -0.01 (0.01)     .37
+    a      Slope * education                0.06 (0.21)     .76
+    a      Slope * height                  -0.04 (0.02)     .02
+    a      Slope * smoking                 -0.15 (0.20)     .45
+    a      Slope * cardio                   0.14 (0.47)     .76
+    a      Slope * diabetes                -0.16 (0.55)     .76
+    b      Level                            3.93 (0.06)    <.01
+    b      Slope                           -0.04 (0.01)    <.01
+    b      Level * age                     -0.07 (0.00)    <.01
+    b      Level * education                1.02 (0.07)    <.01
+    b      Level * height                   0.01 (0.00)    <.01
+    b      Level * smoking                 -0.22 (0.06)    <.01
+    b      Level * cardio                  -0.11 (0.13)     .39
+    b      Level * diabetes                -0.29 (0.17)     .09
+    b      Slope * age                     -0.00 (0.00)    <.01
+    b      Slope * education               -0.01 (0.01)     .29
+    b      Slope * height                   0.00 (0.00)     .78
+    b      Slope * smoking                  0.02 (0.01)     .04
+    b      Slope * cardio                  -0.01 (0.02)     .52
+    b      Slope * diabetes                 0.00 (0.02)     .90
+    a      Var (Level)                 1360.77 (109.43)    <.01
+    a      Var (Slope)                      0.89 (2.14)     .68
+    a      Var (Residual)              1028.77 (102.06)    <.01
+    b      Var (Level)                      1.41 (0.10)    <.01
+    b      Var (Slope)                      0.00 (0.00)     .80
+    b      Var (Residual)                   1.91 (0.07)    <.01
+    a      Covar (Level, Slope)           -6.30 (12.84)     .62
+    b      Covar (Level, Slope)             0.02 (0.01)     .15
+    \      Correlation of Levels                         0.0586
+    \      Correlation of Slopes                        -0.2683
+    \      Correlation of Residuals                      0.0093
+    \      N                                              3,228
+    \      occasions                                          6
+    \      parameters                                        41
+    \      LL                                           -50,805
+    \      AIC                                          101,692
+    \      BIC                                          101,941
 
 ##  word_im 
 
  Gender = _female_;  Process (a) = *fev100*; Process (b) = _word_im_
-<table>
- <thead>
-  <tr>
-   <th style="text-align:center;"> process </th>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 188.49 (1.68)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> -2.13 (0.19)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -2.61 (0.10)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 10.17 (1.79)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 2.76 (0.15)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> -10.89 (1.70)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -11.19 (3.09)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -5.22 (3.83)     .17 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .41 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> 0.10 (0.21)     .62 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> -0.04 (0.02)     .02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> -0.15 (0.20)     .44 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> 0.31 (0.46)     .50 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> -0.35 (0.56)     .53 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 5.29 (0.05)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> -0.04 (0.01)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -0.06 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 0.73 (0.06)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 0.01 (0.00)     .05 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> -0.04 (0.05)     .49 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -0.20 (0.10)     .05 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -0.33 (0.14)     .02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.00 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> 0.01 (0.01)     .08 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .26 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> -0.00 (0.01)     .58 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> 0.00 (0.01)     .78 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> 0.01 (0.02)     .55 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 1380.40 (92.33)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 1.23 (1.34)     .36 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1014.46 (86.25)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -5.38 (9.33)     .56 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 0.97 (0.09)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .07 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1.60 (0.06)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .34 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 2.63 (1.49)     .08 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> -0.01 (0.02)     .63 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 1.00 (0.86)     .24 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> 0.072 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> -0.165 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> 0.025 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> N </td>
-   <td style="text-align:right;"> 3,511 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> occasions </td>
-   <td style="text-align:right;"> 6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> parameters </td>
-   <td style="text-align:right;"> 41 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> LL </td>
-   <td style="text-align:right;"> -52,196 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:right;"> 104,474 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:right;"> 104,726 </td>
-  </tr>
-</tbody>
-</table>
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+
+
+ process   label                                        aehplus
+---------  -------------------------  -------------------------
+   ab      Covar (Levels)                   2.90 (1.57)     .06
+   ab      Covar (Slopes)                  -0.01 (0.02)     .79
+   ab      Covar (Residuals)                0.90 (0.97)     .35
+   er      Corr (Levels)                                    ---
+   er      Corr (Slopes)                                    ---
+   er      Corr (Residuals)                                 ---
+    a      Level                          188.71 (1.70)    <.01
+    a      Slope                           -2.09 (0.19)    <.01
+    a      Level * age                     -2.62 (0.10)    <.01
+    a      Level * education                9.85 (1.80)    <.01
+    a      Level * height                   2.74 (0.15)    <.01
+    a      Level * smoking                -10.76 (1.71)    <.01
+    a      Level * cardio                 -12.52 (3.10)    <.01
+    a      Level * diabetes                -4.07 (3.83)     .29
+    a      Slope * age                     -0.01 (0.01)     .37
+    a      Slope * education                0.08 (0.21)     .70
+    a      Slope * height                  -0.04 (0.02)     .01
+    a      Slope * smoking                 -0.16 (0.20)     .43
+    a      Slope * cardio                   0.14 (0.47)     .77
+    a      Slope * diabetes                -0.16 (0.54)     .77
+    b      Level                            5.33 (0.06)    <.01
+    b      Slope                           -0.04 (0.01)    <.01
+    b      Level * age                     -0.06 (0.00)    <.01
+    b      Level * education                0.72 (0.06)    <.01
+    b      Level * height                   0.01 (0.00)     .18
+    b      Level * smoking                 -0.05 (0.06)     .36
+    b      Level * cardio                  -0.17 (0.12)     .15
+    b      Level * diabetes                -0.21 (0.15)     .15
+    b      Slope * age                     -0.00 (0.00)    <.01
+    b      Slope * education                0.01 (0.01)     .20
+    b      Slope * height                   0.00 (0.00)     .13
+    b      Slope * smoking                 -0.00 (0.01)     .66
+    b      Slope * cardio                   0.01 (0.02)     .73
+    b      Slope * diabetes                 0.00 (0.02)     .82
+    a      Var (Level)                 1360.58 (109.51)    <.01
+    a      Var (Slope)                      0.86 (2.14)     .69
+    a      Var (Residual)              1029.49 (102.16)    <.01
+    b      Var (Level)                      0.94 (0.09)    <.01
+    b      Var (Slope)                      0.00 (0.00)     .12
+    b      Var (Residual)                   1.62 (0.06)    <.01
+    a      Covar (Level, Slope)           -5.92 (12.85)     .64
+    b      Covar (Level, Slope)            -0.01 (0.01)     .46
+    \      Correlation of Levels                          0.081
+    \      Correlation of Slopes                         -0.138
+    \      Correlation of Residuals                       0.022
+    \      N                                              3,227
+    \      occasions                                          6
+    \      parameters                                        41
+    \      LL                                           -49,896
+    \      AIC                                           99,873
+    \      BIC                                          100,122
 
 ## Summary 
 
@@ -992,914 +394,471 @@ NULL
 
  Computed correlations:
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+</tbody>
+</table>
 
-label                    process_b   aehplus
-----------------------  ----------  --------
-Correlation of Levels      word_de      0.05
-Correlation of Levels      word_im      0.07
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> -0.27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> -0.14 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                    process_b   aehplus
-----------------------  ----------  --------
-Correlation of Slopes      word_de     -0.42
-Correlation of Slopes      word_im     -0.16
-
-
-
-label                       process_b   aehplus
--------------------------  ----------  --------
-Correlation of Residuals      word_de      0.02
-Correlation of Residuals      word_im      0.02
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+</tbody>
+</table>
 
 
 P-values for corresponding covariances: 
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+</tbody>
+</table>
 
-label                   process_b   aehplus
----------------------  ----------  --------
-Covariance of Levels      word_de      0.23
-Covariance of Levels      word_im      0.08
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.80 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.79 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                   process_b   aehplus
----------------------  ----------  --------
-Covariance of Slopes      word_de      0.58
-Covariance of Slopes      word_im      0.63
-
-
-
-label                       process_b   aehplus
--------------------------  ----------  --------
-Covariance of  Residuals      word_de      0.53
-Covariance of  Residuals      word_im      0.24
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.73 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.35 </td>
+  </tr>
+</tbody>
+</table>
 
 
 # male 
 
  Gender = _male_; Model type: _aehplus_;  Process (a) = _fev100_; Process (b): *word_de*, *word_im*
-<table>
- <thead>
-  <tr>
-   <th style="text-align:center;"> process </th>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> word_de </th>
-   <th style="text-align:right;"> word_im </th>
-   <th style="text-align:right;"> mean(sd) </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 262.63 (3.21)    &lt;.01 </td>
-   <td style="text-align:right;"> 262.61 (3.21)    &lt;.01 </td>
-   <td style="text-align:right;"> 262.62(0.02) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> -2.22 (0.44)    &lt;.01 </td>
-   <td style="text-align:right;"> -2.20 (0.44)    &lt;.01 </td>
-   <td style="text-align:right;"> -2.21(0.01) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -3.40 (0.15)    &lt;.01 </td>
-   <td style="text-align:right;"> -3.41 (0.15)    &lt;.01 </td>
-   <td style="text-align:right;"> -3.41(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 20.35 (2.89)    &lt;.01 </td>
-   <td style="text-align:right;"> 20.31 (2.89)    &lt;.01 </td>
-   <td style="text-align:right;"> 20.33(0.03) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 3.34 (0.21)    &lt;.01 </td>
-   <td style="text-align:right;"> 3.34 (0.21)    &lt;.01 </td>
-   <td style="text-align:right;"> 3.34(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> -21.05 (2.83)    &lt;.01 </td>
-   <td style="text-align:right;"> -21.05 (2.83)    &lt;.01 </td>
-   <td style="text-align:right;"> -21.05(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -19.53 (3.86)    &lt;.01 </td>
-   <td style="text-align:right;"> -19.49 (3.86)    &lt;.01 </td>
-   <td style="text-align:right;"> -19.51(0.03) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -6.23 (4.67)     .18 </td>
-   <td style="text-align:right;"> -6.17 (4.67)     .19 </td>
-   <td style="text-align:right;"> -6.20(0.04) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.01 (0.02)     .49 </td>
-   <td style="text-align:right;"> -0.01 (0.02)     .52 </td>
-   <td style="text-align:right;"> -0.01(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> -0.64 (0.36)     .08 </td>
-   <td style="text-align:right;"> -0.63 (0.36)     .08 </td>
-   <td style="text-align:right;"> -0.64(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> -0.00 (0.02)     .94 </td>
-   <td style="text-align:right;"> -0.00 (0.02)     .91 </td>
-   <td style="text-align:right;"> -0.00(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> 0.31 (0.34)     .36 </td>
-   <td style="text-align:right;"> 0.32 (0.34)     .35 </td>
-   <td style="text-align:right;"> 0.32(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> 0.29 (0.49)     .56 </td>
-   <td style="text-align:right;"> 0.28 (0.49)     .57 </td>
-   <td style="text-align:right;"> 0.28(0.01) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> -1.60 (0.63)     .01 </td>
-   <td style="text-align:right;"> -1.59 (0.63)     .01 </td>
-   <td style="text-align:right;"> -1.60(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 3.27 (0.08)    &lt;.01 </td>
-   <td style="text-align:right;"> 4.87 (0.07)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> 0.00 (0.01)     .61 </td>
-   <td style="text-align:right;"> -0.03 (0.01)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -0.07 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> -0.05 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 0.92 (0.07)    &lt;.01 </td>
-   <td style="text-align:right;"> 0.76 (0.06)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 0.02 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> 0.01 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> 0.02 (0.07)     .71 </td>
-   <td style="text-align:right;"> -0.00 (0.06)     .95 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -0.06 (0.10)     .52 </td>
-   <td style="text-align:right;"> -0.16 (0.09)     .07 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -0.28 (0.11)     .01 </td>
-   <td style="text-align:right;"> -0.10 (0.10)     .32 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.00 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> -0.00 (0.00)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .18 </td>
-   <td style="text-align:right;"> -0.00 (0.01)     .95 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .96 </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .10 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> -0.02 (0.01)     .02 </td>
-   <td style="text-align:right;"> -0.02 (0.01)     .04 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> -0.03 (0.01)     .03 </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .66 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> -0.01 (0.02)     .41 </td>
-   <td style="text-align:right;"> -0.01 (0.02)     .53 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 3294.78 (226.22)    &lt;.01 </td>
-   <td style="text-align:right;"> 3294.67 (226.27)    &lt;.01 </td>
-   <td style="text-align:right;"> 3294.72(0.07) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 9.60 (4.15)     .02 </td>
-   <td style="text-align:right;"> 9.64 (4.16)     .02 </td>
-   <td style="text-align:right;"> 9.62(0.03) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1864.06 (173.74)    &lt;.01 </td>
-   <td style="text-align:right;"> 1863.74 (173.76)    &lt;.01 </td>
-   <td style="text-align:right;"> 1863.90(0.23) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -78.34 (25.70)    &lt;.01 </td>
-   <td style="text-align:right;"> -78.51 (25.79)    &lt;.01 </td>
-   <td style="text-align:right;"> -78.43(0.12) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 1.36 (0.09)    &lt;.01 </td>
-   <td style="text-align:right;"> 1.00 (0.08)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .49 </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1.75 (0.06)    &lt;.01 </td>
-   <td style="text-align:right;"> 1.40 (0.06)    &lt;.01 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -0.00 (0.01)     .71 </td>
-   <td style="text-align:right;"> -0.02 (0.01)     .05 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 3.78 (2.64)     .15 </td>
-   <td style="text-align:right;"> 3.22 (2.20)     .14 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> -0.02 (0.03)     .48 </td>
-   <td style="text-align:right;"> -0.02 (0.03)     .51 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 1.62 (1.39)     .24 </td>
-   <td style="text-align:right;"> 2.34 (1.21)     .05 </td>
-   <td style="text-align:right;"> --- </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> 0.056 </td>
-   <td style="text-align:right;"> 0.056 </td>
-   <td style="text-align:right;"> 0.06(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> -0.235 </td>
-   <td style="text-align:right;"> -0.112 </td>
-   <td style="text-align:right;"> -0.17(0.09) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> 0.028 </td>
-   <td style="text-align:right;"> 0.046 </td>
-   <td style="text-align:right;"> 0.04(0.01) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> N </td>
-   <td style="text-align:right;"> 3,091 </td>
-   <td style="text-align:right;"> 3,091 </td>
-   <td style="text-align:right;"> 3091.00(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> occasions </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 6.00(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> parameters </td>
-   <td style="text-align:right;"> 41 </td>
-   <td style="text-align:right;"> 41 </td>
-   <td style="text-align:right;"> 41.00(0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> LL </td>
-   <td style="text-align:right;"> -48,542 </td>
-   <td style="text-align:right;"> -47,695 </td>
-   <td style="text-align:right;"> -4.811816e+04(  599) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:right;"> 97,165 </td>
-   <td style="text-align:right;"> 95,471 </td>
-   <td style="text-align:right;"> 9.631832e+04(1,198) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:right;"> 97,413 </td>
-   <td style="text-align:right;"> 95,719 </td>
-   <td style="text-align:right;"> 9.656581e+04(1,198) </td>
-  </tr>
-</tbody>
-</table>
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+
+
+ process   label                                        word_de                    word_im               mean(sd)
+---------  -------------------------  -------------------------  -------------------------  ---------------------
+   ab      Covar (Levels)                   3.57 (2.66)     .18        3.39 (2.21)     .12                    ---
+   ab      Covar (Slopes)                  -0.02 (0.03)     .54       -0.02 (0.03)     .54                    ---
+   ab      Covar (Residuals)                1.41 (1.42)     .32        2.09 (1.22)     .09                    ---
+   er      Corr (Levels)                                    ---                        ---                    ---
+   er      Corr (Slopes)                                    ---                        ---                    ---
+   er      Corr (Residuals)                                 ---                        ---                    ---
+    a      Level                          263.49 (3.21)    <.01      263.55 (3.21)    <.01           263.52(0.04)
+    a      Slope                           -2.12 (0.45)    <.01       -2.11 (0.44)    <.01            -2.11(0.01)
+    a      Level * age                     -3.40 (0.15)    <.01       -3.40 (0.15)    <.01            -3.40(0.00)
+    a      Level * education               19.88 (2.90)    <.01       19.81 (2.90)    <.01            19.84(0.05)
+    a      Level * height                   3.37 (0.21)    <.01        3.38 (0.21)    <.01             3.37(0.00)
+    a      Level * smoking                -21.31 (2.84)    <.01      -21.30 (2.85)    <.01           -21.31(0.00)
+    a      Level * cardio                 -19.89 (3.90)    <.01      -19.91 (3.90)    <.01           -19.90(0.01)
+    a      Level * diabetes                -6.24 (4.70)     .18       -6.27 (4.70)     .18            -6.26(0.02)
+    a      Slope * age                     -0.01 (0.02)     .61       -0.01 (0.02)     .60            -0.01(0.00)
+    a      Slope * education               -0.68 (0.36)     .06       -0.68 (0.36)     .06            -0.68(0.00)
+    a      Slope * height                   0.00 (0.02)     .89        0.00 (0.02)     .94             0.00(0.00)
+    a      Slope * smoking                  0.28 (0.34)     .41        0.29 (0.34)     .40             0.29(0.01)
+    a      Slope * cardio                   0.26 (0.50)     .60        0.26 (0.50)     .60             0.26(0.00)
+    a      Slope * diabetes                -1.47 (0.62)     .02       -1.46 (0.62)     .02            -1.47(0.01)
+    b      Level                            3.27 (0.08)    <.01        4.88 (0.07)    <.01                    ---
+    b      Slope                            0.01 (0.01)     .50       -0.03 (0.01)     .01                    ---
+    b      Level * age                     -0.07 (0.00)    <.01       -0.05 (0.00)    <.01                    ---
+    b      Level * education                0.94 (0.07)    <.01        0.77 (0.06)    <.01                    ---
+    b      Level * height                   0.02 (0.00)    <.01        0.01 (0.00)     .01                    ---
+    b      Level * smoking                  0.04 (0.07)     .61        0.01 (0.06)     .88                    ---
+    b      Level * cardio                  -0.06 (0.10)     .58       -0.19 (0.09)     .04                    ---
+    b      Level * diabetes                -0.32 (0.11)    <.01       -0.16 (0.11)     .12                    ---
+    b      Slope * age                     -0.00 (0.00)    <.01       -0.00 (0.00)    <.01                    ---
+    b      Slope * education               -0.01 (0.01)     .20        0.00 (0.01)     .89                    ---
+    b      Slope * height                   0.00 (0.00)     .84        0.00 (0.00)     .05                    ---
+    b      Slope * smoking                 -0.02 (0.01)     .02       -0.02 (0.01)     .02                    ---
+    b      Slope * cardio                  -0.03 (0.01)     .04        0.00 (0.01)     .98                    ---
+    b      Slope * diabetes                -0.01 (0.02)     .50       -0.00 (0.02)     .88                    ---
+    a      Var (Level)                 3273.17 (227.38)    <.01   3273.50 (227.50)    <.01          3273.33(0.24)
+    a      Var (Slope)                      9.53 (4.20)     .02        9.59 (4.21)     .02             9.56(0.04)
+    a      Var (Residual)              1872.57 (177.52)    <.01   1872.26 (177.47)    <.01          1872.42(0.22)
+    b      Var (Level)                      1.32 (0.10)    <.01        0.97 (0.08)    <.01                    ---
+    b      Var (Slope)                      0.00 (0.00)     .47        0.00 (0.00)     .02                    ---
+    b      Var (Residual)                   1.77 (0.06)    <.01        1.39 (0.06)    <.01                    ---
+    a      Covar (Level, Slope)          -78.40 (25.96)    <.01     -78.90 (26.04)    <.01           -78.65(0.35)
+    b      Covar (Level, Slope)            -0.00 (0.01)     .89       -0.02 (0.01)     .07                    ---
+    \      Correlation of Levels                          0.054                      0.060             0.06(0.00)
+    \      Correlation of Slopes                         -0.205                     -0.107            -0.16(0.07)
+    \      Correlation of Residuals                       0.024                      0.041             0.03(0.01)
+    \      N                                              2,904                      2,902          2903.00(1.41)
+    \      occasions                                          6                          6             6.00(0.00)
+    \      parameters                                        41                         41            41.00(0.00)
+    \      LL                                           -47,112                    -46,253   -4.668271e+04(  607)
+    \      AIC                                           94,306                     92,588    9.344743e+04(1,215)
+    \      BIC                                           94,551                     92,833    9.369234e+04(1,215)
 
 ##  word_de 
 
  Gender = _male_;  Process (a) = *fev100*; Process (b) = _word_de_
-<table>
- <thead>
-  <tr>
-   <th style="text-align:center;"> process </th>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 262.63 (3.21)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> -2.22 (0.44)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -3.40 (0.15)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 20.35 (2.89)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 3.34 (0.21)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> -21.05 (2.83)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -19.53 (3.86)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -6.23 (4.67)     .18 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.01 (0.02)     .49 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> -0.64 (0.36)     .08 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> -0.00 (0.02)     .94 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> 0.31 (0.34)     .36 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> 0.29 (0.49)     .56 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> -1.60 (0.63)     .01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 3.27 (0.08)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> 0.00 (0.01)     .61 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -0.07 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 0.92 (0.07)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 0.02 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> 0.02 (0.07)     .71 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -0.06 (0.10)     .52 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -0.28 (0.11)     .01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.00 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .18 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .96 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> -0.02 (0.01)     .02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> -0.03 (0.01)     .03 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> -0.01 (0.02)     .41 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 3294.78 (226.22)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 9.60 (4.15)     .02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1864.06 (173.74)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -78.34 (25.70)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 1.36 (0.09)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .49 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1.75 (0.06)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -0.00 (0.01)     .71 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 3.78 (2.64)     .15 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> -0.02 (0.03)     .48 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 1.62 (1.39)     .24 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> 0.056 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> -0.235 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> 0.028 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> N </td>
-   <td style="text-align:right;"> 3,091 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> occasions </td>
-   <td style="text-align:right;"> 6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> parameters </td>
-   <td style="text-align:right;"> 41 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> LL </td>
-   <td style="text-align:right;"> -48,542 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:right;"> 97,165 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:right;"> 97,413 </td>
-  </tr>
-</tbody>
-</table>
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+
+
+ process   label                                        aehplus
+---------  -------------------------  -------------------------
+   ab      Covar (Levels)                   3.57 (2.66)     .18
+   ab      Covar (Slopes)                  -0.02 (0.03)     .54
+   ab      Covar (Residuals)                1.41 (1.42)     .32
+   er      Corr (Levels)                                    ---
+   er      Corr (Slopes)                                    ---
+   er      Corr (Residuals)                                 ---
+    a      Level                          263.49 (3.21)    <.01
+    a      Slope                           -2.12 (0.45)    <.01
+    a      Level * age                     -3.40 (0.15)    <.01
+    a      Level * education               19.88 (2.90)    <.01
+    a      Level * height                   3.37 (0.21)    <.01
+    a      Level * smoking                -21.31 (2.84)    <.01
+    a      Level * cardio                 -19.89 (3.90)    <.01
+    a      Level * diabetes                -6.24 (4.70)     .18
+    a      Slope * age                     -0.01 (0.02)     .61
+    a      Slope * education               -0.68 (0.36)     .06
+    a      Slope * height                   0.00 (0.02)     .89
+    a      Slope * smoking                  0.28 (0.34)     .41
+    a      Slope * cardio                   0.26 (0.50)     .60
+    a      Slope * diabetes                -1.47 (0.62)     .02
+    b      Level                            3.27 (0.08)    <.01
+    b      Slope                            0.01 (0.01)     .50
+    b      Level * age                     -0.07 (0.00)    <.01
+    b      Level * education                0.94 (0.07)    <.01
+    b      Level * height                   0.02 (0.00)    <.01
+    b      Level * smoking                  0.04 (0.07)     .61
+    b      Level * cardio                  -0.06 (0.10)     .58
+    b      Level * diabetes                -0.32 (0.11)    <.01
+    b      Slope * age                     -0.00 (0.00)    <.01
+    b      Slope * education               -0.01 (0.01)     .20
+    b      Slope * height                   0.00 (0.00)     .84
+    b      Slope * smoking                 -0.02 (0.01)     .02
+    b      Slope * cardio                  -0.03 (0.01)     .04
+    b      Slope * diabetes                -0.01 (0.02)     .50
+    a      Var (Level)                 3273.17 (227.38)    <.01
+    a      Var (Slope)                      9.53 (4.20)     .02
+    a      Var (Residual)              1872.57 (177.52)    <.01
+    b      Var (Level)                      1.32 (0.10)    <.01
+    b      Var (Slope)                      0.00 (0.00)     .47
+    b      Var (Residual)                   1.77 (0.06)    <.01
+    a      Covar (Level, Slope)          -78.40 (25.96)    <.01
+    b      Covar (Level, Slope)            -0.00 (0.01)     .89
+    \      Correlation of Levels                          0.054
+    \      Correlation of Slopes                         -0.205
+    \      Correlation of Residuals                       0.024
+    \      N                                              2,904
+    \      occasions                                          6
+    \      parameters                                        41
+    \      LL                                           -47,112
+    \      AIC                                           94,306
+    \      BIC                                           94,551
 
 ##  word_im 
 
  Gender = _male_;  Process (a) = *fev100*; Process (b) = _word_im_
-<table>
- <thead>
-  <tr>
-   <th style="text-align:center;"> process </th>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 262.61 (3.21)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> -2.20 (0.44)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -3.41 (0.15)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 20.31 (2.89)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 3.34 (0.21)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> -21.05 (2.83)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -19.49 (3.86)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -6.17 (4.67)     .19 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.01 (0.02)     .52 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> -0.63 (0.36)     .08 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> -0.00 (0.02)     .91 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> 0.32 (0.34)     .35 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> 0.28 (0.49)     .57 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> -1.59 (0.63)     .01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level </td>
-   <td style="text-align:right;"> 4.87 (0.07)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope </td>
-   <td style="text-align:right;"> -0.03 (0.01)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * age </td>
-   <td style="text-align:right;"> -0.05 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * education </td>
-   <td style="text-align:right;"> 0.76 (0.06)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * height </td>
-   <td style="text-align:right;"> 0.01 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * smoking </td>
-   <td style="text-align:right;"> -0.00 (0.06)     .95 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * cardio </td>
-   <td style="text-align:right;"> -0.16 (0.09)     .07 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Level * diabetes </td>
-   <td style="text-align:right;"> -0.10 (0.10)     .32 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * age </td>
-   <td style="text-align:right;"> -0.00 (0.00)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * education </td>
-   <td style="text-align:right;"> -0.00 (0.01)     .95 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * height </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .10 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * smoking </td>
-   <td style="text-align:right;"> -0.02 (0.01)     .04 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * cardio </td>
-   <td style="text-align:right;"> -0.01 (0.01)     .66 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Slope * diabetes </td>
-   <td style="text-align:right;"> -0.01 (0.02)     .53 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 3294.67 (226.27)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 9.64 (4.16)     .02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1863.74 (173.76)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> a </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -78.51 (25.79)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Level) </td>
-   <td style="text-align:right;"> 1.00 (0.08)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Slope) </td>
-   <td style="text-align:right;"> 0.00 (0.00)     .01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Var (Residual) </td>
-   <td style="text-align:right;"> 1.40 (0.06)    &lt;.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> b </td>
-   <td style="text-align:left;"> Covar (Level, Slope) </td>
-   <td style="text-align:right;"> -0.02 (0.01)     .05 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Levels) </td>
-   <td style="text-align:right;"> 3.22 (2.20)     .14 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Slopes) </td>
-   <td style="text-align:right;"> -0.02 (0.03)     .51 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> ab </td>
-   <td style="text-align:left;"> Covar (Residuals) </td>
-   <td style="text-align:right;"> 2.34 (1.21)     .05 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> 0.056 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> -0.112 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> 0.046 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> N </td>
-   <td style="text-align:right;"> 3,091 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> occasions </td>
-   <td style="text-align:right;"> 6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> parameters </td>
-   <td style="text-align:right;"> 41 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> LL </td>
-   <td style="text-align:right;"> -47,695 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:right;"> 95,471 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> \ </td>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:right;"> 95,719 </td>
-  </tr>
-</tbody>
-</table>
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
+```
+
+```
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+
+Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
+```
+
+
+
+ process   label                                        aehplus
+---------  -------------------------  -------------------------
+   ab      Covar (Levels)                   3.39 (2.21)     .12
+   ab      Covar (Slopes)                  -0.02 (0.03)     .54
+   ab      Covar (Residuals)                2.09 (1.22)     .09
+   er      Corr (Levels)                                    ---
+   er      Corr (Slopes)                                    ---
+   er      Corr (Residuals)                                 ---
+    a      Level                          263.55 (3.21)    <.01
+    a      Slope                           -2.11 (0.44)    <.01
+    a      Level * age                     -3.40 (0.15)    <.01
+    a      Level * education               19.81 (2.90)    <.01
+    a      Level * height                   3.38 (0.21)    <.01
+    a      Level * smoking                -21.30 (2.85)    <.01
+    a      Level * cardio                 -19.91 (3.90)    <.01
+    a      Level * diabetes                -6.27 (4.70)     .18
+    a      Slope * age                     -0.01 (0.02)     .60
+    a      Slope * education               -0.68 (0.36)     .06
+    a      Slope * height                   0.00 (0.02)     .94
+    a      Slope * smoking                  0.29 (0.34)     .40
+    a      Slope * cardio                   0.26 (0.50)     .60
+    a      Slope * diabetes                -1.46 (0.62)     .02
+    b      Level                            4.88 (0.07)    <.01
+    b      Slope                           -0.03 (0.01)     .01
+    b      Level * age                     -0.05 (0.00)    <.01
+    b      Level * education                0.77 (0.06)    <.01
+    b      Level * height                   0.01 (0.00)     .01
+    b      Level * smoking                  0.01 (0.06)     .88
+    b      Level * cardio                  -0.19 (0.09)     .04
+    b      Level * diabetes                -0.16 (0.11)     .12
+    b      Slope * age                     -0.00 (0.00)    <.01
+    b      Slope * education                0.00 (0.01)     .89
+    b      Slope * height                   0.00 (0.00)     .05
+    b      Slope * smoking                 -0.02 (0.01)     .02
+    b      Slope * cardio                   0.00 (0.01)     .98
+    b      Slope * diabetes                -0.00 (0.02)     .88
+    a      Var (Level)                 3273.50 (227.50)    <.01
+    a      Var (Slope)                      9.59 (4.21)     .02
+    a      Var (Residual)              1872.26 (177.47)    <.01
+    b      Var (Level)                      0.97 (0.08)    <.01
+    b      Var (Slope)                      0.00 (0.00)     .02
+    b      Var (Residual)                   1.39 (0.06)    <.01
+    a      Covar (Level, Slope)          -78.90 (26.04)    <.01
+    b      Covar (Level, Slope)            -0.02 (0.01)     .07
+    \      Correlation of Levels                          0.060
+    \      Correlation of Slopes                         -0.107
+    \      Correlation of Residuals                       0.041
+    \      N                                              2,902
+    \      occasions                                          6
+    \      parameters                                        41
+    \      LL                                           -46,253
+    \      AIC                                           92,588
+    \      BIC                                           92,833
 
 ## Summary 
 
@@ -1907,50 +866,140 @@ Covariance of  Residuals      word_im      0.24
 
  Computed correlations:
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+</tbody>
+</table>
 
-label                    process_b   aehplus
-----------------------  ----------  --------
-Correlation of Levels      word_de      0.06
-Correlation of Levels      word_im      0.06
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> -0.20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> -0.11 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                    process_b   aehplus
-----------------------  ----------  --------
-Correlation of Slopes      word_de     -0.23
-Correlation of Slopes      word_im     -0.11
-
-
-
-label                       process_b   aehplus
--------------------------  ----------  --------
-Correlation of Residuals      word_de      0.03
-Correlation of Residuals      word_im      0.05
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+</tbody>
+</table>
 
 
 P-values for corresponding covariances: 
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+</tbody>
+</table>
 
-label                   process_b   aehplus
----------------------  ----------  --------
-Covariance of Levels      word_de      0.15
-Covariance of Levels      word_im      0.14
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.54 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.54 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                   process_b   aehplus
----------------------  ----------  --------
-Covariance of Slopes      word_de      0.48
-Covariance of Slopes      word_im      0.51
-
-
-
-label                       process_b   aehplus
--------------------------  ----------  --------
-Covariance of  Residuals      word_de      0.24
-Covariance of  Residuals      word_im      0.05
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.09 </td>
+  </tr>
+</tbody>
+</table>
 
 
 ```
@@ -1971,12 +1020,15 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.14    ggplot2_2.1.0 magrittr_1.5 
+[1] knitr_1.14                ggplot2_2.2.0             IalsaSynthesis_0.1.8.9000 MplusAutomation_0.6-4    
+[5] magrittr_1.5             
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-7 R6_2.2.0         stringr_1.1.0   
- [7] highr_0.6        plyr_1.8.4       dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
-[13] gtable_0.2.0     DBI_0.5-1        htmltools_0.3.5  yaml_2.1.13      lazyeval_0.2.0   assertthat_0.1  
-[19] digest_0.6.10    tibble_1.2       formatR_1.4      readr_1.0.0      tidyr_0.6.0      htmlwidgets_0.7 
-[25] rsconnect_0.5    evaluate_0.10    rmarkdown_1.1    stringi_1.1.2    scales_0.4.0    
+ [1] Rcpp_0.12.7      formatR_1.4      plyr_1.8.4       highr_0.6        tools_3.3.1      boot_1.3-18     
+ [7] digest_0.6.10    evaluate_0.10    tibble_1.2       gtable_0.2.0     lattice_0.20-34  texreg_1.36.7   
+[13] DBI_0.5-1        yaml_2.1.13      proto_0.3-10     coda_0.18-1      dplyr_0.5.0      stringr_1.1.0   
+[19] htmlwidgets_0.7  grid_3.3.1       DT_0.2           data.table_1.9.6 R6_2.2.0         rmarkdown_1.1   
+[25] gsubfn_0.6-6     pander_0.6.0     tidyr_0.6.0      reshape2_1.4.1   readr_1.0.0      scales_0.4.1    
+[31] htmltools_0.3.5  rsconnect_0.5    assertthat_0.1   testit_0.5       colorspace_1.2-7 xtable_1.8-2    
+[37] stringi_1.1.2    lazyeval_0.2.0   munsell_0.4.3    chron_2.3-47    
 ```
