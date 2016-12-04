@@ -104,6 +104,7 @@ varnames_context <- c(
   "htm",             # Height in meters
   "smoking",         # 0 - never, 1 - former, 2 - current
   "stroke_cum",      # Clinical Diagnoses - Stroke - cumulative
+  "heart_cum",       # Heart disease, cumulative
   "dm_cum",          # Medical history - diabetes - cumulative
   "dementia"         # Dementia diagnosis
 )
@@ -192,7 +193,8 @@ ds <- ds %>%
   dplyr::mutate(
     dementia_ever = any(dementia==1),
     smoke_ever    = any(smoking %in% c(1,2)),
-    stroke_ever   = any(stroke_cum==1),
+    # stroke_ever   = any(stroke_cum==1),
+    heart_ever    = any(heart_cum ==1),
     diab_ever     = any(dm_cum == 1)
     ) %>%
   dplyr::ungroup() #%>%
@@ -261,13 +263,13 @@ ds %>%
   dplyr::arrange(desc(unique)) # unique > 1 indicates change over wave
 
 # ---- force-to-static-cardio ---------------------------
-ds %>% temporal_pattern("stroke_ever")
-# ds %>% over_waves("stroke_cum")
-ds %>% over_waves("stroke_ever")
+ds %>% temporal_pattern("heart_ever")
+# ds %>% over_waves("heart_cum ")
+ds %>% over_waves("heart_ever")
 # check that values are the same across waves
 ds %>%
   dplyr::group_by(id) %>%
-  dplyr::summarize(unique = length(unique(stroke_ever))) %>%
+  dplyr::summarize(unique = length(unique(heart_ever))) %>%
   dplyr::arrange(desc(unique)) # unique > 1 indicates change over wave
 
 
@@ -283,13 +285,15 @@ ds %>%
 # ---- center-covariates ---------------------------------
 ds <- ds %>%
   dplyr::mutate(
+    fev100  = fev*100, # rescale for estimation purpose
     age_c70 = age_at_bl - 70,
     edu_c7  = educ - 7,
     htm_c   = ifelse(     male==0, htm_med - 1.6,
                    ifelse(male==1, htm_med - 1.72,NA)),
     #rename to keep names 8 characters of less
     smoke    = smoke_ever,
-    stroke   = stroke_ever,
+    # stroke   = stroke_ever,
+    cardio   = heart_ever,
     diabetes = diab_ever
   )
 
@@ -299,16 +303,16 @@ ds <- ds %>%
 # ---- prepare-for-mplus ---------------------
 varnames_transformed <- c(
   "id","wave","years_since_bl", "male",
-  "age_c70","edu_c7", "htm_c", "smoke","stroke", "diabetes","dementia_ever"
+  "age_c70","edu_c7", "htm_c", "smoke","cardio", "diabetes","dementia_ever"
 )
 ds_long <- ds %>%
-  dplyr::select_(.dots = c(varnames_transformed, varnames_physical, varnames_cognitive))
+  dplyr::select_(.dots = c(varnames_transformed,"fev100", varnames_physical, varnames_cognitive))
 
 
 # define variable properties for long-to-wide conversion
 variables_static <- c(
   "id", "male",
-  "age_c70","edu_c7", "htm_c", "smoke","stroke", "diabetes", "dementia_ever"
+  "age_c70","edu_c7", "htm_c", "smoke","cardio", "diabetes", "dementia_ever"
   )
 variables_longitudinal <- setdiff(colnames(ds_long),variables_static)  # not static
 (variables_longitudinal <- variables_longitudinal[!variables_longitudinal=="wave"]) # all except wave
