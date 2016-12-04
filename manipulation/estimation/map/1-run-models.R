@@ -94,7 +94,7 @@ ls_subgroup = list(
 )
 ls_model_type <- list(
    "a"   = c("age_c70")
-  ,"ah"  = c("age_c70","edu_c7")
+  ,"ae"  = c("age_c70","edu_c7")
   ,"aeh" = c("age_c70","edu_c7","htm_c")
   ,"aehplus" = c("age_c70","edu_c7","htm_c", "smoke","stroke","diabetes")
   ,"aeplus" = c("age_c70","edu_c7", "smoke","stroke","diabetes")
@@ -129,11 +129,12 @@ folder_output      = "./output/studies/map/phys-cog/"
 # )
 
 # loop over conditions
-for(subgroup in names(ls_subgroup)){
-  for(model_type in names(ls_model_type)){
-    for(phys_measure in "fev"){
-    # for(phys_measure in varnames_physical){
-      for(cog_measure in varnames_cognitive){
+for(phys_measure in "fev"){
+# for(phys_measure in varnames_physical){
+  for(subgroup in names(ls_subgroup)){
+    for(model_type in names(ls_model_type)){
+      for(cog_measure in "bnt"){
+      # for(cog_measure in varnames_cognitive){
         mplus_generator_bivariate(
           model_number        = "b1"
           ,subgroup           = subgroup
