@@ -1347,152 +1347,1010 @@ map          male       aehplus      grip        word_rec             1
 
  Computed correlations:
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> 0.15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.07 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+</tbody>
+</table>
 
-label                     process_b      a      ae     aeh   aehplus
-----------------------  -----------  -----  ------  ------  --------
-Correlation of Levels           bnt   0.18       .    0.08      0.08
-Correlation of Levels     bstory_de   0.04   -0.00   -0.01     -0.01
-Correlation of Levels     bstory_im   0.12    0.09    0.08      0.08
-Correlation of Levels    categories   0.15    0.09    0.06      0.06
-Correlation of Levels       digit_b   0.24    0.20    0.16      0.15
-Correlation of Levels       digit_f   0.10    0.05    0.01      0.01
-Correlation of Levels       digit_o   0.13    0.08    0.05      0.05
-Correlation of Levels         ideas   0.04    0.02   -0.01     -0.01
-Correlation of Levels          line   0.15    0.10    0.07      0.07
-Correlation of Levels      logic_de   0.08    0.03   -0.01     -0.01
-Correlation of Levels      logic_im   0.05    0.00   -0.03     -0.03
-Correlation of Levels      matrices   0.19    0.13    0.09      0.09
-Correlation of Levels          mmse   0.10    0.03   -0.00     -0.00
-Correlation of Levels          nart   0.11       .   -0.00     -0.01
-Correlation of Levels      num_comp   0.13    0.09    0.04      0.04
-Correlation of Levels        symbol   0.17    0.11    0.08      0.08
-Correlation of Levels       word_de   0.23    0.19    0.17      0.17
-Correlation of Levels       word_im   0.23    0.19    0.17      0.17
-Correlation of Levels      word_rec   0.06    0.05    0.04         .
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> -Inf </td>
+   <td style="text-align:right;"> -Inf </td>
+   <td style="text-align:right;"> -Inf </td>
+   <td style="text-align:right;"> -Inf </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.50 </td>
+   <td style="text-align:right;"> 0.50 </td>
+   <td style="text-align:right;"> Inf </td>
+   <td style="text-align:right;"> 0.51 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 0.55 </td>
+   <td style="text-align:right;"> 0.58 </td>
+   <td style="text-align:right;"> 0.57 </td>
+   <td style="text-align:right;"> 0.72 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 0.41 </td>
+   <td style="text-align:right;"> 0.43 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> 0.35 </td>
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 0.39 </td>
+   <td style="text-align:right;"> 0.39 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.56 </td>
+   <td style="text-align:right;"> 0.54 </td>
+   <td style="text-align:right;"> 0.54 </td>
+   <td style="text-align:right;"> 0.54 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> -0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 0.31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.08 </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> -0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                     process_b       a      ae     aeh   aehplus
-----------------------  -----------  ------  ------  ------  --------
-Correlation of Slopes           bnt    0.13       .    0.08      0.09
-Correlation of Slopes     bstory_de    0.21    0.22    0.23      0.24
-Correlation of Slopes     bstory_im    -Inf    -Inf    -Inf      -Inf
-Correlation of Slopes    categories    0.25    0.25    0.25      0.25
-Correlation of Slopes       digit_b    0.50    0.50     Inf      0.51
-Correlation of Slopes       digit_f    0.22    0.20    0.20      0.22
-Correlation of Slopes       digit_o    0.14    0.16    0.15      0.19
-Correlation of Slopes         ideas    0.14    0.12    0.11      0.13
-Correlation of Slopes          line    0.55    0.58    0.57      0.72
-Correlation of Slopes      logic_de    0.32    0.40    0.41      0.43
-Correlation of Slopes      logic_im    0.25    0.31    0.31      0.34
-Correlation of Slopes      matrices    0.35    0.40    0.39      0.39
-Correlation of Slopes          mmse    0.56    0.54    0.54      0.54
-Correlation of Slopes          nart   -0.06       .   -0.02     -0.01
-Correlation of Slopes      num_comp    0.31    0.29    0.29      0.31
-Correlation of Slopes        symbol   -0.03   -0.08   -0.06     -0.06
-Correlation of Slopes       word_de    0.18    0.24    0.24      0.25
-Correlation of Slopes       word_im    0.24    0.24    0.24      0.26
-Correlation of Slopes      word_rec    0.00    0.00    0.00         .
-
-
-
-label                        process_b       a      ae     aeh   aehplus
--------------------------  -----------  ------  ------  ------  --------
-Correlation of Residuals           bnt   -0.02       .   -0.03     -0.02
-Correlation of Residuals     bstory_de    0.01    0.01    0.01      0.01
-Correlation of Residuals     bstory_im   -0.04   -0.04   -0.04     -0.04
-Correlation of Residuals    categories    0.04    0.03    0.03      0.03
-Correlation of Residuals       digit_b   -0.04   -0.05   -0.05     -0.04
-Correlation of Residuals       digit_f    0.04    0.04    0.04      0.04
-Correlation of Residuals       digit_o    0.02    0.02    0.02      0.02
-Correlation of Residuals         ideas    0.02    0.02    0.02      0.02
-Correlation of Residuals          line    0.03    0.02    0.02      0.02
-Correlation of Residuals      logic_de    0.01    0.01    0.01      0.01
-Correlation of Residuals      logic_im   -0.01   -0.02   -0.02     -0.02
-Correlation of Residuals      matrices   -0.00   -0.01   -0.01     -0.01
-Correlation of Residuals          mmse    0.02    0.02    0.02      0.02
-Correlation of Residuals          nart   -0.00       .   -0.00     -0.00
-Correlation of Residuals      num_comp    0.01    0.01    0.01      0.01
-Correlation of Residuals        symbol    0.00    0.00    0.00      0.00
-Correlation of Residuals       word_de    0.00    0.00    0.00      0.00
-Correlation of Residuals       word_im    0.04    0.04    0.03      0.03
-Correlation of Residuals      word_rec    0.00    0.00    0.00         .
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> -0.04 </td>
+   <td style="text-align:right;"> -0.04 </td>
+   <td style="text-align:right;"> -0.04 </td>
+   <td style="text-align:right;"> -0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> -0.04 </td>
+   <td style="text-align:right;"> -0.05 </td>
+   <td style="text-align:right;"> -0.05 </td>
+   <td style="text-align:right;"> -0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> -0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+</tbody>
+</table>
 
 
 P-values for corresponding covariances: 
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.07 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.46 </td>
+   <td style="text-align:right;"> 0.98 </td>
+   <td style="text-align:right;"> 0.91 </td>
+   <td style="text-align:right;"> 0.92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.86 </td>
+   <td style="text-align:right;"> 0.86 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> 0.35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.46 </td>
+   <td style="text-align:right;"> 0.76 </td>
+   <td style="text-align:right;"> 0.91 </td>
+   <td style="text-align:right;"> 0.92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.51 </td>
+   <td style="text-align:right;"> 0.85 </td>
+   <td style="text-align:right;"> 0.87 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.94 </td>
+   <td style="text-align:right;"> 0.49 </td>
+   <td style="text-align:right;"> 0.51 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.56 </td>
+   <td style="text-align:right;"> 0.98 </td>
+   <td style="text-align:right;"> 0.99 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.91 </td>
+   <td style="text-align:right;"> 0.90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.35 </td>
+   <td style="text-align:right;"> 0.34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 0.54 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+</tbody>
+</table>
 
-label                    process_b      a     ae    aeh   aehplus
----------------------  -----------  -----  -----  -----  --------
-Covariance of Levels           bnt   0.00      .   0.07      0.07
-Covariance of Levels     bstory_de   0.46   0.98   0.91      0.92
-Covariance of Levels     bstory_im   0.02   0.10   0.15      0.13
-Covariance of Levels    categories   0.00   0.03   0.19      0.15
-Covariance of Levels       digit_b   0.00   0.00   0.00      0.00
-Covariance of Levels       digit_f   0.03   0.24   0.86      0.86
-Covariance of Levels       digit_o   0.01   0.11   0.37      0.35
-Covariance of Levels         ideas   0.46   0.76   0.91      0.92
-Covariance of Levels          line   0.00   0.06   0.18      0.17
-Covariance of Levels      logic_de   0.06   0.51   0.85      0.87
-Covariance of Levels      logic_im   0.21   0.94   0.49      0.51
-Covariance of Levels      matrices   0.00   0.01   0.09      0.08
-Covariance of Levels          mmse   0.06   0.56   0.98      0.99
-Covariance of Levels          nart   0.01      .   0.91      0.90
-Covariance of Levels      num_comp   0.00   0.04   0.35      0.34
-Covariance of Levels        symbol   0.00   0.01   0.08      0.08
-Covariance of Levels       word_de   0.00   0.00   0.00      0.00
-Covariance of Levels       word_im   0.00   0.00   0.00      0.00
-Covariance of Levels      word_rec   0.29   0.40   0.54         .
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.47 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.66 </td>
+   <td style="text-align:right;"> 0.62 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.38 </td>
+   <td style="text-align:right;"> 0.38 </td>
+   <td style="text-align:right;"> 0.38 </td>
+   <td style="text-align:right;"> 0.36 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> 0.42 </td>
+   <td style="text-align:right;"> 0.42 </td>
+   <td style="text-align:right;"> 0.40 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.57 </td>
+   <td style="text-align:right;"> 0.60 </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> 0.59 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.64 </td>
+   <td style="text-align:right;"> 0.62 </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> 0.57 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.64 </td>
+   <td style="text-align:right;"> 0.70 </td>
+   <td style="text-align:right;"> 0.75 </td>
+   <td style="text-align:right;"> 0.71 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> 0.41 </td>
+   <td style="text-align:right;"> 0.42 </td>
+   <td style="text-align:right;"> 0.39 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> 0.46 </td>
+   <td style="text-align:right;"> 0.41 </td>
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> 0.43 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> 0.82 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.94 </td>
+   <td style="text-align:right;"> 0.97 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.91 </td>
+   <td style="text-align:right;"> 0.73 </td>
+   <td style="text-align:right;"> 0.80 </td>
+   <td style="text-align:right;"> 0.79 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.35 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.90 </td>
+   <td style="text-align:right;"> 0.90 </td>
+   <td style="text-align:right;"> 0.90 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                    process_b      a     ae    aeh   aehplus
----------------------  -----------  -----  -----  -----  --------
-Covariance of Slopes           bnt   0.47      .   0.66      0.62
-Covariance of Slopes     bstory_de   0.38   0.38   0.38      0.36
-Covariance of Slopes     bstory_im   0.43   0.42   0.42      0.40
-Covariance of Slopes    categories   0.18   0.18   0.19      0.19
-Covariance of Slopes       digit_b   0.10   0.10   0.04      0.10
-Covariance of Slopes       digit_f   0.57   0.60   0.63      0.59
-Covariance of Slopes       digit_o   0.64   0.62   0.63      0.57
-Covariance of Slopes         ideas   0.64   0.70   0.75      0.71
-Covariance of Slopes          line   0.43   0.41   0.42      0.39
-Covariance of Slopes      logic_de   0.12   0.06   0.06      0.05
-Covariance of Slopes      logic_im   0.24   0.15   0.16      0.12
-Covariance of Slopes      matrices   0.46   0.41   0.43      0.43
-Covariance of Slopes          mmse   0.03   0.05   0.06      0.06
-Covariance of Slopes          nart   0.82      .   0.94      0.97
-Covariance of Slopes      num_comp   0.19   0.24   0.24      0.22
-Covariance of Slopes        symbol   0.91   0.73   0.80      0.79
-Covariance of Slopes       word_de   0.35   0.26   0.26      0.25
-Covariance of Slopes       word_im   0.21   0.21   0.20      0.18
-Covariance of Slopes      word_rec   0.90   0.90   0.90         .
-
-
-
-label                        process_b      a     ae    aeh   aehplus
--------------------------  -----------  -----  -----  -----  --------
-Covariance of  Residuals           bnt   0.38      .   0.37      0.37
-Covariance of  Residuals     bstory_de   0.74   0.79   0.77      0.78
-Covariance of  Residuals     bstory_im   0.11   0.10   0.11      0.12
-Covariance of  Residuals    categories   0.19   0.22   0.23      0.22
-Covariance of  Residuals       digit_b   0.09   0.09   0.05      0.11
-Covariance of  Residuals       digit_f   0.18   0.19   0.19      0.19
-Covariance of  Residuals       digit_o   0.44   0.48   0.48      0.49
-Covariance of  Residuals         ideas   0.48   0.47   0.47      0.45
-Covariance of  Residuals          line   0.32   0.33   0.34      0.34
-Covariance of  Residuals      logic_de   0.71   0.76   0.78      0.78
-Covariance of  Residuals      logic_im   0.66   0.60   0.59      0.59
-Covariance of  Residuals      matrices   0.92   0.85   0.87      0.87
-Covariance of  Residuals          mmse   0.37   0.42   0.39      0.41
-Covariance of  Residuals          nart   0.91      .   0.87      0.88
-Covariance of  Residuals      num_comp   0.66   0.65   0.63      0.61
-Covariance of  Residuals        symbol   0.98   0.96   0.97      0.95
-Covariance of  Residuals       word_de   0.90   0.90   0.94      0.97
-Covariance of  Residuals       word_im   0.20   0.21   0.22      0.24
-Covariance of  Residuals      word_rec   0.93   0.95   0.97         .
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.38 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> 0.37 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.74 </td>
+   <td style="text-align:right;"> 0.79 </td>
+   <td style="text-align:right;"> 0.77 </td>
+   <td style="text-align:right;"> 0.78 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.44 </td>
+   <td style="text-align:right;"> 0.48 </td>
+   <td style="text-align:right;"> 0.48 </td>
+   <td style="text-align:right;"> 0.49 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.48 </td>
+   <td style="text-align:right;"> 0.47 </td>
+   <td style="text-align:right;"> 0.47 </td>
+   <td style="text-align:right;"> 0.45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.33 </td>
+   <td style="text-align:right;"> 0.34 </td>
+   <td style="text-align:right;"> 0.34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.71 </td>
+   <td style="text-align:right;"> 0.76 </td>
+   <td style="text-align:right;"> 0.78 </td>
+   <td style="text-align:right;"> 0.78 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> 0.66 </td>
+   <td style="text-align:right;"> 0.60 </td>
+   <td style="text-align:right;"> 0.59 </td>
+   <td style="text-align:right;"> 0.59 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> 0.92 </td>
+   <td style="text-align:right;"> 0.85 </td>
+   <td style="text-align:right;"> 0.87 </td>
+   <td style="text-align:right;"> 0.87 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> 0.42 </td>
+   <td style="text-align:right;"> 0.39 </td>
+   <td style="text-align:right;"> 0.41 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> 0.91 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.87 </td>
+   <td style="text-align:right;"> 0.88 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.66 </td>
+   <td style="text-align:right;"> 0.65 </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> 0.61 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.98 </td>
+   <td style="text-align:right;"> 0.96 </td>
+   <td style="text-align:right;"> 0.97 </td>
+   <td style="text-align:right;"> 0.95 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.90 </td>
+   <td style="text-align:right;"> 0.90 </td>
+   <td style="text-align:right;"> 0.94 </td>
+   <td style="text-align:right;"> 0.97 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.93 </td>
+   <td style="text-align:right;"> 0.95 </td>
+   <td style="text-align:right;"> 0.97 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+</tbody>
+</table>
 
 
 # male 
@@ -2621,152 +3479,1010 @@ Covariance of  Residuals      word_rec   0.93   0.95   0.97         .
 
  Computed correlations:
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.33 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 0.27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> -0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> -0.12 </td>
+   <td style="text-align:right;"> -0.09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.28 </td>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.11 </td>
+  </tr>
+</tbody>
+</table>
 
-label                     process_b       a      ae     aeh   aehplus
-----------------------  -----------  ------  ------  ------  --------
-Correlation of Levels           bnt    0.33    0.31    0.26      0.27
-Correlation of Levels     bstory_de    0.17    0.14    0.11      0.12
-Correlation of Levels     bstory_im    0.14    0.09    0.11      0.12
-Correlation of Levels    categories    0.17    0.13    0.07      0.08
-Correlation of Levels       digit_b    0.17    0.07   -0.03     -0.02
-Correlation of Levels       digit_f    0.11    0.05    0.07      0.06
-Correlation of Levels       digit_o    0.19    0.14    0.09      0.09
-Correlation of Levels         ideas    0.24    0.21    0.18      0.18
-Correlation of Levels          line    0.21    0.16    0.10      0.11
-Correlation of Levels      logic_de    0.01   -0.03   -0.06     -0.03
-Correlation of Levels      logic_im   -0.00   -0.06   -0.12     -0.09
-Correlation of Levels      matrices    0.31    0.26    0.17      0.18
-Correlation of Levels          mmse    0.26    0.22    0.18      0.19
-Correlation of Levels          nart    0.17    0.10    0.06      0.05
-Correlation of Levels      num_comp    0.20       .    0.06      0.08
-Correlation of Levels        symbol    0.28    0.25    0.10      0.17
-Correlation of Levels       word_de    0.09    0.05    0.04      0.06
-Correlation of Levels       word_im    0.14    0.09    0.07      0.11
-Correlation of Levels      word_rec    0.05    0.02    0.08      0.11
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> -0.44 </td>
+   <td style="text-align:right;"> -0.41 </td>
+   <td style="text-align:right;"> -0.38 </td>
+   <td style="text-align:right;"> -0.45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> 0.82 </td>
+   <td style="text-align:right;"> 0.83 </td>
+   <td style="text-align:right;"> -0.47 </td>
+   <td style="text-align:right;"> -0.50 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> -0.24 </td>
+   <td style="text-align:right;"> -0.12 </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> -0.07 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> -0.24 </td>
+   <td style="text-align:right;"> -0.24 </td>
+   <td style="text-align:right;"> -0.25 </td>
+   <td style="text-align:right;"> -0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> -0.73 </td>
+   <td style="text-align:right;"> -0.73 </td>
+   <td style="text-align:right;"> -0.76 </td>
+   <td style="text-align:right;"> -0.76 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> 0.52 </td>
+   <td style="text-align:right;"> 0.54 </td>
+   <td style="text-align:right;"> 0.59 </td>
+   <td style="text-align:right;"> 0.61 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.33 </td>
+   <td style="text-align:right;"> 0.36 </td>
+   <td style="text-align:right;"> 0.36 </td>
+   <td style="text-align:right;"> 0.33 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> 0.44 </td>
+   <td style="text-align:right;"> 0.34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.34 </td>
+   <td style="text-align:right;"> 0.34 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.40 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> -0.16 </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> -0.07 </td>
+   <td style="text-align:right;"> -0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> -0.36 </td>
+   <td style="text-align:right;"> -0.36 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                     process_b       a      ae     aeh   aehplus
-----------------------  -----------  ------  ------  ------  --------
-Correlation of Slopes           bnt    0.22    0.25    0.21      0.15
-Correlation of Slopes     bstory_de   -0.44   -0.41   -0.38     -0.45
-Correlation of Slopes     bstory_im    0.82    0.83   -0.47     -0.50
-Correlation of Slopes    categories    0.12    0.13    0.14      0.18
-Correlation of Slopes       digit_b   -0.24   -0.12    0.17      0.18
-Correlation of Slopes       digit_f    0.04    0.05    0.05     -0.07
-Correlation of Slopes       digit_o    0.13    0.15    0.16      0.12
-Correlation of Slopes         ideas    0.32    0.32    0.32      0.29
-Correlation of Slopes          line    0.00    0.02    0.05      0.04
-Correlation of Slopes      logic_de   -0.24   -0.24   -0.25     -0.25
-Correlation of Slopes      logic_im   -0.73   -0.73   -0.76     -0.76
-Correlation of Slopes      matrices    0.52    0.54    0.59      0.61
-Correlation of Slopes          mmse    0.33    0.36    0.36      0.33
-Correlation of Slopes          nart    0.37    0.43    0.44      0.34
-Correlation of Slopes      num_comp    0.00       .   -0.01      0.03
-Correlation of Slopes        symbol    0.34    0.34    0.05      0.40
-Correlation of Slopes       word_de    0.03    0.04    0.05      0.08
-Correlation of Slopes       word_im   -0.16   -0.06   -0.07     -0.06
-Correlation of Slopes      word_rec   -0.36   -0.36    0.03      0.06
-
-
-
-label                        process_b       a      ae     aeh   aehplus
--------------------------  -----------  ------  ------  ------  --------
-Correlation of Residuals           bnt    0.01    0.01    0.01      0.01
-Correlation of Residuals     bstory_de    0.05    0.05    0.04      0.04
-Correlation of Residuals     bstory_im   -0.05   -0.05    0.03      0.02
-Correlation of Residuals    categories    0.02    0.02    0.02      0.02
-Correlation of Residuals       digit_b   -0.01   -0.01    0.16      0.17
-Correlation of Residuals       digit_f    0.05    0.05    0.05      0.06
-Correlation of Residuals       digit_o   -0.00   -0.00   -0.00      0.00
-Correlation of Residuals         ideas    0.01    0.01    0.01      0.01
-Correlation of Residuals          line   -0.03   -0.03   -0.03     -0.03
-Correlation of Residuals      logic_de    0.08    0.08    0.08      0.08
-Correlation of Residuals      logic_im    0.07    0.06    0.06      0.06
-Correlation of Residuals      matrices   -0.00   -0.00   -0.00     -0.01
-Correlation of Residuals          mmse    0.02    0.02    0.02      0.02
-Correlation of Residuals          nart   -0.00   -0.00   -0.01     -0.01
-Correlation of Residuals      num_comp   -0.01       .   -0.01     -0.01
-Correlation of Residuals        symbol    0.04    0.04   -0.03      0.04
-Correlation of Residuals       word_de   -0.02   -0.02   -0.02     -0.02
-Correlation of Residuals       word_im    0.07    0.07    0.06      0.06
-Correlation of Residuals      word_rec    0.06    0.06   -0.01     -0.01
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> -0.05 </td>
+   <td style="text-align:right;"> -0.05 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> 0.17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.00 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> -0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.01 </td>
+  </tr>
+</tbody>
+</table>
 
 
 P-values for corresponding covariances: 
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.38 </td>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.33 </td>
+   <td style="text-align:right;"> 0.74 </td>
+   <td style="text-align:right;"> 0.81 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.52 </td>
+   <td style="text-align:right;"> 0.33 </td>
+   <td style="text-align:right;"> 0.40 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> 0.35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.07 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.85 </td>
+   <td style="text-align:right;"> 0.70 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 0.73 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> 0.95 </td>
+   <td style="text-align:right;"> 0.47 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.41 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.33 </td>
+   <td style="text-align:right;"> 0.22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.53 </td>
+   <td style="text-align:right;"> 0.65 </td>
+   <td style="text-align:right;"> 0.44 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.39 </td>
+   <td style="text-align:right;"> 0.21 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.46 </td>
+   <td style="text-align:right;"> 0.78 </td>
+   <td style="text-align:right;"> 0.27 </td>
+   <td style="text-align:right;"> 0.17 </td>
+  </tr>
+</tbody>
+</table>
 
-label                    process_b      a     ae    aeh   aehplus
----------------------  -----------  -----  -----  -----  --------
-Covariance of Levels           bnt   0.00   0.00   0.00      0.00
-Covariance of Levels     bstory_de   0.06   0.14   0.19      0.17
-Covariance of Levels     bstory_im   0.15   0.38   0.25      0.20
-Covariance of Levels    categories   0.02   0.07   0.32      0.25
-Covariance of Levels       digit_b   0.02   0.33   0.74      0.81
-Covariance of Levels       digit_f   0.14   0.52   0.33      0.40
-Covariance of Levels       digit_o   0.05   0.13   0.37      0.35
-Covariance of Levels         ideas   0.03   0.03   0.05      0.07
-Covariance of Levels          line   0.00   0.02   0.12      0.12
-Covariance of Levels      logic_de   0.85   0.70   0.45      0.73
-Covariance of Levels      logic_im   0.95   0.47   0.14      0.28
-Covariance of Levels      matrices   0.00   0.00   0.05      0.04
-Covariance of Levels          mmse   0.00   0.01   0.03      0.04
-Covariance of Levels          nart   0.01   0.13   0.31      0.41
-Covariance of Levels      num_comp   0.00      .   0.33      0.22
-Covariance of Levels        symbol   0.00   0.00   0.12      0.02
-Covariance of Levels       word_de   0.21   0.53   0.65      0.44
-Covariance of Levels       word_im   0.08   0.31   0.39      0.21
-Covariance of Levels      word_rec   0.46   0.78   0.27      0.17
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.49 </td>
+   <td style="text-align:right;"> 0.44 </td>
+   <td style="text-align:right;"> 0.55 </td>
+   <td style="text-align:right;"> 0.69 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.49 </td>
+   <td style="text-align:right;"> 0.49 </td>
+   <td style="text-align:right;"> 0.56 </td>
+   <td style="text-align:right;"> 0.49 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.27 </td>
+   <td style="text-align:right;"> 0.23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.66 </td>
+   <td style="text-align:right;"> 0.64 </td>
+   <td style="text-align:right;"> 0.64 </td>
+   <td style="text-align:right;"> 0.60 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.67 </td>
+   <td style="text-align:right;"> 0.76 </td>
+   <td style="text-align:right;"> 0.55 </td>
+   <td style="text-align:right;"> 0.55 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.92 </td>
+   <td style="text-align:right;"> 0.88 </td>
+   <td style="text-align:right;"> 0.89 </td>
+   <td style="text-align:right;"> 0.86 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.81 </td>
+   <td style="text-align:right;"> 0.80 </td>
+   <td style="text-align:right;"> 0.79 </td>
+   <td style="text-align:right;"> 0.84 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 0.95 </td>
+   <td style="text-align:right;"> 0.89 </td>
+   <td style="text-align:right;"> 0.92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.21 </td>
+   <td style="text-align:right;"> 0.23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.21 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> 0.30 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.99 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.97 </td>
+   <td style="text-align:right;"> 0.93 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.28 </td>
+   <td style="text-align:right;"> 0.30 </td>
+   <td style="text-align:right;"> 0.89 </td>
+   <td style="text-align:right;"> 0.28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.95 </td>
+   <td style="text-align:right;"> 0.92 </td>
+   <td style="text-align:right;"> 0.91 </td>
+   <td style="text-align:right;"> 0.87 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.73 </td>
+   <td style="text-align:right;"> 0.89 </td>
+   <td style="text-align:right;"> 0.86 </td>
+   <td style="text-align:right;"> 0.90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.33 </td>
+   <td style="text-align:right;"> 0.30 </td>
+   <td style="text-align:right;"> 0.86 </td>
+   <td style="text-align:right;"> 0.75 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                    process_b      a     ae    aeh   aehplus
----------------------  -----------  -----  -----  -----  --------
-Covariance of Slopes           bnt   0.49   0.44   0.55      0.69
-Covariance of Slopes     bstory_de   0.49   0.49   0.56      0.49
-Covariance of Slopes     bstory_im   0.12   0.13   0.27      0.23
-Covariance of Slopes    categories   0.66   0.64   0.64      0.60
-Covariance of Slopes       digit_b   0.67   0.76   0.55      0.55
-Covariance of Slopes       digit_f   0.92   0.88   0.89      0.86
-Covariance of Slopes       digit_o   0.81   0.80   0.79      0.84
-Covariance of Slopes         ideas   0.14   0.14   0.13      0.16
-Covariance of Slopes          line   1.00   0.95   0.89      0.92
-Covariance of Slopes      logic_de   0.21   0.21   0.21      0.23
-Covariance of Slopes      logic_im   0.00   0.00   0.00      0.00
-Covariance of Slopes      matrices   0.05   0.04   0.03      0.03
-Covariance of Slopes          mmse   0.17   0.15   0.15      0.21
-Covariance of Slopes          nart   0.37   0.30   0.31      0.34
-Covariance of Slopes      num_comp   0.99      .   0.97      0.93
-Covariance of Slopes        symbol   0.28   0.30   0.89      0.28
-Covariance of Slopes       word_de   0.95   0.92   0.91      0.87
-Covariance of Slopes       word_im   0.73   0.89   0.86      0.90
-Covariance of Slopes      word_rec   0.33   0.30   0.86      0.75
-
-
-
-label                        process_b      a     ae    aeh   aehplus
--------------------------  -----------  -----  -----  -----  --------
-Covariance of  Residuals           bnt   0.81   0.78   0.75      0.77
-Covariance of  Residuals     bstory_de   0.31   0.31   0.33      0.36
-Covariance of  Residuals     bstory_im   0.23   0.23   0.54      0.55
-Covariance of  Residuals    categories   0.70   0.69   0.67      0.67
-Covariance of  Residuals       digit_b   0.81   0.80   0.00      0.00
-Covariance of  Residuals       digit_f   0.29   0.30   0.31      0.25
-Covariance of  Residuals       digit_o   0.98   0.98   0.97      0.98
-Covariance of  Residuals         ideas   0.85   0.87   0.86      0.82
-Covariance of  Residuals          line   0.56   0.56   0.55      0.53
-Covariance of  Residuals      logic_de   0.06   0.06   0.07      0.08
-Covariance of  Residuals      logic_im   0.12   0.14   0.15      0.17
-Covariance of  Residuals      matrices   0.96   0.96   0.96      0.92
-Covariance of  Residuals          mmse   0.75   0.72   0.72      0.71
-Covariance of  Residuals          nart   0.96   0.93   0.89      0.88
-Covariance of  Residuals      num_comp   0.87      .   0.91      0.85
-Covariance of  Residuals        symbol   0.43   0.43   0.55      0.43
-Covariance of  Residuals       word_de   0.63   0.62   0.65      0.64
-Covariance of  Residuals       word_im   0.19   0.22   0.23      0.27
-Covariance of  Residuals      word_rec   0.24   0.23   0.86      0.81
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> ae </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> bnt </td>
+   <td style="text-align:right;"> 0.81 </td>
+   <td style="text-align:right;"> 0.78 </td>
+   <td style="text-align:right;"> 0.75 </td>
+   <td style="text-align:right;"> 0.77 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> bstory_de </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.33 </td>
+   <td style="text-align:right;"> 0.36 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> bstory_im </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.54 </td>
+   <td style="text-align:right;"> 0.55 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> categories </td>
+   <td style="text-align:right;"> 0.70 </td>
+   <td style="text-align:right;"> 0.69 </td>
+   <td style="text-align:right;"> 0.67 </td>
+   <td style="text-align:right;"> 0.67 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.81 </td>
+   <td style="text-align:right;"> 0.80 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 0.30 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> digit_o </td>
+   <td style="text-align:right;"> 0.98 </td>
+   <td style="text-align:right;"> 0.98 </td>
+   <td style="text-align:right;"> 0.97 </td>
+   <td style="text-align:right;"> 0.98 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> ideas </td>
+   <td style="text-align:right;"> 0.85 </td>
+   <td style="text-align:right;"> 0.87 </td>
+   <td style="text-align:right;"> 0.86 </td>
+   <td style="text-align:right;"> 0.82 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> line </td>
+   <td style="text-align:right;"> 0.56 </td>
+   <td style="text-align:right;"> 0.56 </td>
+   <td style="text-align:right;"> 0.55 </td>
+   <td style="text-align:right;"> 0.53 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> logic_de </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> logic_im </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> matrices </td>
+   <td style="text-align:right;"> 0.96 </td>
+   <td style="text-align:right;"> 0.96 </td>
+   <td style="text-align:right;"> 0.96 </td>
+   <td style="text-align:right;"> 0.92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> mmse </td>
+   <td style="text-align:right;"> 0.75 </td>
+   <td style="text-align:right;"> 0.72 </td>
+   <td style="text-align:right;"> 0.72 </td>
+   <td style="text-align:right;"> 0.71 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> nart </td>
+   <td style="text-align:right;"> 0.96 </td>
+   <td style="text-align:right;"> 0.93 </td>
+   <td style="text-align:right;"> 0.89 </td>
+   <td style="text-align:right;"> 0.88 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> num_comp </td>
+   <td style="text-align:right;"> 0.87 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.91 </td>
+   <td style="text-align:right;"> 0.85 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> 0.55 </td>
+   <td style="text-align:right;"> 0.43 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> 0.62 </td>
+   <td style="text-align:right;"> 0.65 </td>
+   <td style="text-align:right;"> 0.64 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_rec </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.86 </td>
+   <td style="text-align:right;"> 0.81 </td>
+  </tr>
+</tbody>
+</table>
 
 
 ```
@@ -2787,12 +4503,15 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.14    ggplot2_2.1.0 magrittr_1.5 
+[1] knitr_1.14                ggplot2_2.2.0             IalsaSynthesis_0.1.8.9000 MplusAutomation_0.6-4    
+[5] magrittr_1.5             
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-7 R6_2.2.0         stringr_1.1.0   
- [7] highr_0.6        plyr_1.8.4       dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
-[13] gtable_0.2.0     DBI_0.5-1        htmltools_0.3.5  yaml_2.1.13      lazyeval_0.2.0   assertthat_0.1  
-[19] digest_0.6.10    tibble_1.2       formatR_1.4      readr_1.0.0      tidyr_0.6.0      htmlwidgets_0.7 
-[25] rsconnect_0.5    evaluate_0.10    rmarkdown_1.1    stringi_1.1.2    scales_0.4.0    
+ [1] Rcpp_0.12.7      formatR_1.4      plyr_1.8.4       highr_0.6        tools_3.3.1      boot_1.3-18     
+ [7] digest_0.6.10    evaluate_0.10    tibble_1.2       gtable_0.2.0     lattice_0.20-34  texreg_1.36.7   
+[13] DBI_0.5-1        yaml_2.1.13      proto_0.3-10     coda_0.18-1      dplyr_0.5.0      stringr_1.1.0   
+[19] htmlwidgets_0.7  grid_3.3.1       DT_0.2           data.table_1.9.6 R6_2.2.0         rmarkdown_1.1   
+[25] gsubfn_0.6-6     pander_0.6.0     tidyr_0.6.0      reshape2_1.4.1   readr_1.0.0      scales_0.4.1    
+[31] htmltools_0.3.5  rsconnect_0.5    assertthat_0.1   testit_0.5       colorspace_1.2-7 xtable_1.8-2    
+[37] stringi_1.1.2    lazyeval_0.2.0   munsell_0.4.3    chron_2.3-47    
 ```

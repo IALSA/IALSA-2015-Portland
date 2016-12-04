@@ -553,80 +553,386 @@ octo         male       aehplus      grip        symbol              1
 
  Computed correlations:
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.38 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> -0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> -0.05 </td>
+   <td style="text-align:right;"> -0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.19 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.27 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> 0.18 </td>
+  </tr>
+</tbody>
+</table>
 
-label                    process_b      a     aeh   aehplus
-----------------------  ----------  -----  ------  --------
-Correlation of Levels        block   0.38    0.32      0.31
-Correlation of Levels      digit_b   0.03    0.01     -0.00
-Correlation of Levels      digit_f   0.05   -0.05     -0.06
-Correlation of Levels    fig_logic   0.37    0.31         .
-Correlation of Levels          mir   0.19    0.16         .
-Correlation of Levels     prose_im   0.20    0.13      0.14
-Correlation of Levels       symbol   0.27    0.16      0.18
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.86 </td>
+   <td style="text-align:right;"> 0.86 </td>
+   <td style="text-align:right;"> 0.76 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> -0.43 </td>
+   <td style="text-align:right;"> -0.49 </td>
+   <td style="text-align:right;"> -0.49 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.55 </td>
+   <td style="text-align:right;"> 0.56 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> 0.59 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 0.35 </td>
+   <td style="text-align:right;"> 0.36 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.16 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                    process_b       a     aeh   aehplus
-----------------------  ----------  ------  ------  --------
-Correlation of Slopes        block    0.86    0.86      0.76
-Correlation of Slopes      digit_b   -0.43   -0.49     -0.49
-Correlation of Slopes      digit_f    0.09    0.10      0.11
-Correlation of Slopes    fig_logic    0.55    0.56         .
-Correlation of Slopes          mir    0.63    0.59         .
-Correlation of Slopes     prose_im    0.29    0.35      0.36
-Correlation of Slopes       symbol    0.08    0.10      0.16
-
-
-
-label                       process_b      a    aeh   aehplus
--------------------------  ----------  -----  -----  --------
-Correlation of Residuals        block   0.05   0.04      0.05
-Correlation of Residuals      digit_b   0.06   0.05      0.05
-Correlation of Residuals      digit_f   0.06   0.05      0.05
-Correlation of Residuals    fig_logic   0.08   0.07         .
-Correlation of Residuals          mir   0.04   0.05         .
-Correlation of Residuals     prose_im   0.07   0.06      0.06
-Correlation of Residuals       symbol   0.12   0.12      0.12
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+</tbody>
+</table>
 
 
 P-values for corresponding covariances: 
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.77 </td>
+   <td style="text-align:right;"> 0.92 </td>
+   <td style="text-align:right;"> 0.98 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.58 </td>
+   <td style="text-align:right;"> 0.55 </td>
+   <td style="text-align:right;"> 0.53 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+</tbody>
+</table>
 
-label                   process_b      a    aeh   aehplus
----------------------  ----------  -----  -----  --------
-Covariance of Levels        block   0.00   0.00      0.00
-Covariance of Levels      digit_b   0.77   0.92      0.98
-Covariance of Levels      digit_f   0.58   0.55      0.53
-Covariance of Levels    fig_logic   0.00   0.00         .
-Covariance of Levels          mir   0.02   0.05         .
-Covariance of Levels     prose_im   0.01   0.10      0.08
-Covariance of Levels       symbol   0.00   0.06      0.03
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.30 </td>
+   <td style="text-align:right;"> 0.35 </td>
+   <td style="text-align:right;"> 0.40 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.72 </td>
+   <td style="text-align:right;"> 0.66 </td>
+   <td style="text-align:right;"> 0.70 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> 0.34 </td>
+   <td style="text-align:right;"> 0.31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.75 </td>
+   <td style="text-align:right;"> 0.69 </td>
+   <td style="text-align:right;"> 0.59 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                   process_b      a    aeh   aehplus
----------------------  ----------  -----  -----  --------
-Covariance of Slopes        block   0.00   0.00      0.00
-Covariance of Slopes      digit_b   0.30   0.35      0.40
-Covariance of Slopes      digit_f   0.72   0.66      0.70
-Covariance of Slopes    fig_logic   0.11   0.09         .
-Covariance of Slopes          mir   0.00   0.00         .
-Covariance of Slopes     prose_im   0.37   0.34      0.31
-Covariance of Slopes       symbol   0.75   0.69      0.59
-
-
-
-label                       process_b      a    aeh   aehplus
--------------------------  ----------  -----  -----  --------
-Covariance of  Residuals        block   0.36   0.45      0.35
-Covariance of  Residuals      digit_b   0.22   0.32      0.35
-Covariance of  Residuals      digit_f   0.23   0.35      0.37
-Covariance of  Residuals    fig_logic   0.10   0.20         .
-Covariance of  Residuals          mir   0.36   0.33         .
-Covariance of  Residuals     prose_im   0.28   0.41      0.39
-Covariance of  Residuals       symbol   0.02   0.03      0.02
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.36 </td>
+   <td style="text-align:right;"> 0.45 </td>
+   <td style="text-align:right;"> 0.35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.32 </td>
+   <td style="text-align:right;"> 0.35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.35 </td>
+   <td style="text-align:right;"> 0.37 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.36 </td>
+   <td style="text-align:right;"> 0.33 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.28 </td>
+   <td style="text-align:right;"> 0.41 </td>
+   <td style="text-align:right;"> 0.39 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+</tbody>
+</table>
 
 
 # male 
@@ -1083,80 +1389,386 @@ Covariance of  Residuals       symbol   0.02   0.03      0.02
 
  Computed correlations:
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.36 </td>
+   <td style="text-align:right;"> 0.31 </td>
+   <td style="text-align:right;"> 0.30 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> -0.14 </td>
+   <td style="text-align:right;"> -0.15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.62 </td>
+   <td style="text-align:right;"> 0.56 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.39 </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.38 </td>
+   <td style="text-align:right;"> 0.34 </td>
+   <td style="text-align:right;"> 0.35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.28 </td>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.24 </td>
+  </tr>
+</tbody>
+</table>
 
-label                    process_b      a     aeh   aehplus
-----------------------  ----------  -----  ------  --------
-Correlation of Levels        block   0.36    0.31      0.30
-Correlation of Levels      digit_b   0.23    0.09      0.06
-Correlation of Levels      digit_f   0.04   -0.14     -0.15
-Correlation of Levels    fig_logic   0.62    0.56         .
-Correlation of Levels          mir   0.39    0.37         .
-Correlation of Levels     prose_im   0.38    0.34      0.35
-Correlation of Levels       symbol   0.28    0.25      0.24
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> -0.49 </td>
+   <td style="text-align:right;"> -0.27 </td>
+   <td style="text-align:right;"> -0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.43 </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 0.23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.63 </td>
+   <td style="text-align:right;"> 0.64 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 0.53 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> -0.33 </td>
+   <td style="text-align:right;"> -0.26 </td>
+   <td style="text-align:right;"> -0.37 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> -0.08 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                    process_b       a     aeh   aehplus
-----------------------  ----------  ------  ------  --------
-Correlation of Slopes        block   -0.49   -0.27     -0.25
-Correlation of Slopes      digit_b    0.03    0.03      0.19
-Correlation of Slopes      digit_f    0.43    0.29      0.23
-Correlation of Slopes    fig_logic    0.63    0.64         .
-Correlation of Slopes          mir    0.29    0.53         .
-Correlation of Slopes     prose_im   -0.33   -0.26     -0.37
-Correlation of Slopes       symbol    0.09    0.01     -0.08
-
-
-
-label                       process_b       a     aeh   aehplus
--------------------------  ----------  ------  ------  --------
-Correlation of Residuals        block    0.13    0.13      0.14
-Correlation of Residuals      digit_b   -0.11   -0.13     -0.13
-Correlation of Residuals      digit_f   -0.08   -0.08     -0.07
-Correlation of Residuals    fig_logic   -0.08   -0.06         .
-Correlation of Residuals          mir    0.03    0.02         .
-Correlation of Residuals     prose_im    0.08    0.14      0.14
-Correlation of Residuals       symbol    0.08    0.14      0.15
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> -0.11 </td>
+   <td style="text-align:right;"> -0.13 </td>
+   <td style="text-align:right;"> -0.13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> -0.08 </td>
+   <td style="text-align:right;"> -0.08 </td>
+   <td style="text-align:right;"> -0.07 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> -0.08 </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.15 </td>
+  </tr>
+</tbody>
+</table>
 
 
 P-values for corresponding covariances: 
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 0.60 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.74 </td>
+   <td style="text-align:right;"> 0.30 </td>
+   <td style="text-align:right;"> 0.27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+</tbody>
+</table>
 
-label                   process_b      a    aeh   aehplus
----------------------  ----------  -----  -----  --------
-Covariance of Levels        block   0.00   0.00      0.00
-Covariance of Levels      digit_b   0.09   0.40      0.60
-Covariance of Levels      digit_f   0.74   0.30      0.27
-Covariance of Levels    fig_logic   0.00   0.00         .
-Covariance of Levels          mir   0.01   0.02         .
-Covariance of Levels     prose_im   0.00   0.01      0.00
-Covariance of Levels       symbol   0.00   0.01      0.02
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.49 </td>
+   <td style="text-align:right;"> 0.77 </td>
+   <td style="text-align:right;"> 0.74 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.95 </td>
+   <td style="text-align:right;"> 0.92 </td>
+   <td style="text-align:right;"> 0.68 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.23 </td>
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 0.50 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.27 </td>
+   <td style="text-align:right;"> 0.35 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.81 </td>
+   <td style="text-align:right;"> 0.87 </td>
+   <td style="text-align:right;"> 0.79 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.82 </td>
+   <td style="text-align:right;"> 0.98 </td>
+   <td style="text-align:right;"> 0.85 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                   process_b      a    aeh   aehplus
----------------------  ----------  -----  -----  --------
-Covariance of Slopes        block   0.49   0.77      0.74
-Covariance of Slopes      digit_b   0.95   0.92      0.68
-Covariance of Slopes      digit_f   0.23   0.40      0.50
-Covariance of Slopes    fig_logic   0.27   0.35         .
-Covariance of Slopes          mir   0.25   0.05         .
-Covariance of Slopes     prose_im   0.81   0.87      0.79
-Covariance of Slopes       symbol   0.82   0.98      0.85
-
-
-
-label                       process_b      a    aeh   aehplus
--------------------------  ----------  -----  -----  --------
-Covariance of  Residuals        block   0.03   0.06      0.03
-Covariance of  Residuals      digit_b   0.14   0.07      0.10
-Covariance of  Residuals      digit_f   0.24   0.29      0.30
-Covariance of  Residuals    fig_logic   0.22   0.34         .
-Covariance of  Residuals          mir   0.77   0.85         .
-Covariance of  Residuals     prose_im   0.37   0.15      0.16
-Covariance of  Residuals       symbol   0.40   0.10      0.09
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> aeh </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> block </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> digit_b </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> digit_f </td>
+   <td style="text-align:right;"> 0.24 </td>
+   <td style="text-align:right;"> 0.29 </td>
+   <td style="text-align:right;"> 0.30 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> fig_logic </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.34 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> mir </td>
+   <td style="text-align:right;"> 0.77 </td>
+   <td style="text-align:right;"> 0.85 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> prose_im </td>
+   <td style="text-align:right;"> 0.37 </td>
+   <td style="text-align:right;"> 0.15 </td>
+   <td style="text-align:right;"> 0.16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> symbol </td>
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.09 </td>
+  </tr>
+</tbody>
+</table>
 
 
 ```
@@ -1177,12 +1789,15 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.14    ggplot2_2.1.0 magrittr_1.5 
+[1] knitr_1.14                ggplot2_2.2.0             IalsaSynthesis_0.1.8.9000 MplusAutomation_0.6-4    
+[5] magrittr_1.5             
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-7 R6_2.2.0         stringr_1.1.0   
- [7] highr_0.6        plyr_1.8.4       dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
-[13] gtable_0.2.0     DBI_0.5-1        htmltools_0.3.5  yaml_2.1.13      lazyeval_0.2.0   assertthat_0.1  
-[19] digest_0.6.10    tibble_1.2       formatR_1.4      readr_1.0.0      tidyr_0.6.0      htmlwidgets_0.7 
-[25] rsconnect_0.5    evaluate_0.10    rmarkdown_1.1    stringi_1.1.2    scales_0.4.0    
+ [1] Rcpp_0.12.7      formatR_1.4      plyr_1.8.4       highr_0.6        tools_3.3.1      boot_1.3-18     
+ [7] digest_0.6.10    evaluate_0.10    tibble_1.2       gtable_0.2.0     lattice_0.20-34  texreg_1.36.7   
+[13] DBI_0.5-1        yaml_2.1.13      proto_0.3-10     coda_0.18-1      dplyr_0.5.0      stringr_1.1.0   
+[19] htmlwidgets_0.7  grid_3.3.1       DT_0.2           data.table_1.9.6 R6_2.2.0         rmarkdown_1.1   
+[25] gsubfn_0.6-6     pander_0.6.0     tidyr_0.6.0      reshape2_1.4.1   readr_1.0.0      scales_0.4.1    
+[31] htmltools_0.3.5  rsconnect_0.5    assertthat_0.1   testit_0.5       colorspace_1.2-7 xtable_1.8-2    
+[37] stringi_1.1.2    lazyeval_0.2.0   munsell_0.4.3    chron_2.3-47    
 ```

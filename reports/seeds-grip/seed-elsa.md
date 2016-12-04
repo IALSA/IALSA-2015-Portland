@@ -67,54 +67,54 @@ elsa         male       aehplus      grip        word_im             1
 
  process   label                                    word_de                word_im               mean(sd)
 ---------  -------------------------  ---------------------  ---------------------  ---------------------
-    a      Level                       20.25 (0.18)    <.01   20.25 (0.18)    <.01            20.25(0.00)
+    a      Level                       20.28 (0.18)    <.01   20.27 (0.18)    <.01            20.27(0.00)
     a      Slope                       -0.29 (0.02)    <.01   -0.29 (0.02)    <.01            -0.29(0.00)
-    a      Level * age                 -0.24 (0.01)    <.01   -0.24 (0.01)    <.01            -0.24(0.00)
+    a      Level * age                 -0.25 (0.01)    <.01   -0.25 (0.01)    <.01            -0.25(0.00)
     a      Level * education            0.99 (0.19)    <.01    0.99 (0.19)    <.01             0.99(0.00)
     a      Level * height               0.21 (0.01)    <.01    0.21 (0.01)    <.01             0.21(0.00)
-    a      Level * smoking             -0.17 (0.17)     .33   -0.17 (0.17)     .32            -0.17(0.00)
-    a      Level * cardio              -1.54 (0.34)    <.01   -1.54 (0.34)    <.01            -1.54(0.00)
-    a      Level * diabetes            -1.42 (0.40)    <.01   -1.42 (0.40)    <.01            -1.42(0.00)
+    a      Level * smoking             -0.18 (0.17)     .29   -0.18 (0.17)     .30            -0.18(0.00)
+    a      Level * cardio              -1.61 (0.34)    <.01   -1.61 (0.34)    <.01            -1.61(0.00)
+    a      Level * diabetes            -1.40 (0.40)    <.01   -1.40 (0.40)    <.01            -1.40(0.00)
     a      Slope * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01            -0.01(0.00)
-    a      Slope * education           -0.01 (0.02)     .45   -0.01 (0.02)     .48            -0.01(0.00)
+    a      Slope * education           -0.01 (0.02)     .44   -0.01 (0.02)     .46            -0.01(0.00)
     a      Slope * height              -0.00 (0.00)     .06   -0.00 (0.00)     .05            -0.00(0.00)
-    a      Slope * smoking              0.00 (0.02)     .95    0.00 (0.02)     .96             0.00(0.00)
-    a      Slope * cardio               0.06 (0.04)     .12    0.06 (0.04)     .14             0.06(0.00)
-    a      Slope * diabetes             0.00 (0.04)     .91    0.00 (0.04)     .91             0.00(0.00)
-    b      Level                        3.89 (0.06)    <.01    5.29 (0.05)    <.01                    ---
+    a      Slope * smoking              0.00 (0.02)     .92    0.00 (0.02)     .94             0.00(0.00)
+    a      Slope * cardio               0.05 (0.04)     .17    0.05 (0.04)     .19             0.05(0.00)
+    a      Slope * diabetes             0.00 (0.04)     .91    0.00 (0.04)     .92             0.00(0.00)
+    b      Level                        3.89 (0.06)    <.01    5.31 (0.05)    <.01                    ---
     b      Slope                       -0.04 (0.01)    <.01   -0.04 (0.01)    <.01                    ---
     b      Level * age                 -0.07 (0.00)    <.01   -0.06 (0.00)    <.01                    ---
-    b      Level * education            1.00 (0.07)    <.01    0.73 (0.06)    <.01                    ---
+    b      Level * education            1.00 (0.07)    <.01    0.72 (0.06)    <.01                    ---
     b      Level * height               0.02 (0.00)    <.01    0.01 (0.00)     .05                    ---
-    b      Level * smoking             -0.21 (0.06)    <.01   -0.04 (0.05)     .49                    ---
-    b      Level * cardio              -0.12 (0.12)     .32   -0.20 (0.10)     .05                    ---
-    b      Level * diabetes            -0.38 (0.16)     .02   -0.33 (0.14)     .02                    ---
+    b      Level * smoking             -0.22 (0.06)    <.01   -0.04 (0.05)     .46                    ---
+    b      Level * cardio              -0.14 (0.12)     .24   -0.23 (0.11)     .04                    ---
+    b      Level * diabetes            -0.38 (0.16)     .02   -0.32 (0.14)     .02                    ---
     b      Slope * age                 -0.00 (0.00)    <.01   -0.00 (0.00)    <.01                    ---
-    b      Slope * education           -0.00 (0.01)     .56    0.01 (0.01)     .08                    ---
-    b      Slope * height               0.00 (0.00)     .71    0.00 (0.00)     .27                    ---
-    b      Slope * smoking              0.01 (0.01)     .05   -0.00 (0.01)     .56                    ---
-    b      Slope * cardio              -0.01 (0.01)     .56    0.00 (0.01)     .72                    ---
-    b      Slope * diabetes             0.01 (0.02)     .64    0.01 (0.02)     .58                    ---
-    a      Var (Level)                 17.98 (0.85)    <.01   17.98 (0.85)    <.01            17.98(0.00)
-    a      Var (Slope)                  0.02 (0.01)     .03    0.02 (0.01)     .03             0.02(0.00)
-    a      Var (Residual)               8.47 (0.42)    <.01    8.47 (0.42)    <.01             8.47(0.00)
-    a      Covar (Level, Slope)        -0.14 (0.07)     .05   -0.14 (0.07)     .06            -0.14(0.00)
-    b      Var (Level)                  1.46 (0.10)    <.01    0.97 (0.09)    <.01                    ---
-    b      Var (Slope)                  0.00 (0.00)     .64    0.00 (0.00)     .08                    ---
+    b      Slope * education           -0.00 (0.01)     .59    0.01 (0.01)     .05                    ---
+    b      Slope * height               0.00 (0.00)     .56    0.00 (0.00)     .31                    ---
+    b      Slope * smoking              0.01 (0.01)     .07   -0.00 (0.01)     .60                    ---
+    b      Slope * cardio              -0.01 (0.02)     .69    0.01 (0.01)     .69                    ---
+    b      Slope * diabetes             0.01 (0.02)     .62    0.01 (0.02)     .60                    ---
+    a      Var (Level)                 17.96 (0.84)    <.01   17.95 (0.84)    <.01            17.96(0.00)
+    a      Var (Slope)                  0.02 (0.01)     .02    0.02 (0.01)     .02             0.02(0.00)
+    a      Var (Residual)               8.39 (0.41)    <.01    8.38 (0.41)    <.01             8.39(0.00)
+    a      Covar (Level, Slope)        -0.15 (0.07)     .03   -0.15 (0.07)     .03            -0.15(0.00)
+    b      Var (Level)                  1.44 (0.10)    <.01    0.94 (0.09)    <.01                    ---
+    b      Var (Slope)                  0.00 (0.00)     .74    0.00 (0.00)     .12                    ---
     b      Var (Residual)               1.91 (0.07)    <.01    1.61 (0.06)    <.01                    ---
-    b      Covar (Level, Slope)         0.01 (0.01)     .37   -0.01 (0.01)     .36                    ---
-   ab      Covar (Levels)               0.68 (0.17)    <.01    0.51 (0.16)    <.01                    ---
-   ab      Covar (Slopes)               0.00 (0.00)     .97    0.00 (0.00)     .91                    ---
-   ab      Covar (Residuals)            0.09 (0.09)     .30    0.06 (0.08)     .49                    ---
-    \      Correlation of Levels                      0.133                  0.122             0.13(0.01)
+    b      Covar (Level, Slope)         0.01 (0.01)     .35   -0.01 (0.01)     .45                    ---
+   ab      Covar (Levels)               0.65 (0.17)    <.01    0.48 (0.16)    <.01                    ---
+   ab      Covar (Slopes)               0.00 (0.00)     .99    0.00 (0.00)     .92                    ---
+   ab      Covar (Residuals)            0.09 (0.09)     .31    0.05 (0.08)     .52                    ---
+    \      Correlation of Levels                      0.128                  0.116             0.12(0.01)
     \      Correlation of Slopes                      0.000                  0.000             0.00(0.00)
     \      Correlation of Residuals                   0.023                  0.015             0.02(0.01)
-    \      N                                          3,511                  3,511          3511.00(0.00)
+    \      N                                          3,393                  3,391          3392.00(1.41)
     \      occasions                                      6                      6             6.00(0.00)
     \      parameters                                    41                     41            41.00(0.00)
-    \      LL                                       -38,178                -37,206   -3.769178e+04(  687)
-    \      AIC                                       76,437                 74,494    7.546556e+04(1,374)
-    \      BIC                                       76,690                 74,746    7.571827e+04(1,374)
+    \      LL                                       -37,326                -36,379   -3.685255e+04(  669)
+    \      AIC                                       74,734                 72,840    7.378709e+04(1,339)
+    \      BIC                                       74,985                 73,092    7.403839e+04(1,339)
 
 ##  word_de 
 
@@ -123,54 +123,54 @@ elsa         male       aehplus      grip        word_im             1
 
  process   label                                    aehplus
 ---------  -------------------------  ---------------------
-    a      Level                       20.25 (0.18)    <.01
+    a      Level                       20.28 (0.18)    <.01
     a      Slope                       -0.29 (0.02)    <.01
-    a      Level * age                 -0.24 (0.01)    <.01
+    a      Level * age                 -0.25 (0.01)    <.01
     a      Level * education            0.99 (0.19)    <.01
     a      Level * height               0.21 (0.01)    <.01
-    a      Level * smoking             -0.17 (0.17)     .33
-    a      Level * cardio              -1.54 (0.34)    <.01
-    a      Level * diabetes            -1.42 (0.40)    <.01
+    a      Level * smoking             -0.18 (0.17)     .29
+    a      Level * cardio              -1.61 (0.34)    <.01
+    a      Level * diabetes            -1.40 (0.40)    <.01
     a      Slope * age                 -0.01 (0.00)    <.01
-    a      Slope * education           -0.01 (0.02)     .45
+    a      Slope * education           -0.01 (0.02)     .44
     a      Slope * height              -0.00 (0.00)     .06
-    a      Slope * smoking              0.00 (0.02)     .95
-    a      Slope * cardio               0.06 (0.04)     .12
+    a      Slope * smoking              0.00 (0.02)     .92
+    a      Slope * cardio               0.05 (0.04)     .17
     a      Slope * diabetes             0.00 (0.04)     .91
     b      Level                        3.89 (0.06)    <.01
     b      Slope                       -0.04 (0.01)    <.01
     b      Level * age                 -0.07 (0.00)    <.01
     b      Level * education            1.00 (0.07)    <.01
     b      Level * height               0.02 (0.00)    <.01
-    b      Level * smoking             -0.21 (0.06)    <.01
-    b      Level * cardio              -0.12 (0.12)     .32
+    b      Level * smoking             -0.22 (0.06)    <.01
+    b      Level * cardio              -0.14 (0.12)     .24
     b      Level * diabetes            -0.38 (0.16)     .02
     b      Slope * age                 -0.00 (0.00)    <.01
-    b      Slope * education           -0.00 (0.01)     .56
-    b      Slope * height               0.00 (0.00)     .71
-    b      Slope * smoking              0.01 (0.01)     .05
-    b      Slope * cardio              -0.01 (0.01)     .56
-    b      Slope * diabetes             0.01 (0.02)     .64
-    a      Var (Level)                 17.98 (0.85)    <.01
-    a      Var (Slope)                  0.02 (0.01)     .03
-    a      Var (Residual)               8.47 (0.42)    <.01
-    a      Covar (Level, Slope)        -0.14 (0.07)     .05
-    b      Var (Level)                  1.46 (0.10)    <.01
-    b      Var (Slope)                  0.00 (0.00)     .64
+    b      Slope * education           -0.00 (0.01)     .59
+    b      Slope * height               0.00 (0.00)     .56
+    b      Slope * smoking              0.01 (0.01)     .07
+    b      Slope * cardio              -0.01 (0.02)     .69
+    b      Slope * diabetes             0.01 (0.02)     .62
+    a      Var (Level)                 17.96 (0.84)    <.01
+    a      Var (Slope)                  0.02 (0.01)     .02
+    a      Var (Residual)               8.39 (0.41)    <.01
+    a      Covar (Level, Slope)        -0.15 (0.07)     .03
+    b      Var (Level)                  1.44 (0.10)    <.01
+    b      Var (Slope)                  0.00 (0.00)     .74
     b      Var (Residual)               1.91 (0.07)    <.01
-    b      Covar (Level, Slope)         0.01 (0.01)     .37
-   ab      Covar (Levels)               0.68 (0.17)    <.01
-   ab      Covar (Slopes)               0.00 (0.00)     .97
-   ab      Covar (Residuals)            0.09 (0.09)     .30
-    \      Correlation of Levels                      0.133
+    b      Covar (Level, Slope)         0.01 (0.01)     .35
+   ab      Covar (Levels)               0.65 (0.17)    <.01
+   ab      Covar (Slopes)               0.00 (0.00)     .99
+   ab      Covar (Residuals)            0.09 (0.09)     .31
+    \      Correlation of Levels                      0.128
     \      Correlation of Slopes                      0.000
     \      Correlation of Residuals                   0.023
-    \      N                                          3,511
+    \      N                                          3,393
     \      occasions                                      6
     \      parameters                                    41
-    \      LL                                       -38,178
-    \      AIC                                       76,437
-    \      BIC                                       76,690
+    \      LL                                       -37,326
+    \      AIC                                       74,734
+    \      BIC                                       74,985
 
 ##  word_im 
 
@@ -179,54 +179,54 @@ elsa         male       aehplus      grip        word_im             1
 
  process   label                                    aehplus
 ---------  -------------------------  ---------------------
-    a      Level                       20.25 (0.18)    <.01
+    a      Level                       20.27 (0.18)    <.01
     a      Slope                       -0.29 (0.02)    <.01
-    a      Level * age                 -0.24 (0.01)    <.01
+    a      Level * age                 -0.25 (0.01)    <.01
     a      Level * education            0.99 (0.19)    <.01
     a      Level * height               0.21 (0.01)    <.01
-    a      Level * smoking             -0.17 (0.17)     .32
-    a      Level * cardio              -1.54 (0.34)    <.01
-    a      Level * diabetes            -1.42 (0.40)    <.01
+    a      Level * smoking             -0.18 (0.17)     .30
+    a      Level * cardio              -1.61 (0.34)    <.01
+    a      Level * diabetes            -1.40 (0.40)    <.01
     a      Slope * age                 -0.01 (0.00)    <.01
-    a      Slope * education           -0.01 (0.02)     .48
+    a      Slope * education           -0.01 (0.02)     .46
     a      Slope * height              -0.00 (0.00)     .05
-    a      Slope * smoking              0.00 (0.02)     .96
-    a      Slope * cardio               0.06 (0.04)     .14
-    a      Slope * diabetes             0.00 (0.04)     .91
-    b      Level                        5.29 (0.05)    <.01
+    a      Slope * smoking              0.00 (0.02)     .94
+    a      Slope * cardio               0.05 (0.04)     .19
+    a      Slope * diabetes             0.00 (0.04)     .92
+    b      Level                        5.31 (0.05)    <.01
     b      Slope                       -0.04 (0.01)    <.01
     b      Level * age                 -0.06 (0.00)    <.01
-    b      Level * education            0.73 (0.06)    <.01
+    b      Level * education            0.72 (0.06)    <.01
     b      Level * height               0.01 (0.00)     .05
-    b      Level * smoking             -0.04 (0.05)     .49
-    b      Level * cardio              -0.20 (0.10)     .05
-    b      Level * diabetes            -0.33 (0.14)     .02
+    b      Level * smoking             -0.04 (0.05)     .46
+    b      Level * cardio              -0.23 (0.11)     .04
+    b      Level * diabetes            -0.32 (0.14)     .02
     b      Slope * age                 -0.00 (0.00)    <.01
-    b      Slope * education            0.01 (0.01)     .08
-    b      Slope * height               0.00 (0.00)     .27
-    b      Slope * smoking             -0.00 (0.01)     .56
-    b      Slope * cardio               0.00 (0.01)     .72
-    b      Slope * diabetes             0.01 (0.02)     .58
-    a      Var (Level)                 17.98 (0.85)    <.01
-    a      Var (Slope)                  0.02 (0.01)     .03
-    a      Var (Residual)               8.47 (0.42)    <.01
-    a      Covar (Level, Slope)        -0.14 (0.07)     .06
-    b      Var (Level)                  0.97 (0.09)    <.01
-    b      Var (Slope)                  0.00 (0.00)     .08
+    b      Slope * education            0.01 (0.01)     .05
+    b      Slope * height               0.00 (0.00)     .31
+    b      Slope * smoking             -0.00 (0.01)     .60
+    b      Slope * cardio               0.01 (0.01)     .69
+    b      Slope * diabetes             0.01 (0.02)     .60
+    a      Var (Level)                 17.95 (0.84)    <.01
+    a      Var (Slope)                  0.02 (0.01)     .02
+    a      Var (Residual)               8.38 (0.41)    <.01
+    a      Covar (Level, Slope)        -0.15 (0.07)     .03
+    b      Var (Level)                  0.94 (0.09)    <.01
+    b      Var (Slope)                  0.00 (0.00)     .12
     b      Var (Residual)               1.61 (0.06)    <.01
-    b      Covar (Level, Slope)        -0.01 (0.01)     .36
-   ab      Covar (Levels)               0.51 (0.16)    <.01
-   ab      Covar (Slopes)               0.00 (0.00)     .91
-   ab      Covar (Residuals)            0.06 (0.08)     .49
-    \      Correlation of Levels                      0.122
+    b      Covar (Level, Slope)        -0.01 (0.01)     .45
+   ab      Covar (Levels)               0.48 (0.16)    <.01
+   ab      Covar (Slopes)               0.00 (0.00)     .92
+   ab      Covar (Residuals)            0.05 (0.08)     .52
+    \      Correlation of Levels                      0.116
     \      Correlation of Slopes                      0.000
     \      Correlation of Residuals                   0.015
-    \      N                                          3,511
+    \      N                                          3,391
     \      occasions                                      6
     \      parameters                                    41
-    \      LL                                       -37,206
-    \      AIC                                       74,494
-    \      BIC                                       74,746
+    \      LL                                       -36,379
+    \      AIC                                       72,840
+    \      BIC                                       73,092
 
 ## Summary 
 
@@ -234,50 +234,140 @@ elsa         male       aehplus      grip        word_im             1
 
  Computed correlations:
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+</tbody>
+</table>
 
-label                    process_b   aehplus
-----------------------  ----------  --------
-Correlation of Levels      word_de      0.13
-Correlation of Levels      word_im      0.12
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                    process_b   aehplus
-----------------------  ----------  --------
-Correlation of Slopes      word_de      0.00
-Correlation of Slopes      word_im      0.00
-
-
-
-label                       process_b   aehplus
--------------------------  ----------  --------
-Correlation of Residuals      word_de      0.02
-Correlation of Residuals      word_im      0.02
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.01 </td>
+  </tr>
+</tbody>
+</table>
 
 
 P-values for corresponding covariances: 
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+</tbody>
+</table>
 
-label                   process_b   aehplus
----------------------  ----------  --------
-Covariance of Levels      word_de      0.00
-Covariance of Levels      word_im      0.00
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.99 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.92 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                   process_b   aehplus
----------------------  ----------  --------
-Covariance of Slopes      word_de      0.97
-Covariance of Slopes      word_im      0.91
-
-
-
-label                       process_b   aehplus
--------------------------  ----------  --------
-Covariance of  Residuals      word_de      0.30
-Covariance of  Residuals      word_im      0.49
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.52 </td>
+  </tr>
+</tbody>
+</table>
 
 
 # male 
@@ -287,54 +377,54 @@ Covariance of  Residuals      word_im      0.49
 
  process   label                                    word_de                word_im               mean(sd)
 ---------  -------------------------  ---------------------  ---------------------  ---------------------
-    a      Level                       34.27 (0.33)    <.01   34.27 (0.33)    <.01            34.27(0.00)
+    a      Level                       34.31 (0.33)    <.01   34.31 (0.33)    <.01            34.31(0.00)
     a      Slope                       -0.45 (0.04)    <.01   -0.45 (0.04)    <.01            -0.45(0.00)
     a      Level * age                 -0.46 (0.01)    <.01   -0.46 (0.01)    <.01            -0.46(0.00)
-    a      Level * education            1.26 (0.30)    <.01    1.25 (0.30)    <.01             1.26(0.00)
+    a      Level * education            1.21 (0.30)    <.01    1.21 (0.30)    <.01             1.21(0.00)
     a      Level * height               0.29 (0.02)    <.01    0.29 (0.02)    <.01             0.29(0.00)
-    a      Level * smoking             -0.38 (0.29)     .20   -0.38 (0.29)     .20            -0.38(0.00)
-    a      Level * cardio              -0.33 (0.39)     .39   -0.34 (0.39)     .39            -0.33(0.00)
-    a      Level * diabetes            -2.03 (0.50)    <.01   -2.04 (0.50)    <.01            -2.04(0.00)
+    a      Level * smoking             -0.35 (0.30)     .24   -0.34 (0.30)     .24            -0.34(0.00)
+    a      Level * cardio              -0.32 (0.39)     .41   -0.32 (0.39)     .41            -0.32(0.00)
+    a      Level * diabetes            -2.09 (0.50)    <.01   -2.10 (0.50)    <.01            -2.09(0.00)
     a      Slope * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01            -0.01(0.00)
-    a      Slope * education           -0.03 (0.03)     .35   -0.03 (0.03)     .38            -0.03(0.00)
-    a      Slope * height               0.00 (0.00)     .54    0.00 (0.00)     .55             0.00(0.00)
-    a      Slope * smoking             -0.01 (0.03)     .74   -0.01 (0.03)     .75            -0.01(0.00)
+    a      Slope * education           -0.03 (0.03)     .31   -0.03 (0.03)     .35            -0.03(0.00)
+    a      Slope * height               0.00 (0.00)     .53    0.00 (0.00)     .56             0.00(0.00)
+    a      Slope * smoking             -0.01 (0.03)     .81   -0.01 (0.03)     .82            -0.01(0.00)
     a      Slope * cardio              -0.13 (0.04)    <.01   -0.13 (0.04)    <.01            -0.13(0.00)
-    a      Slope * diabetes            -0.16 (0.05)    <.01   -0.16 (0.05)    <.01            -0.16(0.00)
-    b      Level                        3.27 (0.08)    <.01    4.87 (0.07)    <.01                    ---
-    b      Slope                        0.00 (0.01)     .64   -0.03 (0.01)    <.01                    ---
-    b      Level * age                 -0.07 (0.00)    <.01   -0.05 (0.00)    <.01                    ---
-    b      Level * education            0.92 (0.07)    <.01    0.76 (0.06)    <.01                    ---
+    a      Slope * diabetes            -0.17 (0.05)    <.01   -0.17 (0.05)    <.01            -0.17(0.00)
+    b      Level                        3.28 (0.08)    <.01    4.88 (0.07)    <.01                    ---
+    b      Slope                        0.00 (0.01)     .63   -0.03 (0.01)    <.01                    ---
+    b      Level * age                 -0.07 (0.00)    <.01   -0.06 (0.00)    <.01                    ---
+    b      Level * education            0.91 (0.07)    <.01    0.75 (0.06)    <.01                    ---
     b      Level * height               0.02 (0.00)    <.01    0.01 (0.00)    <.01                    ---
-    b      Level * smoking              0.02 (0.07)     .71   -0.00 (0.06)     .95                    ---
-    b      Level * cardio              -0.06 (0.10)     .52   -0.16 (0.09)     .07                    ---
-    b      Level * diabetes            -0.28 (0.11)     .01   -0.10 (0.10)     .32                    ---
+    b      Level * smoking              0.03 (0.07)     .62    0.00 (0.06)     .98                    ---
+    b      Level * cardio              -0.04 (0.10)     .67   -0.13 (0.09)     .12                    ---
+    b      Level * diabetes            -0.28 (0.11)     .01   -0.10 (0.10)     .35                    ---
     b      Slope * age                 -0.00 (0.00)    <.01   -0.00 (0.00)    <.01                    ---
-    b      Slope * education           -0.01 (0.01)     .18   -0.00 (0.01)     .95                    ---
-    b      Slope * height               0.00 (0.00)     .99    0.00 (0.00)     .09                    ---
+    b      Slope * education           -0.01 (0.01)     .22    0.00 (0.01)     .98                    ---
+    b      Slope * height               0.00 (0.00)     .90    0.00 (0.00)     .04                    ---
     b      Slope * smoking             -0.02 (0.01)     .02   -0.02 (0.01)     .04                    ---
-    b      Slope * cardio              -0.03 (0.01)     .03   -0.01 (0.01)     .62                    ---
-    b      Slope * diabetes            -0.01 (0.02)     .39   -0.01 (0.02)     .49                    ---
-    a      Var (Level)                 37.85 (1.98)    <.01   37.61 (1.98)    <.01            37.73(0.17)
-    a      Var (Slope)                  0.04 (0.03)     .09    0.04 (0.03)     .14             0.04(0.00)
-    a      Var (Residual)              18.17 (0.93)    <.01   18.34 (0.94)    <.01            18.26(0.12)
-    a      Covar (Level, Slope)        -0.39 (0.19)     .04   -0.35 (0.18)     .06            -0.37(0.03)
-    b      Var (Level)                  1.41 (0.10)    <.01    1.00 (0.08)    <.01                    ---
-    b      Var (Slope)                  0.00 (0.00)     .16    0.00 (0.00)     .01                    ---
-    b      Var (Residual)               1.71 (0.06)    <.01    1.39 (0.06)    <.01                    ---
-    b      Covar (Level, Slope)        -0.01 (0.01)     .31   -0.02 (0.01)     .06                    ---
-   ab      Covar (Levels)               0.34 (0.26)     .20    0.13 (0.23)     .57                    ---
-   ab      Covar (Slopes)              -0.00 (0.00)     .18   -0.00 (0.00)     .14                    ---
-   ab      Covar (Residuals)            0.12 (0.13)     .33    0.29 (0.12)     .02                    ---
-    \      Correlation of Levels                      0.047                  0.022             0.03(0.02)
-    \      Correlation of Slopes                     -0.430                 -0.406            -0.42(0.02)
-    \      Correlation of Residuals                   0.022                  0.058             0.04(0.03)
-    \      N                                          3,091                  3,091          3091.00(0.00)
+    b      Slope * cardio              -0.03 (0.01)     .02   -0.01 (0.01)     .57                    ---
+    b      Slope * diabetes            -0.01 (0.02)     .36   -0.01 (0.02)     .44                    ---
+    a      Var (Level)                 37.57 (1.96)    <.01   37.38 (1.96)    <.01            37.48(0.14)
+    a      Var (Slope)                  0.05 (0.03)     .07    0.04 (0.03)     .11             0.04(0.00)
+    a      Var (Residual)              18.05 (0.93)    <.01   18.21 (0.94)    <.01            18.13(0.11)
+    a      Covar (Level, Slope)        -0.41 (0.19)     .02   -0.38 (0.18)     .04            -0.40(0.02)
+    b      Var (Level)                  1.42 (0.10)    <.01    0.99 (0.08)    <.01                    ---
+    b      Var (Slope)                  0.00 (0.00)     .14    0.00 (0.00)     .02                    ---
+    b      Var (Residual)               1.71 (0.06)    <.01    1.40 (0.06)    <.01                    ---
+    b      Covar (Level, Slope)        -0.01 (0.01)     .24   -0.02 (0.01)     .06                    ---
+   ab      Covar (Levels)               0.29 (0.26)     .27    0.13 (0.23)     .58                    ---
+   ab      Covar (Slopes)              -0.01 (0.00)     .12   -0.00 (0.00)     .12                    ---
+   ab      Covar (Residuals)            0.15 (0.12)     .22    0.30 (0.12)     .01                    ---
+    \      Correlation of Levels                      0.040                  0.021             0.03(0.01)
+    \      Correlation of Slopes                     -0.500                 -0.390            -0.45(0.08)
+    \      Correlation of Residuals                   0.028                  0.059             0.04(0.02)
+    \      N                                          3,045                  3,043          3044.00(1.41)
     \      occasions                                      6                      6             6.00(0.00)
     \      parameters                                    41                     41            41.00(0.00)
-    \      LL                                       -35,472                -34,622   -3.504691e+04(  602)
-    \      AIC                                       71,027                 69,325    7.017582e+04(1,203)
-    \      BIC                                       71,274                 69,572    7.042331e+04(1,203)
+    \      LL                                       -35,105                -34,252   -3.467861e+04(  603)
+    \      AIC                                       70,292                 68,586    6.943921e+04(1,206)
+    \      BIC                                       70,539                 68,833    6.968607e+04(1,206)
 
 ##  word_de 
 
@@ -343,54 +433,54 @@ Covariance of  Residuals      word_im      0.49
 
  process   label                                    aehplus
 ---------  -------------------------  ---------------------
-    a      Level                       34.27 (0.33)    <.01
+    a      Level                       34.31 (0.33)    <.01
     a      Slope                       -0.45 (0.04)    <.01
     a      Level * age                 -0.46 (0.01)    <.01
-    a      Level * education            1.26 (0.30)    <.01
+    a      Level * education            1.21 (0.30)    <.01
     a      Level * height               0.29 (0.02)    <.01
-    a      Level * smoking             -0.38 (0.29)     .20
-    a      Level * cardio              -0.33 (0.39)     .39
-    a      Level * diabetes            -2.03 (0.50)    <.01
+    a      Level * smoking             -0.35 (0.30)     .24
+    a      Level * cardio              -0.32 (0.39)     .41
+    a      Level * diabetes            -2.09 (0.50)    <.01
     a      Slope * age                 -0.01 (0.00)    <.01
-    a      Slope * education           -0.03 (0.03)     .35
-    a      Slope * height               0.00 (0.00)     .54
-    a      Slope * smoking             -0.01 (0.03)     .74
+    a      Slope * education           -0.03 (0.03)     .31
+    a      Slope * height               0.00 (0.00)     .53
+    a      Slope * smoking             -0.01 (0.03)     .81
     a      Slope * cardio              -0.13 (0.04)    <.01
-    a      Slope * diabetes            -0.16 (0.05)    <.01
-    b      Level                        3.27 (0.08)    <.01
-    b      Slope                        0.00 (0.01)     .64
+    a      Slope * diabetes            -0.17 (0.05)    <.01
+    b      Level                        3.28 (0.08)    <.01
+    b      Slope                        0.00 (0.01)     .63
     b      Level * age                 -0.07 (0.00)    <.01
-    b      Level * education            0.92 (0.07)    <.01
+    b      Level * education            0.91 (0.07)    <.01
     b      Level * height               0.02 (0.00)    <.01
-    b      Level * smoking              0.02 (0.07)     .71
-    b      Level * cardio              -0.06 (0.10)     .52
+    b      Level * smoking              0.03 (0.07)     .62
+    b      Level * cardio              -0.04 (0.10)     .67
     b      Level * diabetes            -0.28 (0.11)     .01
     b      Slope * age                 -0.00 (0.00)    <.01
-    b      Slope * education           -0.01 (0.01)     .18
-    b      Slope * height               0.00 (0.00)     .99
+    b      Slope * education           -0.01 (0.01)     .22
+    b      Slope * height               0.00 (0.00)     .90
     b      Slope * smoking             -0.02 (0.01)     .02
-    b      Slope * cardio              -0.03 (0.01)     .03
-    b      Slope * diabetes            -0.01 (0.02)     .39
-    a      Var (Level)                 37.85 (1.98)    <.01
-    a      Var (Slope)                  0.04 (0.03)     .09
-    a      Var (Residual)              18.17 (0.93)    <.01
-    a      Covar (Level, Slope)        -0.39 (0.19)     .04
-    b      Var (Level)                  1.41 (0.10)    <.01
-    b      Var (Slope)                  0.00 (0.00)     .16
+    b      Slope * cardio              -0.03 (0.01)     .02
+    b      Slope * diabetes            -0.01 (0.02)     .36
+    a      Var (Level)                 37.57 (1.96)    <.01
+    a      Var (Slope)                  0.05 (0.03)     .07
+    a      Var (Residual)              18.05 (0.93)    <.01
+    a      Covar (Level, Slope)        -0.41 (0.19)     .02
+    b      Var (Level)                  1.42 (0.10)    <.01
+    b      Var (Slope)                  0.00 (0.00)     .14
     b      Var (Residual)               1.71 (0.06)    <.01
-    b      Covar (Level, Slope)        -0.01 (0.01)     .31
-   ab      Covar (Levels)               0.34 (0.26)     .20
-   ab      Covar (Slopes)              -0.00 (0.00)     .18
-   ab      Covar (Residuals)            0.12 (0.13)     .33
-    \      Correlation of Levels                      0.047
-    \      Correlation of Slopes                     -0.430
-    \      Correlation of Residuals                   0.022
-    \      N                                          3,091
+    b      Covar (Level, Slope)        -0.01 (0.01)     .24
+   ab      Covar (Levels)               0.29 (0.26)     .27
+   ab      Covar (Slopes)              -0.01 (0.00)     .12
+   ab      Covar (Residuals)            0.15 (0.12)     .22
+    \      Correlation of Levels                      0.040
+    \      Correlation of Slopes                     -0.500
+    \      Correlation of Residuals                   0.028
+    \      N                                          3,045
     \      occasions                                      6
     \      parameters                                    41
-    \      LL                                       -35,472
-    \      AIC                                       71,027
-    \      BIC                                       71,274
+    \      LL                                       -35,105
+    \      AIC                                       70,292
+    \      BIC                                       70,539
 
 ##  word_im 
 
@@ -399,54 +489,54 @@ Covariance of  Residuals      word_im      0.49
 
  process   label                                    aehplus
 ---------  -------------------------  ---------------------
-    a      Level                       34.27 (0.33)    <.01
+    a      Level                       34.31 (0.33)    <.01
     a      Slope                       -0.45 (0.04)    <.01
     a      Level * age                 -0.46 (0.01)    <.01
-    a      Level * education            1.25 (0.30)    <.01
+    a      Level * education            1.21 (0.30)    <.01
     a      Level * height               0.29 (0.02)    <.01
-    a      Level * smoking             -0.38 (0.29)     .20
-    a      Level * cardio              -0.34 (0.39)     .39
-    a      Level * diabetes            -2.04 (0.50)    <.01
+    a      Level * smoking             -0.34 (0.30)     .24
+    a      Level * cardio              -0.32 (0.39)     .41
+    a      Level * diabetes            -2.10 (0.50)    <.01
     a      Slope * age                 -0.01 (0.00)    <.01
-    a      Slope * education           -0.03 (0.03)     .38
-    a      Slope * height               0.00 (0.00)     .55
-    a      Slope * smoking             -0.01 (0.03)     .75
+    a      Slope * education           -0.03 (0.03)     .35
+    a      Slope * height               0.00 (0.00)     .56
+    a      Slope * smoking             -0.01 (0.03)     .82
     a      Slope * cardio              -0.13 (0.04)    <.01
-    a      Slope * diabetes            -0.16 (0.05)    <.01
-    b      Level                        4.87 (0.07)    <.01
+    a      Slope * diabetes            -0.17 (0.05)    <.01
+    b      Level                        4.88 (0.07)    <.01
     b      Slope                       -0.03 (0.01)    <.01
-    b      Level * age                 -0.05 (0.00)    <.01
-    b      Level * education            0.76 (0.06)    <.01
+    b      Level * age                 -0.06 (0.00)    <.01
+    b      Level * education            0.75 (0.06)    <.01
     b      Level * height               0.01 (0.00)    <.01
-    b      Level * smoking             -0.00 (0.06)     .95
-    b      Level * cardio              -0.16 (0.09)     .07
-    b      Level * diabetes            -0.10 (0.10)     .32
+    b      Level * smoking              0.00 (0.06)     .98
+    b      Level * cardio              -0.13 (0.09)     .12
+    b      Level * diabetes            -0.10 (0.10)     .35
     b      Slope * age                 -0.00 (0.00)    <.01
-    b      Slope * education           -0.00 (0.01)     .95
-    b      Slope * height               0.00 (0.00)     .09
+    b      Slope * education            0.00 (0.01)     .98
+    b      Slope * height               0.00 (0.00)     .04
     b      Slope * smoking             -0.02 (0.01)     .04
-    b      Slope * cardio              -0.01 (0.01)     .62
-    b      Slope * diabetes            -0.01 (0.02)     .49
-    a      Var (Level)                 37.61 (1.98)    <.01
-    a      Var (Slope)                  0.04 (0.03)     .14
-    a      Var (Residual)              18.34 (0.94)    <.01
-    a      Covar (Level, Slope)        -0.35 (0.18)     .06
-    b      Var (Level)                  1.00 (0.08)    <.01
-    b      Var (Slope)                  0.00 (0.00)     .01
-    b      Var (Residual)               1.39 (0.06)    <.01
+    b      Slope * cardio              -0.01 (0.01)     .57
+    b      Slope * diabetes            -0.01 (0.02)     .44
+    a      Var (Level)                 37.38 (1.96)    <.01
+    a      Var (Slope)                  0.04 (0.03)     .11
+    a      Var (Residual)              18.21 (0.94)    <.01
+    a      Covar (Level, Slope)        -0.38 (0.18)     .04
+    b      Var (Level)                  0.99 (0.08)    <.01
+    b      Var (Slope)                  0.00 (0.00)     .02
+    b      Var (Residual)               1.40 (0.06)    <.01
     b      Covar (Level, Slope)        -0.02 (0.01)     .06
-   ab      Covar (Levels)               0.13 (0.23)     .57
-   ab      Covar (Slopes)              -0.00 (0.00)     .14
-   ab      Covar (Residuals)            0.29 (0.12)     .02
-    \      Correlation of Levels                      0.022
-    \      Correlation of Slopes                     -0.406
-    \      Correlation of Residuals                   0.058
-    \      N                                          3,091
+   ab      Covar (Levels)               0.13 (0.23)     .58
+   ab      Covar (Slopes)              -0.00 (0.00)     .12
+   ab      Covar (Residuals)            0.30 (0.12)     .01
+    \      Correlation of Levels                      0.021
+    \      Correlation of Slopes                     -0.390
+    \      Correlation of Residuals                   0.059
+    \      N                                          3,043
     \      occasions                                      6
     \      parameters                                    41
-    \      LL                                       -34,622
-    \      AIC                                       69,325
-    \      BIC                                       69,572
+    \      LL                                       -34,252
+    \      AIC                                       68,586
+    \      BIC                                       68,833
 
 ## Summary 
 
@@ -454,50 +544,140 @@ Covariance of  Residuals      word_im      0.49
 
  Computed correlations:
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+</tbody>
+</table>
 
-label                    process_b   aehplus
-----------------------  ----------  --------
-Correlation of Levels      word_de      0.05
-Correlation of Levels      word_im      0.02
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> -0.50 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> -0.39 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                    process_b   aehplus
-----------------------  ----------  --------
-Correlation of Slopes      word_de     -0.43
-Correlation of Slopes      word_im     -0.41
-
-
-
-label                       process_b   aehplus
--------------------------  ----------  --------
-Correlation of Residuals      word_de      0.02
-Correlation of Residuals      word_im      0.06
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.06 </td>
+  </tr>
+</tbody>
+</table>
 
 
 P-values for corresponding covariances: 
 
- 
+ <table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.58 </td>
+  </tr>
+</tbody>
+</table>
 
-label                   process_b   aehplus
----------------------  ----------  --------
-Covariance of Levels      word_de      0.20
-Covariance of Levels      word_im      0.57
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+</tbody>
+</table>
 
-
-
-label                   process_b   aehplus
----------------------  ----------  --------
-Covariance of Slopes      word_de      0.18
-Covariance of Slopes      word_im      0.14
-
-
-
-label                       process_b   aehplus
--------------------------  ----------  --------
-Covariance of  Residuals      word_de      0.33
-Covariance of  Residuals      word_im      0.02
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> process_b </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_de </td>
+   <td style="text-align:right;"> 0.22 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> word_im </td>
+   <td style="text-align:right;"> 0.01 </td>
+  </tr>
+</tbody>
+</table>
 
 
 ```
@@ -518,12 +698,15 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] knitr_1.14    ggplot2_2.1.0 magrittr_1.5 
+[1] knitr_1.14                ggplot2_2.2.0             IalsaSynthesis_0.1.8.9000 MplusAutomation_0.6-4    
+[5] magrittr_1.5             
 
 loaded via a namespace (and not attached):
- [1] Rcpp_0.12.7      munsell_0.4.3    testit_0.5       colorspace_1.2-7 R6_2.2.0         stringr_1.1.0   
- [7] highr_0.6        plyr_1.8.4       dplyr_0.5.0      tools_3.3.1      DT_0.2           grid_3.3.1      
-[13] gtable_0.2.0     DBI_0.5-1        htmltools_0.3.5  yaml_2.1.13      lazyeval_0.2.0   assertthat_0.1  
-[19] digest_0.6.10    tibble_1.2       formatR_1.4      readr_1.0.0      tidyr_0.6.0      htmlwidgets_0.7 
-[25] rsconnect_0.5    evaluate_0.10    rmarkdown_1.1    stringi_1.1.2    scales_0.4.0    
+ [1] Rcpp_0.12.7      formatR_1.4      plyr_1.8.4       highr_0.6        tools_3.3.1      boot_1.3-18     
+ [7] digest_0.6.10    evaluate_0.10    tibble_1.2       gtable_0.2.0     lattice_0.20-34  texreg_1.36.7   
+[13] DBI_0.5-1        yaml_2.1.13      proto_0.3-10     coda_0.18-1      dplyr_0.5.0      stringr_1.1.0   
+[19] htmlwidgets_0.7  grid_3.3.1       DT_0.2           data.table_1.9.6 R6_2.2.0         rmarkdown_1.1   
+[25] gsubfn_0.6-6     pander_0.6.0     tidyr_0.6.0      reshape2_1.4.1   readr_1.0.0      scales_0.4.1    
+[31] htmltools_0.3.5  rsconnect_0.5    assertthat_0.1   testit_0.5       colorspace_1.2-7 xtable_1.8-2    
+[37] stringi_1.1.2    lazyeval_0.2.0   munsell_0.4.3    chron_2.3-47    
 ```
