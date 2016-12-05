@@ -6,7 +6,7 @@ path_elsa  <- base::file.path("./reports/seeds-gait/seed-elsa.Rmd")
 path_hrs   <- base::file.path("./reports/seeds-gait/seed-hrs.Rmd")
 path_ilse  <- base::file.path("./reports/seeds-gait/seed-ilse.Rmd")
 path_lasa  <- base::file.path("./reports/seeds-gait/seed-lasa.Rmd")
-# path_map   <- base::file.path("./reports/seeds-gait/seed-map.Rmd")
+path_map   <- base::file.path("./reports/seeds-gait/seed-map.Rmd")
 # path_nuage <- base::file.path("./reports/seeds-gait/seed-nuage.Rmd")
 path_octo  <- base::file.path("./reports/seeds-gait/seed-octo.Rmd")
 # path_satsa <- base::file.path("./reports/seeds-gait/seed-satsa.Rmd")
@@ -20,7 +20,7 @@ allReports<- c(
   ,path_hrs
   ,path_ilse
   ,path_lasa
-  # ,path_map # has no gait
+  ,path_map
   # ,path_nuage # has no gait
   ,path_octo
   # ,path_satsa # has no gait
@@ -35,10 +35,10 @@ for( pathFile in pathFilesToBuild ) {
   #   pathMd <- base::gsub(pattern=".Rmd$", replacement=".md", x=pathRmd)
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      "html_document" # set print_format <- "html" in seed-study.R
+                      # "html_document" # set print_format <- "html" in seed-study.R
                       #, "pdf_document"
                       # ,"md_document"
-                      # "word_document" # set print_format <- "pandoc" in seed-study.R
+                      "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
 }

@@ -30,7 +30,7 @@ catalog <- read.csv("./data/shared/pc-2-catalog-augmented.csv", header = T,  str
 catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds")
 # template for structuring tables for reporting individual models
 # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v7.csv")
-stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v8.csv")
+stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v10.csv")
 
 # ---- explorations -------------------------------------------
 catalog_spread %>% view_options(
@@ -48,7 +48,7 @@ catalog_spread %>% view_options(
 print_header <- function(
   catalog_spread
 ){
-    cat("\n# Available models \n")
+  cat("\n# Available models \n")
   print(cat("\n",paste0("Study **",toupper(study),"** have contributed the following outcome pairs to the IASLA-2015-Portland model pool:"),"\n"))
   cat("\n")
   print(
@@ -118,7 +118,9 @@ print_body <- function(
       ,target_labels = c(
         "Correlation of Levels"
         ,"Correlation of Slopes"
-        ,"Correlation of Residuals")
+        ,"Correlation of Residuals"
+      )
+      ,print_format = print_format
       # ,processes_b_  = processes_b
     )
     cat("\n")
@@ -138,6 +140,7 @@ print_body <- function(
         ,"Covariance of Slopes"
         ,"Covariance of  Residuals"
       )
+      ,print_format = print_format
     )
   }
 }

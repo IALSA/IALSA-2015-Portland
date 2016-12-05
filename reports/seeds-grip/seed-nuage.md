@@ -75,6 +75,12 @@ nuage        male       aehplus      grip        mmse                1
 
  process   label                                         mmms                     mmse               mean(sd)
 ---------  -------------------------  -----------------------  -----------------------  ---------------------
+   ab      Covar (Levels)                 1.64 (1.87)     .38      0.86 (0.65)     .18                    ---
+   ab      Covar (Slopes)                 0.40 (0.28)     .15      0.05 (0.10)     .60                    ---
+   ab      Covar (Residuals)              0.39 (0.41)     .34     -0.02 (0.19)     .92                    ---
+   er      Corr (Levels)                  0.04 (0.05)     .38      0.08 (0.06)     .20                    ---
+   er      Corr (Slopes)                  0.28 (0.16)     .09      0.16 (0.33)     .62                    ---
+   er      Corr (Residuals)               0.02 (0.02)     .34     -0.00 (0.02)     .92                    ---
     a      Level                         59.87 (1.06)    <.01     59.86 (1.06)    <.01            59.86(0.00)
     a      Slope                         -2.08 (0.28)    <.01     -2.08 (0.28)    <.01            -2.08(0.00)
     a      Level * age                   -0.95 (0.11)    <.01     -0.95 (0.11)    <.01            -0.95(0.00)
@@ -106,14 +112,11 @@ nuage        male       aehplus      grip        mmse                1
     a      Var (Level)                 176.91 (10.91)    <.01   176.92 (10.91)    <.01           176.92(0.01)
     a      Var (Slope)                    2.69 (0.88)    <.01      2.69 (0.88)    <.01             2.69(0.00)
     a      Var (Residual)                37.88 (2.67)    <.01     37.87 (2.67)    <.01            37.87(0.00)
-    a      Covar (Level, Slope)          -2.43 (2.04)     .23     -2.40 (2.04)     .24            -2.42(0.02)
     b      Var (Level)                    7.74 (0.74)    <.01      0.65 (0.19)    <.01                    ---
     b      Var (Slope)                    0.76 (0.33)     .02      0.04 (0.07)     .59                    ---
     b      Var (Residual)                 8.54 (0.41)    <.01      1.64 (0.32)    <.01                    ---
+    a      Covar (Level, Slope)          -2.43 (2.04)     .23     -2.40 (2.04)     .24            -2.42(0.02)
     b      Covar (Level, Slope)           2.14 (0.38)    <.01      0.14 (0.10)     .17                    ---
-   ab      Covar (Levels)                 1.64 (1.87)     .38      0.86 (0.65)     .18                    ---
-   ab      Covar (Slopes)                 0.40 (0.28)     .15      0.05 (0.10)     .60                    ---
-   ab      Covar (Residuals)              0.39 (0.41)     .34     -0.02 (0.19)     .92                    ---
     \      Correlation of Levels                        0.044                   0.0804             0.06(0.03)
     \      Correlation of Slopes                        0.277                   0.1606             0.22(0.08)
     \      Correlation of Residuals                     0.022                  -0.0024             0.01(0.02)
@@ -131,6 +134,12 @@ nuage        male       aehplus      grip        mmse                1
 
  process   label                                            a                      aeh                  aehplus
 ---------  -------------------------  -----------------------  -----------------------  -----------------------
+   ab      Covar (Levels)                 1.65 (2.00)     .41      1.69 (1.87)     .36      1.64 (1.87)     .38
+   ab      Covar (Slopes)                 0.47 (0.27)     .09      0.41 (0.28)     .14      0.40 (0.28)     .15
+   ab      Covar (Residuals)              0.32 (0.42)     .44      0.39 (0.41)     .34      0.39 (0.41)     .34
+   er      Corr (Levels)                                  ---                      ---      0.04 (0.05)     .38
+   er      Corr (Slopes)                                  ---                      ---      0.28 (0.16)     .09
+   er      Corr (Residuals)                               ---                      ---      0.02 (0.02)     .34
     a      Level                         60.95 (0.71)    <.01     60.54 (0.99)    <.01     59.87 (1.06)    <.01
     a      Slope                         -2.05 (0.18)    <.01     -2.00 (0.26)    <.01     -2.08 (0.28)    <.01
     a      Level * age                   -0.90 (0.11)    <.01     -0.94 (0.11)    <.01     -0.95 (0.11)    <.01
@@ -162,14 +171,11 @@ nuage        male       aehplus      grip        mmse                1
     a      Var (Level)                 179.05 (10.95)    <.01   178.22 (10.93)    <.01   176.91 (10.91)    <.01
     a      Var (Slope)                    2.82 (0.91)    <.01      2.81 (0.91)    <.01      2.69 (0.88)    <.01
     a      Var (Residual)                37.88 (2.67)    <.01     37.85 (2.67)    <.01     37.88 (2.67)    <.01
-    a      Covar (Level, Slope)          -2.59 (2.06)     .21     -2.53 (2.06)     .22     -2.43 (2.04)     .23
     b      Var (Level)                   10.13 (0.87)    <.01      7.81 (0.74)    <.01      7.74 (0.74)    <.01
     b      Var (Slope)                    0.65 (0.31)     .04      0.76 (0.33)     .02      0.76 (0.33)     .02
     b      Var (Residual)                 8.77 (0.43)    <.01      8.54 (0.41)    <.01      8.54 (0.41)    <.01
+    a      Covar (Level, Slope)          -2.59 (2.06)     .21     -2.53 (2.06)     .22     -2.43 (2.04)     .23
     b      Covar (Level, Slope)           2.28 (0.39)    <.01      2.15 (0.38)    <.01      2.14 (0.38)    <.01
-   ab      Covar (Levels)                 1.65 (2.00)     .41      1.69 (1.87)     .36      1.64 (1.87)     .38
-   ab      Covar (Slopes)                 0.47 (0.27)     .09      0.41 (0.28)     .14      0.40 (0.28)     .15
-   ab      Covar (Residuals)              0.32 (0.42)     .44      0.39 (0.41)     .34      0.39 (0.41)     .34
     \      Correlation of Levels                        0.039                    0.045                    0.044
     \      Correlation of Slopes                        0.345                    0.283                    0.277
     \      Correlation of Residuals                     0.018                    0.022                    0.022
@@ -187,6 +193,12 @@ nuage        male       aehplus      grip        mmse                1
 
  process   label                                            a                      aeh                  aehplus
 ---------  -------------------------  -----------------------  -----------------------  -----------------------
+   ab      Covar (Levels)                 0.77 (0.67)     .25      0.80 (0.65)     .21      0.86 (0.65)     .18
+   ab      Covar (Slopes)                 0.06 (0.10)     .56      0.06 (0.10)     .57      0.05 (0.10)     .60
+   ab      Covar (Residuals)             -0.01 (0.19)     .94     -0.02 (0.19)     .91     -0.02 (0.19)     .92
+   er      Corr (Levels)                                  ---                      ---      0.08 (0.06)     .20
+   er      Corr (Slopes)                                  ---                      ---      0.16 (0.33)     .62
+   er      Corr (Residuals)                               ---                      ---     -0.00 (0.02)     .92
     a      Level                         60.95 (0.71)    <.01     60.53 (0.99)    <.01     59.86 (1.06)    <.01
     a      Slope                         -2.05 (0.18)    <.01     -2.00 (0.26)    <.01     -2.08 (0.28)    <.01
     a      Level * age                   -0.90 (0.11)    <.01     -0.94 (0.11)    <.01     -0.95 (0.11)    <.01
@@ -218,14 +230,11 @@ nuage        male       aehplus      grip        mmse                1
     a      Var (Level)                 179.04 (10.95)    <.01   178.23 (10.94)    <.01   176.92 (10.91)    <.01
     a      Var (Slope)                    2.82 (0.91)    <.01      2.81 (0.91)    <.01      2.69 (0.88)    <.01
     a      Var (Residual)                37.87 (2.66)    <.01     37.84 (2.67)    <.01     37.87 (2.67)    <.01
-    a      Covar (Level, Slope)          -2.55 (2.06)     .22     -2.50 (2.06)     .22     -2.40 (2.04)     .24
     b      Var (Level)                    0.72 (0.20)    <.01      0.65 (0.19)    <.01      0.65 (0.19)    <.01
     b      Var (Slope)                    0.04 (0.07)     .61      0.04 (0.07)     .59      0.04 (0.07)     .59
     b      Var (Residual)                 1.66 (0.32)    <.01      1.64 (0.32)    <.01      1.64 (0.32)    <.01
+    a      Covar (Level, Slope)          -2.55 (2.06)     .22     -2.50 (2.06)     .22     -2.40 (2.04)     .24
     b      Covar (Level, Slope)           0.14 (0.11)     .18      0.14 (0.10)     .18      0.14 (0.10)     .17
-   ab      Covar (Levels)                 0.77 (0.67)     .25      0.80 (0.65)     .21      0.86 (0.65)     .18
-   ab      Covar (Slopes)                 0.06 (0.10)     .56      0.06 (0.10)     .57      0.05 (0.10)     .60
-   ab      Covar (Residuals)             -0.01 (0.19)     .94     -0.02 (0.19)     .91     -0.02 (0.19)     .92
     \      Correlation of Levels                       0.0673                   0.0746                   0.0804
     \      Correlation of Slopes                       0.1826                   0.1692                   0.1606
     \      Correlation of Residuals                   -0.0018                  -0.0025                  -0.0024
@@ -242,176 +251,56 @@ nuage        male       aehplus      grip        mmse                1
 
  Computed correlations:
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.04 </td>
-   <td style="text-align:right;"> 0.05 </td>
-   <td style="text-align:right;"> 0.04 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.07 </td>
-   <td style="text-align:right;"> 0.07 </td>
-   <td style="text-align:right;"> 0.08 </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.35 </td>
-   <td style="text-align:right;"> 0.28 </td>
-   <td style="text-align:right;"> 0.28 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.18 </td>
-   <td style="text-align:right;"> 0.17 </td>
-   <td style="text-align:right;"> 0.16 </td>
-  </tr>
-</tbody>
-</table>
+label                    process_b      a    aeh   aehplus
+----------------------  ----------  -----  -----  --------
+Correlation of Levels         mmms   0.04   0.05      0.04
+Correlation of Levels         mmse   0.07   0.07      0.08
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> -0.00 </td>
-   <td style="text-align:right;"> -0.00 </td>
-   <td style="text-align:right;"> -0.00 </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                    process_b      a    aeh   aehplus
+----------------------  ----------  -----  -----  --------
+Correlation of Slopes         mmms   0.35   0.28      0.28
+Correlation of Slopes         mmse   0.18   0.17      0.16
+
+
+
+
+label                       process_b       a     aeh   aehplus
+-------------------------  ----------  ------  ------  --------
+Correlation of Residuals         mmms    0.02    0.02      0.02
+Correlation of Residuals         mmse   -0.00   -0.00     -0.00
+
 
 
 P-values for corresponding covariances: 
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.41 </td>
-   <td style="text-align:right;"> 0.36 </td>
-   <td style="text-align:right;"> 0.38 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.25 </td>
-   <td style="text-align:right;"> 0.21 </td>
-   <td style="text-align:right;"> 0.18 </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.09 </td>
-   <td style="text-align:right;"> 0.14 </td>
-   <td style="text-align:right;"> 0.15 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.56 </td>
-   <td style="text-align:right;"> 0.57 </td>
-   <td style="text-align:right;"> 0.60 </td>
-  </tr>
-</tbody>
-</table>
+label                   process_b      a    aeh   aehplus
+---------------------  ----------  -----  -----  --------
+Covariance of Levels         mmms   0.41   0.36      0.38
+Covariance of Levels         mmse   0.25   0.21      0.18
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.44 </td>
-   <td style="text-align:right;"> 0.34 </td>
-   <td style="text-align:right;"> 0.34 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.94 </td>
-   <td style="text-align:right;"> 0.91 </td>
-   <td style="text-align:right;"> 0.92 </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                   process_b      a    aeh   aehplus
+---------------------  ----------  -----  -----  --------
+Covariance of Slopes         mmms   0.09   0.14      0.15
+Covariance of Slopes         mmse   0.56   0.57      0.60
+
+
+
+
+label                       process_b      a    aeh   aehplus
+-------------------------  ----------  -----  -----  --------
+Covariance of  Residuals         mmms   0.44   0.34      0.34
+Covariance of  Residuals         mmse   0.94   0.91      0.92
+
 
 
 # male 
@@ -421,6 +310,12 @@ P-values for corresponding covariances:
 
  process   label                                         mmms                     mmse               mean(sd)
 ---------  -------------------------  -----------------------  -----------------------  ---------------------
+   ab      Covar (Levels)                 5.49 (2.04)     .01      2.28 (0.74)    <.01                    ---
+   ab      Covar (Slopes)                 0.33 (0.23)     .16      0.13 (0.11)     .23                    ---
+   ab      Covar (Residuals)             -0.71 (0.47)     .13      0.02 (0.22)     .92                    ---
+   er      Corr (Levels)                  0.13 (0.05)     .01      0.18 (0.06)    <.01                    ---
+   er      Corr (Slopes)                  0.28 (0.21)     .19      0.30 (0.25)     .23                    ---
+   er      Corr (Residuals)              -0.04 (0.02)     .13      0.00 (0.03)     .92                    ---
     a      Level                         80.95 (1.32)    <.01     80.95 (1.32)    <.01            80.95(0.00)
     a      Slope                         -2.39 (0.29)    <.01     -2.39 (0.29)    <.01            -2.39(0.00)
     a      Level * age                   -1.39 (0.13)    <.01     -1.39 (0.13)    <.01            -1.39(0.00)
@@ -452,14 +347,11 @@ P-values for corresponding covariances:
     a      Var (Level)                 201.61 (13.61)    <.01   201.47 (13.60)    <.01           201.54(0.10)
     a      Var (Slope)                    1.93 (0.89)     .03      1.88 (0.89)     .03             1.91(0.03)
     a      Var (Residual)                36.05 (2.48)    <.01     36.12 (2.48)    <.01            36.08(0.05)
-    a      Covar (Level, Slope)          -2.85 (2.29)     .21     -2.75 (2.28)     .23            -2.80(0.07)
     b      Var (Level)                    8.82 (1.00)    <.01      0.78 (0.14)    <.01                    ---
     b      Var (Slope)                    0.71 (0.31)     .02      0.10 (0.04)     .01                    ---
     b      Var (Residual)                11.28 (0.57)    <.01      1.86 (0.09)    <.01                    ---
+    a      Covar (Level, Slope)          -2.85 (2.29)     .21     -2.75 (2.28)     .23            -2.80(0.07)
     b      Covar (Level, Slope)           2.33 (0.37)    <.01      0.21 (0.05)    <.01                    ---
-   ab      Covar (Levels)                 5.49 (2.04)     .01      2.28 (0.74)    <.01                    ---
-   ab      Covar (Slopes)                 0.33 (0.23)     .16      0.13 (0.11)     .23                    ---
-   ab      Covar (Residuals)             -0.71 (0.47)     .13      0.02 (0.22)     .92                    ---
     \      Correlation of Levels                        0.130                   0.1818             0.16(0.04)
     \      Correlation of Slopes                        0.280                   0.2988             0.29(0.01)
     \      Correlation of Residuals                    -0.035                   0.0026            -0.02(0.03)
@@ -477,6 +369,12 @@ P-values for corresponding covariances:
 
  process   label                                            a                      aeh                  aehplus
 ---------  -------------------------  -----------------------  -----------------------  -----------------------
+   ab      Covar (Levels)                 9.91 (2.46)    <.01      5.54 (2.05)     .01      5.49 (2.04)     .01
+   ab      Covar (Slopes)                 0.34 (0.23)     .15      0.34 (0.23)     .15      0.33 (0.23)     .16
+   ab      Covar (Residuals)             -0.72 (0.47)     .13     -0.70 (0.47)     .13     -0.71 (0.47)     .13
+   er      Corr (Levels)                                  ---                      ---      0.13 (0.05)     .01
+   er      Corr (Slopes)                                  ---                      ---      0.28 (0.21)     .19
+   er      Corr (Residuals)                               ---                      ---     -0.04 (0.02)     .13
     a      Level                         79.89 (0.79)    <.01     81.11 (0.97)    <.01     80.95 (1.32)    <.01
     a      Slope                         -2.48 (0.16)    <.01     -2.50 (0.23)    <.01     -2.39 (0.29)    <.01
     a      Level * age                   -1.50 (0.13)    <.01     -1.39 (0.13)    <.01     -1.39 (0.13)    <.01
@@ -508,14 +406,11 @@ P-values for corresponding covariances:
     a      Var (Level)                 219.36 (14.01)    <.01   202.81 (13.59)    <.01   201.61 (13.61)    <.01
     a      Var (Slope)                    1.96 (0.90)     .03      1.95 (0.89)     .03      1.93 (0.89)     .03
     a      Var (Residual)                36.03 (2.47)    <.01     36.06 (2.48)    <.01     36.05 (2.48)    <.01
-    a      Covar (Level, Slope)          -2.96 (2.35)     .21     -2.80 (2.29)     .22     -2.85 (2.29)     .21
     b      Var (Level)                   13.93 (1.11)    <.01      8.84 (1.00)    <.01      8.82 (1.00)    <.01
     b      Var (Slope)                    0.71 (0.31)     .02      0.72 (0.31)     .02      0.71 (0.31)     .02
     b      Var (Residual)                11.38 (0.58)    <.01     11.29 (0.57)    <.01     11.28 (0.57)    <.01
+    a      Covar (Level, Slope)          -2.96 (2.35)     .21     -2.80 (2.29)     .22     -2.85 (2.29)     .21
     b      Covar (Level, Slope)           2.90 (0.39)    <.01      2.34 (0.37)    <.01      2.33 (0.37)    <.01
-   ab      Covar (Levels)                 9.91 (2.46)    <.01      5.54 (2.05)     .01      5.49 (2.04)     .01
-   ab      Covar (Slopes)                 0.34 (0.23)     .15      0.34 (0.23)     .15      0.33 (0.23)     .16
-   ab      Covar (Residuals)             -0.72 (0.47)     .13     -0.70 (0.47)     .13     -0.71 (0.47)     .13
     \      Correlation of Levels                        0.179                    0.131                    0.130
     \      Correlation of Slopes                        0.284                    0.283                    0.280
     \      Correlation of Residuals                    -0.035                   -0.035                   -0.035
@@ -533,6 +428,12 @@ P-values for corresponding covariances:
 
  process   label                                            a                      aeh                  aehplus
 ---------  -------------------------  -----------------------  -----------------------  -----------------------
+   ab      Covar (Levels)                 3.38 (0.80)    <.01      2.31 (0.74)    <.01      2.28 (0.74)    <.01
+   ab      Covar (Slopes)                 0.13 (0.11)     .25      0.13 (0.11)     .25      0.13 (0.11)     .23
+   ab      Covar (Residuals)              0.01 (0.22)     .94      0.02 (0.22)     .93      0.02 (0.22)     .92
+   er      Corr (Levels)                                  ---                      ---      0.18 (0.06)    <.01
+   er      Corr (Slopes)                                  ---                      ---      0.30 (0.25)     .23
+   er      Corr (Residuals)                               ---                      ---      0.00 (0.03)     .92
     a      Level                         79.89 (0.79)    <.01     81.10 (0.97)    <.01     80.95 (1.32)    <.01
     a      Slope                         -2.47 (0.16)    <.01     -2.51 (0.23)    <.01     -2.39 (0.29)    <.01
     a      Level * age                   -1.50 (0.13)    <.01     -1.39 (0.13)    <.01     -1.39 (0.13)    <.01
@@ -564,14 +465,11 @@ P-values for corresponding covariances:
     a      Var (Level)                 219.20 (14.01)    <.01   202.65 (13.58)    <.01   201.47 (13.60)    <.01
     a      Var (Slope)                    1.89 (0.89)     .03      1.90 (0.89)     .03      1.88 (0.89)     .03
     a      Var (Residual)                36.13 (2.48)    <.01     36.13 (2.48)    <.01     36.12 (2.48)    <.01
-    a      Covar (Level, Slope)          -2.82 (2.33)     .23     -2.68 (2.28)     .24     -2.75 (2.28)     .23
     b      Var (Level)                    1.01 (0.15)    <.01      0.78 (0.14)    <.01      0.78 (0.14)    <.01
     b      Var (Slope)                    0.10 (0.04)     .01      0.10 (0.04)     .01      0.10 (0.04)     .01
     b      Var (Residual)                 1.86 (0.09)    <.01      1.86 (0.09)    <.01      1.86 (0.09)    <.01
+    a      Covar (Level, Slope)          -2.82 (2.33)     .23     -2.68 (2.28)     .24     -2.75 (2.28)     .23
     b      Covar (Level, Slope)           0.24 (0.06)    <.01      0.21 (0.05)    <.01      0.21 (0.05)    <.01
-   ab      Covar (Levels)                 3.38 (0.80)    <.01      2.31 (0.74)    <.01      2.28 (0.74)    <.01
-   ab      Covar (Slopes)                 0.13 (0.11)     .25      0.13 (0.11)     .25      0.13 (0.11)     .23
-   ab      Covar (Residuals)              0.01 (0.22)     .94      0.02 (0.22)     .93      0.02 (0.22)     .92
     \      Correlation of Levels                       0.2275                   0.1835                   0.1818
     \      Correlation of Slopes                       0.2928                   0.2954                   0.2988
     \      Correlation of Residuals                    0.0018                   0.0024                   0.0026
@@ -588,176 +486,55 @@ P-values for corresponding covariances:
 
  Computed correlations:
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.18 </td>
-   <td style="text-align:right;"> 0.13 </td>
-   <td style="text-align:right;"> 0.13 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.23 </td>
-   <td style="text-align:right;"> 0.18 </td>
-   <td style="text-align:right;"> 0.18 </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.28 </td>
-   <td style="text-align:right;"> 0.28 </td>
-   <td style="text-align:right;"> 0.28 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.29 </td>
-   <td style="text-align:right;"> 0.30 </td>
-   <td style="text-align:right;"> 0.30 </td>
-  </tr>
-</tbody>
-</table>
+label                    process_b      a    aeh   aehplus
+----------------------  ----------  -----  -----  --------
+Correlation of Levels         mmms   0.18   0.13      0.13
+Correlation of Levels         mmse   0.23   0.18      0.18
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> -0.04 </td>
-   <td style="text-align:right;"> -0.03 </td>
-   <td style="text-align:right;"> -0.04 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.00 </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                    process_b      a    aeh   aehplus
+----------------------  ----------  -----  -----  --------
+Correlation of Slopes         mmms   0.28   0.28      0.28
+Correlation of Slopes         mmse   0.29   0.30      0.30
+
+
+
+
+label                       process_b       a     aeh   aehplus
+-------------------------  ----------  ------  ------  --------
+Correlation of Residuals         mmms   -0.04   -0.03     -0.04
+Correlation of Residuals         mmse    0.00    0.00      0.00
+
 
 
 P-values for corresponding covariances: 
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.00 </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.15 </td>
-   <td style="text-align:right;"> 0.15 </td>
-   <td style="text-align:right;"> 0.16 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.25 </td>
-   <td style="text-align:right;"> 0.25 </td>
-   <td style="text-align:right;"> 0.23 </td>
-  </tr>
-</tbody>
-</table>
+label                   process_b      a    aeh   aehplus
+---------------------  ----------  -----  -----  --------
+Covariance of Levels         mmms   0.00   0.01      0.01
+Covariance of Levels         mmse   0.00   0.00      0.00
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> mmms </td>
-   <td style="text-align:right;"> 0.13 </td>
-   <td style="text-align:right;"> 0.13 </td>
-   <td style="text-align:right;"> 0.13 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> 0.94 </td>
-   <td style="text-align:right;"> 0.93 </td>
-   <td style="text-align:right;"> 0.92 </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                   process_b      a    aeh   aehplus
+---------------------  ----------  -----  -----  --------
+Covariance of Slopes         mmms   0.15   0.15      0.16
+Covariance of Slopes         mmse   0.25   0.25      0.23
+
+
+
+
+label                       process_b      a    aeh   aehplus
+-------------------------  ----------  -----  -----  --------
+Covariance of  Residuals         mmms   0.13   0.13      0.13
+Covariance of  Residuals         mmse   0.94   0.93      0.92
 
 
 ```
