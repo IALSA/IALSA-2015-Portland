@@ -299,19 +299,19 @@ get_results_residual <- function(
     if(dim(test)[1]!=0){result[ab_SIGMA] <- test}
 
     ## Correlations b/w INTERCEPT physical and INTERCEPT cognitive
-    (test <- model[grep("R_IAIB", model$param), ])
+    (test <- model[grep("R_IAIB|R_IPIC", model$param), ])
     (test <- test[grep("^New.Additional.Parameters", test$paramHeader), ])
     (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
     if(dim(test)[1]!=0) {result[R_IAIB] <- test}
 
     ## Correlations b/w SLOPE physical and SLOPE cognitive
-    (test <- model[grep("R_SASB", model$param), ])
+    (test <- model[grep("R_SASB|R_SPSC", model$param), ])
     (test <- test[grep("^New.Additional.Parameters", test$paramHeader), ])
     (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
     if(dim(test)[1]!=0) {result[R_SASB] <- test}
 
     ## Correlations b/w RESIDUAL physical and RESIDUAL cognitive
-    (test <- model[grep("R_RES_AB", model$param), ])
+    (test <- model[grep("R_RES_AB|R_RES_PC", model$param), ])
     (test <- test[grep("^New.Additional.Parameters", test$paramHeader), ])
     (test <- test[ ,c("est", "se","est_se", "pval")][1,]) # only the first line, they should be same
     if(dim(test)[1]!=0) {result[R_RES_AB] <- test}
