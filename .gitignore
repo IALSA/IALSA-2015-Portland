@@ -38,6 +38,7 @@ cache/
 */*/*/unshared/*
 
 output/studies/map/phys-cog/*
+output/studies/map/*
 output/*/*/*/*/*/*
 
 !output/README.md
