@@ -89,6 +89,12 @@ hrs          male       aehplus      gait        word_im             1
 
  process   label                                    serial7                   tics                word_de                word_im       mean(sd)
 ---------  -------------------------  ---------------------  ---------------------  ---------------------  ---------------------  -------------
+   ab      Covar (Levels)               0.02 (0.02)     .20    0.01 (0.01)     .14    0.03 (0.02)     .17    0.04 (0.01)     .01            ---
+   ab      Covar (Slopes)               0.00 (0.00)     .60    0.00 (0.00)     .13    0.00 (0.00)     .53    0.00 (0.00)     .44            ---
+   ab      Covar (Residuals)            0.01 (0.01)     .18    0.00 (0.01)     .70    0.01 (0.01)     .15    0.00 (0.01)     .60            ---
+   er      Corr (Levels)                                ---                    ---                    ---                    ---            ---
+   er      Corr (Slopes)                                ---                    ---                    ---                    ---            ---
+   er      Corr (Residuals)                             ---                    ---                    ---                    ---            ---
     a      Level                        0.79 (0.02)    <.01    0.79 (0.02)    <.01    0.79 (0.02)    <.01    0.79 (0.02)    <.01     0.79(0.00)
     a      Slope                       -0.03 (0.00)    <.01   -0.03 (0.00)    <.01   -0.03 (0.00)    <.01   -0.03 (0.00)    <.01    -0.03(0.00)
     a      Level * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01    -0.01(0.00)
@@ -120,14 +126,11 @@ hrs          male       aehplus      gait        word_im             1
     a      Var (Level)                  0.02 (0.00)    <.01    0.02 (0.00)    <.01    0.02 (0.00)    <.01    0.02 (0.00)    <.01     0.02(0.00)
     a      Var (Slope)                  0.00 (0.00)     .50    0.00 (0.00)     .31    0.00 (0.00)     .46    0.00 (0.00)     .32     0.00(0.00)
     a      Var (Residual)               0.03 (0.00)    <.01    0.03 (0.00)    <.01    0.03 (0.00)    <.01    0.03 (0.00)    <.01     0.03(0.00)
-    a      Covar (Level, Slope)        -0.00 (0.00)     .49   -0.00 (0.00)     .32   -0.00 (0.00)     .41   -0.00 (0.00)     .28    -0.00(0.00)
     b      Var (Level)                  1.42 (0.15)    <.01    0.29 (0.10)    <.01    1.36 (0.24)    <.01    0.78 (0.15)    <.01            ---
     b      Var (Slope)                  0.03 (0.00)    <.01    0.02 (0.01)     .01    0.01 (0.01)     .24    0.00 (0.00)     .60            ---
     b      Var (Residual)               1.31 (0.07)    <.01    0.75 (0.06)    <.01    1.84 (0.12)    <.01    1.25 (0.07)    <.01            ---
+    a      Covar (Level, Slope)        -0.00 (0.00)     .49   -0.00 (0.00)     .32   -0.00 (0.00)     .41   -0.00 (0.00)     .28    -0.00(0.00)
     b      Covar (Level, Slope)        -0.05 (0.02)     .02    0.05 (0.02)    <.01   -0.00 (0.03)     .92    0.01 (0.02)     .58            ---
-   ab      Covar (Levels)               0.02 (0.02)     .20    0.01 (0.01)     .14    0.03 (0.02)     .17    0.04 (0.01)     .01            ---
-   ab      Covar (Slopes)               0.00 (0.00)     .60    0.00 (0.00)     .13    0.00 (0.00)     .53    0.00 (0.00)     .44            ---
-   ab      Covar (Residuals)            0.01 (0.01)     .18    0.00 (0.01)     .70    0.01 (0.01)     .15    0.00 (0.01)     .60            ---
     \      Correlation of Levels                      0.119                  0.175                  0.149                  0.257     0.18(0.06)
     \      Correlation of Slopes                        NaN                    Inf                    NaN                    NaN        Inf(NA)
     \      Correlation of Residuals                   0.069                  0.021                  0.067                  0.022     0.04(0.03)
@@ -145,6 +148,12 @@ hrs          male       aehplus      gait        word_im             1
 
  process   label                                          a                    aeh                aehplus
 ---------  -------------------------  ---------------------  ---------------------  ---------------------
+   ab      Covar (Levels)               0.06 (0.22)     .79    0.03 (0.20)     .88    0.02 (0.02)     .20
+   ab      Covar (Slopes)               0.00 (0.00)     .91    0.00 (0.00)     .94    0.00 (0.00)     .60
+   ab      Covar (Residuals)            0.03 (0.01)     .07    0.02 (0.01)     .17    0.01 (0.01)     .18
+   er      Corr (Levels)                                ---                    ---                    ---
+   er      Corr (Slopes)                                ---                    ---                    ---
+   er      Corr (Residuals)                             ---                    ---                    ---
     a      Level                        0.84 (0.02)    <.01    0.76 (0.02)    <.01    0.79 (0.02)    <.01
     a      Slope                       -0.02 (0.01)    <.01   -0.03 (0.01)    <.01   -0.03 (0.00)    <.01
     a      Level * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01
@@ -176,14 +185,11 @@ hrs          male       aehplus      gait        word_im             1
     a      Var (Level)                  0.00 (0.01)     .61    0.00 (0.01)     .70    0.02 (0.00)    <.01
     a      Var (Slope)                  0.00 (0.00)     .94    0.00 (0.00)     .94    0.00 (0.00)     .50
     a      Var (Residual)               0.72 (0.03)    <.01    0.72 (0.03)    <.01    0.03 (0.00)    <.01
-    a      Covar (Level, Slope)         0.00 (0.00)     .95    0.00 (0.00)     .82   -0.00 (0.00)     .49
     b      Var (Level)                  2.23 (0.17)    <.01    1.80 (0.15)    <.01    1.42 (0.15)    <.01
     b      Var (Slope)                  0.04 (0.00)    <.01    0.04 (0.00)    <.01    0.03 (0.00)    <.01
     b      Var (Residual)               0.72 (0.03)    <.01    0.72 (0.03)    <.01    1.31 (0.07)    <.01
+    a      Covar (Level, Slope)         0.00 (0.00)     .95    0.00 (0.00)     .82   -0.00 (0.00)     .49
     b      Covar (Level, Slope)        -0.12 (0.02)    <.01   -0.11 (0.02)    <.01   -0.05 (0.02)     .02
-   ab      Covar (Levels)               0.06 (0.22)     .79    0.03 (0.20)     .88    0.02 (0.02)     .20
-   ab      Covar (Slopes)               0.00 (0.00)     .91    0.00 (0.00)     .94    0.00 (0.00)     .60
-   ab      Covar (Residuals)            0.03 (0.01)     .07    0.02 (0.01)     .17    0.01 (0.01)     .18
     \      Correlation of Levels                      0.624                  0.422                  0.119
     \      Correlation of Slopes                        Inf                    NaN                    NaN
     \      Correlation of Residuals                   0.037                  0.026                  0.069
@@ -201,6 +207,12 @@ hrs          male       aehplus      gait        word_im             1
 
  process   label                                          a                    aeh                aehplus
 ---------  -------------------------  ---------------------  ---------------------  ---------------------
+   ab      Covar (Levels)               0.02 (0.05)     .62    0.01 (0.05)     .80    0.01 (0.01)     .14
+   ab      Covar (Slopes)               0.00 (0.00)     .11    0.00 (0.00)     .17    0.00 (0.00)     .13
+   ab      Covar (Residuals)            0.01 (0.01)     .10    0.01 (0.01)     .28    0.00 (0.01)     .70
+   er      Corr (Levels)                                ---                    ---                    ---
+   er      Corr (Slopes)                                ---                    ---                    ---
+   er      Corr (Residuals)                             ---                    ---                    ---
     a      Level                        0.84 (0.02)    <.01    0.76 (0.02)    <.01    0.79 (0.02)    <.01
     a      Slope                       -0.02 (0.00)    <.01   -0.03 (0.00)    <.01   -0.03 (0.00)    <.01
     a      Level * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01
@@ -232,14 +244,11 @@ hrs          male       aehplus      gait        word_im             1
     a      Var (Level)                  0.00 (0.00)     .76    0.00 (0.00)     .86    0.02 (0.00)    <.01
     a      Var (Slope)                  0.00 (0.00)     .84    0.00 (0.00)     .88    0.00 (0.00)     .31
     a      Var (Residual)               0.36 (0.02)    <.01    0.36 (0.02)    <.01    0.03 (0.00)    <.01
-    a      Covar (Level, Slope)         0.00 (0.00)     .92    0.00 (0.00)     .96   -0.00 (0.00)     .32
     b      Var (Level)                  0.65 (0.12)    <.01    0.53 (0.10)    <.01    0.29 (0.10)    <.01
     b      Var (Slope)                  0.04 (0.01)    <.01    0.04 (0.01)    <.01    0.02 (0.01)     .01
     b      Var (Residual)               0.36 (0.02)    <.01    0.36 (0.02)    <.01    0.75 (0.06)    <.01
+    a      Covar (Level, Slope)         0.00 (0.00)     .92    0.00 (0.00)     .96   -0.00 (0.00)     .32
     b      Covar (Level, Slope)         0.01 (0.02)     .62    0.01 (0.01)     .61    0.05 (0.02)    <.01
-   ab      Covar (Levels)               0.02 (0.05)     .62    0.01 (0.05)     .80    0.01 (0.01)     .14
-   ab      Covar (Slopes)               0.00 (0.00)     .11    0.00 (0.00)     .17    0.00 (0.00)     .13
-   ab      Covar (Residuals)            0.01 (0.01)     .10    0.01 (0.01)     .28    0.00 (0.01)     .70
     \      Correlation of Levels                      0.978                  0.521                  0.175
     \      Correlation of Slopes                        Inf                    Inf                    Inf
     \      Correlation of Residuals                   0.036                  0.025                  0.021
@@ -257,6 +266,12 @@ hrs          male       aehplus      gait        word_im             1
 
  process   label                                          a                    aeh                aehplus
 ---------  -------------------------  ---------------------  ---------------------  ---------------------
+   ab      Covar (Levels)               0.05 (1.64)     .98    0.03 (0.22)     .88    0.03 (0.02)     .17
+   ab      Covar (Slopes)               0.00 (0.08)     .99    0.00 (0.01)     .94    0.00 (0.00)     .53
+   ab      Covar (Residuals)            0.02 (0.09)     .77    0.02 (0.01)     .11    0.01 (0.01)     .15
+   er      Corr (Levels)                                ---                    ---                    ---
+   er      Corr (Slopes)                                ---                    ---                    ---
+   er      Corr (Residuals)                             ---                    ---                    ---
     a      Level                        0.84 (0.04)    <.01    0.76 (0.02)    <.01    0.79 (0.02)    <.01
     a      Slope                       -0.02 (0.04)     .64   -0.03 (0.00)    <.01   -0.03 (0.00)    <.01
     a      Level * age                 -0.01 (0.00)     .02   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01
@@ -288,14 +303,11 @@ hrs          male       aehplus      gait        word_im             1
     a      Var (Level)                  0.00 (0.07)     .98    0.00 (0.01)     .90    0.02 (0.00)    <.01
     a      Var (Slope)                  0.00 (0.00)     .95    0.00 (0.00)     .95    0.00 (0.00)     .46
     a      Var (Residual)               0.89 (0.05)    <.01    0.89 (0.05)    <.01    0.03 (0.00)    <.01
-    a      Covar (Level, Slope)         0.00 (0.02)     .99    0.00 (0.00)     .92   -0.00 (0.00)     .41
     b      Var (Level)                  2.20 (0.24)    <.01    2.02 (0.22)    <.01    1.36 (0.24)    <.01
     b      Var (Slope)                  0.04 (0.01)    <.01    0.04 (0.01)    <.01    0.01 (0.01)     .24
     b      Var (Residual)               0.89 (0.05)    <.01    0.89 (0.05)    <.01    1.84 (0.12)    <.01
+    a      Covar (Level, Slope)         0.00 (0.02)     .99    0.00 (0.00)     .92   -0.00 (0.00)     .41
     b      Covar (Level, Slope)        -0.12 (0.03)    <.01   -0.11 (0.03)    <.01   -0.00 (0.03)     .92
-   ab      Covar (Levels)               0.05 (1.64)     .98    0.03 (0.22)     .88    0.03 (0.02)     .17
-   ab      Covar (Slopes)               0.00 (0.08)     .99    0.00 (0.01)     .94    0.00 (0.00)     .53
-   ab      Covar (Residuals)            0.02 (0.09)     .77    0.02 (0.01)     .11    0.01 (0.01)     .15
     \      Correlation of Levels                      0.724                  0.733                  0.149
     \      Correlation of Slopes                        Inf                    Inf                    NaN
     \      Correlation of Residuals                   0.028                  0.025                  0.067
@@ -313,6 +325,12 @@ hrs          male       aehplus      gait        word_im             1
 
  process   label                                          a                    aeh                aehplus
 ---------  -------------------------  ---------------------  ---------------------  ---------------------
+   ab      Covar (Levels)               0.05 (0.05)     .34    0.03 (0.07)     .64    0.04 (0.01)     .01
+   ab      Covar (Slopes)               0.00 (0.01)     .94    0.00 (0.01)     .93    0.00 (0.00)     .44
+   ab      Covar (Residuals)            0.01 (0.01)     .19    0.01 (0.01)     .27    0.00 (0.01)     .60
+   er      Corr (Levels)                                ---                    ---                    ---
+   er      Corr (Slopes)                                ---                    ---                    ---
+   er      Corr (Residuals)                             ---                    ---                    ---
     a      Level                        0.84 (0.02)    <.01    0.76 (0.02)    <.01    0.79 (0.02)    <.01
     a      Slope                       -0.02 (0.00)    <.01   -0.03 (0.01)    <.01   -0.03 (0.00)    <.01
     a      Level * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01
@@ -344,14 +362,11 @@ hrs          male       aehplus      gait        word_im             1
     a      Var (Level)                  0.00 (0.01)     .66    0.00 (0.01)     .79    0.02 (0.00)    <.01
     a      Var (Slope)                  0.00 (0.00)     .94    0.00 (0.00)     .95    0.00 (0.00)     .32
     a      Var (Residual)               0.64 (0.03)    <.01    0.64 (0.03)    <.01    0.03 (0.00)    <.01
-    a      Covar (Level, Slope)         0.00 (0.00)     .97    0.00 (0.00)     .94   -0.00 (0.00)     .28
     b      Var (Level)                  1.28 (0.14)    <.01    1.16 (0.14)    <.01    0.78 (0.15)    <.01
     b      Var (Slope)                  0.02 (0.00)    <.01    0.02 (0.00)    <.01    0.00 (0.00)     .60
     b      Var (Residual)               0.64 (0.03)    <.01    0.64 (0.03)    <.01    1.25 (0.07)    <.01
+    a      Covar (Level, Slope)         0.00 (0.00)     .97    0.00 (0.00)     .94   -0.00 (0.00)     .28
     b      Covar (Level, Slope)        -0.05 (0.02)     .01   -0.05 (0.02)     .01    0.01 (0.02)     .58
-   ab      Covar (Levels)               0.05 (0.05)     .34    0.03 (0.07)     .64    0.04 (0.01)     .01
-   ab      Covar (Slopes)               0.00 (0.01)     .94    0.00 (0.01)     .93    0.00 (0.00)     .44
-   ab      Covar (Residuals)            0.01 (0.01)     .19    0.01 (0.01)     .27    0.00 (0.01)     .60
     \      Correlation of Levels                      0.947                  0.706                  0.257
     \      Correlation of Slopes                        Inf                    Inf                    NaN
     \      Correlation of Residuals                   0.022                  0.017                  0.022
@@ -368,260 +383,68 @@ hrs          male       aehplus      gait        word_im             1
 
  Computed correlations:
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> 0.62 </td>
-   <td style="text-align:right;"> 0.42 </td>
-   <td style="text-align:right;"> 0.12 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> 0.98 </td>
-   <td style="text-align:right;"> 0.52 </td>
-   <td style="text-align:right;"> 0.18 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> 0.72 </td>
-   <td style="text-align:right;"> 0.73 </td>
-   <td style="text-align:right;"> 0.15 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> 0.95 </td>
-   <td style="text-align:right;"> 0.71 </td>
-   <td style="text-align:right;"> 0.26 </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> Inf </td>
-   <td style="text-align:right;"> NaN </td>
-   <td style="text-align:right;"> NaN </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> Inf </td>
-   <td style="text-align:right;"> Inf </td>
-   <td style="text-align:right;"> Inf </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> Inf </td>
-   <td style="text-align:right;"> Inf </td>
-   <td style="text-align:right;"> NaN </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> Inf </td>
-   <td style="text-align:right;"> Inf </td>
-   <td style="text-align:right;"> NaN </td>
-  </tr>
-</tbody>
-</table>
+label                    process_b      a    aeh   aehplus
+----------------------  ----------  -----  -----  --------
+Correlation of Levels      serial7   0.62   0.42      0.12
+Correlation of Levels         tics   0.98   0.52      0.18
+Correlation of Levels      word_de   0.72   0.73      0.15
+Correlation of Levels      word_im   0.95   0.71      0.26
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> 0.04 </td>
-   <td style="text-align:right;"> 0.03 </td>
-   <td style="text-align:right;"> 0.07 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> 0.04 </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> 0.03 </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.07 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.02 </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                    process_b     a   aeh   aehplus
+----------------------  ----------  ----  ----  --------
+Correlation of Slopes      serial7   Inf   NaN       NaN
+Correlation of Slopes         tics   Inf   Inf       Inf
+Correlation of Slopes      word_de   Inf   Inf       NaN
+Correlation of Slopes      word_im   Inf   Inf       NaN
+
+
+
+
+label                       process_b      a    aeh   aehplus
+-------------------------  ----------  -----  -----  --------
+Correlation of Residuals      serial7   0.04   0.03      0.07
+Correlation of Residuals         tics   0.04   0.02      0.02
+Correlation of Residuals      word_de   0.03   0.02      0.07
+Correlation of Residuals      word_im   0.02   0.02      0.02
+
 
 
 P-values for corresponding covariances: 
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> 0.79 </td>
-   <td style="text-align:right;"> 0.88 </td>
-   <td style="text-align:right;"> 0.20 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> 0.62 </td>
-   <td style="text-align:right;"> 0.80 </td>
-   <td style="text-align:right;"> 0.14 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> 0.98 </td>
-   <td style="text-align:right;"> 0.88 </td>
-   <td style="text-align:right;"> 0.17 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> 0.34 </td>
-   <td style="text-align:right;"> 0.64 </td>
-   <td style="text-align:right;"> 0.01 </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> 0.91 </td>
-   <td style="text-align:right;"> 0.94 </td>
-   <td style="text-align:right;"> 0.60 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> 0.11 </td>
-   <td style="text-align:right;"> 0.17 </td>
-   <td style="text-align:right;"> 0.13 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> 0.99 </td>
-   <td style="text-align:right;"> 0.94 </td>
-   <td style="text-align:right;"> 0.53 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> 0.94 </td>
-   <td style="text-align:right;"> 0.93 </td>
-   <td style="text-align:right;"> 0.44 </td>
-  </tr>
-</tbody>
-</table>
+label                   process_b      a    aeh   aehplus
+---------------------  ----------  -----  -----  --------
+Covariance of Levels      serial7   0.79   0.88      0.20
+Covariance of Levels         tics   0.62   0.80      0.14
+Covariance of Levels      word_de   0.98   0.88      0.17
+Covariance of Levels      word_im   0.34   0.64      0.01
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> 0.07 </td>
-   <td style="text-align:right;"> 0.17 </td>
-   <td style="text-align:right;"> 0.18 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> 0.10 </td>
-   <td style="text-align:right;"> 0.28 </td>
-   <td style="text-align:right;"> 0.70 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> 0.77 </td>
-   <td style="text-align:right;"> 0.11 </td>
-   <td style="text-align:right;"> 0.15 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> 0.19 </td>
-   <td style="text-align:right;"> 0.27 </td>
-   <td style="text-align:right;"> 0.60 </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                   process_b      a    aeh   aehplus
+---------------------  ----------  -----  -----  --------
+Covariance of Slopes      serial7   0.91   0.94      0.60
+Covariance of Slopes         tics   0.11   0.17      0.13
+Covariance of Slopes      word_de   0.99   0.94      0.53
+Covariance of Slopes      word_im   0.94   0.93      0.44
+
+
+
+
+label                       process_b      a    aeh   aehplus
+-------------------------  ----------  -----  -----  --------
+Covariance of  Residuals      serial7   0.07   0.17      0.18
+Covariance of  Residuals         tics   0.10   0.28      0.70
+Covariance of  Residuals      word_de   0.77   0.11      0.15
+Covariance of  Residuals      word_im   0.19   0.27      0.60
+
 
 
 # male 
@@ -631,6 +454,12 @@ P-values for corresponding covariances:
 
  process   label                                    serial7                   tics                word_de                word_im       mean(sd)
 ---------  -------------------------  ---------------------  ---------------------  ---------------------  ---------------------  -------------
+   ab      Covar (Levels)               0.05 (0.02)    <.01    0.02 (0.01)     .03    0.01 (0.02)     .65    0.03 (0.02)     .03            ---
+   ab      Covar (Slopes)               0.00 (0.00)     .01    0.00 (0.00)     .60    0.00 (0.00)     .96    0.00 (0.00)     .74            ---
+   ab      Covar (Residuals)            0.00 (0.01)     .98   -0.00 (0.01)     .76    0.00 (0.01)     .60    0.00 (0.01)     .82            ---
+   er      Corr (Levels)                                ---                    ---                    ---                    ---            ---
+   er      Corr (Slopes)                                ---                    ---                    ---                    ---            ---
+   er      Corr (Residuals)                             ---                    ---                    ---                    ---            ---
     a      Level                        0.86 (0.04)    <.01    0.86 (0.04)    <.01    0.86 (0.04)    <.01    0.86 (0.04)    <.01     0.86(0.00)
     a      Slope                       -0.03 (0.01)     .01   -0.02 (0.01)     .02   -0.02 (0.01)     .03   -0.02 (0.01)     .03    -0.02(0.00)
     a      Level * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01    -0.01(0.00)
@@ -662,14 +491,11 @@ P-values for corresponding covariances:
     a      Var (Level)                  0.02 (0.00)    <.01    0.02 (0.00)    <.01    0.02 (0.00)    <.01    0.02 (0.00)    <.01     0.02(0.00)
     a      Var (Slope)                  0.00 (0.00)     .02    0.00 (0.00)     .05    0.00 (0.00)     .04    0.00 (0.00)     .05     0.00(0.00)
     a      Var (Residual)               0.03 (0.00)    <.01    0.03 (0.00)    <.01    0.03 (0.00)    <.01    0.03 (0.00)    <.01     0.03(0.00)
-    a      Covar (Level, Slope)        -0.00 (0.00)     .16   -0.00 (0.00)     .18   -0.00 (0.00)     .14   -0.00 (0.00)     .16    -0.00(0.00)
     b      Var (Level)                  0.95 (0.16)    <.01    0.10 (0.07)     .13    1.07 (0.19)    <.01    0.69 (0.12)    <.01            ---
     b      Var (Slope)                  0.04 (0.00)    <.01    0.01 (0.00)    <.01    0.00 (0.01)     .82    0.00 (0.00)     .42            ---
     b      Var (Residual)               1.29 (0.07)    <.01    0.64 (0.05)    <.01    1.46 (0.08)    <.01    1.17 (0.07)    <.01            ---
+    a      Covar (Level, Slope)        -0.00 (0.00)     .16   -0.00 (0.00)     .18   -0.00 (0.00)     .14   -0.00 (0.00)     .16    -0.00(0.00)
     b      Covar (Level, Slope)        -0.03 (0.02)     .16    0.03 (0.01)     .04    0.00 (0.03)     .86   -0.01 (0.02)     .61            ---
-   ab      Covar (Levels)               0.05 (0.02)    <.01    0.02 (0.01)     .03    0.01 (0.02)     .65    0.03 (0.02)     .03            ---
-   ab      Covar (Slopes)               0.00 (0.00)     .01    0.00 (0.00)     .60    0.00 (0.00)     .96    0.00 (0.00)     .74            ---
-   ab      Covar (Residuals)            0.00 (0.01)     .98   -0.00 (0.01)     .76    0.00 (0.01)     .60    0.00 (0.01)     .82            ---
     \      Correlation of Levels                       0.31                  0.413                  0.051                  0.270     0.26(0.15)
     \      Correlation of Slopes                       0.48                  0.000                  0.000                  0.000     0.12(0.24)
     \      Correlation of Residuals                    0.00                 -0.015                  0.025                  0.011     0.01(0.02)
@@ -687,6 +513,12 @@ P-values for corresponding covariances:
 
  process   label                                          a                    aeh                aehplus
 ---------  -------------------------  ---------------------  ---------------------  ---------------------
+   ab      Covar (Levels)               0.06 (0.18)     .74    0.04 (0.18)     .82    0.05 (0.02)    <.01
+   ab      Covar (Slopes)               0.00 (0.00)     .48    0.00 (0.00)     .56    0.00 (0.00)     .01
+   ab      Covar (Residuals)            0.06 (0.02)     .02    0.04 (0.03)     .09    0.00 (0.01)     .98
+   er      Corr (Levels)                                ---                    ---                    ---
+   er      Corr (Slopes)                                ---                    ---                    ---
+   er      Corr (Residuals)                             ---                    ---                    ---
     a      Level                        0.92 (0.02)    <.01    0.84 (0.04)    <.01    0.86 (0.04)    <.01
     a      Slope                       -0.03 (0.00)    <.01   -0.03 (0.01)     .01   -0.03 (0.01)     .01
     a      Level * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01
@@ -718,14 +550,11 @@ P-values for corresponding covariances:
     a      Var (Level)                  0.00 (0.01)     .81    0.00 (0.01)     .85    0.02 (0.00)    <.01
     a      Var (Slope)                  0.00 (0.00)     .81    0.00 (0.00)     .84    0.00 (0.00)     .02
     a      Var (Residual)               0.71 (0.03)    <.01    0.71 (0.03)    <.01    0.03 (0.00)    <.01
-    a      Covar (Level, Slope)         0.00 (0.00)     .99    0.00 (0.00)     .97   -0.00 (0.00)     .16
     b      Var (Level)                  1.59 (0.19)    <.01    1.32 (0.16)    <.01    0.95 (0.16)    <.01
     b      Var (Slope)                  0.06 (0.00)    <.01    0.06 (0.00)    <.01    0.04 (0.00)    <.01
     b      Var (Residual)               0.71 (0.03)    <.01    0.71 (0.03)    <.01    1.29 (0.07)    <.01
+    a      Covar (Level, Slope)         0.00 (0.00)     .99    0.00 (0.00)     .97   -0.00 (0.00)     .16
     b      Covar (Level, Slope)        -0.10 (0.02)    <.01   -0.09 (0.02)    <.01   -0.03 (0.02)     .16
-   ab      Covar (Levels)               0.06 (0.18)     .74    0.04 (0.18)     .82    0.05 (0.02)    <.01
-   ab      Covar (Slopes)               0.00 (0.00)     .48    0.00 (0.00)     .56    0.00 (0.00)     .01
-   ab      Covar (Residuals)            0.06 (0.02)     .02    0.04 (0.03)     .09    0.00 (0.01)     .98
     \      Correlation of Levels                      0.840                  0.798                   0.31
     \      Correlation of Slopes                        Inf                    Inf                   0.48
     \      Correlation of Residuals                   0.077                  0.062                   0.00
@@ -743,6 +572,12 @@ P-values for corresponding covariances:
 
  process   label                                          a                    aeh                aehplus
 ---------  -------------------------  ---------------------  ---------------------  ---------------------
+   ab      Covar (Levels)               0.02 (0.05)     .67    0.01 (0.04)     .75    0.02 (0.01)     .03
+   ab      Covar (Slopes)               0.00 (0.00)     .78    0.00 (0.00)     .85    0.00 (0.00)     .60
+   ab      Covar (Residuals)            0.01 (0.01)     .10    0.01 (0.01)     .17   -0.00 (0.01)     .76
+   er      Corr (Levels)                                ---                    ---                    ---
+   er      Corr (Slopes)                                ---                    ---                    ---
+   er      Corr (Residuals)                             ---                    ---                    ---
     a      Level                        0.91 (0.02)    <.01    0.83 (0.04)    <.01    0.86 (0.04)    <.01
     a      Slope                       -0.02 (0.00)    <.01   -0.02 (0.01)     .03   -0.02 (0.01)     .02
     a      Level * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01
@@ -774,14 +609,11 @@ P-values for corresponding covariances:
     a      Var (Level)                  0.00 (0.00)     .76    0.00 (0.00)     .81    0.02 (0.00)    <.01
     a      Var (Slope)                  0.00 (0.00)     .83    0.00 (0.00)     .83    0.00 (0.00)     .05
     a      Var (Residual)               0.32 (0.02)    <.01    0.32 (0.02)    <.01    0.03 (0.00)    <.01
-    a      Covar (Level, Slope)         0.00 (0.00)     .97    0.00 (0.00)     .97   -0.00 (0.00)     .18
     b      Var (Level)                  0.31 (0.06)    <.01    0.27 (0.06)    <.01    0.10 (0.07)     .13
     b      Var (Slope)                  0.03 (0.00)    <.01    0.03 (0.00)    <.01    0.01 (0.00)    <.01
     b      Var (Residual)               0.32 (0.02)    <.01    0.32 (0.02)    <.01    0.64 (0.05)    <.01
+    a      Covar (Level, Slope)         0.00 (0.00)     .97    0.00 (0.00)     .97   -0.00 (0.00)     .18
     b      Covar (Level, Slope)         0.00 (0.01)     .70    0.00 (0.01)     .98    0.03 (0.01)     .04
-   ab      Covar (Levels)               0.02 (0.05)     .67    0.01 (0.04)     .75    0.02 (0.01)     .03
-   ab      Covar (Slopes)               0.00 (0.00)     .78    0.00 (0.00)     .85    0.00 (0.00)     .60
-   ab      Covar (Residuals)            0.01 (0.01)     .10    0.01 (0.01)     .17   -0.00 (0.01)     .76
     \      Correlation of Levels                      0.803                   0.86                  0.413
     \      Correlation of Slopes                        Inf                    NaN                  0.000
     \      Correlation of Residuals                   0.046                   0.04                 -0.015
@@ -799,6 +631,12 @@ P-values for corresponding covariances:
 
  process   label                                          a                    aeh                aehplus
 ---------  -------------------------  ---------------------  ---------------------  ---------------------
+   ab      Covar (Levels)               0.03 (0.22)     .88    0.02 (0.23)     .94    0.01 (0.02)     .65
+   ab      Covar (Slopes)               0.00 (0.01)     .99    0.00 (0.02)     .99    0.00 (0.00)     .96
+   ab      Covar (Residuals)            0.01 (0.01)     .51    0.01 (0.01)     .62    0.00 (0.01)     .60
+   er      Corr (Levels)                                ---                    ---                    ---
+   er      Corr (Slopes)                                ---                    ---                    ---
+   er      Corr (Residuals)                             ---                    ---                    ---
     a      Level                        0.91 (0.02)    <.01    0.83 (0.04)    <.01    0.86 (0.04)    <.01
     a      Slope                       -0.02 (0.01)     .01   -0.02 (0.01)     .08   -0.02 (0.01)     .03
     a      Level * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01
@@ -830,14 +668,11 @@ P-values for corresponding covariances:
     a      Var (Level)                  0.00 (0.01)     .85    0.00 (0.01)     .88    0.02 (0.00)    <.01
     a      Var (Slope)                  0.00 (0.00)     .92    0.00 (0.00)     .93    0.00 (0.00)     .04
     a      Var (Residual)               0.73 (0.04)    <.01    0.73 (0.04)    <.01    0.03 (0.00)    <.01
-    a      Covar (Level, Slope)         0.00 (0.00)     .98    0.00 (0.00)     .99   -0.00 (0.00)     .14
     b      Var (Level)                  1.79 (0.19)    <.01    1.53 (0.17)    <.01    1.07 (0.19)    <.01
     b      Var (Slope)                  0.02 (0.00)    <.01    0.02 (0.00)    <.01    0.00 (0.01)     .82
     b      Var (Residual)               0.73 (0.04)    <.01    0.73 (0.04)    <.01    1.46 (0.08)    <.01
+    a      Covar (Level, Slope)         0.00 (0.00)     .98    0.00 (0.00)     .99   -0.00 (0.00)     .14
     b      Covar (Level, Slope)        -0.06 (0.02)     .01   -0.06 (0.02)     .01    0.00 (0.03)     .86
-   ab      Covar (Levels)               0.03 (0.22)     .88    0.02 (0.23)     .94    0.01 (0.02)     .65
-   ab      Covar (Slopes)               0.00 (0.01)     .99    0.00 (0.02)     .99    0.00 (0.00)     .96
-   ab      Covar (Residuals)            0.01 (0.01)     .51    0.01 (0.01)     .62    0.00 (0.01)     .60
     \      Correlation of Levels                      0.551                 0.4349                  0.051
     \      Correlation of Slopes                        NaN                    NaN                  0.000
     \      Correlation of Residuals                   0.012                 0.0095                  0.025
@@ -855,6 +690,12 @@ P-values for corresponding covariances:
 
  process   label                                          a                    aeh                aehplus
 ---------  -------------------------  ---------------------  ---------------------  ---------------------
+   ab      Covar (Levels)               0.05 (0.14)     .74    0.03 (0.14)     .82    0.03 (0.02)     .03
+   ab      Covar (Slopes)               0.00 (0.01)     .97    0.00 (0.01)     .97    0.00 (0.00)     .74
+   ab      Covar (Residuals)            0.01 (0.01)     .30    0.01 (0.01)     .39    0.00 (0.01)     .82
+   er      Corr (Levels)                                ---                    ---                    ---
+   er      Corr (Slopes)                                ---                    ---                    ---
+   er      Corr (Residuals)                             ---                    ---                    ---
     a      Level                        0.91 (0.02)    <.01    0.83 (0.04)    <.01    0.86 (0.04)    <.01
     a      Slope                       -0.02 (0.00)    <.01   -0.02 (0.01)     .04   -0.02 (0.01)     .03
     a      Level * age                 -0.01 (0.00)    <.01   -0.01 (0.00)    <.01   -0.01 (0.00)    <.01
@@ -886,14 +727,11 @@ P-values for corresponding covariances:
     a      Var (Level)                  0.00 (0.01)     .81    0.00 (0.01)     .85    0.02 (0.00)    <.01
     a      Var (Slope)                  0.00 (0.00)     .88    0.00 (0.00)     .88    0.00 (0.00)     .05
     a      Var (Residual)               0.57 (0.03)    <.01    0.57 (0.03)    <.01    0.03 (0.00)    <.01
-    a      Covar (Level, Slope)         0.00 (0.00)     .97    0.00 (0.00)     .99   -0.00 (0.00)     .16
     b      Var (Level)                  1.28 (0.13)    <.01    1.07 (0.11)    <.01    0.69 (0.12)    <.01
     b      Var (Slope)                  0.02 (0.00)    <.01    0.02 (0.00)    <.01    0.00 (0.00)     .42
     b      Var (Residual)               0.57 (0.03)    <.01    0.57 (0.03)    <.01    1.17 (0.07)    <.01
+    a      Covar (Level, Slope)         0.00 (0.00)     .97    0.00 (0.00)     .99   -0.00 (0.00)     .16
     b      Covar (Level, Slope)        -0.07 (0.02)    <.01   -0.07 (0.02)    <.01   -0.01 (0.02)     .61
-   ab      Covar (Levels)               0.05 (0.14)     .74    0.03 (0.14)     .82    0.03 (0.02)     .03
-   ab      Covar (Slopes)               0.00 (0.01)     .97    0.00 (0.01)     .97    0.00 (0.00)     .74
-   ab      Covar (Residuals)            0.01 (0.01)     .30    0.01 (0.01)     .39    0.00 (0.01)     .82
     \      Correlation of Levels                      0.758                  0.712                  0.270
     \      Correlation of Slopes                        NaN                    NaN                  0.000
     \      Correlation of Residuals                   0.019                  0.016                  0.011
@@ -910,260 +748,67 @@ P-values for corresponding covariances:
 
  Computed correlations:
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> 0.84 </td>
-   <td style="text-align:right;"> 0.80 </td>
-   <td style="text-align:right;"> 0.31 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> 0.80 </td>
-   <td style="text-align:right;"> 0.86 </td>
-   <td style="text-align:right;"> 0.41 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> 0.55 </td>
-   <td style="text-align:right;"> 0.43 </td>
-   <td style="text-align:right;"> 0.05 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> 0.76 </td>
-   <td style="text-align:right;"> 0.71 </td>
-   <td style="text-align:right;"> 0.27 </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> Inf </td>
-   <td style="text-align:right;"> Inf </td>
-   <td style="text-align:right;"> 0.48 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> Inf </td>
-   <td style="text-align:right;"> NaN </td>
-   <td style="text-align:right;"> 0.00 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> NaN </td>
-   <td style="text-align:right;"> NaN </td>
-   <td style="text-align:right;"> 0.00 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> NaN </td>
-   <td style="text-align:right;"> NaN </td>
-   <td style="text-align:right;"> 0.00 </td>
-  </tr>
-</tbody>
-</table>
+label                    process_b      a    aeh   aehplus
+----------------------  ----------  -----  -----  --------
+Correlation of Levels      serial7   0.84   0.80      0.31
+Correlation of Levels         tics   0.80   0.86      0.41
+Correlation of Levels      word_de   0.55   0.43      0.05
+Correlation of Levels      word_im   0.76   0.71      0.27
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> 0.08 </td>
-   <td style="text-align:right;"> 0.06 </td>
-   <td style="text-align:right;"> 0.00 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> 0.05 </td>
-   <td style="text-align:right;"> 0.04 </td>
-   <td style="text-align:right;"> -0.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.01 </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                    process_b     a   aeh   aehplus
+----------------------  ----------  ----  ----  --------
+Correlation of Slopes      serial7   Inf   Inf      0.48
+Correlation of Slopes         tics   Inf   NaN      0.00
+Correlation of Slopes      word_de   NaN   NaN      0.00
+Correlation of Slopes      word_im   NaN   NaN      0.00
+
+
+
+
+label                       process_b      a    aeh   aehplus
+-------------------------  ----------  -----  -----  --------
+Correlation of Residuals      serial7   0.08   0.06      0.00
+Correlation of Residuals         tics   0.05   0.04     -0.01
+Correlation of Residuals      word_de   0.01   0.01      0.02
+Correlation of Residuals      word_im   0.02   0.02      0.01
+
 
 
 P-values for corresponding covariances: 
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> 0.74 </td>
-   <td style="text-align:right;"> 0.82 </td>
-   <td style="text-align:right;"> 0.00 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> 0.67 </td>
-   <td style="text-align:right;"> 0.75 </td>
-   <td style="text-align:right;"> 0.03 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> 0.88 </td>
-   <td style="text-align:right;"> 0.94 </td>
-   <td style="text-align:right;"> 0.65 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> 0.74 </td>
-   <td style="text-align:right;"> 0.82 </td>
-   <td style="text-align:right;"> 0.03 </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> 0.48 </td>
-   <td style="text-align:right;"> 0.56 </td>
-   <td style="text-align:right;"> 0.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> 0.78 </td>
-   <td style="text-align:right;"> 0.85 </td>
-   <td style="text-align:right;"> 0.60 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> 1.00 </td>
-   <td style="text-align:right;"> 1.00 </td>
-   <td style="text-align:right;"> 0.96 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> 0.97 </td>
-   <td style="text-align:right;"> 0.97 </td>
-   <td style="text-align:right;"> 0.74 </td>
-  </tr>
-</tbody>
-</table>
+label                   process_b      a    aeh   aehplus
+---------------------  ----------  -----  -----  --------
+Covariance of Levels      serial7   0.74   0.82      0.00
+Covariance of Levels         tics   0.67   0.75      0.03
+Covariance of Levels      word_de   0.88   0.94      0.65
+Covariance of Levels      word_im   0.74   0.82      0.03
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> serial7 </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.09 </td>
-   <td style="text-align:right;"> 0.98 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> tics </td>
-   <td style="text-align:right;"> 0.10 </td>
-   <td style="text-align:right;"> 0.17 </td>
-   <td style="text-align:right;"> 0.76 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> word_de </td>
-   <td style="text-align:right;"> 0.51 </td>
-   <td style="text-align:right;"> 0.62 </td>
-   <td style="text-align:right;"> 0.60 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> 0.30 </td>
-   <td style="text-align:right;"> 0.39 </td>
-   <td style="text-align:right;"> 0.82 </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                   process_b      a    aeh   aehplus
+---------------------  ----------  -----  -----  --------
+Covariance of Slopes      serial7   0.48   0.56      0.01
+Covariance of Slopes         tics   0.78   0.85      0.60
+Covariance of Slopes      word_de   1.00   1.00      0.96
+Covariance of Slopes      word_im   0.97   0.97      0.74
+
+
+
+
+label                       process_b      a    aeh   aehplus
+-------------------------  ----------  -----  -----  --------
+Covariance of  Residuals      serial7   0.02   0.09      0.98
+Covariance of  Residuals         tics   0.10   0.17      0.76
+Covariance of  Residuals      word_de   0.51   0.62      0.60
+Covariance of  Residuals      word_im   0.30   0.39      0.82
 
 
 ```
