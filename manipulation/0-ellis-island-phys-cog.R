@@ -9,8 +9,8 @@ cat("\f") # clear console
 # ---- load-sources ------------------------------------------------------------
 # Call `base::source()` on any repo file that defines functions needed below.  Ideally, no real operations are performed.
 source("./scripts/mplus/group-variables.R")
-source("./scripts/mplus/extraction-functions.R")
-# source("./scripts/mplus/extraction-functions-auto.R")
+# source("./scripts/mplus/extraction-functions.R")
+source("./scripts/mplus/extraction-functions-auto.R")
 source("./scripts/common-functions.R")
 
 # ---- load-packages -----------------------------------------------------------
@@ -65,7 +65,7 @@ collect_study <- function(study, selected_results){
   }
   write.csv(
     results,
-    paste0("./data/shared/phys-cog/parsed-results-pc-",study,".csv"),
+    paste0("./data/shared/phys-cog/pc-catalog-",study,".csv"),
     row.names=F
   )
   return(results)
@@ -80,8 +80,8 @@ hrs   <- list.files("./studies/hrs/physical-cognitive",full.names=T, recursive=T
 ilse  <- list.files("./studies/ilse/physical-cognitive",full.names=T, recursive=T, pattern="out$")
 lasa  <- list.files("./studies/lasa/physical-cognitive",full.names=T, recursive=T, pattern="out$")
 # map   <- list.files("./studies/map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-map   <- list.files("./studies/map/physical-cognitive/outputs/Old Models",full.names=T, recursive=T, pattern="out$")
-# map   <- list.files(file.path("./output/studies/map/phys-cog"),full.names=T, recursive=T, pattern="out$")
+# map   <- list.files("./studies/map/physical-cognitive/outputs/Old Models",full.names=T, recursive=T, pattern="out$")
+map   <- list.files("./output/studies/map/phys-cog",full.names=T, recursive=T, pattern="out$")
 nas   <- list.files("./studies/nas/physical-cognitive",full.names=T, recursive=T, pattern="out$")
 nuage <- list.files("./studies/nuage/physical-cognitive/without-errors/",full.names=T, recursive=T, pattern="out$")
 # obas  <- list.files("./studies/obas/physical-cognitive/"),full.names=T, recursive=T, pattern="out$")
@@ -106,7 +106,7 @@ list_paths[["map"]]
 # ---- targeted-parsing ---------------------------------------------------------
 
 # path_model_output <- list_paths[["eas"]][23]
-path_model_output <- list_paths[["elsa"]][1]
+# path_model_output <- list_paths[["elsa"]][1]
 # path_model_output <- list_paths[["hrs"]][13]
 # path_model_output <- list_paths[["ilse"]][1]
 # path_model_output <- list_paths[["lasa"]][1]
@@ -117,10 +117,10 @@ path_model_output <- list_paths[["elsa"]][1]
 
 
 # check the parameter output
-(path=path_model_output)
-collected <- collect_result(path=path_model_output)
-collected %>% t()
-get_mpar(path=path_model_output)$unstandardized
+# (path=path_model_output)
+# collected <- collect_result(path=path_model_output)
+# collected %>% t()
+# get_mpar(path=path_model_output)$unstandardized
 
 
 # ---- parse-studies ---------------------------------------------------------
@@ -139,20 +139,21 @@ model_output_file_path <- list(
   "satsa" = list_paths[["satsa"]] #[1:2]
 )
 
-collect_study(study="eas", selected_results)
+# Parse model outputs from each study at a time
+# collect_study(study="eas", selected_results)
 collect_study(study="elsa", selected_results)
-collect_study(study="hrs", selected_results)
-collect_study(study="ilse", selected_results)
-collect_study(study="lasa", selected_results)
-collect_study(study="map", selected_results)
-collect_study(study="nas", selected_results)
-collect_study(study="nuage", selected_results)
-collect_study(study="octo", selected_results)
-collect_study(study="satsa", selected_results)
+# collect_study(study="hrs", selected_results)
+# collect_study(study="ilse", selected_results)
+# collect_study(study="lasa", selected_results)
+# collect_study(study="map", selected_results)
+# collect_study(study="nas", selected_results)
+# collect_study(study="nuage", selected_results)
+# collect_study(study="octo", selected_results)
+# collect_study(study="satsa", selected_results)
 
 # ---- combine-results ---------------------------------------------------------
 # combine results files from each study
-(results_studies <- list.files("./data/shared/phys-cog/", pattern = "^parsed-results-pc-\\w+\\.csv$", full.names =T) )
+(results_studies <- list.files("./data/shared/phys-cog/", pattern = "^pc-catalog-\\w+\\.csv$", full.names =T) )
 dtos <- list()
 for(i in seq_along(results_studies)){
   dtos[[i]] <- read.csv(results_studies[i], header=T, stringsAsFactors = F)
@@ -167,19 +168,20 @@ duplicates <- catalog %>%
 testit::assert("Pool contains duplicates", max(duplicates$n)==1)
 # look up specific models
 catalog %>%
-  dplyr::filter(study_name == "eas") %>%
+  dplyr::filter(study_name == "elsa") %>%
   dplyr::filter(model_type == "aehplus") %>%
   dplyr::filter(process_a == "gait" & process_b == "trailsb") %>%
   dplyr::select_(.dots = c(model_components$id,"file_path"))
 
 
 catalog %>%
+  dplyr::filter(study_name == "elsa") %>%
   dplyr::filter(model_type == "aehplus") %>%
   dplyr::select(study_name, model_type,process_a, process_b, R_IAIB_est)
 
 
 # ---- save-to-disk ------------------------------------------------------------
-write.csv(results,  paste0("./data/shared/pc-0-parsed-results-raw.csv"), row.names=F)
+write.csv(catalog,  paste0("./data/shared/pc-0-catalog-raw.csv"), row.names=F)
 
 
 
