@@ -10,6 +10,7 @@ cat("\f") # clear console
 # Call `base::source()` on any repo file that defines functions needed below.  Ideally, no real operations are performed.
 source("./scripts/mplus/group-variables.R")
 source("./scripts/mplus/extraction-functions.R")
+# source("./scripts/mplus/extraction-functions-auto.R")
 source("./scripts/common-functions.R")
 
 # ---- load-packages -----------------------------------------------------------
@@ -36,7 +37,9 @@ elsa  <- list.files(file.path(pathStudies,"elsa/physical-cognitive"),full.names=
 hrs   <- list.files(file.path(pathStudies,"hrs/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 ilse  <- list.files(file.path(pathStudies,"ilse/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 lasa  <- list.files(file.path(pathStudies,"lasa/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
-map   <- list.files(file.path(pathStudies,"map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+# map   <- list.files(file.path(pathStudies,"map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
+map   <- list.files(file.path(pathStudies,"map/physical-cognitive/outputs/Old Models"),full.names=T, recursive=T, pattern="out$")
+# map   <- list.files(file.path("./output/studies/map/phys-cog"),full.names=T, recursive=T, pattern="out$")
 nas   <- list.files(file.path(pathStudies,"nas/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 nuage <- list.files(file.path(pathStudies,"nuage/physical-cognitive/without-errors/"),full.names=T, recursive=T, pattern="out$")
 # obas  <- list.files(file.path(pathStudies,"obas/physical-cognitive/"),full.names=T, recursive=T, pattern="out$")
@@ -54,7 +57,10 @@ list_pc <-  list("eas" = eas,
                  "octo" = octo,
                  "satsa" = satsa)
 # Now the object contains paths to files with model outputs
-list_pc[["satsa"]]
+list_pc[["map"]]
+# list_pc[["map"]]=="./output/studies/map/phys-cog/fev100-wordlistim/b1_female_a_fev100_wordlistim.out"
+#
+# fev100-wordlistim/b1_female_a_fev100_wordlistim
 
 # ---- dto ---------------------------------------------------------
 ## point to the folders with results for physical-physical track
@@ -89,7 +95,7 @@ list_pp[["elsa"]]
 # path_model_output <- list_pc[["hrs"]][13]
 # path_model_output <- list_pc[["ilse"]][1]
 # path_model_output <- list_pc[["lasa"]][1]
-# path_model_output <- list_pc[["map"]][116]
+# path_model_output <- list_pc[["map"]][137]
 # path_model_output <- list_pc[["nuage"]][10]
 # path_model_output <- list_pc[["octo"]][38]
 # path_model_output <- list_pc[["satsa"]][50]
@@ -101,6 +107,7 @@ list_pp[["elsa"]]
 # get_mpar(path)$unstandardized %>% dplyr::slice(1:26)
 # ---- dto ---------------------------------------------------------
 collect_result <- function(path){
+  print(path)
   # extract model idendification
   mid <- get_id(path)
   msum <- get_msum(path)
@@ -126,7 +133,7 @@ model_output_file_path <- list(
   "hrs"   = list_pc[["hrs"]], #[1:2],
   "ilse"  = list_pc[["ilse"]],#[1:2],
   "lasa"  = list_pc[["lasa"]],#[1:2],
-  "map"   = list_pc[["map"]],#[1:2],
+  "map"   = list_pc[["map"]],#[137],
   "nas"   = list_pc[["nas"]],#[20]
   "nuage" = list_pc[["nuage"]],#[1:2] ,
   "octo"  = list_pc[["octo"]],#[1:2],
@@ -168,15 +175,15 @@ collect_study <- function(study, selected_results){
 }
 
 # ---- dto ---------------------------------------------------------
-# collect_study(study="eas", selected_results)
-# collect_study(study="elsa", selected_results)
-# collect_study(study="hrs", selected_results)
-# collect_study(study="ilse", selected_results)
-# collect_study(study="lasa", selected_results)
-# collect_study(study="map", selected_results)
-# collect_study(study="nas", selected_results)
-# collect_study(study="nuage", selected_results)
-# collect_study(study="octo", selected_results)
+collect_study(study="eas", selected_results)
+collect_study(study="elsa", selected_results)
+collect_study(study="hrs", selected_results)
+collect_study(study="ilse", selected_results)
+collect_study(study="lasa", selected_results)
+collect_study(study="map", selected_results)
+collect_study(study="nas", selected_results)
+collect_study(study="nuage", selected_results)
+collect_study(study="octo", selected_results)
 collect_study(study="satsa", selected_results)
 
 # ---- dto ---------------------------------------------------------
