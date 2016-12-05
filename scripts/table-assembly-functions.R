@@ -923,6 +923,7 @@ print_coefficients <- function(
       )
     )
     cat("\n")
+    cat("\n")
   }
 }
 

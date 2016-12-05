@@ -29,3 +29,9 @@ rmarkdown::render(input = "./sandbox/word-tables/seed-meta.Rmd" ,
 
 rmarkdown::render(input = "./sandbox/word-tables/seed-elsa.Rmd" ,
                   output_format="word_document", clean=TRUE)
+
+
+# publish seed reports
+base::source('./reports/seeds-gait/publisher-gait.R')
+base::source('./reports/seeds-grip/publisher-grip.R')
+base::source('./reports/seeds-pulmonary/publisher-pulmonary.R')

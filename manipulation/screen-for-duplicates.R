@@ -37,7 +37,7 @@ catalog %>%
   dplyr::filter(model_number == "b1") %>%
   dplyr::filter(study_name == "map") %>%
   dplyr::filter(model_type == "aehplus") %>%
-  dplyr::select(study_name, model_type,process_a, process_b, er_tau_00_est)
+  dplyr::select(study_name, model_type,process_a, process_b,has_converged, er_tau_00_est)
 
 
 

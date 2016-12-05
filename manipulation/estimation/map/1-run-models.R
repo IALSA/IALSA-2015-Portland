@@ -129,12 +129,12 @@ folder_output      = "./output/studies/map/phys-cog/"
 # )
 
 # loop over conditions
-# for(phys_measure in "fev"){
-for(phys_measure in varnames_physical){
-  for(subgroup in names(ls_subgroup)){
-    for(model_type in names(ls_model_type)){
-      # for(cog_measure in "bnt"){
-      for(cog_measure in varnames_cognitive){
+for(phys_measure in "fev"){
+# for(phys_measure in varnames_physical){
+  # for(cog_measure in "wordlistim"){
+  for(cog_measure in varnames_cognitive){
+    for(subgroup in names(ls_subgroup)){
+      for(model_type in names(ls_model_type)){
         mplus_generator_bivariate(
           model_number        = "b1"
           ,subgroup           = subgroup
