@@ -19,7 +19,7 @@ options(show.signif.stars=F) #Turn off the annotations on p-values
 
 
 # ----- input-phys-cog -----------------
-path_input <- "./data/shared/pc-2-parsed-results-computed_ci.csv"
+path_input <- "./data/shared/pc-2-catalog-augmented.csv"
 
 # ---- load-data ---------------------------------------------------------------
 ds_full <- readr::read_csv(path_input)
@@ -309,8 +309,6 @@ d <- ds %>%
 
   )
 
-
-
 # ---- table-dynamic -----------------------------------------------------------
 
 d %>%
@@ -354,9 +352,9 @@ for(gender in c("male","female")){
 }
 
 # ---- table-static-2 ------------------------------------------------------------
-
+cat("\n#Group by domain\n")
 for(gender in c("male","female")){
-  cat("\n#",gender)
+  cat("\n##",gender)
   d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
@@ -368,6 +366,22 @@ for(gender in c("male","female")){
     ) %>%
     print()
 }
+cat("\n#Grouped by study\n")
+for(gender in c("male","female")){
+  cat("\n##",gender)
+  d %>%
+    dplyr::arrange(study,domain,cognitive) %>%
+    dplyr::filter(subgroup %in% gender) %>%
+    dplyr::select(-model_number, -subgroup, -model_type) %>%
+    knitr::kable(
+      format     = "pandoc",
+      # align      = c("l", "l", "r", "l", "c", "r","l","r","l","r","l") # cognitive
+      align      = c("l","l","r","l","c",  "r","l","r","l",  "r","l","r","l", "r","l","r","l") # cognitive full
+      # align      = c(     "l", "r", "l", "c", "r","l","r","l","r","l") # physical
+    ) %>%
+    print()
+}
+
 
 # ---- table-static-3 ------------------------------------------------------------
 
