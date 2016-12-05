@@ -18,8 +18,8 @@ requireNamespace("scales")
 
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
-# print_format <- "pandoc"
-print_format <- "html"
+print_format <- "pandoc"
+# print_format <- "html"
 model_type_standard <- "aehplus" # spread at outcome pair level
 # model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
 model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
@@ -34,7 +34,7 @@ stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v10.csv"
 
 # ---- explorations -------------------------------------------
 catalog_spread %>% view_options(
-   study_name_ ="nas"
+  study_name_ ="nas"
   ,full_id     = T
   # ,subgroups   = c("female")
   ,model_types = c("aehplus")
@@ -118,7 +118,9 @@ print_body <- function(
       ,target_labels = c(
         "Correlation of Levels"
         ,"Correlation of Slopes"
-        ,"Correlation of Residuals")
+        ,"Correlation of Residuals"
+      )
+      ,print_format = print_format
       # ,processes_b_  = processes_b
     )
     cat("\n")
@@ -138,6 +140,7 @@ print_body <- function(
         ,"Covariance of Slopes"
         ,"Covariance of  Residuals"
       )
+      ,print_format = print_format
     )
   }
 }

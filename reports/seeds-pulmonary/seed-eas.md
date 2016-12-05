@@ -117,64 +117,15 @@ eas          male       full         pef         trailsb              1
 
  Gender = _female_; Model type: _aehplus_;  Process (a) = _pef_; Process (b): *block*, *bnt*, *categories*, *digit_tot*, *fas*, *logic_tot*, *mmse*, *symbol*, *trailsb*, *waisvocab*, *word_im*
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                           block                         bnt                  categories                   digit_tot                         fas           logic_tot           mmse                                            symbol                     trailsb                   waisvocab                     word_im         mean(sd)
 ---------  -------------------------  --------------------------  --------------------------  --------------------------  --------------------------  --------------------------  ---------------------------  --------------------------  --------------------------  --------------------------  --------------------------  --------------------------  ---------------
    ab      Covar (Levels)                  90.07 (75.15)     .23       38.07 (22.34)     .09       82.62 (74.98)     .27      -28.45 (25.50)     .26      29.54 (106.47)     .78     81.32 (54.69)     .14     20.91 (12.09)     .08          201.39 (111.31)     .07    -818.94 (707.87)     .25      -19.45 (84.84)     .82       56.00 (53.81)     .30              ---
    ab      Covar (Slopes)                   -0.30 (2.64)     .91        -0.45 (1.15)     .69        -1.22 (3.96)     .76        -0.76 (1.13)     .50        -2.18 (3.08)     .48      0.53 (2.48)     .83      0.11 (0.49)     .82                1.93 (2.81)     .49       -5.32 (37.39)     .89        -0.45 (3.31)     .89         0.42 (2.30)     .85              ---
    ab      Covar (Residuals)                3.98 (17.73)     .82         1.66 (7.29)     .82       -9.54 (13.85)     .49         4.25 (7.08)     .55        1.28 (24.00)     .96     17.14 (16.31)     .29     -0.07 (3.23)     .98              2.81 (22.77)     .90     -68.68 (221.61)     .76        4.30 (29.43)     .88        5.89 (12.58)     .64              ---
-   er      Corr (Levels)                                     ---                         ---                         ---                         ---                         ---              ---              ---                                                ---                         ---                         ---                         ---              ---
-   er      Corr (Slopes)                                     ---                         ---                         ---                         ---                         ---              ---              ---                                                ---                         ---                         ---                         ---              ---
-   er      Corr (Residuals)                                  ---                         ---                         ---                         ---                         ---              ---              ---                                                ---                         ---                         ---                         ---              ---
+   er      Corr (Levels)                     0.19 (0.15)     .21         0.33 (0.18)     .07         0.16 (0.14)     .25        -0.17 (0.15)     .25         0.04 (0.15)     .78      0.25 (0.16)     .12      0.31 (0.16)     .05                0.28 (0.14)     .04        -0.25 (0.20)     .20        -0.03 (0.14)     .82         0.24 (0.22)     .27              ---
+   er      Corr (Slopes)                    -0.11 (1.02)     .91        -0.31 (0.74)     .68        -0.16 (0.54)     .76        -0.42 (0.60)     .48        -0.52 (0.84)     .54      0.20 (0.94)     .83      0.28 (1.27)     .83                0.51 (0.92)     .58        -0.23 (1.59)     .89        -0.16 (1.30)     .90         0.14 (0.71)     .85              ---
+   er      Corr (Residuals)                  0.02 (0.10)     .82         0.03 (0.14)     .82        -0.06 (0.09)     .49         0.07 (0.11)     .55         0.01 (0.12)     .96      0.11 (0.10)     .29      -0.00 (0.11)     .98               0.01 (0.10)     .90        -0.04 (0.14)     .76         0.02 (0.13)     .88         0.05 (0.10)     .64              ---
     a      Level                          342.20 (26.25)    <.01      341.34 (26.84)    <.01      343.84 (25.16)    <.01      343.60 (25.89)    <.01      343.58 (24.89)    <.01    341.08 (25.69)    <.01     342.91 (27.58)    <.01          342.45 (25.32)    <.01      340.94 (26.56)    <.01      341.80 (26.74)    <.01      343.01 (25.95)    <.01     342.43(1.05)
     a      Slope                           -27.18 (7.83)    <.01       -26.24 (7.22)    <.01       -28.00 (7.73)    <.01       -28.01 (7.20)    <.01       -28.26 (7.60)    <.01     -26.25 (7.30)    <.01     -27.53 (8.51)    <.01            -27.33 (6.77)    <.01       -26.21 (7.99)    <.01       -26.55 (7.16)    <.01       -27.63 (7.10)    <.01     -27.20(0.77)
     a      Level * age                      -4.25 (1.85)     .02        -4.28 (1.90)     .02        -4.29 (1.84)     .02        -4.33 (1.86)     .02        -4.27 (1.92)     .03     -4.25 (1.81)     .02      -4.29 (1.87)     .02              -4.23 (1.80)     .02        -4.19 (2.02)     .04        -4.26 (1.82)     .02        -4.23 (1.92)     .03      -4.26(0.04)
@@ -225,66 +176,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _block_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                             ae                        aeh                     aehplus                        full
 ---------  -------------------------  -------------------------  -------------------------  --------------------------  --------------------------
    ab      Covar (Levels)                 98.99 (49.69)     .05     104.78 (52.19)     .04       90.07 (75.15)     .23       88.17 (79.03)     .26
    ab      Covar (Slopes)                   3.73 (1.23)    <.01        0.21 (1.09)     .85        -0.30 (2.64)     .91         0.44 (2.21)     .84
    ab      Covar (Residuals)               -0.39 (9.43)     .97      -1.25 (10.27)     .90        3.98 (17.73)     .82        0.44 (16.60)     .98
-   er      Corr (Levels)                                    ---                        ---                         ---                         ---
-   er      Corr (Slopes)                                    ---                        ---                         ---                         ---
-   er      Corr (Residuals)                                 ---                        ---                         ---                         ---
+   er      Corr (Levels)                                    ---                        ---         0.19 (0.15)     .21                         ---
+   er      Corr (Slopes)                                    ---                        ---        -0.11 (1.02)     .91                         ---
+   er      Corr (Residuals)                                 ---                        ---         0.02 (0.10)     .82                         ---
     a      Level                         310.35 (17.37)    <.01     333.07 (17.93)    <.01      342.20 (26.25)    <.01      339.07 (26.69)    <.01
     a      Slope                          -10.71 (4.20)     .01      -26.73 (4.00)    <.01       -27.18 (7.83)    <.01       -26.99 (7.29)    <.01
     a      Level * age                     -4.09 (1.22)    <.01       -4.25 (1.29)    <.01        -4.25 (1.85)     .02        -4.40 (1.80)     .01
@@ -335,66 +235,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _bnt_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                         aehplus
 ---------  -------------------------  --------------------------
    ab      Covar (Levels)                  38.07 (22.34)     .09
    ab      Covar (Slopes)                   -0.45 (1.15)     .69
    ab      Covar (Residuals)                 1.66 (7.29)     .82
-   er      Corr (Levels)                                     ---
-   er      Corr (Slopes)                                     ---
-   er      Corr (Residuals)                                  ---
+   er      Corr (Levels)                     0.33 (0.18)     .07
+   er      Corr (Slopes)                    -0.31 (0.74)     .68
+   er      Corr (Residuals)                  0.03 (0.14)     .82
     a      Level                          341.34 (26.84)    <.01
     a      Slope                           -26.24 (7.22)    <.01
     a      Level * age                      -4.28 (1.90)     .02
@@ -445,66 +294,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _categories_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                         aehplus
 ---------  -------------------------  --------------------------
    ab      Covar (Levels)                  82.62 (74.98)     .27
    ab      Covar (Slopes)                   -1.22 (3.96)     .76
    ab      Covar (Residuals)               -9.54 (13.85)     .49
-   er      Corr (Levels)                                     ---
-   er      Corr (Slopes)                                     ---
-   er      Corr (Residuals)                                  ---
+   er      Corr (Levels)                     0.16 (0.14)     .25
+   er      Corr (Slopes)                    -0.16 (0.54)     .76
+   er      Corr (Residuals)                 -0.06 (0.09)     .49
     a      Level                          343.84 (25.16)    <.01
     a      Slope                           -28.00 (7.73)    <.01
     a      Level * age                      -4.29 (1.84)     .02
@@ -555,66 +353,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _digit_tot_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                              a                         ae                         aeh                     aehplus
 ---------  -------------------------  -------------------------  -------------------------  --------------------------  --------------------------
    ab      Covar (Levels)                  3.51 (31.06)     .91      -1.14 (29.85)     .97      -17.42 (25.92)     .50      -28.45 (25.50)     .26
    ab      Covar (Slopes)                   1.22 (1.07)     .25        1.09 (1.06)     .30        -0.75 (0.90)     .40        -0.76 (1.13)     .50
    ab      Covar (Residuals)                0.68 (3.87)     .86        0.61 (3.87)     .88         4.47 (6.59)     .50         4.25 (7.08)     .55
-   er      Corr (Levels)                                    ---                        ---                         ---                         ---
-   er      Corr (Slopes)                                    ---                        ---                         ---                         ---
-   er      Corr (Residuals)                                 ---                        ---                         ---                         ---
+   er      Corr (Levels)                                    ---                        ---                         ---        -0.17 (0.15)     .25
+   er      Corr (Slopes)                                    ---                        ---                         ---        -0.42 (0.60)     .48
+   er      Corr (Residuals)                                 ---                        ---                         ---         0.07 (0.11)     .55
     a      Level                         317.52 (14.43)    <.01     312.29 (21.04)    <.01      335.31 (24.64)    <.01      343.60 (25.89)    <.01
     a      Slope                          -12.73 (3.31)    <.01       -9.96 (5.25)     .06       -27.66 (5.42)    <.01       -28.01 (7.20)    <.01
     a      Level * age                     -3.97 (1.40)    <.01       -4.01 (1.42)    <.01        -4.40 (1.76)     .01        -4.33 (1.86)     .02
@@ -665,66 +412,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _fas_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                         aehplus
 ---------  -------------------------  --------------------------
    ab      Covar (Levels)                 29.54 (106.47)     .78
    ab      Covar (Slopes)                   -2.18 (3.08)     .48
    ab      Covar (Residuals)                1.28 (24.00)     .96
-   er      Corr (Levels)                                     ---
-   er      Corr (Slopes)                                     ---
-   er      Corr (Residuals)                                  ---
+   er      Corr (Levels)                     0.04 (0.15)     .78
+   er      Corr (Slopes)                    -0.52 (0.84)     .54
+   er      Corr (Residuals)                  0.01 (0.12)     .96
     a      Level                          343.58 (24.89)    <.01
     a      Slope                           -28.26 (7.60)    <.01
     a      Level * age                      -4.27 (1.92)     .03
@@ -775,66 +471,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _logic_tot_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                         aehplus
 ---------  -------------------------  --------------------------
    ab      Covar (Levels)                  81.32 (54.69)     .14
    ab      Covar (Slopes)                    0.53 (2.48)     .83
    ab      Covar (Residuals)               17.14 (16.31)     .29
-   er      Corr (Levels)                                     ---
-   er      Corr (Slopes)                                     ---
-   er      Corr (Residuals)                                  ---
+   er      Corr (Levels)                     0.25 (0.16)     .12
+   er      Corr (Slopes)                     0.20 (0.94)     .83
+   er      Corr (Residuals)                  0.11 (0.10)     .29
     a      Level                          341.08 (25.69)    <.01
     a      Slope                           -26.25 (7.30)    <.01
     a      Level * age                      -4.25 (1.81)     .02
@@ -885,66 +530,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _mmse_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                         aehplus
 ---------  -------------------------  --------------------------
    ab      Covar (Levels)                  20.91 (12.09)     .08
    ab      Covar (Slopes)                    0.11 (0.49)     .82
    ab      Covar (Residuals)                -0.07 (3.23)     .98
-   er      Corr (Levels)                                     ---
-   er      Corr (Slopes)                                     ---
-   er      Corr (Residuals)                                  ---
+   er      Corr (Levels)                     0.31 (0.16)     .05
+   er      Corr (Slopes)                     0.28 (1.27)     .83
+   er      Corr (Residuals)                 -0.00 (0.11)     .98
     a      Level                          342.91 (27.58)    <.01
     a      Slope                           -27.53 (8.51)    <.01
     a      Level * age                      -4.29 (1.87)     .02
@@ -995,66 +589,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _symbol_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                              a                          ae                         aeh                     aehplus                        full
 ---------  -------------------------  -------------------------  --------------------------  --------------------------  --------------------------  --------------------------
    ab      Covar (Levels)               331.92 (108.27)    <.01     342.04 (106.57)    <.01     262.59 (126.47)     .04     201.39 (111.31)     .07     213.34 (123.52)     .08
    ab      Covar (Slopes)                  10.97 (3.34)    <.01        12.46 (4.36)    <.01         3.53 (4.39)     .42         1.93 (2.81)     .49         2.56 (4.92)     .60
    ab      Covar (Residuals)              -1.96 (15.87)     .90        1.80 (16.40)     .91       -2.03 (23.02)     .93        2.81 (22.77)     .90       -2.07 (24.58)     .93
-   er      Corr (Levels)                                    ---                         ---                         ---                         ---                         ---
-   er      Corr (Slopes)                                    ---                         ---                         ---                         ---                         ---
-   er      Corr (Residuals)                                 ---                         ---                         ---                         ---                         ---
+   er      Corr (Levels)                                    ---                         ---                         ---         0.28 (0.14)     .04                         ---
+   er      Corr (Slopes)                                    ---                         ---                         ---         0.51 (0.92)     .58                         ---
+   er      Corr (Residuals)                                 ---                         ---                         ---         0.01 (0.10)     .90                         ---
     a      Level                         311.44 (13.06)    <.01      293.53 (20.69)    <.01      327.85 (24.34)    <.01      342.45 (25.32)    <.01      333.18 (26.59)    <.01
     a      Slope                          -11.58 (2.77)    <.01        -5.54 (5.62)     .32       -23.55 (7.43)    <.01       -27.33 (6.77)    <.01       -23.53 (9.30)     .01
     a      Level * age                     -4.29 (1.33)    <.01        -3.86 (1.41)     .01        -4.09 (1.78)     .02        -4.23 (1.80)     .02        -4.27 (1.83)     .02
@@ -1105,66 +648,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _trailsb_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                               a                          ae                         aeh                     aehplus                        full
 ---------  -------------------------  --------------------------  --------------------------  --------------------------  --------------------------  --------------------------
    ab      Covar (Levels)              -1437.76 (540.87)     .01   -1308.71 (509.10)     .01   -1005.15 (664.43)     .13    -818.94 (707.87)     .25    -731.95 (659.29)     .27
    ab      Covar (Slopes)                 -11.72 (15.69)     .46      -11.07 (16.06)     .49       -4.41 (27.72)     .87       -5.32 (37.39)     .89       -0.25 (28.09)     .99
    ab      Covar (Residuals)              17.39 (148.22)     .91      13.54 (154.65)     .93     -80.60 (224.45)     .72     -68.68 (221.61)     .76     -80.64 (247.59)     .74
-   er      Corr (Levels)                                     ---                         ---                         ---                         ---                         ---
-   er      Corr (Slopes)                                     ---                         ---                         ---                         ---                         ---
-   er      Corr (Residuals)                                  ---                         ---                         ---                         ---                         ---
+   er      Corr (Levels)                                     ---                         ---                         ---        -0.25 (0.20)     .20                         ---
+   er      Corr (Slopes)                                     ---                         ---                         ---        -0.23 (1.59)     .89                         ---
+   er      Corr (Residuals)                                  ---                         ---                         ---        -0.04 (0.14)     .76                         ---
     a      Level                          319.62 (13.00)    <.01      313.50 (20.64)    <.01      332.19 (25.63)    <.01      340.94 (26.56)    <.01      338.48 (26.86)    <.01
     a      Slope                           -14.42 (2.89)    <.01       -11.07 (4.82)     .02       -25.89 (6.46)    <.01       -26.21 (7.99)    <.01       -26.65 (7.66)    <.01
     a      Level * age                      -4.57 (1.31)    <.01        -4.50 (1.31)    <.01        -4.17 (1.83)     .02        -4.19 (2.02)     .04        -4.35 (1.93)     .02
@@ -1215,66 +707,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _waisvocab_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                         aehplus
 ---------  -------------------------  --------------------------
    ab      Covar (Levels)                 -19.45 (84.84)     .82
    ab      Covar (Slopes)                   -0.45 (3.31)     .89
    ab      Covar (Residuals)                4.30 (29.43)     .88
-   er      Corr (Levels)                                     ---
-   er      Corr (Slopes)                                     ---
-   er      Corr (Residuals)                                  ---
+   er      Corr (Levels)                    -0.03 (0.14)     .82
+   er      Corr (Slopes)                    -0.16 (1.30)     .90
+   er      Corr (Residuals)                  0.02 (0.13)     .88
     a      Level                          341.80 (26.74)    <.01
     a      Slope                           -26.55 (7.16)    <.01
     a      Level * age                      -4.26 (1.82)     .02
@@ -1325,66 +766,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _female_;  Process (a) = *pef*; Process (b) = _word_im_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                         aehplus
 ---------  -------------------------  --------------------------
    ab      Covar (Levels)                  56.00 (53.81)     .30
    ab      Covar (Slopes)                    0.42 (2.30)     .85
    ab      Covar (Residuals)                5.89 (12.58)     .64
-   er      Corr (Levels)                                     ---
-   er      Corr (Slopes)                                     ---
-   er      Corr (Residuals)                                  ---
+   er      Corr (Levels)                     0.24 (0.22)     .27
+   er      Corr (Slopes)                     0.14 (0.71)     .85
+   er      Corr (Residuals)                  0.05 (0.10)     .64
     a      Level                          343.01 (25.95)    <.01
     a      Slope                           -27.63 (7.10)    <.01
     a      Level * age                      -4.23 (1.92)     .03
@@ -1437,754 +827,115 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Computed correlations:
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.19 </td>
-   <td style="text-align:right;"> 0.21 </td>
-   <td style="text-align:right;"> 0.19 </td>
-   <td style="text-align:right;"> 0.19 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.33 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.16 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> -0.01 </td>
-   <td style="text-align:right;"> -0.10 </td>
-   <td style="text-align:right;"> -0.17 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.04 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.25 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.31 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.33 </td>
-   <td style="text-align:right;"> 0.37 </td>
-   <td style="text-align:right;"> 0.33 </td>
-   <td style="text-align:right;"> 0.29 </td>
-   <td style="text-align:right;"> 0.29 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> -0.33 </td>
-   <td style="text-align:right;"> -0.34 </td>
-   <td style="text-align:right;"> -0.28 </td>
-   <td style="text-align:right;"> -0.25 </td>
-   <td style="text-align:right;"> -0.23 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.03 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.24 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.67 </td>
-   <td style="text-align:right;"> 0.08 </td>
-   <td style="text-align:right;"> -0.11 </td>
-   <td style="text-align:right;"> 0.19 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.31 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.16 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> 0.31 </td>
-   <td style="text-align:right;"> 0.28 </td>
-   <td style="text-align:right;"> -0.51 </td>
-   <td style="text-align:right;"> -0.42 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.52 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.20 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.26 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.78 </td>
-   <td style="text-align:right;"> 0.58 </td>
-   <td style="text-align:right;"> 0.54 </td>
-   <td style="text-align:right;"> 0.51 </td>
-   <td style="text-align:right;"> 0.37 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> -0.39 </td>
-   <td style="text-align:right;"> -0.37 </td>
-   <td style="text-align:right;"> -0.23 </td>
-   <td style="text-align:right;"> -0.23 </td>
-   <td style="text-align:right;"> -0.02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.16 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.14 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+label                     process_b       a      ae     aeh   aehplus    full
+----------------------  -----------  ------  ------  ------  --------  ------
+Correlation of Levels         block       .    0.19    0.21      0.19    0.19
+Correlation of Levels           bnt       .       .       .      0.33       .
+Correlation of Levels    categories       .       .       .      0.16       .
+Correlation of Levels     digit_tot    0.01   -0.01   -0.10     -0.17       .
+Correlation of Levels           fas       .       .       .      0.04       .
+Correlation of Levels     logic_tot       .       .       .      0.25       .
+Correlation of Levels          mmse       .       .       .      0.31       .
+Correlation of Levels        symbol    0.33    0.37    0.33      0.29    0.29
+Correlation of Levels       trailsb   -0.33   -0.34   -0.28     -0.25   -0.23
+Correlation of Levels     waisvocab       .       .       .     -0.03       .
+Correlation of Levels       word_im       .       .       .      0.24       .
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.00 </td>
-   <td style="text-align:right;"> -0.01 </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.00 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.03 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.06 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.07 </td>
-   <td style="text-align:right;"> 0.07 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.11 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.00 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> -0.01 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> -0.01 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> -0.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> -0.05 </td>
-   <td style="text-align:right;"> -0.04 </td>
-   <td style="text-align:right;"> -0.05 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.05 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                     process_b       a      ae     aeh   aehplus    full
+----------------------  -----------  ------  ------  ------  --------  ------
+Correlation of Slopes         block       .    0.67    0.08     -0.11    0.19
+Correlation of Slopes           bnt       .       .       .     -0.31       .
+Correlation of Slopes    categories       .       .       .     -0.16       .
+Correlation of Slopes     digit_tot    0.31    0.28   -0.51     -0.42       .
+Correlation of Slopes           fas       .       .       .     -0.52       .
+Correlation of Slopes     logic_tot       .       .       .      0.20       .
+Correlation of Slopes          mmse       .       .       .      0.26       .
+Correlation of Slopes        symbol    0.78    0.58    0.54      0.51    0.37
+Correlation of Slopes       trailsb   -0.39   -0.37   -0.23     -0.23   -0.02
+Correlation of Slopes     waisvocab       .       .       .     -0.16       .
+Correlation of Slopes       word_im       .       .       .      0.14       .
+
+
+
+
+label                        process_b       a      ae     aeh   aehplus    full
+-------------------------  -----------  ------  ------  ------  --------  ------
+Correlation of Residuals         block       .   -0.00   -0.01      0.02    0.00
+Correlation of Residuals           bnt       .       .       .      0.03       .
+Correlation of Residuals    categories       .       .       .     -0.06       .
+Correlation of Residuals     digit_tot    0.01    0.01    0.07      0.07       .
+Correlation of Residuals           fas       .       .       .      0.01       .
+Correlation of Residuals     logic_tot       .       .       .      0.11       .
+Correlation of Residuals          mmse       .       .       .     -0.00       .
+Correlation of Residuals        symbol   -0.01    0.01   -0.01      0.01   -0.01
+Correlation of Residuals       trailsb    0.01    0.01   -0.05     -0.04   -0.05
+Correlation of Residuals     waisvocab       .       .       .      0.02       .
+Correlation of Residuals       word_im       .       .       .      0.05       .
+
 
 
 P-values for corresponding covariances: 
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.05 </td>
-   <td style="text-align:right;"> 0.04 </td>
-   <td style="text-align:right;"> 0.23 </td>
-   <td style="text-align:right;"> 0.26 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.09 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.27 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> 0.91 </td>
-   <td style="text-align:right;"> 0.97 </td>
-   <td style="text-align:right;"> 0.50 </td>
-   <td style="text-align:right;"> 0.26 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.78 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.14 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.08 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.04 </td>
-   <td style="text-align:right;"> 0.07 </td>
-   <td style="text-align:right;"> 0.08 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.13 </td>
-   <td style="text-align:right;"> 0.25 </td>
-   <td style="text-align:right;"> 0.27 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.82 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.30 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.85 </td>
-   <td style="text-align:right;"> 0.91 </td>
-   <td style="text-align:right;"> 0.84 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.69 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.76 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> 0.25 </td>
-   <td style="text-align:right;"> 0.30 </td>
-   <td style="text-align:right;"> 0.40 </td>
-   <td style="text-align:right;"> 0.50 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.48 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.83 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.82 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> 0.42 </td>
-   <td style="text-align:right;"> 0.49 </td>
-   <td style="text-align:right;"> 0.60 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> 0.46 </td>
-   <td style="text-align:right;"> 0.49 </td>
-   <td style="text-align:right;"> 0.87 </td>
-   <td style="text-align:right;"> 0.89 </td>
-   <td style="text-align:right;"> 0.99 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.89 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.85 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+label                    process_b      a     ae    aeh   aehplus   full
+---------------------  -----------  -----  -----  -----  --------  -----
+Covariance of Levels         block      .   0.05   0.04      0.23   0.26
+Covariance of Levels           bnt      .      .      .      0.09      .
+Covariance of Levels    categories      .      .      .      0.27      .
+Covariance of Levels     digit_tot   0.91   0.97   0.50      0.26      .
+Covariance of Levels           fas      .      .      .      0.78      .
+Covariance of Levels     logic_tot      .      .      .      0.14      .
+Covariance of Levels          mmse      .      .      .      0.08      .
+Covariance of Levels        symbol   0.00   0.00   0.04      0.07   0.08
+Covariance of Levels       trailsb   0.01   0.01   0.13      0.25   0.27
+Covariance of Levels     waisvocab      .      .      .      0.82      .
+Covariance of Levels       word_im      .      .      .      0.30      .
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.97 </td>
-   <td style="text-align:right;"> 0.90 </td>
-   <td style="text-align:right;"> 0.82 </td>
-   <td style="text-align:right;"> 0.98 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.82 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.49 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> 0.86 </td>
-   <td style="text-align:right;"> 0.88 </td>
-   <td style="text-align:right;"> 0.50 </td>
-   <td style="text-align:right;"> 0.55 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.96 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.29 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.98 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.90 </td>
-   <td style="text-align:right;"> 0.91 </td>
-   <td style="text-align:right;"> 0.93 </td>
-   <td style="text-align:right;"> 0.90 </td>
-   <td style="text-align:right;"> 0.93 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> 0.91 </td>
-   <td style="text-align:right;"> 0.93 </td>
-   <td style="text-align:right;"> 0.72 </td>
-   <td style="text-align:right;"> 0.76 </td>
-   <td style="text-align:right;"> 0.74 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.88 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.64 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                    process_b      a     ae    aeh   aehplus   full
+---------------------  -----------  -----  -----  -----  --------  -----
+Covariance of Slopes         block      .   0.00   0.85      0.91   0.84
+Covariance of Slopes           bnt      .      .      .      0.69      .
+Covariance of Slopes    categories      .      .      .      0.76      .
+Covariance of Slopes     digit_tot   0.25   0.30   0.40      0.50      .
+Covariance of Slopes           fas      .      .      .      0.48      .
+Covariance of Slopes     logic_tot      .      .      .      0.83      .
+Covariance of Slopes          mmse      .      .      .      0.82      .
+Covariance of Slopes        symbol   0.00   0.00   0.42      0.49   0.60
+Covariance of Slopes       trailsb   0.46   0.49   0.87      0.89   0.99
+Covariance of Slopes     waisvocab      .      .      .      0.89      .
+Covariance of Slopes       word_im      .      .      .      0.85      .
+
+
+
+
+label                        process_b      a     ae    aeh   aehplus   full
+-------------------------  -----------  -----  -----  -----  --------  -----
+Covariance of  Residuals         block      .   0.97   0.90      0.82   0.98
+Covariance of  Residuals           bnt      .      .      .      0.82      .
+Covariance of  Residuals    categories      .      .      .      0.49      .
+Covariance of  Residuals     digit_tot   0.86   0.88   0.50      0.55      .
+Covariance of  Residuals           fas      .      .      .      0.96      .
+Covariance of  Residuals     logic_tot      .      .      .      0.29      .
+Covariance of  Residuals          mmse      .      .      .      0.98      .
+Covariance of  Residuals        symbol   0.90   0.91   0.93      0.90   0.93
+Covariance of  Residuals       trailsb   0.91   0.93   0.72      0.76   0.74
+Covariance of  Residuals     waisvocab      .      .      .      0.88      .
+Covariance of  Residuals       word_im      .      .      .      0.64      .
+
 
 
 # male 
 
  Gender = _male_; Model type: _aehplus_;  Process (a) = _pef_; Process (b): *block*, *bnt*, *categories*, *digit_tot*, *fas*, *logic_tot*, *mmse*, *symbol*, *trailsb*, *waisvocab*, *word_im*
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
 
 
  process   label                                            block                          bnt                   categories                    digit_tot                          fas           logic_tot            mmse                                              symbol                    waisvocab                      word_im           mean(sd)
@@ -2192,9 +943,9 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
    ab      Covar (Levels)                -113.69 (321.74)     .72       -15.17 (69.84)     .83     -152.56 (325.26)     .64      -87.85 (126.88)     .49      -84.00 (457.25)     .85    -120.30 (194.44)     .54    3.42 (39.86)     .93               6.90 (344.49)     .98       83.95 (266.36)     .75     -104.53 (135.95)     .44                ---
    ab      Covar (Slopes)                    0.31 (15.23)     .98         -0.34 (3.37)     .92        -1.41 (14.54)     .92         -3.94 (6.14)     .52        -6.28 (19.83)     .75      5.46 (7.82)     .48       1.42 (2.61)     .59                 1.26 (13.53)     .93         8.26 (15.29)     .59          0.97 (8.38)     .91                ---
    ab      Covar (Residuals)                 6.46 (46.91)     .89         6.53 (19.29)     .73        14.05 (48.44)     .77        17.02 (16.32)     .30        -1.30 (74.41)     .99     17.12 (36.61)     .64      6.43 (8.88)     .47               -23.96 (53.19)     .65       -12.48 (71.63)     .86        -7.70 (41.14)     .85                ---
-   er      Corr (Levels)                                      ---                          ---                          ---                          ---                          ---              ---               ---                                                  ---                          ---                          ---                ---
-   er      Corr (Slopes)                                      ---                          ---                          ---                          ---                          ---              ---               ---                                                  ---                          ---                          ---                ---
-   er      Corr (Residuals)                                   ---                          ---                          ---                          ---                          ---              ---               ---                                                  ---                          ---                          ---                ---
+   er      Corr (Levels)                     -0.15 (0.44)     .72         -0.10 (0.46)     .83         -0.17 (0.35)     .63         -0.24 (0.34)     .47         -0.07 (0.40)     .85      -0.20 (0.34)     .56      0.05 (0.62)     .93                  0.01 (0.36)     .98          0.11 (0.35)     .75         -0.31 (0.41)     .45                ---
+   er      Corr (Slopes)                      0.12 (6.25)     .98         -0.16 (1.57)     .92         -0.11 (1.11)     .92         -0.86 (1.16)     .46         -0.66 (1.85)     .72      0.67 (1.07)     .53       0.90 (1.11)     .42                  0.08 (0.85)     .92          0.91 (2.13)     .67          0.25 (2.40)     .92                ---
+   er      Corr (Residuals)                   0.02 (0.16)     .89          0.09 (0.26)     .74          0.05 (0.18)     .77          0.18 (0.17)     .29         -0.00 (0.25)     .99      0.08 (0.17)     .64       0.13 (0.19)     .47                 -0.08 (0.18)     .66         -0.03 (0.19)     .86         -0.04 (0.21)     .85                ---
     a      Level                           460.36 (99.06)    <.01      451.32 (104.56)    <.01      450.57 (123.22)    <.01      460.92 (105.03)    <.01      448.83 (103.35)    <.01     456.86 (98.09)    <.01     452.80 (113.83)    <.01           457.18 (97.64)    <.01       446.64 (99.26)    <.01       449.55 (84.58)    <.01       453.50(5.00)
     a      Slope                           -36.40 (27.45)     .18       -31.11 (27.68)     .26       -31.45 (30.40)     .30       -39.42 (29.44)     .18       -30.09 (32.83)     .36     -34.53 (35.23)     .33     -33.81 (30.08)     .26            -34.05 (26.54)     .20       -28.48 (39.16)     .47       -30.32 (29.44)     .30       -32.97(3.32)
     a      Level * age                       -6.37 (6.29)     .31         -5.23 (5.34)     .33         -5.69 (6.36)     .37         -5.18 (6.57)     .43         -5.25 (6.02)     .38      -5.34 (6.24)     .39      -5.17 (6.51)     .43                -5.51 (5.67)     .33         -5.14 (7.89)     .52         -5.07 (5.39)     .35        -5.40(0.39)
@@ -2245,66 +996,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _male_;  Process (a) = *pef*; Process (b) = _block_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                               ae                          aeh                      aehplus
 ---------  -------------------------  ---------------------------  ---------------------------  ---------------------------
    ab      Covar (Levels)                -122.43 (137.12)     .37      -89.80 (125.58)     .47     -113.69 (321.74)     .72
    ab      Covar (Slopes)                    -0.17 (3.37)     .96        -0.13 (18.94)     .99         0.31 (15.23)     .98
    ab      Covar (Residuals)                 7.05 (22.67)     .76        28.00 (36.76)     .45         6.46 (46.91)     .89
-   er      Corr (Levels)                                      ---                          ---                          ---
-   er      Corr (Slopes)                                      ---                          ---                          ---
-   er      Corr (Residuals)                                   ---                          ---                          ---
+   er      Corr (Levels)                                      ---                          ---         -0.15 (0.44)     .72
+   er      Corr (Slopes)                                      ---                          ---          0.12 (6.25)     .98
+   er      Corr (Residuals)                                   ---                          ---          0.02 (0.16)     .89
     a      Level                           468.26 (40.46)    <.01       412.91 (49.38)    <.01       460.36 (99.06)    <.01
     a      Slope                            -18.94 (8.62)     .03       -29.25 (10.46)    <.01       -36.40 (27.45)     .18
     a      Level * age                       -4.66 (2.91)     .11         -5.16 (3.10)     .10         -6.37 (6.29)     .31
@@ -2355,66 +1055,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _male_;  Process (a) = *pef*; Process (b) = _bnt_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                          aehplus
 ---------  -------------------------  ---------------------------
    ab      Covar (Levels)                  -15.17 (69.84)     .83
    ab      Covar (Slopes)                    -0.34 (3.37)     .92
    ab      Covar (Residuals)                 6.53 (19.29)     .73
-   er      Corr (Levels)                                      ---
-   er      Corr (Slopes)                                      ---
-   er      Corr (Residuals)                                   ---
+   er      Corr (Levels)                     -0.10 (0.46)     .83
+   er      Corr (Slopes)                     -0.16 (1.57)     .92
+   er      Corr (Residuals)                   0.09 (0.26)     .74
     a      Level                          451.32 (104.56)    <.01
     a      Slope                           -31.11 (27.68)     .26
     a      Level * age                       -5.23 (5.34)     .33
@@ -2465,66 +1114,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _male_;  Process (a) = *pef*; Process (b) = _categories_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                          aehplus
 ---------  -------------------------  ---------------------------
    ab      Covar (Levels)                -152.56 (325.26)     .64
    ab      Covar (Slopes)                   -1.41 (14.54)     .92
    ab      Covar (Residuals)                14.05 (48.44)     .77
-   er      Corr (Levels)                                      ---
-   er      Corr (Slopes)                                      ---
-   er      Corr (Residuals)                                   ---
+   er      Corr (Levels)                     -0.17 (0.35)     .63
+   er      Corr (Slopes)                     -0.11 (1.11)     .92
+   er      Corr (Residuals)                   0.05 (0.18)     .77
     a      Level                          450.57 (123.22)    <.01
     a      Slope                           -31.45 (30.40)     .30
     a      Level * age                       -5.69 (6.36)     .37
@@ -2575,66 +1173,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _male_;  Process (a) = *pef*; Process (b) = _digit_tot_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                                a                           ae                          aeh                      aehplus                         full
 ---------  -------------------------  ---------------------------  ---------------------------  ---------------------------  ---------------------------  ---------------------------
    ab      Covar (Levels)                  -70.53 (80.52)     .38       -79.11 (82.09)     .34     -103.44 (109.85)     .35      -87.85 (126.88)     .49      -81.43 (142.00)     .57
    ab      Covar (Slopes)                    -1.66 (2.07)     .42         -1.73 (2.25)     .44         -5.04 (4.14)     .22         -3.94 (6.14)     .52         -4.07 (5.22)     .43
    ab      Covar (Residuals)                 16.61 (8.93)     .06         16.90 (9.43)     .07        21.52 (14.71)     .14        17.02 (16.32)     .30        20.51 (20.13)     .31
-   er      Corr (Levels)                                      ---                          ---                          ---                          ---                          ---
-   er      Corr (Slopes)                                      ---                          ---                          ---                          ---                          ---
-   er      Corr (Residuals)                                   ---                          ---                          ---                          ---                          ---
+   er      Corr (Levels)                                      ---                          ---                          ---         -0.24 (0.34)     .47                          ---
+   er      Corr (Slopes)                                      ---                          ---                          ---         -0.86 (1.16)     .46                          ---
+   er      Corr (Residuals)                                   ---                          ---                          ---          0.18 (0.17)     .29                          ---
     a      Level                           454.79 (29.61)    <.01       436.64 (46.16)    <.01       412.12 (66.58)    <.01      460.92 (105.03)    <.01      477.18 (153.24)    <.01
     a      Slope                            -15.22 (9.10)     .10       -12.33 (13.96)     .38       -31.06 (27.15)     .25       -39.42 (29.44)     .18       -37.62 (40.31)     .35
     a      Level * age                       -3.64 (3.32)     .27         -3.64 (3.30)     .27         -4.29 (5.78)     .46         -5.18 (6.57)     .43         -5.20 (7.38)     .48
@@ -2685,66 +1232,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _male_;  Process (a) = *pef*; Process (b) = _fas_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                          aehplus
 ---------  -------------------------  ---------------------------
    ab      Covar (Levels)                 -84.00 (457.25)     .85
    ab      Covar (Slopes)                   -6.28 (19.83)     .75
    ab      Covar (Residuals)                -1.30 (74.41)     .99
-   er      Corr (Levels)                                      ---
-   er      Corr (Slopes)                                      ---
-   er      Corr (Residuals)                                   ---
+   er      Corr (Levels)                     -0.07 (0.40)     .85
+   er      Corr (Slopes)                     -0.66 (1.85)     .72
+   er      Corr (Residuals)                  -0.00 (0.25)     .99
     a      Level                          448.83 (103.35)    <.01
     a      Slope                           -30.09 (32.83)     .36
     a      Level * age                       -5.25 (6.02)     .38
@@ -2795,66 +1291,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _male_;  Process (a) = *pef*; Process (b) = _logic_tot_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                          aehplus
 ---------  -------------------------  ---------------------------
    ab      Covar (Levels)                -120.30 (194.44)     .54
    ab      Covar (Slopes)                     5.46 (7.82)     .48
    ab      Covar (Residuals)                17.12 (36.61)     .64
-   er      Corr (Levels)                                      ---
-   er      Corr (Slopes)                                      ---
-   er      Corr (Residuals)                                   ---
+   er      Corr (Levels)                     -0.20 (0.34)     .56
+   er      Corr (Slopes)                      0.67 (1.07)     .53
+   er      Corr (Residuals)                   0.08 (0.17)     .64
     a      Level                           456.86 (98.09)    <.01
     a      Slope                           -34.53 (35.23)     .33
     a      Level * age                       -5.34 (6.24)     .39
@@ -2905,66 +1350,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _male_;  Process (a) = *pef*; Process (b) = _mmse_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                          aehplus
 ---------  -------------------------  ---------------------------
    ab      Covar (Levels)                    3.42 (39.86)     .93
    ab      Covar (Slopes)                     1.42 (2.61)     .59
    ab      Covar (Residuals)                  6.43 (8.88)     .47
-   er      Corr (Levels)                                      ---
-   er      Corr (Slopes)                                      ---
-   er      Corr (Residuals)                                   ---
+   er      Corr (Levels)                      0.05 (0.62)     .93
+   er      Corr (Slopes)                      0.90 (1.11)     .42
+   er      Corr (Residuals)                   0.13 (0.19)     .47
     a      Level                          452.80 (113.83)    <.01
     a      Slope                           -33.81 (30.08)     .26
     a      Level * age                       -5.17 (6.51)     .43
@@ -3015,66 +1409,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _male_;  Process (a) = *pef*; Process (b) = _symbol_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                                a                           ae                          aeh                      aehplus                         full
 ---------  -------------------------  ---------------------------  ---------------------------  ---------------------------  ---------------------------  ---------------------------
    ab      Covar (Levels)                 202.38 (275.03)     .46      254.31 (324.72)     .43       22.35 (219.05)     .92        6.90 (344.49)     .98      -11.37 (340.76)     .97
    ab      Covar (Slopes)                     2.17 (6.18)     .72        11.27 (11.71)     .34        -5.65 (15.36)     .71         1.26 (13.53)     .93        -4.70 (22.26)     .83
    ab      Covar (Residuals)                14.26 (33.02)     .67         5.07 (40.65)     .90        17.96 (55.65)     .75       -23.96 (53.19)     .65        16.72 (82.66)     .84
-   er      Corr (Levels)                                      ---                          ---                          ---                          ---                          ---
-   er      Corr (Slopes)                                      ---                          ---                          ---                          ---                          ---
-   er      Corr (Residuals)                                   ---                          ---                          ---                          ---                          ---
+   er      Corr (Levels)                                      ---                          ---                          ---          0.01 (0.36)     .98                          ---
+   er      Corr (Slopes)                                      ---                          ---                          ---          0.08 (0.85)     .92                          ---
+   er      Corr (Residuals)                                   ---                          ---                          ---         -0.08 (0.18)     .66                          ---
     a      Level                           449.90 (33.34)    <.01       439.83 (55.76)    <.01       407.42 (64.29)    <.01       457.18 (97.64)    <.01      464.53 (143.13)    <.01
     a      Slope                            -14.85 (9.59)     .12       -12.82 (18.01)     .48       -26.04 (33.48)     .44       -34.05 (26.54)     .20       -26.95 (47.63)     .57
     a      Level * age                       -4.76 (3.32)     .15         -4.45 (3.68)     .23         -4.66 (4.87)     .34         -5.51 (5.67)     .33         -5.39 (5.87)     .36
@@ -3127,9 +1470,7 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
 ```
 Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
 
-```
 Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
 
 Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
@@ -3235,66 +1576,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _male_;  Process (a) = *pef*; Process (b) = _waisvocab_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                          aehplus
 ---------  -------------------------  ---------------------------
    ab      Covar (Levels)                  83.95 (266.36)     .75
    ab      Covar (Slopes)                    8.26 (15.29)     .59
    ab      Covar (Residuals)               -12.48 (71.63)     .86
-   er      Corr (Levels)                                      ---
-   er      Corr (Slopes)                                      ---
-   er      Corr (Residuals)                                   ---
+   er      Corr (Levels)                      0.11 (0.35)     .75
+   er      Corr (Slopes)                      0.91 (2.13)     .67
+   er      Corr (Residuals)                  -0.03 (0.19)     .86
     a      Level                           446.64 (99.26)    <.01
     a      Slope                           -28.48 (39.16)     .47
     a      Level * age                       -5.14 (7.89)     .52
@@ -3345,66 +1635,15 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Gender = _male_;  Process (a) = *pef*; Process (b) = _word_im_
 
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
-```
-
-```
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-
-Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
-```
-
-
 
  process   label                                          aehplus
 ---------  -------------------------  ---------------------------
    ab      Covar (Levels)                -104.53 (135.95)     .44
    ab      Covar (Slopes)                     0.97 (8.38)     .91
    ab      Covar (Residuals)                -7.70 (41.14)     .85
-   er      Corr (Levels)                                      ---
-   er      Corr (Slopes)                                      ---
-   er      Corr (Residuals)                                   ---
+   er      Corr (Levels)                     -0.31 (0.41)     .45
+   er      Corr (Slopes)                      0.25 (2.40)     .92
+   er      Corr (Residuals)                  -0.04 (0.21)     .85
     a      Level                           449.55 (84.58)    <.01
     a      Slope                           -30.32 (29.44)     .30
     a      Level * age                       -5.07 (5.39)     .35
@@ -3457,698 +1696,109 @@ Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
  Computed correlations:
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.13 </td>
-   <td style="text-align:right;"> -0.12 </td>
-   <td style="text-align:right;"> -0.15 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.10 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.17 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> -0.18 </td>
-   <td style="text-align:right;"> -0.20 </td>
-   <td style="text-align:right;"> -0.28 </td>
-   <td style="text-align:right;"> -0.24 </td>
-   <td style="text-align:right;"> -0.23 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.08 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.20 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.05 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.14 </td>
-   <td style="text-align:right;"> 0.20 </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> -0.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.00 </td>
-   <td style="text-align:right;"> 0.21 </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.27 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.11 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Levels </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.31 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.03 </td>
-   <td style="text-align:right;"> -0.05 </td>
-   <td style="text-align:right;"> 0.13 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.15 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.11 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> -0.67 </td>
-   <td style="text-align:right;"> -0.66 </td>
-   <td style="text-align:right;"> -0.81 </td>
-   <td style="text-align:right;"> -0.86 </td>
-   <td style="text-align:right;"> -0.94 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.66 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.67 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.91 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.12 </td>
-   <td style="text-align:right;"> 0.54 </td>
-   <td style="text-align:right;"> -0.33 </td>
-   <td style="text-align:right;"> 0.08 </td>
-   <td style="text-align:right;"> -0.29 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.25 </td>
-   <td style="text-align:right;"> 0.13 </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.36 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.91 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Slopes </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.25 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+label                     process_b       a      ae     aeh   aehplus    full
+----------------------  -----------  ------  ------  ------  --------  ------
+Correlation of Levels         block       .   -0.13   -0.12     -0.15       .
+Correlation of Levels           bnt       .       .       .     -0.10       .
+Correlation of Levels    categories       .       .       .     -0.17       .
+Correlation of Levels     digit_tot   -0.18   -0.20   -0.28     -0.24   -0.23
+Correlation of Levels           fas       .       .       .     -0.08       .
+Correlation of Levels     logic_tot       .       .       .     -0.20       .
+Correlation of Levels          mmse       .       .       .      0.05       .
+Correlation of Levels        symbol    0.14    0.20    0.02      0.01   -0.01
+Correlation of Levels       trailsb       .   -0.00    0.21         .    0.27
+Correlation of Levels     waisvocab       .       .       .      0.11       .
+Correlation of Levels       word_im       .       .       .     -0.31       .
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> 0.09 </td>
-   <td style="text-align:right;"> 0.02 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.09 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.05 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> 0.14 </td>
-   <td style="text-align:right;"> 0.14 </td>
-   <td style="text-align:right;"> 0.21 </td>
-   <td style="text-align:right;"> 0.18 </td>
-   <td style="text-align:right;"> 0.20 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.00 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.08 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.13 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.04 </td>
-   <td style="text-align:right;"> 0.01 </td>
-   <td style="text-align:right;"> 0.05 </td>
-   <td style="text-align:right;"> -0.08 </td>
-   <td style="text-align:right;"> 0.05 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:right;"> -0.10 </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.11 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.03 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation of Residuals </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> -0.04 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                     process_b       a      ae     aeh   aehplus    full
+----------------------  -----------  ------  ------  ------  --------  ------
+Correlation of Slopes         block       .   -0.03   -0.05      0.13       .
+Correlation of Slopes           bnt       .       .       .     -0.15       .
+Correlation of Slopes    categories       .       .       .     -0.11       .
+Correlation of Slopes     digit_tot   -0.67   -0.66   -0.81     -0.86   -0.94
+Correlation of Slopes           fas       .       .       .     -0.66       .
+Correlation of Slopes     logic_tot       .       .       .      0.67       .
+Correlation of Slopes          mmse       .       .       .      0.91       .
+Correlation of Slopes        symbol    0.12    0.54   -0.33      0.08   -0.29
+Correlation of Slopes       trailsb       .    0.25    0.13         .    0.36
+Correlation of Slopes     waisvocab       .       .       .      0.91       .
+Correlation of Slopes       word_im       .       .       .      0.25       .
+
+
+
+
+label                        process_b      a     ae     aeh   aehplus    full
+-------------------------  -----------  -----  -----  ------  --------  ------
+Correlation of Residuals         block      .   0.02    0.09      0.02       .
+Correlation of Residuals           bnt      .      .       .      0.09       .
+Correlation of Residuals    categories      .      .       .      0.05       .
+Correlation of Residuals     digit_tot   0.14   0.14    0.21      0.18    0.20
+Correlation of Residuals           fas      .      .       .     -0.00       .
+Correlation of Residuals     logic_tot      .      .       .      0.08       .
+Correlation of Residuals          mmse      .      .       .      0.13       .
+Correlation of Residuals        symbol   0.04   0.01    0.05     -0.08    0.05
+Correlation of Residuals       trailsb      .   0.00   -0.10         .   -0.11
+Correlation of Residuals     waisvocab      .      .       .     -0.03       .
+Correlation of Residuals       word_im      .      .       .     -0.04       .
+
 
 
 P-values for corresponding covariances: 
 
- <table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.37 </td>
-   <td style="text-align:right;"> 0.47 </td>
-   <td style="text-align:right;"> 0.72 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.83 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.64 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> 0.38 </td>
-   <td style="text-align:right;"> 0.34 </td>
-   <td style="text-align:right;"> 0.35 </td>
-   <td style="text-align:right;"> 0.49 </td>
-   <td style="text-align:right;"> 0.57 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.85 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.54 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.93 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.46 </td>
-   <td style="text-align:right;"> 0.43 </td>
-   <td style="text-align:right;"> 0.92 </td>
-   <td style="text-align:right;"> 0.98 </td>
-   <td style="text-align:right;"> 0.97 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.99 </td>
-   <td style="text-align:right;"> 0.46 </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.62 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.75 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Levels </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.44 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+ 
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.96 </td>
-   <td style="text-align:right;"> 0.99 </td>
-   <td style="text-align:right;"> 0.98 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.92 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.92 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> 0.42 </td>
-   <td style="text-align:right;"> 0.44 </td>
-   <td style="text-align:right;"> 0.22 </td>
-   <td style="text-align:right;"> 0.52 </td>
-   <td style="text-align:right;"> 0.43 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.75 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.48 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.59 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.72 </td>
-   <td style="text-align:right;"> 0.34 </td>
-   <td style="text-align:right;"> 0.71 </td>
-   <td style="text-align:right;"> 0.93 </td>
-   <td style="text-align:right;"> 0.83 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.51 </td>
-   <td style="text-align:right;"> 0.86 </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.90 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.59 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of Slopes </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.91 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+label                    process_b      a     ae    aeh   aehplus   full
+---------------------  -----------  -----  -----  -----  --------  -----
+Covariance of Levels         block      .   0.37   0.47      0.72      .
+Covariance of Levels           bnt      .      .      .      0.83      .
+Covariance of Levels    categories      .      .      .      0.64      .
+Covariance of Levels     digit_tot   0.38   0.34   0.35      0.49   0.57
+Covariance of Levels           fas      .      .      .      0.85      .
+Covariance of Levels     logic_tot      .      .      .      0.54      .
+Covariance of Levels          mmse      .      .      .      0.93      .
+Covariance of Levels        symbol   0.46   0.43   0.92      0.98   0.97
+Covariance of Levels       trailsb      .   0.99   0.46         .   0.62
+Covariance of Levels     waisvocab      .      .      .      0.75      .
+Covariance of Levels       word_im      .      .      .      0.44      .
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> label </th>
-   <th style="text-align:right;"> process_b </th>
-   <th style="text-align:right;"> a </th>
-   <th style="text-align:right;"> ae </th>
-   <th style="text-align:right;"> aeh </th>
-   <th style="text-align:right;"> aehplus </th>
-   <th style="text-align:right;"> full </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> block </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.76 </td>
-   <td style="text-align:right;"> 0.45 </td>
-   <td style="text-align:right;"> 0.89 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> bnt </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.73 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> categories </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.77 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> digit_tot </td>
-   <td style="text-align:right;"> 0.06 </td>
-   <td style="text-align:right;"> 0.07 </td>
-   <td style="text-align:right;"> 0.14 </td>
-   <td style="text-align:right;"> 0.30 </td>
-   <td style="text-align:right;"> 0.31 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> fas </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.99 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> logic_tot </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.64 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> mmse </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.47 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> symbol </td>
-   <td style="text-align:right;"> 0.67 </td>
-   <td style="text-align:right;"> 0.90 </td>
-   <td style="text-align:right;"> 0.75 </td>
-   <td style="text-align:right;"> 0.65 </td>
-   <td style="text-align:right;"> 0.84 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> trailsb </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.99 </td>
-   <td style="text-align:right;"> 0.67 </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.78 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> waisvocab </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.86 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Covariance of  Residuals </td>
-   <td style="text-align:right;"> word_im </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> 0.85 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-</tbody>
-</table>
+
+
+
+label                    process_b      a     ae    aeh   aehplus   full
+---------------------  -----------  -----  -----  -----  --------  -----
+Covariance of Slopes         block      .   0.96   0.99      0.98      .
+Covariance of Slopes           bnt      .      .      .      0.92      .
+Covariance of Slopes    categories      .      .      .      0.92      .
+Covariance of Slopes     digit_tot   0.42   0.44   0.22      0.52   0.43
+Covariance of Slopes           fas      .      .      .      0.75      .
+Covariance of Slopes     logic_tot      .      .      .      0.48      .
+Covariance of Slopes          mmse      .      .      .      0.59      .
+Covariance of Slopes        symbol   0.72   0.34   0.71      0.93   0.83
+Covariance of Slopes       trailsb      .   0.51   0.86         .   0.90
+Covariance of Slopes     waisvocab      .      .      .      0.59      .
+Covariance of Slopes       word_im      .      .      .      0.91      .
+
+
+
+
+label                        process_b      a     ae    aeh   aehplus   full
+-------------------------  -----------  -----  -----  -----  --------  -----
+Covariance of  Residuals         block      .   0.76   0.45      0.89      .
+Covariance of  Residuals           bnt      .      .      .      0.73      .
+Covariance of  Residuals    categories      .      .      .      0.77      .
+Covariance of  Residuals     digit_tot   0.06   0.07   0.14      0.30   0.31
+Covariance of  Residuals           fas      .      .      .      0.99      .
+Covariance of  Residuals     logic_tot      .      .      .      0.64      .
+Covariance of  Residuals          mmse      .      .      .      0.47      .
+Covariance of  Residuals        symbol   0.67   0.90   0.75      0.65   0.84
+Covariance of  Residuals       trailsb      .   0.99   0.67         .   0.78
+Covariance of  Residuals     waisvocab      .      .      .      0.86      .
+Covariance of  Residuals       word_im      .      .      .      0.85      .
 
 
 ```
