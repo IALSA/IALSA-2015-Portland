@@ -1,0 +1,689 @@
+Mplus VERSION 7.31
+MUTHEN & MUTHEN
+12/01/2016   1:25 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: bivariate linear,age education,immediate recall,speed,prose, digit symbol
+
+
+  DATA:  File = octo_cambridge.dat;
+
+
+  VARIABLE: Names are
+     Case PairID TwinID Zygosity Female
+     Educyrs EducCat SESgrp Resgrp Smoke
+      SESChild SESChOth HlthLif CogPrev LonelyE Dead
+      DeadAge YTDead TotDem DemEver DemType DemAge YTDem
+      time1 time2 time3 time4 time5 dedtime1 dedtime2
+      dedtime3 dedtime4 dedtime5 tvdead1 tvdead2 tvdead3
+      tvdead4 tvdead5 demtime1 demtime2 demtime3
+      demtime4 demtime5 tvdem1 tvdem2 tvdem3 tvdem4 tvdem5
+      CompAge1 CompAge2 CompAge3 CompAge4 CompAge5
+      Marital1 Marital2 Marital3 Marital4 Marital5 weight1
+      weight2 weight3 weight4 weight5 height1 height2
+      height3 height4 height5 bmi1 bmi2 bmi3 bmi4 bmi5
+      SRhlth1 SRhlth2 SRhlth3 SRhlth4 SRhlth5 living1
+      living2 living3 living4 living5 SR2hlth1 SR2hlth2
+      SR2hlth3 SR2hlth4 SR2hlth5 SROhlth1 SROhlth2
+      SROhlth3 SROhlth4 SROhlth5 HlthPrv1 HlthPrv2 HlthPrv3
+      HlthPrv4 HlthPrv5 HlthTra1 HlthTra2 HlthTra3
+      HlthTra4 HlthTra5 CogPres1 CogPres2 CogPres3 CogPres4
+      CogPres5 AGames1 AGames2 AGames3 AGames4 AGames5
+       ACross1 ACross2 ACross3 ACross4 ACross5 ALiter1
+      ALiter2 ALiter3 ALiter4 ALiter5 AWrite1 AWrite2
+      AWrite3 AWrite4 AWrite5 AStudy1 AStudy2 AStudy3
+      AStudy4 AStudy5 AOther1 AOther2 AOther3 AOther4
+      AOther5 LonelyP1 LonelyP2 LonelyP3 LonelyP4
+      LonelyP5 FrTalk1 FrTalk2 FrTalk3 FrTalk4 FrTalk5
+      FrPart1 FrPart2 FrPart3 FrPart4 FrPart5 LackCo1
+      LackCo2 LackCo3 LackCo4 LackCo5 Abandon1 Abandon2
+      Abandon3 Abandon4 Abandon5 NumFr1 NumFr2 NumFr3
+      NumFr4 NumFr5 NumPref1 NumPref2 NumPref3 NumPref4
+      NumPref5 SeeChGr1 SeeChGr2 SeeChGr3 SeeChGr4
+      SeeChGr5 pek1 pek2 pek3 pek4 pek5 gripp1 gripp2
+      gripp3 gripp4 gripp5 chr5tim1 chr5tim2 chr5tim3
+      chr5tim4 chr5tim5 padl1 padl2 padl3 padl4 padl5
+      iadl1 iadl2 iadl3 iadl4 iadl5 digspf1 digspf2
+      digspf3 digspf4 digspf5 digspb1 digspb2 digspb3
+      digspb4 digspb5 prose1 prose2 prose3 prose4 prose5
+      block1 block2 block3 block4 block5 info1 info2
+      info3 info4 info5 synnum1 synnum2 synnum3 synnum4
+      synnum5 figure1 figure2 figure3 figure4 figure5
+       digsym1 digsym2 digsym3 digsym4 digsym5 psif1 psif2
+      psif3 psif4 psif5 mirnam1 mirnam2 mirnam3 mirnam4
+      mirnam5 mirrcl1 mirrcl2 mirrcl3 mirrcl4 mirrcl5
+      mirrcg1 mirrcg2 mirrcg3 mirrcg4 mirrcg5 mircor1
+      mircor2 mircor3 mircor4 mircor5 clock1 clock2
+      clock3 clock4 clock5 mmse1 mmse2 mmse3 mmse4 mmse5
+       mismmse1 mismmse2 mismmse3 mismmse4 mismmse5
+      filtmmse1 filtmmse2 filtmmse3 filtmmse4 filtmmse5
+      highBP1 highBP2 highBP3 highBP4 highBP5 sbp1 sbp2
+      sbp3 sbp4 sbp5 dbp1 dbp2 dbp3 dbp4 dbp5 diab1
+      diab2 diab3 diab4 diab5;
+
+
+         MISSING is all(99999);
+
+         USEVAR are female time1-time5 c1-c5 Bage educ cc1-cc5;
+
+         TSCORES = time1-time5;
+
+          CLUSTER = PairID;
+
+         SUBPOPULATION are demever==0;
+
+  Define:
+
+      c1=prose1; c2=prose2; c3=prose3; c4=prose4; c5=prose5;
+  	cc1=digsym1; cc2=digsym2;cc3=digsym3;cc4=digsym4;cc5=digsym5;
+         Bage=CompAge1-80;
+         Educ=Educyrs-7;
+
+  ANALYSIS: TYPE = RANDOM COMPLEX;
+
+  MODEL:  ic sc | c1-c5 AT time1-time5;
+          icc scc | cc1-cc5 AT time1-time5;
+
+          ic (v_ic);
+          sc (v_sc);
+          icc (v_icc);
+          scc (v_scc);
+          ic WITH sc (c_icsc);
+          ic WITH icc (c_icicc);
+          ic WITH scc (c_icscc);
+          sc WITH icc (c_scicc);
+          sc WITH scc (c_scscc);
+          icc WITH scc (c_iccscc);
+
+          ic sc icc scc ON Bage educ female;
+
+          cc1-cc5 (res_cc);
+          c1-c5(res_c);
+          c1 c2 c3 c4 c5 pwith cc1 cc2 cc3 cc4 cc5(res_cov);
+
+  MODEL CONSTRAINT:
+
+  !        NEW r_icsc;
+          NEW r_icicc;
+  !        NEW r_icscc;
+  !        NEW r_scicc;
+          NEW r_scscc;
+  !        NEW r_iccscc;
+
+          NEW r_res_ccc;
+
+  !        r_ipsp = c_ipsp/((v_ip**0.5)*(v_sp**0.5));
+          r_icicc = c_icicc/((v_ic**0.5)*(v_icc**0.5));
+  !        r_ipsc = c_ipsc/((v_ip**0.5)*(v_sc**0.5));
+  !        r_spic = c_spic/((v_sp**0.5)*(v_ic**0.5));
+          r_scscc = c_scscc/((v_sc**0.5)*(v_scc**0.5));
+  !        r_icsc = c_icsc/((v_ic**0.5)*(v_sc**0.5));
+
+          r_res_ccc = res_cov/((res_c**0.5)*(res_cc**0.5));
+
+  SAVEDATA:
+  FILE IS OCTOfSlopes_ae_prose_digitsymbol;
+  SAVE = FSCORES;
+  PLOT:
+   TYPE IS PLOT3;
+
+
+
+  OUTPUT: sampstat Cinterval;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  46
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  40
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+bivariate linear,age education,immediate recall,speed,prose, digit symbol
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         441
+
+Number of dependent variables                                   10
+Number of independent variables                                  3
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   C1          C2          C3          C4          C5          CC1
+   CC2         CC3         CC4         CC5
+
+Observed independent variables
+   FEMALE      BAGE        EDUC
+
+Continuous latent variables
+   IC          SC          ICC         SCC
+
+Variables with special functions
+
+  Cluster variable      PAIRID
+
+  Time scores
+   TIME1       TIME2       TIME3       TIME4       TIME5
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  octo_cambridge.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            99
+     Number of clusters         289
+
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ 1              9.849        10.125         9.740         9.711         9.141
+
+
+           Means
+              CC1           CC2           CC3           CC4           CC5
+              ________      ________      ________      ________      ________
+ 1             24.633        24.466        24.166        22.434        19.409
+
+
+           Means
+              FEMALE        BAGE          EDUC
+              ________      ________      ________
+ 1              0.653         3.262         0.338
+
+
+           Covariances
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1            16.097
+ C2             9.840        13.512
+ C3             9.884         9.688        14.104
+ C4             9.334         8.884         9.786        13.356
+ C5             7.069         6.124         8.466         8.242        12.664
+ CC1           24.086        17.943        19.766        20.068        15.731
+ CC2           22.343        18.998        20.546        23.032        20.589
+ CC3           20.880        18.840        21.686        22.633        19.103
+ CC4           21.002        17.124        21.375        24.698        20.044
+ CC5           20.733        18.222        21.396        20.735        22.234
+ FEMALE         0.154         0.205         0.283         0.060         0.139
+ BAGE          -2.473        -1.896        -1.305        -3.022         0.904
+ EDUC           3.067         2.197         2.747         2.169         1.506
+
+
+           Covariances
+              CC1           CC2           CC3           CC4           CC5
+              ________      ________      ________      ________      ________
+ CC1          121.493
+ CC2           91.874       111.633
+ CC3           89.166        92.629       114.576
+ CC4           83.304        89.414        88.549       118.415
+ CC5           72.346        77.206        78.508        89.226       115.458
+ FEMALE        -0.019         0.323         0.176         0.241         0.034
+ BAGE          -8.135        -6.512        -7.081        -9.302        -9.057
+ EDUC          10.742         9.695        10.658        10.123         8.625
+
+
+           Covariances
+              FEMALE        BAGE          EDUC
+              ________      ________      ________
+ FEMALE         0.227
+ BAGE           0.097         8.875
+ EDUC          -0.141        -0.546         6.287
+
+
+           Correlations
+              C1            C2            C3            C4            C5
+              ________      ________      ________      ________      ________
+ C1             1.000
+ C2             0.667         1.000
+ C3             0.656         0.702         1.000
+ C4             0.637         0.661         0.713         1.000
+ C5             0.495         0.468         0.633         0.634         1.000
+ CC1            0.545         0.443         0.477         0.498         0.401
+ CC2            0.527         0.489         0.518         0.596         0.548
+ CC3            0.486         0.479         0.539         0.579         0.502
+ CC4            0.481         0.428         0.523         0.621         0.518
+ CC5            0.481         0.461         0.530         0.528         0.581
+ FEMALE         0.081         0.117         0.159         0.035         0.082
+ BAGE          -0.207        -0.173        -0.117        -0.278         0.085
+ EDUC           0.305         0.238         0.292         0.237         0.169
+
+
+           Correlations
+              CC1           CC2           CC3           CC4           CC5
+              ________      ________      ________      ________      ________
+ CC1            1.000
+ CC2            0.789         1.000
+ CC3            0.756         0.819         1.000
+ CC4            0.695         0.778         0.760         1.000
+ CC5            0.611         0.680         0.683         0.763         1.000
+ FEMALE        -0.004         0.064         0.035         0.047         0.007
+ BAGE          -0.248        -0.207        -0.222        -0.287        -0.283
+ EDUC           0.389         0.366         0.397         0.371         0.320
+
+
+           Correlations
+              FEMALE        BAGE          EDUC
+              ________      ________      ________
+ FEMALE         1.000
+ BAGE           0.069         1.000
+ EDUC          -0.118        -0.073         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -9066.164
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     C1                    9.998      -0.611       0.000    1.72%       7.000     10.000     11.000
+             407.000      15.894      -0.399      16.000    4.91%      12.000     14.000
+     C2                   10.467      -0.855       0.000    0.99%       7.000     11.000     11.000
+             302.000      12.785       0.212      16.000    3.64%      12.000     13.000
+     C3                   10.477      -0.675       1.000    0.90%       7.000     10.000     11.000
+             222.000      12.970      -0.411      16.000    3.60%      12.000     14.000
+     C4                   10.911      -0.866       0.000    0.68%       8.000     11.000     12.000
+             146.000      11.547       0.202      16.000    4.11%      12.000     14.000
+     C5                   10.123      -1.011       1.000    3.77%       7.000     10.000     11.000
+             106.000      12.259       0.378      16.000    0.94%      12.000     13.000
+     CC1                  25.474       0.111       0.000    1.44%      16.000     22.000     25.000
+             348.000     115.014      -0.266      59.000    0.29%      29.000     35.000
+     CC2                  25.993       0.228       0.000    0.37%      17.000     22.000     25.000
+             271.000     106.539      -0.536      58.000    0.37%      29.000     35.000
+     CC3                  26.525       0.226       5.000    0.46%      16.000     22.000     26.000
+             217.000     113.272      -0.701      56.000    0.46%      29.000     37.000
+     CC4                  26.116       0.177       3.000    0.65%      17.000     21.000     25.000
+             155.000     113.690      -0.936      52.000    0.65%      29.000     37.000
+     CC5                  23.538       0.453       0.000    0.84%      16.000     19.000     21.000
+             119.000     107.475      -0.517      51.000    0.84%      23.000     34.000
+     FEMALE                0.653      -0.643       0.000   34.69%       0.000      1.000      1.000
+             441.000       0.227      -1.586       1.000   65.31%       1.000      1.000
+     BAGE                  3.262       1.409      -0.630    0.23%       0.866      1.711      2.321
+             441.000       8.875       2.476      17.918    0.23%       3.168      5.718
+     EDUC                  0.338       2.174      -7.000    0.23%      -1.000     -1.000      0.000
+             441.000       6.287       7.006      16.000    0.23%       0.000      1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       29
+
+Loglikelihood
+
+          H0 Value                       -6686.169
+          H0 Scaling Correction Factor      1.0737
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   13430.338
+          Bayesian (BIC)                 13548.920
+          Sample-Size Adjusted BIC       13456.888
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IC         ON
+    BAGE              -0.263      0.065     -4.023      0.000
+    EDUC               0.477      0.064      7.458      0.000
+    FEMALE             1.217      0.430      2.827      0.005
+
+ SC         ON
+    BAGE               0.026      0.014      1.895      0.058
+    EDUC              -0.024      0.013     -1.813      0.070
+    FEMALE            -0.024      0.066     -0.368      0.713
+
+ ICC        ON
+    BAGE              -0.805      0.211     -3.820      0.000
+    EDUC               1.630      0.210      7.749      0.000
+    FEMALE             1.847      1.112      1.661      0.097
+
+ SCC        ON
+    BAGE               0.007      0.036      0.187      0.852
+    EDUC              -0.005      0.035     -0.133      0.894
+    FEMALE             0.012      0.163      0.073      0.942
+
+ IC       WITH
+    SC                -0.307      0.127     -2.418      0.016
+    ICC               14.451      2.057      7.026      0.000
+    SCC               -0.301      0.316     -0.955      0.339
+
+ SC       WITH
+    ICC               -0.037      0.300     -0.123      0.902
+    SCC                0.091      0.045      2.018      0.044
+
+ ICC      WITH
+    SCC               -2.933      0.750     -3.911      0.000
+
+ C1       WITH
+    CC1                1.598      0.542      2.948      0.003
+
+ C2       WITH
+    CC2                1.598      0.542      2.948      0.003
+
+ C3       WITH
+    CC3                1.598      0.542      2.948      0.003
+
+ C4       WITH
+    CC4                1.598      0.542      2.948      0.003
+
+ C5       WITH
+    CC5                1.598      0.542      2.948      0.003
+
+ Intercepts
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    C4                 0.000      0.000    999.000    999.000
+    C5                 0.000      0.000    999.000    999.000
+    CC1                0.000      0.000    999.000    999.000
+    CC2                0.000      0.000    999.000    999.000
+    CC3                0.000      0.000    999.000    999.000
+    CC4                0.000      0.000    999.000    999.000
+    CC5                0.000      0.000    999.000    999.000
+    IC                 9.904      0.422     23.459      0.000
+    SC                -0.125      0.057     -2.179      0.029
+    ICC               25.966      1.076     24.124      0.000
+    SCC               -0.498      0.144     -3.458      0.001
+
+ Residual Variances
+    C1                 4.481      0.345     12.999      0.000
+    C2                 4.481      0.345     12.999      0.000
+    C3                 4.481      0.345     12.999      0.000
+    C4                 4.481      0.345     12.999      0.000
+    C5                 4.481      0.345     12.999      0.000
+    CC1               24.869      1.792     13.879      0.000
+    CC2               24.869      1.792     13.879      0.000
+    CC3               24.869      1.792     13.879      0.000
+    CC4               24.869      1.792     13.879      0.000
+    CC5               24.869      1.792     13.879      0.000
+    IC                 9.090      0.907     10.024      0.000
+    SC                 0.062      0.028      2.193      0.028
+    ICC               76.491      6.927     11.042      0.000
+    SCC                0.618      0.141      4.371      0.000
+
+New/Additional Parameters
+    R_ICICC            0.548      0.057      9.557      0.000
+    R_SCSCC            0.464      0.208      2.237      0.025
+    R_RES_CC           0.151      0.049      3.079      0.002
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.416E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IC       ON
+    BAGE            -0.431      -0.390      -0.370      -0.263      -0.155      -0.135      -0.094
+    EDUC             0.312       0.351       0.371       0.477       0.582       0.602       0.641
+    FEMALE           0.108       0.373       0.509       1.217       1.925       2.060       2.325
+
+ SC       ON
+    BAGE            -0.009      -0.001       0.003       0.026       0.049       0.053       0.061
+    EDUC            -0.058      -0.050      -0.046      -0.024      -0.002       0.002       0.010
+    FEMALE          -0.195      -0.154      -0.134      -0.024       0.085       0.106       0.146
+
+ ICC      ON
+    BAGE            -1.348      -1.218      -1.152      -0.805      -0.458      -0.392      -0.262
+    EDUC             1.089       1.218       1.284       1.630       1.977       2.043       2.172
+    FEMALE          -1.017      -0.332       0.018       1.847       3.676       4.027       4.711
+
+ SCC      ON
+    BAGE            -0.086      -0.064      -0.052       0.007       0.066       0.077       0.099
+    EDUC            -0.096      -0.074      -0.063      -0.005       0.053       0.065       0.086
+    FEMALE          -0.408      -0.308      -0.256       0.012       0.280       0.331       0.432
+
+ IC       WITH
+    SC              -0.634      -0.556      -0.516      -0.307      -0.098      -0.058       0.020
+    ICC              9.152      10.419      11.067      14.451      17.834      18.482      19.749
+    SCC             -1.114      -0.920      -0.821      -0.301       0.218       0.317       0.511
+
+ SC       WITH
+    ICC             -0.809      -0.624      -0.530      -0.037       0.456       0.551       0.735
+    SCC             -0.025       0.003       0.017       0.091       0.165       0.179       0.206
+
+ ICC      WITH
+    SCC             -4.865      -4.403      -4.167      -2.933      -1.700      -1.463      -1.002
+
+ C1       WITH
+    CC1              0.202       0.535       0.706       1.598       2.489       2.660       2.994
+
+ C2       WITH
+    CC2              0.202       0.535       0.706       1.598       2.489       2.660       2.994
+
+ C3       WITH
+    CC3              0.202       0.535       0.706       1.598       2.489       2.660       2.994
+
+ C4       WITH
+    CC4              0.202       0.535       0.706       1.598       2.489       2.660       2.994
+
+ C5       WITH
+    CC5              0.202       0.535       0.706       1.598       2.489       2.660       2.994
+
+ Intercepts
+    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C4               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C5               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    CC1              0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    CC2              0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    CC3              0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    CC4              0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    CC5              0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IC               8.817       9.077       9.210       9.904      10.599      10.732      10.992
+    SC              -0.272      -0.237      -0.219      -0.125      -0.031      -0.013       0.023
+    ICC             23.194      23.857      24.196      25.966      27.737      28.076      28.739
+    SCC             -0.868      -0.780      -0.734      -0.498      -0.261      -0.216      -0.127
+
+ Residual Variances
+    C1               3.593       3.806       3.914       4.481       5.049       5.157       5.369
+    C2               3.593       3.806       3.914       4.481       5.049       5.157       5.369
+    C3               3.593       3.806       3.914       4.481       5.049       5.157       5.369
+    C4               3.593       3.806       3.914       4.481       5.049       5.157       5.369
+    C5               3.593       3.806       3.914       4.481       5.049       5.157       5.369
+    CC1             20.253      21.357      21.921      24.869      27.816      28.380      29.484
+    CC2             20.253      21.357      21.921      24.869      27.816      28.380      29.484
+    CC3             20.253      21.357      21.921      24.869      27.816      28.380      29.484
+    CC4             20.253      21.357      21.921      24.869      27.816      28.380      29.484
+    CC5             20.253      21.357      21.921      24.869      27.816      28.380      29.484
+    IC               6.754       7.312       7.598       9.090      10.581      10.867      11.425
+    SC              -0.011       0.007       0.015       0.062       0.108       0.117       0.134
+    ICC             58.648      62.914      65.096      76.491      87.886      90.068      94.334
+    SCC              0.254       0.341       0.385       0.618       0.851       0.895       0.982
+
+New/Additional Parameters
+    R_ICICC          0.400       0.436       0.454       0.548       0.642       0.660       0.696
+    R_SCSCC         -0.070       0.057       0.123       0.464       0.806       0.871       0.999
+    R_RES_CC         0.025       0.055       0.070       0.151       0.232       0.248       0.278
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IC            IC_SE         SC            SC_SE         ICC
+              ________      ________      ________      ________      ________
+ 1              9.297         1.425         0.021         0.221        22.375
+
+
+           Means
+              ICC_SE        SCC           SCC_SE
+              ________      ________      ________
+ 1              5.124        -0.443         0.705
+
+
+           Covariances
+              IC            IC_SE         SC            SC_SE         ICC
+              ________      ________      ________      ________      ________
+ IC             7.859
+ IC_SE         -0.141         0.063
+ SC            -0.368         0.004         0.036
+ SC_SE         -0.021         0.002         0.001         0.000
+ ICC           19.182        -0.364        -0.916        -0.074        76.163
+ ICC_SE        -2.504         0.084         0.238         0.023        -8.757
+ SCC           -0.207         0.004         0.021         0.001        -1.361
+ SCC_SE        -0.105         0.007         0.008         0.001        -0.385
+
+
+           Covariances
+              ICC_SE        SCC           SCC_SE
+              ________      ________      ________
+ ICC_SE         4.091
+ SCC            0.083         0.114
+ SCC_SE         0.138         0.004         0.007
+
+
+           Correlations
+              IC            IC_SE         SC            SC_SE         ICC
+              ________      ________      ________      ________      ________
+ IC             1.000
+ IC_SE         -0.201         1.000
+ SC            -0.691         0.092         1.000
+ SC_SE         -0.441         0.574         0.435         1.000
+ ICC            0.784        -0.166        -0.553        -0.492         1.000
+ ICC_SE        -0.442         0.165         0.620         0.651        -0.496
+ SCC           -0.219         0.049         0.329         0.134        -0.462
+ SCC_SE        -0.439         0.334         0.465         0.903        -0.518
+
+
+           Correlations
+              ICC_SE        SCC           SCC_SE
+              ________      ________      ________
+ ICC_SE         1.000
+ SCC            0.122         1.000
+ SCC_SE         0.798         0.148         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores)
+  Scatterplots (sample values, estimated factor scores)
+  Latent variable distribution plots
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    OCTOfSlopes_ae_prose_digitsymbol
+
+  Order and format of variables
+
+    C1             F10.3
+    C2             F10.3
+    C3             F10.3
+    C4             F10.3
+    C5             F10.3
+    CC1            F10.3
+    CC2            F10.3
+    CC3            F10.3
+    CC4            F10.3
+    CC5            F10.3
+    FEMALE         F10.3
+    BAGE           F10.3
+    EDUC           F10.3
+    TIME1          F10.3
+    TIME2          F10.3
+    TIME3          F10.3
+    TIME4          F10.3
+    TIME5          F10.3
+    IC             F10.3
+    IC_SE          F10.3
+    SC             F10.3
+    SC_SE          F10.3
+    ICC            F10.3
+    ICC_SE         F10.3
+    SCC            F10.3
+    SCC_SE         F10.3
+    PAIRID         I6
+
+  Save file format
+    26F10.3 I6
+
+  Save file record length    10000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\annie\dropbox\ialsa_cambridge\octo\prose and digit symbol\b1_ae_prose_digitsymbol.dgm
+
+     Beginning Time:  13:25:51
+        Ending Time:  13:26:05
+       Elapsed Time:  00:00:14
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen
