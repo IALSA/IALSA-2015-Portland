@@ -157,26 +157,26 @@ readr::write_csv(ds,"./data/shared/pc-2-parsed-results-computed_ci.csv")
 
 ##### DEV code beyond this point #############
 
-
-compute_r_se <- function( r , n_pairs ){
- r <- ifelse(
-   (is.na(r)) |  is.nan(r) | is.infinite(abs(r)) |abs(r)<.00001 | abs(r)>.99999,
-   NA_real_,
-   r
-   )
-
-   # ifelse(
-   #  (is.na(r)) |  is.nan(r) | is.infinite(abs(r)) |abs(r)<.00001 | abs(r)>.99999,
-   #  NA_real_, # TODO: examine this test
-    sqrt((1 - r^2)/(n_pairs-2))
-  # )
-}
-
-# table(round(ds$ab_CORR_11_se,1), useNA = "always")
-# table(round(ds$ab_CORR_11,1), useNA = "always")
-# table(round(ds$subject_count,1), useNA = "always")
-
-ds$ab_CORR_00_se <- compute_r_se(ds$ab_CORR_00, ds$subject_count)
-ds$ab_CORR_11_se <- compute_r_se(ds$ab_CORR_11, ds$subject_count)
-ds$ab_CORR_residual_se <- compute_r_se(ds$ab_CORR_residual, ds$subject_count)
+#
+# compute_r_se <- function( r , n_pairs ){
+#  r <- ifelse(
+#    (is.na(r)) |  is.nan(r) | is.infinite(abs(r)) |abs(r)<.00001 | abs(r)>.99999,
+#    NA_real_,
+#    r
+#    )
+#
+#    # ifelse(
+#    #  (is.na(r)) |  is.nan(r) | is.infinite(abs(r)) |abs(r)<.00001 | abs(r)>.99999,
+#    #  NA_real_, # TODO: examine this test
+#     sqrt((1 - r^2)/(n_pairs-2))
+#   # )
+# }
+#
+# # table(round(ds$ab_CORR_11_se,1), useNA = "always")
+# # table(round(ds$ab_CORR_11,1), useNA = "always")
+# # table(round(ds$subject_count,1), useNA = "always")
+#
+# ds$ab_CORR_00_se <- compute_r_se(ds$ab_CORR_00, ds$subject_count)
+# ds$ab_CORR_11_se <- compute_r_se(ds$ab_CORR_11, ds$subject_count)
+# ds$ab_CORR_residual_se <- compute_r_se(ds$ab_CORR_residual, ds$subject_count)
 
