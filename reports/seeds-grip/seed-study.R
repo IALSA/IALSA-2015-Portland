@@ -26,7 +26,7 @@ model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type l
 
 
 # ---- load-data ---------------------------------------------------------------
-catalog <- read.csv("./data/shared/pc-2-parsed-results-computed_ci.csv", header = T,  stringsAsFactors=FALSE)
+catalog <- read.csv("./data/shared/pc-2-catalog-augmented.csv", header = T,  stringsAsFactors=FALSE)
 catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds")
 # template for structuring tables for reporting individual models
 # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v7.csv")

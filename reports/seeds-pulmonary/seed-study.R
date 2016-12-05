@@ -18,15 +18,15 @@ requireNamespace("scales")
 
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
-print_format <- "pandoc"
-# print_format <- "html"
+# print_format <- "pandoc"
+print_format <- "html"
 model_type_standard <- "aehplus" # spread at outcome pair level
 # model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
 model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
 
 
 # ---- load-data ---------------------------------------------------------------
-catalog <- read.csv("./data/shared/pc-2-parsed-results-computed_ci.csv", header = T,  stringsAsFactors=FALSE)
+catalog <- read.csv("./data/shared/pc-2-catalog-augmented.csv", header = T,  stringsAsFactors=FALSE)
 catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds")
 # template for structuring tables for reporting individual models
 # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v7.csv")
@@ -48,7 +48,7 @@ catalog_spread %>% view_options(
 print_header <- function(
   catalog_spread
 ){
-    cat("\n# Available models \n")
+  cat("\n# Available models \n")
   print(cat("\n",paste0("Study **",toupper(study),"** have contributed the following outcome pairs to the IASLA-2015-Portland model pool:"),"\n"))
   cat("\n")
   print(
