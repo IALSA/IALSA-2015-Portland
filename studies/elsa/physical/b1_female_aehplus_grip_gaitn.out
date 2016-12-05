@@ -1,0 +1,870 @@
+Mplus VERSION 7.31
+MUTHEN & MUTHEN
+03/09/2016   6:12 PM
+
+INPUT INSTRUCTIONS
+
+
+  TITLE: b1 female aehplus grip gait
+
+  DATA:  File = b1_female_aehplus_grip_gait_newdata.dat;
+
+
+  VARIABLE: Names are P2 P4 P6 C2 C4
+      C6 BAGE2 EDUC2 HEI2 SMOKE1
+      DIAB1 CARDIO1 TIME2 TIME4 TIME6
+      IDAUNIQ t2miss t4miss t6miss nomatch;
+
+         MISSING is all (-99999);
+
+         USEVAR are P2 P4 P6 C2 C4
+      C6 BAGE2 EDUC2 HEI2 SMOKE1
+      DIAB1 CARDIO1 TIME2 TIME4 TIME6;
+
+       USEOBSERVATIONS are nomatch NE 0 AND t2miss==0;
+
+         TSCORES = time2 time4 time6;
+
+  Define:
+
+      Time2=time2-time2; !to make time2 as the intercept
+      time4=time4-time2;
+      time6=time6-time2;
+
+
+  ANALYSIS: TYPE = RANDOM;
+
+  MODEL:  ip sp | p2 p4 p6 AT time2 time4 time6;
+          ic sc | c2 c4 c6  AT time2 time4 time6;
+         ip (v_ip);
+          sp (v_sp);
+          ic (v_ic);
+          sc (v_sc);
+          ip WITH sp (c_ipsp);
+          ip WITH ic (c_ipic);
+          ip WITH sc (c_ipsc);
+          sp WITH ic (c_spic);
+          sp WITH sc (c_spsc);
+          ic WITH sc (c_icsc);
+
+         ip sp ic sc ON Bage2
+         educ2 hei2 smoke1 diab1 cardio1;
+
+
+         p2 p4 p6  (res_p);
+          c2 c4 c6  (res_c);
+          p2 p4 p6 pwith c2 c4 c6(res_cov); !Paired covariances constrained to be equal
+
+
+
+
+  MODEL CONSTRAINT:
+
+  !        NEW r_ipsp;
+          NEW r_ipic;
+  !        NEW r_ipsc;
+  !        NEW r_spic;
+          NEW r_spsc;
+  !        NEW r_icsc;
+
+          NEW r_res_pc;
+
+  !        r_ipsp = c_ipsp/((v_ip**0.5)*(v_sp**0.5));
+          r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
+  !        r_ipsc = c_ipsc/((v_ip**0.5)*(v_sc**0.5));
+  !        r_spic = c_spic/((v_sp**0.5)*(v_ic**0.5));
+          r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
+  !        r_icsc = c_icsc/((v_ic**0.5)*(v_sc**0.5));
+
+          r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+  SAVEDATA:
+  FILE IS ELSAfSlopes_female_aehplus_grip_gait;
+  SAVE = FSCORES;
+  PLOT:
+   TYPE IS PLOT3;
+
+
+
+  OUTPUT: sampstat Cinterval;
+
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+b1 female aehplus grip gait
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        2151
+
+Number of dependent variables                                    6
+Number of independent variables                                  6
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P2          P4          P6          C2          C4          C6
+
+Observed independent variables
+   BAGE2       EDUC2       HEI2        SMOKE1      DIAB1       CARDIO1
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME2       TIME4       TIME6
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  b1_female_aehplus_grip_gait_newdata.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            16
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2             1.000
+ P4             0.647         0.647
+ P6             0.507         0.453         0.507
+ C2             1.000         0.647         0.507         1.000
+ C4             0.675         0.599         0.466         0.675         0.675
+ C6             0.479         0.425         0.458         0.479         0.446
+ BAGE2          1.000         0.647         0.507         1.000         0.675
+ EDUC2          1.000         0.647         0.507         1.000         0.675
+ HEI2           1.000         0.647         0.507         1.000         0.675
+ SMOKE1         1.000         0.647         0.507         1.000         0.675
+ DIAB1          1.000         0.647         0.507         1.000         0.675
+ CARDIO1        1.000         0.647         0.507         1.000         0.675
+
+
+           Covariance Coverage
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ C6             0.479
+ BAGE2          0.479         1.000
+ EDUC2          0.479         1.000         1.000
+ HEI2           0.479         1.000         1.000         1.000
+ SMOKE1         0.479         1.000         1.000         1.000         1.000
+ DIAB1          0.479         1.000         1.000         1.000         1.000
+ CARDIO1        0.479         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          1.000
+ CARDIO1        1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ 1             20.016        18.275        17.039         0.826         0.754
+
+
+           Means
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ 1              0.694         0.649         0.455        -1.737         0.553
+
+
+           Means
+              DIAB1         CARDIO1
+              ________      ________
+ 1              0.055         0.111
+
+
+           Covariances
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2            32.885
+ P4            25.929        36.529
+ P6            24.272        27.329        33.594
+ C2             0.707         0.740         0.708         0.076
+ C4             0.717         0.830         0.787         0.054         0.080
+ C6             0.775         0.908         0.927         0.054         0.061
+ BAGE2        -20.333       -23.806       -23.477        -0.917        -1.054
+ EDUC2          0.587         0.550         0.522         0.039         0.043
+ HEI2          13.862        14.247        12.732         0.508         0.481
+ SMOKE1         0.017         0.019        -0.077        -0.008        -0.007
+ DIAB1         -0.123        -0.150        -0.118        -0.010        -0.010
+ CARDIO1       -0.309        -0.303        -0.294        -0.016        -0.018
+
+
+           Covariances
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ C6             0.081
+ BAGE2         -1.251        57.536
+ EDUC2          0.041        -0.793         0.248
+ HEI2           0.509       -16.593         0.644        41.917
+ SMOKE1        -0.006         0.003        -0.013         0.099         0.247
+ DIAB1         -0.010         0.108        -0.009        -0.020        -0.002
+ CARDIO1       -0.019         0.361        -0.016        -0.206         0.003
+
+
+           Covariances
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          0.052
+ CARDIO1        0.008         0.099
+
+
+           Correlations
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2             1.000
+ P4             0.748         1.000
+ P6             0.730         0.780         1.000
+ C2             0.447         0.445         0.443         1.000
+ C4             0.441         0.484         0.479         0.685         1.000
+ C6             0.475         0.528         0.562         0.689         0.750
+ BAGE2         -0.467        -0.519        -0.534        -0.439        -0.490
+ EDUC2          0.206         0.183         0.181         0.288         0.303
+ HEI2           0.373         0.364         0.339         0.285         0.262
+ SMOKE1         0.006         0.006        -0.027        -0.061        -0.050
+ DIAB1         -0.094        -0.108        -0.089        -0.153        -0.160
+ CARDIO1       -0.171        -0.160        -0.161        -0.184        -0.206
+
+
+           Correlations
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ C6             1.000
+ BAGE2         -0.579         1.000
+ EDUC2          0.286        -0.210         1.000
+ HEI2           0.276        -0.338         0.200         1.000
+ SMOKE1        -0.045         0.001        -0.054         0.031         1.000
+ DIAB1         -0.155         0.062        -0.078        -0.013        -0.015
+ CARDIO1       -0.209         0.152        -0.103        -0.101         0.020
+
+
+           Correlations
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          1.000
+ CARDIO1        0.109         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -30025.882
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     P2                   20.016      -0.165       0.667    0.05%      15.333     18.833     20.167
+            2151.000      32.885       0.211      45.833    0.05%      21.500     24.667
+     P4                   19.002      -0.192       0.000    0.29%      14.167     17.667     19.167
+            1392.000      34.031       0.217      38.167    0.07%      20.500     23.833
+     P6                   18.586      -0.122       0.000    0.09%      14.167     17.333     18.667
+            1091.000      28.243      -0.035      35.333    0.09%      20.000     23.167
+     C2                    0.826       0.065       0.115    0.05%       0.596      0.759      0.828
+            2151.000       0.076      -0.093       1.805    0.05%       0.899      1.057
+     C4                    0.791       0.156       0.071    0.07%       0.559      0.724      0.795
+            1453.000       0.074      -0.055       1.745    0.07%       0.857      1.008
+     C6                    0.793       0.034       0.099    0.10%       0.571      0.737      0.796
+            1030.000       0.061      -0.084       1.655    0.10%       0.865      0.998
+     BAGE2                 0.649       0.479     -10.000    6.32%      -7.000     -3.000     -1.000
+            2151.000      57.536      -0.683      22.000    0.09%       2.000      8.000
+     EDUC2                 0.455       0.182       0.000   54.53%       0.000      0.000      0.000
+            2151.000       0.248      -1.967       1.000   45.47%       1.000      1.000
+     HEI2                 -1.737      -0.063     -22.800    0.05%      -7.400     -3.200     -1.600
+            2151.000      41.917      -0.161      18.600    0.05%      -0.200      3.800
+     SMOKE1                0.553      -0.212       0.000   44.72%       0.000      0.000      1.000
+            2151.000       0.247      -1.955       1.000   55.28%       1.000      1.000
+     DIAB1                 0.055       3.890       0.000   94.47%       0.000      0.000      0.000
+            2151.000       0.052      13.134       1.000    5.53%       0.000      0.000
+     CARDIO1               0.111       2.475       0.000   88.89%       0.000      0.000      0.000
+            2151.000       0.099       4.125       1.000   11.11%       0.000      0.000
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN ILL-CONDITIONED
+     FISHER INFORMATION MATRIX.  CHANGE YOUR MODEL AND/OR STARTING VALUES.
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO A NON-POSITIVE
+     DEFINITE FISHER INFORMATION MATRIX.  THIS MAY BE DUE TO THE STARTING VALUES
+     BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE CONDITION
+     NUMBER IS       0.401D-11.
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES COULD NOT BE
+     COMPUTED.  THIS IS OFTEN DUE TO THE STARTING VALUES BUT MAY ALSO BE
+     AN INDICATION OF MODEL NONIDENTIFICATION.  CHANGE YOUR MODEL AND/OR
+     STARTING VALUES.  PROBLEM INVOLVING THE FOLLOWING PARAMETER:
+     Parameter 12, IP ON DIAB1
+
+
+
+
+
+
+MODEL RESULTS
+
+                    Estimate
+
+ IP         ON
+    BAGE2             -0.275
+    EDUC2              0.812
+    HEI2               0.205
+    SMOKE1             0.075
+    DIAB1             -1.412
+    CARDIO1           -1.469
+
+ SP         ON
+    BAGE2             -0.009
+    EDUC2             -0.040
+    HEI2              -0.004
+    SMOKE1            -0.031
+    DIAB1             -0.011
+    CARDIO1            0.035
+
+ IC         ON
+    BAGE2             -0.012
+    EDUC2              0.096
+    HEI2               0.005
+    SMOKE1            -0.030
+    DIAB1             -0.130
+    CARDIO1           -0.080
+
+ SC         ON
+    BAGE2             -0.001
+    EDUC2              0.000
+    HEI2               0.000
+    SMOKE1             0.001
+    DIAB1              0.000
+    CARDIO1           -0.001
+
+ IP       WITH
+    SP                -0.093
+    IC                 0.266
+    SC                -0.001
+
+ SP       WITH
+    IC                 0.000
+    SC                 0.001
+
+ IC       WITH
+    SC                 0.000
+
+ P2       WITH
+    C2                 0.023
+
+ P4       WITH
+    C4                 0.023
+
+ P6       WITH
+    C6                 0.023
+
+ Intercepts
+    P2                 0.000
+    P4                 0.000
+    P6                 0.000
+    C2                 0.000
+    C4                 0.000
+    C6                 0.000
+    IP                20.405
+    SP                -0.265
+    IC                 0.833
+    SC                -0.013
+
+ Residual Variances
+    P2                 7.914
+    P4                 7.914
+    P6                 7.914
+    C2                 0.022
+    C4                 0.022
+    C6                 0.022
+    IP                15.785
+    SP                 0.020
+    IC                 0.034
+    SC                 0.000
+
+New/Additional Parameters
+    R_IPIC             0.365
+    R_SPSC             0.753
+    R_RES_PC           0.056
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     ip sp | p2 p4 p6 AT time2 time4 time6;
+     ic sc | c2 c4 c6 AT time2 time4 time6;
+
+     ip ON bage2*-0.27505;
+     ip ON educ2*0.81161;
+     ip ON hei2*0.20532;
+     ip ON smoke1*0.07497;
+     ip ON diab1*-1.41161;
+     ip ON cardio1*-1.46948;
+     sp ON bage2*-0.00854;
+     sp ON educ2*-0.03954;
+     sp ON hei2*-0.00422;
+     sp ON smoke1*-0.03093;
+     sp ON diab1*-0.01075;
+     sp ON cardio1*0.03481;
+     ic ON bage2*-0.01221;
+     ic ON educ2*0.09642;
+     ic ON hei2*0.00536;
+     ic ON smoke1*-0.03011;
+     ic ON diab1*-0.13034;
+     ic ON cardio1*-0.08007;
+     sc ON bage2*-0.00057;
+     sc ON educ2*-0.00045;
+     sc ON hei2*-0.00026;
+     sc ON smoke1*0.00092;
+     sc ON diab1*-0.00025;
+     sc ON cardio1*-0.00145;
+
+     p2 WITH c2*0.02315 (res_cov);
+     p4 WITH c4*0.02315 (res_cov);
+     p6 WITH c6*0.02315 (res_cov);
+     ip WITH sp*-0.09334 (c_ipsp);
+     ip WITH ic*0.26598 (c_ipic);
+     ip WITH sc*-0.00066 (c_ipsc);
+     sp WITH ic*-0.00035 (c_spic);
+     sp WITH sc*0.00073 (c_spsc);
+     ic WITH sc*-0.00036 (c_icsc);
+
+     [ p2@0 ];
+     [ p4@0 ];
+     [ p6@0 ];
+     [ c2@0 ];
+     [ c4@0 ];
+     [ c6@0 ];
+     [ ip*20.40517 ];
+     [ sp*-0.26508 ];
+     [ ic*0.83327 ];
+     [ sc*-0.01276 ];
+
+     p2*7.91425 (res_p);
+     p4*7.91425 (res_p);
+     p6*7.91425 (res_p);
+     c2*0.02170 (res_c);
+     c4*0.02170 (res_c);
+     c6*0.02170 (res_c);
+     ip*15.78525 (v_ip);
+     sp*0.02012 (v_sp);
+     ic*0.03367 (v_ic);
+     sc*0.00005 (v_sc);
+
+     ! NEW statements in MODEL CONSTRAINT
+     NEW(r_ipic*0.36482);
+     NEW(r_spsc*0.75269);
+     NEW(r_res_pc*0.05586);
+
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           NU
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           NU
+              DIAB1         CARDIO1
+              ________      ________
+ 1                  0             0
+
+
+           LAMBDA
+              IP            SP            IC            SC            BAGE2
+              ________      ________      ________      ________      ________
+ P2                 0             0             0             0             0
+ P4                 0             0             0             0             0
+ P6                 0             0             0             0             0
+ C2                 0             0             0             0             0
+ C4                 0             0             0             0             0
+ C6                 0             0             0             0             0
+ BAGE2              0             0             0             0             0
+ EDUC2              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           LAMBDA
+              EDUC2         HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________      ________
+ P2                 0             0             0             0             0
+ P4                 0             0             0             0             0
+ P6                 0             0             0             0             0
+ C2                 0             0             0             0             0
+ C4                 0             0             0             0             0
+ C6                 0             0             0             0             0
+ BAGE2              0             0             0             0             0
+ EDUC2              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           THETA
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2                 1
+ P4                 0             1
+ P6                 0             0             1
+ C2                 2             0             0             3
+ C4                 0             2             0             0             3
+ C6                 0             0             2             0             0
+ BAGE2              0             0             0             0             0
+ EDUC2              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           THETA
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ C6                 3
+ BAGE2              0             0
+ EDUC2              0             0             0
+ HEI2               0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           THETA
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1              0
+ CARDIO1            0             0
+
+
+           ALPHA
+              IP            SP            IC            SC            BAGE2
+              ________      ________      ________      ________      ________
+ 1                  4             5             6             7             0
+
+
+           ALPHA
+              EDUC2         HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________      ________
+ 1                  0             0             0             0             0
+
+
+           BETA
+              IP            SP            IC            SC            BAGE2
+              ________      ________      ________      ________      ________
+ IP                 0             0             0             0             8
+ SP                 0             0             0             0            14
+ IC                 0             0             0             0            20
+ SC                 0             0             0             0            26
+ BAGE2              0             0             0             0             0
+ EDUC2              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           BETA
+              EDUC2         HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________      ________
+ IP                 9            10            11            12            13
+ SP                15            16            17            18            19
+ IC                21            22            23            24            25
+ SC                27            28            29            30            31
+ BAGE2              0             0             0             0             0
+ EDUC2              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           PSI
+              IP            SP            IC            SC            BAGE2
+              ________      ________      ________      ________      ________
+ IP                32
+ SP                33            34
+ IC                35            36            37
+ SC                38            39            40            41
+ BAGE2              0             0             0             0             0
+ EDUC2              0             0             0             0             0
+ HEI2               0             0             0             0             0
+ SMOKE1             0             0             0             0             0
+ DIAB1              0             0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+           PSI
+              EDUC2         HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________      ________
+ EDUC2              0
+ HEI2               0             0
+ SMOKE1             0             0             0
+ DIAB1              0             0             0             0
+ CARDIO1            0             0             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR THE ADDITIONAL PARAMETERS
+
+
+           NEW/ADDITIONAL PARAMETERS
+              R_IPIC        R_SPSC        R_RES_PC
+              ________      ________      ________
+ 1                 42            43            44
+
+
+     STARTING VALUES
+
+
+           NU
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              DIAB1         CARDIO1
+              ________      ________
+ 1              0.000         0.000
+
+
+           LAMBDA
+              IP            SP            IC            SC            BAGE2
+              ________      ________      ________      ________      ________
+ P2             0.000         0.000         0.000         0.000         0.000
+ P4             0.000         0.000         0.000         0.000         0.000
+ P6             0.000         0.000         0.000         0.000         0.000
+ C2             0.000         0.000         0.000         0.000         0.000
+ C4             0.000         0.000         0.000         0.000         0.000
+ C6             0.000         0.000         0.000         0.000         0.000
+ BAGE2          0.000         0.000         0.000         0.000         1.000
+ EDUC2          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              EDUC2         HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________      ________
+ P2             0.000         0.000         0.000         0.000         0.000
+ P4             0.000         0.000         0.000         0.000         0.000
+ P6             0.000         0.000         0.000         0.000         0.000
+ C2             0.000         0.000         0.000         0.000         0.000
+ C4             0.000         0.000         0.000         0.000         0.000
+ C6             0.000         0.000         0.000         0.000         0.000
+ BAGE2          0.000         0.000         0.000         0.000         0.000
+ EDUC2          1.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         1.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         1.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         1.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         1.000
+
+
+           THETA
+              P2            P4            P6            C2            C4
+              ________      ________      ________      ________      ________
+ P2            16.443
+ P4             0.000        17.016
+ P6             0.000         0.000        14.121
+ C2             0.000         0.000         0.000         0.038
+ C4             0.000         0.000         0.000         0.000         0.037
+ C6             0.000         0.000         0.000         0.000         0.000
+ BAGE2          0.000         0.000         0.000         0.000         0.000
+ EDUC2          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              C6            BAGE2         EDUC2         HEI2          SMOKE1
+              ________      ________      ________      ________      ________
+ C6             0.031
+ BAGE2          0.000         0.000
+ EDUC2          0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              DIAB1         CARDIO1
+              ________      ________
+ DIAB1          0.000
+ CARDIO1        0.000         0.000
+
+
+           ALPHA
+              IP            SP            IC            SC            BAGE2
+              ________      ________      ________      ________      ________
+ 1             19.916        -0.329         0.827        -0.015         0.000
+
+
+           ALPHA
+              EDUC2         HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________      ________
+ 1              0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              IP            SP            IC            SC            BAGE2
+              ________      ________      ________      ________      ________
+ IP             0.000         0.000         0.000         0.000         0.000
+ SP             0.000         0.000         0.000         0.000         0.000
+ IC             0.000         0.000         0.000         0.000         0.000
+ SC             0.000         0.000         0.000         0.000         0.000
+ BAGE2          0.000         0.000         0.000         0.000         0.000
+ EDUC2          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              EDUC2         HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________      ________
+ IP             0.000         0.000         0.000         0.000         0.000
+ SP             0.000         0.000         0.000         0.000         0.000
+ IC             0.000         0.000         0.000         0.000         0.000
+ SC             0.000         0.000         0.000         0.000         0.000
+ BAGE2          0.000         0.000         0.000         0.000         0.000
+ EDUC2          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              IP            SP            IC            SC            BAGE2
+              ________      ________      ________      ________      ________
+ IP            32.444
+ SP             0.000         0.369
+ IC             0.000         0.000         0.067
+ SC             0.000         0.000         0.000         0.001
+ BAGE2          0.000         0.000         0.000         0.000        28.768
+ EDUC2          0.000         0.000         0.000         0.000         0.000
+ HEI2           0.000         0.000         0.000         0.000         0.000
+ SMOKE1         0.000         0.000         0.000         0.000         0.000
+ DIAB1          0.000         0.000         0.000         0.000         0.000
+ CARDIO1        0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              EDUC2         HEI2          SMOKE1        DIAB1         CARDIO1
+              ________      ________      ________      ________      ________
+ EDUC2          0.124
+ HEI2           0.000        20.959
+ SMOKE1         0.000         0.000         0.124
+ DIAB1          0.000         0.000         0.000         0.026
+ CARDIO1        0.000         0.000         0.000         0.000         0.049
+
+
+     STARTING VALUES FOR THE ADDITIONAL PARAMETERS
+
+
+           NEW/ADDITIONAL PARAMETERS
+              R_IPIC        R_SPSC        R_RES_PC
+              ________      ________      ________
+ 1              0.500         0.500         0.500
+
+
+SAVEDATA INFORMATION
+
+     Factor scores were not computed.
+     No data were saved.
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\annie\dropbox\ialsa_cambridge\elsa-phy-phy\elsa phy-phy covariates t2\b1_female_aehplus
+
+     Beginning Time:  18:12:34
+        Ending Time:  18:12:43
+       Elapsed Time:  00:00:09
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen
