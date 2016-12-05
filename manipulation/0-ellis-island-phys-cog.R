@@ -42,12 +42,16 @@ collect_result <- function(path){
 
   result <- data.frame(matrix(NA, ncol = length(selected_results)))
   names(result) <- selected_results
-
   result <- get_results_basic(path, mid, msum, mpar, result)
   result <- get_results_errors(path, mpar, result)
+
+  # result %>% t() %>% head(27)
+  if(result$has_converged){
   result <- get_results_random(path, mpar, result)
   result <- get_results_residual(path, mpar, result)
   result <- get_results_fixed(path, mpar, result)
+  }
+  result %>% t()
   return(result)
 }
 
@@ -82,6 +86,7 @@ lasa  <- list.files("./studies/lasa/physical-cognitive",full.names=T, recursive=
 # map   <- list.files("./studies/map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 # map   <- list.files("./studies/map/physical-cognitive/outputs/Old Models",full.names=T, recursive=T, pattern="out$")
 map   <- list.files("./output/studies/map/phys-cog",full.names=T, recursive=T, pattern="out$")
+# map   <- list.files("./output/studies/map/test",full.names=T, recursive=T, pattern="out$")
 nas   <- list.files("./studies/nas/physical-cognitive",full.names=T, recursive=T, pattern="out$")
 nuage <- list.files("./studies/nuage/physical-cognitive/without-errors/",full.names=T, recursive=T, pattern="out$")
 # obas  <- list.files("./studies/obas/physical-cognitive/"),full.names=T, recursive=T, pattern="out$")
@@ -99,7 +104,7 @@ list_paths <- list("eas" = eas,
                  "octo"  = octo,
                  "satsa" = satsa)
 # Now the object contains paths to files with model outputs
-list_paths[["map"]]
+# list_paths[["map"]]
 # list_paths[["map"]]=="./output/studies/map/phys-cog/fev100-wordlistim/b1_female_a_fev100_wordlistim.out"
 
 
@@ -110,7 +115,7 @@ list_paths[["map"]]
 # path_model_output <- list_paths[["hrs"]][13]
 # path_model_output <- list_paths[["ilse"]][1]
 # path_model_output <- list_paths[["lasa"]][1]
-# path_model_output <- list_paths[["map"]][137]
+# path_model_output <- list_paths[["map"]][1]
 # path_model_output <- list_paths[["nuage"]][10]
 # path_model_output <- list_paths[["octo"]][38]
 # path_model_output <- list_paths[["satsa"]][50]
@@ -132,7 +137,7 @@ model_output_file_path <- list(
   "hrs"   = list_paths[["hrs"]], #[1:2],
   "ilse"  = list_paths[["ilse"]],#[1:2],
   "lasa"  = list_paths[["lasa"]],#[1:2],
-  "map"   = list_paths[["map"]],#[137],
+  "map"   = list_paths[["map"]],#[1-2],
   "nas"   = list_paths[["nas"]],#[20]
   "nuage" = list_paths[["nuage"]],#[1:2] ,
   "octo"  = list_paths[["octo"]],#[1:2],
@@ -140,8 +145,8 @@ model_output_file_path <- list(
 )
 
 # Parse model outputs from each study at a time
-# collect_study(study="eas", selected_results)
-collect_study(study="elsa", selected_results)
+collect_study(study="eas", selected_results)
+# collect_study(study="elsa", selected_results)
 # collect_study(study="hrs", selected_results)
 # collect_study(study="ilse", selected_results)
 # collect_study(study="lasa", selected_results)
@@ -167,17 +172,17 @@ duplicates <- catalog %>%
   dplyr::arrange(desc(n))
 testit::assert("Pool contains duplicates", max(duplicates$n)==1)
 # look up specific models
-catalog %>%
-  dplyr::filter(study_name == "elsa") %>%
-  dplyr::filter(model_type == "aehplus") %>%
-  dplyr::filter(process_a == "gait" & process_b == "trailsb") %>%
-  dplyr::select_(.dots = c(model_components$id,"file_path"))
-
-
-catalog %>%
-  dplyr::filter(study_name == "elsa") %>%
-  dplyr::filter(model_type == "aehplus") %>%
-  dplyr::select(study_name, model_type,process_a, process_b, R_IAIB_est)
+# catalog %>%
+#   dplyr::filter(study_name == "elsa") %>%
+#   dplyr::filter(model_type == "aehplus") %>%
+#   dplyr::filter(process_a == "gait" & process_b == "trailsb") %>%
+#   dplyr::select_(.dots = c(model_components$id,"file_path"))
+#
+#
+# catalog %>%
+#   dplyr::filter(study_name == "elsa") %>%
+#   dplyr::filter(model_type == "aehplus") %>%
+#   dplyr::select(study_name, model_type,process_a, process_b, R_IAIB_est)
 
 
 # ---- save-to-disk ------------------------------------------------------------
