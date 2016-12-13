@@ -114,7 +114,7 @@ get_model_data <- function(
   model_parsed <- rename_columns_in_catalog(model_parsed)
   model_parsed_spread <- distill_one_spread(model_parsed, model_components)
 
-  (path_gh5 <- gsub(".out",".gh5", model_parsed$file_path))
+  (path_gh5 <- gsub(".out$",".gh5", model_parsed$file_path))
   testit::assert(".gh5 file does not exist", file.exists(path_gh5) )
 
   # mplus.view.plots(path_gh5) # read in a .gh5 file
