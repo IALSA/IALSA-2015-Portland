@@ -101,9 +101,7 @@ proto_table <- function(
 
 get_model_data <- function(
   path_out,
-  model_components,
-  center_age
-
+  model_components
 ){
   # folder = "./data/shared/covariance-issue/annie/studies/octo/physical"
   # path_out ="b1_female_aehplus_grip_gait.out"
@@ -197,8 +195,7 @@ get_model_data <- function(
   table(dsL$source)
 
   head(dsL)
-  dsL$age_bl <- dsL$age_bl + center_age
-  dsL$age <- dsL$age_bl + dsL$time
+
 
   head(dsL)
 
@@ -209,7 +206,6 @@ get_model_data <- function(
   return(ls)
 
 }
-
 # Usage:
 # folder <- "./data/shared/covariance-issue/annie/studies/octo/physical"
 # ls_model <- get_model_data(
@@ -222,6 +218,42 @@ get_model_data <- function(
 # head(ls_model$data)
 # t(ls_model$catalog)
 
+prep_for_graph <- function(
+  ls_model,
+  study,
+  age_center,
+  edu_center,
+  height_centers
+){
+  age_center <- 70
+  edu_center <- 7
+  height_center <- 170
+
+  d <- ls_model$data
+  head(d)
+  d <- d %>%
+    # recover centers
+    dplyr::mutate(
+      age_bl = age_bl + age_center,
+      age    = age_bl + time,
+      edu    = edu + edu_center,
+      height = height + height_center
+    ) %>%
+    # make factors
+    dplyr::mutate(
+      age_group_bl = cut(age_bl,breaks=seq(50,110,10), include.lowest = TRUE ),
+      edu_group    = cut(edu,breaks=c(0,9,11,25), include.lowest = TRUE),
+      height_group = cut(height,breaks=seq(130,220,10),include.lowest = TRUE),
+      smoke        = factor(smoke,c(0,1),c("yes","no")),
+      cardio       = factor(cardio,c(0,1),c("yes","no")),
+      diabetes     = factor(diabetes,c(0,1),c("yes","no"))
+    )
+  head(d)
+
+
+}
+
+col <- RColorBrewer::brewer.pal(6,name = "Set1")
 
 ########################
 ##### Scatter###########
