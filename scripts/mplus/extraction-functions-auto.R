@@ -119,8 +119,10 @@ get_results_basic <- function(
   result
 ){
   mplus_output <- scan(path, what='character', sep='\n') # each line of output as a char value
-  model <- mpar$unstandardized
+  # if(!mpar=="One or more variables have a variance of zero"){
   if(!is.na(mpar)){
+  if(!mpar=="One or more variables have a variance of zero"){
+    model <- mpar$unstandardized
     ## Populate admin variables
     (result['software'] <- mplus_output[1])
     (result["version"] <- "0.1")
@@ -150,6 +152,7 @@ get_results_basic <- function(
     (result['adj_bic'] <-  msum['aBIC'])
     (result['aaic'] <-  msum['AICC'])
     ## Computed values
+  }
   }
   return(result)
 }  # close get_results_basic
@@ -370,7 +373,7 @@ get_results_fixed <- function(
     age_map    <- c("BAGE","AGE_C70")
     age_nas    <- c("BAGE")
     age_nuage  <- c("BAGE")
-    age_octo   <- c("BAGE")
+    age_octo   <- c("BAGE","AGE_C80")
     age_satsa  <- c("BAGE")
     age_ <- unique(c(age_eas, age_elsa, age_hrs, age_ilse,
                            age_lasa, age_map, age_nas, age_nuage, age_octo,age_satsa))
