@@ -327,7 +327,7 @@ make_baking_mix_model_type <- function(
   baking_mix <- list()
   for(i in spread_names){
     baking_mix[[i]] <- pull_one_model(
-       d                = catalog_spread
+      d                = catalog_spread
       ,study_name_      = study_name_ # "eas"
       ,subgroup_        = subgroup_ #"male"
       ,model_type_      = i # "aehplus",
@@ -871,7 +871,7 @@ report_short_hand <- function(
       label = gsub(target_name, target_label, label)
     ) %>%
     dplyr::select(label, process_b, dplyr::everything()) #%>%
-    # dplyr::filter(process_b %in% processes_b)
+  # dplyr::filter(process_b %in% processes_b)
   col_names <- names(d_print)
   col_names <- col_names[!col_names %in% c("label","process_b")]
   for(cn in col_names){
