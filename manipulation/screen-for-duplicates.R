@@ -41,6 +41,23 @@ catalog %>%
 
 
 
+# ----- octo ---------------------
+
+cogphy <- list.files("./studies/octo/physical-cognitive/cog phy",
+                          full.names=F,recursive=T,pattern = ".out$") %>% basename()
+
+combined <- list.files("./studies/octo/physical-cognitive/combined",
+                          full.names=F,recursive=T,pattern = ".out$") %>% basename()
+
+final <- list.files("./studies/octo/physical-cognitive/Final",
+                          full.names=F,recursive=T,pattern = ".out$") %>% basename()
+
+output <- list.files("./studies/octo/physical-cognitive/OUTPUT_files",
+                          full.names=F,recursive=T,pattern = ".out$") %>% basename()
+
+
+setdiff(cogphy, final) # unique to first
+setdiff(combined, final) # unique to first
 
   # ---- check-folder-contents ---------------------------
   feb27 <-  list.files(

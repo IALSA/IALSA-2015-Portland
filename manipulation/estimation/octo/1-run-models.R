@@ -53,8 +53,7 @@ varnames_cognitive <- c(
 
 
 # ---- load-data ---------------------------------------------------------------
-# ds_long <- readRDS("./data/unshared/derived/map-1/data-long.rds")
-ds_wide <- readRDS("./data/unshared/derived/map-1/data-wide.rds")
+ds_wide <- readRDS("./data/unshared/derived/octo-1/data-wide.rds")
 
 
 testit::assert("File does not exist",file.exists(path_generic_data))
@@ -101,7 +100,7 @@ ls_model_type <- list(
 ## @knitr dummy_1
 # Use the first example as the template for further pairs
 
-wave_set_modeled <-  c(1,2,3,4)
+wave_set_modeled <-  c(1,2,3,4,5)
 subset_condition_1 <- "dementia_ever NE 1"
 folder_data        = "./data/unshared/derived/octo-1"
 path_prototype     = "./manipulation/estimation/octo/prototype-wide-octo.inp"
@@ -127,8 +126,8 @@ folder_output      = "./output/studies/octo/phys-cog"
 # loop over conditions
 # for(phys_measure in "fev"){
 for(phys_measure in varnames_physical){
-  for(cog_measure in "psif"){
-  # for(cog_measure in varnames_cognitive){
+  # for(cog_measure in "psif"){
+  for(cog_measure in varnames_cognitive){
     for(subgroup in names(ls_subgroup)){
       for(model_type in names(ls_model_type)){
         mplus_generator_bivariate(

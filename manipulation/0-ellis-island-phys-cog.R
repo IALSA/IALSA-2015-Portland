@@ -90,7 +90,8 @@ map   <- list.files("./output/studies/map/phys-cog",full.names=T, recursive=T, p
 nas   <- list.files("./studies/nas/physical-cognitive",full.names=T, recursive=T, pattern="out$")
 nuage <- list.files("./studies/nuage/physical-cognitive/without-errors/",full.names=T, recursive=T, pattern="out$")
 # obas  <- list.files("./studies/obas/physical-cognitive/"),full.names=T, recursive=T, pattern="out$")
-octo  <- list.files("./studies/octo/physical-cognitive/Final/",full.names=T, recursive=T, pattern="out$")
+octo  <- list.files("./output/studies/octo/phys-cog/",full.names=T, recursive=T, pattern="out$")
+# octo  <- list.files("./studies/octo/physical-cognitive/Final/",full.names=T, recursive=T, pattern="out$")
 satsa <- list.files("./studies/satsa/physical-cognitive/",full.names=T, recursive=T, pattern="out$")
 
 list_paths <- list("eas" = eas,
@@ -140,7 +141,7 @@ model_output_file_path <- list(
   "map"   = list_paths[["map"]],#[1-2],
   "nas"   = list_paths[["nas"]],#[20]
   "nuage" = list_paths[["nuage"]],#[1:2] ,
-  "octo"  = list_paths[["octo"]],#[1:2],
+  "octo"  = list_paths[["octo"]],#[1],
   "satsa" = list_paths[["satsa"]] #[1:2]
 )
 
@@ -155,7 +156,7 @@ collect_study(study="eas", selected_results)
 # collect_study(study="nuage", selected_results)
 # collect_study(study="octo", selected_results)
 # collect_study(study="satsa", selected_results)
-
+path <- model_output_file_path$octo
 # ---- combine-results ---------------------------------------------------------
 # combine results files from each study
 (results_studies <- list.files("./data/shared/phys-cog/", pattern = "^pc-catalog-\\w+\\.csv$", full.names =T) )

@@ -199,15 +199,15 @@ ds <- ds_full %>%
     cr_levels  = dense_v3(cr_levels_est, cr_levels_ci95_lo, cr_levels_ci95_hi,star = F, signif_levels),
     cr_slopes  = dense_v3(cr_slopes_est, cr_slopes_ci95_lo, cr_slopes_ci95_hi,star = F, singif_slopes),
     cr_resid   = dense_v3(cr_resid_est,  cr_resid_ci95_lo,  cr_resid_ci95_hi, star = F, signif_resid)
-  # )
+    # )
   ) %>%
   dplyr::select_(.dots = c(model_components$id,"process_b_domain", "subject_count",
-                          "tau_levels", "tau_slopes","tau_resid",
+                           "tau_levels", "tau_slopes","tau_resid",
                            "er_levels",  "er_slopes", "er_resid",
                            "er_levels_ci",  "er_slopes_ci", "er_resid_ci",
                            "cr_levels",  "cr_slopes", "cr_resid"
 
-                           ))
+  ))
 # head(ds)
 # ---- select-pulmonary ------------------------------------
 ds <- ds %>%
@@ -324,10 +324,10 @@ d %>%
   ) %>%
   # dplyr::select(-er_levels, -er_slopes, -er_resid) %>%
   dplyr::select_(.dots = c(model_components$id,"process_b_domain", "subject_count",
-                          "tau_levels", "tau_slopes","tau_resid",
+                           "tau_levels", "tau_slopes","tau_resid",
                            # "er_levels",  "er_slopes", "er_resid",
-                            "cr_levels",  "cr_slopes", "cr_resid"
-                           )) %>%
+                           "cr_levels",  "cr_slopes", "cr_resid"
+  )) %>%
   DT::datatable(
     class     = 'cell-border stripe',
     # caption   = "Table of Correlations",
@@ -404,14 +404,16 @@ path_pulmonary <- "./reports/correlation-2/correlation-2-pulmonary.Rmd"
 path_gait <- "./reports/correlation-2/correlation-2-gait.Rmd"
 path_grip <- "./reports/correlation-2/correlation-2-grip.Rmd"
 
-allReports <- c(path_pulmonary, path_grip, path_gait)
+# allReports <- c(path_pulmonary, path_grip, path_gait)
+allReports <- path_pulmonary
+# allReports <- path_gait
 # allReports <- path_grip
 pathFilesToBuild <- c(allReports) ##########
 testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesToBuild))
 # Build the reports
 for( pathFile in pathFilesToBuild ) {
 
-rmarkdown::render(input = pathFile,
+  rmarkdown::render(input = pathFile,
                     output_format=c(
                       # "html_document" # set print_format <- "html" in seed-study.R
                       # "pdf_document"
