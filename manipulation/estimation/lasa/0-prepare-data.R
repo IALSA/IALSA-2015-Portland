@@ -19,11 +19,20 @@ requireNamespace("reshape2") # data transformations
 
 # ---- declare-globals ---------------------------------------------------------
 # path_input  <- "./data/unshared/raw/map/ds0.rds"
-path_input  <- "../MAP/data-unshared/derived/dto.rds"
+# path_input  <- "../LASA/data-unshared/ialsa-old/lasa_mult_chi_2.sas7bdat"
+path_input  <- "../LASA/data-unshared/ialsa-old/lasa_stack_chi_2.sas7bdat"
+# path_input  <- "../LASA/data-unshared/ialsa-old/lasast3.sas7bdat"
 
 # put test assert here to check the connection.
 # generic_path <- "./sandbox/pipeline-demo-1/generic-data/"
-generic_path <- "./data/unshared/derived/map-1/"
+generic_path <- "./data/unshared/derived/lasa-1/"
+
+
+# ---- load-data ---------------------------------------------------------------
+ds0 <- sas7bdat::read.sas7bdat(path_input)
+names(ds0)
+# ---- inspect-data -------------------------------------------------------------
+names_labels(ds0)
 
 
 # ---- functions-to-examime-temporal-patterns -------------------
