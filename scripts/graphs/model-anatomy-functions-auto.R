@@ -219,41 +219,60 @@ get_model_data <- function(
 # t(ls_model$catalog)
 
 prep_for_graph <- function(
-  ls_model,
-  study,
-  age_center,
-  edu_center,
-  height_centers
+  ls,
+  centers
 ){
-  age_center <- 70
-  edu_center <- 7
-  height_center <- 170
+  ls <- ls_model
+  # age_center <- 70
+  # edu_center <- 7
+  # height_center <- 170
 
-  d <- ls_model$data
+  gender <- ls$catalog$subgroup
+
+  d <- ls$data
   head(d)
   d <- d %>%
     # recover centers
     dplyr::mutate(
-      age_bl = age_bl + age_center,
+      age_bl = age_bl + centers["age"],
       age    = age_bl + time,
-      edu    = edu + edu_center,
-      height = height + height_center
+      edu    = edu    + centers["edu"],
+      height = height + centers[paste0("height_",gender)]
     ) %>%
     # make factors
     dplyr::mutate(
-      age_group_bl = cut(age_bl,breaks=seq(50,110,10), include.lowest = TRUE ),
-      edu_group    = cut(edu,breaks=c(0,9,11,25), include.lowest = TRUE),
-      height_group = cut(height,breaks=seq(130,220,10),include.lowest = TRUE),
+      age_group_bl = Hmisc::cut2(age_bl,g=5 ),
+      age_group_bl = factor(age_group_bl, levels = rev(levels(age_group_bl))),
+      edu_group    = Hmisc::cut2(edu,g=5),
+      edu_group    = factor(edu_group, levels = rev(levels(edu_group))),
+      height_group = Hmisc::cut2(height,g=5),
+      height_group = factor(height_group, levels = rev(levels(height_group))),
       smoke        = factor(smoke,c(0,1),c("yes","no")),
+      # smoke        = factor(smoke, levels = rev(levels(smoke))),
       cardio       = factor(cardio,c(0,1),c("yes","no")),
-      diabetes     = factor(diabetes,c(0,1),c("yes","no"))
+      # cardio       = factor(cardio, levels = rev(levels(cardio))),
+      diabetes     = factor(diabetes,c(0,1),c("yes","no"))#,
+      # diabetes     = factor(diabetes, levels = rev(levels(diabetes)))
+
+
+
+      # age_group_bl = cut(age_bl,breaks=seq(50,110,10), include.lowest = TRUE ),
+      # edu_group    = cut(edu,breaks=c(0,9,12,16,30), include.lowest = TRUE),
+      # height_group = cut(height,breaks=5,include.lowest = TRUE),
+      # smoke        = factor(smoke,c(0,1),c("yes","no")),
+      # cardio       = factor(cardio,c(0,1),c("yes","no")),
+      # diabetes     = factor(diabetes,c(0,1),c("yes","no"))
     )
   head(d)
-
-
+  ls[["graphing"]] <- d
+  return(ls)
 }
+# ls_model <- prep_for_graph(
+#   ls_model,
+#   centers
+# )
 
-col <- RColorBrewer::brewer.pal(6,name = "Set1")
+
 
 ########################
 ##### Scatter###########
@@ -263,19 +282,23 @@ col <- RColorBrewer::brewer.pal(6,name = "Set1")
 proto_scatter <- function(
   ls,
   xName,
-  yName
+  yName,
+  group_name
 ){
+  # ls <- ls_model
   # xName = "fs_level_a"
   # yName = "fs_level_b"
+  # group_name = "age_group_bl"
   # browser()
-  d <- ls$data
+  d <- ls$graphing
+  head(d)
   # model_parsed <- ls_model$catalog
   (minx <- min(d[,xName],na.rm = T))
   (miny <- min(d[,yName],na.rm = T))
 
-   m <- lm(as.formula(paste(yName, "~", xName)), d)
   # browser()
-  #See Recipe 5.9 in Chang, 2013
+  # See Recipe 5.9 in Chang, 2013
+  m <- lm(as.formula(paste(yName, "~", xName)), d)
   eqn <- as.character(
     as.expression(
       substitute(
@@ -288,15 +311,73 @@ proto_scatter <- function(
       )
     )
   )
+  #
 
+  # group_name = "age_group_bl"
+  # group_name = "edu_group"
+  # group_name = "height_group"
+  # group_name = "smoke"
+  # group_name = "cardio"
+  # group_name = "diabetes"
+  group_labels <- c(
+    "age_group_bl" = "Age at baseline",
+    "height_group" = "Height (m)",
+    "edu_group"    = "Education (yrs)",
+    "smoke"        = "Smoking \n history",
+    "cardio"       = "Cardiovascular \n history",
+    "diabetes"     = "Diabetes \n history"
+  )
 
-  g <- ggplot2::ggplot(d,aes_string(x=xName, y=yName, fill="BAGE"))+
-    geom_point(shape=21,size=5, alpha=.1)+
-    geom_smooth(aes_string(y=yName), method="loess",color="black", size=.45, fill="gray70", alpha=.33, linetype="dashed", na.rm=T, span=1.5)+
-    geom_smooth(aes_string(y=yName), method="lm",color="red", size=.4, se=F, na.rm=T, span=1)+
-    scale_fill_gradient2(low="#7fbf7b", mid="#f7f7f7", high="#af8dc3", space="Lab")+
+  group_palettes <- c(
+    "age_group_bl"   = "Spectral",
+      "height_group" = "Spectral",
+      "edu_group"    = "Spectral",
+      "smoke"        = "Dark2",
+      "cardio"       = "Dark2",
+      "diabetes"     = "Dark2"
+  )
+
+  #
+  n_levels <- d %>% dplyr::select_(.dots=group_name) %>% dplyr::n_distinct()
+  # color_palette <- RColorBrewer::brewer.pal(n_levels,name = "PRGn")
+  # color_palette <- RColorBrewer::brewer.pal(n_levels,name = palette)
+  color_palette <- RColorBrewer::brewer.pal(n_levels,name = group_palettes[group_name])
+  # color_palette <- RColorBrewer::brewer.pal(n_levels,name = "Set1")
+
+  ids <- sample(unique(d$id),1)
+  # dd <- d %>% dplyr::filter(id %in% ids)
+  g <- d %>%
+    dplyr::select(-outcome,-source,-value,-wave,-age, -time) %>%
+    dplyr::distinct() %>%
+    # dplyr::filter(id %in% ids) %>%
+    ggplot2::ggplot(aes_string(x=xName, y=yName))+
+    annotate("text", label=eqn,size=baseSize-6,  x=-Inf, y=-Inf,
+             hjust=0, vjust=0, parse=TRUE, color="salmon")+
+    geom_point(aes_string(fill=group_name), shape=21,size=5, alpha=.35)+
+    geom_smooth(
+      aes_string(y=yName),
+      method="loess",
+      color="black",
+      size=.45,
+      fill="gray70",
+      alpha=.33,
+      linetype="dashed",
+      na.rm=T,
+      span=1.5
+    )+
+    geom_smooth(
+      aes_string(y=yName),
+      method="lm",
+      color="red",
+      size=.4,
+      se=F,
+      na.rm=T,
+      span=1
+    )+
+    scale_fill_manual(values = color_palette)+
+    labs(fill=group_labels[group_name] %>% as.character())+
     theme(legend.position="none")+
-    annotate("text", size=baseSize-6, label=eqn, x=-Inf, y=-Inf, hjust=0, vjust=0, parse=TRUE, color="red")+
+    guides(fill=guide_legend(reverse=FALSE))+
     main_theme
   # g
 
@@ -305,9 +386,15 @@ proto_scatter <- function(
 # proto_scatter(ls_model$data, "fs_level_a", "fs_level_b")
 
 factor_score_scatter <- function(
-  ls
+  ls,
+  group_name,
+  folder_name,
+  file_name,
+  width = 900,
+  height=450,
+  res = 72
 ){
-  d <- ls$data
+  d <- ls$graphing
   mp <- ls$catalog # model parsed
   head(d)
 
@@ -371,22 +458,22 @@ factor_score_scatter <- function(
   # browser()
   # create_the_duo <- function(){
 
-  (a <- proto_scatter(ls,x="fs_level_b", y="fs_level_a") + theme(legend.position="none") +
-    annotate(geom="text", size=baseSize-6, x=Inf, y=Inf, label=p1_display, hjust=1, vjust=1)+
-    geom_vline(xintercept=b_gamma_00_est,  color="gray60", size=3, alpha=.15)+
+  (a <- proto_scatter(ls,x="fs_level_b", y="fs_level_a",group_name) + theme(legend.position="none") +
+    annotate(geom="text", size=baseSize-6, x=Inf, y=Inf, label=p1_display, hjust=1, vjust=1,alpha=.5)+
+    geom_vline(xintercept=b_gamma_00_est,  color="gray60", size=3, alpha=.2)+
     annotate("text", size=baseSize-6, label="symbol(gamma[0][0])", x=b_gamma_00_est, y=min_i1, hjust=.5, vjust=1.5, parse=TRUE, size=7, color="black") +
-    geom_hline(yintercept=a_gamma_00_est,  color="grey", size=3, alpha=.15)+ #coord_flip()+
+    geom_hline(yintercept=a_gamma_00_est,  color="grey", size=3, alpha=.2)+ #coord_flip()+
     annotate("text", size=baseSize-6, label="symbol(gamma[0][0])", y=a_gamma_00_est, x=min_i2, hjust=1, vjust=0.5, parse=TRUE, size=7, color="black") +
     labs(x= process_b_name, y= process_a_name,title= "LEVELS \n (estimated factor scores)" )+
     theme(
       # legend.justification=c(.8,0),
-      legend.position=c(-.13,1), #"left",
+      legend.position=c(-.1,.85), #"left",
       legend.direction="vertical",
       legend.background = element_rect(fill=NA,color=NA))
     )
 
-  (b <- proto_scatter(ls,x="fs_slope_b", y="fs_slope_a")+
-    annotate(geom="text", size=baseSize-6, x=Inf, y=Inf, label=p2_display, hjust=1, vjust=1)+
+  (b <- proto_scatter(ls,x="fs_slope_b", y="fs_slope_a",group_name)+
+    annotate(geom="text", size=baseSize-6, x=Inf, y=Inf, label=p2_display, hjust=1, vjust=1,alpha=.5)+
     geom_vline(xintercept=b_gamma_10_est,  color="gray60", size=3, alpha=.2)+
     annotate("text",  size=baseSize-6, label="symbol(gamma[1][0])", x=b_gamma_10_est, y=min_s1, hjust=.5, vjust=1.5, parse=TRUE, size=7, color="black") +
     geom_hline(yintercept=a_gamma_10_est,  color="grey", size=3, alpha=.2)+
@@ -407,13 +494,14 @@ factor_score_scatter <- function(
   #   a <- a + coord_flip()
   #   b <- b + coord_flip()
   # }
-
-
+  # folder = "./reports/anatomy-pulmonary-1/graphs/"
+  path_save = paste0(folder_name,file_name,".png")
+  png(filename = path_save, width = width, height = height,res = res)
   vpLayout <- function(rowIndex, columnIndex) { return( viewport(layout.pos.row=rowIndex, layout.pos.col=columnIndex) ) }
   grid::grid.newpage()
   #Defnie the relative proportions among the panels in the mosaic.
   layout <- grid::grid.layout(nrow=2, ncol=3,
-                              widths=grid::unit(c(.04,.48, .48) ,c("null","null","null")),
+                              widths=grid::unit(c(.08,.46, .46) ,c("null","null","null")),
                               heights=grid::unit(c(.05,.95), c("null"))
   )
   grid::pushViewport(grid::viewport(layout=layout))
@@ -429,10 +517,17 @@ factor_score_scatter <- function(
   grid.text(main_title, vp = viewport(layout.pos.row = 1, layout.pos.col = 1:3))
   print(a, vp=grid::viewport(layout.pos.row=2,layout.pos.col=2))
   print(b, vp=grid::viewport(layout.pos.row=2,layout.pos.col=3))
+  dev.off()
   return(grid::popViewport(0))
+  # return(grid::pushViewport(0,TRUE))
 }
 # Usage:
-# factor_score_scatter(ls_model)
+# factor_score_scatter(ls_model,"age_group_bl")
+# factor_score_scatter(ls_model,"edu_group")
+# factor_score_scatter(ls_model,"height_group")
+# factor_score_scatter(ls_model,"smoke")
+# factor_score_scatter(ls_model,"cardio")
+# factor_score_scatter(ls_model,"diabetes")
 
 
 

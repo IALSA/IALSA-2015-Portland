@@ -490,7 +490,7 @@ get_results_fixed <- function(
     height_ilse  <- c("SMOKER")
     height_lasa  <- c("SMOKHIST")
     height_map   <- c("SMOKHIST","SMOKE")
-    height_nas   <- c("SMK_FMR1")
+    height_nas   <- c("SMK_FMR1","SMKEVR")
     height_nuage <- c("SMOKHIST")
     height_octo  <- c("SMOKHIST")
     height_satsa <- c("EVERSMOKE")
