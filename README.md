@@ -69,7 +69,6 @@ The primary aim of the workshop was to examine associations between changes in p
 
 Quick links: [models](#models)  -  [measures](#measures)  -  [background](#background)  -  [pubs](#publications)  -  [contacts](#contacts)  
 
-[edit me](https://github.com/IALSA/IALSA-2015-Portland/edit/master/README.md)
 
 <!-- Below stored the short-cuts for links -->
   
