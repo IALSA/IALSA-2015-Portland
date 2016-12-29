@@ -29,6 +29,7 @@ Project: Pulmonary function and cognition
  [elsa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.docx   
   [hrs_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.docx     
  [ilse_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.docx   
+  [nas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.docx   
  [lasa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.docx   
 [nuage_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nuage.docx 
  [octo_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.docx   
@@ -39,6 +40,7 @@ Project: Pulmonary function and cognition
  [elsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.html   
   [hrs_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.html     
  [ilse_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.html   
+  [nas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.html   
  [lasa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.html   
 [nuage_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nuage.html 
  [octo_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.html   
