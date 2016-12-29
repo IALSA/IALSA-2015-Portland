@@ -7,7 +7,6 @@ Project: Grip and cognitive function
 | [ELSA][elsa_table_1]      |[Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |[word][elsa_word], [html][elsa_html] | 
 | [HRS][hrs_table_1]        |[Chenkai Wu](mailto:chenkai.wu2010@gmail.com)           |[word][hrs_word], [html][hrs_html] | 
 | [ILSE][ilse_table_1]      |[Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de)|[word][ilse_word], [html][ilse_html] | 
-| [NAS][lasa_table_1]       |[Lewina Lee](mailto:lewina@bu.edu)                      |[word][nas_word], [html][nas_html] | 
 | [NuAge][nas_table_1]      |[Valerie Jarry ](mailto:valerie.jarry@umontreal.ca )    |[word][nuage_word], [html][nuage_html] | 
 | [OCTO-Twin][nuage_table_1]| [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se)|[word][octo_word], [html][octo_html] | 
 | [MAP][map_table_1]        |[Cassandra Brown](mailto:clb@uvic.ca)                    |[word][map_word], [html][map_html] | 
