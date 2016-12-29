@@ -66,6 +66,7 @@ cognitive,fluid reasoning,fluid reasoning,block,block,block design,block,literal
 cognitive,fluid reasoning,fluid reasoning,blockdesign,block,block design,block,alternative to block,FALSE,,,
 cognitive,fluid reasoning,fluid reasoning,waisblockdesign,block,block design,block,alternative to block,FALSE,,,
 cognitive,fluid reasoning,fluid reasoning,figurelogic,fig_logic,figure logic,fig_logic,literal,FALSE,,,
+cognitive,fluid reasoning,fluid reasoning,figure,fig_logic,figure logic,fig_logic,alternative to figurelogic,FALSE,,octo,
 cognitive,fluid reasoning,fluid reasoning,matrices,matrices,matrices,matix,literal,TRUE,,,
 cognitive,fluid reasoning,fluid reasoning,raven,raven,matrices,raven,alternative to matrices,FALSE,,,
 cognitive,fluid reasoning,fluid reasoning,rotations,rotate,rotations,rotate,literal,FALSE,,,
