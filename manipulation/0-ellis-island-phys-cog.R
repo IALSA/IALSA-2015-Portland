@@ -146,8 +146,8 @@ model_output_file_path <- list(
 )
 
 # Parse model outputs from each study at a time
-collect_study(study="eas", selected_results)
-# collect_study(study="elsa", selected_results)
+# collect_study(study="eas", selected_results)
+collect_study(study="elsa", selected_results)
 # collect_study(study="hrs", selected_results)
 # collect_study(study="ilse", selected_results)
 # collect_study(study="lasa", selected_results)

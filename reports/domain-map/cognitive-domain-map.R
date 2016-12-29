@@ -13,7 +13,7 @@ library(grid)
 
 
 # ----- load-data --------------------------------------------------
-ds_full <- readr::read_csv("./data/shared/pc-2-parsed-results-computed_ci.csv")
+ds_full <- readr::read_csv("./data/shared/pc-2-catalog-augmented.csv")
 
 
 # ----- create-assist-ds -----------------------------
