@@ -381,7 +381,7 @@ ds <- ds %>%
 # ---- remove-unwanted-measures --------------------
 # to avoid removing case in each report, do it here
 # see https://github.com/IALSA/IALSA-2015-Portland/issues/152#issuecomment-268622007
-ds_full <- ds_full %>%
+ds <- ds %>%
   dplyr::filter(!(study_name == 'hrs' & process_b == "tics"))
 
 
