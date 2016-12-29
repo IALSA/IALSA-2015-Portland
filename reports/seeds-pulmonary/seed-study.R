@@ -18,8 +18,8 @@ requireNamespace("scales")
 
 # ---- declare-globals ---------------------------------------------------------
 options(show.signif.stars=F) #Turn off the annotations on p-values
-# print_format <- "pandoc"
-print_format <- "html"
+print_format <- "pandoc"
+# print_format <- "html"
 model_type_standard <- "aehplus" # spread at outcome pair level
 # model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
 model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
@@ -217,7 +217,8 @@ print_body(catalog_spread, catalog)
 # elsa has only "aehplus" form
 # ---- elsa ---------------------------------------------------------
 study <- 'elsa'
-outcome <- "fev100"
+# outcome <- "fev100"
+outcome <- "fev"
 
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)
