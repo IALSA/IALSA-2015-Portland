@@ -73,7 +73,7 @@ NULL
   <tr>
    <td style="text-align:left;"> pef </td>
    <td style="text-align:left;"> logic_tot </td>
-   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> pef </td>
@@ -450,6 +450,14 @@ NULL
    <td style="text-align:left;"> aehplus </td>
    <td style="text-align:left;"> pef </td>
    <td style="text-align:left;"> fas </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> eas </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> aehplus </td>
+   <td style="text-align:left;"> pef </td>
+   <td style="text-align:left;"> logic_tot </td>
    <td style="text-align:right;"> 1 </td>
   </tr>
   <tr>
@@ -5768,7 +5776,7 @@ P-values for corresponding covariances:
 
 # male 
 
- Gender = _male_; Model type: _aehplus_;  Process (a) = _pef_; Process (b): *block*, *bnt*, *categories*, *digit_tot*, *fas*, *mmse*, *symbol*, *trailsb*, *waisvocab*, *word_im*
+ Gender = _male_; Model type: _aehplus_;  Process (a) = _pef_; Process (b): *block*, *bnt*, *categories*, *digit_tot*, *fas*, *logic_tot*, *mmse*, *symbol*, *trailsb*, *waisvocab*, *word_im*
 <table>
  <thead>
   <tr>
@@ -5779,8 +5787,9 @@ P-values for corresponding covariances:
    <th style="text-align:right;"> categories </th>
    <th style="text-align:right;"> digit_tot </th>
    <th style="text-align:right;"> fas </th>
-   <th style="text-align:center;"> mmse </th>
-   <th style="text-align:left;"> symbol </th>
+   <th style="text-align:center;"> logic_tot </th>
+   <th style="text-align:left;"> mmse </th>
+   <th style="text-align:right;"> symbol </th>
    <th style="text-align:right;"> trailsb </th>
    <th style="text-align:right;"> waisvocab </th>
    <th style="text-align:right;"> word_im </th>
@@ -5796,8 +5805,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 54.30 (88.35)     .54 </td>
    <td style="text-align:right;"> 3.86 (36.29)     .92 </td>
    <td style="text-align:right;"> 145.88 (108.60)     .18 </td>
-   <td style="text-align:center;"> 25.56 (13.13)     .05 </td>
-   <td style="text-align:left;"> 444.24 (125.41)    &lt;.01 </td>
+   <td style="text-align:center;"> 35.38 (61.57)     .57 </td>
+   <td style="text-align:left;"> 25.56 (13.13)     .05 </td>
+   <td style="text-align:right;"> 444.24 (125.41)    &lt;.01 </td>
    <td style="text-align:right;"> -2188.20 (674.13)    &lt;.01 </td>
    <td style="text-align:right;"> -12.89 (116.46)     .91 </td>
    <td style="text-align:right;"> 31.41 (55.06)     .57 </td>
@@ -5811,8 +5821,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 5.08 (4.99)     .31 </td>
    <td style="text-align:right;"> 1.11 (2.25)     .62 </td>
    <td style="text-align:right;"> -2.03 (6.53)     .76 </td>
-   <td style="text-align:center;"> 0.96 (0.97)     .32 </td>
-   <td style="text-align:left;"> 17.97 (9.06)     .05 </td>
+   <td style="text-align:center;"> 2.85 (4.29)     .51 </td>
+   <td style="text-align:left;"> 0.96 (0.97)     .32 </td>
+   <td style="text-align:right;"> 17.97 (9.06)     .05 </td>
    <td style="text-align:right;"> -81.33 (52.55)     .12 </td>
    <td style="text-align:right;"> -7.50 (9.32)     .42 </td>
    <td style="text-align:right;"> 3.54 (3.81)     .35 </td>
@@ -5826,8 +5837,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 6.40 (16.74)     .70 </td>
    <td style="text-align:right;"> 7.35 (6.85)     .28 </td>
    <td style="text-align:right;"> 5.89 (22.57)     .79 </td>
-   <td style="text-align:center;"> -2.22 (2.75)     .42 </td>
-   <td style="text-align:left;"> -43.62 (22.17)     .05 </td>
+   <td style="text-align:center;"> -7.57 (15.76)     .63 </td>
+   <td style="text-align:left;"> -2.22 (2.75)     .42 </td>
+   <td style="text-align:right;"> -43.62 (22.17)     .05 </td>
    <td style="text-align:right;"> 3.96 (160.21)     .98 </td>
    <td style="text-align:right;"> -6.48 (27.33)     .81 </td>
    <td style="text-align:right;"> 6.38 (15.70)     .68 </td>
@@ -5841,8 +5853,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.07 (0.11)     .54 </td>
    <td style="text-align:right;"> 0.01 (0.12)     .92 </td>
    <td style="text-align:right;"> 0.14 (0.11)     .17 </td>
-   <td style="text-align:center;"> 0.31 (0.16)     .05 </td>
-   <td style="text-align:left;"> 0.40 (0.10)    &lt;.01 </td>
+   <td style="text-align:center;"> 0.07 (0.12)     .57 </td>
+   <td style="text-align:left;"> 0.31 (0.16)     .05 </td>
+   <td style="text-align:right;"> 0.40 (0.10)    &lt;.01 </td>
    <td style="text-align:right;"> -0.42 (0.11)    &lt;.01 </td>
    <td style="text-align:right;"> -0.01 (0.13)     .91 </td>
    <td style="text-align:right;"> 0.07 (0.12)     .57 </td>
@@ -5856,8 +5869,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.30 (0.28)     .29 </td>
    <td style="text-align:right;"> 0.26 (0.55)     .63 </td>
    <td style="text-align:right;"> -0.42 (1.79)     .81 </td>
-   <td style="text-align:center;"> 0.76 (1.10)     .49 </td>
-   <td style="text-align:left;"> 0.67 (0.32)     .04 </td>
+   <td style="text-align:center;"> 0.30 (0.46)     .51 </td>
+   <td style="text-align:left;"> 0.76 (1.10)     .49 </td>
+   <td style="text-align:right;"> 0.67 (0.32)     .04 </td>
    <td style="text-align:right;"> -0.96 (0.55)     .08 </td>
    <td style="text-align:right;"> -0.58 (0.72)     .42 </td>
    <td style="text-align:right;"> 0.38 (0.42)     .37 </td>
@@ -5871,8 +5885,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.02 (0.06)     .70 </td>
    <td style="text-align:right;"> 0.07 (0.06)     .28 </td>
    <td style="text-align:right;"> 0.02 (0.07)     .79 </td>
-   <td style="text-align:center;"> -0.05 (0.06)     .42 </td>
-   <td style="text-align:left;"> -0.13 (0.07)     .04 </td>
+   <td style="text-align:center;"> -0.03 (0.07)     .63 </td>
+   <td style="text-align:left;"> -0.05 (0.06)     .42 </td>
+   <td style="text-align:right;"> -0.13 (0.07)     .04 </td>
    <td style="text-align:right;"> 0.00 (0.07)     .98 </td>
    <td style="text-align:right;"> -0.02 (0.07)     .81 </td>
    <td style="text-align:right;"> 0.03 (0.08)     .68 </td>
@@ -5886,12 +5901,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 395.94 (32.15)    &lt;.01 </td>
    <td style="text-align:right;"> 391.53 (31.82)    &lt;.01 </td>
    <td style="text-align:right;"> 393.67 (32.12)    &lt;.01 </td>
-   <td style="text-align:center;"> 389.62 (32.14)    &lt;.01 </td>
-   <td style="text-align:left;"> 387.77 (31.61)    &lt;.01 </td>
+   <td style="text-align:center;"> 393.52 (31.82)    &lt;.01 </td>
+   <td style="text-align:left;"> 389.62 (32.14)    &lt;.01 </td>
+   <td style="text-align:right;"> 387.77 (31.61)    &lt;.01 </td>
    <td style="text-align:right;"> 401.74 (33.10)    &lt;.01 </td>
    <td style="text-align:right;"> 389.70 (31.95)    &lt;.01 </td>
    <td style="text-align:right;"> 396.47 (32.16)    &lt;.01 </td>
-   <td style="text-align:right;"> 393.22(4.22) </td>
+   <td style="text-align:right;"> 393.25(4.00) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -5901,12 +5917,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -8.25 (9.60)     .39 </td>
    <td style="text-align:right;"> -6.52 (9.74)     .50 </td>
    <td style="text-align:right;"> -7.11 (9.59)     .46 </td>
-   <td style="text-align:center;"> -6.27 (9.72)     .52 </td>
-   <td style="text-align:left;"> -5.19 (9.81)     .60 </td>
+   <td style="text-align:center;"> -7.07 (9.95)     .48 </td>
+   <td style="text-align:left;"> -6.27 (9.72)     .52 </td>
+   <td style="text-align:right;"> -5.19 (9.81)     .60 </td>
    <td style="text-align:right;"> -9.31 (9.91)     .35 </td>
    <td style="text-align:right;"> -6.01 (9.87)     .54 </td>
    <td style="text-align:right;"> -8.54 (9.59)     .37 </td>
-   <td style="text-align:right;"> -7.14(1.29) </td>
+   <td style="text-align:right;"> -7.14(1.22) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -5916,12 +5933,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -2.54 (1.80)     .16 </td>
    <td style="text-align:right;"> -2.52 (1.77)     .15 </td>
    <td style="text-align:right;"> -2.56 (1.84)     .16 </td>
-   <td style="text-align:center;"> -2.45 (1.73)     .16 </td>
-   <td style="text-align:left;"> -2.10 (1.76)     .23 </td>
+   <td style="text-align:center;"> -2.53 (1.81)     .16 </td>
+   <td style="text-align:left;"> -2.45 (1.73)     .16 </td>
+   <td style="text-align:right;"> -2.10 (1.76)     .23 </td>
    <td style="text-align:right;"> -2.67 (1.76)     .13 </td>
    <td style="text-align:right;"> -2.46 (1.74)     .16 </td>
    <td style="text-align:right;"> -2.55 (1.75)     .14 </td>
-   <td style="text-align:right;"> -2.48(0.15) </td>
+   <td style="text-align:right;"> -2.48(0.14) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -5931,12 +5949,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 2.92 (2.65)     .27 </td>
    <td style="text-align:right;"> 3.26 (2.70)     .23 </td>
    <td style="text-align:right;"> 3.33 (2.63)     .20 </td>
-   <td style="text-align:center;"> 3.38 (2.71)     .21 </td>
-   <td style="text-align:left;"> 3.02 (2.66)     .26 </td>
+   <td style="text-align:center;"> 3.10 (2.72)     .25 </td>
+   <td style="text-align:left;"> 3.38 (2.71)     .21 </td>
+   <td style="text-align:right;"> 3.02 (2.66)     .26 </td>
    <td style="text-align:right;"> 2.46 (2.77)     .37 </td>
    <td style="text-align:right;"> 3.37 (2.70)     .21 </td>
    <td style="text-align:right;"> 2.98 (2.64)     .26 </td>
-   <td style="text-align:right;"> 3.09(0.28) </td>
+   <td style="text-align:right;"> 3.09(0.26) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -5946,12 +5965,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.62 (1.30)     .63 </td>
    <td style="text-align:right;"> 0.50 (1.28)     .70 </td>
    <td style="text-align:right;"> 0.53 (1.27)     .68 </td>
-   <td style="text-align:center;"> 0.57 (1.30)     .66 </td>
-   <td style="text-align:left;"> 0.77 (1.26)     .54 </td>
+   <td style="text-align:center;"> 0.61 (1.30)     .64 </td>
+   <td style="text-align:left;"> 0.57 (1.30)     .66 </td>
+   <td style="text-align:right;"> 0.77 (1.26)     .54 </td>
    <td style="text-align:right;"> 0.60 (1.25)     .63 </td>
    <td style="text-align:right;"> 0.49 (1.29)     .70 </td>
    <td style="text-align:right;"> 0.70 (1.28)     .58 </td>
-   <td style="text-align:right;"> 0.59(0.10) </td>
+   <td style="text-align:right;"> 0.59(0.09) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -5961,12 +5981,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -22.47 (19.17)     .24 </td>
    <td style="text-align:right;"> -21.99 (19.09)     .25 </td>
    <td style="text-align:right;"> -21.61 (19.15)     .26 </td>
-   <td style="text-align:center;"> -19.32 (19.65)     .32 </td>
-   <td style="text-align:left;"> -21.73 (18.93)     .25 </td>
+   <td style="text-align:center;"> -21.68 (19.08)     .26 </td>
+   <td style="text-align:left;"> -19.32 (19.65)     .32 </td>
+   <td style="text-align:right;"> -21.73 (18.93)     .25 </td>
    <td style="text-align:right;"> -21.68 (19.17)     .26 </td>
    <td style="text-align:right;"> -22.03 (19.23)     .25 </td>
    <td style="text-align:right;"> -21.74 (18.91)     .25 </td>
-   <td style="text-align:right;"> -21.28(1.09) </td>
+   <td style="text-align:right;"> -21.32(1.04) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -5976,12 +5997,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -21.80 (24.67)     .38 </td>
    <td style="text-align:right;"> -22.99 (24.59)     .35 </td>
    <td style="text-align:right;"> -24.19 (24.86)     .33 </td>
-   <td style="text-align:center;"> -22.47 (25.21)     .37 </td>
-   <td style="text-align:left;"> -25.84 (24.76)     .30 </td>
+   <td style="text-align:center;"> -21.95 (24.80)     .38 </td>
+   <td style="text-align:left;"> -22.47 (25.21)     .37 </td>
+   <td style="text-align:right;"> -25.84 (24.76)     .30 </td>
    <td style="text-align:right;"> -22.02 (25.07)     .38 </td>
    <td style="text-align:right;"> -22.14 (24.05)     .36 </td>
    <td style="text-align:right;"> -22.67 (24.18)     .35 </td>
-   <td style="text-align:right;"> -23.36(1.48) </td>
+   <td style="text-align:right;"> -23.23(1.47) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -5991,12 +6013,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -11.04 (20.95)     .60 </td>
    <td style="text-align:right;"> -9.18 (20.97)     .66 </td>
    <td style="text-align:right;"> -10.89 (21.00)     .60 </td>
-   <td style="text-align:center;"> -11.46 (21.04)     .59 </td>
-   <td style="text-align:left;"> -11.75 (20.66)     .57 </td>
+   <td style="text-align:center;"> -10.76 (21.27)     .61 </td>
+   <td style="text-align:left;"> -11.46 (21.04)     .59 </td>
+   <td style="text-align:right;"> -11.75 (20.66)     .57 </td>
    <td style="text-align:right;"> -10.85 (20.65)     .60 </td>
    <td style="text-align:right;"> -9.30 (22.08)     .67 </td>
    <td style="text-align:right;"> -12.30 (20.91)     .56 </td>
-   <td style="text-align:right;"> -10.85(0.97) </td>
+   <td style="text-align:right;"> -10.84(0.92) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -6006,12 +6029,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -0.60 (0.56)     .28 </td>
    <td style="text-align:right;"> -0.56 (0.55)     .31 </td>
    <td style="text-align:right;"> -0.56 (0.55)     .31 </td>
-   <td style="text-align:center;"> -0.59 (0.54)     .27 </td>
-   <td style="text-align:left;"> -0.73 (0.55)     .18 </td>
+   <td style="text-align:center;"> -0.58 (0.55)     .29 </td>
+   <td style="text-align:left;"> -0.59 (0.54)     .27 </td>
+   <td style="text-align:right;"> -0.73 (0.55)     .18 </td>
    <td style="text-align:right;"> -0.52 (0.56)     .36 </td>
    <td style="text-align:right;"> -0.57 (0.55)     .29 </td>
    <td style="text-align:right;"> -0.57 (0.53)     .29 </td>
-   <td style="text-align:right;"> -0.59(0.06) </td>
+   <td style="text-align:right;"> -0.59(0.05) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -6021,12 +6045,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -0.28 (0.76)     .71 </td>
    <td style="text-align:right;"> -0.48 (0.76)     .53 </td>
    <td style="text-align:right;"> -0.49 (0.74)     .51 </td>
-   <td style="text-align:center;"> -0.46 (0.79)     .56 </td>
-   <td style="text-align:left;"> -0.37 (0.77)     .63 </td>
+   <td style="text-align:center;"> -0.40 (0.78)     .61 </td>
+   <td style="text-align:left;"> -0.46 (0.79)     .56 </td>
+   <td style="text-align:right;"> -0.37 (0.77)     .63 </td>
    <td style="text-align:right;"> -0.23 (0.78)     .76 </td>
    <td style="text-align:right;"> -0.48 (0.77)     .53 </td>
    <td style="text-align:right;"> -0.35 (0.74)     .63 </td>
-   <td style="text-align:right;"> -0.39(0.09) </td>
+   <td style="text-align:right;"> -0.39(0.08) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -6036,8 +6061,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.81 (0.46)     .08 </td>
    <td style="text-align:right;"> 0.95 (0.45)     .03 </td>
    <td style="text-align:right;"> 0.94 (0.45)     .04 </td>
-   <td style="text-align:center;"> 0.92 (0.45)     .04 </td>
-   <td style="text-align:left;"> 0.80 (0.44)     .07 </td>
+   <td style="text-align:center;"> 0.90 (0.46)     .05 </td>
+   <td style="text-align:left;"> 0.92 (0.45)     .04 </td>
+   <td style="text-align:right;"> 0.80 (0.44)     .07 </td>
    <td style="text-align:right;"> 0.90 (0.42)     .03 </td>
    <td style="text-align:right;"> 0.97 (0.44)     .03 </td>
    <td style="text-align:right;"> 0.88 (0.44)     .04 </td>
@@ -6051,12 +6077,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 2.78 (5.76)     .63 </td>
    <td style="text-align:right;"> 2.08 (5.70)     .71 </td>
    <td style="text-align:right;"> 2.08 (5.65)     .71 </td>
-   <td style="text-align:center;"> 1.63 (5.66)     .77 </td>
-   <td style="text-align:left;"> 1.95 (5.71)     .73 </td>
+   <td style="text-align:center;"> 2.12 (5.73)     .71 </td>
+   <td style="text-align:left;"> 1.63 (5.66)     .77 </td>
+   <td style="text-align:right;"> 1.95 (5.71)     .73 </td>
    <td style="text-align:right;"> 2.00 (5.61)     .72 </td>
    <td style="text-align:right;"> 2.16 (5.65)     .70 </td>
    <td style="text-align:right;"> 2.27 (5.75)     .69 </td>
-   <td style="text-align:right;"> 2.01(0.36) </td>
+   <td style="text-align:right;"> 2.02(0.35) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -6066,12 +6093,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 7.55 (9.12)     .41 </td>
    <td style="text-align:right;"> 8.48 (8.98)     .34 </td>
    <td style="text-align:right;"> 8.56 (9.24)     .35 </td>
-   <td style="text-align:center;"> 7.67 (9.36)     .41 </td>
-   <td style="text-align:left;"> 9.41 (9.51)     .32 </td>
+   <td style="text-align:center;"> 7.82 (9.24)     .40 </td>
+   <td style="text-align:left;"> 7.67 (9.36)     .41 </td>
+   <td style="text-align:right;"> 9.41 (9.51)     .32 </td>
    <td style="text-align:right;"> 7.56 (9.75)     .44 </td>
    <td style="text-align:right;"> 7.83 (8.84)     .38 </td>
    <td style="text-align:right;"> 8.38 (8.74)     .34 </td>
-   <td style="text-align:right;"> 8.28(0.61) </td>
+   <td style="text-align:right;"> 8.23(0.59) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -6081,12 +6109,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -2.67 (6.89)     .70 </td>
    <td style="text-align:right;"> -2.84 (7.19)     .69 </td>
    <td style="text-align:right;"> -2.75 (7.00)     .69 </td>
-   <td style="text-align:center;"> -2.27 (6.86)     .74 </td>
-   <td style="text-align:left;"> -1.82 (6.91)     .79 </td>
+   <td style="text-align:center;"> -2.44 (6.93)     .72 </td>
+   <td style="text-align:left;"> -2.27 (6.86)     .74 </td>
+   <td style="text-align:right;"> -1.82 (6.91)     .79 </td>
    <td style="text-align:right;"> -2.59 (6.73)     .70 </td>
    <td style="text-align:right;"> -3.43 (7.10)     .63 </td>
    <td style="text-align:right;"> -1.75 (6.73)     .79 </td>
-   <td style="text-align:right;"> -2.49(0.49) </td>
+   <td style="text-align:right;"> -2.48(0.47) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> b </td>
@@ -6096,8 +6125,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 34.32 (1.88)    &lt;.01 </td>
    <td style="text-align:right;"> 12.17 (0.87)    &lt;.01 </td>
    <td style="text-align:right;"> 24.22 (2.76)    &lt;.01 </td>
-   <td style="text-align:center;"> 26.17 (0.25)    &lt;.01 </td>
-   <td style="text-align:left;"> 33.71 (2.67)    &lt;.01 </td>
+   <td style="text-align:center;"> 16.26 (1.50)    &lt;.01 </td>
+   <td style="text-align:left;"> 26.17 (0.25)    &lt;.01 </td>
+   <td style="text-align:right;"> 33.71 (2.67)    &lt;.01 </td>
    <td style="text-align:right;"> 151.72 (13.30)    &lt;.01 </td>
    <td style="text-align:right;"> 34.41 (2.48)    &lt;.01 </td>
    <td style="text-align:right;"> 33.19 (1.33)    &lt;.01 </td>
@@ -6111,8 +6141,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -0.11 (0.51)     .83 </td>
    <td style="text-align:right;"> 0.34 (0.20)     .09 </td>
    <td style="text-align:right;"> 1.17 (0.54)     .03 </td>
-   <td style="text-align:center;"> 0.12 (0.08)     .14 </td>
-   <td style="text-align:left;"> 2.39 (0.65)    &lt;.01 </td>
+   <td style="text-align:center;"> 1.26 (0.39)    &lt;.01 </td>
+   <td style="text-align:left;"> 0.12 (0.08)     .14 </td>
+   <td style="text-align:right;"> 2.39 (0.65)    &lt;.01 </td>
    <td style="text-align:right;"> 1.51 (3.34)     .65 </td>
    <td style="text-align:right;"> 0.64 (0.57)     .26 </td>
    <td style="text-align:right;"> 0.05 (0.37)     .88 </td>
@@ -6126,8 +6157,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -0.22 (0.12)     .06 </td>
    <td style="text-align:right;"> 0.02 (0.04)     .55 </td>
    <td style="text-align:right;"> 0.29 (0.14)     .05 </td>
-   <td style="text-align:center;"> -0.01 (0.01)     .34 </td>
-   <td style="text-align:left;"> -0.09 (0.16)     .57 </td>
+   <td style="text-align:center;"> -0.04 (0.08)     .58 </td>
+   <td style="text-align:left;"> -0.01 (0.01)     .34 </td>
+   <td style="text-align:right;"> -0.09 (0.16)     .57 </td>
    <td style="text-align:right;"> 1.09 (0.76)     .15 </td>
    <td style="text-align:right;"> 0.18 (0.14)     .19 </td>
    <td style="text-align:right;"> -0.32 (0.07)    &lt;.01 </td>
@@ -6141,8 +6173,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.46 (0.16)    &lt;.01 </td>
    <td style="text-align:right;"> 0.27 (0.07)    &lt;.01 </td>
    <td style="text-align:right;"> 1.28 (0.21)    &lt;.01 </td>
-   <td style="text-align:center;"> 0.11 (0.02)    &lt;.01 </td>
-   <td style="text-align:left;"> 1.44 (0.20)    &lt;.01 </td>
+   <td style="text-align:center;"> 0.56 (0.12)    &lt;.01 </td>
+   <td style="text-align:left;"> 0.11 (0.02)    &lt;.01 </td>
+   <td style="text-align:right;"> 1.44 (0.20)    &lt;.01 </td>
    <td style="text-align:right;"> -4.56 (1.15)    &lt;.01 </td>
    <td style="text-align:right;"> 1.66 (0.21)    &lt;.01 </td>
    <td style="text-align:right;"> 0.05 (0.11)     .63 </td>
@@ -6156,8 +6189,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.19 (0.10)     .06 </td>
    <td style="text-align:right;"> -0.03 (0.03)     .38 </td>
    <td style="text-align:right;"> 0.18 (0.12)     .15 </td>
-   <td style="text-align:center;"> -0.01 (0.01)     .52 </td>
-   <td style="text-align:left;"> 0.16 (0.14)     .24 </td>
+   <td style="text-align:center;"> 0.05 (0.07)     .45 </td>
+   <td style="text-align:left;"> -0.01 (0.01)     .52 </td>
+   <td style="text-align:right;"> 0.16 (0.14)     .24 </td>
    <td style="text-align:right;"> -1.27 (0.68)     .06 </td>
    <td style="text-align:right;"> 0.10 (0.12)     .41 </td>
    <td style="text-align:right;"> -0.01 (0.06)     .82 </td>
@@ -6171,8 +6205,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 2.13 (1.20)     .07 </td>
    <td style="text-align:right;"> 1.00 (0.48)     .04 </td>
    <td style="text-align:right;"> 1.50 (1.48)     .31 </td>
-   <td style="text-align:center;"> -0.06 (0.17)     .73 </td>
-   <td style="text-align:left;"> 1.98 (1.67)     .24 </td>
+   <td style="text-align:center;"> 1.52 (0.90)     .09 </td>
+   <td style="text-align:left;"> -0.06 (0.17)     .73 </td>
+   <td style="text-align:right;"> 1.98 (1.67)     .24 </td>
    <td style="text-align:right;"> -0.15 (8.86)     .99 </td>
    <td style="text-align:right;"> 1.53 (1.53)     .32 </td>
    <td style="text-align:right;"> -0.87 (0.77)     .26 </td>
@@ -6186,8 +6221,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 3.13 (1.57)     .05 </td>
    <td style="text-align:right;"> -0.09 (0.49)     .85 </td>
    <td style="text-align:right;"> 1.81 (1.88)     .34 </td>
-   <td style="text-align:center;"> 0.16 (0.20)     .43 </td>
-   <td style="text-align:left;"> 0.40 (1.88)     .83 </td>
+   <td style="text-align:center;"> 1.47 (1.03)     .15 </td>
+   <td style="text-align:left;"> 0.16 (0.20)     .43 </td>
+   <td style="text-align:right;"> 0.40 (1.88)     .83 </td>
    <td style="text-align:right;"> -2.76 (10.05)     .78 </td>
    <td style="text-align:right;"> 0.95 (1.68)     .57 </td>
    <td style="text-align:right;"> 2.46 (0.96)     .01 </td>
@@ -6201,8 +6237,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -1.77 (1.32)     .18 </td>
    <td style="text-align:right;"> -0.64 (0.51)     .21 </td>
    <td style="text-align:right;"> -3.27 (1.53)     .03 </td>
-   <td style="text-align:center;"> -0.32 (0.16)     .04 </td>
-   <td style="text-align:left;"> -7.01 (1.69)    &lt;.01 </td>
+   <td style="text-align:center;"> -0.73 (0.99)     .46 </td>
+   <td style="text-align:left;"> -0.32 (0.16)     .04 </td>
+   <td style="text-align:right;"> -7.01 (1.69)    &lt;.01 </td>
    <td style="text-align:right;"> 21.96 (8.58)     .01 </td>
    <td style="text-align:right;"> -2.00 (1.54)     .20 </td>
    <td style="text-align:right;"> -1.45 (0.81)     .07 </td>
@@ -6216,8 +6253,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -0.05 (0.03)     .10 </td>
    <td style="text-align:right;"> -0.01 (0.01)     .31 </td>
    <td style="text-align:right;"> -0.08 (0.04)     .02 </td>
-   <td style="text-align:center;"> -0.00 (0.00)     .60 </td>
-   <td style="text-align:left;"> -0.13 (0.04)    &lt;.01 </td>
+   <td style="text-align:center;"> -0.10 (0.03)    &lt;.01 </td>
+   <td style="text-align:left;"> -0.00 (0.00)     .60 </td>
+   <td style="text-align:right;"> -0.13 (0.04)    &lt;.01 </td>
    <td style="text-align:right;"> 0.52 (0.21)     .02 </td>
    <td style="text-align:right;"> -0.07 (0.04)     .06 </td>
    <td style="text-align:right;"> -0.02 (0.02)     .39 </td>
@@ -6231,8 +6269,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.03 (0.04)     .54 </td>
    <td style="text-align:right;"> -0.01 (0.02)     .71 </td>
    <td style="text-align:right;"> -0.03 (0.04)     .50 </td>
-   <td style="text-align:center;"> -0.02 (0.01)     .03 </td>
-   <td style="text-align:left;"> -0.14 (0.06)     .02 </td>
+   <td style="text-align:center;"> -0.07 (0.03)     .05 </td>
+   <td style="text-align:left;"> -0.02 (0.01)     .03 </td>
+   <td style="text-align:right;"> -0.14 (0.06)     .02 </td>
    <td style="text-align:right;"> -0.17 (0.32)     .59 </td>
    <td style="text-align:right;"> -0.01 (0.05)     .80 </td>
    <td style="text-align:right;"> -0.01 (0.03)     .74 </td>
@@ -6246,8 +6285,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -0.08 (0.03)    &lt;.01 </td>
    <td style="text-align:right;"> 0.01 (0.01)     .35 </td>
    <td style="text-align:right;"> -0.03 (0.02)     .25 </td>
-   <td style="text-align:center;"> 0.00 (0.00)     .61 </td>
-   <td style="text-align:left;"> -0.04 (0.04)     .25 </td>
+   <td style="text-align:center;"> -0.01 (0.02)     .71 </td>
+   <td style="text-align:left;"> 0.00 (0.00)     .61 </td>
+   <td style="text-align:right;"> -0.04 (0.04)     .25 </td>
    <td style="text-align:right;"> 0.39 (0.23)     .08 </td>
    <td style="text-align:right;"> -0.03 (0.04)     .43 </td>
    <td style="text-align:right;"> -0.03 (0.02)     .07 </td>
@@ -6261,8 +6301,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -0.24 (0.30)     .44 </td>
    <td style="text-align:right;"> -0.16 (0.11)     .15 </td>
    <td style="text-align:right;"> 0.01 (0.32)     .98 </td>
-   <td style="text-align:center;"> 0.05 (0.05)     .36 </td>
-   <td style="text-align:left;"> -0.21 (0.42)     .62 </td>
+   <td style="text-align:center;"> -0.22 (0.25)     .38 </td>
+   <td style="text-align:left;"> 0.05 (0.05)     .36 </td>
+   <td style="text-align:right;"> -0.21 (0.42)     .62 </td>
    <td style="text-align:right;"> -4.40 (2.36)     .06 </td>
    <td style="text-align:right;"> -0.36 (0.40)     .36 </td>
    <td style="text-align:right;"> 0.29 (0.22)     .18 </td>
@@ -6276,8 +6317,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.42 (0.39)     .28 </td>
    <td style="text-align:right;"> 0.18 (0.12)     .14 </td>
    <td style="text-align:right;"> 0.58 (0.36)     .10 </td>
-   <td style="text-align:center;"> -0.02 (0.07)     .72 </td>
-   <td style="text-align:left;"> 0.42 (0.51)     .41 </td>
+   <td style="text-align:center;"> 0.10 (0.29)     .73 </td>
+   <td style="text-align:left;"> -0.02 (0.07)     .72 </td>
+   <td style="text-align:right;"> 0.42 (0.51)     .41 </td>
    <td style="text-align:right;"> -1.39 (2.40)     .56 </td>
    <td style="text-align:right;"> -0.53 (0.43)     .22 </td>
    <td style="text-align:right;"> -0.07 (0.26)     .78 </td>
@@ -6291,8 +6333,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -0.03 (0.37)     .94 </td>
    <td style="text-align:right;"> 0.01 (0.12)     .91 </td>
    <td style="text-align:right;"> -0.04 (0.32)     .89 </td>
-   <td style="text-align:center;"> 0.06 (0.05)     .23 </td>
-   <td style="text-align:left;"> 0.20 (0.42)     .64 </td>
+   <td style="text-align:center;"> 0.54 (0.31)     .08 </td>
+   <td style="text-align:left;"> 0.06 (0.05)     .23 </td>
+   <td style="text-align:right;"> 0.20 (0.42)     .64 </td>
    <td style="text-align:right;"> -0.18 (2.47)     .94 </td>
    <td style="text-align:right;"> 0.00 (0.39)     .99 </td>
    <td style="text-align:right;"> 0.40 (0.25)     .12 </td>
@@ -6306,12 +6349,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 11062.08 (2095.12)    &lt;.01 </td>
    <td style="text-align:right;"> 11186.26 (2140.02)    &lt;.01 </td>
    <td style="text-align:right;"> 11027.50 (2148.20)    &lt;.01 </td>
-   <td style="text-align:center;"> 11064.40 (2163.48)    &lt;.01 </td>
-   <td style="text-align:left;"> 11101.78 (2077.44)    &lt;.01 </td>
+   <td style="text-align:center;"> 11038.95 (2173.96)    &lt;.01 </td>
+   <td style="text-align:left;"> 11064.40 (2163.48)    &lt;.01 </td>
+   <td style="text-align:right;"> 11101.78 (2077.44)    &lt;.01 </td>
    <td style="text-align:right;"> 11020.67 (2100.83)    &lt;.01 </td>
    <td style="text-align:right;"> 11012.35 (2219.37)    &lt;.01 </td>
    <td style="text-align:right;"> 10970.46 (2158.14)    &lt;.01 </td>
-   <td style="text-align:right;"> 11057.41(59.79) </td>
+   <td style="text-align:right;"> 11055.73(57.00) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -6321,12 +6365,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 321.19 (119.49)     .01 </td>
    <td style="text-align:right;"> 310.31 (118.53)     .01 </td>
    <td style="text-align:right;"> 302.36 (117.95)     .01 </td>
-   <td style="text-align:center;"> 318.93 (122.49)     .01 </td>
-   <td style="text-align:left;"> 339.22 (121.49)    &lt;.01 </td>
+   <td style="text-align:center;"> 307.58 (119.55)     .01 </td>
+   <td style="text-align:left;"> 318.93 (122.49)     .01 </td>
+   <td style="text-align:right;"> 339.22 (121.49)    &lt;.01 </td>
    <td style="text-align:right;"> 295.58 (112.59)     .01 </td>
    <td style="text-align:right;"> 303.80 (119.14)     .01 </td>
    <td style="text-align:right;"> 297.08 (114.47)     .01 </td>
-   <td style="text-align:right;"> 310.85(14.41) </td>
+   <td style="text-align:right;"> 310.55(13.70) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> a </td>
@@ -6336,12 +6381,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 3632.78 (193.84)    &lt;.01 </td>
    <td style="text-align:right;"> 3639.29 (202.10)    &lt;.01 </td>
    <td style="text-align:right;"> 3642.64 (199.47)    &lt;.01 </td>
-   <td style="text-align:center;"> 3621.98 (194.45)    &lt;.01 </td>
-   <td style="text-align:left;"> 3635.34 (199.63)    &lt;.01 </td>
+   <td style="text-align:center;"> 3639.96 (203.23)    &lt;.01 </td>
+   <td style="text-align:left;"> 3621.98 (194.45)    &lt;.01 </td>
+   <td style="text-align:right;"> 3635.34 (199.63)    &lt;.01 </td>
    <td style="text-align:right;"> 3641.79 (197.76)    &lt;.01 </td>
    <td style="text-align:right;"> 3644.76 (201.75)    &lt;.01 </td>
    <td style="text-align:right;"> 3656.92 (207.64)    &lt;.01 </td>
-   <td style="text-align:right;"> 3638.99(9.48) </td>
+   <td style="text-align:right;"> 3639.08(9.00) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> b </td>
@@ -6351,8 +6397,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 58.22 (7.57)    &lt;.01 </td>
    <td style="text-align:right;"> 8.84 (1.21)    &lt;.01 </td>
    <td style="text-align:right;"> 91.38 (11.79)    &lt;.01 </td>
-   <td style="text-align:center;"> 0.63 (0.14)    &lt;.01 </td>
-   <td style="text-align:left;"> 112.95 (13.27)    &lt;.01 </td>
+   <td style="text-align:center;"> 25.64 (4.22)    &lt;.01 </td>
+   <td style="text-align:left;"> 0.63 (0.14)    &lt;.01 </td>
+   <td style="text-align:right;"> 112.95 (13.27)    &lt;.01 </td>
    <td style="text-align:right;"> 2453.46 (368.38)    &lt;.01 </td>
    <td style="text-align:right;"> 70.02 (12.69)    &lt;.01 </td>
    <td style="text-align:right;"> 18.33 (3.35)    &lt;.01 </td>
@@ -6366,8 +6413,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.90 (0.46)     .05 </td>
    <td style="text-align:right;"> 0.06 (0.06)     .29 </td>
    <td style="text-align:right;"> 0.08 (0.40)     .85 </td>
-   <td style="text-align:center;"> 0.00 (0.01)     .65 </td>
-   <td style="text-align:left;"> 2.10 (0.64)    &lt;.01 </td>
+   <td style="text-align:center;"> 0.30 (0.27)     .27 </td>
+   <td style="text-align:left;"> 0.00 (0.01)     .65 </td>
+   <td style="text-align:right;"> 2.10 (0.64)    &lt;.01 </td>
    <td style="text-align:right;"> 24.11 (21.10)     .25 </td>
    <td style="text-align:right;"> 0.54 (0.75)     .47 </td>
    <td style="text-align:right;"> 0.30 (0.23)     .20 </td>
@@ -6381,8 +6429,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 18.84 (1.04)    &lt;.01 </td>
    <td style="text-align:right;"> 2.97 (0.18)    &lt;.01 </td>
    <td style="text-align:right;"> 25.96 (1.66)    &lt;.01 </td>
-   <td style="text-align:center;"> 0.62 (0.03)    &lt;.01 </td>
-   <td style="text-align:left;"> 28.97 (1.49)    &lt;.01 </td>
+   <td style="text-align:center;"> 14.66 (0.97)    &lt;.01 </td>
+   <td style="text-align:left;"> 0.62 (0.03)    &lt;.01 </td>
+   <td style="text-align:right;"> 28.97 (1.49)    &lt;.01 </td>
    <td style="text-align:right;"> 1268.35 (48.16)    &lt;.01 </td>
    <td style="text-align:right;"> 43.16 (2.52)    &lt;.01 </td>
    <td style="text-align:right;"> 11.58 (0.72)    &lt;.01 </td>
@@ -6396,12 +6445,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -991.33 (496.53)     .05 </td>
    <td style="text-align:right;"> -1014.17 (518.90)     .05 </td>
    <td style="text-align:right;"> -966.35 (510.96)     .06 </td>
-   <td style="text-align:center;"> -1007.55 (520.23)     .05 </td>
-   <td style="text-align:left;"> -1051.22 (497.56)     .04 </td>
+   <td style="text-align:center;"> -981.30 (507.34)     .05 </td>
+   <td style="text-align:left;"> -1007.55 (520.23)     .05 </td>
+   <td style="text-align:right;"> -1051.22 (497.56)     .04 </td>
    <td style="text-align:right;"> -953.13 (489.56)     .05 </td>
    <td style="text-align:right;"> -971.59 (516.76)     .06 </td>
    <td style="text-align:right;"> -955.32 (496.09)     .05 </td>
-   <td style="text-align:right;"> -988.56(33.16) </td>
+   <td style="text-align:right;"> -987.90(31.53) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> b </td>
@@ -6411,8 +6461,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -2.40 (1.73)     .16 </td>
    <td style="text-align:right;"> -0.32 (0.24)     .19 </td>
    <td style="text-align:right;"> 1.94 (1.76)     .27 </td>
-   <td style="text-align:center;"> -0.00 (0.04)     .99 </td>
-   <td style="text-align:left;"> -4.79 (2.34)     .04 </td>
+   <td style="text-align:center;"> -0.50 (1.04)     .63 </td>
+   <td style="text-align:left;"> -0.00 (0.04)     .99 </td>
+   <td style="text-align:right;"> -4.79 (2.34)     .04 </td>
    <td style="text-align:right;"> -91.76 (77.75)     .24 </td>
    <td style="text-align:right;"> -2.93 (2.71)     .28 </td>
    <td style="text-align:right;"> -0.57 (0.75)     .44 </td>
@@ -6426,12 +6477,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.068 </td>
    <td style="text-align:right;"> 0.012 </td>
    <td style="text-align:right;"> 0.145 </td>
-   <td style="text-align:center;"> 0.307 </td>
-   <td style="text-align:left;"> 0.40 </td>
+   <td style="text-align:center;"> 0.067 </td>
+   <td style="text-align:left;"> 0.307 </td>
+   <td style="text-align:right;"> 0.40 </td>
    <td style="text-align:right;"> -0.4208 </td>
    <td style="text-align:right;"> -0.015 </td>
    <td style="text-align:right;"> 0.070 </td>
-   <td style="text-align:right;"> 0.09(0.23) </td>
+   <td style="text-align:right;"> 0.09(0.22) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> \ </td>
@@ -6441,12 +6493,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.299 </td>
    <td style="text-align:right;"> 0.262 </td>
    <td style="text-align:right;"> -0.424 </td>
-   <td style="text-align:center;"> 0.759 </td>
-   <td style="text-align:left;"> 0.67 </td>
+   <td style="text-align:center;"> 0.297 </td>
+   <td style="text-align:left;"> 0.759 </td>
+   <td style="text-align:right;"> 0.67 </td>
    <td style="text-align:right;"> -0.9634 </td>
    <td style="text-align:right;"> -0.583 </td>
    <td style="text-align:right;"> 0.378 </td>
-   <td style="text-align:right;"> 0.11(0.58) </td>
+   <td style="text-align:right;"> 0.13(0.55) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> \ </td>
@@ -6456,8 +6509,9 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 0.024 </td>
    <td style="text-align:right;"> 0.071 </td>
    <td style="text-align:right;"> 0.019 </td>
-   <td style="text-align:center;"> -0.047 </td>
-   <td style="text-align:left;"> -0.13 </td>
+   <td style="text-align:center;"> -0.033 </td>
+   <td style="text-align:left;"> -0.047 </td>
+   <td style="text-align:right;"> -0.13 </td>
    <td style="text-align:right;"> 0.0018 </td>
    <td style="text-align:right;"> -0.016 </td>
    <td style="text-align:right;"> 0.031 </td>
@@ -6476,6 +6530,7 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 324 </td>
    <td style="text-align:right;"> 324 </td>
    <td style="text-align:right;"> 324 </td>
+   <td style="text-align:right;"> 324 </td>
    <td style="text-align:right;"> 324.00(0.00) </td>
   </tr>
   <tr>
@@ -6488,6 +6543,7 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 5 </td>
    <td style="text-align:center;"> 5 </td>
    <td style="text-align:left;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
    <td style="text-align:right;"> 5 </td>
    <td style="text-align:right;"> 5 </td>
    <td style="text-align:right;"> 5 </td>
@@ -6506,6 +6562,7 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 43 </td>
    <td style="text-align:right;"> 43 </td>
    <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 43 </td>
    <td style="text-align:right;"> 43.00(0.00) </td>
   </tr>
   <tr>
@@ -6516,12 +6573,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> -8,917 </td>
    <td style="text-align:right;"> -7,880 </td>
    <td style="text-align:right;"> -9,052 </td>
-   <td style="text-align:center;"> -6,920 </td>
-   <td style="text-align:left;"> -9,189 </td>
+   <td style="text-align:center;"> -8,634 </td>
+   <td style="text-align:left;"> -6,920 </td>
+   <td style="text-align:right;"> -9,189 </td>
    <td style="text-align:right;"> -11,079 </td>
    <td style="text-align:right;"> -9,249 </td>
    <td style="text-align:right;"> -8,549 </td>
-   <td style="text-align:right;"> -8,727(1,142) </td>
+   <td style="text-align:right;"> -8,719(1,083) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> \ </td>
@@ -6531,12 +6589,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 17,919 </td>
    <td style="text-align:right;"> 15,847 </td>
    <td style="text-align:right;"> 18,191 </td>
-   <td style="text-align:center;"> 13,926 </td>
-   <td style="text-align:left;"> 18,465 </td>
+   <td style="text-align:center;"> 17,355 </td>
+   <td style="text-align:left;"> 13,926 </td>
+   <td style="text-align:right;"> 18,465 </td>
    <td style="text-align:right;"> 22,245 </td>
    <td style="text-align:right;"> 18,584 </td>
    <td style="text-align:right;"> 17,183 </td>
-   <td style="text-align:right;"> 17,541(2,283) </td>
+   <td style="text-align:right;"> 17,524(2,167) </td>
   </tr>
   <tr>
    <td style="text-align:center;"> \ </td>
@@ -6546,12 +6605,13 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> 18,082 </td>
    <td style="text-align:right;"> 16,009 </td>
    <td style="text-align:right;"> 18,353 </td>
-   <td style="text-align:center;"> 14,088 </td>
-   <td style="text-align:left;"> 18,627 </td>
+   <td style="text-align:center;"> 17,517 </td>
+   <td style="text-align:left;"> 14,088 </td>
+   <td style="text-align:right;"> 18,627 </td>
    <td style="text-align:right;"> 22,407 </td>
    <td style="text-align:right;"> 18,746 </td>
    <td style="text-align:right;"> 17,346 </td>
-   <td style="text-align:right;"> 17,703(2,283) </td>
+   <td style="text-align:right;"> 17,686(2,167) </td>
   </tr>
 </tbody>
 </table>
@@ -8214,6 +8274,276 @@ P-values for corresponding covariances:
    <td style="text-align:center;"> \ </td>
    <td style="text-align:left;"> BIC </td>
    <td style="text-align:right;"> 18,353 </td>
+  </tr>
+</tbody>
+</table>
+
+##  logic_tot 
+
+ Gender = _male_;  Process (a) = *pef*; Process (b) = _logic_tot_
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:center;"> process </th>
+   <th style="text-align:left;"> label </th>
+   <th style="text-align:right;"> aehplus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Levels) </td>
+   <td style="text-align:right;"> 35.38 (61.57)     .57 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Slopes) </td>
+   <td style="text-align:right;"> 2.85 (4.29)     .51 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> ab </td>
+   <td style="text-align:left;"> Covar (Residuals) </td>
+   <td style="text-align:right;"> -7.57 (15.76)     .63 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Levels) </td>
+   <td style="text-align:right;"> 0.07 (0.12)     .57 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Slopes) </td>
+   <td style="text-align:right;"> 0.30 (0.46)     .51 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> er </td>
+   <td style="text-align:left;"> Corr (Residuals) </td>
+   <td style="text-align:right;"> -0.03 (0.07)     .63 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Level </td>
+   <td style="text-align:right;"> 393.52 (31.82)    &lt;.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Slope </td>
+   <td style="text-align:right;"> -7.07 (9.95)     .48 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Level * age </td>
+   <td style="text-align:right;"> -2.53 (1.81)     .16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Level * education </td>
+   <td style="text-align:right;"> 3.10 (2.72)     .25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Level * height </td>
+   <td style="text-align:right;"> 0.61 (1.30)     .64 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Level * smoking </td>
+   <td style="text-align:right;"> -21.68 (19.08)     .26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Level * cardio </td>
+   <td style="text-align:right;"> -21.95 (24.80)     .38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Level * diabetes </td>
+   <td style="text-align:right;"> -10.76 (21.27)     .61 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Slope * age </td>
+   <td style="text-align:right;"> -0.58 (0.55)     .29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Slope * education </td>
+   <td style="text-align:right;"> -0.40 (0.78)     .61 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Slope * height </td>
+   <td style="text-align:right;"> 0.90 (0.46)     .05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Slope * smoking </td>
+   <td style="text-align:right;"> 2.12 (5.73)     .71 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Slope * cardio </td>
+   <td style="text-align:right;"> 7.82 (9.24)     .40 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Slope * diabetes </td>
+   <td style="text-align:right;"> -2.44 (6.93)     .72 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Level </td>
+   <td style="text-align:right;"> 16.26 (1.50)    &lt;.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Slope </td>
+   <td style="text-align:right;"> 1.26 (0.39)    &lt;.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Level * age </td>
+   <td style="text-align:right;"> -0.04 (0.08)     .58 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Level * education </td>
+   <td style="text-align:right;"> 0.56 (0.12)    &lt;.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Level * height </td>
+   <td style="text-align:right;"> 0.05 (0.07)     .45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Level * smoking </td>
+   <td style="text-align:right;"> 1.52 (0.90)     .09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Level * cardio </td>
+   <td style="text-align:right;"> 1.47 (1.03)     .15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Level * diabetes </td>
+   <td style="text-align:right;"> -0.73 (0.99)     .46 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Slope * age </td>
+   <td style="text-align:right;"> -0.10 (0.03)    &lt;.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Slope * education </td>
+   <td style="text-align:right;"> -0.07 (0.03)     .05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Slope * height </td>
+   <td style="text-align:right;"> -0.01 (0.02)     .71 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Slope * smoking </td>
+   <td style="text-align:right;"> -0.22 (0.25)     .38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Slope * cardio </td>
+   <td style="text-align:right;"> 0.10 (0.29)     .73 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Slope * diabetes </td>
+   <td style="text-align:right;"> 0.54 (0.31)     .08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Var (Level) </td>
+   <td style="text-align:right;"> 11038.95 (2173.96)    &lt;.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Var (Slope) </td>
+   <td style="text-align:right;"> 307.58 (119.55)     .01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Var (Residual) </td>
+   <td style="text-align:right;"> 3639.96 (203.23)    &lt;.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Var (Level) </td>
+   <td style="text-align:right;"> 25.64 (4.22)    &lt;.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Var (Slope) </td>
+   <td style="text-align:right;"> 0.30 (0.27)     .27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Var (Residual) </td>
+   <td style="text-align:right;"> 14.66 (0.97)    &lt;.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> a </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -981.30 (507.34)     .05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> b </td>
+   <td style="text-align:left;"> Covar (Level, Slope) </td>
+   <td style="text-align:right;"> -0.50 (1.04)     .63 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> \ </td>
+   <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> 0.067 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> \ </td>
+   <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> 0.297 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> \ </td>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> -0.033 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> \ </td>
+   <td style="text-align:left;"> N </td>
+   <td style="text-align:right;"> 324 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> \ </td>
+   <td style="text-align:left;"> occasions </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> \ </td>
+   <td style="text-align:left;"> parameters </td>
+   <td style="text-align:right;"> 43 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> \ </td>
+   <td style="text-align:left;"> LL </td>
+   <td style="text-align:right;"> -8,634 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> \ </td>
+   <td style="text-align:left;"> AIC </td>
+   <td style="text-align:right;"> 17,355 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> \ </td>
+   <td style="text-align:left;"> BIC </td>
+   <td style="text-align:right;"> 17,517 </td>
   </tr>
 </tbody>
 </table>
@@ -9998,6 +10328,15 @@ P-values for corresponding covariances:
   </tr>
   <tr>
    <td style="text-align:left;"> Correlation of Levels </td>
+   <td style="text-align:right;"> logic_tot </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Levels </td>
    <td style="text-align:right;"> mmse </td>
    <td style="text-align:right;"> . </td>
    <td style="text-align:right;"> . </td>
@@ -10105,6 +10444,15 @@ P-values for corresponding covariances:
   </tr>
   <tr>
    <td style="text-align:left;"> Correlation of Slopes </td>
+   <td style="text-align:right;"> logic_tot </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.30 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Slopes </td>
    <td style="text-align:right;"> mmse </td>
    <td style="text-align:right;"> . </td>
    <td style="text-align:right;"> . </td>
@@ -10208,6 +10556,15 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> . </td>
    <td style="text-align:right;"> . </td>
    <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Correlation of Residuals </td>
+   <td style="text-align:right;"> logic_tot </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> -0.03 </td>
    <td style="text-align:right;"> . </td>
   </tr>
   <tr>
@@ -10322,6 +10679,15 @@ P-values for corresponding covariances:
   </tr>
   <tr>
    <td style="text-align:left;"> Covariance of Levels </td>
+   <td style="text-align:right;"> logic_tot </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.57 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Levels </td>
    <td style="text-align:right;"> mmse </td>
    <td style="text-align:right;"> . </td>
    <td style="text-align:right;"> . </td>
@@ -10429,6 +10795,15 @@ P-values for corresponding covariances:
   </tr>
   <tr>
    <td style="text-align:left;"> Covariance of Slopes </td>
+   <td style="text-align:right;"> logic_tot </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.51 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of Slopes </td>
    <td style="text-align:right;"> mmse </td>
    <td style="text-align:right;"> . </td>
    <td style="text-align:right;"> . </td>
@@ -10532,6 +10907,15 @@ P-values for corresponding covariances:
    <td style="text-align:right;"> . </td>
    <td style="text-align:right;"> . </td>
    <td style="text-align:right;"> 0.79 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Covariance of  Residuals </td>
+   <td style="text-align:right;"> logic_tot </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> 0.63 </td>
    <td style="text-align:right;"> . </td>
   </tr>
   <tr>
