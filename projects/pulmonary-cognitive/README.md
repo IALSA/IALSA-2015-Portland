@@ -1,20 +1,18 @@
 Project: Pulmonary function and cognition
 ----
 
-| Study | Contact | Descriptives |
+| Study<sup>1</sup> | Contact | Seed |
 | :---- | :------ | ---- |
-| EAS      |[Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu)   |[Table-1][eas_table_1]   | 
-| ELSA     |[Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |[Table-1][elsa_table_1]  |  
-| HABC     |[Chenkai Wu](mailto:chenkai.wu2010@gmail.com)           |[Table-1][hrs_table_1]   | 
-| ILSE     |[Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de)|[Table-1][ilse_table_1]  |  
-| NAS      |[Lewina Lee](mailto:lewina@bu.edu)                      |[Table-1][lasa_table_1]  |  
-| NuAge    |[Valerie Jarry ](mailto:valerie.jarry@umontreal.ca )    |[Table-1][nas_table_1]   | 
-| OCTO-Twin| [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se)|[Table-1][nuage_table_1] |   
-| RADC     |[Cassandra Brown](mailto:clb@uvic.ca)                   |[Table-1][map_table_1]   | 
-| SATSA    | [Deborah Finkel](mailto:dfinkel@ius.edu)               |[Table-1][satsa_table_1] |   
-  
-  
-  
+| [EAS][eas_table_1]        |[Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu)   |[word][eas_word], [html][eas_html] | 
+| [ELSA][elsa_table_1]      |[Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |[word][elsa_word], [html][elsa_html] | 
+| [HRS][hrs_table_1]        |[Chenkai Wu](mailto:chenkai.wu2010@gmail.com)           |[word][hrs_word], [html][hrs_html] | 
+| [NAS][lasa_table_1]       |[Lewina Lee](mailto:lewina@bu.edu)                      |[word][nas_word], [html][nas_html] | 
+| [OCTO-Twin][nuage_table_1]| [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se)|[word][octo_word], [html][octo_html] | 
+| [MAP][map_table_1]        |[Cassandra Brown](mailto:clb@uvic.ca)                    |[word][map_word], [html][map_html] | 
+| [SATSA][satsa_table_1]    | [Deborah Finkel](mailto:dfinkel@ius.edu)               |[word][satsa_word], [html][satsa_html] |   
+ 
+
+<!-- Below stored the short-cuts for links -->  
   
 [eas_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_EAS_Descriptives_IALSA_Portland.pdf 
 [elsa_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_ELSA_Descriptives_IALSA_Portland.pdf   
@@ -27,4 +25,24 @@ Project: Pulmonary function and cognition
 [satsa_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_SATSA_Descriptives_IALSA_Portland.pdf  
 
 
-See [model specification](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model_specification/README.md) for details.  
+  [eas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.docx     
+ [elsa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.docx   
+  [hrs_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.docx     
+ [ilse_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.docx   
+  [nas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.docx   
+ [lasa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.docx   
+[nuage_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nuage.docx 
+ [octo_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.docx   
+  [map_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.docx     
+[satsa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-satsa.docx   
+  
+  [eas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.html     
+ [elsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.html   
+  [hrs_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.html     
+ [ilse_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.html   
+  [nas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.html   
+ [lasa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.html   
+[nuage_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nuage.html 
+ [octo_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.html   
+  [map_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.html     
+[satsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-satsa.html   
