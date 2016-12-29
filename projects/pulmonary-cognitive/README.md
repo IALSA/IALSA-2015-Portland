@@ -21,10 +21,10 @@ Project: Pulmonary function and cognition
 
 ## Model
 All fitted models can be specified by a form nested within the following general **specification**:  
-[![general_model_specification](https://github.com/IALSA/IALSA-2015-Portland/blob/master/libs/images/general_model_specification.png)](../../reports/model_specification/README.md)
+[![general_model_specification](https://github.com/IALSA/IALSA-2015-Portland/blob/master/libs/images/general_model_specification.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model-specification/README.md)
 </br>
 with **covariance structure** given as
-[![general_model_specification](https://github.com/IALSA/IALSA-2015-Portland/blob/master/libs/images/specification_covariance_structure.png)](../../reports/model_specification/README.md)  
+[![general_model_specification](https://github.com/IALSA/IALSA-2015-Portland/blob/master/libs/images/specification_covariance_structure.png)](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/model-specification/README.md)  
 For  details see [model specification](../../reports/model-specification/README.md).  
 
 
