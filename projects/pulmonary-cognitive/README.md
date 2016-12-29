@@ -1,5 +1,7 @@
 Project: Pulmonary function and cognition
 ----
+- Table of correlations : [word][corr_short_word] or [html][corr_short_html] - table of correlations between factor scores of intercepts, slopes, residuals in a bivariate linear growth model. See [full][corr_full_word] to examine related parameters
+- [Domain map][domain_map] - examine BISR estimates across cognitive domains
 
 | Study<sup>1</sup> | Contact | Seed |
 | :---- | :------ | ---- |
@@ -12,7 +14,26 @@ Project: Pulmonary function and cognition
 | [SATSA][satsa_table_1]    | [Deborah Finkel](mailto:dfinkel@ius.edu)               |[word][satsa_word], [html][satsa_html] |   
  
 
+## Slopes across domains
+![female slopes](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/domain-map/figure-png/print-domain-map-5.png)
+
+![male slopes](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/domain-map/figure-png/print-domain-map-17.png)
+
+## Model
+All fitted models can be specified by a form nested within the following general **specification**:  
+[![general_model_specification](https://github.com/IALSA/IALSA-2015-Portland/blob/master/libs/images/general_model_specification.png)](../../reports/model_specification/README.md)
+</br>
+with **covariance structure** given as
+[![general_model_specification](https://github.com/IALSA/IALSA-2015-Portland/blob/master/libs/images/specification_covariance_structure.png)](../../reports/model_specification/README.md)  
+For  details see [model specification](../../reports/model-specification/README.md).  
+
+
 <!-- Below stored the short-cuts for links -->  
+ 
+[corr_short_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-short.html
+[corr_short_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-short.docx
+[corr_full_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-full.docx
+[domain_map]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/domain-map/domain-map-pulmonary.html
   
 [eas_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_EAS_Descriptives_IALSA_Portland.pdf 
 [elsa_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_ELSA_Descriptives_IALSA_Portland.pdf   
