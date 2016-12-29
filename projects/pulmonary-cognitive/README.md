@@ -1,6 +1,6 @@
 Project: Pulmonary function and cognition
 ----
-- Table of correlations : [word][corr_short_word] or [html][corr_short_html] - table of correlations between factor scores of intercepts, slopes, residuals in a bivariate linear growth model. See [full][corr_full_word] to examine related parameters
+- Table of correlations : [word][corr_short_word] or [html][corr_short_html] - table of correlations between factor scores of intercepts, slopes, residuals in a bivariate linear growth model. See [full][corr_full_word] table to examine related parameters (raw covariances, computed correlations, and confidence intervals). 
 - [Domain map][domain_map] - examine BISR estimates across cognitive domains
 
 | Study<sup>1</sup> | Contact | Seed |
