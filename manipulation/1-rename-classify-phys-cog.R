@@ -377,6 +377,14 @@ ds <- ds %>%
     , "b_gamma_16_wald"             = "`b_GAMMA_16_wald`"
     , "b_gamma_16_pval"             = "`b_GAMMA_16_pval`"
   )
+
+# ---- remove-unwanted-measures --------------------
+# to avoid removing case in each report, do it here
+# see https://github.com/IALSA/IALSA-2015-Portland/issues/152#issuecomment-268622007
+ds_full <- ds_full %>%
+  dplyr::filter(!(study_name == 'hrs' & process_b == "tics"))
+
+
 # ---- export_ready_data ---------------------------------------
 # saveRDS(ds, path_output)
 readr::write_csv(ds,path_output_csv)
