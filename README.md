@@ -54,7 +54,7 @@ The primary aim of the workshop was to examine associations between changes in p
 ##Publications
 
  - [Big Data, Big Analyses: CAR method explained](https://rawgit.com/IALSA/IALSA-2015-Portland/ad055bfff825d257cb4bcb83d51fc6dead53d227/pubs/2016-talks/2016-06-09-cpa/ppt/koval-etal-2016-06-10-cpa.pdf), Canadian Psychological Association, June 16, 2016. 
- - [A Collaborative Modeling Framework for Multi-Study Coordinated Analyses](http://htmlpreview.github.io/?https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/talks/2015_presentations/22_July/A%20Collaborative%20Modeling%20Framework%20for%20Multi-Study%20Coordinated%20Analyses.html#/), *Wellcome Trust Conference*, July 22, 2015. 
+ - [A Collaborative Modeling Framework for Multi-Study Coordinated Analyses](https://rawgit.com/IALSA/IALSA-2015-Portland/master/pubs/2015-talks/2015-07-22-wellcome-trust/A%20Collaborative%20Modeling%20Framework%20for%20Multi-Study%20Coordinated%20Analyses.html), *Wellcome Trust Conference*, July 22, 2015. 
 
 </br>  
 
