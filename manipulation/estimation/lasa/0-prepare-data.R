@@ -20,8 +20,10 @@ requireNamespace("reshape2") # data transformations
 # ---- declare-globals ---------------------------------------------------------
 # path_input  <- "./data/unshared/raw/map/ds0.rds"
 # path_input  <- "../LASA/data-unshared/ialsa-old/lasa_mult_chi_2.sas7bdat"
-path_input  <- "../LASA/data-unshared/ialsa-old/lasa_stack_chi_2.sas7bdat"
+# path_input  <- "../LASA/data-unshared/ialsa-old/lasa_stack_chi_2.sas7bdat"
+# path_input  <- "../LASA/data-unshared/ialsa-old/lasast.sas7bdat"
 # path_input  <- "../LASA/data-unshared/ialsa-old/lasast3.sas7bdat"
+path_input  <- "../LASA/data-unshared/derived/dto_portland.rds"
 
 # put test assert here to check the connection.
 # generic_path <- "./sandbox/pipeline-demo-1/generic-data/"
@@ -29,10 +31,12 @@ generic_path <- "./data/unshared/derived/lasa-1/"
 
 
 # ---- load-data ---------------------------------------------------------------
-ds0 <- sas7bdat::read.sas7bdat(path_input)
-names(ds0)
-# ---- inspect-data -------------------------------------------------------------
-names_labels(ds0)
+dto <- readRDS(path_input)
+names(dto)
+# 1st element - unit(person) level data
+names(dto[["unitData"]])
+# 2nd element - meta data, info about variables
+names(dto[["metaData"]])
 
 
 # ---- functions-to-examime-temporal-patterns -------------------
@@ -83,15 +87,167 @@ over_waves <- function(ds, measure_name, exclude_values="") {
 
 }
 
+# computing row means
+# http://stackoverflow.com/questions/33401788/dplyr-using-mutate-like-rowmeans
+my_rowmeans = function(..., na.rm=TRUE){
+  x = if (na.rm)
+    lapply(list(...), function(x) replace(x, is.na(x), as(0, class(x))))
+   else
+    list(...)
+    d = Reduce(function(x,y) x+!is.na(y), list(...), init=0)
+    Reduce(`+`, x)/d
 
-# ---- load-data ---------------------------------------------------------------
-dto <- readRDS(path_input)
-ds0 <- dto$unitData
-meta <- dto$metaData
+}
+
+# computing row max
+# http://stackoverflow.com/questions/32978458/dplyr-mutate-rowwise-max-of-range-of-columns
 
 
-# ---- inspect-data -------------------------------------------------------------
-names_labels(ds0)
+# ---- clean-data -------------------------------------------------------------
+# using the dto, assemble the variables to be used in analysis
+ls_data <- list()
+
+# ---- sex -----------------------
+ds <- dto$unitData$sex
+head(ds)
+ls_data[["sex"]] <- dto$unitData$sex
+
+# ---- age ------------------------
+ds <- dto$unitData$age
+head(ds)
+ls_data[["age"]] <- dto$unitData$age
+
+# ---- edu ------------------------
+ds <- dto$unitData$edu
+head(ds)
+ls_data[["edu"]] <- dto$unitData$edu
+
+# ---- height --------------------
+ds <- dto$unitData$height
+head(ds); table(ds$wave)
+ds[ds==-1] <- NA
+ds[ds==-2] <- NA
+ds[ds==-3] <- NA
+table(ds$height_40_cm)
+ls_data[["height"]] <- dto$unitData$height
+
+
+# ----- smoking ------------------
+ds <- dto$unitData$smoking
+head(ds)
+str(ds)
+table(ds$smoke_ever)
+ds <- ds %>%
+  dplyr::mutate(
+    smoke_hist  = ifelse(smoke_ever=="No",0,
+                  ifelse(smoke_ever %in% c("No answer, asked","No valid data"),NA,1))
+  )
+table(ds$smoke_hist, useNA = "always")
+
+
+# ---- cardio --------------------
+ds <- dto$unitData$cardio
+head(ds)
+table(ds$cvd)
+ds <- ds %>%
+  dplyr::mutate(
+    cardio_hist = ifelse(cvd %in% c("definite cardio vascular disease",
+                               "possible cardiovascular disease"), 1,
+             ifelse(cvd == "no cardio vascular disease",0,NA))
+  )
+table(ds$cardio, useNA = "always")
+
+# ---- diabetes ------------------
+ds <- dto$unitData$diabetes
+head(ds)
+table(ds$diabetes)
+ds <- ds %>%
+  dplyr::mutate(
+    diabetes_hist = ifelse(diabetes %in% c("definite diabetes","possible diabetes"),1,
+                    ifelse(diabetes %in% c("no diabetes"),0,NA))
+  )
+table(ds$diabetes_hist)
+
+
+# ---- dementia -----------------
+ds <- dto$unitData$dementia
+head(ds)
+table(ds$dementia)
+ds <- ds %>%
+  dplyr::mutate(
+    demented = ifelse(dementia %in% paste0("dementia at ",c("C","D","E","F")),1,
+          ifelse(dementia %in% c("no dementia"),0,NA))
+  )
+table(ds$demented)
+
+lapply(dto, names)
+
+# ---- grip ---------------------
+ds <- dto$unitData$grip
+ds[ds==-1] <- NA
+ds[ds==-2] <- NA
+ds[ds==-3] <- NA
+head(ds)
+ds <- ds %>%
+  dplyr::mutate(
+    grip_right_max  = pmax(       grip_right_1,    grip_right_2,na.rm=T),
+    grip_right_mean = my_rowmeans(grip_right_1,    grip_right_2),
+    grip_left_max   = pmax(       grip_left_1,     grip_left_2,na.rm=T),
+    grip_left_mean  = my_rowmeans(grip_left_1,     grip_left_2),
+    grip_max        = pmax(       grip_right_max,  grip_left_max,na.rm=T),
+    grip_mean       = my_rowmeans(grip_right_mean, grip_left_mean)
+  )
+
+# ---- pef ------------------------
+ds <- dto$unitData$pef
+head(ds)
+ds <- ds %>%
+  dplyr::mutate(
+    pef_mean = my_rowmeans(pef_1, pef_2, pef_3)
+  )
+head(ds)
+
+
+# ---- coding-task ------------------
+# http://www.lasa-vu.nl/themes/cognitive/informatieverwerkingssnelheid.html
+ds <- dto$unitData$coding
+ds[ds==-1] <- NA
+ds[ds==-2] <- NA
+ds[ds==-3] <- NA
+head(ds)
+ds <- ds %>%
+  dplyr::mutate(
+    coding_max = pmax(coding1, coding2, coding3, na.rm=T),
+    coding_mean = my_rowmeans(coding1, coding2, coding3)
+  )
+
+# ---- word-recall -----------------------
+# http://www.lasa-vu.nl/themes/cognitive/geheugen.html
+ds <- dto$unitData$recall
+ds[ds==-1] <- NA
+ds[ds==-2] <- NA
+ds[ds==-3] <- NA
+ds[ds==-4] <- NA
+head(ds)
+
+# ---- mmse ---------------------
+# http://www.lasa-vu.nl/themes/cognitive/cognitief_algemeen.html
+ds <- dto$unitData$mmse
+ds[ds==-1] <- NA
+ds[ds==-2] <- NA
+ds[ds==-3] <- NA
+ds[ds==-4] <- NA
+head(ds)
+
+
+# ---- raven ---------------------
+# http://www.lasa-vu.nl/themes/cognitive/fluide_intelligentie.html
+ds <- dto$unitData$raven
+ds[ds==-1] <- NA
+ds[ds==-2] <- NA
+ds[ds==-3] <- NA
+ds[ds==-4] <- NA
+head(ds)
 
 # ----- subset-variables ------------------------------------
 varnames_design <- c(
