@@ -155,7 +155,7 @@ select_vars <- c(
 #   dplyr::slice(1)
 # t(d)
 # dd <- d %>%
-ds <- ds_full %>%
+ds_full <- ds_full %>%
   # dplyr::filter(process_a %in% c("fev","fev100", "pef", "pek")) %>%
   dplyr::filter(model_type == "aehplus") %>%
   dplyr::filter(model_number == "b1") %>%
@@ -196,7 +196,9 @@ ds <- ds_full %>%
     cr_slopes  = dense_v3(cr_slopes_est, cr_slopes_ci95_lo, cr_slopes_ci95_hi,star = F, singif_slopes),
     cr_resid   = dense_v3(cr_resid_est,  cr_resid_ci95_lo,  cr_resid_ci95_hi, star = F, signif_resid)
     # )
-  ) %>%
+  )
+
+  ds <- ds_full %>%
   dplyr::select_(.dots = c(model_components$id,"process_b_domain", "subject_count",
                            "tau_levels", "tau_slopes","tau_resid",
                            "er_levels",  "er_slopes", "er_resid",
@@ -218,7 +220,68 @@ ds <- ds_full %>%
 #   dplyr::filter(process_a %in% c("grip"))
 
 
+# ---- save-data-for-tables --------------------------
+pulmonary_gait_pairs <- c("fev", "pef","gait","tug")
+pulmonary_grip_pairs <- c("fev","pef", "grip")
+gait_grip_pairs <- c("gait","tug","grip")
 
+d <- ds_full %>%
+  dplyr::select(
+    study_name,
+    model_number, subgroup, model_type, process_a, process_b, subject_count,
+
+
+    tau_levels,  ab_tau_00_est, ab_tau_00_se, ab_tau_00_pval,
+    er_levels,   er_tau_00_est,  er_tau_00_se,     er_tau_00_pval,
+    er_levels_ci,er_tau_00_ci95lo, er_tau_00_ci95hi,
+    cr_levels,   cr_levels_est, cr_levels_ci95_lo, cr_levels_ci95_hi,
+
+    tau_slopes,   ab_tau_00_est, ab_tau_00_se, ab_tau_00_pval,
+    er_slopes,    er_tau_11_est,  er_tau_11_se,
+    er_slopes_ci, er_tau_11_ci95lo, er_tau_11_ci95hi,
+    cr_slopes,    cr_slopes_est, cr_slopes_ci95_lo, cr_slopes_ci95_hi,
+
+    tau_resid, ab_sigma_00_est, ab_sigma_00_se, ab_sigma_00_pval,
+    er_resid, er_sigma_00_est,er_sigma_00_se,   er_sigma_00_pval,
+    er_resid_ci, er_sigma_00_ci95lo, er_sigma_00_ci95hi,
+    cr_resid, cr_resid_est,  cr_resid_ci95_lo,  cr_resid_ci95_hi
+
+
+  ) %>%
+  dplyr::mutate(
+    pair = ifelse(
+      process_a %in% pulmonary_gait_pairs & process_b %in% pulmonary_gait_pairs,"pulmonary-gait",ifelse(
+        process_a %in% pulmonary_grip_pairs & process_b %in% pulmonary_grip_pairs,"pulmonary-grip",ifelse(
+          process_a %in% gait_grip_pairs & process_b %in% gait_grip_pairs, "gait-grip",NA
+        )
+      ))
+  ) %>%
+  dplyr::arrange(desc(pair), study_name, process_a, process_b) %>%
+  dplyr::select(-pair) %>%
+  dplyr::rename_(
+    "Study"     = "study_name",
+    "$n$"       = "subject_count",
+    "Process A"  = "process_a",
+    "Process B" = "process_b",
+
+    "Cov(Levels)"    = "tau_levels",
+    "Cov(Slopes)"    = "tau_slopes",
+    "Cov(Residuals)" = "tau_resid",
+
+    "Corr(Levels)Est" = "er_levels",
+    "Corr(Slopes)Est" = "er_slopes",
+    "Corr(Resid)Est"  = "er_resid",
+
+    "CI(Levels)Est"  = "er_levels_ci",
+    "CI(Slopes)Est"  = "er_slopes_ci",
+    "CI(Resid)Est"   = "er_resid_ci",
+
+    "Corr(Levels)Comp"    = "cr_levels",
+    "Corr(Slopes)Comp"    = "cr_slopes",
+    "Corr(Residuals)Comp" = "cr_resid"
+
+  )
+readr::write_csv(d,"./reports/correlation-3/table-data/correlation-table-3.csv")
 # ---- select-phys-phys --------------------
 pulmonary_gait_pairs <- c("fev", "pef","gait","tug")
 pulmonary_grip_pairs <- c("fev","pef", "grip")
@@ -419,7 +482,7 @@ for(gender in c("male","female")){
 
 # ---- publish --------------
 
-path_physical <- "./reports/correlation-2/correlation-2-physical.Rmd"
+path_physical <- "./reports/correlation-3/correlation-3-physical.Rmd"
 
 allReports <- path_physical
 pathFilesToBuild <- c(allReports) ##########
@@ -436,6 +499,8 @@ rmarkdown::render(input = pathFile,
                     ),
                     clean=TRUE)
 }
+
+
 
 
 
