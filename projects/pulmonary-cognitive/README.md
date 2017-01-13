@@ -13,6 +13,7 @@ Project: Pulmonary function and cognition
 | [MAP][map_table_1]        |[Cassandra Brown](mailto:clb@uvic.ca)                    |[word][map_word], [html][map_html] | 
 | [SATSA][satsa_table_1]    | [Deborah Finkel](mailto:dfinkel@ius.edu)               |[word][satsa_word], [html][satsa_html] |   
  
+<sup>1</sup> - Descriptives available after the link.
 
 ## Slopes across domains
 [![female slopes](https://github.com/IALSA/IALSA-2015-Portland/blob/master/reports/domain-map/figure-png/print-domain-map-5.png)](https://raw.githubusercontent.com/IALSA/IALSA-2015-Portland/master/reports/domain-map/figure-png/print-domain-map-5.png)
