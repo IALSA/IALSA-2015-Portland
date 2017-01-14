@@ -40,6 +40,14 @@ catalog %>%
   dplyr::select(study_name, model_type,process_a, process_b,has_converged, er_tau_00_est)
 
 
+# ---- eas -----------------------
+(pek_mean <- list.files("./studies/eas/physical-cognitive/without-errors/pek-2016-12-28",
+                     full.names=F,recursive=T,pattern = ".out$") %>% basename())
+
+(pek_max <- list.files("./studies/eas/physical-cognitive/obsolete-dublicates/pek-2016-11-07",
+                       full.names=F,recursive=T,pattern = ".out$") %>% basename())
+
+setdiff(pek_mean, pek_max)
 
 # ----- octo ---------------------
 
