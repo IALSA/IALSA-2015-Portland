@@ -136,7 +136,7 @@ dense_v4 <- function(lo, hi,star=F, signif){
   dense <- ifelse((is.nan(lo)|is.na(lo)|is.infinite(lo)), "---", dense)
   return(dense)
 }
-# ---- tweak-data ---------------
+
 select_vars <- c(
   model_components$id,"process_b_domain", "subject_count",
   "ab_tau_00_est", "ab_tau_00_se", "ab_tau_00_pval",
@@ -151,6 +151,170 @@ select_vars <- c(
   "er_sigma_00_est","er_sigma_00_se","er_sigma_00_pval",
   "cr_resid_est","cr_resid_ci95_lo","cr_resid_ci95_hi"
 )
+
+save_corr_table <- function(
+  ds_full,
+  outcome="gait",
+  gender="andro",
+  table_type="full",
+  folder="./reports/correlation-3/table-data/"
+){
+  # Values for testing
+  # outcome="gait"
+  # gender="andro"
+  # table_type="full"
+
+  d1 <- ds_full %>%
+    # dplyr::filter(process_a %in% c("fev","fev100", "pef", "pek")) %>%
+    dplyr::filter(model_type == "aehplus") %>%
+    dplyr::filter(model_number == "b1") %>%
+    dplyr::mutate(
+
+      # compute CI of the estimated correlations
+      er_tau_00_ci95lo    = er_tau_00_est -  er_tau_00_se*1.96,
+      er_tau_00_ci95hi    = er_tau_00_est +  er_tau_00_se*1.96,
+      er_tau_11_ci95lo    = er_tau_11_est -  er_tau_11_se*1.96,
+      er_tau_11_ci95hi    = er_tau_11_est +  er_tau_11_se*1.96,
+      er_sigma_00_ci95lo  = er_sigma_00_est -  er_sigma_00_se*1.96,
+      er_sigma_00_ci95hi  = er_sigma_00_est +  er_sigma_00_se*1.96,
+      # simplify significance of raw covariances
+      signif_levels = compute_significance(ab_tau_00_est,  ab_tau_00_se,   ab_tau_00_pval),
+      singif_slopes = compute_significance(ab_tau_11_est,  ab_tau_11_se,   ab_tau_11_pval),
+      signif_resid  = compute_significance(ab_sigma_00_est,ab_sigma_00_se, ab_sigma_00_pval),
+
+      # assemble the desnse of raw covariances
+      tau_levels = dense_v1(ab_tau_00_est,  ab_tau_00_se,     ab_tau_00_pval,   star = T),
+      tau_slopes = dense_v1(ab_tau_11_est,  ab_tau_11_se,     ab_tau_11_pval,   star = T),
+      tau_resid  = dense_v1(ab_sigma_00_est,ab_sigma_00_se,   ab_sigma_00_pval, star = T),
+      # assemble the dense of estimated correlations
+      er_levels  = dense_v1(er_tau_00_est,  er_tau_00_se,     er_tau_00_pval,   star = T),
+      er_slopes  = dense_v1(er_tau_11_est,  er_tau_11_se,     er_tau_11_pval,   star = T),
+      er_resid   = dense_v1(er_sigma_00_est,er_sigma_00_se,   er_sigma_00_pval, star = T),
+      # assemble the dens of CI for estimated correlations
+      # er_levels_ci      = sprintf("(%.2f,%.2f)",er_tau_00_ci95lo,er_tau_00_ci95hi ),
+      # er_slopes_ci     = sprintf("(%.2f,%.2f)",er_tau_11_ci95lo,er_tau_11_ci95hi ),
+      # er_resid_ci      = sprintf("(%.2f,%.2f)",er_sigma_00_ci95lo,er_sigma_00_ci95hi ),
+      # er_levels_ci   = dense_v3(er_tau_00_est, er_tau_00_ci95lo, er_tau_00_ci95hi, star=F),
+      # er_slopes_ci   = dense_v3(er_tau_11_est, er_tau_11_ci95lo, er_tau_11_ci95hi, star=F),
+      # er_resid_ci    = dense_v3(er_sigma_00_est, er_sigma_00_ci95lo, er_sigma_00_ci95hi, star=F ),
+      er_levels_ci   = dense_v4(er_tau_00_ci95lo, er_tau_00_ci95hi, star=F),
+      er_slopes_ci   = dense_v4(er_tau_11_ci95lo, er_tau_11_ci95hi, star=F),
+      er_resid_ci    = dense_v4(er_sigma_00_ci95lo, er_sigma_00_ci95hi, star=F ),
+      # assemble the dense of computed correlations
+      cr_levels  = dense_v3(cr_levels_est, cr_levels_ci95_lo, cr_levels_ci95_hi,star = F, signif_levels),
+      cr_slopes  = dense_v3(cr_slopes_est, cr_slopes_ci95_lo, cr_slopes_ci95_hi,star = F, singif_slopes),
+      cr_resid   = dense_v3(cr_resid_est,  cr_resid_ci95_lo,  cr_resid_ci95_hi, star = F, signif_resid)
+      # )
+    )
+
+
+  if(outcome=="gait"){
+    d2 <- d1 %>%
+      dplyr::filter(process_a %in% c("gait","tug"))
+  }
+  if(outcome=="grip"){
+    d2 <- d1 %>%
+      dplyr::filter(process_a %in% c("grip"))
+  }
+  if(outcome=="pulmonary"){
+    d2 <- d1 %>%
+      dplyr::filter(process_a %in% c("fev","pef", "pek"))
+
+  }
+
+  if(!gender=="andro"){
+    d3 <- d2 %>%
+      dplyr::filter(subgroup == gender )
+  }else{
+    d3 <- d2
+  }
+
+  if(table_type=="full"){
+    d4 <- d3 %>%
+      dplyr::select(
+        process_b_domain, study_name,
+        model_number, subgroup, model_type, process_a, process_b, subject_count,
+
+        tau_levels,   ab_tau_00_est,    ab_tau_00_se, ab_tau_00_pval,
+        er_levels,    er_tau_00_est,    er_tau_00_se, er_tau_00_pval,
+        er_levels_ci, er_tau_00_ci95lo, er_tau_00_ci95hi,
+        cr_levels,    cr_levels_est, cr_levels_ci95_lo, cr_levels_ci95_hi,
+
+        tau_slopes,   ab_tau_00_est,    ab_tau_00_se, ab_tau_00_pval,
+        er_slopes,    er_tau_11_est,    er_tau_11_se, er_tau_11_pval,
+        er_slopes_ci, er_tau_11_ci95lo, er_tau_11_ci95hi,
+        cr_slopes,    cr_slopes_est, cr_slopes_ci95_lo, cr_slopes_ci95_hi,
+
+        tau_resid,   ab_sigma_00_est,    ab_sigma_00_se,   ab_sigma_00_pval,
+        er_resid,    er_sigma_00_est,    er_sigma_00_se,   er_sigma_00_pval,
+        er_resid_ci, er_sigma_00_ci95lo, er_sigma_00_ci95hi,
+        cr_resid,    cr_resid_est,  cr_resid_ci95_lo,  cr_resid_ci95_hi
+
+      ) %>%
+      dplyr::arrange(process_b_domain,process_b) %>%
+      dplyr::rename_(
+        "domain"    = "process_b_domain",
+        "study"     = "study_name",
+        "$n$"       = "subject_count",
+        "physical"  = "process_a",
+        "cognitive" = "process_b",
+
+        "Cov(Levels)"    = "tau_levels",
+        "Cov(Slopes)"    = "tau_slopes",
+        "Cov(Residuals)" = "tau_resid",
+
+        "Corr(Levels)Est" = "er_levels",
+        "Corr(Slopes)Est" = "er_slopes",
+        "Corr(Resid)Est"  = "er_resid",
+
+        "CI(Levels)Est"  = "er_levels_ci",
+        "CI(Slopes)Est"  = "er_slopes_ci",
+        "CI(Resid)Est"   = "er_resid_ci",
+
+        "Corr(Levels)Comp"    = "cr_levels",
+        "Corr(Slopes)Comp"    = "cr_slopes",
+        "Corr(Residuals)Comp" = "cr_resid"
+      )
+  }
+  if(table_type=="brief"){
+    d4 <- d3 %>%
+      dplyr::select(
+        process_b_domain, study_name,
+        model_number, subgroup, model_type, process_a, process_b, subject_count,
+        er_tau_00_est,  er_tau_00_se,  er_tau_00_pval,   er_tau_00_ci95lo, er_tau_00_ci95hi,
+        er_tau_11_est,  er_tau_11_se,  er_tau_11_pval,   er_tau_11_ci95lo, er_tau_11_ci95hi,
+        er_sigma_00_est,er_sigma_00_se,er_sigma_00_pval, er_sigma_00_ci95lo, er_sigma_00_ci95hi
+      )%>%
+      dplyr::arrange(process_b_domain,process_b)
+  }
+
+
+  # folder <- "./reports/correlation-3/table-data/"
+  path <- paste0(folder,"correlation-",outcome,"-",gender,"-",table_type,".csv")
+  readr::write_csv(d4,path)
+  return(d4)
+}
+
+# ---- save-data-for-tables --------------------------
+ds_full %>% save_corr_table(outcome = "gait",gender = "male",table_type = "full")
+ds_full %>% save_corr_table(outcome = "gait",gender = "female",table_type = "full")
+ds_full %>% save_corr_table(outcome = "gait",gender = "male",table_type = "brief")
+ds_full %>% save_corr_table(outcome = "gait",gender = "female",table_type = "brief")
+
+
+ds_full %>% save_corr_table(outcome = "grip",gender = "male",table_type = "full")
+ds_full %>% save_corr_table(outcome = "grip",gender = "female",table_type = "full")
+ds_full %>% save_corr_table(outcome = "grip",gender = "male",table_type = "brief")
+ds_full %>% save_corr_table(outcome = "grip",gender = "female",table_type = "brief")
+
+ds_full %>% save_corr_table(outcome = "pulmonary",gender = "male",table_type = "full")
+ds_full %>% save_corr_table(outcome = "pulmonary",gender = "female",table_type = "full")
+ds_full %>% save_corr_table(outcome = "pulmonary",gender = "male",table_type = "brief")
+ds_full %>% save_corr_table(outcome = "pulmonary",gender = "female",table_type = "brief")
+
+
+# ---- tweak-data ---------------
+
 
 
 # d <- ds_full %>%
@@ -201,14 +365,14 @@ ds <- ds_full %>%
     cr_slopes  = dense_v3(cr_slopes_est, cr_slopes_ci95_lo, cr_slopes_ci95_hi,star = F, singif_slopes),
     cr_resid   = dense_v3(cr_resid_est,  cr_resid_ci95_lo,  cr_resid_ci95_hi, star = F, signif_resid)
     # )
-  ) %>%
-  dplyr::select_(.dots = c(model_components$id,"process_b_domain", "subject_count",
-                           "tau_levels", "tau_slopes","tau_resid",
-                           "er_levels",  "er_slopes", "er_resid",
-                           "er_levels_ci",  "er_slopes_ci", "er_resid_ci",
-                           "cr_levels",  "cr_slopes", "cr_resid"
-
-  ))
+  ) #%>%
+  # dplyr::select_(.dots = c(model_components$id,"process_b_domain", "subject_count",
+  #                          "tau_levels", "tau_slopes","tau_resid",
+  #                          "er_levels",  "er_slopes", "er_resid",
+  #                          "er_levels_ci",  "er_slopes_ci", "er_resid_ci",
+  #                          "cr_levels",  "cr_slopes", "cr_resid"
+  #
+  # ))
 # head(ds)
 
 # ---- select-gait ------------------------------------
@@ -216,15 +380,34 @@ ds <- ds %>%
   dplyr::filter(process_a %in% c("gait","tug"))
 
 
-# ---- select-grip ------------------------------------
-ds <- ds %>%
-  dplyr::filter(process_a %in% c("grip"))
+# # ---- select-grip ------------------------------------
+# ds <- ds %>%
+#   dplyr::filter(process_a %in% c("grip"))
+#
+# # ---- select-pulmonary ------------------------------------
+# ds <- ds %>%
+#   # dplyr::filter(process_a %in% c("fev","fev100", "pef", "pek"))
+#   dplyr::filter(process_a %in% c("fev","pef", "pek"))
 
-# ---- select-pulmonary ------------------------------------
-ds <- ds %>%
-  # dplyr::filter(process_a %in% c("fev","fev100", "pef", "pek"))
-  dplyr::filter(process_a %in% c("fev","pef", "pek"))
 
+
+
+
+
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-gait-male-brief.csv")
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-gait-female-brief.csv")
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-grip-male-brief.csv")
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-grip-female-brief.csv")
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-pulmonary-male-brief.csv")
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-pulmonary-female-brief.csv")
+
+
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-gait-male-full.csv")
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-gait-female-full.csv")
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-grip-male-full.csv")
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-grip-female-full.csv")
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-pulmonary-male-full.csv")
+# readr::write_csv(d,"./reports/correlation-3/table-data/correlation-pulmonary-female-full.csv")
 
 # ---- select-phys-cog-full --------------------------
 d <- ds %>%
