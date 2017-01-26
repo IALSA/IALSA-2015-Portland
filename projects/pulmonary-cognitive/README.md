@@ -8,7 +8,7 @@ Project: Pulmonary function and cognition
 | [EAS][eas_table_1]        |[Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu)   |[word][eas_word], [html][eas_html] | 
 | [ELSA][elsa_table_1]      |[Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |[word][elsa_word], [html][elsa_html] | 
 | [HRS][hrs_table_1]        |[Chenkai Wu](mailto:chenkai.wu2010@gmail.com)           |[word][hrs_word], [html][hrs_html] | 
-| [NAS][lasa_table_1]       |[Lewina Lee](mailto:lewina@bu.edu)                      |[word][nas_word], [html][nas_html] | 
+| [NAS][nas_table_1]        |[Lewina Lee](mailto:lewina@bu.edu)                      |[word][nas_word], [html][nas_html] | 
 | [OCTO-Twin][nuage_table_1]| [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se)|[word][octo_word], [html][octo_html] | 
 | [MAP][map_table_1]        |[Cassandra Brown](mailto:clb@uvic.ca)                    |[word][map_word], [html][map_html] | 
 | [SATSA][satsa_table_1]    | [Deborah Finkel](mailto:dfinkel@ius.edu)               |[word][satsa_word], [html][satsa_html] |   
