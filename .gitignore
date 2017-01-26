@@ -13,6 +13,9 @@ devtools.zip
 
 /data/unshared/derived/*
 
+studies/map/physical-cogntive/outputs/*.dat
+studies/map/physical-cogntive/outputs/*/*.dat
+
 # Unnecessary files for knitr reports
 
 # Dataset Exceptions
