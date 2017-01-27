@@ -1,5 +1,5 @@
 ---
-title: 'BISR: pulmonary (full)'
+title: 'BISR: gait (full)'
 output:
   word_document:
     toc: no
@@ -69,8 +69,8 @@ read_chunk("./reports/correlation-3/correlation-3-pc.R") #This allows knitr to c
 
 ```{r select-outcome, echo=echoChunks, message=TRUE,eval=TRUE}
 # outcome <- "grip"
-# outcome <- "gait"
-outcome <- "pulmonary"
+outcome <- "gait"
+# outcome <- "pulmonary"
 ```
 
 ## Legend
