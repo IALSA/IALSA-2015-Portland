@@ -334,6 +334,32 @@ save_corr_table <- function(
   readr::write_csv(d,path)
 }
 
+
+rename_domains <- function(
+  catalog_pretty_selected,
+  domain_name
+){
+  path_stencil = "./reports/correlation-3/rename-domains-"
+  path = paste0(path_stencil,domain_name,".csv")
+
+  d_rules <- readr::read_csv(path) %>%
+    dplyr::select(domain, domain_new, study, cognitive, physical)
+
+  t <- table(d$domain, d$study); t[t==0]<-"."; t
+  # join the model data frame to the conversion data frame.
+  d <- catalog_pretty_selected %>%
+    dplyr::left_join(d_rules )
+  # verify
+  t <- table(d$domain, d$study);t[t==0]<-".";t
+  t <- table(d$domain_new, d$study);t[t==0]<-".";t
+  d <- d %>%
+    dplyr::mutate(
+      domain = domain_new
+    ) %>%
+    dplyr::select(-domain_new)
+  return(d)
+}
+
 # ---- tweak-data --------------------
 catalog_pretty <- catalog %>% prettify_catalog(model_type_ = "aehplus",model_number_ = "b1")
 # d <
@@ -352,6 +378,10 @@ for(outcome in c("gait","grip","pulmonary")){
 }
 
 # ---- tweak-data ---------------
+
+
+
+
 
 # ---- table-dynamic -----------------------------------------------------------
 
@@ -411,15 +441,16 @@ d %>%
   )
 
 
-# ---- table-static-full ------------------------------------------------------------
-# outcome <- "pulmonary"
 
+# ---- table-static-full ------------------------------------------------------------
 cat("\n#Group by domain\n")
 for(gender in c("male","female")){
   cat("\n##",gender)
-  catalog %>%
+  d <- catalog %>%
     prettify_catalog(model_type_ = "aehplus",model_number_ = "b1") %>%
-    select_for_table(outcome,gender = gender,format = "full") %>%
+    select_for_table(outcome,gender = gender,format = "full")
+  if(outcome=="pulmonary"){d <- d %>% rename_domains(outcome)}
+  d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
     dplyr::arrange(domain,study,cognitive ) %>%
@@ -433,9 +464,11 @@ for(gender in c("male","female")){
 cat("\n#Grouped by study\n")
 for(gender in c("male","female")){
   cat("\n##",gender)
-  catalog %>%
+  d <- catalog %>%
     prettify_catalog(model_type_ = "aehplus",model_number_ = "b1") %>%
-    select_for_table(outcome,gender = gender,format = "full") %>%
+    select_for_table(outcome,gender = gender,format = "full")
+  if(outcome=="pulmonary"){d <- d %>% rename_domains(outcome)}
+  d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
     dplyr::arrange(study,domain,cognitive) %>%
@@ -452,9 +485,11 @@ for(gender in c("male","female")){
 cat("\n#Group by domain\n")
 for(gender in c("male","female")){
   cat("\n##",gender)
-  catalog %>%
+  d <- catalog %>%
     prettify_catalog(model_type_ = "aehplus",model_number_ = "b1") %>%
-    select_for_table(outcome,gender = gender,format = "focus") %>%
+    select_for_table(outcome,gender = gender,format = "focus")
+  if(outcome=="pulmonary"){d <- d %>% rename_domains(outcome)}
+  d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
     dplyr::arrange(domain,study,cognitive ) %>%
@@ -468,9 +503,11 @@ for(gender in c("male","female")){
 cat("\n#Grouped by study\n")
 for(gender in c("male","female")){
   cat("\n##",gender)
-  catalog %>%
+  d <- catalog %>%
     prettify_catalog(model_type_ = "aehplus",model_number_ = "b1") %>%
-    select_for_table(outcome,gender = gender,format = "focus") %>%
+    select_for_table(outcome,gender = gender,format = "focus")
+  if(outcome=="pulmonary"){d <- d %>% rename_domains(outcome)}
+  d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
     dplyr::arrange(study,domain,cognitive) %>%
@@ -492,7 +529,7 @@ path_grip_focus     <- "./reports/correlation-3/correlation-3-grip-focus.Rmd"
 
 # allReports <- path_pulmonary_full
 # allReports <- path_pulmonary_short
-# allReports <- c(path_pulmonary_full,path_pulmonary_focus)
+allReports <- c(path_pulmonary_full,path_pulmonary_focus)
 # allReports <- path_gait_full
 # allReports <- path_gait_short
 # allReports <- path_grip_full

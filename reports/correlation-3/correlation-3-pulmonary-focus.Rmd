@@ -73,6 +73,10 @@ read_chunk("./reports/correlation-3/correlation-3-pc.R") #This allows knitr to c
 outcome <- "pulmonary"
 ```
 
+
+```{r select-data, echo=echoChunks, message=TRUE,eval=TRUE}
+```
+
 ## Legend
 
 - `Corr(Levels)Est` = correlation between intercepts (factor scores) of two processes
