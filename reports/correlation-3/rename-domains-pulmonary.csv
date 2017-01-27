@@ -3,10 +3,12 @@ verbal comprehension,mental status,map,fev,ideas
 mental status,mental status,octo,pef,clock
 mental status,mental status,eas,pef,mmse
 mental status,mental status,map,fev,mmse
+mental status,mental status,nas,fev,mmse
 mental status,mental status,octo,pef,mmse
 mental status,mental status,satsa,fev,mmse
 fluency,verbal knowledge,eas,pef,categories
 fluency,verbal knowledge,map,fev,categories
+fluency,verbal knowledge,nas,fev,animals
 fluency,verbal knowledge,eas,pef,fas
 semantic memory,verbal knowledge,eas,pef,bnt
 semantic memory,verbal knowledge,map,fev,bnt
@@ -29,12 +31,14 @@ short-term memory,memory,elsa,fev,word_im
 short-term memory,memory,hrs,pef,word_im
 short-term memory,memory,lasa,pef,word_im
 short-term memory,memory,map,fev,word_im
+short-term memory,memory,nas,fev,word_im
 attention,memory,map,fev,digit_f
 attention,memory,octo,pef,digit_f
 attention,memory,satsa,fev,digit_f
 working memory,memory,map,fev,digit_b
 working memory,memory,octo,pef,digit_b
 working memory,memory,satsa,fev,digit_b
+working memory,memory,nas,fev,digit_b_tot
 working memory,memory,map,fev,digit_o
 attention,memory,hrs,pef,serial7
 executive function,memory,eas,pef,trailsb
@@ -45,6 +49,7 @@ episodic memory,memory,map,fev,logic_de
 episodic memory,memory,elsa,fev,word_de
 episodic memory,memory,hrs,pef,word_de
 episodic memory,memory,map,fev,word_de
+episodic memory,memory,nas,fev,word_de
 fluid reasoning,visualization,eas,pef,block
 fluid reasoning,visualization,octo,pef,block
 fluid reasoning,visualization,satsa,fev,block
@@ -53,8 +58,10 @@ fluid reasoning,visualization,map,fev,matrices
 fluid reasoning,visualization,lasa,pef,raven
 fluid reasoning,visualization,satsa,fev,rotate
 visual discrimination,visualization,map,fev,line
+visuospatial function,visualization,nas,fev,fig_copy
 perceptual speed,perceptual speed,lasa,pef,letter
 perceptual speed,perceptual speed,map,fev,num_comp
+perceptual speed,perceptual speed,map,fev,pat_comp
 perceptual speed,perceptual speed,octo,pef,psif
 perceptual speed,perceptual speed,eas,pef,symbol
 perceptual speed,perceptual speed,map,fev,symbol
