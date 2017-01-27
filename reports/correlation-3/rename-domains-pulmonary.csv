@@ -6,6 +6,7 @@ mental status,mental status,map,fev,mmse
 mental status,mental status,nas,fev,mmse
 mental status,mental status,octo,pef,mmse
 mental status,mental status,satsa,fev,mmse
+attention,mental status,hrs,pef,serial7
 fluency,verbal knowledge,eas,pef,categories
 fluency,verbal knowledge,map,fev,categories
 fluency,verbal knowledge,nas,fev,animals
@@ -35,21 +36,20 @@ short-term memory,memory,nas,fev,word_im
 attention,memory,map,fev,digit_f
 attention,memory,octo,pef,digit_f
 attention,memory,satsa,fev,digit_f
-working memory,memory,map,fev,digit_b
-working memory,memory,octo,pef,digit_b
-working memory,memory,satsa,fev,digit_b
-working memory,memory,nas,fev,digit_b_tot
-working memory,memory,map,fev,digit_o
-attention,memory,hrs,pef,serial7
-executive function,memory,eas,pef,trailsb
-short-term memory,memory,eas,pef,digit_tot
-episodic memory,memory,eas,pef,logic_tot
-episodic memory,memory,map,fev,bstory_de
-episodic memory,memory,map,fev,logic_de
-episodic memory,memory,elsa,fev,word_de
-episodic memory,memory,hrs,pef,word_de
-episodic memory,memory,map,fev,word_de
-episodic memory,memory,nas,fev,word_de
+working memory,delayed/working memory,map,fev,digit_b
+working memory,delayed/working memory,octo,pef,digit_b
+working memory,delayed/working memory,satsa,fev,digit_b
+working memory,delayed/working memory,nas,fev,digit_b_tot
+working memory,delayed/working memory,map,fev,digit_o
+executive function,delayed/working memory,eas,pef,trailsb
+short-term memory,delayed/working memory,eas,pef,digit_tot
+episodic memory,delayed/working memory,eas,pef,logic_tot
+episodic memory,delayed/working memory,map,fev,bstory_de
+episodic memory,delayed/working memory,map,fev,logic_de
+episodic memory,delayed/working memory,elsa,fev,word_de
+episodic memory,delayed/working memory,hrs,pef,word_de
+episodic memory,delayed/working memory,map,fev,word_de
+episodic memory,delayed/working memory,nas,fev,word_de
 fluid reasoning,visualization,eas,pef,block
 fluid reasoning,visualization,octo,pef,block
 fluid reasoning,visualization,satsa,fev,block
