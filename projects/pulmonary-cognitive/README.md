@@ -2,7 +2,7 @@ Project: Pulmonary function and cognition
 ----
 Table of correlations contains correlations between factor scores of intercepts, slopes, residuals in a bivariate linear growth model. 
 - [focus][corr_focus] - static tables in MS Word format, focusing on estimated correlations 
-- [full][corr_short] - static tables in MS Word format, expanding the [focus][corr_focus] report with raw covariances, computed correlations, and confidence intervals. 
+- [full][corr_full] - static tables in MS Word format, expanding the [focus][corr_focus] report with raw covariances, computed correlations, and confidence intervals. 
 - [dynamic][corr_dynamic] - dynamic html tables with all possible physical-cognitive outcome pairs
 - [table data][table-data] - stand-along `csv` files containing source data of the all above reports
 - [Domain map][domain_map] - examine BISR estimates across cognitive domains
