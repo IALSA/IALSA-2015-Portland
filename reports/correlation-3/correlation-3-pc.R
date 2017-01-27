@@ -377,7 +377,7 @@ d <- d %>%
     covariance = ifelse(grepl("_ci$",index),"Correlation CI",
                  ifelse(grepl("^tau_",index),"Covariance",
                  ifelse(grepl("^er_",index),"Correlation",
-                 ifelse(grepl("^cr_",index),"Fisher Transform",NA)))),
+                 ifelse(grepl("^cr_",index),"Fisher's R",NA)))),
     parameter = ifelse( grepl("levels",index),"Levels",
                         ifelse(grepl("slopes",index),"Slopes",
                                ifelse(grepl("resid", index),"Residuals",NA))),

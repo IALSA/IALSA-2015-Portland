@@ -79,7 +79,7 @@ The column `covariance` contains four ways in which the association between proc
 - `Correlation` = correlation , estimated in Mplus  
 - `Correlation CI` = Confidence intervals estimated in Mplus  
 - `Covariance` = raw covariance  
-- `Fisher Transform` = correlation, computed outside of Mplus using Fisher's transform 
+- `Fisher's R` = correlation, computed outside of Mplus using Fisher's transform from raw variances and covariances
 
 Note: cases in which restricted (co)variances or insufficient decimals prevent the computation of correlations are marked by `---`
 
