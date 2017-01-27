@@ -83,6 +83,7 @@ elsa  <- list.files("./studies/elsa/physical-cognitive",full.names=T, recursive=
 hrs   <- list.files("./studies/hrs/physical-cognitive",full.names=T, recursive=T, pattern="out$")
 ilse  <- list.files("./studies/ilse/physical-cognitive",full.names=T, recursive=T, pattern="out$")
 lasa  <- list.files("./studies/lasa/physical-cognitive",full.names=T, recursive=T, pattern="out$")
+# lasa  <- list.files("./output/studies/lasa/phys-cog",full.names=T, recursive=T, pattern="out$")
 # map   <- list.files("./studies/map/physical-cognitive"),full.names=T, recursive=T, pattern="out$")
 # map   <- list.files("./studies/map/physical-cognitive/outputs/Old Models",full.names=T, recursive=T, pattern="out$")
 map   <- list.files("./output/studies/map/phys-cog",full.names=T, recursive=T, pattern="out$")
@@ -115,7 +116,7 @@ list_paths <- list("eas" = eas,
 # path_model_output <- list_paths[["elsa"]][1]
 # path_model_output <- list_paths[["hrs"]][13]
 # path_model_output <- list_paths[["ilse"]][1]
-# path_model_output <- list_paths[["lasa"]][1]
+path_model_output <- list_paths[["lasa"]][1]
 # path_model_output <- list_paths[["map"]][1]
 # path_model_output <- list_paths[["nuage"]][10]
 # path_model_output <- list_paths[["octo"]][38]
@@ -147,16 +148,16 @@ model_output_file_path <- list(
 
 # Parse model outputs from each study at a time
 # collect_study(study="eas", selected_results)
-collect_study(study="elsa", selected_results)
+# collect_study(study="elsa", selected_results)
 # collect_study(study="hrs", selected_results)
 # collect_study(study="ilse", selected_results)
-# collect_study(study="lasa", selected_results)
+collect_study(study="lasa", selected_results)
 # collect_study(study="map", selected_results)
 # collect_study(study="nas", selected_results)
 # collect_study(study="nuage", selected_results)
 # collect_study(study="octo", selected_results)
 # collect_study(study="satsa", selected_results)
-path <- model_output_file_path$octo
+# path <- model_output_file_path$octo
 # ---- combine-results ---------------------------------------------------------
 # combine results files from each study
 (results_studies <- list.files("./data/shared/phys-cog/", pattern = "^pc-catalog-\\w+\\.csv$", full.names =T) )

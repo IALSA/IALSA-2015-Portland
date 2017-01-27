@@ -32,7 +32,7 @@ t(names(catalog))
 catalog %>%
   dplyr::filter(
     study_name == "map"
-    ,subgroup   == 'female'
+    # ,subgroup   == 'female'
     ,model_type == "aehplus"
     # process_a  == "grip"#,
     # process_b  == "gait"
@@ -56,8 +56,9 @@ catalog %>%
     # ab_tau_00_wald,
     # ab_tau_00_pval
     # subject_count,
-    er_tau_11_est,
-    ab_tau_11_est
+    cr_slopes_est
+    # er_tau_11_est
+    # ab_tau_11_est
 
   ) %>%
   dplyr::arrange(desc(er_tau_11_est))

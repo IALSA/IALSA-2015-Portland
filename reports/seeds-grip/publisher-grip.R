@@ -35,10 +35,10 @@ for( pathFile in pathFilesToBuild ) {
   #   pathMd <- base::gsub(pattern=".Rmd$", replacement=".md", x=pathRmd)
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      # "html_document" # set print_format <- "html" in seed-study.R
+                      "html_document" # set print_format <- "html" in seed-study.R
                       #, "pdf_document"
                       # ,"md_document"
-                      "word_document" # set print_format <- "pandoc" in seed-study.R
+                      # "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
 }
