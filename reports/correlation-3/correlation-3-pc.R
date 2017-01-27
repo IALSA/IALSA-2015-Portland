@@ -225,19 +225,26 @@ select_for_table <- function(
   catalog_pretty,
   outcome,          # gait, grip, pulmonary : selects process a / PHYSICAL MEASURE
   gender = "andro", # andro, male, female : selects subgroup
-  format = "full"   # full, focus, brief : selects columns to display
+  format = "full",   # full, focus, brief : selects columns to display
+  pretty_name = TRUE
 ){
+  # browser()
   d1 <- catalog_pretty
   # select relevant PROCESS A / PHYSICAL MEASURE
-  if(outcome=="gait"){
-    d2 <- d1 %>% dplyr::filter(process_a %in% c("gait","tug"))
+  if(!outcome=="all"){
+    if(outcome=="gait"){
+      d2 <- d1 %>% dplyr::filter(process_a %in% c("gait","tug"))
+    }
+    if(outcome=="grip"){
+      d2 <- d1 %>% dplyr::filter(process_a %in% c("grip"))
+    }
+    if(outcome=="pulmonary"){
+      d2 <- d1 %>% dplyr::filter(process_a %in% c("fev","pef", "pek"))
+    }
+  }else{
+    d2 <- d1
   }
-  if(outcome=="grip"){
-    d2 <- d1 %>% dplyr::filter(process_a %in% c("grip"))
-  }
-  if(outcome=="pulmonary"){
-    d2 <- d1 %>% dplyr::filter(process_a %in% c("fev","pef", "pek"))
-  }
+
   # select relevant SUBGROUP
   if(!gender=="andro"){
     d3 <- d2 %>% dplyr::filter(subgroup == gender )
@@ -253,7 +260,9 @@ select_for_table <- function(
         tau_levels, er_levels, er_levels_ci, cr_levels,
         tau_slopes, er_slopes, er_slopes_ci, cr_slopes,
         tau_resid,  er_resid,  er_resid_ci,  cr_resid
-      ) %>%
+      )
+    if(pretty_name){
+    d4 <- d4 %>%
       dplyr::rename_(
         "domain"              = "process_b_domain", # ID
         "study"               = "study_name",
@@ -273,6 +282,7 @@ select_for_table <- function(
         "Corr(Slopes)Comp"    = "cr_slopes",
         "Corr(Residuals)Comp" = "cr_resid"
       )
+    }
   }
   if(format=="focus"){
     d4 <- d3 %>%
@@ -325,8 +335,8 @@ save_corr_table <- function(
 }
 
 # ---- tweak-data --------------------
-# catalog_pretty <- catalog %>% prettify_catalog(model_type_ = "aehplus",model_number_ = "b1")
-
+catalog_pretty <- catalog %>% prettify_catalog(model_type_ = "aehplus",model_number_ = "b1")
+# d <
 # ---- save-data-for-tables --------------------------
 for(outcome in c("gait","grip","pulmonary")){
   for(gender in c("male","female")){
@@ -346,8 +356,8 @@ for(outcome in c("gait","grip","pulmonary")){
 # ---- table-dynamic -----------------------------------------------------------
 
 d <- catalog %>%
-  prettify_catalog(model_type = c("a","ae","aeh","aehplus","full"),model_number = "b1") %>%
-  select_for_table(outcome = "pulmonary", gender = "andro",format = "full")
+  prettify_catalog(model_type = c("a","ae","aeh","aehplus","full"),model_number = c("b1")) %>%
+  select_for_table(outcome = "all", gender = "andro",format = "full", pretty_name=F)
 
 selected_columns <- colnames(d)
 replace_italics <- function(x,  pattern="p"){
@@ -356,18 +366,43 @@ replace_italics <- function(x,  pattern="p"){
 }
 d[,selected_columns] <- lapply(d[,selected_columns], replace_italics, pattern="p")
 
-change_to_factors <- c("domain", "study","subgroup","model_number", "model_type", "physical","cognitive")
-d[,change_to_factors] <- lapply(d[,change_to_factors], factor)
-d %>%
-  dplyr::rename_(
-    "N" = "`$n$`"
-  ) %>%
+static_variables <- c(
+  "process_b_domain", "study_name",       "model_number",     "subgroup",
+  "model_type",       "process_a",        "process_b",        "subject_count"
+)
+dynamic_variables <- setdiff(colnames(d), static_variables)
+d <- d %>%
+  tidyr::gather_("index","dense",dynamic_variables) %>%
   dplyr::mutate(
-    N = as.numeric(N)
+    covariance = ifelse(grepl("_ci$",index),"Correlation CI",
+                 ifelse(grepl("^tau_",index),"Covariance",
+                 ifelse(grepl("^er_",index),"Correlation",
+                 ifelse(grepl("^cr_",index),"Fisher Transform",NA)))),
+    parameter = ifelse( grepl("levels",index),"Levels",
+                        ifelse(grepl("slopes",index),"Slopes",
+                               ifelse(grepl("resid", index),"Residuals",NA))),
+    value = dense
+  ) %>%
+  dplyr::select(-index,-dense, -model_number) %>%
+  tidyr::spread(parameter,value) %>%
+  dplyr::mutate(
+    subject_count = as.numeric(subject_count)
+  ) %>%
+  dplyr::rename(
+    N = subject_count,
+    study = study_name,
+    domain = process_b_domain,
+    physical = process_a,
+    cognitive = process_b
   ) %>%
   dplyr::select(
-    -model_number
-  ) %>%
+    domain, study, subgroup, model_type, physical, cognitive, N, covariance, Levels, Slopes, Residuals
+  )
+
+change_to_factors <- setdiff(colnames(d),"N" )
+d[,change_to_factors] <- lapply(d[,change_to_factors], factor)
+
+d %>%
   DT::datatable(
     class     = 'cell-border stripe',
     # caption   = "Table of Correlations",
@@ -416,7 +451,7 @@ for(gender in c("male","female")){
 # ---- table-static-focus ------------------------------------------------------------
 cat("\n#Group by domain\n")
 for(gender in c("male","female")){
-  cat("\n#",gender)
+  cat("\n##",gender)
   catalog %>%
     prettify_catalog(model_type_ = "aehplus",model_number_ = "b1") %>%
     select_for_table(outcome,gender = gender,format = "focus") %>%
@@ -432,7 +467,7 @@ for(gender in c("male","female")){
 }
 cat("\n#Grouped by study\n")
 for(gender in c("male","female")){
-  cat("\n#",gender)
+  cat("\n##",gender)
   catalog %>%
     prettify_catalog(model_type_ = "aehplus",model_number_ = "b1") %>%
     select_for_table(outcome,gender = gender,format = "focus") %>%
@@ -457,11 +492,14 @@ path_grip_focus     <- "./reports/correlation-3/correlation-3-grip-focus.Rmd"
 
 # allReports <- path_pulmonary_full
 # allReports <- path_pulmonary_short
-allReports <- c(path_pulmonary_full,path_pulmonary_focus)
+# allReports <- c(path_pulmonary_full,path_pulmonary_focus)
 # allReports <- path_gait_full
 # allReports <- path_gait_short
 # allReports <- path_grip_full
 # allReports <- path_grip_short
+allReports <- c(path_pulmonary_focus, path_pulmonary_full,
+                path_gait_focus, path_gait_full,
+                path_grip_focus, path_grip_full)
 pathFilesToBuild <- c(allReports) ##########
 testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesToBuild))
 # Build the reports
@@ -478,6 +516,8 @@ for( pathFile in pathFilesToBuild ) {
 }
 
 
+rmarkdown::render(input="./reports/correlation-3/physical-cognitive-dynamic.Rmd",
+                  output_format = "html_document", clean = TRUE)
 
 
 
