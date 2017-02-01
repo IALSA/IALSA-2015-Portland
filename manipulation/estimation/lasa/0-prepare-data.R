@@ -26,10 +26,13 @@ requireNamespace("reshape2") # data transformations
 # path_input  <- "../LASA/data-unshared/ialsa-old/lasast3.sas7bdat"
 path_input  <- "../LASA/data-unshared/derived/dto_portland.rds"
 
-# put test assert here to check the connection.
 # generic_path <- "./sandbox/pipeline-demo-1/generic-data/"
-generic_path <- "./data/unshared/derived/lasa-1/"
+generic_path <- "./data/unshared/derived/lasa-1"
 
+
+# put test assert here to check the connections
+testit::assert("Path does not exist", file.exists(generic_path) )
+testit::assert("File does not exist", file.exists(path_input) )
 
 # ---- load-data ---------------------------------------------------------------
 dto <- readRDS(path_input)
@@ -39,10 +42,16 @@ names(dto[["unitData"]])
 # 2nd element - meta data, info about variables
 names(dto[["metaData"]])
 
+# each element of the unitData list is a dataset with specific measures
+head(dto$unitData$recall)
 
-# ---- functions-to-examime-temporal-patterns -------------------
+# ---- define-utility-functions -------------------
 # view a termporal pattern for one person
-temporal_pattern <- function(d, measure, seed_value = 42){
+temporal_pattern <- function(
+  d, 
+  measure, 
+  seed_value = 42
+){
   if(!seed_value=="random"){
     set.seed(seed_value)
   }else{
@@ -56,7 +65,12 @@ temporal_pattern <- function(d, measure, seed_value = 42){
 }
 
 # examine the descriptives over waves
-over_waves <- function(ds, measure_name, print_table=T, exclude_values="") {
+over_waves <- function(
+  ds, 
+  measure_name,
+  print_table=T, 
+  exclude_values=""
+) {
   ds <- as.data.frame(ds)
   testit::assert("No such measure in the dataset", measure_name %in% unique(names(ds)))
   # measure_name = "htval"; wave_name = "wave"; exclude_values = c(-99999, -1)
@@ -85,7 +99,10 @@ over_waves <- function(ds, measure_name, print_table=T, exclude_values="") {
 
 # computing row means
 # http://stackoverflow.com/questions/33401788/dplyr-using-mutate-like-rowmeans
-my_rowmeans = function(..., na.rm=TRUE){
+my_rowmeans <- function(
+  ..., 
+  na.rm=TRUE
+){
   x = if (na.rm)
     lapply(list(...), function(x) replace(x, is.na(x), as(0, class(x))))
    else
@@ -94,6 +111,7 @@ my_rowmeans = function(..., na.rm=TRUE){
     Reduce(`+`, x)/d
 
 }
+
 # merging wave datasets
 full_join_multi <- function(list_object){
   # list_object <- datas[["physical"]][["161"]]
@@ -115,14 +133,27 @@ for(i in names(dto$unitData)){
   dto$unitData[[i]] <- d
 }
 
+
+# ---- comment-on-data-cleaning ------------------------
+
+# At this point we are faced with the decision:
+# merge datasets from the list object into a single dataframe and
+# then derive the measures that will be used in modeling OR
+# treat each dataset separately and after having derived the measures 
+# to be passed to estimation merge them into a single dataset
+
+# In my view (AVK), the first approach is easier to track and correct
+# Its implementaion is operationilized below
+
 # ---- clean-data -------------------------------------------------------------
 # using the dto, assemble the variables to be used in analysis
+# create an list object to contained derived measures
 ls_data <- list()
 
 # ---- sex -----------------------
-ds <- dto$unitData$sex
-head(ds);lapply(ds,summary)
-ds %>% group_by_("male") %>% tally()
+ds <- dto$unitData$sex # select a single dataframe from the list object
+head(ds);lapply(ds,summary) # inspect it
+ds %>% group_by_("male") %>% tally() # tally
 ls_data[["sex"]] <- dto$unitData$sex
 
 # ---- age ------------------------
@@ -150,7 +181,6 @@ ds %>% temporal_pattern("height_40_cm")
 ds %>% over_waves("height_40_cm")
 stem(ds$height_40_cm)
 ls_data[["height"]] <- dto$unitData$height
-
 
 # ----- smoking ------------------
 # http://www.lasa-vu.nl/themes/physical/rookgedrag.html
@@ -252,7 +282,6 @@ stem(ds$grip_max)
 stem(ds$grip_mean)
 summary(ds$grip_max)
 
-
 # ---- pef ------------------------
 # http://www.lasa-vu.nl/themes/physical/peakflow.htm
 ds <- dto$unitData$pef
@@ -285,6 +314,7 @@ ds %>% over_waves("coding_mean", print_table = F)
 stem(ds$coding_max)
 stem(ds$coding_mean)
 ls_data[["coding"]] <- ds
+
 # ---- word-recall -----------------------
 # http://www.lasa-vu.nl/themes/cognitive/geheugen.html
 ds <- dto$unitData$recall
@@ -482,14 +512,14 @@ varnames_transformed <- c(
 )
 ds_long <- ds %>%
   dplyr::select_(.dots = c(varnames_transformed, varnames_physical, varnames_cognitive))
-
+# ds_longs keeps only variables we need for estimation
 
 # define variable properties for long-to-wide conversion
 variables_static <- c(
   "id", "male",
   "age_c70","edu_c7", "htm_c", "smoke","cardio", "diabetes", "dementia_ever"
-  )
-variables_longitudinal <- setdiff(colnames(ds_long),variables_static)  # not static
+  ) # these are the variables that do no change with time
+variables_longitudinal <- setdiff(colnames(ds_long),variables_static)  # not static, change with time
 (variables_longitudinal <- variables_longitudinal[!variables_longitudinal=="wave"]) # all except wave
 # establish a wide format
 ds_wide <- ds_long %>%
