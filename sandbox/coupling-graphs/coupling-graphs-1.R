@@ -134,16 +134,26 @@ path_out <- catalog %>%
   dplyr::select(file_path) %>% as.character()
 
 # recover observed and modeled data for one model (map and octo only for now)
-ds_long <- recover_data(path_out,long=TRUE,normal_resid = FALSE)
-ds_wide <- recover_data(path_out,long=FALSE, normal_resid = FALSE)
-# ds_long <- recover_data(path_out,long=TRUE,normal_resid = TRUE)
-# ds_wide <- recover_data(path_out,long=FALSE, normal_resid = TRUE)
+# ds_long <- recover_data(path_out,long=TRUE,normal_resid = FALSE)
+# ds_wide <- recover_data(path_out,long=FALSE, normal_resid = FALSE)
+ds_long <- recover_data(path_out,long=TRUE,normal_resid = TRUE)
+ds_wide <- recover_data(path_out,long=FALSE, normal_resid = TRUE)
 
-
+ids <- c(
+  2, 3, 11, 25, 36, 42, 43,
+  59, 79, 92, 107,113, 116, 120,
+  123, 131, 142, 143, 144, 153, 165,
+  170, 173, 176, 198, 204, 206, 215,
+  220, 223, 233, 236, 239, 245, 257,
+  265, 267, 271, 273, 283, 288, 289,
+  292, 294, 296, 299, 300, 318
+) #%>% as.character()
 # ---- graph-1 ---------------------
-set.seed(42)
-ids <- sample(unique(ds_wide$id),48)
+ds <- ds_long
+# set.seed(42)
+# ids <- sample(unique(ds$id),48)
 g <- ds_wide %>%
+  dplyr::mutate(id = as.numeric(id)) %>%
   dplyr::filter(id %in% ids) %>%
   ggplot2::ggplot(aes(x=TIME,group=id))+
   geom_line(aes(y=residual_A), color="red")+
