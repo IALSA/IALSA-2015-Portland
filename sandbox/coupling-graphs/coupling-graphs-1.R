@@ -134,10 +134,10 @@ path_out <- catalog %>%
   dplyr::select(file_path) %>% as.character()
 
 # recover observed and modeled data for one model (map and octo only for now)
-# ds_long <- recover_data(path_out,long=TRUE,normal_resid = FALSE)
-# ds_wide <- recover_data(path_out,long=FALSE, normal_resid = FALSE)
-ds_long <- recover_data(path_out,long=TRUE,normal_resid = TRUE)
-ds_wide <- recover_data(path_out,long=FALSE, normal_resid = TRUE)
+ds_long <- recover_data(path_out,long=TRUE,normal_resid = FALSE)
+ds_wide <- recover_data(path_out,long=FALSE, normal_resid = FALSE)
+# ds_long <- recover_data(path_out,long=TRUE,normal_resid = TRUE)
+# ds_wide <- recover_data(path_out,long=FALSE, normal_resid = TRUE)
 
 ids <- c(
   2, 3, 11, 25, 36, 42, 43,
@@ -149,7 +149,7 @@ ids <- c(
   292, 294, 296, 299, 300, 318
 ) #%>% as.character()
 # ---- graph-1 ---------------------
-ds <- ds_long
+# ds <- ds_long
 # set.seed(42)
 # ids <- sample(unique(ds$id),48)
 g <- ds_wide %>%
@@ -169,8 +169,8 @@ g %>% quick_save("graph-1",width=1200, height=800, dpi=200)
 
 
 # ---- graph-2 ----------------------
-set.seed(42)
-ids <- sample(unique(ds$id),48)
+# set.seed(42)
+# ids <- sample(unique(ds$id),48)
 g <- ds_wide %>%
   dplyr::filter(id %in% ids) %>%
   ggplot2::ggplot(aes(x=residual_A, y=residual_B, group=id))+
@@ -188,7 +188,7 @@ g %>% quick_save("graph-2",width=1200, height=800, dpi=200)
 
 # ---- graph-1b ----------------------
 # plotting all residuals on the same canvass
-ids <- sample(unique(ds$id),100)
+# ids <- sample(unique(ds$id),100)
 g <- ds_long %>%
   dplyr::filter(id %in% ids) %>%
   # dplyr::filter(id %in% c(74, 61)) %>%
@@ -208,8 +208,8 @@ g %>% quick_save("graph-1",width=400, height=500, dpi=100)
 
 
 # ---- graph-2b ----------------------
-set.seed(42)
-ids <- sample(unique(ds_wide$id),48)
+# set.seed(42)
+# ids <- sample(unique(ds_wide$id),48)
 g <- ds_wide %>%
   dplyr::filter(id %in% ids) %>%
   ggplot2::ggplot(aes(x=residual_A, y=residual_B, group=id,color=id))+
@@ -222,6 +222,23 @@ g <- ds_wide %>%
   )
 g
 g %>% quick_save("graph-2",width=1200, height=800, dpi=200)
+
+# ---- graph-2c ----------------------
+# set.seed(42)
+# ids <- sample(unique(ds_wide$id),48)
+g <- ds_wide %>%
+  # dplyr::filter(id %in% ids) %>%
+  ggplot2::ggplot(aes(x=residual_A, y=residual_B, fill=as.factor(SMOKE)))+
+  geom_hline(yintercept = 0, color="violet", alpha=.3, size=2)+
+  geom_vline(xintercept = 0, color="violet", alpha=.3, size=2)+
+  geom_point(shape=21, size=3, alpha=.5)+
+  main_theme +
+  theme(
+    text = element_text(size=baseSize+1)
+  )
+# g
+g %>% quick_save("graph-2c",width=600, height=400, dpi=100)
+
 
 
 # ---- notepad ----------
