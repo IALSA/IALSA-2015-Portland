@@ -54,7 +54,8 @@ quick_save <- function(g,name,width=600,height=600,dpi=100){
 }
 recover_data <- function(
   path_out,
-  long = TRUE
+  long = TRUE,
+  normal_resid = TRUE
 ){
   model_name <- gsub(".out$","",basename(path_out))
   regex_1 <- "(u0|u1|u2|b0|b1|b2)_(\\w+)_(\\w+)_(\\w+)_(\\w+)"
@@ -74,7 +75,7 @@ recover_data <- function(
   (variables_static <- setdiff(variable_names, variables_dynamic))
   dd <- d %>%
     tibble::rownames_to_column("id") %>%
-    dplyr::mutate(id = as.numeric(id)) %>%
+    # dplyr::mutate(id = as.numeric(id)) %>%
     tidyr::gather_(key="g",value="value",variables_dynamic) %>%
     dplyr::mutate(
       process = gsub("(\\w+)_(\\d+)", "\\1", g),
@@ -91,6 +92,15 @@ recover_data <- function(
     ) %>%
     plyr::rename(c("A"="observed_A", "B"="observed_B")) %>%
     dplyr::arrange(id)
+  if(normal_resid){
+    se_resid_a <- sd(dd$residual_A, na.rm=T)
+    se_resid_b <- sd(dd$residual_B, na.rm=T)
+    dd <- dd %>%
+      dplyr::mutate(
+        residual_A = residual_A / se_resid_a,
+        residual_B = residual_B / se_resid_b
+      )
+  }
   if(long){
     dd <- dd %>%
       tidyr::gather_("g","value",c("observed_A","observed_B",
@@ -124,13 +134,15 @@ path_out <- catalog %>%
   dplyr::select(file_path) %>% as.character()
 
 # recover observed and modeled data for one model (map and octo only for now)
-ds_long <- recover_data(path_out,long=TRUE)
-ds_wide <- recover_data(path_out,long=FALSE)
+ds_long <- recover_data(path_out,long=TRUE,normal_resid = FALSE)
+ds_wide <- recover_data(path_out,long=FALSE, normal_resid = FALSE)
+# ds_long <- recover_data(path_out,long=TRUE,normal_resid = TRUE)
+# ds_wide <- recover_data(path_out,long=FALSE, normal_resid = TRUE)
 
 
 # ---- graph-1 ---------------------
 set.seed(42)
-ids <- sample(unique(ds$id),48)
+ids <- sample(unique(ds_wide$id),48)
 g <- ds_wide %>%
   dplyr::filter(id %in% ids) %>%
   ggplot2::ggplot(aes(x=TIME,group=id))+
@@ -170,7 +182,7 @@ ids <- sample(unique(ds$id),100)
 g <- ds_long %>%
   dplyr::filter(id %in% ids) %>%
   # dplyr::filter(id %in% c(74, 61)) %>%
-  dplyr::filter(source %in% c("residual")) %>%
+  # dplyr::filter(source %in% c("residual")) %>%
   ggplot2::ggplot(aes(x=TIME,y=value, group=id)) +
   geom_abline(slope=0, intercept=0, color='red', size=1, alpha=.2)+
   # geom_smooth(aes(group='id'),method="loess", color="blue", size=1, fill="gray80", alpha=.3, na.rm=T) +
@@ -185,8 +197,53 @@ g
 g %>% quick_save("graph-1",width=400, height=500, dpi=100)
 
 
+# ---- graph-2b ----------------------
+set.seed(42)
+ids <- sample(unique(ds_wide$id),48)
+g <- ds_wide %>%
+  dplyr::filter(id %in% ids) %>%
+  ggplot2::ggplot(aes(x=residual_A, y=residual_B, group=id,color=id))+
+  geom_point(shape=1)+
+  geom_line()+
+  # facet_wrap(~id)+
+  main_theme +
+  theme(
+    text = element_text(size=baseSize+1)
+  )
+g
+g %>% quick_save("graph-2",width=1200, height=800, dpi=200)
 
 
+# ---- notepad ----------
+ds_wide %>%
+  dplyr::filter(id == 198) %>%
+  dplyr::select(id,observed_A, observed_B, predicted_A, predicted_B, residual_A, residual_B)
 
 
+count_miss <- ds_wide %>%
+  dplyr::group_by(id) %>%
+  dplyr::mutate(
+    n_nonmiss_a = length(observed_A) - sum(is.na(observed_A)),
+    n_nonmiss_b = length(observed_B) - sum(is.na(observed_B))
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::distinct(id,n_nonmiss_a, n_nonmiss_b)
 
+count_miss %>%
+  dplyr::group_by(n_nonmiss_a) %>%
+  dplyr::count() %>%
+  dplyr::mutate(
+    cumulative = cumsum(n)
+  )
+
+count_miss %>%
+  dplyr::group_by(n_nonmiss_b) %>%
+  dplyr::count() %>%
+  dplyr::mutate(
+    cumulative = cumsum(n)
+  )
+
+count_miss %>%
+  dplyr::group_by(n_nonmiss_a, n_nonmiss_b) %>%
+  dplyr::count() %>%
+  print(n=100)
