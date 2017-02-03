@@ -129,7 +129,43 @@ ds_wide <- recover_data(path_out,long=FALSE)
 
 
 # ---- graph-1 ---------------------
+set.seed(42)
+ids <- sample(unique(ds$id),48)
+g <- ds_wide %>%
+  dplyr::filter(id %in% ids) %>%
+  ggplot2::ggplot(aes(x=TIME,group=id))+
+  geom_line(aes(y=residual_A), color="red")+
+  geom_line(aes(y=residual_B), color="black")+
+  geom_abline(slope=0, intercept=0, color='grey', size=1, alpha=1,linetype="dotted")+
+  facet_wrap(~id)+
+  main_theme +
+  theme(
+    text = element_text(size=baseSize+1)
+  )
+g
+g %>% quick_save("graph-1",width=1200, height=800, dpi=200)
 
+
+# ---- graph-2 ----------------------
+set.seed(42)
+ids <- sample(unique(ds$id),48)
+g <- ds_wide %>%
+  dplyr::filter(id %in% ids) %>%
+  ggplot2::ggplot(aes(x=residual_A, y=residual_B, group=id))+
+  geom_point(shape=1)+
+  # geom_line()+
+  facet_wrap(~id)+
+  main_theme +
+  theme(
+    text = element_text(size=baseSize+1)
+  )
+g
+g %>% quick_save("graph-2",width=1200, height=800, dpi=200)
+
+
+
+# ---- graph-1b ----------------------
+# plotting all residuals on the same canvass
 ids <- sample(unique(ds$id),100)
 g <- ds_long %>%
   dplyr::filter(id %in% ids) %>%
@@ -149,20 +185,7 @@ g
 g %>% quick_save("graph-1",width=400, height=500, dpi=100)
 
 
-# ---- graph-2 ----------------------
-ids <- sample(unique(ds$id),48)
-g <- ds_wide %>%
-  dplyr::filter(id %in% ids) %>%
-  ggplot2::ggplot(aes(x=residual_A, y=residual_B, group=id))+
-  geom_point(shape=1)+
-  # geom_line()+
-  facet_wrap(~id)+
-  main_theme +
-  theme(
-    text = element_text(size=baseSize+1)
-  )
-g
-g %>% quick_save("graph-2",width=1200, height=800, dpi=200)
+
 
 
 
