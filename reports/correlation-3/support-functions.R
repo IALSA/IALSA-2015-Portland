@@ -300,10 +300,10 @@ save_corr_table <- function(
 # ---- rename-domains -------------
 rename_domains <- function(
   catalog_pretty_selected,
-  domain_name
+  track_name
 ){
   path_stencil = "./reports/correlation-3/rename-domains-"
-  path = paste0(path_stencil,domain_name,".csv")
+  path = paste0(path_stencil,track_name,".csv")
 
   d_rules <- readr::read_csv(path) %>%
     dplyr::select(domain, domain_new, study, cognitive, physical)
