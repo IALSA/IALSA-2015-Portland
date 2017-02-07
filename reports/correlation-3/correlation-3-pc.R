@@ -4,7 +4,7 @@ rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is 
 #Load any source files that contain/define functions, but that don't load any other types of variables
 #   into memory.  Avoid side effects and don't pollute the global environment.
 source("./scripts/mplus/model-components.R") # organizes variable names
-source("./reports/correlation-3/functions-support.R")
+source("./reports/correlation-3/support-functions.R")
 # ---- load-packages -----------------------------------------------------------
 library(magrittr) #Pipes
 library(ggplot2)
@@ -27,7 +27,7 @@ catalog <- readr::read_csv(path_input)
 rm(path_input)
 
 # ---- tweak-data --------------------
-catalog_pretty <- catalog %>% prettify_catalog(model_type_ = "aehplus",model_number_ = "b1")
+# catalog_pretty <- catalog %>% prettify_catalog(model_type_ = "aehplus",model_number_ = "b1")
 
 # ---- save-data-for-tables --------------------------
 # for(outcome in c("gait","grip","pulmonary")){
@@ -42,10 +42,6 @@ catalog_pretty <- catalog %>% prettify_catalog(model_type_ = "aehplus",model_num
 #         "./reports/correlation-3/table-data/")
 #   }
 # }
-
-# ---- print-forestplot -------------
-
-
 
 
 
@@ -109,6 +105,9 @@ d %>%
 
 
 # ---- table-static-full ------------------------------------------------------------
+# outcome values is defined in Rmd
+# outcome = "pulmonary"
+# gender = "male"
 cat("\n#Group by domain\n")
 for(gender in c("male","female")){
   cat("\n##",gender)
@@ -185,6 +184,46 @@ for(gender in c("male","female")){
     print()
 }
 
+
+# ---- print-forestplot -------------
+track = "pulmonary"
+domain = "memory"
+
+# browser()
+d1 <- catalog %>%
+  prettify_catalog(model_type_ = c("aehplus"), model_number_ = "b1") %>%
+  dplyr::select(
+    process_b_domain, study_name,
+    model_number, subgroup, model_type, process_a, process_b, subject_count,
+    er_tau_11_est, er_tau_11_ci95lo, er_tau_11_ci95hi, er_slopes
+  ) %>%
+  dplyr::mutate(
+    subject_count = scales::comma(subject_count)
+  ) %>%
+  plyr::rename( c(
+    "process_b_domain" ="domain",
+    "study_name"       ="study",
+    "process_a"        ="physical",
+    "process_b"        ="cognitive",
+    "subject_count"    ="n",
+    "er_tau_11_est"    ="mean",
+    "er_tau_11_ci95lo" ="lower",
+    "er_tau_11_ci95hi" ="upper",
+    "er_slopes"        ="dense"
+  )) %>%
+  dplyr::mutate(
+    dense = gsub("[$]p[$]","p",dense)
+  ) %>%
+  dplyr::filter(physical %in% c("pef","pek","fev"))# %>%
+d <- d1 %>% rename_domains(track)
+
+for(dom in unique(d$domain)){
+  for(gender in (unique(d$subgroup))){
+    d <- d %>% dplyr::filter(subgroup == gender)
+    d %>% print_forest_plot(dom)
+  }
+}
+# d %>% print_forest_plot("memory")
 
 # ---- publish --------------
 path_pulmonary_full <- "./reports/correlation-3/correlation-3-pulmonary-full.Rmd"

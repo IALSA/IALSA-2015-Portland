@@ -101,6 +101,11 @@ where
 ```
 
 
+# Plots
+
+```{r print-forest, echo=echoChunks, message=TRUE, results='asis', eval=TRUE}
+```
+
 
 
 # Session Information

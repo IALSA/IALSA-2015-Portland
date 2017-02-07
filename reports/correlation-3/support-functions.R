@@ -189,7 +189,7 @@ select_for_table <- function(
   outcome,          # gait, grip, pulmonary : selects process a / PHYSICAL MEASURE
   gender = "andro", # andro, male, female : selects subgroup
   format = "full",   # full, focus, brief : selects columns to display
-  pretty_name = TRUE
+  pretty_name = TRUE # columns names are pretty, ready for table
 ){
   # browser()
   d1 <- catalog_pretty
@@ -275,6 +275,10 @@ select_for_table <- function(
         er_sigma_00_est, er_sigma_00_se, er_sigma_00_pval, er_sigma_00_ci95lo, er_sigma_00_ci95hi
       )
   }
+  d4 <- d4 %>%
+    dplyr::mutate(
+      subject_count = scales::comma(subject_count)
+    )
   return(d4)
 
 }
@@ -302,13 +306,15 @@ rename_domains <- function(
   catalog_pretty_selected,
   track_name
 ){
+  # browser()
+  # track_name = "pulmonary"
   path_stencil = "./reports/correlation-3/rename-domains-"
   path = paste0(path_stencil,track_name,".csv")
 
   d_rules <- readr::read_csv(path) %>%
     dplyr::select(domain, domain_new, study, cognitive, physical)
 
-  t <- table(d$domain, d$study); t[t==0]<-"."; t
+  # t <- table(d$domain, d$study); t[t==0]<-"."; t
   # join the model data frame to the conversion data frame.
   d <- catalog_pretty_selected %>%
     dplyr::left_join(d_rules )
@@ -322,5 +328,63 @@ rename_domains <- function(
     dplyr::select(-domain_new)
   return(d)
 }
+
+
+# --- forest -----------------
+print_forest_plot <- function(
+  catalog,
+  domain_
+){
+
+  d <- catalog %>%
+    dplyr::select(domain,study, physical, cognitive,n,mean,lower, upper,dense ) %>%
+    dplyr::filter(domain == domain_)
+
+  col_1 <- c(NA,"Study")
+  col_2 <- c("Physical","process")
+  col_3 <- c("Cognitive","process")
+  col_4 <- c("Sample","size")
+  text_top <- data.frame(
+    "study" = col_1,
+    "physical" = col_2,
+    "cognitive" = col_3,
+    "n" = col_4,
+    "dense"  = as.character(c(NA,NA))
+  )
+
+  d_text <- d %>%
+    dplyr::select(study, physical, cognitive, n, dense) %>%
+    as.data.frame()
+  d_text <- dplyr::bind_rows(text_top, d_text)
+  n_rows <- nrow(d_text)
+  d_text[(n_rows+1):(n_rows+2),] <- NA
+  d_value <- data.frame(
+    "mean" = c(NA,NA,d$mean, NA, mean(d$mean,  na.rm=T)),
+    "lower"= c(NA,NA,d$lower,NA, mean(d$lower, na.rm=T)),
+    "upper"= c(NA,NA,d$upper,NA, mean(d$upper, na.rm=T))
+  )
+
+
+  g <- forestplot::forestplot(
+    d_text,
+    d_value,
+    # mean       = d$mean,
+    # lower      = d$lower,
+    # upper      = d$upper,
+    align      = c("r","r","l","l","l","l"),
+    new_page   = TRUE,
+    is.summary = c(TRUE,TRUE,rep(FALSE,n_rows-1),TRUE),
+    clip       = c(-2,2),
+    # xlog       = TRUE,
+    col        = fpColors(box     = "royalblue",
+                          line    = "darkblue",
+                          summary = "royalblue"),
+    hrzl_lines = gpar(col="#444444"),
+    graph.pos  = 5
+  )
+  return(g)
+}
+# Usage:
+# print_forest_plot(catalog,"pulmonary","memory")
 
 
