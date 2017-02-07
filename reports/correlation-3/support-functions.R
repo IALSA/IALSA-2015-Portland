@@ -116,14 +116,14 @@ dense_v4 <- function(
 
 # ---- utility-functions ------------------------
 prettify_catalog <- function(
-  catalog,
-  model_type_   = "aehplus",
-  model_number_ = "b1"
+  catalog#,
+  # model_type_   = "aehplus",
+  # model_number_ = "b1"
 ){
   catalog_pretty <- catalog %>%
     # dplyr::filter(process_a %in% c("fev","fev100", "pef", "pek")) %>%
-    dplyr::filter(model_type %in% model_type_) %>%
-    dplyr::filter(model_number %in% model_number_) %>%
+    # dplyr::filter(model_type %in% model_type_) %>%
+    # dplyr::filter(model_number %in% model_number_) %>%
     dplyr::mutate(
       # compute CI of the estimated correlations
       er_tau_00_ci95lo    = er_tau_00_est -  er_tau_00_se*1.96,
@@ -186,7 +186,7 @@ prettify_catalog <- function(
 
 select_for_table <- function(
   catalog_pretty,
-  outcome,          # gait, grip, pulmonary : selects process a / PHYSICAL MEASURE
+  track,          # gait, grip, pulmonary : selects process a / PHYSICAL MEASURE
   gender = "andro", # andro, male, female : selects subgroup
   format = "full",   # full, focus, brief : selects columns to display
   pretty_name = TRUE # columns names are pretty, ready for table
@@ -194,14 +194,14 @@ select_for_table <- function(
   # browser()
   d1 <- catalog_pretty
   # select relevant PROCESS A / PHYSICAL MEASURE
-  if(!outcome=="all"){
-    if(outcome=="gait"){
+  if(!track=="all"){
+    if(track=="gait"){
       d2 <- d1 %>% dplyr::filter(process_a %in% c("gait","tug"))
     }
-    if(outcome=="grip"){
+    if(track=="grip"){
       d2 <- d1 %>% dplyr::filter(process_a %in% c("grip"))
     }
-    if(outcome=="pulmonary"){
+    if(track=="pulmonary"){
       d2 <- d1 %>% dplyr::filter(process_a %in% c("fev","pef", "pek"))
     }
   }else{
@@ -275,10 +275,10 @@ select_for_table <- function(
         er_sigma_00_est, er_sigma_00_se, er_sigma_00_pval, er_sigma_00_ci95lo, er_sigma_00_ci95hi
       )
   }
-  d4 <- d4 %>%
-    dplyr::mutate(
-      subject_count = scales::comma(subject_count)
-    )
+  # d4 <- d4 %>%
+  #   dplyr::mutate(
+  #     subject_count = scales::comma(subject_count)
+  #   )
   return(d4)
 
 }
@@ -289,15 +289,15 @@ select_for_table <- function(
 
 save_corr_table <- function(
   catalog_pretty,
-  outcome,
+  track,
   gender,
   format,
   folder
 ){
   d <- catalog_pretty %>%
-    select_for_table(outcome=outcome, gender=gender, format=format)
+    select_for_table(track=track, gender=gender, format=format)
   # folder <- "./reports/correlation-3/summary-data/"
-  path <- paste0(folder,outcome,"-",gender,"-",format,".csv")
+  path <- paste0(folder,track,"-",gender,"-",format,".csv")
   readr::write_csv(d,path)
 }
 
@@ -385,7 +385,7 @@ print_forest_plot <- function(
   domain_,
   subgroup_
 ){
-  # domain_="memory"
+  # domain_="verbal knowledge"
   # subgroup_ = "male"
   d <- data_forest %>%
     dplyr::filter(
@@ -393,6 +393,27 @@ print_forest_plot <- function(
       ,subgroup == subgroup_
     ) %>%
     dplyr::select(domain,study, physical, cognitive,n,mean,lower, upper,dense )
+
+  compute_average_effect <- function(d){
+    (estimate <- d$mean)
+    (sample_size <-   d$n)
+    # (sd_est  <- sd(estimate,  na.rm =T))
+    # (sum_est <- sum(estimate, na.rm =T))
+
+    (mean_effect_est <- crossprod(estimate, sample_size)/sum(sample_size,na.rm=T) %>% as.numeric())
+    # (mean_effect_se <- sd_est / sqrt(sum_est))
+    (mean_effect_se <- plotrix::std.error(estimate))
+    (mean_effect_lower  <- mean_effect_est - (mean_effect_se*1.96))
+    (mean_effect_upper <- mean_effect_est + (mean_effect_se*1.96))
+
+    forest_summary <- c(
+      "mean" = mean_effect_est,
+      "lower" = mean_effect_lower,
+      "upper" = mean_effect_upper
+    )
+    return(forest_summary)
+  }
+  forest_summary <- d %>% compute_average_effect()
 
   col_1 <- c(NA,"Study")
   col_2 <- c("Physical","process")
@@ -412,27 +433,13 @@ print_forest_plot <- function(
   d_text <- dplyr::bind_rows(text_top, d_text)
   n_rows <- nrow(d_text)
   d_text[(n_rows+1):(n_rows+2),] <- NA
-  d_text[nrow(d_text),"cognitive"] <- toupper(domain_)
+  # d_text[nrow(d_text),"cognitive"] <- toupper(domain_)
+  d_text[nrow(d_text),"cognitive"] <- "Summary"
+  d_text[nrow(d_text),"dense"] <- sprintf("%s (%s, %s)",
+                                          numformat(forest_summary["mean"]),
+                                          numformat(forest_summary["lower"]),
+                                          numformat(forest_summary["upper"]))
 
-  compute_average_effect <- function(d){
-    estimate <- d$mean
-    sample_size <-   d$n
-    sd_est  <- sd(estimate,  na.rm =T)
-    sum_est <- sum(estimate, na.rm =T)
-
-    mean_effect_est <- crossprod(estimate, sample_size)/sum(sample_size,na.rm=T) %>% as.numeric()
-    mean_effect_se <- sd_est / sqrt(sum_est)
-    mean_effect_lower  <- mean_effect_est - (mean_effect_se*1.96)
-    mean_effect_upper <- mean_effect_est + (mean_effect_se*1.96)
-
-    forest_summary <- c(
-      "mean" = mean_effect_est,
-      "lower" = mean_effect_lower,
-      "upper" = mean_effect_upper
-    )
-    return(forest_summary)
-  }
-  forest_summary <- d %>% compute_average_effect()
 
   d_value <- data.frame(
     "mean" = c(NA,NA,d$mean, NA, forest_summary["mean"]),
@@ -455,8 +462,8 @@ print_forest_plot <- function(
                           summary = "royalblue"),
     hrzl_lines = gpar(col="#444444"),
     graph.pos  = 5,
-    # title = paste0("Slope correlations in ",toupper(domain_)," domain among ",toupper(subgroup_),"S")
-    title = paste0("Slope correlations among ",toupper(subgroup_),"S")
+    title = paste0("Slope correlations in ",toupper(domain_)," domain among ",toupper(subgroup_),"S")
+    # title = paste0("Slope correlations among ",toupper(subgroup_),"S")
   )
   return(g)
 }

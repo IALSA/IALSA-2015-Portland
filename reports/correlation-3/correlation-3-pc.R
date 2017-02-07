@@ -8,6 +8,7 @@ source("./reports/correlation-3/support-functions.R")
 # ---- load-packages -----------------------------------------------------------
 library(magrittr) #Pipes
 library(ggplot2)
+library(forestplot)
 requireNamespace("knitr")
 requireNamespace("dplyr")
 requireNamespace("tidyr")
@@ -29,27 +30,39 @@ rm(path_input)
 # ---- tweak-data --------------------
 # catalog_pretty <- catalog %>% prettify_catalog(model_type_ = "aehplus",model_number_ = "b1")
 
+
+
+
+
+
 # ---- save-data-for-tables --------------------------
-# for(outcome in c("gait","grip","pulmonary")){
+# for(track in c("gait","grip","pulmonary")){
 #   for(gender in c("male","female")){
 #     for(format in c("full","brief"))
 #       catalog %>%
 #       prettify_catalog("aehplus","b1") %>%
 #       save_corr_table(
-#         outcome,
+#         track,
 #         gender,
 #         format,
 #         "./reports/correlation-3/table-data/")
 #   }
 # }
 
-
+# ---- dummy -------------
+# track values is defined in Rmd
+# track = "pulmonary"
+# gender = "male"
 
 # ---- table-dynamic -----------------------------------------------------------
 
 d <- catalog %>%
-  prettify_catalog(model_type = c("a","ae","aeh","aehplus","full"),model_number = c("b1")) %>%
-  select_for_table(outcome = "all", gender = "andro",format = "full", pretty_name=F)
+  dplyr::filter(
+    model_type  %in%  c("a","ae","aeh","aehplus","full"),
+    model_number %in% c("b1")
+  ) %>%
+  prettify_catalog() %>%
+  select_for_table(track = track, gender = "andro",format = "full", pretty_name=F)
 
 selected_columns <- colnames(d)
 replace_italics <- function(x,  pattern="p"){
@@ -81,15 +94,16 @@ d <- d %>%
     subject_count = as.numeric(subject_count)
   ) %>%
   dplyr::rename(
-    N = subject_count,
-    study = study_name,
-    domain = process_b_domain,
-    physical = process_a,
+    N         = subject_count,
+    study     = study_name,
+    domain    = process_b_domain,
+    physical  = process_a,
     cognitive = process_b
   ) %>%
   dplyr::select(
     domain, study, subgroup, model_type, physical, cognitive, N, covariance, Levels, Slopes, Residuals
-  )
+  ) %>%
+  rename_domains(track)
 
 change_to_factors <- setdiff(colnames(d),"N" )
 d[,change_to_factors] <- lapply(d[,change_to_factors], factor)
@@ -102,19 +116,42 @@ d %>%
     options   = list(pageLength = 6, autoWidth = TRUE)
   )
 
+# ---- print-forest -----------------
 
+# track = "pulmonary"
+data_forest <- get_forest_data(catalog,track = track) %>%
+  rename_domains(track) %>%
+  dplyr::filter(
+     model_number == "b1"
+    ,model_type   == "aehplus"
+  )
+# print single
+data_forest %>% print_forest_plot("verbal knowledge","male")
+# print all
+
+domain_cycle <- setdiff(unique(data_forest$domain),NA)
+subgroup_cycle <- unique(data_forest$subgroup)
+for(dom in domain_cycle){
+  cat("\n##",dom,"\n")
+  for(gender in subgroup_cycle){
+    # cat("\n#",toupper(gender),"\n")
+    data_forest %>% print_forest_plot(dom,gender)
+    cat("\n")
+  }
+}
 
 # ---- table-static-full ------------------------------------------------------------
-# outcome values is defined in Rmd
-# outcome = "pulmonary"
-# gender = "male"
 cat("\n#Group by domain\n")
 for(gender in c("male","female")){
   cat("\n##",gender)
   d <- catalog %>%
-    prettify_catalog(model_type_ = "aehplus",model_number_ = "b1") %>%
+    dplyr::filter(
+      model_type = "aehplus",
+      model_numer = "b1"
+    ) %>%
+    prettify_catalog() %>%
     select_for_table(outcome,gender = gender,format = "full")
-  if(outcome=="pulmonary"){d <- d %>% rename_domains(outcome)}
+  if(track=="pulmonary"){d <- d %>% rename_domains(track)}
   d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
@@ -130,9 +167,13 @@ cat("\n#Grouped by study\n")
 for(gender in c("male","female")){
   cat("\n##",gender)
   d <- catalog %>%
-    prettify_catalog(model_type_ = "aehplus",model_number_ = "b1") %>%
-    select_for_table(outcome,gender = gender,format = "full")
-  if(outcome=="pulmonary"){d <- d %>% rename_domains(outcome)}
+    dplyr::filter(
+      model_type = "aehplus",
+      model_numer = "b1"
+    ) %>%
+    prettify_catalog() %>%
+    select_for_table(track,gender = gender,format = "full")
+  if(track=="pulmonary"){d <- d %>% rename_domains(track)}
   d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
@@ -151,9 +192,13 @@ cat("\n#Group by domain\n")
 for(gender in c("male","female")){
   cat("\n##",gender)
   d <- catalog %>%
-    prettify_catalog(model_type_ = "aehplus",model_number_ = "b1") %>%
-    select_for_table(outcome,gender = gender,format = "focus")
-  if(outcome=="pulmonary"){d <- d %>% rename_domains(outcome)}
+    dplyr::filter(
+      model_type = "aehplus",
+      model_numer = "b1"
+    ) %>%
+    prettify_catalog() %>%
+    select_for_table(track,gender = gender,format = "focus")
+  if(track=="pulmonary"){d <- d %>% rename_domains(track)}
   d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
@@ -169,9 +214,13 @@ cat("\n#Grouped by study\n")
 for(gender in c("male","female")){
   cat("\n##",gender)
   d <- catalog %>%
-    prettify_catalog(model_type_ = "aehplus",model_number_ = "b1") %>%
-    select_for_table(outcome,gender = gender,format = "focus")
-  if(outcome=="pulmonary"){d <- d %>% rename_domains(outcome)}
+    dplyr::filter(
+      model_type = "aehplus",
+      model_numer = "b1"
+    ) %>%
+    prettify_catalog() %>%
+    select_for_table(track,gender = gender,format = "focus")
+  if(track=="pulmonary"){d <- d %>% rename_domains(track)}
   d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
@@ -185,49 +234,19 @@ for(gender in c("male","female")){
 }
 
 
-# ---- print-forestplot -------------
-track = "pulmonary"
-domain = "memory"
 
-# browser()
-d1 <- catalog %>%
-  prettify_catalog(model_type_ = c("aehplus"), model_number_ = "b1") %>%
-  dplyr::select(
-    process_b_domain, study_name,
-    model_number, subgroup, model_type, process_a, process_b, subject_count,
-    er_tau_11_est, er_tau_11_ci95lo, er_tau_11_ci95hi, er_slopes
-  ) %>%
-  dplyr::mutate(
-    subject_count = scales::comma(subject_count)
-  ) %>%
-  plyr::rename( c(
-    "process_b_domain" ="domain",
-    "study_name"       ="study",
-    "process_a"        ="physical",
-    "process_b"        ="cognitive",
-    "subject_count"    ="n",
-    "er_tau_11_est"    ="mean",
-    "er_tau_11_ci95lo" ="lower",
-    "er_tau_11_ci95hi" ="upper",
-    "er_slopes"        ="dense"
-  )) %>%
-  dplyr::mutate(
-    dense = gsub("[$]p[$]","p",dense)
-  ) %>%
-  dplyr::filter(physical %in% c("pef","pek","fev"))# %>%
-d <- d1 %>% rename_domains(track)
 
-for(dom in unique(d$domain)){
-  for(gender in (unique(d$subgroup))){
-    d <- d %>% dplyr::filter(subgroup == gender)
-    d %>% print_forest_plot(dom)
-  }
-}
+
+
+
 # d %>% print_forest_plot("memory")
 
 # ---- publish --------------
 path_pulmonary_full <- "./reports/correlation-3/correlation-3-pulmonary-full.Rmd"
 path_pulmonary_focus <- "./reports/correlation-3/correlation-3-pulmonary-focus.Rmd"
+path_pulmonary_summary <- "./reports/correlation-3/correlation-3-pulmonary-summary.Rmd"
+
+
 path_gait_full      <- "./reports/correlation-3/correlation-3-gait-full.Rmd"
 path_gait_focus     <- "./reports/correlation-3/correlation-3-gait-focus.Rmd"
 path_grip_full      <- "./reports/correlation-3/correlation-3-grip-full.Rmd"
@@ -236,14 +255,15 @@ path_grip_focus     <- "./reports/correlation-3/correlation-3-grip-focus.Rmd"
 
 # allReports <- path_pulmonary_full
 # allReports <- path_pulmonary_short
-allReports <- c(path_pulmonary_full,path_pulmonary_focus)
+# allReports <- c(path_pulmonary_full,path_pulmonary_focus,path_pulmonary_summary)
+allReports <- c(path_pulmonary_summary)
 # allReports <- path_gait_full
 # allReports <- path_gait_short
 # allReports <- path_grip_full
 # allReports <- path_grip_short
-allReports <- c(path_pulmonary_focus, path_pulmonary_full,
-                path_gait_focus, path_gait_full,
-                path_grip_focus, path_grip_full)
+# allReports <- c(path_pulmonary_focus, path_pulmonary_full,
+#                 path_gait_focus, path_gait_full,
+#                 path_grip_focus, path_grip_full)
 pathFilesToBuild <- c(allReports)
 testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesToBuild))
 # Build the reports
@@ -251,10 +271,10 @@ for( pathFile in pathFilesToBuild ) {
 
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      # "html_document" # set print_format <- "html" in seed-study.R
+                      "html_document" # set print_format <- "html" in seed-study.R
                       # "pdf_document"
                       # ,"md_document"
-                      "word_document" # set print_format <- "pandoc" in seed-study.R
+                      # "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
 }
