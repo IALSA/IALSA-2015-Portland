@@ -301,6 +301,57 @@ save_corr_table <- function(
   readr::write_csv(d,path)
 }
 
+# --- get-forest-data -----------------
+
+get_forest_data <- function(
+  catalog,
+  track
+){
+  # track = "pulmonary"
+  # select relevant PROCESS A / PHYSICAL MEASURE
+  if(track=="all"){
+    d1 <- catalog
+  }else{
+    if(track=="gait"){
+      d1 <- catalog %>% dplyr::filter(process_a %in% c("gait","tug"))
+    }
+    if(track=="grip"){
+      d1 <- catalog %>% dplyr::filter(process_a %in% c("grip"))
+    }
+    if(track=="pulmonary"){
+      d1 <- catalog %>% dplyr::filter(process_a %in% c("fev","pef", "pek"))
+    }
+  }
+
+  d2 <- d1 %>%
+    prettify_catalog() %>%
+    dplyr::select(
+      process_b_domain, study_name,
+      model_number, subgroup, model_type, process_a, process_b, subject_count,
+      er_tau_11_est, er_tau_11_ci95lo, er_tau_11_ci95hi, er_slopes
+    ) %>%
+    dplyr::mutate(
+      # subject_count = scales::comma(subject_count)
+    ) %>%
+    plyr::rename( c(
+      "process_b_domain" ="domain",
+      "study_name"       ="study",
+      "process_a"        ="physical",
+      "process_b"        ="cognitive",
+      "subject_count"    ="n",
+      "er_tau_11_est"    ="mean",
+      "er_tau_11_ci95lo" ="lower",
+      "er_tau_11_ci95hi" ="upper",
+      "er_slopes"        ="dense"
+    )) %>%
+    dplyr::mutate(
+      dense = gsub("[$]p[$]","p",dense)
+    )
+  return(d2)
+}
+# Usage
+# data_forest <- get_forest_data(catalog,"pulmonary")
+
 # ---- rename-domains -------------
 rename_domains <- function(
   catalog_pretty_selected,
@@ -329,49 +380,72 @@ rename_domains <- function(
   return(d)
 }
 
-
-# --- forest -----------------
 print_forest_plot <- function(
-  catalog,
-  domain_
+  data_forest,
+  domain_,
+  subgroup_
 ){
-
-  d <- catalog %>%
-    dplyr::select(domain,study, physical, cognitive,n,mean,lower, upper,dense ) %>%
-    dplyr::filter(domain == domain_)
+  # domain_="memory"
+  # subgroup_ = "male"
+  d <- data_forest %>%
+    dplyr::filter(
+       domain   == domain_
+      ,subgroup == subgroup_
+    ) %>%
+    dplyr::select(domain,study, physical, cognitive,n,mean,lower, upper,dense )
 
   col_1 <- c(NA,"Study")
   col_2 <- c("Physical","process")
   col_3 <- c("Cognitive","process")
   col_4 <- c("Sample","size")
   text_top <- data.frame(
-    "study" = col_1,
-    "physical" = col_2,
+    "study"     = col_1,
+    "physical"  = col_2,
     "cognitive" = col_3,
-    "n" = col_4,
-    "dense"  = as.character(c(NA,NA))
+    "n"         = col_4,
+    "dense"     = as.character(c(NA,NA))
   )
-
   d_text <- d %>%
+    dplyr::mutate(n = scales::comma(n) ) %>%
     dplyr::select(study, physical, cognitive, n, dense) %>%
     as.data.frame()
   d_text <- dplyr::bind_rows(text_top, d_text)
   n_rows <- nrow(d_text)
   d_text[(n_rows+1):(n_rows+2),] <- NA
+  d_text[nrow(d_text),"cognitive"] <- toupper(domain_)
+
+  compute_average_effect <- function(d){
+    estimate <- d$mean
+    sample_size <-   d$n
+    sd_est  <- sd(estimate,  na.rm =T)
+    sum_est <- sum(estimate, na.rm =T)
+
+    mean_effect_est <- crossprod(estimate, sample_size)/sum(sample_size,na.rm=T) %>% as.numeric()
+    mean_effect_se <- sd_est / sqrt(sum_est)
+    mean_effect_lower  <- mean_effect_est - (mean_effect_se*1.96)
+    mean_effect_upper <- mean_effect_est + (mean_effect_se*1.96)
+
+    forest_summary <- c(
+      "mean" = mean_effect_est,
+      "lower" = mean_effect_lower,
+      "upper" = mean_effect_upper
+    )
+    return(forest_summary)
+  }
+  forest_summary <- d %>% compute_average_effect()
+
   d_value <- data.frame(
-    "mean" = c(NA,NA,d$mean, NA, mean(d$mean,  na.rm=T)),
-    "lower"= c(NA,NA,d$lower,NA, mean(d$lower, na.rm=T)),
-    "upper"= c(NA,NA,d$upper,NA, mean(d$upper, na.rm=T))
+    "mean" = c(NA,NA,d$mean, NA, forest_summary["mean"]),
+    "lower"= c(NA,NA,d$lower,NA, forest_summary["lower"]),
+    "upper"= c(NA,NA,d$upper,NA, forest_summary["upper"])
   )
-
-
   g <- forestplot::forestplot(
     d_text,
     d_value,
     # mean       = d$mean,
     # lower      = d$lower,
     # upper      = d$upper,
-    align      = c("r","r","l","l","l","l"),
+    align      = c("r","r","l","c","c","c"),
     new_page   = TRUE,
     is.summary = c(TRUE,TRUE,rep(FALSE,n_rows-1),TRUE),
     clip       = c(-2,2),
@@ -380,7 +454,9 @@ print_forest_plot <- function(
                           line    = "darkblue",
                           summary = "royalblue"),
     hrzl_lines = gpar(col="#444444"),
-    graph.pos  = 5
+    graph.pos  = 5,
+    # title = paste0("Slope correlations in ",toupper(domain_)," domain among ",toupper(subgroup_),"S")
+    title = paste0("Slope correlations among ",toupper(subgroup_),"S")
   )
   return(g)
 }
