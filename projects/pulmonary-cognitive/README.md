@@ -3,7 +3,7 @@ Project: Pulmonary function and cognition
 Table of correlations contains correlations between factor scores of intercepts, slopes, residuals in a bivariate linear growth model. 
 - [focus][corr_focus] - static tables in MS Word format, focusing on estimated correlations 
 - [full][corr_full] - static tables in MS Word format, expanding the [focus][corr_focus] report with raw covariances, computed correlations, and confidence intervals. 
-- [dynamic][corr_dynamic] - dynamic html tables with all possible physical-cognitive outcome pairs and all four ways to report bivariate association (as listed in [full][corr_full] report)
+- [dynamic][corr_dynamic] - forest plots  and dynamic summary table 
 - [table data][table-data] - stand-along `csv` files containing source data of the all above reports
 - [Domain map][domain_map] - examine BISR estimates across cognitive domains
 
@@ -38,7 +38,7 @@ For  details see [model specification](../../reports/model-specification/README.
 
 [corr_focus]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-focus.docx
 [corr_full]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-full.docx
-[corr_dynamic]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/physical-cognitive-dynamic.html
+[corr_dynamic]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-summary.html
 [table-data]:https://github.com/IALSA/IALSA-2015-Portland/tree/master/reports/correlation-3/table-data
 [domain_map]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/domain-map/domain-map-pulmonary.html
   
