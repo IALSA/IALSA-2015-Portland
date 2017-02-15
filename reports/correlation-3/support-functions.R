@@ -449,6 +449,7 @@ print_forest_plot <- function(
   g <- forestplot::forestplot(
     d_text,
     d_value,
+    boxsize = .25,
     # mean       = d$mean,
     # lower      = d$lower,
     # upper      = d$upper,
