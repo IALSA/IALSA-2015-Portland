@@ -21,8 +21,8 @@ fluid reasoning,eas,b1,female,aehplus,gait,block,351,0.128,0.105,0.221,-0.077799
 fluid reasoning,ilse,b1,female,aehplus,tug,block,225,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 fluid reasoning,octo,b1,female,aehplus,gait,block,273,-0.436,0.126,0.001,-0.68296,-0.18904,-0.492,0.618,0.425,-1.70328,0.7192799999999999,-0.149,0.051,0.004,-0.24896,-0.04904
 fluid reasoning,octo,b1,female,aehplus,gait,fig_logic,270,-0.45,0.215,0.036,-0.8714,-0.028600000000000014,0.151,0.449,0.737,-0.72904,1.03104,-0.056,0.072,0.44,-0.19712,0.08512
-fluid reasoning,map,b1,female,aehplus,gait,matrices,935,0.243,0.055,0.0,0.1352,0.3508,0.012,0.303,0.968,-0.58188,0.60588,0.007,0.03,0.826,-0.0518,0.0658
-fluid reasoning,lasa,b1,female,aehplus,gait,raven,782,-0.246,0.151,0.104,-0.54196,0.049960000000000004,-0.531,0.179,0.003,-0.88184,-0.18016000000000004,0.029,0.035,0.4,-0.03960000000000001,0.0976
+fluid reasoning,lasa,b1,female,aehplus,gait,raven_color_ab,782,-0.246,0.151,0.104,-0.54196,0.049960000000000004,-0.531,0.179,0.003,-0.88184,-0.18016000000000004,0.029,0.035,0.4,-0.03960000000000001,0.0976
+fluid reasoning,map,b1,female,aehplus,gait,raven_standard,935,0.243,0.055,0.0,0.1352,0.3508,0.012,0.303,0.968,-0.58188,0.60588,0.007,0.03,0.826,-0.0518,0.0658
 fluid reasoning,ilse,b1,female,aehplus,tug,spatial_ab,225,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 mental status,octo,b1,female,aehplus,gait,clock,276,-0.191,0.135,0.157,-0.4556,0.0736,-0.249,0.237,0.295,-0.7135199999999999,0.21552,-0.261,0.147,0.075,-0.54912,0.027119999999999977
 mental status,eas,b1,female,aehplus,gait,mmse,363,0.142,0.123,0.249,-0.09908,0.38308,0.078,0.793,0.922,-1.47628,1.6322800000000002,-0.051,0.071,0.471,-0.19015999999999997,0.08815999999999999
