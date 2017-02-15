@@ -30,7 +30,11 @@ rm(path_input)
 # ---- tweak-data --------------------
 # catalog_pretty <- catalog %>% prettify_catalog(model_type_ = "aehplus",model_number_ = "b1")
 
-
+catalog <- catalog %>%
+  dplyr::mutate(
+    process_b = ifelse(study_name == "map"  & process_b == "matrices", "raven_standard", process_b),
+    process_b = ifelse(study_name == "lasa" & process_b == "raven",    "raven_color_ab", process_b)
+  )
 
 
 
@@ -121,10 +125,6 @@ d %>%
 # track = "pulmonary"
 data_forest <- get_forest_data(catalog,track = track) %>%
   rename_domains(track) %>%
-  dplyr::mutate(
-    cognitive = ifelse(study == "map"  & cognitive == "matrices", "raven_standard", cognitive),
-    cognitive = ifelse(study == "lasa" & cognitive == "raven",    "raven_color_ab", cognitive)
-  ) %>%
   dplyr::filter(
      model_number == "b1"
     ,model_type   == "aehplus"

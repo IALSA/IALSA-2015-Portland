@@ -54,8 +54,8 @@ fluid reasoning,visualization,eas,pef,block
 fluid reasoning,visualization,octo,pef,block
 fluid reasoning,visualization,satsa,fev,block
 fluid reasoning,visualization,octo,pef,fig_logic
-fluid reasoning,visualization,map,fev,matrices
-fluid reasoning,visualization,lasa,pef,raven
+fluid reasoning,visualization,map,fev,raven_standard
+fluid reasoning,visualization,lasa,pef,raven_color_ab
 fluid reasoning,visualization,satsa,fev,rotate
 visual discrimination,visualization,map,fev,line
 visuospatial function,visualization,nas,fev,fig_copy
