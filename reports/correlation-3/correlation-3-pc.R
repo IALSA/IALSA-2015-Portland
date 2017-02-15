@@ -121,12 +121,18 @@ d %>%
 # track = "pulmonary"
 data_forest <- get_forest_data(catalog,track = track) %>%
   rename_domains(track) %>%
+  dplyr::mutate(
+    cognitive = ifelse(study == "map"  & cognitive == "matrices", "raven_standard", cognitive),
+    cognitive = ifelse(study == "lasa" & cognitive == "raven",    "raven_color_ab", cognitive)
+  ) %>%
   dplyr::filter(
      model_number == "b1"
     ,model_type   == "aehplus"
   )
+
 # print single
-data_forest %>% print_forest_plot("verbal knowledge","male")
+# data_forest %>% print_forest_plot("verbal knowledge","male")
+data_forest %>% print_forest_plot("memory","male")
 # print all
 
 domain_cycle <- setdiff(unique(data_forest$domain),NA)
