@@ -34,24 +34,28 @@ catalog <- catalog %>%
   dplyr::mutate(
     process_b = ifelse(study_name == "map"  & process_b == "matrices", "raven_standard", process_b),
     process_b = ifelse(study_name == "lasa" & process_b == "raven",    "raven_color_ab", process_b)
-  )
+  ) #%>%
+  # dplyr::filter(
+    # ! process_b == "trailsb"
+  # )
 
-
-
+# d <- catalog %>%
+#   dplyr::filter(process_b == "trailsb")
 
 # ---- save-data-for-tables --------------------------
-# for(track in c("gait","grip","pulmonary")){
-#   for(gender in c("male","female")){
-#     for(format in c("full","brief"))
-#       catalog %>%
-#       prettify_catalog("aehplus","b1") %>%
-#       save_corr_table(
-#         track,
-#         gender,
-#         format,
-#         "./reports/correlation-3/table-data/")
-#   }
-# }
+for(track in c("gait","grip","pulmonary")){
+  for(gender in c("male","female")){
+    for(format in c("full","brief"))
+      catalog %>%
+      dplyr::filter(model_type == "aehplus",model_number=="b1") %>%
+      prettify_catalog() %>%
+      save_corr_table(
+        track,
+        gender,
+        format,
+        "./reports/correlation-3/table-data/")
+  }
+}
 
 # ---- dummy -------------
 # track values is defined in Rmd
@@ -132,7 +136,7 @@ data_forest <- get_forest_data(catalog,track = track) %>%
 
 # print single
 # data_forest %>% print_forest_plot("verbal knowledge","male")
-data_forest %>% print_forest_plot("memory","male")
+# data_forest %>% print_forest_plot("memory","male")
 # print all
 
 domain_cycle <- setdiff(unique(data_forest$domain),NA)
@@ -149,14 +153,15 @@ for(dom in domain_cycle){
 # ---- table-static-full ------------------------------------------------------------
 cat("\n#Group by domain\n")
 for(gender in c("male","female")){
+  # gender = "male"
   cat("\n##",gender)
   d <- catalog %>%
     dplyr::filter(
-      model_type = "aehplus",
-      model_numer = "b1"
+      model_type == "aehplus",
+      model_number == "b1"
     ) %>%
     prettify_catalog() %>%
-    select_for_table(outcome,gender = gender,format = "full")
+    select_for_table(track,gender = gender,format = "full")
   if(track=="pulmonary"){d <- d %>% rename_domains(track)}
   d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
@@ -174,8 +179,8 @@ for(gender in c("male","female")){
   cat("\n##",gender)
   d <- catalog %>%
     dplyr::filter(
-      model_type = "aehplus",
-      model_numer = "b1"
+      model_type == "aehplus",
+      model_number == "b1"
     ) %>%
     prettify_catalog() %>%
     select_for_table(track,gender = gender,format = "full")
@@ -199,8 +204,8 @@ for(gender in c("male","female")){
   cat("\n##",gender)
   d <- catalog %>%
     dplyr::filter(
-      model_type = "aehplus",
-      model_numer = "b1"
+      model_type == "aehplus",
+      model_number == "b1"
     ) %>%
     prettify_catalog() %>%
     select_for_table(track,gender = gender,format = "focus")
@@ -221,8 +226,8 @@ for(gender in c("male","female")){
   cat("\n##",gender)
   d <- catalog %>%
     dplyr::filter(
-      model_type = "aehplus",
-      model_numer = "b1"
+      model_type == "aehplus",
+      model_number == "b1"
     ) %>%
     prettify_catalog() %>%
     select_for_table(track,gender = gender,format = "focus")
@@ -261,8 +266,8 @@ path_grip_focus     <- "./reports/correlation-3/correlation-3-grip-focus.Rmd"
 
 # allReports <- path_pulmonary_full
 # allReports <- path_pulmonary_short
-# allReports <- c(path_pulmonary_full,path_pulmonary_focus,path_pulmonary_summary)
-allReports <- c(path_pulmonary_summary)
+allReports <- c(path_pulmonary_full,path_pulmonary_focus)
+# allReports <- c(path_pulmonary_summary)
 # allReports <- path_gait_full
 # allReports <- path_gait_short
 # allReports <- path_grip_full
@@ -277,16 +282,13 @@ for( pathFile in pathFilesToBuild ) {
 
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      "html_document" # set print_format <- "html" in seed-study.R
+                      # "html_document" # set print_format <- "html" in seed-study.R
                       # "pdf_document"
                       # ,"md_document"
-                      # "word_document" # set print_format <- "pandoc" in seed-study.R
+                      "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
 }
 
-
-rmarkdown::render(input="./reports/correlation-3/physical-cognitive-dynamic.Rmd",
-                  output_format = "html_document", clean = TRUE)
 
 

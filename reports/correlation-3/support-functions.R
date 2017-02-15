@@ -416,8 +416,8 @@ print_forest_plot <- function(
   forest_summary <- d %>% compute_average_effect()
 
   col_1 <- c(NA,"Study")
-  col_2 <- c("Physical","process")
-  col_3 <- c("Cognitive","process")
+  col_2 <- c("Physical","measure")
+  col_3 <- c("Cognitive","measure")
   col_4 <- c("Sample","size")
   text_top <- data.frame(
     "study"     = col_1,
@@ -449,14 +449,14 @@ print_forest_plot <- function(
   g <- forestplot::forestplot(
     d_text,
     d_value,
-    boxsize = .25,
+    # boxsize = .25,
     # mean       = d$mean,
     # lower      = d$lower,
     # upper      = d$upper,
     align      = c("r","r","l","c","c","c"),
     new_page   = TRUE,
     is.summary = c(TRUE,TRUE,rep(FALSE,n_rows-1),TRUE),
-    clip       = c(-2,2),
+    clip       = c(-1,1),
     # xlog       = TRUE,
     col        = fpColors(box     = "royalblue",
                           line    = "darkblue",
