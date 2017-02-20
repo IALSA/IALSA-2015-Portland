@@ -31,11 +31,11 @@ stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v10.csv"
 t(names(catalog))
 catalog %>%
   dplyr::filter(
-    study_name == "map"
-    # ,subgroup   == 'female'
-    ,model_type == "aehplus"
-    # process_a  == "grip"#,
-    # process_b  == "gait"
+    study_name == "nas"
+    ,subgroup   == 'male'
+    ,model_type == "full"
+    ,process_a  == "fev"
+    ,process_b  == "nocog"
   ) %>%
   dplyr::filter(
     # !process_b == "nocog"
@@ -118,4 +118,16 @@ print_coefficients(
 |OCTO  | pef    | 320| 8   |
 |SATSA | fev    | 2  | .03 |
 
+d <- catalog %>%
+  dplyr::filter(
+     model_number =="u0"
+    ,study_name == "nas"
+    ,subgroup   == 'male'
+    ,model_type == "full"
+    ,process_a  == "fev"
+    ,process_b  == "nocog"
+  ) %>%
+  dplyr::filter(
+    # !process_b == "nocog"
+  ) %>% t()
 
