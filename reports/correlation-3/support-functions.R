@@ -305,7 +305,8 @@ save_corr_table <- function(
 
 get_forest_data <- function(
   catalog,
-  track
+  track,
+  index="slope"
 ){
   # track = "pulmonary"
   # select relevant PROCESS A / PHYSICAL MEASURE
@@ -322,31 +323,43 @@ get_forest_data <- function(
       d1 <- catalog %>% dplyr::filter(process_a %in% c("fev","pef", "pek"))
     }
   }
-
   d2 <- d1 %>%
     prettify_catalog() %>%
     dplyr::select(
       process_b_domain, study_name,
       model_number, subgroup, model_type, process_a, process_b, subject_count,
-      er_tau_11_est, er_tau_11_ci95lo, er_tau_11_ci95hi, er_slopes
-    ) %>%
-    dplyr::mutate(
-      # subject_count = scales::comma(subject_count)
+      er_tau_11_est, er_tau_11_ci95lo, er_tau_11_ci95hi, er_slopes,
+      er_sigma_00_est, er_sigma_00_ci95lo, er_sigma_00_ci95hi, er_resid
     ) %>%
     plyr::rename( c(
       "process_b_domain" ="domain",
       "study_name"       ="study",
       "process_a"        ="physical",
       "process_b"        ="cognitive",
-      "subject_count"    ="n",
-      "er_tau_11_est"    ="mean",
-      "er_tau_11_ci95lo" ="lower",
-      "er_tau_11_ci95hi" ="upper",
-      "er_slopes"        ="dense"
-    )) %>%
-    dplyr::mutate(
-      dense = gsub("[$]p[$]","p",dense)
-    )
+      "subject_count"    ="n"
+    ))
+  if(index == "slope"){
+    d2 <- d2 %>%
+      plyr::rename( c(
+        "er_tau_11_est"    ="mean",
+        "er_tau_11_ci95lo" ="lower",
+        "er_tau_11_ci95hi" ="upper",
+        "er_slopes"        ="dense"
+      ))
+  }
+  if(index == "residual"){
+    d2 <- d2 %>%
+      plyr::rename( c(
+        "er_sigma_00_est"    ="mean",
+        "er_sigma_00_ci95lo" ="lower",
+        "er_sigma_00_ci95hi" ="upper",
+        "er_resid"           ="dense"
+      ))
+  }
+    d2 <- d2 %>%
+      dplyr::mutate(
+        dense = gsub("[$]p[$]","p",dense)
+      )
   return(d2)
 }
 # Usage
@@ -383,7 +396,8 @@ rename_domains <- function(
 print_forest_plot <- function(
   data_forest,
   domain_,
-  subgroup_
+  subgroup_,
+  index = "slope"
 ){
   # domain_="verbal knowledge"
   # subgroup_ = "male"
@@ -471,7 +485,7 @@ print_forest_plot <- function(
     # hrzl_lines = list("3" = gpar(lty=1)),
     hrzl_lines =  gpar(col="#444444"),
     graph.pos  = 5,
-    title = paste0("Slope correlations in ",toupper(domain_)," domain among ",toupper(subgroup_),"S")
+    title = paste0(toupper(index)," correlations in ",toupper(domain_)," domain among ",toupper(subgroup_),"S")
     # title = paste0("Slope correlations among ",toupper(subgroup_),"S")
   )
   return(g)

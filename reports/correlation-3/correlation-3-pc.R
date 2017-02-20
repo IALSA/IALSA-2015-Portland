@@ -130,50 +130,67 @@ d %>%
 
 # ----- custom-save-forest --------------------------------
 track = "pulmonary"
-data_forest <- get_forest_data(catalog,track = track) %>%
-  rename_domains(track) %>%
-  dplyr::filter(
-    model_number == "b1"
-    ,model_type   == "aehplus"
-  ) %>%
-  dplyr::mutate(
-    domain = gsub("delayed/working","working", domain)
-  )
-
-# print single
-# data_forest %>% print_forest_plot("verbal knowledge","male")
-# data_forest %>% print_forest_plot("memory","male")
-# print all
-
-domain_cycle <- setdiff(unique(data_forest$domain),NA)
-subgroup_cycle <- unique(data_forest$subgroup)
-
-for(dom in domain_cycle){
-  # cat("\n##",dom,"\n")
-  for(gender in subgroup_cycle){
-    dom = domain_cycle[3]
-    gender = subgroup_cycle[1]
-    # n_lines = 13
-    n_lines <- data_forest %>%
-      dplyr::filter(domain==dom,subgroup==gender) %>%
-      nrow()
-# save graphic
-    path_save = paste0("./reports/correlation-3/forest-plot-pulmonary/jpeg/",
-                       track,"-",dom,"-",gender,".jpg")
-    jpeg(
-      filename  =  path_save,
-      width     = 900,
-      height    = 140 + 20*n_lines,
-      units     = "px",
-      pointsize = 12,
-      quality   = 100
+path_graph_jpeg = "./reports/correlation-3/forest-plot-pulmonary/jpeg/"
+for(i in c("slope","residual")){
+  # i <- "residual"
+  data_forest <- get_forest_data(catalog,track = track,index = i) %>%
+    rename_domains(track) %>%
+    dplyr::filter(
+      model_number == "b1"
+      ,model_type   == "aehplus"
+    ) %>%
+    dplyr::mutate(
+      domain = gsub("delayed/working","delayed or working", domain)
     )
-    data_forest %>% print_forest_plot(dom,gender)
-    dev.off()
+  domain_cycle <- setdiff(unique(data_forest$domain),NA)
+  subgroup_cycle <- unique(data_forest$subgroup)
+  for(dom in domain_cycle){
+    # cat("\n##",dom,"\n")
+    for(gender in subgroup_cycle){
+      # dom = domain_cycle[3]
+      # gender = subgroup_cycle[1]
+      # n_lines = 13
+      n_lines <- data_forest %>%
+        dplyr::filter(domain==dom,subgroup==gender) %>%
+        nrow()
+      # save graphic
+      path_save = paste0(path_graph_jpeg,track,"-",dom,"-",gender,"-",i,".jpg")
+      jpeg(
+        filename  =  path_save,
+        width     = 900,
+        height    = 140 + 20*n_lines,
+        units     = "px",
+        pointsize = 12,
+        quality   = 100
+      )
+      data_forest %>% print_forest_plot(dom,gender,i)
+      dev.off()
+    }
   }
 }
 
-
+# first attemp at automatic assembly into the complext plot:
+# index = "slope"
+# gender = "male"
+# pattern = paste0("-",gender,"-",index,".jpg$")
+#
+# path_jpeg <- list.files(path_graph_jpeg,pattern = pattern,full.names = T )
+#
+# # setup plot
+# par(mar=rep(0,4)) # no margins
+# # layout the plots into a matrix w/ 12 columns, by row
+# layout(matrix(1:length(path_jpeg), ncol=1, byrow=TRUE))
+#
+# for(i in seq_along(path_jpeg)){
+#     img <- jpeg::readJPEG(path_jpeg[[i]])
+#     plot(NA,xlim=0:1,ylim=0:1,xaxt="n",yaxt="n",bty="n")
+#     rasterImage(img,0,0,1,1)
+# }
+# dev.print(
+#   device = jpeg,
+#   "./reports/correlation-3/forest-plot-pulmonary.jpeg",
+#   width = 700, height = 2100, quality=100
+# )
 
 
 # ---- print-forest -----------------
