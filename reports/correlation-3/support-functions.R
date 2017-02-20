@@ -439,8 +439,6 @@ print_forest_plot <- function(
                                           numformat(forest_summary["mean"]),
                                           numformat(forest_summary["lower"]),
                                           numformat(forest_summary["upper"]))
-
-
   d_value <- data.frame(
     "mean" = c(NA,NA,d$mean, NA, forest_summary["mean"]),
     "lower"= c(NA,NA,d$lower,NA, forest_summary["lower"]),
@@ -455,16 +453,23 @@ print_forest_plot <- function(
     # upper      = d$upper,
     align      = c("r","r","l","c","c","c"),
     new_page   = TRUE,
+    # is.summary = c(FALSE,FALSE,rep(FALSE,n_rows-1),TRUE),
     is.summary = c(TRUE,TRUE,rep(FALSE,n_rows-1),TRUE),
-    clip       = c(-1,1),
+     clip       = c(-1,1),
     # xlog       = TRUE,
+    txt_gp = fpTxtGp(label = list(gpar(fontfamily = "",cex=1),
+                                  gpar(fontfamily = "",cex=1),
+                                  gpar(fontfamily = "",cex=1),
+                                  gpar(fontfamily = "",cex=1)
+                                  ),
+                     ticks = gpar(fontfamily = "", cex=1),
+                     xlab  = gpar(fontfamily = "HersheySerif", cex = 1.5)
+                     ),
     col        = fpColors(box     = "black",
                           line    = "black",
                           summary = "black"),
-    # col        = fpColors(box     = "royalblue",
-    #                       line    = "darkblue",
-    #                       summary = "royalblue"),
-    hrzl_lines = gpar(col="#444444"),
+    # hrzl_lines = list("3" = gpar(lty=1)),
+    hrzl_lines =  gpar(col="#444444"),
     graph.pos  = 5,
     title = paste0("Slope correlations in ",toupper(domain_)," domain among ",toupper(subgroup_),"S")
     # title = paste0("Slope correlations among ",toupper(subgroup_),"S")
