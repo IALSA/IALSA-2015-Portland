@@ -154,6 +154,7 @@ for(i in c("slope","residual")){
         dplyr::filter(domain==dom,subgroup==gender) %>%
         nrow()
       # save graphic
+      # make sure it conforms to `track-domain-gender-index` formula
       path_save = paste0(path_graph_jpeg,track,"-",dom,"-",gender,"-",i,".jpg")
       jpeg(
         filename  =  path_save,
@@ -195,7 +196,7 @@ for(i in c("slope","residual")){
 
 # ---- print-forest -----------------
 
-track = "pulmonary"
+# track = "pulmonary"
 data_forest <- get_forest_data(catalog,track = track) %>%
   rename_domains(track) %>%
   dplyr::filter(
@@ -218,6 +219,24 @@ for(dom in domain_cycle){
     cat("\n")
   }
 }
+
+# ---- place-forest --------------------------------------
+# places previously printed plot onto a single canvas
+jpegs <- list.files("./reports/correlation-3/forest-plot-pulmonary/jpeg/", full.names = T)
+
+regex_pattern <- "(\\w+)-(.+)-(\\w+)-(\\w+).jpg$"
+# for(i in seq_along(jpegs)){
+  i <- 1
+  (path <- sub("[./]","../..",jpegs[i]))
+  (track    = sub(regex_pattern,"\\1", basename(jpegs[i]) ) )
+  (domain   = sub(regex_pattern,"\\2", basename(jpegs[i]) ) )
+  (subgroup = sub(regex_pattern,"\\3", basename(jpegs[i]) ) )
+  (index    = sub(regex_pattern,"\\4", basename(jpegs[i]) ) )
+# }
+
+cat('<img src="', path, '" alt="', basename(path),'">\n', sep="") #Don't specify width.  This maintains the aspect ratio.
+
+
 
 # ----- custom-save-forest --------------------------------
 
@@ -332,18 +351,20 @@ path_pulmonary_summary <- "./reports/correlation-3/correlation-3-pulmonary-summa
 
 path_gait_full      <- "./reports/correlation-3/correlation-3-gait-full.Rmd"
 path_gait_focus     <- "./reports/correlation-3/correlation-3-gait-focus.Rmd"
+path_pulmonary_gait <- "./reports/correlation-3/correlation-3-gait-summary.Rmd"
+
 path_grip_full      <- "./reports/correlation-3/correlation-3-grip-full.Rmd"
 path_grip_focus     <- "./reports/correlation-3/correlation-3-grip-focus.Rmd"
+path_grip_summary <- "./reports/correlation-3/correlation-3-grip-summary.Rmd"
 
 
-# allReports <- path_pulmonary_full
-# allReports <- path_pulmonary_short
 # allReports <- c(path_pulmonary_full,path_pulmonary_focus)
-allReports <- c(path_pulmonary_summary)
-# allReports <- path_gait_full
-# allReports <- path_gait_short
-# allReports <- path_grip_full
-# allReports <- path_grip_short
+# allReports <- c(path_pulmonary_summary)
+# allReports <- c(path_gait_full,path_gait_focus)
+# allReports <- c(path_gait_summary)
+# allReports <- c(path_grip_full,path_grip_focus)
+allReports <- c(path_grip_summary)
+
 # allReports <- c(path_pulmonary_focus, path_pulmonary_full,
 #                 path_gait_focus, path_gait_full,
 #                 path_grip_focus, path_grip_full)
