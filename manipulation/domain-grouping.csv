@@ -1,0 +1,80 @@
+study_name,process_b,process_b_domain
+hrs,serial7,attention
+map,digit_f,attention
+octo,digit_f,attention
+satsa,digit_f,attention
+eas,logic_tot,episodic memory
+elsa,word_de,episodic memory
+hrs,word_de,episodic memory
+map,bstory_de,episodic memory
+map,logic_de,episodic memory
+map,word_de,episodic memory
+map,word_rec,episodic memory
+nas,word_de,episodic memory
+octo,mir,episodic memory
+octo,mir_recog,episodic memory
+eas,categories,fluency
+eas,fas,fluency
+elsa,fluency,fluency
+ilse,fluency,fluency
+map,categories,fluency
+nas,animals,fluency
+eas,block,fluid reasoning
+ilse,spatial_ab,fluid reasoning
+ilse,block,fluid reasoning
+lasa,raven_color_ab,fluid reasoning
+map,raven_standard,fluid reasoning
+nas,fig_copy,fluid reasoning
+octo,block,fluid reasoning
+octo,fig_logic,fluid reasoning
+satsa,analogies,fluid reasoning
+satsa,block,fluid reasoning
+satsa,rotate,fluid reasoning
+eas,mmse,mental status
+map,mmse,mental status
+nas,mmse,mental status
+nuage,mmms,mental status
+nuage,mmse,mental status
+octo,clock,mental status
+octo,mmse,mental status
+satsa,mmse,mental status
+eas,symbol,perceptual speed
+ilse,symbol,perceptual speed
+lasa,letter,perceptual speed
+map,num_comp,perceptual speed
+map,symbol,perceptual speed
+nas,pat_comp,perceptual speed
+octo,psif,perceptual speed
+octo,symbol,perceptual speed
+satsa,symbol,perceptual speed
+satsa,fig_id,perceptual speed
+eas,bnt,semantic memory
+eas,waisvocab,semantic memory
+eas,information,semantic memory
+ilse,waisgeneral,semantic memory
+map,bnt,semantic memory
+map,nart,semantic memory
+octo,information,semantic memory
+octo,synonyms,semantic memory
+satsa,information,semantic memory
+satsa,synonyms,semantic memory
+eas,digit_tot,short-term memory
+eas,word_im,short-term memory
+elsa,word_im,short-term memory
+hrs,word_im,short-term memory
+lasa,word_im,short-term memory
+map,bstory_im,short-term memory
+map,logic_im,short-term memory
+map,word_im,short-term memory
+nas,word_im,short-term memory
+octo,prose_im,short-term memory
+satsa,fig_mem,short-term memory
+map,ideas,verbal comprehension
+ilse,piccomp,visual discrimination
+map,line,visual discrimination
+map,digit_b,working memory
+map,digit_o,working memory
+nas,digit_b,working memory
+nas,digit_b_tot,working memory
+octo,digit_b,working memory
+satsa,digit_b,working memory
