@@ -1,80 +1,80 @@
-study,cognitive,label,domain,domain_new
-hrs,serial7,serial7,attention,mental status
-map,digit_f,digit span forward,attention,memory
-octo,digit_f,digit span forward,attention,memory
-satsa,digit_f,digit span forward,attention,memory
-eas,logic_tot,prose recall total,episodic memory,delayed/working memory
-elsa,word_de,word list delayed,episodic memory,delayed/working memory
-hrs,word_de,word list delayed,episodic memory,delayed/working memory
-map,bstory_de,prose recall delayed,episodic memory,delayed/working memory
-map,logic_de,logical memory delayed,episodic memory,delayed/working memory
-map,word_de,word list delayed,episodic memory,delayed/working memory
-map,word_rec,word list recognition,episodic memory,memory
-nas,word_de,word list delayed,episodic memory,delayed/working memory
-octo,mir,memory in reality,episodic memory,memory
-octo,mir_recog,memory in reality (recog),episodic memory,memory
-eas,categories,categories,fluency,verbal knowledge
-eas,fas,f-a-s phonemic words,fluency,verbal knowledge
-elsa,fluency,fluency,fluency,NA
-ilse,fluency,fluency,fluency,NA
-map,categories,categories,fluency,verbal knowledge
-nas,animals,categories,fluency,verbal knowledge
-eas,block,block design,fluid reasoning,visualization
-ilse,spatial_ab,IPSS spatial ability,fluid reasoning,NA
-ilse,block,block design,fluid reasoning,NA
-lasa,raven_color_ab,matrices,fluid reasoning,visualization
-map,raven_standard,matrices,fluid reasoning,visualization
-nas,fig_copy,figure copy,fluid reasoning,NA
-octo,block,block design,fluid reasoning,visualization
-octo,fig_logic,figure logic,fluid reasoning,visualization
-satsa,analogies,analogies,fluid reasoning,verbal knowledge
-satsa,block,block design,fluid reasoning,visualization
-satsa,rotate,rotations,fluid reasoning,visualization
-eas,mmse,mini mental state exam,mental status,mental status
-map,mmse,mini mental state exam,mental status,mental status
-nas,mmse,mini mental state exam,mental status,mental status
-nuage,mmms,modified mini mental state,mental status,NA
-nuage,mmse,mini mental state exam,mental status,NA
-octo,clock,clock,mental status,mental status
-octo,mmse,mini mental state exam,mental status,mental status
-satsa,mmse,mini mental state exam,mental status,mental status
-eas,symbol,substitution,perceptual speed,perceptual speed
-ilse,symbol,substitution,perceptual speed,NA
-lasa,letter,substitution,perceptual speed,perceptual speed
-map,num_comp,number comparison,perceptual speed,perceptual speed
-map,symbol,substitution,perceptual speed,perceptual speed
-nas,pat_comp,pattern comparison,perceptual speed,NA
-octo,psif,perceptual speed,perceptual speed,perceptual speed
-octo,symbol,substitution,perceptual speed,perceptual speed
-satsa,symbol,substitution,perceptual speed,perceptual speed
-satsa,fig_id,figure identification,perceptual speed,NA
-eas,bnt,boston naming test,semantic memory,verbal knowledge
-eas,waisvocab,vocabulary,semantic memory,verbal knowledge
-eas,information,information,semantic memory,NA
-ilse,waisgeneral,information,semantic memory,NA
-map,bnt,boston naming test,semantic memory,verbal knowledge
-map,nart,reading,semantic memory,verbal knowledge
-octo,information,information,semantic memory,verbal knowledge
-octo,synonyms,synonyms,semantic memory,verbal knowledge
-satsa,information,information,semantic memory,verbal knowledge
-satsa,synonyms,synonyms,semantic memory,verbal knowledge
-eas,digit_tot,digit span total,short-term memory,delayed/working memory
-eas,word_im,word list immediate,short-term memory,memory
-elsa,word_im,word list immediate,short-term memory,memory
-hrs,word_im,word list immediate,short-term memory,memory
-lasa,word_im,word list immediate,short-term memory,memory
-map,bstory_im,prose recall immediate,short-term memory,memory
-map,logic_im,logical memory immediate,short-term memory,memory
-map,word_im,word list immediate,short-term memory,memory
-nas,word_im,word list immediate,short-term memory,memory
-octo,prose_im,prose recall immediate,short-term memory,memory
-satsa,fig_mem,figure memory,short-term memory,memory
-map,ideas,auditory comprehension,verbal comprehension,mental status
-ilse,piccomp,picture completion,visual discrimination,NA
-map,line,line orientation,visual discrimination,visualization
-map,digit_b,digit span backward,working memory,delayed/working memory
-map,digit_o,digit ordering,working memory,delayed/working memory
-nas,digit_b,digit span backward,working memory,NA
-nas,digit_b_tot,digit span backward total,working memory,delayed/working memory
-octo,digit_b,digit span backward,working memory,delayed/working memory
-satsa,digit_b,digit span backward,working memory,delayed/working memory
+study,cognitive,label,domain,domain_new,toggle
+hrs,serial7,serial7,attention,mental status,
+map,digit_f,digit span forward,attention,memory,
+octo,digit_f,digit span forward,attention,memory,
+satsa,digit_f,digit span forward,attention,memory,
+eas,logic_tot,prose recall total,episodic memory,delayed/working memory,
+elsa,word_de,word list delayed,episodic memory,delayed/working memory,
+hrs,word_de,word list delayed,episodic memory,delayed/working memory,
+map,bstory_de,prose recall delayed,episodic memory,delayed/working memory,
+map,logic_de,logical memory delayed,episodic memory,delayed/working memory,
+map,word_de,word list delayed,episodic memory,delayed/working memory,
+map,word_rec,word list recognition,episodic memory,memory,
+nas,word_de,word list delayed,episodic memory,delayed/working memory,
+octo,mir,memory in reality,episodic memory,memory,
+octo,mir_recog,memory in reality (recog),episodic memory,memory,
+eas,categories,categories,fluency,verbal knowledge,
+eas,fas,f-a-s phonemic words,fluency,verbal knowledge,
+elsa,fluency,fluency,fluency,verbal knowledge,1
+ilse,fluency,fluency,fluency,verbal knowledge,1
+map,categories,categories,fluency,verbal knowledge,
+nas,animals,categories,fluency,verbal knowledge,
+eas,block,block design,fluid reasoning,visualization,
+ilse,spatial_ab,IPSS spatial ability,fluid reasoning,visualization,1
+ilse,block,block design,fluid reasoning,visualization,1
+lasa,raven_color_ab,matrices,fluid reasoning,visualization,
+map,raven_standard,matrices,fluid reasoning,visualization,
+nas,fig_copy,figure copy,fluid reasoning,visualization,1
+octo,block,block design,fluid reasoning,visualization,
+octo,fig_logic,figure logic,fluid reasoning,visualization,
+satsa,analogies,analogies,fluid reasoning,verbal knowledge,
+satsa,block,block design,fluid reasoning,visualization,
+satsa,rotate,rotations,fluid reasoning,visualization,
+eas,mmse,mini mental state exam,mental status,mental status,
+map,mmse,mini mental state exam,mental status,mental status,
+nas,mmse,mini mental state exam,mental status,mental status,
+nuage,mmms,modified mini mental state,mental status,mental status,1
+nuage,mmse,mini mental state exam,mental status,mental status,1
+octo,clock,clock,mental status,mental status,
+octo,mmse,mini mental state exam,mental status,mental status,
+satsa,mmse,mini mental state exam,mental status,mental status,
+eas,symbol,substitution,perceptual speed,perceptual speed,
+ilse,symbol,substitution,perceptual speed,perceptual speed,1
+lasa,letter,substitution,perceptual speed,perceptual speed,
+map,num_comp,number comparison,perceptual speed,perceptual speed,
+map,symbol,substitution,perceptual speed,perceptual speed,
+nas,pat_comp,pattern comparison,perceptual speed,perceptual speed,1
+octo,psif,perceptual speed,perceptual speed,perceptual speed,
+octo,symbol,substitution,perceptual speed,perceptual speed,
+satsa,symbol,substitution,perceptual speed,perceptual speed,
+satsa,fig_id,figure identification,perceptual speed,perceptual speed,1
+eas,bnt,boston naming test,semantic memory,verbal knowledge,
+eas,waisvocab,vocabulary,semantic memory,verbal knowledge,
+eas,information,information,semantic memory,verbal knowledge,1
+ilse,waisgeneral,information,semantic memory,verbal knowledge,1
+map,bnt,boston naming test,semantic memory,verbal knowledge,
+map,nart,reading,semantic memory,verbal knowledge,
+octo,information,information,semantic memory,verbal knowledge,
+octo,synonyms,synonyms,semantic memory,verbal knowledge,
+satsa,information,information,semantic memory,verbal knowledge,
+satsa,synonyms,synonyms,semantic memory,verbal knowledge,
+eas,digit_tot,digit span total,short-term memory,delayed/working memory,
+eas,word_im,word list immediate,short-term memory,memory,
+elsa,word_im,word list immediate,short-term memory,memory,
+hrs,word_im,word list immediate,short-term memory,memory,
+lasa,word_im,word list immediate,short-term memory,memory,
+map,bstory_im,prose recall immediate,short-term memory,memory,
+map,logic_im,logical memory immediate,short-term memory,memory,
+map,word_im,word list immediate,short-term memory,memory,
+nas,word_im,word list immediate,short-term memory,memory,
+octo,prose_im,prose recall immediate,short-term memory,memory,
+satsa,fig_mem,figure memory,short-term memory,memory,
+map,ideas,auditory comprehension,verbal comprehension,mental status,
+ilse,piccomp,picture completion,visual discrimination,visualization,1
+map,line,line orientation,visual discrimination,visualization,
+map,digit_b,digit span backward,working memory,delayed/working memory,
+map,digit_o,digit ordering,working memory,delayed/working memory,
+nas,digit_b,digit span backward,working memory,delayed/working memory,1
+nas,digit_b_tot,digit span backward total,working memory,delayed/working memory,
+octo,digit_b,digit span backward,working memory,delayed/working memory,
+satsa,digit_b,digit span backward,working memory,delayed/working memory,
