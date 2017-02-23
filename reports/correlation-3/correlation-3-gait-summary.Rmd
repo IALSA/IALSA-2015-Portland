@@ -100,7 +100,7 @@ track <- "gait"
 ```
 
 # Dynamic Summary
-```{r table-dynamic, echo=echoChunks, message=TRUE, results='show', eval=F, message=F}
+```{r table-dynamic, echo=echoChunks, message=TRUE, results='show', eval=T, message=F}
 ```
 
 # Forest plots
