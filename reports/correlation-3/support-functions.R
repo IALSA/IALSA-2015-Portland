@@ -185,14 +185,14 @@ prettify_catalog <- function(
 }
 
 select_for_table <- function(
-  catalog_pretty,
+  ds_cat,
   track,          # gait, grip, pulmonary : selects process a / PHYSICAL MEASURE
   gender = "andro", # andro, male, female : selects subgroup
   format = "full",   # full, focus, brief : selects columns to display
   pretty_name = TRUE # columns names are pretty, ready for table
 ){
   # browser()
-  d1 <- catalog_pretty
+  d1 <- ds_cat
   # select relevant PROCESS A / PHYSICAL MEASURE
   if(!track=="all"){
     if(track=="gait"){
@@ -304,31 +304,32 @@ save_corr_table <- function(
 # --- get-forest-data -----------------
 
 get_forest_data <- function(
-  catalog,
+  catalog_pretty,
   track,
-  index="slope"
+  index
 ){
   # track = "pulmonary"
+  # index = "residual"
   # select relevant PROCESS A / PHYSICAL MEASURE
   if(track=="all"){
-    d1 <- catalog
+    d1 <- catalog_pretty
   }else{
     if(track=="gait"){
-      d1 <- catalog %>% dplyr::filter(process_a %in% c("gait","tug"))
+      d1 <- catalog_pretty %>% dplyr::filter(process_a %in% c("gait","tug"))
     }
     if(track=="grip"){
-      d1 <- catalog %>% dplyr::filter(process_a %in% c("grip"))
+      d1 <- catalog_pretty %>% dplyr::filter(process_a %in% c("grip"))
     }
     if(track=="pulmonary"){
-      d1 <- catalog %>% dplyr::filter(process_a %in% c("fev","pef", "pek"))
+      d1 <- catalog_pretty %>% dplyr::filter(process_a %in% c("fev","pef", "pek"))
     }
   }
   d2 <- d1 %>%
-    prettify_catalog() %>%
+    # prettify_catalog() %>%
     dplyr::select(
       process_b_domain, study_name,
       model_number, subgroup, model_type, process_a, process_b, subject_count,
-      er_tau_11_est, er_tau_11_ci95lo, er_tau_11_ci95hi, er_slopes,
+      er_tau_11_est,   er_tau_11_ci95lo,   er_tau_11_ci95hi,   er_slopes,
       er_sigma_00_est, er_sigma_00_ci95lo, er_sigma_00_ci95hi, er_resid
     ) %>%
     plyr::rename( c(
@@ -359,6 +360,10 @@ get_forest_data <- function(
     d2 <- d2 %>%
       dplyr::mutate(
         dense = gsub("[$]p[$]","p",dense)
+      ) %>%
+      dplyr::select(
+        study,model_number,subgroup,model_type, physical, cognitive, domain,
+        n, mean, lower, upper, dense
       )
   return(d2)
 }
@@ -366,32 +371,34 @@ get_forest_data <- function(
 # data_forest <- get_forest_data(catalog,"pulmonary")
 
 # ---- rename-domains -------------
-rename_domains <- function(
-  catalog_pretty_selected,
-  track_name
-){
-  # browser()
-  # track_name = "pulmonary"
-  path_stencil = "./reports/correlation-3/rename-domains-"
-  path = paste0(path_stencil,track_name,".csv")
-
-  d_rules <- readr::read_csv(path) %>%
-    dplyr::select(domain, domain_new, study, cognitive, physical)
-
-  # t <- table(d$domain, d$study); t[t==0]<-"."; t
-  # join the model data frame to the conversion data frame.
-  d <- catalog_pretty_selected %>%
-    dplyr::left_join(d_rules )
-  # verify
-  t <- table(d$domain, d$study);t[t==0]<-".";t
-  t <- table(d$domain_new, d$study);t[t==0]<-".";t
-  d <- d %>%
-    dplyr::mutate(
-      domain = domain_new
-    ) %>%
-    dplyr::select(-domain_new)
-  return(d)
-}
+# rename_domains <- function(
+#   catalog_pretty_selected#,
+#   # track_name
+# ){
+#   # browser()
+#   # catalog_pretty_selected <- catalog
+#   # track_name = "pulmonary"
+#   # path_stencil = "./reports/correlation-3/rename-domains-"
+#   # path = paste0(path_stencil,track_name,".csv")
+#   path = "./reports/correlation-3/domain-grouping.csv"
+#
+#   d_rules <- readr::read_csv(path)#%>%
+#     # dplyr::select(domain, domain_new, study, cognitive)
+#
+#   # t <- table(d$domain, d$study); t[t==0]<-"."; t
+#   # join the model data frame to the conversion data frame.
+#   d <- catalog_pretty_selected %>%
+#     dplyr::left_join(d_rules )
+#   # verify
+#   # t <- table(d$domain, d$study);t[t==0]<-".";t
+#   # t <- table(d$domain_new, d$study);t[t==0]<-".";t
+#   d <- d %>%
+#     dplyr::mutate(
+#       domain = domain_new
+#     ) %>%
+#     dplyr::select(-domain_new)
+#   return(d)
+# }
 
 print_forest_plot <- function(
   data_forest,
@@ -399,7 +406,7 @@ print_forest_plot <- function(
   subgroup_,
   index = "slope"
 ){
-  # domain_="verbal knowledge"
+  # domain_="memory"
   # subgroup_ = "male"
   d <- data_forest %>%
     dplyr::filter(
