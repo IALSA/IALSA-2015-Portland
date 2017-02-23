@@ -1,0 +1,923 @@
+Mplus VERSION 7.4 (Mac)
+MUTHEN & MUTHEN
+02/08/2017   9:49 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Script produced from the prototype in ./sandbox/syntax-creator/
+  DATA:
+  File = wide-dataset.dat ;
+  VARIABLE:
+  NAMES are
+   id male age_c70 edu_c7 htm_c smoke cardio diabetes dementia_ever
+      dementia_baseline bnt_00 bnt_01 bnt_02 bnt_03 bnt_04 bnt_05 bnt_06 bnt_07
+      bnt_08 bnt_09 bnt_10 bnt_11 bnt_12 bnt_13 bnt_14 bnt_15 bnt_16 bnt_17
+      bnt_18 bostordel_00 bostordel_01 bostordel_02 bostordel_03 bostordel_04
+      bostordel_05 bostordel_06 bostordel_07 bostordel_08 bostordel_09 bostordel_10
+      bostordel_11 bostordel_12 bostordel_13 bostordel_14 bostordel_15 bostordel_16
+      bostordel_17 bostordel_18 bostorim_00 bostorim_01 bostorim_02 bostorim_03
+      bostorim_04 bostorim_05 bostorim_06 bostorim_07 bostorim_08 bostorim_09
+      bostorim_10 bostorim_11 bostorim_12 bostorim_13 bostorim_14 bostorim_15
+      bostorim_16 bostorim_17 bostorim_18 catfluency_00 catfluency_01 catfluency_02
+      catfluency_03 catfluency_04 catfluency_05 catfluency_06 catfluency_07
+      catfluency_08 catfluency_09 catfluency_10 catfluency_11 catfluency_12
+      catfluency_13 catfluency_14 catfluency_15 catfluency_16 catfluency_17
+      catfluency_18 complexideas_00 complexideas_01 complexideas_02 complexideas_03
+      complexideas_04 complexideas_05 complexideas_06 complexideas_07 complexideas_08
+      complexideas_09 complexideas_10 complexideas_11 complexideas_12 complexideas_13
+      complexideas_14 complexideas_15 complexideas_16 complexideas_17 complexideas_18
+      digitbackward_00 digitbackward_01 digitbackward_02 digitbackward_03
+      digitbackward_04 digitbackward_05 digitbackward_06 digitbackward_07
+      digitbackward_08 digitbackward_09 digitbackward_10 digitbackward_11
+      digitbackward_12 digitbackward_13 digitbackward_14 digitbackward_15
+      digitbackward_16 digitbackward_17 digitbackward_18 digitforward_00
+      digitforward_01 digitforward_02 digitforward_03 digitforward_04 digitforward_05
+      digitforward_06 digitforward_07 digitforward_08 digitforward_09 digitforward_10
+      digitforward_11 digitforward_12 digitforward_13 digitforward_14 digitforward_15
+      digitforward_16 digitforward_17 digitforward_18 digitorder_00 digitorder_01
+      digitorder_02 digitorder_03 digitorder_04 digitorder_05 digitorder_06
+      digitorder_07 digitorder_08 digitorder_09 digitorder_10 digitorder_11
+      digitorder_12 digitorder_13 digitorder_14 digitorder_15 digitorder_16
+      digitorder_17 digitorder_18 fev_00 fev_01 fev_02 fev_03 fev_04 fev_05 fev_06
+      fev_07 fev_08 fev_09 fev_10 fev_11 fev_12 fev_13 fev_14 fev_15 fev_16 fev_17
+      fev_18 fev100_00 fev100_01 fev100_02 fev100_03 fev100_04 fev100_05 fev100_06
+      fev100_07 fev100_08 fev100_09 fev100_10 fev100_11 fev100_12 fev100_13 fev100_14
+      fev100_15 fev100_16 fev100_17 fev100_18 gait_00 gait_01 gait_02 gait_03 gait_04
+      gait_05 gait_06 gait_07 gait_08 gait_09 gait_10 gait_11 gait_12 gait_13 gait_14
+      gait_15 gait_16 gait_17 gait_18 grip_00 grip_01 grip_02 grip_03 grip_04 grip_05
+      grip_06 grip_07 grip_08 grip_09 grip_10 grip_11 grip_12 grip_13 grip_14 grip_15
+      grip_16 grip_17 grip_18 lineorientation_00 lineorientation_01 lineorientation_02
+      lineorientation_03 lineorientation_04 lineorientation_05 lineorientation_06
+      lineorientation_07 lineorientation_08 lineorientation_09 lineorientation_10
+      lineorientation_11 lineorientation_12 lineorientation_13 lineorientation_14
+      lineorientation_15 lineorientation_16 lineorientation_17 lineorientation_18
+      logimemdel_00 logimemdel_01 logimemdel_02 logimemdel_03 logimemdel_04
+      logimemdel_05 logimemdel_06 logimemdel_07 logimemdel_08 logimemdel_09
+      logimemdel_10 logimemdel_11 logimemdel_12 logimemdel_13 logimemdel_14
+      logimemdel_15 logimemdel_16 logimemdel_17 logimemdel_18 logimemim_00
+      logimemim_01 logimemim_02 logimemim_03 logimemim_04 logimemim_05 logimemim_06
+      logimemim_07 logimemim_08 logimemim_09 logimemim_10 logimemim_11 logimemim_12
+      logimemim_13 logimemim_14 logimemim_15 logimemim_16 logimemim_17 logimemim_18
+      matrices_00 matrices_01 matrices_02 matrices_03 matrices_04 matrices_05
+      matrices_06 matrices_07 matrices_08 matrices_09 matrices_10 matrices_11
+      matrices_12 matrices_13 matrices_14 matrices_15 matrices_16 matrices_17
+      matrices_18 mmse_00 mmse_01 mmse_02 mmse_03 mmse_04 mmse_05 mmse_06 mmse_07
+      mmse_08 mmse_09 mmse_10 mmse_11 mmse_12 mmse_13 mmse_14 mmse_15 mmse_16 mmse_17
+      mmse_18 nart_00 nart_01 nart_02 nart_03 nart_04 nart_05 nart_06 nart_07 nart_08
+      nart_09 nart_10 nart_11 nart_12 nart_13 nart_14 nart_15 nart_16 nart_17 nart_18
+      numbercomparison_00 numbercomparison_01 numbercomparison_02 numbercomparison_03
+      numbercomparison_04 numbercomparison_05 numbercomparison_06 numbercomparison_07
+      numbercomparison_08 numbercomparison_09 numbercomparison_10 numbercomparison_11
+      numbercomparison_12 numbercomparison_13 numbercomparison_14 numbercomparison_15
+      numbercomparison_16 numbercomparison_17 numbercomparison_18 symbol_00
+      symbol_01 symbol_02 symbol_03 symbol_04 symbol_05 symbol_06 symbol_07 symbol_08
+      symbol_09 symbol_10 symbol_11 symbol_12 symbol_13 symbol_14 symbol_15 symbol_16
+      symbol_17 symbol_18 wordlistdel_00 wordlistdel_01 wordlistdel_02 wordlistdel_03
+      wordlistdel_04 wordlistdel_05 wordlistdel_06 wordlistdel_07 wordlistdel_08
+      wordlistdel_09 wordlistdel_10 wordlistdel_11 wordlistdel_12 wordlistdel_13
+      wordlistdel_14 wordlistdel_15 wordlistdel_16 wordlistdel_17 wordlistdel_18
+      wordlistim_00 wordlistim_01 wordlistim_02 wordlistim_03 wordlistim_04
+      wordlistim_05 wordlistim_06 wordlistim_07 wordlistim_08 wordlistim_09
+      wordlistim_10 wordlistim_11 wordlistim_12 wordlistim_13 wordlistim_14
+      wordlistim_15 wordlistim_16 wordlistim_17 wordlistim_18 wordlistrecog_00
+      wordlistrecog_01 wordlistrecog_02 wordlistrecog_03 wordlistrecog_04
+      wordlistrecog_05 wordlistrecog_06 wordlistrecog_07 wordlistrecog_08
+      wordlistrecog_09 wordlistrecog_10 wordlistrecog_11 wordlistrecog_12
+      wordlistrecog_13 wordlistrecog_14 wordlistrecog_15 wordlistrecog_16
+      wordlistrecog_17 wordlistrecog_18 years_since_bl_00 years_since_bl_01
+      years_since_bl_02 years_since_bl_03 years_since_bl_04 years_since_bl_05
+      years_since_bl_06 years_since_bl_07 years_since_bl_08 years_since_bl_09
+      years_since_bl_10 years_since_bl_11 years_since_bl_12 years_since_bl_13
+      years_since_bl_14 years_since_bl_15 years_since_bl_16 years_since_bl_17
+      years_since_bl_18
+  	;
+  Missing are all (-9999);
+  USEVARIABLES are
+  	!define the variables used in the analysis
+  	! covariates used in the model
+  age_c70
+  edu_c7
+  htm_c
+  smoke
+  cardio
+  diabetes	
+  	!estimated time points
+  time_00
+  time_01
+  time_02
+  time_03
+  time_04
+  	!modelled time points of process (A)
+  a_00
+  a_01
+  a_02
+  a_03
+  a_04
+  	!modelled time points of process (B)
+  b_00
+  b_01
+  b_02
+  b_03
+  b_04
+  ;
+  TSCORES are
+  	!estimated time points
+  time_00
+  time_01
+  time_02
+  time_03
+  time_04;
+  USEOBSERVATIONS are
+  	!select a subset of observations
+  male EQ 0
+  and
+  id NE 0
+  ;
+  DEFINE:
+  	! assign variables to the process (A)
+  a_00=gait_00;
+  a_01=gait_01;
+  a_02=gait_02;
+  a_03=gait_03;
+  a_04=gait_04;
+  	! assign variables to the process (B)
+  b_00=nart_00;
+  b_01=nart_01;
+  b_02=nart_02;
+  b_03=nart_03;
+  b_04=nart_04;
+  	!assign variables to time points
+  time_00=years_since_bl_00;
+  time_01=years_since_bl_01;
+  time_02=years_since_bl_02;
+  time_03=years_since_bl_03;
+  time_04=years_since_bl_04;
+  	
+  ANALYSIS:
+  TYPE = RANDOM;
+  COVERAGE=.00;
+  MODEL:
+  	!first-level equation
+  	! assign process (A) to time points
+  ia sa | a_00 AT time_00 ;
+  ia sa | a_01 AT time_01 ;
+  ia sa | a_02 AT time_02 ;
+  ia sa | a_03 AT time_03 ;
+  ia sa | a_04 AT time_04 ;
+  	! assign process (B) to time points
+  ib sb | b_00 AT time_00 ;
+  ib sb | b_01 AT time_01 ;
+  ib sb | b_02 AT time_02 ;
+  ib sb | b_03 AT time_03 ;
+  ib sb | b_04 AT time_04 ;
+  	!variance of the first-level terms
+  ia (v_ia);
+  sa (v_sa);
+  ib (v_ib);
+  sb (v_sb);
+  	!covariance among first-level terms
+  ia WITH sa (c_iasa);
+  ia WITH ib (c_iaib);
+  ia WITH sb (c_iasb);
+  sa WITH ib (c_saib);
+  sa WITH sb (c_sasb);
+  ib WITH sb (c_ibsb);
+  	!second-level equation
+  ia sa ib sb ON age_c70
+  edu_c7
+  htm_c
+  smoke
+  cardio
+  diabetes;
+  	!residual covariance of process (A)
+  a_00 (res_a);
+  a_01 (res_a);
+  a_02 (res_a);
+  a_03 (res_a);
+  a_04 (res_a);	
+  	!residual covariance of process (B)
+  b_00 (res_b);
+  b_01 (res_b);
+  b_02 (res_b);
+  b_03 (res_b);
+  b_04 (res_b);	
+  	!Paired covariances constrained to be equal across t
+  a_00 pwith b_00 (res_cov);
+  a_01 pwith b_01 (res_cov);
+  a_02 pwith b_02 (res_cov);
+  a_03 pwith b_03 (res_cov);
+  a_04 pwith b_04 (res_cov);	
+  MODEL CONSTRAINT:
+  	!assigns labels to new parameters;
+  NEW r_iaib;
+  NEW r_sasb;
+  NEW r_res_ab;
+  	!compute confidence intervals for correlation coefficients;
+  r_iaib = c_iaib/((v_ia**0.5)*(v_ib**0.5));
+  r_sasb = c_sasb/((v_sa**0.5)*(v_sb**0.5));
+  r_res_ab = res_cov/((res_a**0.5)*(res_b**0.5));
+  SAVEDATA:
+  FILE is   b1_female_aehplus_gait_nart_fscores.dat;
+  SAVE = FSCORES;
+  RESULTS are   b1_female_aehplus_gait_nart_results.dat;
+  	
+  OUTPUT: sampstat cinterval;
+  PLOT: Type is Plot1 Plot2 Plot3;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  164
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  3
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Script produced from the prototype in ./sandbox/syntax-creator/
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1199
+
+Number of dependent variables                                   10
+Number of independent variables                                  6
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   A_00        A_01        A_02        A_03        A_04        B_00
+   B_01        B_02        B_03        B_04
+
+Observed independent variables
+   AGE_C70     EDU_C7      HTM_C       SMOKE       CARDIO      DIABETES
+
+Continuous latent variables
+   IA          SA          IB          SB
+
+Variables with special functions
+
+  Time scores
+   TIME_00     TIME_01     TIME_02     TIME_03     TIME_04
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  wide-dataset.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns           124
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.000
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              A_00          A_01          A_02          A_03          A_04
+              ________      ________      ________      ________      ________
+ A_00           0.895
+ A_01           0.689         0.731
+ A_02           0.602         0.584         0.644
+ A_03           0.530         0.504         0.502         0.565
+ A_04           0.449         0.420         0.410         0.425         0.475
+ B_00           0.875         0.716         0.633         0.560         0.473
+ B_01           0.771         0.715         0.621         0.546         0.461
+ B_02           0.691         0.643         0.627         0.541         0.455
+ B_03           0.594         0.553         0.538         0.549         0.448
+ B_04           0.507         0.471         0.460         0.470         0.464
+ AGE_C70        0.895         0.731         0.644         0.565         0.475
+ EDU_C7         0.895         0.731         0.644         0.565         0.475
+ HTM_C          0.895         0.731         0.644         0.565         0.475
+ SMOKE          0.895         0.731         0.644         0.565         0.475
+ CARDIO         0.895         0.731         0.644         0.565         0.475
+ DIABETES       0.895         0.731         0.644         0.565         0.475
+
+
+           Covariance Coverage
+              B_00          B_01          B_02          B_03          B_04
+              ________      ________      ________      ________      ________
+ B_00           0.977
+ B_01           0.828         0.834
+ B_02           0.740         0.721         0.745
+ B_03           0.637         0.622         0.614         0.639
+ B_04           0.543         0.530         0.517         0.511         0.544
+ AGE_C70        0.977         0.834         0.745         0.639         0.544
+ EDU_C7         0.977         0.834         0.745         0.639         0.544
+ HTM_C          0.977         0.834         0.745         0.639         0.544
+ SMOKE          0.977         0.834         0.745         0.639         0.544
+ CARDIO         0.977         0.834         0.745         0.639         0.544
+ DIABETES       0.977         0.834         0.745         0.639         0.544
+
+
+           Covariance Coverage
+              AGE_C70       EDU_C7        HTM_C         SMOKE         CARDIO
+              ________      ________      ________      ________      ________
+ AGE_C70        1.000
+ EDU_C7         1.000         1.000
+ HTM_C          1.000         1.000         1.000
+ SMOKE          1.000         1.000         1.000         1.000
+ CARDIO         1.000         1.000         1.000         1.000         1.000
+ DIABETES       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              DIABETES
+              ________
+ DIABETES       1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              A_00          A_01          A_02          A_03          A_04
+              ________      ________      ________      ________      ________
+ 1              0.606         0.602         0.560         0.549         0.534
+
+
+           Means
+              B_00          B_01          B_02          B_03          B_04
+              ________      ________      ________      ________      ________
+ 1              7.855         7.841         7.868         7.729         7.715
+
+
+           Means
+              AGE_C70       EDU_C7        HTM_C         SMOKE         CARDIO
+              ________      ________      ________      ________      ________
+ 1              9.668         7.357        -0.011         0.390         0.118
+
+
+           Means
+              DIABETES
+              ________
+ 1              0.175
+
+
+           Covariances
+              A_00          A_01          A_02          A_03          A_04
+              ________      ________      ________      ________      ________
+ A_00           0.045
+ A_01           0.024         0.045
+ A_02           0.025         0.026         0.042
+ A_03           0.022         0.025         0.026         0.041
+ A_04           0.024         0.027         0.028         0.031         0.048
+ B_00           0.079         0.055         0.067         0.035         0.062
+ B_01           0.075         0.076         0.074         0.038         0.069
+ B_02           0.074         0.059         0.087         0.057         0.077
+ B_03           0.083         0.065         0.096         0.070         0.101
+ B_04           0.104         0.097         0.118         0.081         0.111
+ AGE_C70       -0.506        -0.497        -0.600        -0.568        -0.679
+ EDU_C7         0.111         0.101         0.092         0.028         0.086
+ HTM_C          0.002         0.001         0.003         0.002         0.001
+ SMOKE          0.000         0.002         0.000        -0.003        -0.001
+ CARDIO         0.001        -0.002         0.000        -0.001        -0.001
+ DIABETES      -0.004        -0.004        -0.003         0.002         0.002
+
+
+           Covariances
+              B_00          B_01          B_02          B_03          B_04
+              ________      ________      ________      ________      ________
+ B_00           5.433
+ B_01           4.865         5.890
+ B_02           4.756         4.891         5.712
+ B_03           4.924         5.269         5.203         6.376
+ B_04           4.707         5.004         5.098         5.536         6.230
+ AGE_C70        1.430         1.553         0.757         0.472         0.336
+ EDU_C7         3.163         3.378         3.235         3.182         3.199
+ HTM_C          0.018         0.024         0.024         0.024         0.022
+ SMOKE          0.005        -0.001         0.013         0.013         0.026
+ CARDIO         0.002         0.004        -0.005         0.019        -0.012
+ DIABETES      -0.111        -0.138        -0.119        -0.104        -0.131
+
+
+           Covariances
+              AGE_C70       EDU_C7        HTM_C         SMOKE         CARDIO
+              ________      ________      ________      ________      ________
+ AGE_C70       61.230
+ EDU_C7        -1.606         9.507
+ HTM_C         -0.129         0.031         0.005
+ SMOKE         -0.323         0.018         0.002         0.238
+ CARDIO         0.223        -0.021        -0.001         0.004         0.104
+ DIABETES      -0.249        -0.168         0.000        -0.006         0.007
+
+
+           Covariances
+              DIABETES
+              ________
+ DIABETES       0.144
+
+
+           Correlations
+              A_00          A_01          A_02          A_03          A_04
+              ________      ________      ________      ________      ________
+ A_00           1.000
+ A_01           0.548         1.000
+ A_02           0.581         0.607         1.000
+ A_03           0.522         0.581         0.629         1.000
+ A_04           0.524         0.587         0.627         0.689         1.000
+ B_00           0.161         0.111         0.140         0.074         0.121
+ B_01           0.147         0.149         0.148         0.077         0.129
+ B_02           0.147         0.116         0.178         0.118         0.146
+ B_03           0.156         0.121         0.185         0.137         0.181
+ B_04           0.197         0.184         0.231         0.160         0.202
+ AGE_C70       -0.306        -0.301        -0.375        -0.358        -0.395
+ EDU_C7         0.171         0.155         0.146         0.044         0.127
+ HTM_C          0.142         0.097         0.184         0.116         0.086
+ SMOKE         -0.003         0.022        -0.005        -0.034        -0.005
+ CARDIO         0.010        -0.029        -0.003        -0.014        -0.009
+ DIABETES      -0.053        -0.054        -0.044         0.021         0.022
+
+
+           Correlations
+              B_00          B_01          B_02          B_03          B_04
+              ________      ________      ________      ________      ________
+ B_00           1.000
+ B_01           0.860         1.000
+ B_02           0.854         0.843         1.000
+ B_03           0.837         0.860         0.862         1.000
+ B_04           0.809         0.826         0.855         0.878         1.000
+ AGE_C70        0.078         0.082         0.040         0.024         0.017
+ EDU_C7         0.440         0.451         0.439         0.409         0.416
+ HTM_C          0.115         0.143         0.146         0.137         0.127
+ SMOKE          0.005        -0.001         0.011         0.010         0.022
+ CARDIO         0.002         0.006        -0.007         0.023        -0.015
+ DIABETES      -0.126        -0.149        -0.131        -0.109        -0.138
+
+
+           Correlations
+              AGE_C70       EDU_C7        HTM_C         SMOKE         CARDIO
+              ________      ________      ________      ________      ________
+ AGE_C70        1.000
+ EDU_C7        -0.067         1.000
+ HTM_C         -0.241         0.148         1.000
+ SMOKE         -0.085         0.012         0.073         1.000
+ CARDIO         0.088        -0.022        -0.063         0.024         1.000
+ DIABETES      -0.084        -0.143         0.015        -0.031         0.055
+
+
+           Correlations
+              DIABETES
+              ________
+ DIABETES       1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -13437.308
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     A_00                  0.611       0.589       0.125    0.09%       0.428      0.542      0.602
+            1073.000       0.045       0.548       1.573    0.09%       0.642      0.787
+     A_01                  0.617       0.569       0.130    0.11%       0.443      0.542      0.602
+             877.000       0.044       0.706       1.682    0.11%       0.650      0.799
+     A_02                  0.584       0.431       0.100    0.13%       0.410      0.513      0.561
+             772.000       0.041       0.133       1.283    0.13%       0.610      0.762
+     A_03                  0.581       0.355       0.075    0.15%       0.413      0.508      0.561
+             678.000       0.039       0.144       1.434    0.15%       0.610      0.762
+     A_04                  0.586       0.329       0.058    0.18%       0.400      0.524      0.567
+             570.000       0.046       0.021       1.355    0.18%       0.617      0.774
+     B_00                  7.881      -1.209       0.000    0.17%       6.000      8.000      9.000
+            1172.000       5.349       0.715      10.000   30.72%       9.000     10.000
+     B_01                  7.962      -1.263       0.000    0.70%       6.000      8.000      9.000
+            1000.000       5.581       0.790      10.000   34.80%       9.000     10.000
+     B_02                  8.072      -1.437       0.000    0.90%       7.000      8.000      9.000
+             893.000       5.097       1.579      10.000   33.71%       9.000     10.000
+     B_03                  8.020      -1.395       0.000    0.65%       6.000      8.000      9.000
+             766.000       5.458       1.232      10.000   33.81%       9.000     10.000
+     B_04                  7.998      -1.291       0.000    0.15%       6.000      8.000      9.000
+             652.000       5.354       0.972      10.000   34.97%       9.000     10.000
+     AGE_C70               9.668      -0.436     -16.338    0.08%       3.435      8.516     10.405
+            1199.000      61.230       0.110      29.811    0.08%      12.253     16.412
+     EDU_C7                7.357      -0.166      -7.000    0.08%       5.000      6.000      7.000
+            1199.000       9.507       1.236      18.000    0.08%       8.000     10.000
+     HTM_C                -0.011      -0.153      -0.355    0.17%      -0.063     -0.025     -0.012
+            1199.000       0.005       0.906       0.203    0.25%       0.000      0.051
+     SMOKE                 0.390       0.450       0.000   60.97%       0.000      0.000      0.000
+            1199.000       0.238      -1.798       1.000   39.03%       0.000      1.000
+     CARDIO                0.118       2.362       0.000   88.16%       0.000      0.000      0.000
+            1199.000       0.104       3.578       1.000   11.84%       0.000      0.000
+     DIABETES              0.175       1.709       0.000   82.49%       0.000      0.000      0.000
+            1199.000       0.144       0.922       1.000   17.51%       0.000      0.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       41
+
+Loglikelihood
+
+          H0 Value                       -6156.285
+          H0 Scaling Correction Factor      1.2530
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   12394.570
+          Bayesian (BIC)                 12603.229
+          Sample-Size Adjusted BIC       12472.997
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IA         ON
+    AGE_C70           -0.008      0.001     -9.789      0.000
+    EDU_C7             0.009      0.002      4.845      0.000
+    HTM_C              0.171      0.089      1.914      0.056
+    SMOKE             -0.012      0.011     -1.068      0.285
+    CARDIO             0.022      0.016      1.427      0.154
+    DIABETES          -0.041      0.014     -2.991      0.003
+
+ SA         ON
+    AGE_C70           -0.001      0.000     -3.044      0.002
+    EDU_C7            -0.001      0.001     -2.131      0.033
+    HTM_C             -0.031      0.031     -1.015      0.310
+    SMOKE             -0.003      0.004     -0.727      0.467
+    CARDIO            -0.002      0.005     -0.366      0.714
+    DIABETES           0.010      0.005      2.111      0.035
+
+ IB         ON
+    AGE_C70            0.039      0.008      4.791      0.000
+    EDU_C7             0.328      0.021     15.314      0.000
+    HTM_C              3.311      0.946      3.500      0.000
+    SMOKE             -0.017      0.122     -0.140      0.889
+    CARDIO             0.088      0.178      0.494      0.621
+    DIABETES          -0.379      0.171     -2.216      0.027
+
+ SB         ON
+    AGE_C70           -0.005      0.002     -2.743      0.006
+    EDU_C7            -0.001      0.005     -0.245      0.807
+    HTM_C              0.074      0.205      0.359      0.720
+    SMOKE              0.018      0.027      0.660      0.509
+    CARDIO             0.002      0.037      0.056      0.955
+    DIABETES          -0.023      0.035     -0.662      0.508
+
+ IA       WITH
+    SA                -0.001      0.000     -2.324      0.020
+    IB                 0.040      0.011      3.650      0.000
+    SB                 0.004      0.003      1.580      0.114
+
+ SA       WITH
+    IB                 0.002      0.004      0.531      0.595
+    SB                 0.001      0.001      1.452      0.147
+
+ IB       WITH
+    SB                 0.025      0.032      0.772      0.440
+
+ A_00     WITH
+    B_00               0.008      0.003      3.204      0.001
+
+ A_01     WITH
+    B_01               0.008      0.003      3.204      0.001
+
+ A_02     WITH
+    B_02               0.008      0.003      3.204      0.001
+
+ A_03     WITH
+    B_03               0.008      0.003      3.204      0.001
+
+ A_04     WITH
+    B_04               0.008      0.003      3.204      0.001
+
+ Intercepts
+    A_00               0.000      0.000    999.000    999.000
+    A_01               0.000      0.000    999.000    999.000
+    A_02               0.000      0.000    999.000    999.000
+    A_03               0.000      0.000    999.000    999.000
+    A_04               0.000      0.000    999.000    999.000
+    B_00               0.000      0.000    999.000    999.000
+    B_01               0.000      0.000    999.000    999.000
+    B_02               0.000      0.000    999.000    999.000
+    B_03               0.000      0.000    999.000    999.000
+    B_04               0.000      0.000    999.000    999.000
+    IA                 0.627      0.018     33.970      0.000
+    SA                -0.003      0.006     -0.539      0.590
+    IB                 5.187      0.219     23.680      0.000
+    SB                 0.019      0.045      0.429      0.668
+
+ Residual Variances
+    A_00               0.017      0.001     23.146      0.000
+    A_01               0.017      0.001     23.146      0.000
+    A_02               0.017      0.001     23.146      0.000
+    A_03               0.017      0.001     23.146      0.000
+    A_04               0.017      0.001     23.146      0.000
+    B_00               0.782      0.047     16.652      0.000
+    B_01               0.782      0.047     16.652      0.000
+    B_02               0.782      0.047     16.652      0.000
+    B_03               0.782      0.047     16.652      0.000
+    B_04               0.782      0.047     16.652      0.000
+    IA                 0.022      0.002     14.336      0.000
+    SA                 0.001      0.000      3.926      0.000
+    IB                 3.556      0.193     18.406      0.000
+    SB                 0.047      0.015      3.083      0.002
+
+New/Additional Parameters
+    R_IAIB             0.143      0.038      3.768      0.000
+    R_SASB             0.230      0.144      1.599      0.110
+    R_RES_AB           0.072      0.022      3.283      0.001
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.981E-07
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IA       ON
+    AGE_C70         -0.010      -0.009      -0.009      -0.008      -0.006      -0.006      -0.006
+    EDU_C7           0.004       0.005       0.006       0.009       0.012       0.013       0.014
+    HTM_C           -0.059      -0.004       0.024       0.171       0.317       0.345       0.400
+    SMOKE           -0.041      -0.034      -0.031      -0.012       0.007       0.010       0.017
+    CARDIO          -0.018      -0.008      -0.003       0.022       0.048       0.053       0.063
+    DIABETES        -0.077      -0.068      -0.064      -0.041      -0.019      -0.014      -0.006
+
+ SA       ON
+    AGE_C70         -0.001      -0.001      -0.001      -0.001       0.000       0.000       0.000
+    EDU_C7          -0.003      -0.003      -0.002      -0.001       0.000       0.000       0.000
+    HTM_C           -0.111      -0.092      -0.082      -0.031       0.019       0.029       0.048
+    SMOKE           -0.012      -0.010      -0.009      -0.003       0.003       0.005       0.007
+    CARDIO          -0.014      -0.011      -0.009      -0.002       0.006       0.007       0.010
+    DIABETES        -0.002       0.001       0.002       0.010       0.017       0.019       0.021
+
+ IB       ON
+    AGE_C70          0.018       0.023       0.025       0.039       0.052       0.054       0.059
+    EDU_C7           0.273       0.286       0.293       0.328       0.363       0.370       0.383
+    HTM_C            0.875       1.457       1.755       3.311       4.867       5.165       5.748
+    SMOKE           -0.332      -0.257      -0.218      -0.017       0.184       0.223       0.298
+    CARDIO          -0.371      -0.262      -0.205       0.088       0.382       0.438       0.548
+    DIABETES        -0.820      -0.714      -0.661      -0.379      -0.098      -0.044       0.062
+
+ SB       ON
+    AGE_C70         -0.010      -0.009      -0.008      -0.005      -0.002      -0.001       0.000
+    EDU_C7          -0.013      -0.010      -0.009      -0.001       0.006       0.008       0.011
+    HTM_C           -0.455      -0.329      -0.264       0.074       0.411       0.476       0.602
+    SMOKE           -0.051      -0.035      -0.026       0.018       0.061       0.070       0.086
+    CARDIO          -0.093      -0.070      -0.059       0.002       0.063       0.075       0.097
+    DIABETES        -0.114      -0.093      -0.082      -0.023       0.035       0.046       0.068
+
+ IA       WITH
+    SA              -0.002      -0.002      -0.002      -0.001       0.000       0.000       0.000
+    IB               0.012       0.018       0.022       0.040       0.058       0.061       0.068
+    SB              -0.003      -0.001       0.000       0.004       0.008       0.009       0.010
+
+ SA       WITH
+    IB              -0.008      -0.006      -0.004       0.002       0.008       0.010       0.012
+    SB              -0.001       0.000       0.000       0.001       0.003       0.003       0.004
+
+ IB       WITH
+    SB              -0.058      -0.039      -0.028       0.025       0.078       0.089       0.109
+
+ A_00     WITH
+    B_00             0.002       0.003       0.004       0.008       0.012       0.013       0.015
+
+ A_01     WITH
+    B_01             0.002       0.003       0.004       0.008       0.012       0.013       0.015
+
+ A_02     WITH
+    B_02             0.002       0.003       0.004       0.008       0.012       0.013       0.015
+
+ A_03     WITH
+    B_03             0.002       0.003       0.004       0.008       0.012       0.013       0.015
+
+ A_04     WITH
+    B_04             0.002       0.003       0.004       0.008       0.012       0.013       0.015
+
+ Intercepts
+    A_00             0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    A_01             0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    A_02             0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    A_03             0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    A_04             0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    B_00             0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    B_01             0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    B_02             0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    B_03             0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    B_04             0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IA               0.579       0.591       0.597       0.627       0.657       0.663       0.675
+    SA              -0.019      -0.016      -0.014      -0.003       0.007       0.009       0.013
+    IB               4.623       4.758       4.827       5.187       5.548       5.617       5.752
+    SB              -0.096      -0.069      -0.055       0.019       0.093       0.107       0.135
+
+ Residual Variances
+    A_00             0.015       0.015       0.015       0.017       0.018       0.018       0.019
+    A_01             0.015       0.015       0.015       0.017       0.018       0.018       0.019
+    A_02             0.015       0.015       0.015       0.017       0.018       0.018       0.019
+    A_03             0.015       0.015       0.015       0.017       0.018       0.018       0.019
+    A_04             0.015       0.015       0.015       0.017       0.018       0.018       0.019
+    B_00             0.661       0.690       0.705       0.782       0.860       0.874       0.903
+    B_01             0.661       0.690       0.705       0.782       0.860       0.874       0.903
+    B_02             0.661       0.690       0.705       0.782       0.860       0.874       0.903
+    B_03             0.661       0.690       0.705       0.782       0.860       0.874       0.903
+    B_04             0.661       0.690       0.705       0.782       0.860       0.874       0.903
+    IA               0.018       0.019       0.019       0.022       0.024       0.024       0.025
+    SA               0.000       0.000       0.000       0.001       0.001       0.001       0.001
+    IB               3.059       3.178       3.238       3.556       3.874       3.935       4.054
+    SB               0.008       0.017       0.022       0.047       0.072       0.077       0.086
+
+New/Additional Parameters
+    R_IAIB           0.045       0.069       0.081       0.143       0.206       0.218       0.241
+    R_SASB          -0.140      -0.052      -0.007       0.230       0.466       0.512       0.600
+    R_RES_AB         0.016       0.029       0.036       0.072       0.108       0.115       0.129
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IA            IA_SE         SA            SA_SE         IB
+              ________      ________      ________      ________      ________
+ 1              0.608         0.079        -0.019         0.023         7.875
+
+
+           Means
+              IB_SE         SB            SB_SE
+              ________      ________      ________
+ 1              0.572        -0.037         0.183
+
+
+           Covariances
+              IA            IA_SE         SA            SA_SE         IB
+              ________      ________      ________      ________      ________
+ IA             0.020
+ IA_SE          0.000         0.000
+ SA             0.000         0.000         0.000
+ SA_SE          0.000         0.000         0.000         0.000
+ IB             0.063        -0.007        -0.004         0.000         4.422
+ IB_SE         -0.006         0.001         0.000         0.000        -0.040
+ SB             0.007         0.000         0.001         0.000         0.056
+ SB_SE         -0.001         0.000         0.000         0.000        -0.005
+
+
+           Covariances
+              IB_SE         SB            SB_SE
+              ________      ________      ________
+ IB_SE          0.036
+ SB            -0.002         0.015
+ SB_SE          0.002         0.000         0.000
+
+
+           Correlations
+              IA            IA_SE         SA            SA_SE         IB
+              ________      ________      ________      ________      ________
+ IA             1.000
+ IA_SE         -0.186         1.000
+ SA            -0.039         0.063         1.000
+ SA_SE         -0.331         0.653        -0.014         1.000
+ IB             0.209        -0.174        -0.148        -0.137         1.000
+ IB_SE         -0.227         0.396         0.001         0.423        -0.101
+ SB             0.383        -0.043         0.355        -0.132         0.219
+ SB_SE         -0.267         0.582        -0.029         0.869        -0.129
+
+
+           Correlations
+              IB_SE         SB            SB_SE
+              ________      ________      ________
+ IB_SE          1.000
+ SB            -0.090         1.000
+ SB_SE          0.567        -0.107         1.000
+
+
+RESULTS SAVING INFORMATION
+
+  Order of data
+
+    Parameter estimates
+     (saved in order shown in Technical 1 output)
+    Standard errors
+     (saved in order shown in Technical 1 output)
+    H0 Loglikelihood
+    H0 Scaling Correction Factor for MLR
+    Number of Free Parameters
+    Akaike (AIC)
+    Bayesian (BIC)
+    Sample-Size Adjusted BIC
+    Condition Number
+
+  Save file
+    b1_female_aehplus_gait_nart_results.dat
+
+  Save file format           Free
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values, estimated factor scores)
+  Scatterplots (sample values, estimated factor scores)
+  Latent variable distribution plots
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    b1_female_aehplus_gait_nart_fscores.dat
+
+  Order and format of variables
+
+    A_00           F10.3
+    A_01           F10.3
+    A_02           F10.3
+    A_03           F10.3
+    A_04           F10.3
+    B_00           F10.3
+    B_01           F10.3
+    B_02           F10.3
+    B_03           F10.3
+    B_04           F10.3
+    AGE_C70        F10.3
+    EDU_C7         F10.3
+    HTM_C          F10.3
+    SMOKE          F10.3
+    CARDIO         F10.3
+    DIABETES       F10.3
+    TIME_00        F10.3
+    TIME_01        F10.3
+    TIME_02        F10.3
+    TIME_03        F10.3
+    TIME_04        F10.3
+    IA             F10.3
+    IA_SE          F10.3
+    SA             F10.3
+    SA_SE          F10.3
+    IB             F10.3
+    IB_SE          F10.3
+    SB             F10.3
+    SB_SE          F10.3
+
+  Save file format
+    29F10.3
+
+  Save file record length    10000
+
+
+     Beginning Time:  21:49:46
+        Ending Time:  21:49:53
+       Elapsed Time:  00:00:07
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2015 Muthen & Muthen
