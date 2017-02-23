@@ -9,7 +9,7 @@ output:
 date: 'Date: `r Sys.Date()`'
 ---
 
-<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.--> 
+<!--  Set the working directory to the repository's base directory; this assumes the report is nested inside of two directories.-->
 ```{r, echo=F, message=F} 
 # cat("Working directory: ", getwd())
 library(knitr)
@@ -25,7 +25,7 @@ opts_chunk$set(
   tidy       = FALSE,
   # fig.width  = 4, 
   # fig.height = 4, 
-  fig.path   = 'figure_rmd/pulmonary/',
+  fig.path   = 'figure_rmd/grip/',
   aliases = c(h = 'fig.height', w = 'fig.width', ow = "out.width")
 )
 # dpi = 400,
@@ -76,7 +76,7 @@ The column `covariance` contains four ways in which the association between proc
 - `Covariance` = raw covariance  
 - `Fisher's R` = correlation, computed outside of Mplus using Fisher's transform from raw variances and covariances
 
-Note: cases in which restricted (co)variances or insufficient decimals prevent the computation of correlations are marked by `---`
+Note: cases in which restricted (co)variances or insufficient decimals prevent the computation of correlations are marked by `---` 
 
 **Raw covariance** and **estimated correlations** are reported in the form : **`est(se) pval star`**,where         
 - `est` is the covariance estimate on the original metric   
@@ -95,12 +95,12 @@ Note: cases in which restricted (co)variances or insufficient decimals prevent t
 
 ```{r select-track, echo=echoChunks, message=TRUE,eval=TRUE}
 # track <- "gait"
-# track <- "grip"
-track <- "pulmonary"
+track <- "grip"
+# track <- "pulmonary"
 ```
 
 # Dynamic Summary
-```{r table-dynamic, echo=echoChunks, message=TRUE, results='show', eval=T, message=F}
+```{r table-dynamic, echo=echoChunks, message=TRUE, results='show', eval=F, message=F}
 ```
 
 # Forest plots

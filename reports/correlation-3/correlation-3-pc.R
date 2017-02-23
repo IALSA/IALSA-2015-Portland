@@ -45,13 +45,14 @@ catalog <- catalog %>%
     process_b_domain = domain_new
   ) %>%
   dplyr::select(-domain_new)
-#
-colnames(catalog)
-catalog %>%
-  dplyr::group_by(process_b_domain) %>%
-  # dplyr::filter(is.na(domain)) %>%
-  dplyr::summarize(count=n()) %>%
-  dplyr::arrange(count)
+
+
+# colnames(catalog)
+# catalog %>%
+#   dplyr::group_by(process_b_domain) %>%
+#   # dplyr::filter(is.na(domain)) %>%
+#   dplyr::summarize(count=n()) %>%
+#   dplyr::arrange(count)
 
 # ---- save-data-for-tables --------------------------
 # for(track in c("gait","grip","pulmonary")){
@@ -140,52 +141,53 @@ d %>%
 
 
 # ----- custom-save-forest --------------------------------
-# track = "gait"
-# track = "grip"
-# track = "pulmonary"
+# i <- "slope"
 # i <- "residual"
-path_graph_jpeg = paste0("./reports/correlation-3/forest-plot-",track,"/")
-for(i in c("slope","residual")){
-  # i <- "residual"
-  data_forest <- catalog %>%
-    prettify_catalog() %>%
-    dplyr::filter(
-      model_number == "b1"
-      ,  model_type   == "aehplus"
-      ,! process_b    == "trailsb"
-    ) %>%
-    get_forest_data(track = track,index = i)
-
-  colnames(data_forest)
-  (domain_cycle <- setdiff(unique(data_forest$domain),NA))
-  (subgroup_cycle <- unique(data_forest$subgroup))
-  for(dom in domain_cycle){
-    # cat("\n##",dom,"\n")
-    for(gender in subgroup_cycle){
-      # (dom = "memory")
-      # (gender = "female")
-      # n_lines = 13
-      (n_lines <- data_forest %>%
-        dplyr::filter(domain==dom,subgroup==gender) %>%
-        nrow())
-      # save graphic
-      # make sure it conforms to `track-domain-gender-index` formula
-      path_save = paste0(path_graph_jpeg,track,"-",dom,"-",gender,"-",i,".jpg")
-      print(path_save)
-      jpeg(
-        filename  =  path_save,
-        width     = 900,
-        height    = 140 + 20*n_lines,
-        units     = "px",
-        pointsize = 12,
-        quality   = 100
-      )
-      data_forest %>% print_forest_plot(dom,gender,i)
-      dev.off()
+for(track in c("gait","grip","pulmonary")){
+  # track = "gait"
+  # track = "grip"
+  # track = "pulmonary"
+  path_graph_jpeg = paste0("./reports/correlation-3/forest-plot-",track,"/")
+  for(i in c("slope","residual")){
+    data_forest <- catalog %>%
+      prettify_catalog() %>%
+      dplyr::filter(
+        model_number == "b1"
+        ,  model_type   == "aehplus"
+        ,! process_b    == "trailsb"
+      ) %>%
+      get_forest_data(track = track,index = i) %>%
+      tidyr::drop_na(mean)
+    colnames(data_forest)
+    (domain_cycle <- setdiff(unique(data_forest$domain),NA))
+    (subgroup_cycle <- unique(data_forest$subgroup))
+    for(dom in domain_cycle){
+      # cat("\n##",dom,"\n")
+      for(gender in subgroup_cycle){
+        # (dom = "memory")
+        # (gender = "female")
+        # n_lines = 13
+        (n_lines <- data_forest %>%
+          dplyr::filter(domain==dom,subgroup==gender) %>%
+          nrow())
+        # save graphic
+        # make sure it conforms to `track-domain-gender-index` formula
+        path_save = paste0(path_graph_jpeg,track,"-",dom,"-",gender,"-",i,".jpg")
+        print(path_save)
+        jpeg(
+          filename  =  path_save,
+          width     = 900,
+          height    = 140 + 20*n_lines,
+          units     = "px",
+          pointsize = 12,
+          quality   = 100
+        )
+        data_forest %>% print_forest_plot(dom,gender,i)
+        dev.off()
+      }
     }
   }
 }
-
 # first attemp at automatic assembly into the complext plot:
 # index = "slope"
 # gender = "male"
@@ -237,6 +239,8 @@ for(dom in domain_cycle){
 
 # ---- place-forest --------------------------------------
 # places previously printed plot onto a single canvas
+# track = "gait"
+# track = "grip"
 # track = "pulmonary"
 path_folder <- paste0("./reports/correlation-3/forest-plot-",track)
 jpegs <- list.files(path_folder, full.names = T)
@@ -251,10 +255,9 @@ for(i in seq_along(jpegs)){
 }
 ds_jpegs <- dplyr::bind_rows(lst)
 
-
-(index_cycle    <- ds_jpegs$index %>% unique())
-(domain_cycle   <- ds_jpegs$domain %>% unique())
-(subgroup_cycle <- ds_jpegs$subgroup %>% unique())
+index_cycle    <- ds_jpegs$index %>% unique()
+domain_cycle   <- ds_jpegs$domain %>% unique()
+subgroup_cycle <- ds_jpegs$subgroup %>% unique()
 for(ind in index_cycle){
   cat("\n#Forest: ", ind,"\n")
   for(dom in domain_cycle){
@@ -269,7 +272,11 @@ for(ind in index_cycle){
         ) %>%
         dplyr::select(path) %>%
         as.character()
-      cat('<img src="', path, '" alt="', basename(path),'">\n', sep="")
+      # print(path)
+      # testit::assert("File does not exist",file.exists(path))
+      if(file.exists( sub("../../","./",path) ) ){
+        cat('<img src="', path, '" alt="', basename(path),'">\n', sep="")
+      }
       # cat("\n")
     }
   }
@@ -382,26 +389,28 @@ for(gender in c("male","female")){
 # d %>% print_forest_plot("memory")
 
 # ---- publish --------------
+# WORD reports
 path_pulmonary_full <- "./reports/correlation-3/correlation-3-pulmonary-full.Rmd"
 path_pulmonary_focus <- "./reports/correlation-3/correlation-3-pulmonary-focus.Rmd"
-path_pulmonary_summary <- "./reports/correlation-3/correlation-3-pulmonary-summary.Rmd"
-
-
 path_gait_full      <- "./reports/correlation-3/correlation-3-gait-full.Rmd"
 path_gait_focus     <- "./reports/correlation-3/correlation-3-gait-focus.Rmd"
-path_pulmonary_gait <- "./reports/correlation-3/correlation-3-gait-summary.Rmd"
-
 path_grip_full      <- "./reports/correlation-3/correlation-3-grip-full.Rmd"
 path_grip_focus     <- "./reports/correlation-3/correlation-3-grip-focus.Rmd"
+
+# HTML Reports
+path_gait_summary <- "./reports/correlation-3/correlation-3-gait-summary.Rmd"
 path_grip_summary <- "./reports/correlation-3/correlation-3-grip-summary.Rmd"
+path_pulmonary_summary <- "./reports/correlation-3/correlation-3-pulmonary-summary.Rmd"
 
-
+# allReports <- c(path_gait_full,     path_gait_focus)
+# allReports <- c(path_grip_full,     path_grip_focus)
 # allReports <- c(path_pulmonary_full,path_pulmonary_focus)
-allReports <- c(path_pulmonary_summary)
-# allReports <- c(path_gait_full,path_gait_focus)
+
 # allReports <- c(path_gait_summary)
-# allReports <- c(path_grip_full,path_grip_focus)
 # allReports <- c(path_grip_summary)
+# allReports <- c(path_pulmonary_summary)
+allReports <- c(path_gait_summary, path_grip_summary, path_pulmonary_summary)
+
 
 # allReports <- c(path_pulmonary_focus, path_pulmonary_full,
 #                 path_gait_focus, path_gait_full,
