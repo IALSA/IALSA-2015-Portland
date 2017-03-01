@@ -1,18 +1,18 @@
 study_name,process_b,process_b_domain,domain_new
 hrs,serial7,attention,mental status
-map,digit_f,attention,memory
-octo,digit_f,attention,memory
-satsa,digit_f,attention,memory
-eas,logic_tot,episodic memory,delayed or working memory
-elsa,word_de,episodic memory,delayed or working memory
-hrs,word_de,episodic memory,delayed or working memory
-map,bstory_de,episodic memory,delayed or working memory
-map,logic_de,episodic memory,delayed or working memory
-map,word_de,episodic memory,delayed or working memory
-map,word_rec,episodic memory,memory
-nas,word_de,episodic memory,delayed or working memory
-octo,mir,episodic memory,memory
-octo,mir_recog,episodic memory,memory
+map,digit_f,attention,immediate and recognition memory
+octo,digit_f,attention,immediate and recognition memory
+satsa,digit_f,attention,immediate and recognition memory
+eas,logic_tot,episodic memory,delayed and working memory
+elsa,word_de,episodic memory,delayed and working memory
+hrs,word_de,episodic memory,delayed and working memory
+map,bstory_de,episodic memory,delayed and working memory
+map,logic_de,episodic memory,delayed and working memory
+map,word_de,episodic memory,delayed and working memory
+map,word_rec,episodic memory,immediate and recognition memory
+nas,word_de,episodic memory,delayed and working memory
+octo,mir,episodic memory,immediate and recognition memory
+octo,mir_recog,episodic memory,immediate and recognition memory
 eas,categories,fluency,verbal knowledge
 eas,fas,fluency,verbal knowledge
 elsa,fluency,fluency,verbal knowledge
@@ -58,24 +58,24 @@ octo,information,semantic memory,verbal knowledge
 octo,synonyms,semantic memory,verbal knowledge
 satsa,information,semantic memory,verbal knowledge
 satsa,synonyms,semantic memory,verbal knowledge
-eas,digit_tot,short-term memory,delayed or working memory
-eas,word_im,short-term memory,memory
-elsa,word_im,short-term memory,memory
-hrs,word_im,short-term memory,memory
-lasa,word_im,short-term memory,memory
-map,bstory_im,short-term memory,memory
-map,logic_im,short-term memory,memory
-map,word_im,short-term memory,memory
-nas,word_im,short-term memory,memory
-octo,prose_im,short-term memory,memory
-satsa,fig_mem,short-term memory,memory
+eas,digit_tot,short-term memory,delayed and working memory
+eas,word_im,short-term memory,immediate and recognition memory
+elsa,word_im,short-term memory,immediate and recognition memory
+hrs,word_im,short-term memory,immediate and recognition memory
+lasa,word_im,short-term memory,immediate and recognition memory
+map,bstory_im,short-term memory,immediate and recognition memory
+map,logic_im,short-term memory,immediate and recognition memory
+map,word_im,short-term memory,immediate and recognition memory
+nas,word_im,short-term memory,immediate and recognition memory
+octo,prose_im,short-term memory,immediate and recognition memory
+satsa,fig_mem,short-term memory,immediate and recognition memory
 map,ideas,verbal comprehension,mental status
 ilse,piccomp,visual discrimination,visualization
 map,line,visual discrimination,visualization
-map,digit_b,working memory,delayed or working memory
-map,digit_o,working memory,delayed or working memory
-nas,digit_b,working memory,delayed or working memory
-nas,digit_b_tot,working memory,delayed or working memory
-octo,digit_b,working memory,delayed or working memory
-satsa,digit_b,working memory,delayed or working memory
-eas,trailsb,executive function,delayed or working memory
+map,digit_b,working memory,delayed and working memory
+map,digit_o,working memory,delayed and working memory
+nas,digit_b,working memory,delayed and working memory
+nas,digit_b_tot,working memory,delayed and working memory
+octo,digit_b,working memory,delayed and working memory
+satsa,digit_b,working memory,delayed and working memory
+eas,trailsb,executive function,delayed and working memory
