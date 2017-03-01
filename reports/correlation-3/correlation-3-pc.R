@@ -141,6 +141,7 @@ d %>%
 
 
 # ----- custom-save-forest --------------------------------
+# i <- "intercept"
 # i <- "slope"
 # i <- "residual"
 for(track in c("gait","grip","pulmonary")){
@@ -148,7 +149,8 @@ for(track in c("gait","grip","pulmonary")){
   # track = "grip"
   # track = "pulmonary"
   path_graph_jpeg = paste0("./reports/correlation-3/forest-plot-",track,"/")
-  for(i in c("slope","residual")){
+  # path_graph_jpeg = paste0("./reports/correlation-3/test/")
+  for(i in c("intercept","slope","residual")){
     data_forest <- catalog %>%
       prettify_catalog() %>%
       dplyr::filter(
@@ -164,7 +166,7 @@ for(track in c("gait","grip","pulmonary")){
     for(dom in domain_cycle){
       # cat("\n##",dom,"\n")
       for(gender in subgroup_cycle){
-        # (dom = "memory")
+        # (dom = "immediate and recognition memory")
         # (gender = "female")
         # n_lines = 13
         (n_lines <- data_forest %>%
