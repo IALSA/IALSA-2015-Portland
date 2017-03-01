@@ -404,7 +404,7 @@ print_forest_plot <- function(
   data_forest,
   domain_,
   subgroup_,
-  index = "slope"
+  index # = "slope"
 ){
   # domain_="memory"
   # subgroup_ = "male"
