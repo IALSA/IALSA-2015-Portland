@@ -103,7 +103,6 @@ track <- "grip"
 ```{r table-dynamic, echo=echoChunks, message=TRUE, results='show', eval=T, message=F}
 ```
 
-# Forest plots
 ```{r print-forest, echo=echoChunks, message=F, results='asis', eval=F,  warning=F, w= 10, dpi=220, ow = "950px"}
 ```
 
