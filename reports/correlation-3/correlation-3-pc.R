@@ -73,6 +73,14 @@ catalog <- catalog %>%
 # track values is defined in Rmd
 # track = "pulmonary"
 # gender = "male"
+get_freq <- function(d, varname){
+  # d <- data_forest
+  varname <- c("domain","subgroup")
+  d %>%
+    dplyr::group_by_(.dots=varname) %>%
+    dplyr::summarize(n=n()) %>%
+    dplyr::arrange(n)
+}
 
 # ---- table-dynamic, eval=FALSE, echo=F -----------------------------------------------------------
 # track = "pulmonary"
@@ -161,6 +169,7 @@ for(track in c("gait","grip","pulmonary")){
       get_forest_data(track = track,index = i) %>%
       tidyr::drop_na(mean)
     colnames(data_forest)
+    # data_forest %>% get_freq()
     (domain_cycle <- setdiff(unique(data_forest$domain),NA))
     (subgroup_cycle <- unique(data_forest$subgroup))
     for(dom in domain_cycle){
@@ -285,8 +294,6 @@ for(ind in index_cycle){
 }
 
 
-# ----- custom-save-forest --------------------------------
-
 
 # ---- table-static-full ------------------------------------------------------------
 cat("\n#Group by domain\n")
@@ -300,7 +307,7 @@ for(gender in c("male","female")){
     ) %>%
     prettify_catalog() %>%
     select_for_table(track,gender = gender,format = "full")
-  if(track=="pulmonary"){d <- d %>% rename_domains(track)}
+  # if(track=="pulmonary"){d <- d %>% rename_domains(track)}
   d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
@@ -322,7 +329,7 @@ for(gender in c("male","female")){
     ) %>%
     prettify_catalog() %>%
     select_for_table(track,gender = gender,format = "full")
-  if(track=="pulmonary"){d <- d %>% rename_domains(track)}
+  # if(track=="pulmonary"){d <- d %>% rename_domains(track)}
   d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
@@ -347,7 +354,7 @@ for(gender in c("male","female")){
     ) %>%
     prettify_catalog() %>%
     select_for_table(track,gender = gender,format = "focus")
-  if(track=="pulmonary"){d <- d %>% rename_domains(track)}
+  # if(track=="pulmonary"){d <- d %>% rename_domains(track)}
   d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
@@ -369,7 +376,7 @@ for(gender in c("male","female")){
     ) %>%
     prettify_catalog() %>%
     select_for_table(track,gender = gender,format = "focus")
-  if(track=="pulmonary"){d <- d %>% rename_domains(track)}
+  # if(track=="pulmonary"){d <- d %>% rename_domains(track)}
   d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
@@ -410,13 +417,13 @@ path_pulmonary_summary <- "./reports/correlation-3/correlation-3-pulmonary-summa
 
 # allReports <- c(path_gait_summary)
 # allReports <- c(path_grip_summary)
-allReports <- c(path_pulmonary_summary)
+# allReports <- c(path_pulmonary_summary)
 # allReports <- c(path_gait_summary, path_grip_summary, path_pulmonary_summary)
 
 
-# allReports <- c(path_pulmonary_focus, path_pulmonary_full,
-#                 path_gait_focus, path_gait_full,
-#                 path_grip_focus, path_grip_full)
+allReports <- c(path_pulmonary_focus, path_pulmonary_full,
+                path_gait_focus, path_gait_full,
+                path_grip_focus, path_grip_full)
 pathFilesToBuild <- c(allReports)
 testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesToBuild))
 # Build the reports
@@ -424,10 +431,10 @@ for( pathFile in pathFilesToBuild ) {
 
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      "html_document" # set print_format <- "html" in seed-study.R
+                      # "html_document" # set print_format <- "html" in seed-study.R
                       # "pdf_document"
                       # ,"md_document"
-                      # "word_document" # set print_format <- "pandoc" in seed-study.R
+                      "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
 }
