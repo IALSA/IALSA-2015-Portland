@@ -1,81 +1,81 @@
-study_name,process_b,process_b_domain,domain_new
-hrs,serial7,attention,mental status
-map,digit_f,attention,immediate and recognition memory
-octo,digit_f,attention,immediate and recognition memory
-satsa,digit_f,attention,immediate and recognition memory
-eas,logic_tot,episodic memory,delayed and working memory
-elsa,word_de,episodic memory,delayed and working memory
-hrs,word_de,episodic memory,delayed and working memory
-map,bstory_de,episodic memory,delayed and working memory
-map,logic_de,episodic memory,delayed and working memory
-map,word_de,episodic memory,delayed and working memory
-map,word_rec,episodic memory,immediate and recognition memory
-nas,word_de,episodic memory,delayed and working memory
-octo,mir,episodic memory,immediate and recognition memory
-octo,mir_recog,episodic memory,immediate and recognition memory
-eas,categories,fluency,verbal knowledge
-eas,fas,fluency,verbal knowledge
-elsa,fluency,fluency,verbal knowledge
-ilse,fluency,fluency,verbal knowledge
-map,categories,fluency,verbal knowledge
-nas,animals,fluency,verbal knowledge
-eas,block,fluid reasoning,visualization
-ilse,spatial_ab,fluid reasoning,visualization
-ilse,block,fluid reasoning,visualization
-lasa,raven_color_ab,fluid reasoning,visualization
-map,raven_standard,fluid reasoning,visualization
-nas,fig_copy,fluid reasoning,visualization
-octo,block,fluid reasoning,visualization
-octo,fig_logic,fluid reasoning,visualization
-satsa,analogies,fluid reasoning,verbal knowledge
-satsa,block,fluid reasoning,visualization
-satsa,rotate,fluid reasoning,visualization
-eas,mmse,mental status,mental status
-map,mmse,mental status,mental status
-nas,mmse,mental status,mental status
-nuage,mmms,mental status,mental status
-nuage,mmse,mental status,mental status
-octo,clock,mental status,mental status
-octo,mmse,mental status,mental status
-satsa,mmse,mental status,mental status
-eas,symbol,perceptual speed,perceptual speed
-ilse,symbol,perceptual speed,perceptual speed
-lasa,letter,perceptual speed,perceptual speed
-map,num_comp,perceptual speed,perceptual speed
-map,symbol,perceptual speed,perceptual speed
-nas,pat_comp,perceptual speed,perceptual speed
-octo,psif,perceptual speed,perceptual speed
-octo,symbol,perceptual speed,perceptual speed
-satsa,symbol,perceptual speed,perceptual speed
-satsa,fig_id,perceptual speed,perceptual speed
-eas,bnt,semantic memory,verbal knowledge
-eas,waisvocab,semantic memory,verbal knowledge
-eas,information,semantic memory,verbal knowledge
-ilse,waisgeneral,semantic memory,verbal knowledge
-map,bnt,semantic memory,verbal knowledge
-map,nart,semantic memory,verbal knowledge
-octo,information,semantic memory,verbal knowledge
-octo,synonyms,semantic memory,verbal knowledge
-satsa,information,semantic memory,verbal knowledge
-satsa,synonyms,semantic memory,verbal knowledge
-eas,digit_tot,short-term memory,delayed and working memory
-eas,word_im,short-term memory,immediate and recognition memory
-elsa,word_im,short-term memory,immediate and recognition memory
-hrs,word_im,short-term memory,immediate and recognition memory
-lasa,word_im,short-term memory,immediate and recognition memory
-map,bstory_im,short-term memory,immediate and recognition memory
-map,logic_im,short-term memory,immediate and recognition memory
-map,word_im,short-term memory,immediate and recognition memory
-nas,word_im,short-term memory,immediate and recognition memory
-octo,prose_im,short-term memory,immediate and recognition memory
-satsa,fig_mem,short-term memory,immediate and recognition memory
-map,ideas,verbal comprehension,mental status
-ilse,piccomp,visual discrimination,visualization
-map,line,visual discrimination,visualization
-map,digit_b,working memory,delayed and working memory
-map,digit_o,working memory,delayed and working memory
-nas,digit_b,working memory,delayed and working memory
-nas,digit_b_tot,working memory,delayed and working memory
-octo,digit_b,working memory,delayed and working memory
-satsa,digit_b,working memory,delayed and working memory
-eas,trailsb,executive function,delayed and working memory
+study_name,process_b,process_b_domain,domain_new,response
+hrs,serial7,attention,mental status,
+map,digit_f,attention,immediate and recognition memory,
+octo,digit_f,attention,immediate and recognition memory,
+satsa,digit_f,attention,immediate and recognition memory,
+eas,logic_tot,episodic memory,delayed and working memory,
+elsa,word_de,episodic memory,delayed and working memory,delayed
+hrs,word_de,episodic memory,delayed and working memory,delayed
+map,bstory_de,episodic memory,delayed and working memory,delayed
+map,logic_de,episodic memory,delayed and working memory,delayed
+map,word_de,episodic memory,delayed and working memory,delayed
+map,word_rec,episodic memory,immediate and recognition memory,delayed
+nas,word_de,episodic memory,delayed and working memory,delayed
+octo,mir,episodic memory,immediate and recognition memory,
+octo,mir_recog,episodic memory,immediate and recognition memory,recognition
+eas,categories,fluency,verbal knowledge,
+eas,fas,fluency,verbal knowledge,
+elsa,fluency,fluency,verbal knowledge,
+ilse,fluency,fluency,verbal knowledge,
+map,categories,fluency,verbal knowledge,
+nas,animals,fluency,verbal knowledge,
+eas,block,fluid reasoning,visualization,
+ilse,spatial_ab,fluid reasoning,visualization,
+ilse,block,fluid reasoning,visualization,
+lasa,raven_color_ab,fluid reasoning,visualization,
+map,raven_standard,fluid reasoning,visualization,
+nas,fig_copy,fluid reasoning,visualization,
+octo,block,fluid reasoning,visualization,
+octo,fig_logic,fluid reasoning,visualization,
+satsa,analogies,fluid reasoning,verbal knowledge,
+satsa,block,fluid reasoning,visualization,
+satsa,rotate,fluid reasoning,visualization,
+eas,mmse,mental status,mental status,
+map,mmse,mental status,mental status,
+nas,mmse,mental status,mental status,
+nuage,mmms,mental status,mental status,
+nuage,mmse,mental status,mental status,
+octo,clock,mental status,mental status,
+octo,mmse,mental status,mental status,
+satsa,mmse,mental status,mental status,
+eas,symbol,perceptual speed,perceptual speed,
+ilse,symbol,perceptual speed,perceptual speed,
+lasa,letter,perceptual speed,perceptual speed,
+map,num_comp,perceptual speed,perceptual speed,
+map,symbol,perceptual speed,perceptual speed,
+nas,pat_comp,perceptual speed,perceptual speed,
+octo,psif,perceptual speed,perceptual speed,
+octo,symbol,perceptual speed,perceptual speed,
+satsa,symbol,perceptual speed,perceptual speed,
+satsa,fig_id,perceptual speed,perceptual speed,
+eas,bnt,semantic memory,verbal knowledge,
+eas,waisvocab,semantic memory,verbal knowledge,
+eas,information,semantic memory,verbal knowledge,
+ilse,waisgeneral,semantic memory,verbal knowledge,
+map,bnt,semantic memory,verbal knowledge,
+map,nart,semantic memory,verbal knowledge,
+octo,information,semantic memory,verbal knowledge,
+octo,synonyms,semantic memory,verbal knowledge,
+satsa,information,semantic memory,verbal knowledge,
+satsa,synonyms,semantic memory,verbal knowledge,
+eas,digit_tot,short-term memory,delayed and working memory,working
+eas,word_im,short-term memory,immediate and recognition memory,immediate
+elsa,word_im,short-term memory,immediate and recognition memory,immediate
+hrs,word_im,short-term memory,immediate and recognition memory,immediate
+lasa,word_im,short-term memory,immediate and recognition memory,immediate
+map,bstory_im,short-term memory,immediate and recognition memory,immediate
+map,logic_im,short-term memory,immediate and recognition memory,immediate
+map,word_im,short-term memory,immediate and recognition memory,immediate
+nas,word_im,short-term memory,immediate and recognition memory,immediate
+octo,prose_im,short-term memory,immediate and recognition memory,immediate
+satsa,fig_mem,short-term memory,immediate and recognition memory,
+map,ideas,verbal comprehension,mental status,
+ilse,piccomp,visual discrimination,visualization,
+map,line,visual discrimination,visualization,
+map,digit_b,working memory,delayed and working memory,
+map,digit_o,working memory,delayed and working memory,
+nas,digit_b,working memory,delayed and working memory,
+nas,digit_b_tot,working memory,delayed and working memory,
+octo,digit_b,working memory,delayed and working memory,
+satsa,digit_b,working memory,delayed and working memory,
+eas,trailsb,executive function,delayed and working memory,
