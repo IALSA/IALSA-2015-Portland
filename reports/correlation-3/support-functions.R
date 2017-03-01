@@ -329,8 +329,10 @@ get_forest_data <- function(
     dplyr::select(
       process_b_domain, study_name,
       model_number, subgroup, model_type, process_a, process_b, subject_count,
+      er_tau_00_est,   er_tau_00_ci95lo,   er_tau_00_ci95hi,   er_levels,
       er_tau_11_est,   er_tau_11_ci95lo,   er_tau_11_ci95hi,   er_slopes,
       er_sigma_00_est, er_sigma_00_ci95lo, er_sigma_00_ci95hi, er_resid
+
     ) %>%
     plyr::rename( c(
       "process_b_domain" ="domain",
