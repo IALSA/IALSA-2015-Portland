@@ -339,6 +339,15 @@ get_forest_data <- function(
       "process_b"        ="cognitive",
       "subject_count"    ="n"
     ))
+  if(index == "intercept"){
+    d2 <- d2 %>%
+      plyr::rename( c(
+        "er_tau_00_est"    ="mean",
+        "er_tau_00_ci95lo" ="lower",
+        "er_tau_00_ci95hi" ="upper",
+        "er_levels"        ="dense"
+      ))
+  }
   if(index == "slope"){
     d2 <- d2 %>%
       plyr::rename( c(
