@@ -465,7 +465,9 @@ print_forest_plot <- function(
     "lower"= c(NA,NA,d$lower,NA, forest_summary["lower"]),
     "upper"= c(NA,NA,d$upper,NA, forest_summary["upper"])
   )
-  gender_name <- ifelse(subgroup_=="male","MEN","WOMEN")
+  gender_name   <- ifelse(subgroup_=="male","MEN","WOMEN")
+  # title_dynamic <- paste0(toupper(index)," correlations in ",toupper(domain_)," domain among ",gender_name,"S")
+  title_dynamic <- paste0(toupper(domain_),": correlations between ",toupper(index),"S for ",gender_name)
   g <- forestplot::forestplot(
     d_text,
     d_value,
@@ -493,7 +495,7 @@ print_forest_plot <- function(
     # hrzl_lines = list("3" = gpar(lty=1)),
     hrzl_lines =  gpar(col="#444444"),
     graph.pos  = 5,
-    title = paste0(toupper(index)," correlations in ",toupper(domain_)," domain among ",gender_name,"S")
+    title = title_dynamic
     # title = paste0("Slope correlations among ",toupper(subgroup_),"S")
   )
   return(g)
