@@ -53,24 +53,24 @@ For  details see [model specification](../../reports/model-specification/README.
 [satsa_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_SATSA_Descriptives_IALSA_Portland.pdf  
 
 
-  [eas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.docx     
- [elsa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.docx   
-  [hrs_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.docx     
- [ilse_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.docx   
-  [nas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.docx   
- [lasa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.docx   
+[eas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.docx     
+[elsa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.docx   
+[hrs_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.docx     
+[ilse_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.docx   
+[nas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.docx   
+[lasa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.docx   
 [nuage_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nuage.docx 
- [octo_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.docx   
-  [map_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.docx     
+[octo_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.docx   
+[map_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.docx     
 [satsa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-satsa.docx   
-  
-  [eas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.html     
- [elsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.html   
-  [hrs_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.html     
- [ilse_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.html   
-  [nas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.html   
- [lasa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.html   
+
+[eas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.html     
+[elsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.html   
+[hrs_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.html     
+[ilse_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.html   
+[nas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.html   
+[lasa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.html   
 [nuage_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nuage.html 
- [octo_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.html   
-  [map_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.html     
+[octo_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.html   
+[map_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.html     
 [satsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-satsa.html   
