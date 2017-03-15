@@ -15,7 +15,7 @@ Study<sup>1</sup> -- Contact -- Seed
 [LASA][lasa_table_1] --- [Annie Robitaille][Annie Robitaille] --- [word][lasa_word], [html][lasa_html]   
 [MAP][map_table_1] --- [Cassandra Brown][Cassandra Brown] --- [word][map_word], [html][map_html]    
 [NAS][nas_table_1] --- [Lewina Lee][Lewina Lee] --- [word][nas_word], [html][nas_html]      
-[OCTO][nuage_table_1] --- [Marcus Praetorius][Marcus Praetorius] --- [word][octo_word], [html][octo_html]    
+[OCTO][octo_table_1] --- [Marcus Praetorius][Marcus Praetorius] --- [word][octo_word], [html][octo_html]    
 [SATSA][satsa_table_1] --- [Deborah Finkel][Deborah Finkel] --- [word][satsa_word], [html][satsa_html]  
  
 
