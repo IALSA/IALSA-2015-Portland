@@ -7,16 +7,17 @@ Table of correlations contains correlations between factor scores of intercepts,
 - [table data][table-data] - stand-along `csv` files containing source data of the all above reports
 - [Domain map][domain_map] - examine BISR estimates across cognitive domains
 
-| Study<sup>1</sup> | Contact | Seed |
-| :---- | :------ | ---- |
-| [EAS][eas_table_1]        |[Andrea Zammit](mailto:Andrea.Zammit@einstein.yu.edu)   |[word][eas_word], [html][eas_html] | 
-| [ELSA][elsa_table_1]      |[Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |[word][elsa_word], [html][elsa_html] | 
-| [HRS][hrs_table_1]        |[Chenkai Wu](mailto:chenkai.wu2010@gmail.com)           |[word][hrs_word], [html][hrs_html] | 
-| [NAS][nas_table_1]        |[Lewina Lee](mailto:lewina@bu.edu)                      |[word][nas_word], [html][nas_html] | 
-| [OCTO-Twin][nuage_table_1]| [Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se)|[word][octo_word], [html][octo_html] | 
-| [MAP][map_table_1]        |[Cassandra Brown](mailto:clb@uvic.ca)                    |[word][map_word], [html][map_html] | 
-| [SATSA][satsa_table_1]    | [Deborah Finkel](mailto:dfinkel@ius.edu)               |[word][satsa_word], [html][satsa_html] |   
+Study<sup>1</sup> -- Contact -- Seed 
+
+[EAS][eas_table_1] --- [Andrea Zammit][Andrea Zammit] --- [word][eas_word],[html][eas_html]      
+[ELSA][elsa_table_1] --- [Annie Robitaille][Annie Robitaille] --- [word][elsa_word], [html][elsa_html]    
+[HRS][hrs_table_1] --- [Chenkai Wu][Chenkai Wu] --- [word][hrs_word], [html][hrs_html]      
+[NAS][nas_table_1] --- [Lewina Lee][Lewina Lee] --- [word][nas_word], [html][nas_html]      
+[OCTO][nuage_table_1] --- [Marcus Praetorius][Marcus Praetorius] --- [word][octo_word], [html][octo_html]    
+[MAP][map_table_1] --- [Cassandra Brown][Cassandra Brown] --- [word][map_word], [html][map_html]      
+[SATSA][satsa_table_1] --- [Deborah Finkel][Deborah Finkel] --- [word][satsa_word], [html][satsa_html]  
  
+
 <sup>1</sup> - Descriptives available after the link.
 
 ## Slopes across domains
@@ -52,6 +53,13 @@ For  details see [model specification](../../reports/model-specification/README.
 [map_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_RADC_Descriptives_IALSA_Portland.pdf
 [satsa_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_SATSA_Descriptives_IALSA_Portland.pdf  
 
+[Andrea Zammit]:mailto:Andrea.Zammit@einstein.yu.edu
+[Annie Robitaille]:mailto:annie.g.robitaille@gmail.com
+[Chenkai Wu]:mailto:chenkai.wu2010@gmail.com     
+[Lewina Lee]:mailto:lewina@bu.edu               
+[Marcus Praetorius]:mailto:marcus.praetorius@psy.gu.se 
+[Cassandra Brown]:mailto:clb@uvic.ca                 
+[Deborah Finkel]:mailto:dfinkel@ius.edu   
 
 [eas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.docx     
 [elsa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.docx   
