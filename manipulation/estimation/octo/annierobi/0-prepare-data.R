@@ -20,26 +20,35 @@ requireNamespace("sas7bdat") # for inputing SAS files
 
 # ---- declare-globals ---------------------------------------------------------
 # path_input  <- "./data/unshared/raw/map/ds0.rds"
-path_input  <- "../OCTO-Twin/data/unshared/raw/octomult_151015.sas7bdat"
+# path_input  <- "../OCTO-Twin/data/unshared/raw/annierobi/OCTO_cambridge.sav"
+path_input  <- "../OCTO-Twin/data/unshared/raw/annierobi/octomultnew.sav"
 
 # put test assert here to check the connection.
 # generic_path <- "./sandbox/pipeline-demo-1/generic-data/"
-generic_path <- "./data/unshared/derived/octo-1/"
-
+generic_path <- "./data/unshared/derived/octo-2/"
+testit::assert("File does not exist", file.exists(path_input))
 
 # ---- load-data ---------------------------------------------------------------
-ds0 <- sas7bdat::read.sas7bdat(path_input)
+# ds0 <- sas7bdat::read.sas7bdat(path_input)
+ds0 <- haven::read_sav(file = path_input)
+
+
+names_cambridge <- names(ds0)
+names_new <- names(ds0)
+setdiff(names_cambridge, names_new)
+setdiff(names_new, names_cambridge)
 
 # ---- inspect-data -------------------------------------------------------------
-names_labels(ds0)
+# ds0 %>% dplyr::glimpse()
+ds0 %>% names_labels()
 
 ds0 %>%
   # dplyr::select(
   #   Case, PairID, CompAge1,YTDead
   # ) %>%
   # dplyr::select_(.dots = varnames_design ) %>%
-  # dplyr::select_(.dots = varnames_context ) %>%
-  dplyr::select_(.dots = varnames_physical ) %>%
+  dplyr::select_(.dots = varnames_context ) %>%
+  # dplyr::select_(.dots = varnames_physical ) %>%
   dplyr::slice(1:20)
 # ----- subset-variables ------------------------------------
 varnames_design <- c(
