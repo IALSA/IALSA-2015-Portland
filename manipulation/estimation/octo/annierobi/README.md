@@ -1,0 +1,1 @@
+These scripts work with the data source `octomultnew_portland.sav`, which A.Robitaille prepared from previous OCTO sources. This file is the provisional data source for OCTO-Twin study in the scope of pulmonary Portland project.
