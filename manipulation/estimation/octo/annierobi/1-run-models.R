@@ -26,8 +26,8 @@ requireNamespace("IalsaSynthesis")
 
 # ---- declare-globals ---------------------------------------------------------
 options(width=160)
-path_generic_data  <- "./data/unshared/derived/octo-1/wide-dataset.dat"
-path_generic_names <- "./data/unshared/derived/octo-1/wide-variable-names.txt"
+path_generic_data  <- "./data/unshared/derived/octo-2/wide-dataset.dat"
+path_generic_names <- "./data/unshared/derived/octo-2/wide-variable-names.txt"
 
 varnames_physical <- c(
   "pef",             # forced expiratory volume
@@ -46,14 +46,14 @@ varnames_cognitive <- c(
   ,"figure"
   ,"mirrecall"
   ,"mmse"
-  ,"mirnaming"
+  # ,"mirnaming" # removing due to restricted variance
   ,"mirrecog"
   ,"clock"
   )
 
 
 # ---- load-data ---------------------------------------------------------------
-ds_wide <- readRDS("./data/unshared/derived/octo-1/data-wide.rds")
+ds_wide <- readRDS("./data/unshared/derived/octo-2/data-wide.rds")
 
 
 testit::assert("File does not exist",file.exists(path_generic_data))
@@ -101,10 +101,12 @@ ls_model_type <- list(
 # Use the first example as the template for further pairs
 
 wave_set_modeled <-  c(1,2,3,4,5)
-subset_condition_1 <- "dementia_ever NE 1"
-folder_data        = "./data/unshared/derived/octo-1"
+subset_condition_1 <- "dementia_ever == 0"
+# subset_condition_1 <- "dementia_entry == 0"
+folder_data        = "./data/unshared/derived/octo-2"
 path_prototype     = "./manipulation/estimation/octo/prototype-wide-octo.inp"
-folder_output      = "./output/studies/octo/phys-cog"
+folder_output      = "./output/studies/octo/dem-criteria/dem_ever_0"
+# folder_output      = "./output/studies/octo/dem_ever_1_dem_entry_0"
 # folder_data        = "./data/unshared/derived/map"
 # folder_output      = "./output/studies/map/phys-cog/pulmonary"
 
