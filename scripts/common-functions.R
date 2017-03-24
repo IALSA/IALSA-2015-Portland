@@ -110,3 +110,20 @@ histogram_continuous <- function(
   g <- g + ggplot2::geom_text(data=ds_mid_points, ggplot2::aes_string(x="value", y="top", label="label"), color="tomato", hjust=c(1, 0), parse=TRUE)
   return( g )
 }
+
+numformat <- function(val) { sub("^(-?)0.", "\\1.", sprintf("%.2f", val)) }
+
+get_estimate_table <- function(lst, stencil_table){
+  # lst <- model_result
+  d1 <- lst[["parameters"]][["unstandardized"]]
+  d2 <- stencil_table %>%
+    dplyr::left_join(d1,by=c("paramHeader","param")) %>%
+    dplyr::mutate(
+      est_pretty  = numformat( est),
+      se_pretty   = numformat( se),
+      pval_pretty = ifelse(pval<.001,"<.001",numformat(pval)),
+      dense = sprintf("%4s(%4s), %5s",est_pretty, se_pretty, pval_pretty),
+      dense = ifelse(is.na(est),"",dense)
+    )
+  return(d2)
+}

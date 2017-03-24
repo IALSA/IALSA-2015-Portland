@@ -101,12 +101,19 @@ ls_model_type <- list(
 # Use the first example as the template for further pairs
 
 wave_set_modeled <-  c(1,2,3,4,5)
+
+# Chose one option from the two
+
+# Option 1: those who NEVER had dementia
 subset_condition_1 <- "dementia_ever == 0"
+folder_output      = "./output/studies/octo/dem-criteria/dem_ever_0"
+
+# Option 2: those who NEVER had dementia + those who developed it after entry
 # subset_condition_1 <- "dementia_entry == 0"
+# folder_output      = "./output/studies/octo/dem_ever_1_dem_entry_0"
+
 folder_data        = "./data/unshared/derived/octo-2"
 path_prototype     = "./manipulation/estimation/octo/prototype-wide-octo.inp"
-folder_output      = "./output/studies/octo/dem-criteria/dem_ever_0"
-# folder_output      = "./output/studies/octo/dem_ever_1_dem_entry_0"
 # folder_data        = "./data/unshared/derived/map"
 # folder_output      = "./output/studies/map/phys-cog/pulmonary"
 
@@ -126,10 +133,10 @@ folder_output      = "./output/studies/octo/dem-criteria/dem_ever_0"
 # )
 
 # loop over conditions
-# for(phys_measure in "fev"){
-for(phys_measure in varnames_physical){
-  # for(cog_measure in "psif"){
-  for(cog_measure in varnames_cognitive){
+for(phys_measure in "pef"){
+# for(phys_measure in varnames_physical){
+  for(cog_measure in "block"){
+  # for(cog_measure in varnames_cognitive){
     for(subgroup in names(ls_subgroup)){
       for(model_type in names(ls_model_type)){
         mplus_generator_bivariate(

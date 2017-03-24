@@ -1,0 +1,45 @@
+paramHeader,param,effect,name,label
+Intercepts,IA,Fixed effect,a_GAMMA_00,Level of A
+IA.ON,AGE_C80,Fixed effect,a_GAMMA_01,AGE on Level of A
+IA.ON,EDU_C7,Fixed effect,a_GAMMA_02,EDUCATION on Level of A
+IA.ON,HTM_C,Fixed effect,a_GAMMA_03,HEIGHT on Level of A
+IA.ON,SMOKE,Fixed effect,a_GAMMA_04,SMOKE on Level of A
+IA.ON,CARDIO,Fixed effect,a_GAMMA_05,CARDIO on Level of A
+IA.ON,DIABETES,Fixed effect,a_GAMMA_06,DIABETES on Level of A
+Intercepts,IB,Fixed effect,a_GAMMA_10,Level of B
+IB.ON,AGE_C80,Fixed effect,b_GAMMA_01,AGE on Level of B
+IB.ON,EDU_C7,Fixed effect,b_GAMMA_02,EDUCATION on Level of B
+IB.ON,HTM_C,Fixed effect,b_GAMMA_03,HEIGHT on Level of B
+IB.ON,SMOKE,Fixed effect,b_GAMMA_04,SMOKE on Level of B
+IB.ON,CARDIO,Fixed effect,b_GAMMA_05,CARDIO on Level of B
+IB.ON,DIABETES,Fixed effect,b_GAMMA_06,DIABETES on Level of B
+Intercepts,SA,Fixed effect,b_GAMMA_00,Slope of A
+SA.ON,AGE_C80,Fixed effect,a_GAMMA_11,AGE on Slope of A
+SA.ON,EDU_C7,Fixed effect,a_GAMMA_12,EDUCATION on Slope of A
+SA.ON,HTM_C,Fixed effect,a_GAMMA_13,HEIGHT on Slope of A
+SA.ON,SMOKE,Fixed effect,a_GAMMA_14,SMOKE on Slope of A
+SA.ON,CARDIO,Fixed effect,a_GAMMA_15,CARDIO on Slope of A
+SA.ON,DIABETES,Fixed effect,a_GAMMA_16,DIABETES on Slope of A
+Intercepts,SB,Fixed effect,b_GAMMA_10,Slope of B
+SB.ON,AGE_C80,Fixed effect,b_GAMMA_11,AGE on Slope of B
+SB.ON,EDU_C7,Fixed effect,b_GAMMA_12,EDUCATION on Slope of B
+SB.ON,HTM_C,Fixed effect,b_GAMMA_13,HEIGHT on Slope of B
+SB.ON,SMOKE,Fixed effect,b_GAMMA_14,SMOKE on Slope of B
+SB.ON,CARDIO,Fixed effect,b_GAMMA_15,CARDIO on Slope of B
+SB.ON,DIABETES,Fixed effect,b_GAMMA_16,DIABETES on Slope of B
+Residual.Variances,IA,Random effects,aa_TAU_00,Level of A
+Residual.Variances,IB,Random effects,bb_TAU_00,Level of B
+Residual.Variances,SA,Random effects,aa_TAU_11,Slope of A
+Residual.Variances,SB,Random effects,bb_TAU_11,Slope of B
+IA.WITH,IB,Random effects,ab_TAU_00,Level A * Level B
+IA.WITH,SA,Random effects,aa_TAU_01,Level A * Slope A
+IA.WITH,SB,Random effects,ab_TAU_01,Level A * Slope B
+IB.WITH,SB,Random effects,bb_TAU_10,Slope B * Level B
+SA.WITH,IB,Random effects,ab_TAU_10,Slope A * Level B
+SA.WITH,SB,Random effects,ab_TAU_11,Slope A * Slope B
+A_01.WITH,B_01,Random effects,ab_SIGMA,Resid A * Resid B
+Residual.Variances,A_01,Random effects,a_SIGMA,Resid A
+Residual.Variances,B_01,Random effects,b_SIGMA,Resid B
+New.Additional.Parameters,R_IAIB,Random effects,R_IAIB,Corr(Level A * Level B)
+New.Additional.Parameters,R_RES_AB,Random effects,R_RES_AB,Corr(Resid A * Resid B)
+New.Additional.Parameters,R_SASB,Random effects,R_SASB,Corr(Slope A * Slope B)
