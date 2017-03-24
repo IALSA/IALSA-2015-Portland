@@ -26,7 +26,8 @@ path_input  <- "../OCTO-Twin/data/unshared/raw/annierobi/octomultnew_portland.sa
 
 # put test assert here to check the connection.
 # generic_path <- "./sandbox/pipeline-demo-1/generic-data/"
-generic_path <- "./data/unshared/derived/octo-2/"
+generic_path <- "./data/unshared/derived/octo-2/" # this is where you save the prepared file
+
 testit::assert("File does not exist", file.exists(path_input))
 
 # ---- load-data ---------------------------------------------------------------
@@ -106,25 +107,25 @@ ds %>% dplyr::glimpse()
 # ---- rename-variables -------------------------------
 
 # these names were chosen to be consistent across studies
-# names(ds) <- gsub("time" , "years_since_bl_0", names(ds))
-#
-# names(ds) <- gsub("pek"   ,"pef_0", names(ds))
-# names(ds) <- gsub("gripp" ,"grip_0", names(ds))
-# names(ds) <- gsub("gait3m","gait_0", names(ds))
-# names(ds) <- gsub("block" ,"block_0", names(ds))
-# names(ds) <- gsub("digspb","digitspanbackward_0", names(ds))
-# names(ds) <- gsub("digspf","digitspanforward_0", names(ds))
-# names(ds) <- gsub("digsym","symbol_0", names(ds))
-# names(ds) <- gsub("prose" ,"prose_0", names(ds))
-# names(ds) <- gsub("info"  ,"info_0", names(ds))
-# names(ds) <- gsub("synnum","synonyms_0", names(ds))
-# names(ds) <- gsub("psif"  ,"psif_0", names(ds))
-# names(ds) <- gsub("figure","figure_0", names(ds))
-# names(ds) <- gsub("mirrcl","mirrecall_0", names(ds))
-# names(ds) <- gsub("mmse"  ,"mmse_0", names(ds))
-# names(ds) <- gsub("mirnam","mirnaming_0", names(ds))
-# names(ds) <- gsub("mirrcg","mirrecog_0", names(ds))
-# names(ds) <- gsub("clock" ,"clock_0", names(ds))
+names(ds) <- gsub("time" , "years_since_bl_0", names(ds))
+
+names(ds) <- gsub("pek"   ,"pef_0", names(ds))
+names(ds) <- gsub("gripp" ,"grip_0", names(ds))
+names(ds) <- gsub("gait3m","gait_0", names(ds))
+names(ds) <- gsub("block" ,"block_0", names(ds))
+names(ds) <- gsub("digspb","digitspanbackward_0", names(ds))
+names(ds) <- gsub("digspf","digitspanforward_0", names(ds))
+names(ds) <- gsub("digsym","symbol_0", names(ds))
+names(ds) <- gsub("prose" ,"prose_0", names(ds))
+names(ds) <- gsub("info"  ,"info_0", names(ds))
+names(ds) <- gsub("synnum","synonyms_0", names(ds))
+names(ds) <- gsub("psif"  ,"psif_0", names(ds))
+names(ds) <- gsub("figure","figure_0", names(ds))
+names(ds) <- gsub("mirrcl","mirrecall_0", names(ds))
+names(ds) <- gsub("mmse"  ,"mmse_0", names(ds))
+names(ds) <- gsub("mirnam","mirnaming_0", names(ds))
+names(ds) <- gsub("mirrcg","mirrecog_0", names(ds))
+names(ds) <- gsub("clock" ,"clock_0", names(ds))
 
 # d <- ds %>%
 # d <- ds_wide %>%
@@ -143,8 +144,11 @@ ds_wide <- ds %>%
     cardio         = CVD1,
     diabetes       = diabYN1,
     dementia_ever  = DemEver,
-    # YTDem          = as.numeric(YTDem),
-    dementia_entry = ifelse( YTDem>0,0,ifelse(YTDem<=0,1,NA)),
+    # YTDem        = as.numeric(YTDem),
+    # Notes on YTDem scale:
+    # negative values = no dementia
+    # positive values = yes dementia
+    dementia_entry = ifelse( YTDem>=0,1,ifelse(YTDem<0,0,NA)),
     dementia_entry  = ifelse(DemEver==0,0,dementia_entry)#,
     # dementia_entry = factor(dementia_entry, levels = c(0,1), labels = c("Not at entry", "At entry")),
     # dementia_ever = factor(dementia_ever, levels = c(0,1), labels = c("Never", "Demented"))
@@ -154,16 +158,17 @@ ds_wide <- ds %>%
     Case,PairID,
     male,
     age_c80, edu_c7, htm_c, smoke, cardio, diabetes,
-    dementia_ever,
+    dementia_ever,dementia_entry, YTDem,
     dplyr::everything()
     )  %>%
   dplyr::select(
     -TwinID, -Female, -CompAge1,-Smoke, -height1,-DemEver, -Educyrs, -CVD1, -diabYN1
   )
+# ds_wide %>% names_labels()
 # table(ds_wide$dementia_entry, ds_wide$dementia_ever)
-# ds_wide %>%
-#   dplyr::group_by(dementia_entry, dementia_ever) %>%
-#   dplyr::count()
+ds_wide %>%
+  dplyr::group_by(dementia_entry, dementia_ever) %>%
+  dplyr::count()
 
 # funtion to view frequencies of measures
 # at each time point
@@ -235,63 +240,64 @@ grab_freq <- function(d,varname){
 # grab_freq(ds_wide, "mirnaming_04")
 # grab_freq(ds_wide, "mirnaming_05")
 
-for(i in varnames_cognitive ){
-  cat("\n")
-  # cat("\n", toupper(i))
-  # cat("\n")
-  grab_freq(ds_wide, i ) %>% print()
-  # cat("\n")
-}
+# works on old common name only
+# for(i in varnames_cognitive ){
+#   cat("\n")
+#   # cat("\n", toupper(i))
+#   # cat("\n")
+#   grab_freq(ds_wide, i ) %>% print()
+#   # cat("\n")
+# }
 
 
 
 
+# Development code after here ###############
 
-
-v_freq_ever <- ds_wide %>%
-  dplyr::filter(dementia_ever==0) %>%
-  # dplyr::filter(dementia_entry==0) %>%
-  get_freq("mirnaming_01") %>%
-  t() %>%
-  as.data.frame()
-
-leaf <- v_freq_ever %>%
-  dplyr::slice(1) %>%
-  as.character()
-stem <- "value_"
-new_names <- paste0(stem,leaf)
-names(v_freq_ever) <- new_names
-v_freq_ever <- v_freq_ever %>% dplyr::slice(2:2)
-
-
-# names(v_freq_ever) <- gsub(pattern = "V",replacement="ever_", x = names(v_freq_ever) )
-
-v_freq_entry <- ds_wide %>%
-  # dplyr::filter(dementia_ever==0) %>%
-  dplyr::filter(dementia_entry==0) %>%
-  get_freq("mirnaming_01") %>%
-  t() %>%
-  as.data.frame()
-
-leaf <- v_freq_entry %>%
-  dplyr::slice(1) %>%
-  as.character()
-stem <- "value_"
-new_names <- paste0(stem,leaf)
-names(v_freq_entry) <- new_names
-v_freq_entry <- v_freq_entry %>% dplyr::slice(2:2)
-
-
-
-# combine
-ls_freq <- list(
-  "ever" = v_freq_ever,
-  "entry" = v_freq_entry
-)
-v_freq <- dplyr::bind_rows(ls_freq, .id = "subgroup") %>%
-  as.data.frame()
-
-v_freq[is.na(v_freq)] <- "."
+# v_freq_ever <- ds_wide %>%
+#   dplyr::filter(dementia_ever==0) %>%
+#   # dplyr::filter(dementia_entry==0) %>%
+#   get_freq("mirnaming_01") %>%
+#   t() %>%
+#   as.data.frame()
+#
+# leaf <- v_freq_ever %>%
+#   dplyr::slice(1) %>%
+#   as.character()
+# stem <- "value_"
+# new_names <- paste0(stem,leaf)
+# names(v_freq_ever) <- new_names
+# v_freq_ever <- v_freq_ever %>% dplyr::slice(2:2)
+#
+#
+# # names(v_freq_ever) <- gsub(pattern = "V",replacement="ever_", x = names(v_freq_ever) )
+#
+# v_freq_entry <- ds_wide %>%
+#   # dplyr::filter(dementia_ever==0) %>%
+#   dplyr::filter(dementia_entry==0) %>%
+#   get_freq("mirnaming_01") %>%
+#   t() %>%
+#   as.data.frame()
+#
+# leaf <- v_freq_entry %>%
+#   dplyr::slice(1) %>%
+#   as.character()
+# stem <- "value_"
+# new_names <- paste0(stem,leaf)
+# names(v_freq_entry) <- new_names
+# v_freq_entry <- v_freq_entry %>% dplyr::slice(2:2)
+#
+#
+#
+# # combine
+# ls_freq <- list(
+#   "ever" = v_freq_ever,
+#   "entry" = v_freq_entry
+# )
+# v_freq <- dplyr::bind_rows(ls_freq, .id = "subgroup") %>%
+#   as.data.frame()
+#
+# v_freq[is.na(v_freq)] <- "."
 
 
 
@@ -324,8 +330,10 @@ d <- ds_wide %>%
 View(d)
 
 # ---- prepare-for-mplus ---------------------
+ds_wide %>% dplyr::glimpse()
 # prepare data to be read by MPlus
 ds_mplus <- sapply(ds_wide,as.numeric) %>% as.data.frame()
+ds_mplus %>% dplyr::glimpse()
 ds_mplus[is.na(ds_mplus)] <- -9999 # replace NA with a numerical code
 ds_mplus %>% dplyr::glimpse()
 
