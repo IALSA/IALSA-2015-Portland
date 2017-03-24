@@ -327,7 +327,7 @@ ds_wide$dementia_ever
 d <- ds_wide %>%
   dplyr::filter(dementia_ever == 0) %>%
   dplyr::select(Case, mirnaming_01)
-View(d)
+#View(d)
 
 # ---- prepare-for-mplus ---------------------
 ds_wide %>% dplyr::glimpse()
