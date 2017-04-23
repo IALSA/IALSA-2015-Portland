@@ -114,6 +114,7 @@ histogram_continuous <- function(
 numformat <- function(val) { sub("^(-?)0.", "\\1.", sprintf("%.2f", val)) }
 
 get_estimate_table <- function(lst, stencil_table){
+  # requires a stencil with pre-formated labels
   # lst <- model_result
   d1 <- lst[["parameters"]][["unstandardized"]]
   d2 <- stencil_table %>%
