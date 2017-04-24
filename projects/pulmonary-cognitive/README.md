@@ -5,7 +5,7 @@ Table of correlations contains correlations between factor scores of intercepts,
 - [full][corr_full] - static tables in MS Word format, expanding the [focus][corr_focus] report with raw covariances, computed correlations, and confidence intervals. 
 - [dynamic][corr_dynamic] - forest plots  and dynamic summary table 
 - [table data][table-data] - stand-along `csv` files containing source data of the all above reports
-- [Domain map][domain_map] - examine BISR estimates across cognitive domains
+- [domain map][domain_map] - examine BISR estimates across cognitive domains (under construction at the moment)
 
 Study<sup>1</sup> -- Contact -- Seed 
 
@@ -36,55 +36,42 @@ For  details see [model specification](../../reports/model-specification/README.
 
 
 <!-- Below stored the short-cuts for links -->  
- 
 
-[corr_focus]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-focus.docx
-[corr_full]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-full.docx
+  [corr_focus]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-focus.docx
+   [corr_full]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-full.docx
 [corr_dynamic]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/correlation-3/correlation-3-pulmonary-summary.html
-[table-data]:https://github.com/IALSA/IALSA-2015-Portland/tree/master/reports/correlation-3/table-data
-[domain_map]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/domain-map/domain-map-pulmonary.html
+  [table-data]:https://github.com/IALSA/IALSA-2015-Portland/tree/master/reports/correlation-3/table-data
+  [domain_map]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/domain-map/domain-map-pulmonary.html
   
-[eas_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_EAS_Descriptives_IALSA_Portland.pdf  
-[elsa_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_ELSA_Descriptives_IALSA_Portland.pdf   
-[hrs_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_HRS_Descriptives_IALSA_Portland.pdf 
-[ilse_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_ILSE_Descriptives_IALSA_Portland.pdf 
-[lasa_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_LASA_Descriptives_IALSA_Portland.pdf  
-[map_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_RADC_Descriptives_IALSA_Portland.pdf
-[nas_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_NAS_Descriptives_IALSA_Portland.pdf 
+  [eas_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_EAS_Descriptives_IALSA_Portland.pdf 
+ [elsa_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_ELSA_Descriptives_IALSA_Portland.pdf   
+  [hrs_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_HRS_Descriptives_IALSA_Portland.pdf 
+ [ilse_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_ILSE_Descriptives_IALSA_Portland.pdf 
+ [lasa_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_LASA_Descriptives_IALSA_Portland.pdf  
+  [map_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_MAP_Descriptives_IALSA_Portland.pdf
+  [nas_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_NAS_Descriptives_IALSA_Portland.pdf 
 [nuage_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_NuAge_Descriptives_IALSA_Portland.pdf 
-[octo_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_OCTO_Descriptives_IALSA_Portland.pdf 
+ [octo_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_OCTO_Descriptives_IALSA_Portland.pdf 
 [satsa_table_1]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/studies/table_1_descriptives/Table1_SATSA_Descriptives_IALSA_Portland.pdf  
 
-[Andrea Zammit]:mailto:Andrea.Zammit@einstein.yu.edu
-[Annie Robitaille]:mailto:annie.g.robitaille@gmail.com
-[Chenkai Wu]:mailto:chenkai.wu2010@gmail.com    
-[Philipp Handschuh]:philipp.handschuh@uni-ulm.de
-[Lewina Lee]:mailto:lewina@bu.edu               
-[Marcus Praetorius]:mailto:marcus.praetorius@psy.gu.se 
-[Valerie Jarry]:valerie.jarry@umontreal.ca
-[Cassandra Brown]:mailto:clb@uvic.ca                 
-[Deborah Finkel]:mailto:dfinkel@ius.edu             
-
-[eas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.docx     
-[elsa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.docx   
-[hrs_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.docx     
-[ilse_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.docx   
-[lasa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.docx   
-[map_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.docx     
-[nas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.docx   
+  [eas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.docx     
+ [elsa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.docx   
+  [hrs_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.docx     
+ [ilse_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.docx   
+ [lasa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.docx   
+  [nas_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.docx   
 [nuage_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nuage.docx 
-[octo_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.docx   
+  [map_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.docx     
+ [octo_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.docx   
 [satsa_word]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-satsa.docx   
-
-[eas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.html     
-[elsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.html   
-[hrs_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.html     
-[ilse_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.html   
-[lasa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.html   
-[map_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.html     
-[nas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.html   
+  
+  [eas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-eas.html     
+ [elsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-elsa.html   
+  [hrs_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-hrs.html     
+ [ilse_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-ilse.html   
+ [lasa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-lasa.html   
+  [map_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.html     
+  [nas_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nas.html   
 [nuage_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-nuage.html 
-[octo_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.html   
-[satsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-satsa.html  
-[map_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-map.html     
-[satsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-satsa.html   
+ [octo_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-octo.html   
+[satsa_html]:https://rawgit.com/IALSA/IALSA-2015-Portland/master/reports/seeds-pulmonary/seed-satsa.html 
