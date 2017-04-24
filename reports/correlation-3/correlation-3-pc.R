@@ -46,9 +46,28 @@ catalog <- catalog %>%
   ) %>%
   dplyr::select(-domain_new)
 
+# catalog %>%
+#   filter(model_number=="b1") %>%
+#   filter(model_type %in% c("aehplus")) %>%
+#   group_by(process_a, study_name) %>%
+#   summarize(n_b1_aesplus_models=n()) %>%
+#   filter(process_a %in% c("gait","tug")) %>%
+#   filter(process_a %in% c("grip")) %>%
+#   filter(process_a %in% c("fev","pef")) %>%
+#   print(n=nrow(.))
+#
+#
+# catalog %>%
+#   filter(model_number=="b1",model_type =="aehplus") %>%
+#     group_by(process_a, study_name) %>%
+#   summarize(n_models=n()) %>%
+#   filter(process_a %in% c("fev","pef")) %>%
+#   print(n=nrow(.))
+
 
 # colnames(catalog)
 # catalog %>%
+#   dplyr::filter(model_number=="b1") %>%
 #   dplyr::group_by(process_b_domain) %>%
 #   # dplyr::filter(is.na(domain)) %>%
 #   dplyr::summarize(count=n()) %>%
@@ -83,6 +102,8 @@ get_freq <- function(d, varname){
 }
 
 # ---- table-dynamic, eval=FALSE, echo=F -----------------------------------------------------------
+# track = "gait"
+# track = "grip"
 # track = "pulmonary"
 
 d <- catalog %>%
@@ -224,6 +245,7 @@ for(track in c("gait","grip","pulmonary")){
 
 
 # ---- print-forest -----------------
+# keep this chunk turned off, to prent trigerring costly production
 # prints the plots into html canvas and saves in a figure_rmd/ folder
 # track = "pulmonary"
 # data_forest <- get_forest_data(catalog,track = track) %>%
@@ -270,9 +292,9 @@ index_cycle    <- ds_jpegs$index %>% unique() %>% sort(decreasing = T)
 domain_cycle   <- ds_jpegs$domain %>% unique()
 subgroup_cycle <- ds_jpegs$subgroup %>% unique()
 for(ind in index_cycle){
-  cat("\n#Forest: ", ind,"\n")
+  cat("\n# Forest: ", ind,"\n")
   for(dom in domain_cycle){
-    cat("\n##",dom,"\n")
+    cat("\n## ",dom,"\n")
     for(gender in subgroup_cycle){
       #Don't specify width.  This maintains the aspect ratio.
       path <- ds_jpegs %>%
@@ -296,7 +318,7 @@ for(ind in index_cycle){
 
 
 # ---- table-static-full ------------------------------------------------------------
-cat("\n#Group by domain\n")
+cat("\n# Group by domain\n")
 for(gender in c("male","female")){
   # gender = "male"
   cat("\n##",gender)
@@ -319,7 +341,7 @@ for(gender in c("male","female")){
     ) %>%
     print()
 }
-cat("\n#Grouped by study\n")
+cat("\n# Grouped by study\n")
 for(gender in c("male","female")){
   cat("\n##",gender)
   d <- catalog %>%
@@ -417,13 +439,13 @@ path_pulmonary_summary <- "./reports/correlation-3/correlation-3-pulmonary-summa
 
 # allReports <- c(path_gait_summary)
 # allReports <- c(path_grip_summary)
-# allReports <- c(path_pulmonary_summary)
+allReports <- c(path_pulmonary_summary)
 # allReports <- c(path_gait_summary, path_grip_summary, path_pulmonary_summary)
 
+# allReports <- c(path_pulmonary_focus, path_pulmonary_full,
+#                 path_gait_focus, path_gait_full,
+#                 path_grip_focus, path_grip_full)
 
-allReports <- c(path_pulmonary_focus, path_pulmonary_full,
-                path_gait_focus, path_gait_full,
-                path_grip_focus, path_grip_full)
 pathFilesToBuild <- c(allReports)
 testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesToBuild))
 # Build the reports
@@ -431,10 +453,10 @@ for( pathFile in pathFilesToBuild ) {
 
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      # "html_document" # set print_format <- "html" in seed-study.R
+                      "html_document" # set print_format <- "html" in seed-study.R
                       # "pdf_document"
                       # ,"md_document"
-                      "word_document" # set print_format <- "pandoc" in seed-study.R
+                      # "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
 }
