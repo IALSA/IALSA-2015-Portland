@@ -5,7 +5,7 @@ Table of correlations contains correlations between factor scores of intercepts,
 - [full][corr_full] - static tables in MS Word format, expanding the [focus][corr_focus] report with raw covariances, computed correlations, and confidence intervals. 
 - [dynamic][corr_dynamic] - forest plots  and dynamic summary table 
 - [table data][table-data] - stand-along `csv` files containing source data of the all above reports
-- [Domain map][domain_map] - examine BISR estimates across cognitive domains
+- [domain map][domain_map] - examine BISR estimates across cognitive domains (under construction at the moment)
 
 | Study<sup>1</sup> | Contact | Seed |
 | :---- | :------ | ---- |
