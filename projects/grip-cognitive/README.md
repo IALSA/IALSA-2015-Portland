@@ -15,7 +15,6 @@ Table of correlations contains correlations between factor scores of intercepts,
 | [ILSE][ilse_table_1]      |[Philipp Handschuh](mailto:philipp.handschuh@uni-ulm.de)|[word][ilse_word], [html][ilse_html]   | 
 | [LASA][lasa_table_1]      |[Annie Robitaille](mailto:annie.g.robitaille@gmail.com) |[word][lasa_word], [html][lasa_html]   | 
 | [MAP][map_table_1]        |[Cassandra Brown](mailto:clb@uvic.ca)                   |[word][map_word], [html][map_html]     |
-| [NAS][nas_table_1]        |[Lewina Lee](mailto:lewina@bu.edu)                      |[word][nas_word], [html][nas_html]     | 
 | [NuAge][nuage_table_1]    |[Valerie Jarry ](mailto:valerie.jarry@umontreal.ca )    |[word][nuage_word], [html][nuage_html] | 
 | [OCTO-Twin][octo_table_1] |[Marcus Praetorius](mailto:marcus.praetorius@psy.gu.se) |[word][octo_word], [html][octo_html]   |   
 | [SATSA][satsa_table_1]    |[Deborah Finkel](mailto:dfinkel@ius.edu)                |[word][satsa_word], [html][satsa_html] | 
