@@ -2,7 +2,7 @@
 [![logl](libs/images/ialsa_long.png)](http://www.ialsa.org/)
 Quick links: [models](#models)  -  [measures](#measures)  -  [background](#background)  -  [pubs](#publications)  -  [contacts](#contacts)  
 
-#Concurrent decline of body and mind  
+# Concurrent decline of body and mind  
 
 IALSA-2015-Portland workshop performs a **coordinated analysis with replication (CAR)** of decline in physical and cognitive functioning during later adulthood. The research agenda distinguishes the following foci:    
 * [`gait-cognitive`](/projects/gait-cognitive) - Associations between changes in measures of **gait** and changes in cognitive function.
