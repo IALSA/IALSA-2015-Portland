@@ -9,6 +9,7 @@ base::source("./scripts/functions-common.R")
 # ---- load-packages -----------------------------------------------------------
 # Attach these packages so their functions don't need to be qualified: http://r-pkgs.had.co.nz/namespace.html#search-path
 library(magrittr) #Pipes
+library(knitr)
 # library(TabularManifest)
 # Verify these packages are available on the machine, but their functions need to be qualified: http://r-pkgs.had.co.nz/namespace.html#search-path
 requireNamespace("ggplot2")
@@ -47,7 +48,8 @@ ds0 %>%
     Case, PairID, CompAge1,YTDead
   ) %>%
   dplyr::slice(1:20)
-# ----- subset-variables ------------------------------------
+
+# ----- object-glossary ------------------------------------
 varnames_design <- c(
   "Case"   ,              # subject identifier
   "PairID" ,
@@ -89,6 +91,8 @@ varnames_cognitive <- c(
   paste0("clock" ,1:5)   #
 )
 
+# ---- tweak-data --------------------------
+
 ds0 %>%
   dplyr::select_(.dots = varnames_cognitive ) %>%
   dplyr::slice(1:20)
@@ -127,11 +131,27 @@ names(ds) <- gsub("mirnam","mirnaming_0", names(ds))
 names(ds) <- gsub("mirrcg","mirrecog_0", names(ds))
 names(ds) <- gsub("clock" ,"clock_0", names(ds))
 
-# d <- ds %>%
-# d <- ds_wide %>%
-#   # dplyr::select(Case, PairID, DemEver,YTDem)
-#   dplyr::select(Case, PairID, DemEver,YTDem,dementia_entry, dementia_ever)
-# View(d)
+
+varnames_cognitive_new <- c(
+   paste0("pef","_",               paste0("0",1:5))
+  ,paste0("grip","_",              paste0("0",1:5))
+  ,paste0("gait","_",              paste0("0",1:5))
+  ,paste0("block","_",             paste0("0",1:5))
+  ,paste0("digitspanbackward","_", paste0("0",1:5))
+  ,paste0("digitspanforward","_",  paste0("0",1:5))
+  ,paste0("symbol","_",            paste0("0",1:5))
+  ,paste0("prose","_",             paste0("0",1:5))
+  ,paste0("info","_",              paste0("0",1:5))
+  ,paste0("synonyms","_",          paste0("0",1:5))
+  ,paste0("psif","_",              paste0("0",1:5))
+  ,paste0("figure","_",            paste0("0",1:5))
+  ,paste0("mirrecall","_",         paste0("0",1:5))
+  ,paste0("mmse","_",              paste0("0",1:5))
+  ,paste0("mirnaming","_",         paste0("0",1:5))
+  ,paste0("mirrecog","_",          paste0("0",1:5))
+  ,paste0("clock","_",             paste0("0",1:5))
+)
+
 # ---- center-covariates ---------------------------------
 ds_wide <- ds %>%
   dplyr::mutate(
@@ -168,166 +188,12 @@ ds_wide <- ds %>%
 # table(ds_wide$dementia_entry, ds_wide$dementia_ever)
 ds_wide %>%
   dplyr::group_by(dementia_entry, dementia_ever) %>%
-  dplyr::count()
-
-# funtion to view frequencies of measures
-# at each time point
-# for each cell of some cross-tabulation
-
-get_freq <- function(d, varname){
-  # d <- data_forest
-  # varname <- c("domain","subgroup")
-  d %>%
-    dplyr::group_by_(.dots=varname) %>%
-    dplyr::summarize(n=n()) %>%
-    dplyr::arrange(n)
-}
-
-grab_freq <- function(d,varname){
-  # Values for testing and development
-  # d <- ds_wide
-  # varname <- "mirnam1"
-
-  # EVER
-  v_freq_ever <- d %>%
-    dplyr::filter(dementia_ever==0) %>%
-    # dplyr::filter(dementia_entry==0) %>%
-    get_freq(varname) %>%
-    t() %>%
-    as.data.frame()
-  leaf <- v_freq_ever %>%
-    dplyr::slice(1) %>%
-    as.character()
-  stem <- "value_"
-  new_names <- paste0(stem,leaf)
-  names(v_freq_ever) <- new_names
-  v_freq_ever <- v_freq_ever %>% dplyr::slice(2:2)
-
-  # AT ENTRY
-  v_freq_entry <- d %>%
-    # dplyr::filter(dementia_ever==0) %>%
-    dplyr::filter(dementia_entry==0) %>%
-    get_freq(varname) %>%
-    t() %>%
-    as.data.frame()
-  leaf <- v_freq_entry %>%
-    dplyr::slice(1) %>%
-    as.character()
-  stem <- "value_"
-  new_names <- paste0(stem,leaf)
-  names(v_freq_entry) <- new_names
-  v_freq_entry <- v_freq_entry %>% dplyr::slice(2:2)
-
-  # combine
-  ls_freq <- list(
-    "ever" = v_freq_ever,
-    "entry" = v_freq_entry
-  )
-  v_freq <- dplyr::bind_rows(ls_freq, .id = "subgroup") %>%
-    as.data.frame()
-
-  v_freq[is.na(v_freq)] <- "."
-  v_freq <- v_freq %>%
-    dplyr::mutate( measure = varname) %>%
-    dplyr::select(measure, dplyr::everything())
-
-  return(v_freq)
-}
-
-# grab_freq(ds_wide, "mirnaming_01")
-# grab_freq(ds_wide, "mirnaming_02")
-# grab_freq(ds_wide, "mirnaming_03")
-# grab_freq(ds_wide, "mirnaming_04")
-# grab_freq(ds_wide, "mirnaming_05")
-
-# works on old common name only
-# for(i in varnames_cognitive ){
-#   cat("\n")
-#   # cat("\n", toupper(i))
-#   # cat("\n")
-#   grab_freq(ds_wide, i ) %>% print()
-#   # cat("\n")
-# }
-
-
-
-
-# Development code after here ###############
-
-# v_freq_ever <- ds_wide %>%
-#   dplyr::filter(dementia_ever==0) %>%
-#   # dplyr::filter(dementia_entry==0) %>%
-#   get_freq("mirnaming_01") %>%
-#   t() %>%
-#   as.data.frame()
-#
-# leaf <- v_freq_ever %>%
-#   dplyr::slice(1) %>%
-#   as.character()
-# stem <- "value_"
-# new_names <- paste0(stem,leaf)
-# names(v_freq_ever) <- new_names
-# v_freq_ever <- v_freq_ever %>% dplyr::slice(2:2)
-#
-#
-# # names(v_freq_ever) <- gsub(pattern = "V",replacement="ever_", x = names(v_freq_ever) )
-#
-# v_freq_entry <- ds_wide %>%
-#   # dplyr::filter(dementia_ever==0) %>%
-#   dplyr::filter(dementia_entry==0) %>%
-#   get_freq("mirnaming_01") %>%
-#   t() %>%
-#   as.data.frame()
-#
-# leaf <- v_freq_entry %>%
-#   dplyr::slice(1) %>%
-#   as.character()
-# stem <- "value_"
-# new_names <- paste0(stem,leaf)
-# names(v_freq_entry) <- new_names
-# v_freq_entry <- v_freq_entry %>% dplyr::slice(2:2)
-#
-#
-#
-# # combine
-# ls_freq <- list(
-#   "ever" = v_freq_ever,
-#   "entry" = v_freq_entry
-# )
-# v_freq <- dplyr::bind_rows(ls_freq, .id = "subgroup") %>%
-#   as.data.frame()
-#
-# v_freq[is.na(v_freq)] <- "."
-
-
-
-
-# names(v_freq_entry) <- gsub(pattern = "V",replacement="at_entry_", x = names(v_freq_entry) )
-
-v_freq <- dplyr::bind_cols(v_freq_ever, v_freq_entry) %>%
-  dplyr::mutate(indicator = c("value","frequency")) %>%
-  dplyr::select(indicator, dplyr::everything())
-v_freq
-
-
-ds_wide %>%
-  dplyr::group_by(dementia_ever, dementia_entry) %>%
-  dplyr::summarize(variance = var(mirnaming_01,na.rm=T))
-
-
-
-ds_wide %>%
-  dplyr::filter(male == 0) %>%
-  dplyr::filter( dementia_ever==0 ) %>%
-  dplyr::select(Case,mirnaming_01) %>%
-    dplyr::summarize(var = var(mirnaming_01,na.rm=T))
-var(ds_wide$mirnaming_01,na.rm=T)
-ds_wide$dementia_ever
+  dplyr::count() %>% kable()
 
 d <- ds_wide %>%
-  dplyr::filter(dementia_ever == 0) %>%
-  dplyr::select(Case, mirnaming_01)
-#View(d)
+  # dplyr::select(Case, PairID, DemEver,YTDem)
+  dplyr::select(Case, PairID, DemEver,YTDem, dementia_entry, dementia_ever)
+View(d)
 
 # ---- prepare-for-mplus ---------------------
 ds_wide %>% dplyr::glimpse()
