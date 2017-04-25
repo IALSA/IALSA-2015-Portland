@@ -81,7 +81,7 @@ grab_freq <- function(
   v_freq <- dplyr::bind_rows(ls_freq, .id = "subgroup") %>%
     as.data.frame()
 
-  v_freq[is.na(v_freq)] <- "."
+  # v_freq[is.na(v_freq)] <- "."
   v_freq <- v_freq %>%
     dplyr::mutate( measure = varname) %>%
     dplyr::select(measure, dplyr::everything())
@@ -95,18 +95,50 @@ grab_freq <- function(
 # grab_freq(ds_wide, "mirnaming_04")
 # grab_freq(ds_wide, "mirnaming_05")
 
+
+# ---- compile-data-object -----------------------
+library(dplyr)
+# view number of unique values for each variable
+ds_wide %>% summarize_all(n_distinct) %>% t()
+# create a list of variables to be avoided in frequency analysis
+drop_these_variables <- c(
+   paste0("pef","_",paste0("0",1:5))
+  ,paste0("grip","_",paste0("0",1:5))
+  ,paste0("gait","_",paste0("0",1:5))
+)
+
 # print frequency of each value
-loop_of_variables <- varnames_cognitive_new
+loop_of_variables <- varnames_cognitive_new %>% setdiff(drop_these_variables)
+# loop_of_variables <- loop_of_variables[6:10]
 # loop_of_variables <- varnames_cognitive
+ls_temp <- list()
+
 for(i in loop_of_variables ){
-  cat("\n")
-  # cat("\n", toupper(i))
-  # cat("\n")
-  grab_freq(ds_wide, i ) %>% print()
-  # cat("\n")
+  ls_temp[[i]] <- grab_freq(ds_wide, i )
 }
 
+ds_wide <- ls_temp %>%
+  dplyr::bind_rows() %>%
+  tibble::as_tibble() %>%
+  dplyr::mutate(
+     wave = as.integer(gsub("^(\\w+)_(\\d+)$", "\\2", measure))
+    ,measure = gsub("^(\\w+)_(\\d+)$", "\\1", measure)
+  ) %>%
+  dplyr::select(measure, wave, subgroup, dplyr::everything())
 
+dynamic_variables <- grep("value_",colnames(ds_wide),value=T)
+static_variables  <- colnames(ds_wide) %>% setdiff(dynamic_variables)
+
+ds_long <- ds_wide %>%
+  tidyr::gather_( "value", "n",dynamic_variables) %>%
+  dplyr::mutate(
+    value = as.integer(gsub("^value_","", value)),
+    n = as.integer(n)
+  )
+ds_long
+
+# ---- inspect-frequency ---------------------------
+d <- ds_long
 
 #### Dev code after here
 # ---- dev --------------
