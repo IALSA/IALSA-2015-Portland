@@ -190,10 +190,10 @@ ds_wide %>%
   dplyr::group_by(dementia_entry, dementia_ever) %>%
   dplyr::count() %>% kable()
 
-d <- ds_wide %>%
-  # dplyr::select(Case, PairID, DemEver,YTDem)
-  dplyr::select(Case, PairID, DemEver,YTDem, dementia_entry, dementia_ever)
-View(d)
+ds_wide %>%
+  dplyr::select(Case, PairID, YTDem, dementia_entry, dementia_ever) %>%
+  DT::datatable()
+
 
 # ---- prepare-for-mplus ---------------------
 ds_wide %>% dplyr::glimpse()
