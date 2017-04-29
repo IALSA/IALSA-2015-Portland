@@ -101,21 +101,24 @@ ls_model_type <- list(
 # Use the first example as the template for further pairs
 
 wave_set_modeled <-  c(1,2,3,4,5)
+folder_output      = "./output/studies/octo/dem-criteria/"
 
-# Chose one option from the two
 
-# Option 1: those who NEVER had dementia
-subset_condition_1 <- "dementia_ever == 0"
-folder_output      = "./output/studies/octo/dem-criteria/dem_ever_0"
-
-# Option 2: those who NEVER had dementia + those who developed it after entry
-# subset_condition_1 <- "dementia_entry == 0"
-# folder_output      = "./output/studies/octo/dem_ever_1_dem_entry_0"
-
+# ---- define-conditions ------------------------------
+# | dementia_entry| dementia_ever|   n|
+# |--------------:|-------------:|---:|
+# |              0|             0| 477|
+# |              0|             1| 126|
+# |              1|             1|  98|
+# |             NA|             1|   1|
+comparison_conditions <- c(
+  "dementia_ever == 0",
+  "dementia_entry == 0",
+  "dementia_entry == 0 OR dementia_entry == 1"
+)
+names(comparison_conditions) <- c("dem_ever_0", "dem_entry_0","all")
 folder_data        = "./data/unshared/derived/octo-2"
 path_prototype     = "./manipulation/estimation/octo/prototype-wide-octo.inp"
-# folder_data        = "./data/unshared/derived/map"
-# folder_output      = "./output/studies/map/phys-cog/pulmonary"
 
 # single model
 # mplus_generator_bivariate(
@@ -133,30 +136,35 @@ path_prototype     = "./manipulation/estimation/octo/prototype-wide-octo.inp"
 # )
 
 # loop over conditions
-for(phys_measure in "pef"){
-# for(phys_measure in varnames_physical){
-  for(cog_measure in "block"){
-  # for(cog_measure in varnames_cognitive){
-    for(subgroup in names(ls_subgroup)){
-      for(model_type in names(ls_model_type)){
-        mplus_generator_bivariate(
-          model_number        = "b1"
-          ,subgroup           = subgroup
-          ,model_type         = model_type
-          ,process_a          = phys_measure# item name of process (A), goes into file name
-          ,process_b          = cog_measure# item name of process (B), goes into file name
-          ,wave_set_modeled   = wave_set_modeled
-          ,subset_condition_1 = subset_condition_1 # subset data to member of this group
-          ,path_prototype     = path_prototype
-          ,folder_data        = folder_data
-          ,folder_output      = folder_output
-          ,run_models         = TRUE # If TRUE then Mplus runs estimation to produce .out, .gh5, and/or, other files
-        )
+for(cc in seq_along(comparison_conditions) ){
+  subset_condition_1      <- comparison_conditions[[cc]]
+  folder_output_condition <- paste0(folder_output, names(comparison_conditions)[[cc]],"/")
+  # for(phys_measure in "pef"){
+  for(phys_measure in varnames_physical){
+    # for(cog_measure in "block"){
+    for(cog_measure in varnames_cognitive){
+      for(subgroup in names(ls_subgroup)){
+        for(model_type in names(ls_model_type)){
+          mplus_generator_bivariate(
+            model_number        = "b1"
+            ,subgroup           = subgroup
+            # ,subgroup           = "male"
+            ,model_type         = model_type
+            # ,model_type         = "a"
+            ,process_a          = phys_measure# item name of process (A), goes into file name
+            ,process_b          = cog_measure# item name of process (B), goes into file name
+            ,wave_set_modeled   = wave_set_modeled
+            ,subset_condition_1 = subset_condition_1 # subset data to member of this group
+            ,path_prototype     = path_prototype
+            ,folder_data        = folder_data
+            ,folder_output      = folder_output_condition
+            ,run_models         = TRUE # If TRUE then Mplus runs estimation to produce .out, .gh5, and/or, other files
+          )
+        }
       }
     }
   }
 }
-
 
 
 # ---- examine-created-output ----------------

@@ -17,7 +17,7 @@ requireNamespace("tidyr")
 
 
 # ---- declare-globals ---------------------------------------------------------
-path_folder <- "./output/studies/octo/dem-criteria/dem_ever_0/"
+path_folder <- "./output/studies/octo/dem-criteria/"
 path_stencil      <- "./data/shared/stencils/table-stencil-octo.csv"
 
 # path_newc_out   <- "./manipulation/estimation/newcastle/newcastle-mmse-k-2.out"
@@ -41,34 +41,27 @@ for(i in seq_along(path)){
   # i <- 1
   model_name <- gsub(".out$","",basename(path[i]))
   model_result <- MplusAutomation::readModels(path[i])
+  ls_temp <- list(
+    "model_number" =  gsub(regex_1, "\\1", model_name),
+    "subgroup"     =  gsub(regex_1, "\\2", model_name),
+    "model_type"   =  gsub(regex_1, "\\3", model_name),
+    "process_a"      =  gsub(regex_1, "\\4", model_name),
+    "process_b"      =  gsub(regex_1, "\\5", model_name)
+  )
   if(length(model_result$errors)==0L){
-     ls_temp <- list(
-      "model_number" =  gsub(regex_1, "\\1", model_name),
-      "subgroup"     =  gsub(regex_1, "\\2", model_name),
-      "model_type"   =  gsub(regex_1, "\\3", model_name),
-      "process_a"      =  gsub(regex_1, "\\4", model_name),
-      "process_b"      =  gsub(regex_1, "\\5", model_name),
-      "table"        =  get_estimate_table(model_result, stencil),
-      "N"            = model_result$summaries$Observations,
-      "parameters"   = model_result$summaries$Parameters,
-      "AIC"          = model_result$summaries$AIC,
-      "BIC"          = model_result$summaries$BIC,
-      "path"         =  path[i]
-    )
+      ls_temp[["table"]]      = get_estimate_table(model_result, stencil)
+      ls_temp[["N"]]          = model_result$summaries$Observations
+      ls_temp[["parameters"]] = model_result$summaries$Parameters
+      ls_temp[["AIC"]]        = model_result$summaries$AIC
+      ls_temp[["BIC"]]        = model_result$summaries$BIC
+      ls_temp[["path"]]       = path[i]
   } else{
-    ls_temp <- list(
-      "model_number" = gsub(regex_1, "\\1", model_name),
-      "subgroup"     = gsub(regex_1, "\\2", model_name),
-      "model_type"   = gsub(regex_1, "\\3", model_name),
-      "process_a"      = gsub(regex_1, "\\4", model_name),
-      "process_b"      = gsub(regex_1, "\\5", model_name),
-      "table"        = NA,
-      "N"            = NA,
-      "parameters"   = NA,
-      "AIC"          = NA,
-      "BIC"          = NA,
-      "path"         = NA
-    )
+    ls_temp[["table"]]        = NA
+    ls_temp[["N"]]            = NA
+    ls_temp[["parameters"]]   = NA
+    ls_temp[["AIC"]]          = NA
+    ls_temp[["BIC"]]          = NA
+    ls_temp[["path"]]         = NA
   }
    ls_catalog[[model_name]] <- ls_temp
 }
@@ -76,7 +69,7 @@ for(i in seq_along(path)){
 names(ls_catalog)
 ls_catalog$b1_female_a_pef_block
 ls_catalog$b1_female_a_pef_block$table
-# saveRDS(ls_catalog,"./data/shared/derived/ls_catalog.rds")
+saveRDS(ls_catalog,"./data/shared/derived/ls_catalog_dem_criteria.rds")
 # ls_catalog <- readRDS("./data/shared/derived/ls_catalog.rds")
 # At this point the  ls_catalog, which is a list with each element
 # containing the indices of model solution. One element = one model.
