@@ -1,1 +1,0 @@
-The files in this folder contain models that became obsolete with new versions of these files uploaded.
