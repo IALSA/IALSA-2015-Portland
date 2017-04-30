@@ -83,3 +83,5 @@ README.html
 *.ini
 libs/literature/replication/2015-Maxwell-Lau-Howard.pdf
 studies-2017-04-24.rar
+data/shared/derived/ls_catalog.rds
+data/shared/derived/ls_catalog_dem_criteria.rds
