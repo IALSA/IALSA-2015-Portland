@@ -350,5 +350,6 @@ temp <- ds_spread
 # readr::write_csv(ds_spread, "./data/shared/derived/catalog-5.csv")
 saveRDS(         ds_spread, path_output)
 
-# readr::write_csv(ds_spread, "./data/shared/derived/pp-spread.csv")
-# saveRDS(         ds_spread, "./data/shared/derived/pp-spread.rds")
+readr::write_csv(ds_spread, "./data/shared/derived/dementia-filter-catalog-spread.csv")
+readr::write_csv(ds_full, "./data/shared/derived/dementia-filter-catalog.csv")
+

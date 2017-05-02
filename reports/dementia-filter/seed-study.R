@@ -26,15 +26,19 @@ model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type l
 
 
 # ---- load-data ---------------------------------------------------------------
-catalog <- read.csv("./data/shared/pc-2-catalog-augmented.csv", header = T,  stringsAsFactors=FALSE)
-catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds")
+# ls_catalog <- readRDS("./data/shared/derived/ls_catalog_dem_criteria.rds")
+catalog        <- readRDS("./data/shared/derived/dem-criteria/catalog-4.rds")
+catalog_spread <- readRDS("./data/shared/derived/dem-criteria/catalog-5.rds")
+
+# catalog <- read.csv("./data/shared/pc-2-catalog-augmented.csv", header = T,  stringsAsFactors=FALSE)
+# catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds")
 # template for structuring tables for reporting individual models
 # stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v7.csv")
 stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v10.csv")
 
 # ---- explorations -------------------------------------------
 catalog_spread %>% view_options(
-  study_name_ ="nas"
+  study_name_ ="octo"
   ,full_id     = T
   # ,subgroups   = c("female")
   ,model_types = c("aehplus")
@@ -42,6 +46,18 @@ catalog_spread %>% view_options(
   # ,processes_b = "symbol"
 )
 
+
+
+
+# ---- subset-condition -----------------------
+# selected_condition <- "dem_ever_0"
+# selected_condition <- "dem_entry_0"
+# selected_condition <- "all"
+catalog <- catalog %>%
+  dplyr::filter(condition == selected_condition)
+
+catalog_spread <- catalog_spread %>%
+  dplyr::filter(condition == selected_condition)
 
 # ---- print-functions -----------------
 
@@ -207,72 +223,57 @@ print_body_gender <- function(
 }
 
 
-# ---- eas ---------------------------------------------------------
-study <- 'eas'
-outcome <- "pef"
-
-print_header(catalog_spread)
-print_body(catalog_spread, catalog)
-
-# elsa has only "aehplus" form
-# ---- elsa ---------------------------------------------------------
-study <- 'elsa'
-# outcome <- "fev100"
-outcome <- "fev"
-
-print_header(catalog_spread)
-print_body(catalog_spread, catalog)
-
-# ---- hrs ---------------------------------------------------------
-study <- 'hrs'
-outcome <- "pef"
-
-print_header(catalog_spread)
-print_body(catalog_spread, catalog)
 
 # ---- octo ---------------------------------------------------------
 study <- 'octo'
-outcome <- "pef"
+# outcome <- "pef"
+outcome <- "grip"
+# outcome <- "gait"
 
 print_header(catalog_spread)
 print_body(catalog_spread, catalog)
-
-
-# lasa has only "aehplus" form
-# ---- lasa ---------------------------------------------------------
-study <- 'lasa'
-outcome <- "pef"
-
-print_header(catalog_spread)
-print_body(catalog_spread, catalog)
-
-
-# ---- map ---------------------------------------------------------
-study <- 'map'
-outcome <- "fev"
-
-print_header(catalog_spread)
-print_body(catalog_spread, catalog)
-
-# ---- nas ---------------------------------------------------------
-study <- 'nas'
-outcome <- "fev"
-
-print_header(catalog_spread)
-print_body_gender(catalog_spread, catalog, "male")
-
-# ---- satsa ---------------------------------------------------------
-study <- 'satsa'
-outcome <- "fev"
-
-print_header(catalog_spread)
-print_body(catalog_spread, catalog)
-
-
 
 # ---- session-info ---------------------
 cat("\n#Session Info")
 sessionInfo()
+
+# ---- publish --------------
+# WORD reports
+# path_report_1 <- "./reports/dementia-filter/pulmonary-dem_ever_0.Rmd"
+# path_report_2 <- "./reports/dementia-filter/pulmonary-dem_entry_0.Rmd"
+# path_report_3 <- "./reports/dementia-filter/pulmonary-all.Rmd"
+
+path_report_1 <- "./reports/dementia-filter/grip-dem_ever_0.Rmd"
+path_report_2 <- "./reports/dementia-filter/grip-dem_entry_0.Rmd"
+path_report_3 <- "./reports/dementia-filter/grip-all.Rmd"
+
+# path_report_1 <- "./reports/dementia-filter/gait-dem_ever_0.Rmd"
+# path_report_2 <- "./reports/dementia-filter/gait-dem_entry_0.Rmd"
+# path_report_3 <- "./reports/dementia-filter/gait-all.Rmd"
+
+# allReports <- c(path_pulmonary_1)
+# allReports <- c(path_pulmonary_2)
+# allReports <- c(path_pulmonary_3)
+allReports <- c(path_report_1, path_report_2, path_report_3)
+
+# allReports <- c(path_pulmonary_focus, path_pulmonary_full,
+#                 path_gait_focus, path_gait_full,
+#                 path_grip_focus, path_grip_full)
+
+pathFilesToBuild <- c(allReports)
+testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesToBuild))
+# Build the reports
+for( pathFile in pathFilesToBuild ) {
+
+  rmarkdown::render(input = pathFile,
+                    output_format=c(
+                      # "html_document" # set print_format <- "html" in seed-study.R
+                      # "pdf_document"
+                      # ,"md_document"
+                      "word_document" # set print_format <- "pandoc" in seed-study.R
+                    ),
+                    clean=TRUE)
+}
 
 
 
