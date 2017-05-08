@@ -17,13 +17,19 @@ add_extension <- function(folder, ext, fire=FALSE){
   path_old <- names_full[num_key]
   path_new <- paste0(path_old,ext)
   #
-  # print(without_extension)
+  print(without_extension)
   #
   if(fire){
     file.rename(from = path_old, to = path_new)
   }
 
 }
-folder <- "./studies/eas/physical/"
-add_extension(folder,".dat", fire=F)
+# Usage
+# folder <- "./studies/eas/physical/"
+# add_extension(folder,".dat", fire=F)
+# add_extension(folder,".dat", fire=T)
+
+
+# ---- add-extension ---------------------
+folder <- "./studies/eas"
 add_extension(folder,".dat", fire=T)
