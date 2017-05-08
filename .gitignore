@@ -39,6 +39,7 @@ cache/
 */unshared/*
 */*/unshared/*
 */*/*/unshared/*
+*/*/*/*/unshared/*
 
 output/studies/map/phys-cog/*
 output/studies/octo/phys-cog/*
@@ -62,22 +63,7 @@ data/unshared
 
 
 # Prevent possible data in outputs
-studies/*/*
-studies/*/*/*
-studies/*/*/*/*
-studies/*/*/*/*/*
-studies/*/*/*/*/*/*
-studies/*/*/*/*/*/*/*
 
-
-!studies/Descriptives/*
-!studies/descriptives/*
-!studies/*/*.out
-!studies/*/*/*.out
-!studies/*/*/*/*.out
-!studies/*/*/*/*/*.out
-!studies/*/*/*/*/*/*.out
-!studies/*/*/*/*/*/*/*.out
 
 # Dataset Exceptions
 !UtilityScripts/PackageDependencyList.csv
@@ -90,6 +76,10 @@ README.html
 
 ## Mplus dgm files
 *.dgm
+*.gh5
+*.dat
+*.inp
+
 ## mplus automation log
 *Models.log
 
