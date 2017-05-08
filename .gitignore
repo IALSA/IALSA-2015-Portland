@@ -60,6 +60,25 @@ reports/anatomy-physical/*/*/*.png
 
 data/unshared
 
+
+# Prevent possible data in outputs
+studies/*/*
+studies/*/*/*
+studies/*/*/*/*
+studies/*/*/*/*/*
+studies/*/*/*/*/*/*
+studies/*/*/*/*/*/*/*
+
+
+!studies/Descriptives/*
+!studies/descriptives/*
+!studies/*/*.out
+!studies/*/*/*.out
+!studies/*/*/*/*.out
+!studies/*/*/*/*/*.out
+!studies/*/*/*/*/*/*.out
+!studies/*/*/*/*/*/*/*.out
+
 # Dataset Exceptions
 !UtilityScripts/PackageDependencyList.csv
 
