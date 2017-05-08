@@ -1,0 +1,283 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+10/19/2015   2:33 PM
+
+INPUT INSTRUCTIONS
+
+   TITLE: TUG, Empty Model, Female
+
+
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 19.10.dat;
+
+  VARIABLE: Names are
+  T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center
+  t1beer t1wine t1k t1pc t1vf
+      t1sa t1spf t2dss t2bd t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc t3vf
+      t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3height t3weight
+      time1 time2r time3r time3 time2 T1HAVIR1 T1HAVIL1
+      T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2 T2HAVIL1
+      T2HAVIL2 T3HAVIR1x T3HAVIR2x T3HAVIL1x T3HAVIL2x
+      t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH Educ element
+      Haupt second others Smoker Educnew heartdis;
+
+           MISSING are ALL(-9999);
+           USEVAR are  time1 time2 time3 Educnew
+                       p1 p2 p3
+                       Bage height;
+           TSCORES =   time1 time2 time3;
+
+           USEOBSERVATIONS are sex EQ 1;
+
+    Define: p1=t1tug; p2=t2tug; p3=t3tug;
+
+            Bage=t1age-70;   !Centered at Age 70
+            Bagesq=(t1age-70)**2;
+           height=t1height-160; !centered for female
+
+  ANALYSIS: TYPE = RANDOM;
+  Estimator=MLF;
+
+
+  MODEL:    ip sp | p1-p3 AT time1-time3;
+
+
+          ip sp ON Bage height Educnew;
+
+
+          p1-p3 (res_p);
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  14
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  11
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+TUG, Empty Model, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         215
+
+Number of dependent variables                                    3
+Number of independent variables                                  3
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3
+
+Observed independent variables
+   EDUCNEW     BAGE        HEIGHT
+
+Continuous latent variables
+   IP          SP
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLF
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Besitzer\Desktop\ilse 19.10.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             7
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            EDUCNEW       BAGE
+              ________      ________      ________      ________      ________
+ P1             0.488
+ P2             0.423         0.930
+ P3             0.237         0.474         0.484
+ EDUCNEW        0.488         0.930         0.484         1.000
+ BAGE           0.488         0.930         0.484         1.000         1.000
+ HEIGHT         0.488         0.930         0.484         1.000         1.000
+
+
+           Covariance Coverage
+              HEIGHT
+              ________
+ HEIGHT         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            EDUCNEW       BAGE
+              ________      ________      ________      ________      ________
+ 1              6.088         6.465         8.340         0.353        -7.029
+
+
+           Means
+              HEIGHT
+              ________
+ 1              2.065
+
+
+           Covariances
+              P1            P2            P3            EDUCNEW       BAGE
+              ________      ________      ________      ________      ________
+ P1             1.642
+ P2             1.475         3.944
+ P3             0.626         0.927         2.180
+ EDUCNEW       -0.096        -0.088         0.022         0.229
+ BAGE          -0.039        -0.201        -0.004        -0.004         0.835
+ HEIGHT         0.100        -0.344         0.287         0.437         0.141
+
+
+           Covariances
+              HEIGHT
+              ________
+ HEIGHT        40.396
+
+
+           Correlations
+              P1            P2            P3            EDUCNEW       BAGE
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.580         1.000
+ P3             0.331         0.316         1.000
+ EDUCNEW       -0.157        -0.093         0.032         1.000
+ BAGE          -0.033        -0.111        -0.003        -0.010         1.000
+ HEIGHT         0.012        -0.027         0.031         0.144         0.024
+
+
+           Correlations
+              HEIGHT
+              ________
+ HEIGHT         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -1887.855
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       12
+
+Loglikelihood
+
+          H0 Value                        -781.265
+
+Information Criteria
+
+          Akaike (AIC)                    1586.529
+          Bayesian (BIC)                  1626.977
+          Sample-Size Adjusted BIC        1588.951
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    BAGE              -0.158      0.193     -0.819      0.413
+    HEIGHT             0.002      0.025      0.069      0.945
+    EDUCNEW           -0.551      0.346     -1.592      0.111
+
+ SP         ON
+    BAGE               0.007      0.022      0.304      0.761
+    HEIGHT             0.000      0.003      0.085      0.933
+    EDUCNEW            0.053      0.051      1.030      0.303
+
+ SP       WITH
+    IP                -0.029      0.061     -0.478      0.633
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    IP                 4.923      1.380      3.567      0.000
+    SP                 0.233      0.159      1.465      0.143
+
+ Residual Variances
+    P1                 1.783      0.243      7.348      0.000
+    P2                 1.783      0.243      7.348      0.000
+    P3                 1.783      0.243      7.348      0.000
+    IP                 1.347      0.548      2.458      0.014
+    SP                 0.001      0.009      0.155      0.877
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.800E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\tug\u1_female_aeh_t
+
+     Beginning Time:  14:33:07
+        Ending Time:  14:33:10
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

@@ -1,0 +1,612 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+10/30/2015  11:55 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Handgrip, Timed Up and Go, AEHplus, Male
+
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 19.10.dat;
+
+  VARIABLE: Names are
+  T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center
+  t1beer t1wine t1k t1pc t1vf
+      t1sa t1spf t2dss t2bd t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc t3vf
+      t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3height t3weight
+      time1 time2r time3r time3 time2 T1HAVIR1 T1HAVIL1
+      T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2 T2HAVIL1
+      T2HAVIL2 T3HAVIR1x T3HAVIR2x T3HAVIL1x T3HAVIL2x
+      t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH Educ element
+      Haupt second others Smoker Educnew heartdis;
+
+
+         MISSING are ALL(-9999);
+         USEVAR are time1 time2 time3 Educnew heartdis Smoker
+                     p1 p2 p3 c1 c2 c3
+                     Bage height;
+         TSCORES = time1 time2 time3;
+
+
+         USEOBSERVATIONS are sex EQ 0;
+
+  Define: p1=t1hg; p2=t2hg; p3=t3hg;
+          c1=t1tug; c2=t2tug; c3=t3tug;
+
+          Bage=t1age-70;   !Centered at Age 70
+          Bagesq=(t1age-70)**2;
+          height=t1height-172; !centered for male
+
+  ANALYSIS: TYPE = RANDOM; Estimator=MLF; COVERAGE = .05;
+
+  MODEL:  ip sp | p1-p3 AT time1-time3;
+          ic sc | c1-c3 AT time1-time3;
+
+       ip (v_ip);
+            sp (v_sp);
+            ic (v_ic);
+            sc (v_sc);
+            ip WITH sp (c_ipsp);
+            ip WITH ic (c_ipic);
+            ip WITH sc (c_ipsc);
+            sp WITH ic (c_spic);
+            sp WITH sc (c_spsc);
+            ic WITH sc (c_icsc);
+
+
+
+          ip sp ic sc ON Educnew heartdis Smoker Bage height;
+
+          p1-p3 (res_p);
+          c1-c3 (res_c);
+          p1-p3 pwith c1-c3(res_cov); !Paired covariances constrained to be equal
+
+    MODEL CONSTRAINT:
+
+            NEW r_ipic; !assigns labels to new parameters;
+            NEW r_spsc;
+            NEW r_res_pc;
+
+            r_ipic = c_ipic/((v_ip**0.5)*(v_ic**0.5));
+            r_spsc = c_spsc/((v_sp**0.5)*(v_sc**0.5));
+            r_res_pc = res_cov/((res_p**0.5)*(res_c**0.5));
+
+  SAVEDATA:
+
+  FILE IS   LASAfSlopes;
+
+  SAVE = FSCORES;
+
+  PLOT:
+
+   TYPE IS PLOT3;
+
+    OUTPUT: sampstat Cinterval;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  8
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Handgrip, Timed Up and Go, AEHplus, Male
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         252
+
+Number of dependent variables                                    6
+Number of independent variables                                  5
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          C1          C2          C3
+
+Observed independent variables
+   EDUCNEW     HEARTDIS    SMOKER      BAGE        HEIGHT
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLF
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Besitzer\Desktop\ilse 19.10.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            18
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.050
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             0.960
+ P2             0.853         0.889
+ P3             0.310         0.317         0.321
+ C1             0.456         0.421         0.083         0.472
+ C2             0.841         0.873         0.317         0.413         0.881
+ C3             0.444         0.452         0.278         0.210         0.444
+ EDUCNEW        0.960         0.889         0.321         0.472         0.881
+ HEARTDIS       0.960         0.889         0.321         0.472         0.881
+ SMOKER         0.960         0.889         0.321         0.472         0.881
+ BAGE           0.960         0.889         0.321         0.472         0.881
+ HEIGHT         0.960         0.889         0.321         0.472         0.881
+
+
+           Covariance Coverage
+              C3            EDUCNEW       HEARTDIS      SMOKER        BAGE
+              ________      ________      ________      ________      ________
+ C3             0.456
+ EDUCNEW        0.456         1.000
+ HEARTDIS       0.456         1.000         1.000
+ SMOKER         0.456         1.000         1.000         1.000
+ BAGE           0.456         1.000         1.000         1.000         1.000
+ HEIGHT         0.456         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              HEIGHT
+              ________
+ HEIGHT         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ 1             85.178        81.925        64.488         5.636         5.677
+
+
+           Means
+              C3            EDUCNEW       HEARTDIS      SMOKER        BAGE
+              ________      ________      ________      ________      ________
+ 1              8.029         0.405         0.298         0.734        -7.016
+
+
+           Means
+              HEIGHT
+              ________
+ 1              2.095
+
+
+           Covariances
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1           651.722
+ P2           237.097       296.917
+ P3           158.684       156.889       183.361
+ C1            -2.553        -4.703         1.110         1.568
+ C2            -1.048        -7.013         0.707         0.462         2.344
+ C3           -11.937        -8.491        -5.947         0.910         0.414
+ EDUCNEW        0.632         0.933         0.464        -0.060        -0.045
+ HEARTDIS      -0.665        -0.446         0.641         0.102         0.111
+ SMOKER        -0.961         0.177         0.211        -0.032         0.024
+ BAGE           0.778        -0.136         0.980         0.070        -0.047
+ HEIGHT        26.507        25.914         3.745        -1.144        -1.728
+
+
+           Covariances
+              C3            EDUCNEW       HEARTDIS      SMOKER        BAGE
+              ________      ________      ________      ________      ________
+ C3             2.614
+ EDUCNEW       -0.024         0.241
+ HEARTDIS       0.141        -0.005         0.209
+ SMOKER        -0.017         0.004         0.016         0.195
+ BAGE           0.033        -0.030         0.024         0.012         0.823
+ HEIGHT        -1.122         0.955        -0.342        -0.114        -0.411
+
+
+           Covariances
+              HEIGHT
+              ________
+ HEIGHT        44.939
+
+
+           Correlations
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.539         1.000
+ P3             0.459         0.672         1.000
+ C1            -0.080        -0.218         0.065         1.000
+ C2            -0.027        -0.266         0.034         0.241         1.000
+ C3            -0.289        -0.305        -0.272         0.449         0.167
+ EDUCNEW        0.050         0.110         0.070        -0.098        -0.060
+ HEARTDIS      -0.057        -0.057         0.103         0.178         0.159
+ SMOKER        -0.085         0.023         0.035        -0.058         0.035
+ BAGE           0.034        -0.009         0.080         0.061        -0.034
+ HEIGHT         0.155         0.224         0.041        -0.136        -0.168
+
+
+           Correlations
+              C3            EDUCNEW       HEARTDIS      SMOKER        BAGE
+              ________      ________      ________      ________      ________
+ C3             1.000
+ EDUCNEW       -0.031         1.000
+ HEARTDIS       0.191        -0.024         1.000
+ SMOKER        -0.024         0.020         0.077         1.000
+ BAGE           0.023        -0.067         0.058         0.030         1.000
+ HEIGHT        -0.104         0.290        -0.112        -0.038        -0.068
+
+
+           Correlations
+              HEIGHT
+              ________
+ HEIGHT         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -4763.811
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       37
+
+Loglikelihood
+
+          H0 Value                       -3179.273
+
+Information Criteria
+
+          Akaike (AIC)                    6432.546
+          Bayesian (BIC)                  6563.135
+          Sample-Size Adjusted BIC        6445.840
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    EDUCNEW            0.743      3.496      0.212      0.832
+    HEARTDIS          -2.654      3.880     -0.684      0.494
+    SMOKER            -3.239      3.711     -0.873      0.383
+    BAGE               0.887      1.633      0.543      0.587
+    HEIGHT             0.644      0.259      2.487      0.013
+
+ SP         ON
+    EDUCNEW            0.125      0.482      0.259      0.796
+    HEARTDIS           0.584      0.482      1.211      0.226
+    SMOKER             0.580      0.466      1.245      0.213
+    BAGE              -0.041      0.203     -0.204      0.838
+    HEIGHT            -0.048      0.034     -1.430      0.153
+
+ IC         ON
+    EDUCNEW           -0.191      0.249     -0.768      0.443
+    HEARTDIS           0.418      0.258      1.617      0.106
+    SMOKER             0.128      0.311      0.413      0.679
+    BAGE              -0.060      0.159     -0.376      0.707
+    HEIGHT            -0.019      0.021     -0.935      0.350
+
+ SC         ON
+    EDUCNEW            0.024      0.043      0.566      0.571
+    HEARTDIS           0.016      0.044      0.356      0.722
+    SMOKER            -0.029      0.047     -0.633      0.527
+    BAGE               0.004      0.024      0.183      0.855
+    HEIGHT             0.000      0.003     -0.143      0.886
+
+ IP       WITH
+    SP               -22.598      6.436     -3.511      0.000
+    IC                 2.923      3.483      0.839      0.401
+    SC                -1.118      0.571     -1.958      0.050
+
+ SP       WITH
+    IC                -0.144      0.492     -0.293      0.770
+    SC                 0.074      0.076      0.978      0.328
+
+ IC       WITH
+    SC                -0.013      0.051     -0.258      0.796
+
+ P1       WITH
+    C1                -4.962      1.945     -2.551      0.011
+
+ P2       WITH
+    C2                -4.962      1.945     -2.551      0.011
+
+ P3       WITH
+    C3                -4.962      1.945     -2.551      0.011
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    IP                94.387     12.564      7.512      0.000
+    SP                -2.600      1.521     -1.709      0.087
+    IC                 4.630      1.127      4.108      0.000
+    SC                 0.263      0.179      1.463      0.144
+
+ Residual Variances
+    P1               174.830     16.903     10.343      0.000
+    P2               174.830     16.903     10.343      0.000
+    P3               174.830     16.903     10.343      0.000
+    C1                 1.854      0.257      7.203      0.000
+    C2                 1.854      0.257      7.203      0.000
+    C3                 1.854      0.257      7.203      0.000
+    IP               361.886     51.817      6.984      0.000
+    SP                 1.496      1.010      1.481      0.139
+    IC                 0.283      0.416      0.680      0.497
+    SC                 0.005      0.008      0.660      0.509
+
+ New/Additional Parameters
+    R_IPIC             0.289      0.435      0.665      0.506
+    R_SPSC             0.837      1.238      0.676      0.499
+    R_RES_PC          -0.276      0.101     -2.724      0.006
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.166E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ IP       ON
+    EDUCNEW         -8.262      -6.109      -5.008       0.743       6.494       7.595       9.748
+    HEARTDIS       -12.648     -10.258      -9.036      -2.654       3.728       4.951       7.340
+    SMOKER         -12.797     -10.512      -9.343      -3.239       2.865       4.034       6.319
+    BAGE            -3.320      -2.314      -1.800       0.887       3.573       4.087       5.093
+    HEIGHT          -0.023       0.137       0.218       0.644       1.071       1.152       1.312
+
+ SP       ON
+    EDUCNEW         -1.118      -0.820      -0.669       0.125       0.918       1.070       1.367
+    HEARTDIS        -0.658      -0.361      -0.209       0.584       1.376       1.528       1.825
+    SMOKER          -0.620      -0.333      -0.186       0.580       1.347       1.494       1.781
+    BAGE            -0.564      -0.439      -0.375      -0.041       0.293       0.357       0.482
+    HEIGHT          -0.135      -0.114      -0.104      -0.048       0.007       0.018       0.039
+
+ IC       ON
+    EDUCNEW         -0.831      -0.678      -0.600      -0.191       0.218       0.296       0.449
+    HEARTDIS        -0.248      -0.089      -0.007       0.418       0.843       0.924       1.084
+    SMOKER          -0.672      -0.480      -0.383       0.128       0.639       0.737       0.928
+    BAGE            -0.470      -0.372      -0.322      -0.060       0.202       0.252       0.350
+    HEIGHT          -0.073      -0.060      -0.053      -0.019       0.015       0.021       0.034
+
+ SC       ON
+    EDUCNEW         -0.086      -0.059      -0.046       0.024       0.094       0.108       0.134
+    HEARTDIS        -0.098      -0.071      -0.057       0.016       0.088       0.102       0.129
+    SMOKER          -0.149      -0.121      -0.106      -0.029       0.047       0.062       0.091
+    BAGE            -0.058      -0.043      -0.035       0.004       0.044       0.052       0.066
+    HEIGHT          -0.009      -0.007      -0.006       0.000       0.005       0.006       0.008
+
+ IP       WITH
+    SP             -39.175     -35.212     -33.185     -22.598     -12.012      -9.984      -6.021
+    IC              -6.047      -3.902      -2.805       2.923       8.652       9.749      11.894
+    SC              -2.589      -2.238      -2.058      -1.118      -0.179       0.001       0.353
+
+ SP       WITH
+    IC              -1.410      -1.107      -0.952      -0.144       0.665       0.820       1.122
+    SC              -0.121      -0.074      -0.050       0.074       0.198       0.222       0.269
+
+ IC       WITH
+    SC              -0.143      -0.112      -0.096      -0.013       0.070       0.086       0.117
+
+ P1       WITH
+    C1              -9.973      -8.775      -8.162      -4.962      -1.763      -1.150       0.048
+
+ P2       WITH
+    C2              -9.973      -8.775      -8.162      -4.962      -1.763      -1.150       0.048
+
+ P3       WITH
+    C3              -9.973      -8.775      -8.162      -4.962      -1.763      -1.150       0.048
+
+ Intercepts
+    P1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    P3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C1               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C2               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    C3               0.000       0.000       0.000       0.000       0.000       0.000       0.000
+    IP              62.023      69.761      73.718      94.387     115.056     119.013     126.751
+    SP              -6.519      -5.582      -5.103      -2.600      -0.097       0.382       1.319
+    IC               1.727       2.421       2.776       4.630       6.484       6.839       7.534
+    SC              -0.200      -0.089      -0.033       0.263       0.558       0.614       0.725
+
+ Residual Variances
+    P1             131.292     141.700     147.025     174.830     202.636     207.960     218.369
+    P2             131.292     141.700     147.025     174.830     202.636     207.960     218.369
+    P3             131.292     141.700     147.025     174.830     202.636     207.960     218.369
+    C1               1.191       1.350       1.431       1.854       2.277       2.359       2.517
+    C2               1.191       1.350       1.431       1.854       2.277       2.359       2.517
+    C3               1.191       1.350       1.431       1.854       2.277       2.359       2.517
+    IP             228.416     260.325     276.648     361.886     447.125     463.447     495.356
+    SP              -1.105      -0.483      -0.165       1.496       3.158       3.476       4.098
+    IC              -0.790      -0.533      -0.402       0.283       0.968       1.099       1.356
+    SC              -0.015      -0.010      -0.008       0.005       0.018       0.021       0.026
+
+ New/Additional Parameters
+    R_IPIC          -0.831      -0.563      -0.426       0.289       1.004       1.141       1.408
+    R_SPSC          -2.352      -1.590      -1.200       0.837       2.874       3.264       4.026
+    R_RES_PC        -0.536      -0.474      -0.442      -0.276      -0.109      -0.077      -0.015
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ 1             86.650         9.307        -1.760         0.662         5.152
+
+
+           Means
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ 1              0.463         0.223         0.050
+
+
+           Covariances
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP           299.393
+ IP_SE         -2.719         0.958
+ SP           -19.262         0.176         1.324
+ SP_SE         -0.154         0.055         0.010         0.003
+ IC             1.304        -0.012        -0.017        -0.001         0.149
+ IC_SE         -0.169         0.010         0.011         0.001        -0.001
+ SC            -0.835         0.007         0.052         0.000        -0.007
+ SC_SE         -0.011         0.002         0.001         0.000         0.000
+
+
+           Covariances
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          0.000
+ SC             0.000         0.003
+ SC_SE          0.000         0.000         0.000
+
+
+           Correlations
+              IP            IP_SE         SP            SP_SE         IC
+              ________      ________      ________      ________      ________
+ IP             1.000
+ IP_SE         -0.161         1.000
+ SP            -0.968         0.157         1.000
+ SP_SE         -0.158         0.994         0.155         1.000
+ IC             0.195        -0.032        -0.039        -0.028         1.000
+ IC_SE         -0.474         0.475         0.466         0.445        -0.099
+ SC            -0.875         0.133         0.824         0.132        -0.352
+ SC_SE         -0.260         0.902         0.262         0.926        -0.004
+
+
+           Correlations
+              IC_SE         SC            SC_SE
+              ________      ________      ________
+ IC_SE          1.000
+ SC             0.409         1.000
+ SC_SE          0.608         0.207         1.000
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms of sample values
+  Scatterplots (sample values, estimated factor scores)
+  Latent variable distribution plots
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    LASAfSlopes
+
+  Order and format of variables
+
+    P1             F10.3
+    P2             F10.3
+    P3             F10.3
+    C1             F10.3
+    C2             F10.3
+    C3             F10.3
+    EDUCNEW        F10.3
+    HEARTDIS       F10.3
+    SMOKER         F10.3
+    BAGE           F10.3
+    HEIGHT         F10.3
+    TIME1          F10.3
+    TIME2          F10.3
+    TIME3          F10.3
+    IP             F10.3
+    IP_SE          F10.3
+    SP             F10.3
+    SP_SE          F10.3
+    IC             F10.3
+    IC_SE          F10.3
+    SC             F10.3
+    SC_SE          F10.3
+
+  Save file format
+    22F10.3
+
+  Save file record length    10000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\physical\b1_male_ae
+
+<<<<<<< HEAD
+     Beginning Time:  09:54:40
+        Ending Time:  09:54:49
+       Elapsed Time:  00:00:09
+=======
+     Beginning Time:  11:55:07
+        Ending Time:  11:55:13
+       Elapsed Time:  00:00:06
+>>>>>>> 69bc921a1a6acf93845d01e5fc93b14504a1a8d2
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen

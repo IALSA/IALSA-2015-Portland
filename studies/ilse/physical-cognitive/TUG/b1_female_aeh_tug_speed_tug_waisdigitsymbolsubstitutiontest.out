@@ -1,0 +1,338 @@
+Mplus VERSION 7.11
+MUTHEN & MUTHEN
+10/19/2015   3:22 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: TUG, Digit Symbol Substitution, AEH, Female
+
+
+  DATA:  File = C:\Users\Besitzer\Desktop\ilse 19.10.dat;
+
+  VARIABLE: Names are
+  T1SD18 ID SEX t1dss t1bd t1fs t1fsb t1age center
+  t1beer t1wine t1k t1pc t1vf
+      t1sa t1spf t2dss t2bd t2fs t2fsb t2beer t2wine
+      t2k t2pc t2vf t2sa t2spf t3dss t3bd t3k t3pc t3vf
+      t3sa t3spf t2age t3age T1TUG t1height t1weight
+      T2TUG t2height t2weight T3TUG t3height t3weight
+      time1 time2r time3r time3 time2 T1HAVIR1 T1HAVIL1
+      T1HAVIR2 T1HAVIL2 T2HAVIR1 T2HAVIR2 T2HAVIL1
+      T2HAVIL2 T3HAVIR1x T3HAVIR2x T3HAVIL1x T3HAVIL2x
+      t1hg t2hg t3hg T1APEC T1INFAR T1RAUCH Educ element
+      Haupt second others Smoker Educnew heartdis;
+
+         MISSING are ALL(-9999);
+         USEVAR are time1 time2 time3 Educnew
+                     p1 p2 p3 c1 c2 c3
+                     Bage height;
+         TSCORES = time1 time2 time3;
+
+
+         USEOBSERVATIONS are sex EQ 1;
+
+  Define: p1=t1tug; p2=t2tug; p3=t3tug;
+          c1=t1dss; c2=t2dss; c3=t3dss;
+
+          Bage=t1age-70;   !Centered at Age 70
+          Bagesq=(t1age-70)**2;
+          height=t1height-160; !centered for female
+
+  ANALYSIS: TYPE = RANDOM; Estimator=MLF;
+
+  MODEL:  ip sp | p1-p3 AT time1-time3;
+          ic sc | c1-c3 AT time1-time3;
+          ip; sp; ic; sc;
+          ip sp ic sc WITH ip sp ic sc;
+
+          ip sp ic sc ON Educnew Bage height;
+
+          p1-p3 (res_p);
+          c1-c3 (res_c);
+          p1-p3 pwith c1-c3(res_cov); !Paired covariances constrained to be equal
+
+  OUTPUT: sampstat;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  14
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+TUG, Digit Symbol Substitution, AEH, Female
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         226
+
+Number of dependent variables                                    6
+Number of independent variables                                  3
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   P1          P2          P3          C1          C2          C3
+
+Observed independent variables
+   EDUCNEW     BAGE        HEIGHT
+
+Continuous latent variables
+   IP          SP          IC          SC
+
+Variables with special functions
+
+  Time scores
+   TIME1       TIME2       TIME3
+
+
+Estimator                                                      MLF
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  C:\Users\Besitzer\Desktop\ilse 19.10.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            12
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             0.465
+ P2             0.403         0.885
+ P3             0.226         0.451         0.460
+ C1             0.465         0.885         0.460         1.000
+ C2             0.412         0.885         0.460         0.903         0.903
+ C3             0.305         0.655         0.460         0.668         0.668
+ EDUCNEW        0.465         0.885         0.460         1.000         0.903
+ BAGE           0.465         0.885         0.460         1.000         0.903
+ HEIGHT         0.465         0.885         0.460         1.000         0.903
+
+
+           Covariance Coverage
+              C3            EDUCNEW       BAGE          HEIGHT
+              ________      ________      ________      ________
+ C3             0.668
+ EDUCNEW        0.668         1.000
+ BAGE           0.668         1.000         1.000
+ HEIGHT         0.668         1.000         1.000         1.000
+
+
+SAMPLE STATISTICS
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           Means
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ 1              6.057         6.480         8.325        44.885        44.503
+
+
+           Means
+              C3            EDUCNEW       BAGE          HEIGHT
+              ________      ________      ________      ________
+ 1             40.017         0.345        -7.045         2.018
+
+
+           Covariances
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             1.630
+ P2             1.451         3.942
+ P3             0.641         0.968         2.214
+ C1            -2.742        -1.728        -0.412       126.801
+ C2            -2.035        -1.114        -0.020       110.460       122.175
+ C3            -3.771        -3.420        -2.142       105.650       106.807
+ EDUCNEW       -0.097        -0.087         0.024         2.049         1.823
+ BAGE          -0.027        -0.204        -0.034        -0.752        -0.374
+ HEIGHT         0.175        -0.335         0.273         7.670         5.660
+
+
+           Covariances
+              C3            EDUCNEW       BAGE          HEIGHT
+              ________      ________      ________      ________
+ C3           121.339
+ EDUCNEW        1.833         0.226
+ BAGE          -0.245        -0.009         0.845
+ HEIGHT         8.952         0.450         0.092        39.672
+
+
+           Correlations
+              P1            P2            P3            C1            C2
+              ________      ________      ________      ________      ________
+ P1             1.000
+ P2             0.572         1.000
+ P3             0.337         0.328         1.000
+ C1            -0.191        -0.077        -0.025         1.000
+ C2            -0.144        -0.051        -0.001         0.887         1.000
+ C3            -0.268        -0.156        -0.131         0.852         0.877
+ EDUCNEW       -0.160        -0.092         0.034         0.383         0.347
+ BAGE          -0.023        -0.112        -0.025        -0.073        -0.037
+ HEIGHT         0.022        -0.027         0.029         0.108         0.081
+
+
+           Correlations
+              C3            EDUCNEW       BAGE          HEIGHT
+              ________      ________      ________      ________
+ C3             1.000
+ EDUCNEW        0.350         1.000
+ BAGE          -0.024        -0.020         1.000
+ HEIGHT         0.129         0.150         0.016         1.000
+
+
+     MAXIMUM LOG-LIKELIHOOD VALUE FOR THE UNRESTRICTED (H1) MODEL IS -3861.156
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       29
+
+Loglikelihood
+
+          H0 Value                       -2711.673
+
+Information Criteria
+
+          Akaike (AIC)                    5481.347
+          Bayesian (BIC)                  5580.542
+          Sample-Size Adjusted BIC        5488.634
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IP         ON
+    EDUCNEW           -0.564      0.360     -1.569      0.117
+    BAGE              -0.151      0.196     -0.769      0.442
+    HEIGHT             0.002      0.025      0.079      0.937
+
+ SP         ON
+    EDUCNEW            0.055      0.053      1.048      0.295
+    BAGE               0.004      0.024      0.172      0.864
+    HEIGHT             0.000      0.003      0.105      0.917
+
+ IC         ON
+    EDUCNEW            8.675      1.547      5.607      0.000
+    BAGE              -0.727      0.930     -0.782      0.434
+    HEIGHT             0.072      0.138      0.521      0.602
+
+ SC         ON
+    EDUCNEW           -0.095      0.094     -1.006      0.315
+    BAGE               0.054      0.052      1.057      0.291
+    HEIGHT             0.004      0.006      0.554      0.580
+
+ IP       WITH
+    SP                -0.028      0.064     -0.435      0.664
+    IC                -1.599      1.837     -0.870      0.384
+    SC                -0.140      0.127     -1.107      0.268
+
+ SP       WITH
+    IC                 0.135      0.224      0.602      0.547
+    SC                -0.001      0.018     -0.072      0.943
+
+ IC       WITH
+    SC                -0.480      0.622     -0.771      0.441
+
+ P1       WITH
+    C1                 0.082      0.547      0.150      0.881
+
+ P2       WITH
+    C2                 0.082      0.547      0.150      0.881
+
+ P3       WITH
+    C3                 0.082      0.547      0.150      0.881
+
+ Intercepts
+    P1                 0.000      0.000    999.000    999.000
+    P2                 0.000      0.000    999.000    999.000
+    P3                 0.000      0.000    999.000    999.000
+    C1                 0.000      0.000    999.000    999.000
+    C2                 0.000      0.000    999.000    999.000
+    C3                 0.000      0.000    999.000    999.000
+    IP                 4.961      1.405      3.530      0.000
+    SP                 0.217      0.176      1.227      0.220
+    IC                37.097      6.436      5.764      0.000
+    SC                -0.019      0.369     -0.051      0.959
+
+ Residual Variances
+    P1                 1.782      0.249      7.147      0.000
+    P2                 1.782      0.249      7.147      0.000
+    P3                 1.782      0.249      7.147      0.000
+    C1                14.206      1.098     12.936      0.000
+    C2                14.206      1.098     12.936      0.000
+    C3                14.206      1.098     12.936      0.000
+    IP                 1.314      0.557      2.357      0.018
+    SP                 0.002      0.009      0.183      0.855
+    IC                95.117     11.074      8.589      0.000
+    SC                 0.060      0.044      1.360      0.174
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.823E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\besitzer\documents\github\ialsa-2015-portland\studies\ilse\unshared\tug\b1_female_aeh_t
+
+     Beginning Time:  15:22:57
+        Ending Time:  15:23:03
+       Elapsed Time:  00:00:06
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2013 Muthen & Muthen
