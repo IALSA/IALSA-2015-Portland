@@ -6,6 +6,7 @@ Table of correlations contains correlations between factor scores of intercepts,
 - [dynamic][corr_dynamic] - forest plots  and dynamic summary table 
 - [table data][table-data] - stand-along `csv` files containing source data of the all above reports
 - [domain map][domain_map] - examine BISR estimates across cognitive domains (under construction at the moment)
+- [meta analyis spreadsheet] - meta analysis conducted outside of R, using Excel macro
 
 
 |Study<sup>1</sup> | Initial Summary Report |
