@@ -6,6 +6,7 @@ Table of correlations contains correlations between factor scores of intercepts,
 - [dynamic][corr_dynamic] - forest plots  and dynamic summary table 
 - [table data][table-data] - stand-along `csv` files containing source data of the all above reports
 - [domain map][domain_map] - examine BISR estimates across cognitive domains (under construction at the moment)
+- [meta analyis spreadsheet][meta-analysis] - meta analysis conducted outside of R, using Excel macro
 
 
 |Study<sup>1</sup> | Initial Summary Report |
@@ -41,7 +42,7 @@ For  details see [model specification](../../reports/model-specification/README.
 |Emily C. Duggan, MSc        |[`eduggan at uvic.ca`][eduggan]                         | Project Lead             |                
 |Andrea M. Piccinin, PhD     |[`piccinin at uvic.ca`][piccinin]                       | Lead (IALSA)             |  
 |Sean Clouston, PhD          |[`sean.clouston at stonybrook.edu`][sean.clouston]      | Meta-analysis            |   
-|Andriy Koval, PhD           |[`koval.andrey at gmail.com`][koval.andrey]             | Reproducible workflow    |            
+|Andriy V. Koval, PhD        |[`koval.andrey at gmail.com`][koval.andrey]             | Reproducible workflow    |            
 |Annie Robitaille, PhD       |[`annie.g.robitaille at gmail.com`][annie.g.robitaille] | ELSA, LASA, OCTO-analysis|                
 |Andrea R. Zammit, PhD       |[`andrea.zammit at einstein.yu.edu`][andrea.zammit]     | EAS- analysis/lead       |   
 |Chenkai Wu, MPH, MS         |[`wuche at oregonstate.edu`][wuche]                     | HRS - analysis/lead      |    
@@ -128,3 +129,5 @@ For  details see [model specification](../../reports/model-specification/README.
 [aspiro3]:aspiro3@bu.edu                 
 [jweuve]:jweuve@bu.edu                   
 [smhofer]:smhofer@uvic.ca  
+
+[meta-analysis]:https://github.com/IALSA/IALSA-2015-Portland/raw/master/projects/pulmonary-cognitive/pulmonary-meta-analysis-2017-06-20.xlsx
