@@ -42,7 +42,7 @@ For  details see [model specification](../../reports/model-specification/README.
 |Emily C. Duggan, MSc        |[`eduggan at uvic.ca`][eduggan]                         | Project Lead             |                
 |Andrea M. Piccinin, PhD     |[`piccinin at uvic.ca`][piccinin]                       | Lead (IALSA)             |  
 |Sean Clouston, PhD          |[`sean.clouston at stonybrook.edu`][sean.clouston]      | Meta-analysis            |   
-|Andriy Koval, PhD           |[`koval.andrey at gmail.com`][koval.andrey]             | Reproducible workflow    |            
+|Andriy V. Koval, PhD        |[`koval.andrey at gmail.com`][koval.andrey]             | Reproducible workflow    |            
 |Annie Robitaille, PhD       |[`annie.g.robitaille at gmail.com`][annie.g.robitaille] | ELSA, LASA, OCTO-analysis|                
 |Andrea R. Zammit, PhD       |[`andrea.zammit at einstein.yu.edu`][andrea.zammit]     | EAS- analysis/lead       |   
 |Chenkai Wu, MPH, MS         |[`wuche at oregonstate.edu`][wuche]                     | HRS - analysis/lead      |    
