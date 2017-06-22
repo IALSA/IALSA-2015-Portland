@@ -42,16 +42,16 @@ For  details see [model specification](../../reports/model-specification/README.
 |Andrea M. Piccinin, PhD     |[`piccinin at uvic.ca`][piccinin]                       | Lead (IALSA)             |  
 |Sean Clouston, PhD          |[`sean.clouston at stonybrook.edu`][sean.clouston]      | Meta-analysis            |   
 |Andriy Koval, PhD           |[`koval.andrey at gmail.com`][koval.andrey]             | Reproducible workflow    |            
-|Annie Robitaille, PhD       |[`annie.g.robitaille at gmail.com`][annie.g.robitaille] | ELSA, LASA, OCTO-Analysis|                
-|Andrea R. Zammit, PhD       |[`andrea.zammit at einstein.yu.edu`][andrea.zammit]     | EAS- analysis            |   
-|Chenkai Wu, MPH, MS         |[`wuche at oregonstate.edu`][wuche]                     | HRS - analysis           |    
+|Annie Robitaille, PhD       |[`annie.g.robitaille at gmail.com`][annie.g.robitaille] | ELSA, LASA, OCTO-analysis|                
+|Andrea R. Zammit, PhD       |[`andrea.zammit at einstein.yu.edu`][andrea.zammit]     | EAS- analysis/lead       |   
+|Chenkai Wu, MPH, MS         |[`wuche at oregonstate.edu`][wuche]                     | HRS - analysis/lead      |    
 |Cassandra L. Brown, MSc     |[`clb at uvic.ca`][clb]                                 | MAP – analysis           |     
-|Lewina O. Lee, PhD          |[`lewina at bu.edu`][lewina]                            | NAS - analysis           |    
+|Lewina O. Lee, PhD          |[`lewina at bu.edu`][lewina]                            | NAS - analysis/lead      |    
 |Deborah Finkel, PhD         |[`dfinkel at ius.edu`][dfinkel]                         | SATSA – analysis/lead    |           
 |William H. Beasley, PhD     |[`whb4 at ou.edu`][whb4]                                | Reproducible workflow    |            
 |Raquel B. Graham, MSc       |[`rbgraham at uvic.ca`][rbgraham]                       | Systematic review        |       
 |Jeffery Kaye, MD            |[`kaye at ohsu.edu`][kaye]                              | IALSA Collaborator       |        
-|Graciela Muniz Terrera, PhD |[`g.muniz at ed.ac.uk`][g.muniz]                        | Data analysis            |   
+|Graciela Muniz Terrera, PhD |[`g.muniz at ed.ac.uk`][g.muniz]                        | IALSA Collaborator       |   
 |Mindy Katz, MPH             |[`mindy.katz at einstein.yu.edu`][mindy.katz]           | EAS – lead               |
 |Richard B. Lipton, MD       |[`richard.lipton at einstein.yu.edu`][richard.lipton]   | EAS – lead               |
 |Dorly Deeg, PhD             |[`djh.deeg at vumc.nl`][djh.deeg]                       | LASA - lead              | 
