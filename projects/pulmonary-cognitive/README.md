@@ -7,17 +7,17 @@ Table of correlations contains correlations between factor scores of intercepts,
 - [table data][table-data] - stand-along `csv` files containing source data of the all above reports
 - [domain map][domain_map] - examine BISR estimates across cognitive domains (under construction at the moment)
 
-Study<sup>1</sup> -- Contact -- Seed 
 
-[EAS][eas_table_1] --- [Andrea Zammit][Andrea Zammit] --- [word][eas_word],[html][eas_html]      
-[ELSA][elsa_table_1] --- [Annie Robitaille][Annie Robitaille] --- [word][elsa_word], [html][elsa_html]    
-[HRS][hrs_table_1] --- [Chenkai Wu][Chenkai Wu] --- [word][hrs_word], [html][hrs_html]      
-[LASA][lasa_table_1] --- [Annie Robitaille][Annie Robitaille] --- [word][lasa_word], [html][lasa_html]   
-[MAP][map_table_1] --- [Cassandra Brown][Cassandra Brown] --- [word][map_word], [html][map_html]    
-[NAS][nas_table_1] --- [Lewina Lee][Lewina Lee] --- [word][nas_word], [html][nas_html]      
-[OCTO][octo_table_1] --- [Marcus Praetorius][Marcus Praetorius] --- [word][octo_word], [html][octo_html]    
-[SATSA][satsa_table_1] --- [Deborah Finkel][Deborah Finkel] --- [word][satsa_word], [html][satsa_html]  
- 
+|Study<sup>1</sup> | Initial Summary Report |
+|---|---|
+[EAS][eas_table_1]      | [word][eas_word] or [html][eas_html]     |
+[ELSA][elsa_table_1]    | [word][elsa_word] or [html][elsa_html]  |
+[HRS][hrs_table_1]      | [word][hrs_word] or [html][hrs_html]    |
+[LASA][lasa_table_1]    | [word][lasa_word] or [html][lasa_html]  |
+[MAP][map_table_1]      | [word][map_word] or [html][map_html]    |
+[NAS][nas_table_1]      | [word][nas_word] or [html][nas_html]    |
+[OCTO][octo_table_1]    | [word][octo_word] or [html][octo_html]  |
+[SATSA][satsa_table_1]  | [word][satsa_word] or [html][satsa_html]|
 
 <sup>1</sup> - Descriptives available after the link.
 
