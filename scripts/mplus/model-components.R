@@ -12,7 +12,7 @@ variables_part_1 <- c(
   "process_a",
   "process_b"
 )
-
+model_id <- variables_part_1
 ###########
 # PART 4a : model information indices
 # variables_part_4a <- c(
@@ -187,6 +187,14 @@ variables_part_6 <- c(
   ,"a_sigma_00_est"  # var (a)
   ,"b_sigma_00_est"  # var (b)
 
+)
+
+variables_part_7 <- c(
+   "process_a"
+  ,"process_b"
+  ,"process_b_cell"
+  ,"process_b_row"
+  ,"process_b_domain"
 )
 
 model_components <- list(
