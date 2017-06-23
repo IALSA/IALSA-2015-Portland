@@ -1,0 +1,81 @@
+study_name,process_b,process_b_domain,domain_new,response,process_b_label,domain_b_label
+eas,bnt,semantic memory,verbal knowledge,,Boston Naming Test,Verbal Ability
+eas,categories,fluency,verbal knowledge,,Categories,Verbal Ability
+eas,fas,fluency,verbal knowledge,,FAS,Verbal Ability
+map,digit_o,working memory,delayed and working memory,,Digit Ordering,Attention & Working Memory
+eas,mmse,mental status,mental status,,Calculated MMSE,Mental Status
+eas,waisvocab,semantic memory,verbal knowledge,,Vocabulary,Verbal Ability
+map,digit_b,working memory,delayed and working memory,,Digit Span Backward,Attention & Working Memory
+eas,logic_tot,episodic memory,delayed and working memory,,Logical Memory Total,Learning & Memory
+eas,word_im,short-term memory,immediate and recognition memory,immediate,Word List Immediate,Learning & Memory
+eas,block,fluid reasoning,visualization,,Block Design,Perceptual Reasoning
+eas,symbol,perceptual speed,perceptual speed,,Symbol,Processing Speed
+eas,information,semantic memory,verbal knowledge,,Information,Verbal Ability
+elsa,word_de,episodic memory,delayed and working memory,delayed,Word List Delayed,Learning & Memory
+elsa,word_im,short-term memory,immediate and recognition memory,immediate,Word List Immediate,Learning & Memory
+elsa,fluency,fluency,verbal knowledge,,Fluency,Verbal Ability
+hrs,word_de,episodic memory,delayed and working memory,delayed,Word List Delayed,Learning & Memory
+hrs,word_im,short-term memory,immediate and recognition memory,immediate,Word List Immediate,Learning & Memory
+nas,digit_b,working memory,delayed and working memory,,Digit Span Backward,Attention & Working Memory
+ilse,fluency,fluency,verbal knowledge,,Fluency,Verbal Ability
+ilse,waisgeneral,semantic memory,verbal knowledge,,Information,Verbal Ability
+ilse,spatial_ab,fluid reasoning,visualization,,IPSS Spatial Ability,Perceptual Reasoning
+ilse,piccomp,visual discrimination,visualization,,Picture Comletion,Perceptual Reasoning
+ilse,block,fluid reasoning,visualization,,Block Design,Perceptual Reasoning
+ilse,symbol,perceptual speed,perceptual speed,,Symbol,Processing Speed
+lasa,letter,perceptual speed,perceptual speed,,Coding,Processing Speed
+lasa,word_im,short-term memory,immediate and recognition memory,immediate,Word List Immediate,Learning & Memory
+lasa,raven_color_ab,fluid reasoning,visualization,,Progressive Matrices,Perceptual Reasoning
+octo,digit_b,working memory,delayed and working memory,,Digit Span Backward,Attention & Working Memory
+map,bstory_de,episodic memory,delayed and working memory,delayed,Boston Story Delayed,Learning & Memory
+map,logic_de,episodic memory,delayed and working memory,delayed,Logical Memory Delayed,Learning & Memory
+map,word_de,episodic memory,delayed and working memory,delayed,Word List Delayed,Learning & Memory
+map,word_rec,episodic memory,immediate and recognition memory,delayed,Word Recognition,Learning & Memory
+map,categories,fluency,verbal knowledge,,Categories,Verbal Ability
+map,raven_standard,fluid reasoning,visualization,,Progressive Matrices,Perceptual Reasoning
+map,mmse,mental status,mental status,,MMSE,Mental Status
+map,num_comp,perceptual speed,perceptual speed,,Number Comparison,Processing Speed
+map,symbol,perceptual speed,perceptual speed,,Symbol,Processing Speed
+map,bnt,semantic memory,verbal knowledge,,Boston Naming Test,Verbal Ability
+map,nart,semantic memory,verbal knowledge,,NART,Verbal Ability
+map,bstory_im,short-term memory,immediate and recognition memory,immediate,Boston Story Immediate,Learning & Memory
+map,logic_im,short-term memory,immediate and recognition memory,immediate,Logical Memory Immediate,Learning & Memory
+map,word_im,short-term memory,immediate and recognition memory,immediate,Word List Immediate,Learning & Memory
+map,ideas,verbal comprehension,mental status,,Ideas,Mental Status
+map,line,visual discrimination,visualization,,Line Orientation,Perceptual Reasoning
+satsa,digit_b,working memory,delayed and working memory,,Digit Span Backward,Attention & Working Memory
+nas,digit_b_tot,working memory,delayed and working memory,,Digit Span Backward Span,Attention & Working Memory
+nas,fig_copy,fluid reasoning,visualization,,Figure Copy,Perceptual Reasoning
+nas,pat_comp,perceptual speed,perceptual speed,,Pattern Comparison,Perceptual Reasoning
+nas,mmse,mental status,mental status,,MMSE,Mental Status
+nas,word_de,episodic memory,delayed and working memory,delayed,Word List Delayed,Learning & Memory
+nas,word_im,short-term memory,immediate and recognition memory,immediate,Word List Immediate,Learning & Memory
+nas,animals,fluency,verbal knowledge,,Animals,Verbal Ability
+map,digit_f,attention,immediate and recognition memory,,Digit Span Forward,Attention & Working Memory
+octo,digit_f,attention,immediate and recognition memory,,Digit Span Forward,Attention & Working Memory
+nuage,mmms,mental status,mental status,,MMSE,Mental Status
+nuage,mmse,mental status,mental status,,MMSE,Mental Status
+octo,block,fluid reasoning,visualization,,Block Design,Perceptual Reasoning
+octo,clock,mental status,mental status,,MMSE,Mental Status
+satsa,digit_f,attention,immediate and recognition memory,,Digit Span Forward,Attention & Working Memory
+eas,digit_tot,short-term memory,delayed and working memory,working,Digit Span Total,Attention & Working Memory
+octo,fig_logic,fluid reasoning,visualization,,Figure Logic,Perceptual Reasoning
+octo,information,semantic memory,verbal knowledge,,Information,Verbal Ability
+octo,mir,episodic memory,immediate and recognition memory,,Objects Recalled,Learning & Memory
+octo,mir_recog,episodic memory,immediate and recognition memory,recognition,Objects Recognized,Learning & Memory
+octo,mmse,mental status,mental status,,MMSE,Mental Status
+octo,prose_im,short-term memory,immediate and recognition memory,immediate,Prose Immediate,Learning & Memory
+octo,psif,perceptual speed,perceptual speed,,Perceptual Speed,Processing Speed
+octo,symbol,perceptual speed,perceptual speed,,Symbol,Processing Speed
+octo,synonyms,semantic memory,verbal knowledge,,Synonyms,Verbal Ability
+hrs,serial7,attention,mental status,,Serial 7s,Attention & Working Memory
+satsa,analogies,fluid reasoning,verbal knowledge,,Analogies,Verbal Ability
+satsa,information,semantic memory,verbal knowledge,,Information,Verbal Ability
+satsa,synonyms,semantic memory,verbal knowledge,,Synonyms,Verbal Ability
+eas,trailsb,executive function,delayed and working memory,,Trials B,Attention & Working Memory
+satsa,fig_mem,short-term memory,immediate and recognition memory,,Figure Memory,Learning & Memory
+satsa,mmse,mental status,mental status,,MMSE,Mental Status
+satsa,block,fluid reasoning,visualization,,Block Design,Perceptual Reasoning
+satsa,symbol,perceptual speed,perceptual speed,,Symbol,Processing Speed
+satsa,rotate,fluid reasoning,visualization,,Card Rotation,Perceptual Reasoning
+satsa,fig_id,perceptual speed,perceptual speed,,Figure Identification,Perceptual Reasoning
