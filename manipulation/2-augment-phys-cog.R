@@ -63,6 +63,7 @@ variables_part_3a <- c(
 # ---- load-data ---------------------------------------------------------------
 # ds_full <- readRDS(path_input) # catalog
 ds_full <- read.csv(path_input, header = T,  stringsAsFactors=FALSE)
+ds_full %>% dplyr::glimpse()
 # rm(path_input)
 # ----- bivariate_test ----- --------------------
 is_univariate <- grepl(pattern="^u\\d$", x=ds_full$model_number)
