@@ -170,7 +170,7 @@ prettify_catalog <- function(
       er_levels_ci,                  er_tau_00_ci95lo,   er_tau_00_ci95hi,
       cr_levels,    cr_levels_est,   cr_levels_ci95_lo,  cr_levels_ci95_hi,
       # dense       point estimate   st.error/lower ci   p-value/upper ci
-      tau_slopes,   ab_tau_00_est,   ab_tau_00_se,       ab_tau_00_pval,
+      tau_slopes,   ab_tau_11_est,   ab_tau_11_se,       ab_tau_11_pval,
       er_slopes,    er_tau_11_est,   er_tau_11_se,       er_tau_11_pval,
       er_slopes_ci,                  er_tau_11_ci95lo,   er_tau_11_ci95hi,
       cr_slopes,    cr_slopes_est,   cr_slopes_ci95_lo,  cr_slopes_ci95_hi,
@@ -274,6 +274,31 @@ select_for_table <- function(
         er_tau_11_est,   er_tau_11_se,   er_tau_11_pval,   er_tau_11_ci95lo,   er_tau_11_ci95hi,
         er_sigma_00_est, er_sigma_00_se, er_sigma_00_pval, er_sigma_00_ci95lo, er_sigma_00_ci95hi
       )
+  }
+
+  if(format=="meta"){
+    d4 <- d3 %>%
+      dplyr::mutate(
+        subgroup = factor(subgroup, levels = c("female","male"), labels = c("Women","Men")),
+        subgroup = as.character(subgroup)
+      ) %>%
+      dplyr::select(
+        process_b_domain, study_name, process_a, process_b, subgroup, subject_count,
+        # dense       point estimate   st.error/lower ci   p-value/upper ci
+        tau_levels,   ab_tau_00_est,   ab_tau_00_se,       ab_tau_00_pval,
+        tau_slopes,   ab_tau_11_est,   ab_tau_11_se,       ab_tau_11_pval,
+        tau_resid,    ab_sigma_00_est, ab_sigma_00_se,     ab_sigma_00_pval
+      ) %>%
+      dplyr::rename_(
+        "domain"              = "process_b_domain", # ID
+        "study"               = "study_name",
+        "physical"            = "process_a",
+        "cognitive"           = "process_b",
+        "sex"                 = "subgroup",
+        "$n$"                 = "subject_count"
+
+      )
+
   }
   # d4 <- d4 %>%
   #   dplyr::mutate(
