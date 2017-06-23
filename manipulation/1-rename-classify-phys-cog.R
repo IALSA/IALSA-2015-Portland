@@ -134,17 +134,19 @@ head(ds)
 #   ) %>%
 #   dplyr::select(variables_part_)
 
-t <- table(ds[ ,"entry_new"], ds[,"study_name"]);t[t==0]<-".";t
-t <- table(ds[ ,"label_cell"],  ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"entry_new"],  ds[,"study_name"]);t[t==0]<-".";t
+t <- table(ds[ ,"label_cell"], ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"label_row"],  ds[,"study_name"]);t[t==0]<-".";t
 t <- table(ds[ ,"domain"],     ds[,"study_name"]);t[t==0]<-".";t
+
+# ---- labels-and-groupings -----------------------------------
 # Remove the old variable, and rename the cleaned/condensed variable.
 ds <- ds %>%
   dplyr::select(-process_b) %>%
-  dplyr::rename_("process_b"="entry_new") %>% # name correction
-  dplyr::rename_("process_b_cell"="label_cell") %>%
-  dplyr::rename_("process_b_row"="label_row") %>%
-  dplyr::rename_("process_b_domain"="domain")
+  dplyr::rename_("process_b"        = "entry_new") %>% # name correction
+  dplyr::rename_("process_b_cell"   = "label_cell") %>%
+  dplyr::rename_("process_b_row"    = "label_row") %>%
+  dplyr::rename_("process_b_domain" = "domain")
 # verify
 t <- table(ds$process_b_row, ds$study_name); t[t==0]<-"."; t
 
