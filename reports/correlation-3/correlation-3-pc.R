@@ -19,32 +19,41 @@ requireNamespace("scales")
 options(show.signif.stars=F) #Turn off the annotations on p-values
 # print_format <- "html"
 print_format <- "pandoc"
-
+# print model_components to view prepared objects
+model_components %>% print()
 # ----- input-phys-cog -----------------
 path_input <- "./data/shared/pc-2-catalog-augmented.csv"
 
 # ---- load-data ---------------------------------------------------------------
 catalog <- readr::read_csv(path_input)
 rm(path_input)
-domain_renaming_stencil <- readr::read_csv("./reports/correlation-3/domain-grouping.csv")
+catalog %>% dplyr::glimpse()
+# use this stencil to customize domain grouping to the needed project
+# domain_renaming_stencil <- readr::read_csv("./reports/correlation-3/domain-grouping.csv")
+domain_renaming_stencil <- readr::read_csv("./reports/correlation-3/pulmonary-domain-structure-dead.csv")
+domain_renaming_stencil %>% dplyr::glimpse()
 # ---- tweak-data --------------------
-# catalog_pretty <- catalog %>% prettify_catalog(model_type_ = "aehplus",model_number_ = "b1")
-
+# perform custom touch-up, local to physical-cognitive track
 catalog <- catalog %>%
+  dplyr::filter(!process_a == "fev100") %>% # remove temporary items (usually for testing)
+  dplyr::filter(model_type == "aehplus",model_number=="b1") %>% # limit the scope
   dplyr::mutate(
+    # some of the measure require corrections at the study level
     process_b = ifelse(study_name == "map"  & process_b == "matrices", "raven_standard", process_b),
     process_b = ifelse(study_name == "lasa" & process_b == "raven",    "raven_color_ab", process_b)
-  ) %>%
-  # dplyr::filter(
-  #   model_number == "b1",
-  # ! process_b == "trailsb"
-  # ) %>%
-  # prettify_catalog() %>%
-  dplyr::left_join(domain_renaming_stencil) %>%
-  dplyr::mutate(
-    process_b_domain = domain_new
-  ) %>%
-  dplyr::select(-domain_new)
+  ) #%>%
+#
+
+catalog %>% dplyr::glimpse()
+# ---- impose-specific-domain-structure ------------------------
+library(dplyr)
+# impose specific domain structure
+catalog <- catalog %>%
+  dplyr::left_join(domain_renaming_stencil, by = c("study_name", "process_b","process_b_domain")) %>%
+  dplyr::mutate(process_b_domain = domain_new) %>% # overwrite with new values
+  dplyr::select(-domain_new)   # remove dublicated columns
+
+# ---- dummy -------------------
 
 # catalog %>%
 #   filter(model_number=="b1") %>%
@@ -74,19 +83,31 @@ catalog <- catalog %>%
 #   dplyr::arrange(count)
 
 # ---- save-data-for-tables --------------------------
-# for(track in c("gait","grip","pulmonary")){
-#   for(gender in c("male","female")){
-#     for(format in c("full","brief"))
-#       catalog %>%
-#       dplyr::filter(model_type == "aehplus",model_number=="b1") %>%
-#       prettify_catalog() %>%
-#       save_corr_table(
-#         track,
-#         gender,
-#         format,
-#         "./reports/correlation-3/table-data/")
-#   }
-# }
+# prepare data for saving
+d_catalog <- catalog %>%
+  dplyr::mutate(
+    process_b = process_b_label,       # replace domain structure
+    process_b_domain = domain_b_label  # with custom specification
+  ) %>%
+  dplyr::select(-process_b_label, -domain_b_label)
+
+# for(track in c("pulmonary")){
+for(track in c("gait","grip","pulmonary")){
+  for(gender in c("andro")){
+  # for(gender in c("male","female","andro")){
+    # for(format in c("meta"))
+    for(format in c("full","brief","meta"))
+      d_catalog %>%
+      dplyr::filter(model_type == "aehplus",model_number=="b1") %>%
+      prettify_catalog() %>%
+      save_corr_table(
+        track,
+        gender,
+        format,
+        "./reports/correlation-3/table-data-temp/")
+  }
+}
+
 
 # ---- dummy -------------
 # track values is defined in Rmd
