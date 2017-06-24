@@ -30,7 +30,7 @@ pathStudies <- file.path(pathDir,"studies")
 list.files(pathStudies) # inspect participating studies
 
 # studies <- c("eas", "elsa", "hrs", "ilse", "lasa", "nuage", "octo", "map", "satsa")
-
+path_output <- "./data/shared/pc-0-catalog-raw.csv"
 # ---- define-utility-functions ---------------------------------------------------------
 # function to collect results of a single outcome
 collect_result <- function(path){
@@ -188,7 +188,7 @@ testit::assert("Pool contains duplicates", max(duplicates$n)==1)
 
 
 # ---- save-to-disk ------------------------------------------------------------
-write.csv(catalog,  paste0("./data/shared/pc-0-catalog-raw.csv"), row.names=F)
+write.csv(catalog,  paste0(path_output), row.names=F)
 
 
 
