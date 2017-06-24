@@ -384,7 +384,13 @@ ds <- ds %>%
 # to avoid removing case in each report, do it here
 # see https://github.com/IALSA/IALSA-2015-Portland/issues/152#issuecomment-268622007
 ds <- ds %>%
-  dplyr::filter(!(study_name == 'hrs' & process_b == "tics"))
+  dplyr::filter(!(study_name == 'hrs' & process_b == "tics")) %>%
+  # correct the spellings of specific tests
+  dplyr::mutate(
+    # some of the measure require corrections at the study level
+    process_b = ifelse(study_name == "map"  & process_b == "matrices", "raven_standard", process_b),
+    process_b = ifelse(study_name == "lasa" & process_b == "raven",    "raven_color_ab", process_b)
+  ) #
 
 
 # ---- export_ready_data ---------------------------------------
