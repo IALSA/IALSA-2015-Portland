@@ -104,7 +104,7 @@ for(track in c("gait","grip","pulmonary")){
         track,
         gender,
         format,
-        "./reports/correlation-3/table-data-temp/")
+        "./reports/correlation-3/table-data/")
   }
 }
 
