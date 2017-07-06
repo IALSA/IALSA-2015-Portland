@@ -60,46 +60,48 @@ proto
 ds_meta <- proto %>%
   # compute  lower and upper limit of the 95% confidence (green section)
   dplyr::mutate(
-    w  = log( (1 + est)/(1 - est) )/2,                    #
-    u  = (w * se)/ est,                                   #
-    ab = u * 1.96,                                        #
-    aa = w + ab,                                          #
-    z  = w - ab,                                          #
-    y  =       ( (exp(2*aa)-1) / (exp(2*aa)+1) ) - est,   #
-    x  = est - ( (exp(2*z)-1)  / (exp(2*z)+1)  )      ,   #
+    w  = log( (1 + est)/(1 - est) )/2,                    # ? w
+    u  = (w * se)/ est,                                   # ? u
+    ab = u * 1.96,                                        # ? ab
+    aa = w + ab,                                          # ? aa
+    z  = w - ab,                                          # ? z
+    y  =       ( (exp(2*aa)-1) / (exp(2*aa)+1) ) - est,   # ? y
+    x  = est - ( (exp(2*z)-1)  / (exp(2*z)+1)  )      ,   # ? x
     lo = -(x - est),                                      #  low 95% CI
     hi = y + est,                                         #  high 95% CI
     af = sprintf("%.2f(%.2f,%.2f)", est, lo, hi)          #  estimate(low, high)
   ) %>%
   # compute node sizes (red section)
   dplyr::mutate(
-    ac     = abs( w/(u^2) ),                              #
-    ae     = u^-2                                         # ae and ag are used interchangeably in spreadsheet
+    ac = abs( w/(u^2) ),                                  # ? ac
+    ae = u^-2                                             # ? ae  | Note: ae and ag are used interchangeably in spreadsheet
 ) %>%
   dplyr::group_by(subgroup) %>%
   dplyr::mutate(
-    group_average   = sum(ac)/sum(ae)                     # ad
+    group_ad   = sum(ac)/sum(ae)                          # ? ad
   ) %>%
   dplyr::ungroup() %>%
   dplyr::mutate(
-    overall_average = sum(ac)/sum(ae),                    # ad
-    node_size       = ae / sum(ae) * 100                  # aj
+    overall_ad      = sum(ac)/sum(ae),                    # ? ad
+    node_size       = ae / sum(ae) * 100,                 # ? aj
+    group_average   = (exp(2*group_ad)   - 1) / (exp(2*group_ad)   + 1), # ? s
+    overall_average = (exp(2*overall_ad) - 1) / (exp(2*overall_ad) + 1)  # ? s
   ) %>%
   # enable/disable the next line to focus on a subset of variables
-  # dplyr::select_(.dots=c(variable_names,"ac","ae","group_average","overall_average","node_size")) %>%
+  dplyr::select_(.dots=c(variable_names,"ac","ae","group_average","overall_average","node_size")) %>%
   # compute chi-square statistics (blue section)
   dplyr::mutate(
-    q = (z / 1.96)^2*ae                                   # ai
+    q = (z / 1.96)^2*ae                                   # ? ai
   ) %>%
   dplyr::group_by(subgroup) %>%
   dplyr::mutate(
-    q_group_sum     = sum(q),
-    q_group_count   = length(!is.na(q))
+    q_group_sum     = sum(q),                             #
+    q_group_count   = length(!is.na(q))                   #
   ) %>%
   dplyr::ungroup() %>%
   dplyr::mutate(
-    q_overall_sum   = sum(q),
-    q_overall_count = length(!is.na(q)),
+    q_overall_sum   = sum(q),                             #
+    q_overall_count = length(!is.na(q)),                  #
     q_group_pval    = pchisq(q_group_sum,   df = q_group_count   - 1, lower.tail = FALSE),
     q_overall_pval  = pchisq(q_overall_sum, df = q_overall_count - 1, lower.tail = FALSE)
   ) %>%
@@ -110,11 +112,11 @@ ds_meta <- proto %>%
 # ---- basic-table --------------------------------------------------------------
 ds <- ds_meta %>%
   dplyr::rename(
-    dense = af,
-    low95 = lo,
-    high95= hi
+    dense = af#,
+    # low95 = lo,
+    # high95= hi
   ) %>%
-  dplyr::select_(.dots = c(variable_names,"dense"))
+  dplyr::select_(.dots = c(variable_names,"lo","hi","dense"))
 ds
 # ---- basic-graph --------------------------------------------------------------
 
