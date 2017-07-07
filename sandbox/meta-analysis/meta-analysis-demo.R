@@ -57,6 +57,7 @@ proto[,c("n","est","se")] <- sapply(proto[,c("n","est","se")], as.numeric)
 # ---- inspect-data -------------------------------------------------------------
 proto
 # ---- tweak-data --------------------------------------------------------------
+# green section: compute CI for observed estimates
 ds1 <- proto %>%
   # compute  lower and upper limit of the 95% confidence (green section) for units
   dplyr::mutate(
@@ -66,21 +67,19 @@ ds1 <- proto %>%
     ab = u * 1.96,                                        # ? ab
     aa = w + ab,                                          # ? aa
     z  = w - ab,                                          # ? z
-    y  =     ( (exp(2*aa)-1) / (exp(2*aa)+1) ) - s,   # ? y
-    x  = s - ( (exp(2*z)-1)  / (exp(2*z)+1)  )      ,   # ? x
-    lo = -(x - s),                                      #  low 95% CI
-    hi = y + s,                                         #  high 95% CI
-    # af = sprintf("%.2f(%.2f,%.2f)", est, lo, hi)          #  estimate(low, high)
+    y  =     ( (exp(2*aa)-1) / (exp(2*aa)+1) ) - s,       # ? y
+    x  = s - ( (exp(2*z)-1)  / (exp(2*z)+1)  )      ,     # ? x
+    lo = -(x - s),                                        #  low 95% CI
+    hi = y + s,                                           #  high 95% CI
     ac = abs( w/(u^2) ),                                  # ? ac
-    ae = u^-2,                                             # ? ae  | Note: ae and ag are used interchangeably in spreadsheet
-    ai = (z / 1.96)^2*ae,
-    aj = ae / sum(ae) * 100
+    ae = u^-2,                                            # ? ae  | Note: ae and ag are used interchangeably in spreadsheet
+    ai = (z / 1.96)^2*ae,                                 # ? Q
+    aj = ae / sum(ae) * 100                               # ? node size
   )
-ds1 #%>% select(-aa,-ab,-x,-y,-z,-w,-u)
-# Red section: Computing group averages
-
+ds1 %>% dplyr::select_(.dots = c(variable_names,"s","u","w", "x","y","z","aa","ab","lo","hi"))
+# light yellow section: compute group averages
 ds2_group <- ds1 %>%
-  dplyr::group_by(subgroup) %>%
+  dplyr::group_by(subgroup) %>% # compute for each level off
   dplyr::summarize(
     ac = sum(ac),
     ak = length(!is.na(u)),
@@ -88,12 +87,13 @@ ds2_group <- ds1 %>%
     ad = sum(ac)/sum(ae),                          # ? ad
     s  = (exp(2*ad)   - 1) / (exp(2*ad)   + 1), # ? s
     u  = 1/sqrt(ad*ae),
-    ai = sum(ai)
+    ai = sum(ai),
+    al = pchisq(ai,   df = ak   - 1, lower.tail = FALSE)
   )
-ds2_group
-
+ds2_group %>% dplyr::select_(.dots = c("subgroup","s","u", "ac","ae","ai", "ak","al"))
+# dark yellow section : computing overall averages
 ds2_overall <- ds1 %>%
-  # dplyr::group_by(subgroup) %>%
+  # dplyr::group_by(subgroup) %>% # notice that this is turned OFF now
   dplyr::summarize(
     ad = sum(ac)/sum(ae),                          # ? ad
     ak = length(!is.na(u)),
@@ -101,12 +101,13 @@ ds2_overall <- ds1 %>%
     ae = sum(ae),
     s  = (exp(2*ad)   - 1) / (exp(2*ad)   + 1), # ? s
     u  = 1/sqrt(ad*ae),
-    ai = sum(ai)
+    ai = sum(ai),
+    al = pchisq(ai,   df = ak   - 1, lower.tail = FALSE)
   ) %>%
   dplyr::mutate(subgroup = "Overall") %>%
   dplyr::select(subgroup, dplyr::everything())
-ds2_overall
-
+ds2_overall %>%  dplyr::select_(.dots = c("subgroup","s","u", "ac","ae","ai", "ak","al"))
+# red section : combine and compute values of CI for derived averages
 ds3 <- dplyr::bind_rows(ds2_group, ds2_overall) %>%
   dplyr::mutate(
     w  = log( (1 + s)/(1 - s) )/2,                        # ? w
@@ -116,13 +117,11 @@ ds3 <- dplyr::bind_rows(ds2_group, ds2_overall) %>%
     y  =     ( (exp(2*aa)-1) / (exp(2*aa)+1) ) - s,   # ? y
     x  = s - ( (exp(2*z)-1)  / (exp(2*z)+1)  )      ,   # ? x
     lo = -(x - s),                                      #  low 95% CI
-    hi = y + s,                                         #  high 95% CI
-    al = pchisq(ai,   df = ak   - 1, lower.tail = FALSE)
-   ) #%>%
-  # dplyr::select_(.dots = c("subgroup",
-  #                          "s","u", "w", "x", "y","z", "aa","ab","ac","ae","ai","count" ))
-ds3
-
+    hi = y + s                                         #  high 95% CI
+   )
+ds3 %>%  dplyr::select_(.dots = c("subgroup","s","u","w", "x","y","z","aa","ab","lo","hi"))
+ds3 %>%  dplyr::select_(.dots = c("subgroup","s","u", "ac","ae","ai", "ak","al"))
+# purple section
 ds4 <- ds1 %>%
   # dplyr::select(-ac,-ae) %>%
   dplyr::bind_rows(ds3) %>%
@@ -130,8 +129,7 @@ ds4 <- ds1 %>%
     af = sprintf("%.2f(%.2f,%.2f)", s, lo, hi)          #  estimate(low, high)
   )
 ds4 %>%
-  # dplyr::select_(.dots = c(variable_names,"s","u", "w","x","y","z","aa","ab", "ac","ad","ae" ))
-  dplyr::select_(.dots = c(variable_names,"s","u", "lo","hi", "ac","ad","ae","af","ai","aj","ak","al" ))
+  dplyr::select_(.dots = c(variable_names,"af","ai","aj","ak","al" ))
 
 
 # return(ds4)
