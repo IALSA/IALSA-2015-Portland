@@ -57,57 +57,84 @@ proto[,c("n","est","se")] <- sapply(proto[,c("n","est","se")], as.numeric)
 # ---- inspect-data -------------------------------------------------------------
 proto
 # ---- tweak-data --------------------------------------------------------------
-ds_meta <- proto %>%
-  # compute  lower and upper limit of the 95% confidence (green section)
+ds1 <- proto %>%
+  # compute  lower and upper limit of the 95% confidence (green section) for units
   dplyr::mutate(
-    w  = log( (1 + est)/(1 - est) )/2,                    # ? w
-    u  = (w * se)/ est,                                   # ? u
+    s  = est,                                             # Value of the estimate
+    w  = log( (1 + s)/(1 - s) )/2,                        # ? w
+    u  = (w * se)/ est,                                   # ? u - Value for standard error?
     ab = u * 1.96,                                        # ? ab
     aa = w + ab,                                          # ? aa
     z  = w - ab,                                          # ? z
-    y  =       ( (exp(2*aa)-1) / (exp(2*aa)+1) ) - est,   # ? y
-    x  = est - ( (exp(2*z)-1)  / (exp(2*z)+1)  )      ,   # ? x
-    lo = -(x - est),                                      #  low 95% CI
-    hi = y + est,                                         #  high 95% CI
-    af = sprintf("%.2f(%.2f,%.2f)", est, lo, hi)          #  estimate(low, high)
-  ) %>%
-  # compute node sizes (red section)
-  dplyr::mutate(
+    y  =     ( (exp(2*aa)-1) / (exp(2*aa)+1) ) - s,   # ? y
+    x  = s - ( (exp(2*z)-1)  / (exp(2*z)+1)  )      ,   # ? x
+    lo = -(x - s),                                      #  low 95% CI
+    hi = y + s,                                         #  high 95% CI
+    # af = sprintf("%.2f(%.2f,%.2f)", est, lo, hi)          #  estimate(low, high)
     ac = abs( w/(u^2) ),                                  # ? ac
-    ae = u^-2                                             # ? ae  | Note: ae and ag are used interchangeably in spreadsheet
-) %>%
+    ae = u^-2,                                             # ? ae  | Note: ae and ag are used interchangeably in spreadsheet
+    ai = (z / 1.96)^2*ae,
+    aj = ae / sum(ae) * 100
+  )
+ds1 #%>% select(-aa,-ab,-x,-y,-z,-w,-u)
+# Red section: Computing group averages
+
+ds2_group <- ds1 %>%
   dplyr::group_by(subgroup) %>%
-  dplyr::mutate(
-    group_ad   = sum(ac)/sum(ae)                          # ? ad
+  dplyr::summarize(
+    ac = sum(ac),
+    ak = length(!is.na(u)),
+    ae = sum(ae),
+    ad = sum(ac)/sum(ae),                          # ? ad
+    s  = (exp(2*ad)   - 1) / (exp(2*ad)   + 1), # ? s
+    u  = 1/sqrt(ad*ae),
+    ai = sum(ai)
+  )
+ds2_group
+
+ds2_overall <- ds1 %>%
+  # dplyr::group_by(subgroup) %>%
+  dplyr::summarize(
+    ad = sum(ac)/sum(ae),                          # ? ad
+    ak = length(!is.na(u)),
+    ac = sum(ac),
+    ae = sum(ae),
+    s  = (exp(2*ad)   - 1) / (exp(2*ad)   + 1), # ? s
+    u  = 1/sqrt(ad*ae),
+    ai = sum(ai)
   ) %>%
-  dplyr::ungroup() %>%
+  dplyr::mutate(subgroup = "Overall") %>%
+  dplyr::select(subgroup, dplyr::everything())
+ds2_overall
+
+ds3 <- dplyr::bind_rows(ds2_group, ds2_overall) %>%
   dplyr::mutate(
-    overall_ad      = sum(ac)/sum(ae),                    # ? ad
-    node_size       = ae / sum(ae) * 100,                 # ? aj
-    group_average   = (exp(2*group_ad)   - 1) / (exp(2*group_ad)   + 1), # ? s
-    overall_average = (exp(2*overall_ad) - 1) / (exp(2*overall_ad) + 1)  # ? s
-  ) %>%
-  # enable/disable the next line to focus on a subset of variables
-  dplyr::select_(.dots=c(variable_names,"ac","ae","group_average","overall_average","node_size")) %>%
-  # compute chi-square statistics (blue section)
+    w  = log( (1 + s)/(1 - s) )/2,                        # ? w
+    ab = u * 1.96,                                        # ? ab
+    aa = w + ab,                                          # ? aa
+    z  = w - ab,                                          # ? z
+    y  =     ( (exp(2*aa)-1) / (exp(2*aa)+1) ) - s,   # ? y
+    x  = s - ( (exp(2*z)-1)  / (exp(2*z)+1)  )      ,   # ? x
+    lo = -(x - s),                                      #  low 95% CI
+    hi = y + s,                                         #  high 95% CI
+    al = pchisq(ai,   df = ak   - 1, lower.tail = FALSE)
+   ) #%>%
+  # dplyr::select_(.dots = c("subgroup",
+  #                          "s","u", "w", "x", "y","z", "aa","ab","ac","ae","ai","count" ))
+ds3
+
+ds4 <- ds1 %>%
+  # dplyr::select(-ac,-ae) %>%
+  dplyr::bind_rows(ds3) %>%
   dplyr::mutate(
-    q = (z / 1.96)^2*ae                                   # ? ai
-  ) %>%
-  dplyr::group_by(subgroup) %>%
-  dplyr::mutate(
-    q_group_sum     = sum(q),                             #
-    q_group_count   = length(!is.na(q))                   #
-  ) %>%
-  dplyr::ungroup() %>%
-  dplyr::mutate(
-    q_overall_sum   = sum(q),                             #
-    q_overall_count = length(!is.na(q)),                  #
-    q_group_pval    = pchisq(q_group_sum,   df = q_group_count   - 1, lower.tail = FALSE),
-    q_overall_pval  = pchisq(q_overall_sum, df = q_overall_count - 1, lower.tail = FALSE)
-  ) %>%
-  # enable/disable the next line to focus on a subset of variables
-  # dplyr::select_(.dots=c(variable_names,"q","q_group_sum", "q_group_count","q_group_pval","q_overall_sum","q_overall_count","q_overall_pval")) %>%
-  print()
+    af = sprintf("%.2f(%.2f,%.2f)", s, lo, hi)          #  estimate(low, high)
+  )
+ds4 %>%
+  # dplyr::select_(.dots = c(variable_names,"s","u", "w","x","y","z","aa","ab", "ac","ad","ae" ))
+  dplyr::select_(.dots = c(variable_names,"s","u", "lo","hi", "ac","ad","ae","af","ai","aj","ak","al" ))
+
+
+# return(ds4)
 
 # ---- basic-table --------------------------------------------------------------
 ds <- ds_meta %>%
