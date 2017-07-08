@@ -9,6 +9,7 @@ source("./reports/correlation-3/support-functions.R")
 library(magrittr) #Pipes
 library(ggplot2)
 library(forestplot)
+# library(dplyr)
 requireNamespace("knitr")
 requireNamespace("dplyr")
 requireNamespace("tidyr")
@@ -20,38 +21,40 @@ options(show.signif.stars=F) #Turn off the annotations on p-values
 # print_format <- "html"
 print_format <- "pandoc"
 # print model_components to view prepared objects
-model_components %>% print()
+# model_components %>% print()
 # ----- input-phys-cog -----------------
 path_input <- "./data/shared/pc-2-catalog-augmented.csv"
 
 # ---- load-data ---------------------------------------------------------------
 catalog <- readr::read_csv(path_input)
 rm(path_input)
-catalog %>% dplyr::glimpse()
+# catalog %>% dplyr::glimpse()
 # use this stencil to customize domain grouping to the needed project
 # domain_renaming_stencil <- readr::read_csv("./reports/correlation-3/domain-grouping.csv")
 domain_renaming_stencil <- readr::read_csv("./reports/correlation-3/pulmonary-domain-structure-dead.csv")
-domain_renaming_stencil %>% dplyr::glimpse()
+# domain_renaming_stencil %>% dplyr::glimpse()
 # ---- tweak-data --------------------
 # perform custom touch-up, local to physical-cognitive track
 catalog <- catalog %>%
   dplyr::filter(!process_a == "fev100") %>% # remove temporary items (usually for testing)
-  dplyr::filter(model_type == "aehplus",model_number=="b1") %>% # limit the scope
-  dplyr::mutate(
-    # some of the measure require corrections at the study level
-    process_b = ifelse(study_name == "map"  & process_b == "matrices", "raven_standard", process_b),
-    process_b = ifelse(study_name == "lasa" & process_b == "raven",    "raven_color_ab", process_b)
-  ) #%>%
-#
+  dplyr::filter(model_type == "aehplus",model_number=="b1")  # limit the scope
 
-catalog %>% dplyr::glimpse()
-# ---- impose-specific-domain-structure ------------------------
-library(dplyr)
+# impose specific domain structure
 # impose specific domain structure
 catalog <- catalog %>%
   dplyr::left_join(domain_renaming_stencil, by = c("study_name", "process_b","process_b_domain")) %>%
-  dplyr::mutate(process_b_domain = domain_new) %>% # overwrite with new values
-  dplyr::select(-domain_new)   # remove dublicated columns
+  dplyr::mutate(process_b_domain = process_b_domain_new) %>% # overwrite with new values
+  dplyr::select(-process_b_domain_new) # remove dublicated columns
+# catalog %>% glimpse()
+# # determine what will be used as names and labels
+catalog <- catalog  %>%
+  dplyr::mutate(
+    process_b        = process_b_label,       # replace NAMES of measures and domains
+    process_b_row    = process_b_label,       # replace NAMES of measures and domains
+    process_b_domain = process_b_domain_label # with  LABELS of measure and domains
+  ) %>%
+  dplyr::select(-process_b_label, -process_b_domain_label)
+# catalog %>% glimpse()
 
 # ---- dummy -------------------
 
@@ -84,13 +87,13 @@ catalog <- catalog %>%
 
 # ---- save-data-for-tables --------------------------
 # prepare data for saving
-d_catalog <- catalog %>%
-  dplyr::mutate(
-    process_b = process_b_label,       # replace domain structure
-    process_b_domain = domain_b_label  # with custom specification
-  ) %>%
-  dplyr::select(-process_b_label, -domain_b_label)
-
+# d_catalog <- catalog %>%
+#   dplyr::mutate(
+#     process_b        = process_b_label,       # replace NAMES of measures and domains
+#     process_b_domain = process_b_domain_label # with  LABELS of measure and domains
+#   ) %>%
+#   dplyr::select(-process_b_label, -process_b_domain_label)
+d_catalog <- catalog
 # for(track in c("pulmonary")){
 for(track in c("gait","grip","pulmonary")){
   for(gender in c("andro")){
@@ -104,7 +107,7 @@ for(track in c("gait","grip","pulmonary")){
         track,
         gender,
         format,
-        "./reports/correlation-3/table-data/")
+        "./reports/correlation-3/table-data-temp/")
   }
 }
 
@@ -122,7 +125,7 @@ get_freq <- function(d, varname){
     dplyr::arrange(n)
 }
 
-# ---- table-dynamic, eval=FALSE, echo=F -----------------------------------------------------------
+# ---- table-dynamic -----------------------------------------------------------
 # track = "gait"
 # track = "grip"
 # track = "pulmonary"
@@ -162,7 +165,9 @@ d <- d %>%
   dplyr::select(-index,-dense, -model_number) %>%
   tidyr::spread(parameter,value) %>%
   dplyr::mutate(
-    subject_count = as.numeric(subject_count)
+    subject_count = as.numeric(subject_count),
+    study_name = toupper(study_name),
+    process_a = toupper(process_a)
   ) %>%
   dplyr::rename(
     N         = subject_count,
@@ -173,6 +178,7 @@ d <- d %>%
   ) %>%
   dplyr::select(
     domain, study, subgroup, model_type, physical, cognitive, N, covariance, Levels, Slopes, Residuals
+    # subgroup, model_type, domain, study, physical, cognitive, N, covariance, Levels, Slopes, Residuals
   )
 
 change_to_factors <- setdiff(colnames(d),"N" )
@@ -354,6 +360,7 @@ for(gender in c("male","female")){
   d <- d %>%
     dplyr::filter(subgroup %in% gender) %>%
     dplyr::select(-model_number, -subgroup, -model_type) %>%
+    dplyr::mutate() %>%
     dplyr::arrange(domain,study,cognitive ) %>%
     knitr::kable(
       format     = print_format,
@@ -432,12 +439,6 @@ for(gender in c("male","female")){
     print()
 }
 
-
-
-
-
-
-
 # d %>% print_forest_plot("memory")
 
 # ---- publish --------------
@@ -457,15 +458,16 @@ path_pulmonary_summary <- "./reports/correlation-3/correlation-3-pulmonary-summa
 # allReports <- c(path_gait_full,     path_gait_focus)
 # allReports <- c(path_grip_full,     path_grip_focus)
 # allReports <- c(path_pulmonary_full,path_pulmonary_focus)
+# allReports <- c(path_pulmonary_full)
 
 # allReports <- c(path_gait_summary)
 # allReports <- c(path_grip_summary)
-allReports <- c(path_pulmonary_summary)
+# allReports <- c(path_pulmonary_summary)
 # allReports <- c(path_gait_summary, path_grip_summary, path_pulmonary_summary)
 
-# allReports <- c(path_pulmonary_focus, path_pulmonary_full,
-#                 path_gait_focus, path_gait_full,
-#                 path_grip_focus, path_grip_full)
+allReports <- c(path_pulmonary_focus, path_pulmonary_full,
+                path_gait_focus, path_gait_full,
+                path_grip_focus, path_grip_full)
 
 pathFilesToBuild <- c(allReports)
 testit::assert("The knitr Rmd files should exist.", base::file.exists(pathFilesToBuild))
@@ -474,10 +476,10 @@ for( pathFile in pathFilesToBuild ) {
 
   rmarkdown::render(input = pathFile,
                     output_format=c(
-                      "html_document" # set print_format <- "html" in seed-study.R
+                      # "html_document" # set print_format <- "html" in seed-study.R
                       # "pdf_document"
                       # ,"md_document"
-                      # "word_document" # set print_format <- "pandoc" in seed-study.R
+                      "word_document" # set print_format <- "pandoc" in seed-study.R
                     ),
                     clean=TRUE)
 }
