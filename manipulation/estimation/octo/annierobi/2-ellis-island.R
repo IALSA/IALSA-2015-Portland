@@ -177,7 +177,7 @@ parse_outputs <- function(
 # do not combing parsing step with anything else
 # we want to extract and save to disk, extraction is time-costly
 ls_conditions <- list(
-  "dem_ever_0"   = readRDS("./data/shared/derived/dem-criteria/ls_catalog_dem_ever_0.rds")
+   "dem_ever_0"  = readRDS("./data/shared/derived/dem-criteria/ls_catalog_dem_ever_0.rds")
   ,"dem_entry_0" = readRDS("./data/shared/derived/dem-criteria/ls_catalog_dem_entry_0.rds")
   ,"all"         = readRDS("./data/shared/derived/dem-criteria/ls_catalog_all.rds")
 )
