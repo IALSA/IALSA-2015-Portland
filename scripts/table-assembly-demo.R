@@ -1,8 +1,9 @@
 rm(list = ls())
 library(magrittr)
-
-catalog <- read.csv("./data/shared/pc-2-parsed-results-computed_ci.csv", header = T,  stringsAsFactors=FALSE)
-catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds") # physical-cognitive track
+catalog <- read.csv("./data/shared/pc-2-catalog-augmented.csv", header = T,  stringsAsFactors=FALSE)
+catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds")
+# catalog <- read.csv("./data/shared/pc-2-parsed-results-computed_ci.csv", header = T,  stringsAsFactors=FALSE)
+# catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds") # physical-cognitive track
 # template for structuring tables for reporting individual models
 stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v6.csv")
 # basic lookup function
