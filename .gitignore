@@ -13,6 +13,9 @@ devtools.zip
 
 /data/unshared/derived/*
 
+
+/reports/correlation-3/pulmonary-forest-manual/*
+
 studies/map/physical-cogntive/outputs/*.dat
 studies/map/physical-cogntive/outputs/*/*.dat
 
