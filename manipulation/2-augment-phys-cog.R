@@ -72,24 +72,24 @@ testit::assert("The model number should match the univariate or bivariate patter
 ds_full$outcome_count <- ifelse(is_univariate, 1L, 2L)
 
 
-
-# create a small ds for testing
-ds_small <- ds_full %>%
-  dplyr::filter(
-    # study_name == "octo"
-    # ,process_a  == "gait"
-    # ,process_b  == "block"
-    # ,subgroup   == "female"
-    # ,model_type == "aehplus"
-  ) %>%
-  dplyr::select_(
-    .dots=c(
-      variables_part_1
-      ,variables_part_2
-      ,variables_part_3a
-    )
-  )
-temp <- ds_small
+#
+# # create a small ds for testing
+# ds_small <- ds_full %>%
+#   dplyr::filter(
+#     # study_name == "octo"
+#     # ,process_a  == "gait"
+#     # ,process_b  == "block"
+#     # ,subgroup   == "female"
+#     # ,model_type == "aehplus"
+#   ) %>%
+#   dplyr::select_(
+#     .dots=c(
+#       variables_part_1
+#       ,variables_part_2
+#       ,variables_part_3a
+#     )
+#   )
+# temp <- ds_small
 
 # ------ conduct-computation ----------------------
 alpha <- 0.05
