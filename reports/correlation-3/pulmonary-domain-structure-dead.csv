@@ -1,11 +1,11 @@
-study_name,process_b,process_b_domain,domain_new,response,process_b_label,domain_b_label
+study_name,process_b,process_b_domain,process_b_domain_new,response,process_b_label,process_b_domain_label
 map,digit_o,working memory,attention and working memory,,Digit Ordering,Attention & Working Memory
 map,digit_b,working memory,attention and working memory,,Digit Span Backward,Attention & Working Memory
 nas,digit_b,working memory,attention and working memory,,Digit Span Backward,Attention & Working Memory
 octo,digit_b,working memory,attention and working memory,,Digit Span Backward,Attention & Working Memory
 satsa,digit_b,working memory,attention and working memory,,Digit Span Backward,Attention & Working Memory
 nas,digit_b_tot,working memory,attention and working memory,,Digit Span Backward Span,Attention & Working Memory
-eas,digit_tot,short-term memory,attention and working memory,working,Digit Span Total,Attention & Working Memory
+eas,digit_tot,short-term memory,attention and working memory,,Digit Span Total,Attention & Working Memory
 eas,trailsb,executive function,attention and working memory,,Trials B,Attention & Working Memory
 map,digit_f,attention,attention and working memory,,Digit Span Forward,Attention & Working Memory
 octo,digit_f,attention,attention and working memory,,Digit Span Forward,Attention & Working Memory
