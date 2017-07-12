@@ -386,7 +386,11 @@ make_baking_mix_process_a <- function(
 }
 
 
-put_stat_frosting <- function(a, row_labels, model_names){
+put_stat_frosting <- function(
+  a,
+  row_labels,
+  model_names
+){
   # (a <- cake_layers[[index]]); str(a)
   (b <- as.data.frame(a, col.names = model_names))
   b[,"label"] <- row_labels
@@ -590,7 +594,10 @@ slice_the_cake <- function(
 ##########################
 
 
-dense_v1 <- function(coef_raw, label_=FALSE){
+dense_v1 <- function(
+  coef_raw,
+  label_=FALSE
+){
   pattern_est <- c(
     "intercept"    = "%0.2f",
     "slope"        = "%0.2f"
@@ -638,7 +645,10 @@ dense_v1 <- function(coef_raw, label_=FALSE){
   return(coef_dense)
 }
 
-dense_v2 <- function(est_raw, label_=FALSE){
+dense_v2 <- function(
+  est_raw,
+  label_=FALSE
+){
   pattern_est <- c(
     "intercept"    = "%0.2f",
     "slope"        = "%0.2f"
@@ -678,7 +688,10 @@ dense_v2 <- function(est_raw, label_=FALSE){
   return(est_dense)
 }
 
-dense_v3 <- function(est_raw, label=FALSE){
+dense_v3 <- function(
+  est_raw,
+  label=FALSE
+){
   est_dense <- est_raw %>%
     dplyr::mutate(
       mean_pretty   = format(mean,digits=0,big.mark = ","),
@@ -994,9 +1007,16 @@ print_outcome_pairs <- function(
     )
   }
 }
-
-
-
+# Usage:
+# catalog_spread %>%
+#   print_outcome_pairs(
+#      study               = "lasa" #'elsa'
+#     ,gender              = "male"
+#     ,outcome             = "pef"# "fev"
+#     ,model_type_standard = "aehplus" # spread at outcome pair level
+#     ,model_type_set      = c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
+#     ,print_format        = "pandoc"
+#   )
 
 
 
