@@ -207,6 +207,7 @@ for(track in c("gait","grip","pulmonary")){
   path_graph_jpeg = paste0("./reports/correlation-3/forest-plot-",track,"/")
   # path_graph_jpeg = paste0("./reports/correlation-3/test/")
   for(i in c("intercept","slope","residual")){
+    # i = "intercept"
     data_forest <- catalog %>%
       prettify_catalog() %>%
       dplyr::filter(

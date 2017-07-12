@@ -26,7 +26,9 @@ allReports<- c(
   ,path_satsa
 )
 
-allReports <- path_elsa
+# allReports <- path_elsa
+# allReports <- path_eas
+allReports <- path_nas
 # Place report paths HERE ###########
 pathFilesToBuild <- c(allReports) ##########
 
