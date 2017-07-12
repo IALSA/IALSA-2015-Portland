@@ -15,7 +15,7 @@ devtools.zip
 
 
 /reports/correlation-3/pulmonary-forest-manual/*
-/sandbox/meta-analysis/images/*
+
 studies/map/physical-cogntive/outputs/*.dat
 studies/map/physical-cogntive/outputs/*/*.dat
 

@@ -25,56 +25,46 @@ model_type_standard <- "aehplus" # spread at outcome pair level
 # model_type_set <- c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
 model_type_set <- c("a", "ae", "aeh", "aehplus","full") # spread at model type level
 
+
 # ---- load-data ---------------------------------------------------------------
 catalog <- read.csv("./data/shared/pc-2-catalog-augmented.csv", header = T,  stringsAsFactors=FALSE)
 catalog_spread <- readRDS("./data/shared/derived/pc-spread.rds")
 catalog %>% dplyr::glimpse()
 catalog_spread %>% dplyr::glimpse()
 # template for structuring tables for reporting individual models
-stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v7.csv")
-# stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v10.csv")
-stencil %>% dplyr::glimpse()
-# use this stencil to customize domain grouping to the needed project, pulmonary by default before it was first
-domain_renaming_stencil <- readr::read_csv("./reports/correlation-3/pulmonary-domain-structure-dead.csv")
-domain_renaming_stencil %>% dplyr::glimpse()
+# stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v7.csv")
+stencil <- readr::read_csv("./data/shared/tables/study-specific-stencil-v10.csv")
 
 # ---- tweak-data ---------------------------------------------
 # perform custom touch-up, local to physical-cognitive track
 catalog <- catalog %>%
   dplyr::filter(!process_a == "fev100") %>% # remove temporary items (usually for testing)
-  dplyr::filter( # limit the scope
-    model_type == "aehplus",
-    model_number=="b1"
-    ) %>%
-  # impose specific domain structure as expressed in the external file
+  dplyr::filter(model_type == "aehplus",model_number=="b1") %>%   # limit the scope
   dplyr::left_join(domain_renaming_stencil, by = c("study_name", "process_b","process_b_domain")) %>%
-  dplyr::mutate(process_b_domain = process_b_domain_new) %>% # overwrite with new values
-  dplyr::select(-process_b_domain_new) #%>%    # remove dublicated columns
-  # THREE new columns are added, the new domain structure and labels for items and domains:
-  # process_b_domain_new, process_b_label, and process_b_domain_label
-  # dplyr::mutate(
-  #   process_b        = process_b_label,       # replace domain structure
-  #   process_b_domain = process_b_domain_label # with custom specification & labels
-  # ) %>%
-  # dplyr::select(-process_b_label, -process_b_domain_label)
-# The prep for both catalogs should be similar, but just a few tweak
+  dplyr::mutate(
+    process_b_domain = domain_new # overwrite with new values
+  ) %>%
+  dplyr::select(-domain_new) %>%    # remove dublicated columns
+  dplyr::mutate(
+    process_b = process_b_label,       # replace domain structure
+    process_b_domain = domain_b_label  # with custom specification
+  ) %>%
+  dplyr::select(-process_b_label, -domain_b_label)
+
+
 catalog_spread <- catalog_spread %>%
   dplyr::filter(!process_a == "fev100") %>% # remove temporary items (usually for testing)
-  dplyr::filter( # limit the scope
-    # model_type == "aehplus", # must have all versions for the tables
-    model_number=="b1"
-  ) %>%
-  # impose specific domain structure as expressed in the external file
+  # dplyr::filter(model_type == "aehplus",model_number=="b1") %>%   # limit the scope
   dplyr::left_join(domain_renaming_stencil, by = c("study_name", "process_b","process_b_domain")) %>%
-  dplyr::mutate(process_b_domain = process_b_domain_new) %>% # overwrite with new values
-  dplyr::select(-process_b_domain_new) #%>%    # remove dublicated columns
-  # THREE new columns are added, the new domain structure and labels for items and domains:
-  # process_b_domain_new, process_b_label, and process_b_domain_label
-  # dplyr::mutate(
-  #   process_b        = process_b_label,       # replace domain structure
-  #   process_b_domain = process_b_domain_label # with custom specification & labels
-  # ) %>%
-  # dplyr::select(-process_b_label, -process_b_domain_label)
+  dplyr::mutate(
+    process_b_domain = domain_new # overwrite with new values
+  ) %>%
+  dplyr::select(-domain_new) %>%    # remove dublicated columns
+  dplyr::mutate(
+    process_b = process_b_label,       # replace domain structure
+    process_b_domain = domain_b_label  # with custom specification
+  ) %>%
+  dplyr::select(-process_b_label, -domain_b_label)
 
 # ---- explorations -------------------------------------------
 catalog_spread %>% view_options(
@@ -137,31 +127,30 @@ print_body <- function(
     # }else{ # covariate sets may differ by gender, both must have the standard "aehplus"
     #   processes_b <- c("block", "digit_tot","symbol", "trailsb") # fas would break it no standard
     # }
-    # browser()
     cat("\n#",gender,"\n")
     print_outcome_pairs(
-      d                    = catalog_spread
-      ,study               = study#'eas'
-      ,gender              = gender
-      ,outcome             = outcome#"pef"
+      d = catalog_spread
+      ,study = study#'eas'
+      ,gender = gender
+      ,outcome = outcome#"pef"
       ,model_type_standard = model_type_standard#"aehplus" # spread at outcome pair level
-      ,model_type_set      = model_type_set#c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
-      ,print_format        = print_format
+      ,model_type_set = model_type_set#c("a", "ae", "aeh", "aehplus", "full") # spread at model type level
+      ,print_format = print_format
     )
     cat("\n## Summary","\n")
     cat("\n",paste0("Study = _",toupper(study),"_; Gender = _",gender,"_; Process (a) = _",outcome,"_\n"))
     cat("\n Computed correlations:\n")
     print_coefficients(
-       d                   = catalog
-      ,study_name          = study
-      ,subgroup            = gender
-      ,pivot               = outcome
-      ,target_names        = c(
-         "cr_levels_est"
+      d = catalog
+      ,study_name    = study
+      ,subgroup      = gender
+      ,pivot         = outcome
+      ,target_names  = c(
+        "cr_levels_est"
         ,"cr_slopes_est"
         ,"cr_resid_est")
-      ,target_labels       = c(
-         "Correlation of Levels"
+      ,target_labels = c(
+        "Correlation of Levels"
         ,"Correlation of Slopes"
         ,"Correlation of Residuals"
       )
@@ -197,7 +186,6 @@ print_body_gender <- function(
 ){
 
   for(gender in gender_value){
-    # gender = "female"
     # if(gender == "female"){
     #   processes_b <- c("block", "digit_tot","symbol", "trailsb")
     # }else{ # covariate sets may differ by gender, both must have the standard "aehplus"
