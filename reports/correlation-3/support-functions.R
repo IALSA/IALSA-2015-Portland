@@ -404,7 +404,7 @@ get_forest_data <- function(
   return(d2)
 }
 # Usage
-# data_forest <- get_forest_data(catalog,"pulmonary")
+# data_forest <- get_forest_data(catalog_pretty,"pulmonary","intercept")
 
 # ---- rename-domains -------------
 # rename_domains <- function(
