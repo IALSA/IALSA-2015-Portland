@@ -8,7 +8,6 @@ IALSA-2015-Portland workshop performs a **coordinated analysis with replication 
 * [`gait-cognitive`](/projects/gait-cognitive) - Associations between changes in measures of **gait** and changes in cognitive function.
 * [`grip-cognitive`](/projects/grip-cognitive) - Associations between changes in **grip** function and changes in cognitive function.
 * [`pulmonary-cognitive`](/projects/pulmonary-cognitive) - Associations between changes in **pulmonary** function and changes in cognitive function.
-* [`physical-cognitive`](/projects/physical-cognitive) -  Associations between **physical** and **cognitive** decline.    
 * [`physical-physical`](/projects/physical-physical) - Associations among rates of change in measures of **physical** functioning.   
 * [`cognitive-cognitive`](/projects/cognitive-cognitive) - Associations among rates of change in measures of **cognitive** function.   
 
